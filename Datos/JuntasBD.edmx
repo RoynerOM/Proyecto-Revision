@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BD_JuntasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_Contador">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre_Completo" Type="varchar" MaxLength="152" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_Direccion_Regional">
+          <Key>
+            <PropertyRef Name="Circuito" />
+          </Key>
+          <Property Name="Circuito" Type="int" Nullable="false" />
+          <Property Name="Direccion_Regional" Type="varchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_Institucion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Circuito" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="Cedula_Juridica" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cuenta_Danea" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cuenta_Ley" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contador" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_Revision">
+          <Key>
+            <PropertyRef Name="Id_Caso" />
+          </Key>
+          <Property Name="Id_Caso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Consecutivo" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Recepcion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contador" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_Tipo_Institucion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipo" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Clave" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__t_Institu__Conta__4316F928">
+          <End Role="t_Contador" Type="Self.t_Contador" Multiplicity="1" />
+          <End Role="t_Institucion" Type="Self.t_Institucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Contador">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="t_Institucion">
+              <PropertyRef Name="Contador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_Revisio__Codig__48CFD27E">
+          <End Role="t_Institucion" Type="Self.t_Institucion" Multiplicity="1" />
+          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Institucion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="t_Revision">
+              <PropertyRef Name="Codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_Revisio__Conta__49C3F6B7">
+          <End Role="t_Contador" Type="Self.t_Contador" Multiplicity="1" />
+          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Contador">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="t_Revision">
+              <PropertyRef Name="Contador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_Usuario__Cedul__3A81B327">
+          <End Role="t_Contador" Type="Self.t_Contador" Multiplicity="1" />
+          <End Role="t_Usuario" Type="Self.t_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Contador">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="t_Usuario">
+              <PropertyRef Name="Cedula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_JuntasModelStoreContainer">
+          <EntitySet Name="t_Contador" EntityType="Self.t_Contador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Direccion_Regional" EntityType="Self.t_Direccion_Regional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Institucion" EntityType="Self.t_Institucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Revision" EntityType="Self.t_Revision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Tipo_Institucion" EntityType="Self.t_Tipo_Institucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Usuario" EntityType="Self.t_Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__t_Institu__Conta__4316F928" Association="Self.FK__t_Institu__Conta__4316F928">
+            <End Role="t_Contador" EntitySet="t_Contador" />
+            <End Role="t_Institucion" EntitySet="t_Institucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_Revisio__Codig__48CFD27E" Association="Self.FK__t_Revisio__Codig__48CFD27E">
+            <End Role="t_Institucion" EntitySet="t_Institucion" />
+            <End Role="t_Revision" EntitySet="t_Revision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_Revisio__Conta__49C3F6B7" Association="Self.FK__t_Revisio__Conta__49C3F6B7">
+            <End Role="t_Contador" EntitySet="t_Contador" />
+            <End Role="t_Revision" EntitySet="t_Revision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_Usuario__Cedul__3A81B327" Association="Self.FK__t_Usuario__Cedul__3A81B327">
+            <End Role="t_Contador" EntitySet="t_Contador" />
+            <End Role="t_Usuario" EntitySet="t_Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_JuntasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="t_Contador">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_Completo" Type="String" MaxLength="152" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="t_Institucion" Relationship="Self.FK__t_Institu__Conta__4316F928" FromRole="t_Contador" ToRole="t_Institucion" />
+          <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Revisio__Conta__49C3F6B7" FromRole="t_Contador" ToRole="t_Revision" />
+          <NavigationProperty Name="t_Usuario" Relationship="Self.FK__t_Usuario__Cedul__3A81B327" FromRole="t_Contador" ToRole="t_Usuario" />
+        </EntityType>
+        <EntityType Name="t_Direccion_Regional">
+          <Key>
+            <PropertyRef Name="Circuito" />
+          </Key>
+          <Property Name="Circuito" Type="Int32" Nullable="false" />
+          <Property Name="Direccion_Regional" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_Institucion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Circuito" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cedula_Juridica" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cuenta_Danea" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cuenta_Ley" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contador" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="t_Contador" Relationship="Self.FK__t_Institu__Conta__4316F928" FromRole="t_Institucion" ToRole="t_Contador" />
+          <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Revisio__Codig__48CFD27E" FromRole="t_Institucion" ToRole="t_Revision" />
+        </EntityType>
+        <EntityType Name="t_Revision">
+          <Key>
+            <PropertyRef Name="Id_Caso" />
+          </Key>
+          <Property Name="Id_Caso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Consecutivo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Recepcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contador" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="t_Contador" Relationship="Self.FK__t_Revisio__Conta__49C3F6B7" FromRole="t_Revision" ToRole="t_Contador" />
+          <NavigationProperty Name="t_Institucion" Relationship="Self.FK__t_Revisio__Codig__48CFD27E" FromRole="t_Revision" ToRole="t_Institucion" />
+        </EntityType>
+        <EntityType Name="t_Tipo_Institucion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Clave" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="t_Contador" Relationship="Self.FK__t_Usuario__Cedul__3A81B327" FromRole="t_Usuario" ToRole="t_Contador" />
+        </EntityType>
+        <Association Name="FK__t_Institu__Conta__4316F928">
+          <End Role="t_Contador" Type="Self.t_Contador" Multiplicity="1" />
+          <End Role="t_Institucion" Type="Self.t_Institucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Contador">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="t_Institucion">
+              <PropertyRef Name="Contador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_Revisio__Conta__49C3F6B7">
+          <End Role="t_Contador" Type="Self.t_Contador" Multiplicity="1" />
+          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Contador">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="t_Revision">
+              <PropertyRef Name="Contador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_Usuario__Cedul__3A81B327">
+          <End Role="t_Contador" Type="Self.t_Contador" Multiplicity="1" />
+          <End Role="t_Usuario" Type="Self.t_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Contador">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="t_Usuario">
+              <PropertyRef Name="Cedula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__t_Revisio__Codig__48CFD27E">
+          <End Role="t_Institucion" Type="Self.t_Institucion" Multiplicity="1" />
+          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Institucion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="t_Revision">
+              <PropertyRef Name="Codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_JuntasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_Contador" EntityType="Self.t_Contador" />
+          <EntitySet Name="t_Direccion_Regional" EntityType="Self.t_Direccion_Regional" />
+          <EntitySet Name="t_Institucion" EntityType="Self.t_Institucion" />
+          <EntitySet Name="t_Revision" EntityType="Self.t_Revision" />
+          <EntitySet Name="t_Tipo_Institucion" EntityType="Self.t_Tipo_Institucion" />
+          <EntitySet Name="t_Usuario" EntityType="Self.t_Usuario" />
+          <AssociationSet Name="FK__t_Institu__Conta__4316F928" Association="Self.FK__t_Institu__Conta__4316F928">
+            <End Role="t_Contador" EntitySet="t_Contador" />
+            <End Role="t_Institucion" EntitySet="t_Institucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_Revisio__Conta__49C3F6B7" Association="Self.FK__t_Revisio__Conta__49C3F6B7">
+            <End Role="t_Contador" EntitySet="t_Contador" />
+            <End Role="t_Revision" EntitySet="t_Revision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_Usuario__Cedul__3A81B327" Association="Self.FK__t_Usuario__Cedul__3A81B327">
+            <End Role="t_Contador" EntitySet="t_Contador" />
+            <End Role="t_Usuario" EntitySet="t_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__t_Revisio__Codig__48CFD27E" Association="Self.FK__t_Revisio__Codig__48CFD27E">
+            <End Role="t_Institucion" EntitySet="t_Institucion" />
+            <End Role="t_Revision" EntitySet="t_Revision" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_JuntasModelStoreContainer" CdmEntityContainer="BD_JuntasEntities">
+          <EntitySetMapping Name="t_Contador">
+            <EntityTypeMapping TypeName="BD_JuntasModel.t_Contador">
+              <MappingFragment StoreEntitySet="t_Contador">
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre_Completo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Direccion_Regional">
+            <EntityTypeMapping TypeName="BD_JuntasModel.t_Direccion_Regional">
+              <MappingFragment StoreEntitySet="t_Direccion_Regional">
+                <ScalarProperty Name="Circuito" ColumnName="Circuito" />
+                <ScalarProperty Name="Direccion_Regional" ColumnName="Direccion_Regional" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Institucion">
+            <EntityTypeMapping TypeName="BD_JuntasModel.t_Institucion">
+              <MappingFragment StoreEntitySet="t_Institucion">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Circuito" ColumnName="Circuito" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cedula_Juridica" ColumnName="Cedula_Juridica" />
+                <ScalarProperty Name="Cuenta_Danea" ColumnName="Cuenta_Danea" />
+                <ScalarProperty Name="Cuenta_Ley" ColumnName="Cuenta_Ley" />
+                <ScalarProperty Name="Contador" ColumnName="Contador" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Revision">
+            <EntityTypeMapping TypeName="BD_JuntasModel.t_Revision">
+              <MappingFragment StoreEntitySet="t_Revision">
+                <ScalarProperty Name="Id_Caso" ColumnName="Id_Caso" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Recepcion" ColumnName="Recepcion" />
+                <ScalarProperty Name="Contador" ColumnName="Contador" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Tipo_Institucion">
+            <EntityTypeMapping TypeName="BD_JuntasModel.t_Tipo_Institucion">
+              <MappingFragment StoreEntitySet="t_Tipo_Institucion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Usuario">
+            <EntityTypeMapping TypeName="BD_JuntasModel.t_Usuario">
+              <MappingFragment StoreEntitySet="t_Usuario">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
