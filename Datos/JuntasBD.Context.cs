@@ -12,7 +12,7 @@ namespace Datos
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using Entidades;
     public partial class BD_JuntasEntities : DbContext
     {
         public BD_JuntasEntities()
