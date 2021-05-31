@@ -10,6 +10,7 @@
 namespace Datos
 {
     using System;
+    using Entidades;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
