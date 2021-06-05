@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionCasos.Usuarios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace GestionCasos
             Application.EnableVisualStyles();
            
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormStyle());
+            Application.Run(new CasosAsignados());
         }
     }
 }

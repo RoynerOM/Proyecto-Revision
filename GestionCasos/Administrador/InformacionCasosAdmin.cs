@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 namespace GestionCasos
 {
-    public partial class FormStyle : Form
+    public partial class InformacionCasosAdmin : Form
     {
         //Datos de prueba
         List<CasosFalsos> casos = new List<CasosFalsos>() { 
@@ -18,7 +18,7 @@ namespace GestionCasos
         };
 
 
-        public FormStyle()
+        public InformacionCasosAdmin()
         {
             InitializeComponent();
             
@@ -163,7 +163,7 @@ namespace GestionCasos
                 tabla.Rows[nRows].Cells[0].Value = item.Caso;
                 tabla.Rows[nRows].Cells[1].Value = item.Fecha;
                 tabla.Rows[nRows].Cells[2].Value = item.Codigo;
-                tabla.Rows[nRows].Cells[3].Value = item.Junta;
+                tabla.Rows[nRows].Cells[3].Value = item.Junta.ToUpper();
                 tabla.Rows[nRows].Cells[4].Value = item.Circuito;
                 tabla.Rows[nRows].Cells[5].Value = item.Recepcion;
                 tabla.Rows[nRows].Cells[6].Value = item.Persona;
@@ -270,7 +270,7 @@ namespace GestionCasos
 
             var width = tabla.Width;
 
-            if (width <=1200)
+            if (width <=1300)
             {
                 Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
             }
