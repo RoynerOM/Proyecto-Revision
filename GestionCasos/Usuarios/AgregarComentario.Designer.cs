@@ -32,12 +32,12 @@ namespace GestionCasos.Usuarios
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgregarComentario));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,17 @@ namespace GestionCasos.Usuarios
             this.panel1.Size = new System.Drawing.Size(700, 400);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.label1.Location = new System.Drawing.Point(11, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 21);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Consecutivo:  R-0001";
             // 
             // gunaButton2
             // 
@@ -111,7 +122,7 @@ namespace GestionCasos.Usuarios
             this.gunaButton1.OnHoverImage = null;
             this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaButton1.Radius = 5;
-            this.gunaButton1.Size = new System.Drawing.Size(209, 34);
+            this.gunaButton1.Size = new System.Drawing.Size(199, 34);
             this.gunaButton1.TabIndex = 2;
             this.gunaButton1.Text = "Agregar Comentario";
             // 
@@ -137,7 +148,7 @@ namespace GestionCasos.Usuarios
             this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.White;
             this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaTextBox1.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaTextBox1.Location = new System.Drawing.Point(7, 114);
             this.gunaTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.gunaTextBox1.Multiline = true;
@@ -151,17 +162,6 @@ namespace GestionCasos.Usuarios
             // gunaDragControl1
             // 
             this.gunaDragControl1.TargetControl = this.panel1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.label1.Location = new System.Drawing.Point(11, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 21);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Consecutivo:  R-0001";
             // 
             // AgregarComentario
             // 

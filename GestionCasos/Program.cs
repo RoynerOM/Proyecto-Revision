@@ -1,4 +1,5 @@
-﻿using GestionCasos.Usuarios;
+﻿using GestionCasos.Administrador;
+using GestionCasos.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace GestionCasos
             Application.EnableVisualStyles();
            
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CasosAsignados());
+            Application.Run(new fInstituciones());
         }
     }
 }
