@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GestionCasos
+﻿namespace GestionCasos
 {
-   public class CasosFalsos
+    public class CasosFalsos
     {
 
         public string Caso { get; set; }

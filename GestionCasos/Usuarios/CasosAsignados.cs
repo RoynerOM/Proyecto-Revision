@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Transitions;
 namespace GestionCasos.Usuarios
@@ -55,6 +50,13 @@ namespace GestionCasos.Usuarios
                     tabla.Rows[nRows].Cells[5].Style.ForeColor = Color.FromArgb(46, 160, 67);
                     tabla.Rows[nRows].Cells[5].Style.BackColor = Color.FromArgb(11, 38, 40);
                 }
+
+                tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
         }
@@ -62,12 +64,14 @@ namespace GestionCasos.Usuarios
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-            if (screenWidth >= 855)
+            if (screenWidth >= 990)
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             }
             else
             {
+
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
@@ -86,21 +90,10 @@ namespace GestionCasos.Usuarios
                     Transition t = new Transition(new TransitionType_EaseInEaseOut(400));
                     AgregarComentario ventana = new AgregarComentario();
 
-
-                    //Verificar de que un formulario este en uso
-                    if (VentanasAbiertas.Form != null)
-                    {
-                        MessageBox.Show("Este formulario ya esta en uso");
-                    }
-                    else
-                    {
-                        t.add(ventana, "Top", 300);
-                        t.run();
-                        ventana.StartPosition = FormStartPosition.CenterScreen;
-                        ventana.Show();
-                    }
-
-                    //Abrir el formulario para agregar un comentario
+                    t.add(ventana, "Top", 300);
+                    t.run();
+                    ventana.StartPosition = FormStartPosition.CenterScreen;
+                    ventana.ShowDialog();
                 }
 
             }

@@ -73,7 +73,7 @@ namespace GestionCasos
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(884, 561);
+            this.panel1.Size = new System.Drawing.Size(1442, 561);
             this.panel1.TabIndex = 0;
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
@@ -88,7 +88,7 @@ namespace GestionCasos
             this.gunaTextBox1.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaTextBox1.ForeColor = System.Drawing.Color.White;
-            this.gunaTextBox1.Location = new System.Drawing.Point(78, 62);
+            this.gunaTextBox1.Location = new System.Drawing.Point(636, 62);
             this.gunaTextBox1.Name = "gunaTextBox1";
             this.gunaTextBox1.PasswordChar = '\0';
             this.gunaTextBox1.SelectedText = "";
@@ -102,7 +102,7 @@ namespace GestionCasos
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel4.Location = new System.Drawing.Point(74, 35);
+            this.gunaLabel4.Location = new System.Drawing.Point(632, 35);
             this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(164, 20);
@@ -115,7 +115,7 @@ namespace GestionCasos
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel3.Location = new System.Drawing.Point(280, 35);
+            this.gunaLabel3.Location = new System.Drawing.Point(838, 35);
             this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel3.Name = "gunaLabel3";
             this.gunaLabel3.Size = new System.Drawing.Size(145, 20);
@@ -142,7 +142,7 @@ namespace GestionCasos
             "JENIFFER ARROYO CAJINA ",
             "SHIRLENY VEGA ESPINOZA ",
             "GLORIANNA ACEVEDO LEDEZMA "});
-            this.gunaComboBox3.Location = new System.Drawing.Point(284, 68);
+            this.gunaComboBox3.Location = new System.Drawing.Point(842, 68);
             this.gunaComboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.gunaComboBox3.Name = "gunaComboBox3";
             this.gunaComboBox3.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -157,7 +157,7 @@ namespace GestionCasos
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel2.Location = new System.Drawing.Point(706, 35);
+            this.gunaLabel2.Location = new System.Drawing.Point(1264, 35);
             this.gunaLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(151, 20);
@@ -170,7 +170,7 @@ namespace GestionCasos
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(540, 35);
+            this.gunaLabel1.Location = new System.Drawing.Point(1098, 35);
             this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(126, 20);
@@ -194,7 +194,7 @@ namespace GestionCasos
             "Whatsapp",
             "Oficina",
             "Mensajero"});
-            this.gunaComboBox2.Location = new System.Drawing.Point(710, 68);
+            this.gunaComboBox2.Location = new System.Drawing.Point(1268, 68);
             this.gunaComboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.gunaComboBox2.Name = "gunaComboBox2";
             this.gunaComboBox2.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -219,7 +219,7 @@ namespace GestionCasos
             "Revisado",
             "Pediente",
             "Todos"});
-            this.gunaComboBox1.Location = new System.Drawing.Point(544, 68);
+            this.gunaComboBox1.Location = new System.Drawing.Point(1102, 68);
             this.gunaComboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.gunaComboBox1.Name = "gunaComboBox1";
             this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -291,14 +291,14 @@ namespace GestionCasos
             this.tabla.RowTemplate.Height = 24;
             this.tabla.RowTemplate.ReadOnly = true;
             this.tabla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabla.Size = new System.Drawing.Size(884, 442);
+            this.tabla.Size = new System.Drawing.Size(1442, 442);
             this.tabla.TabIndex = 0;
             this.tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellContentClick);
             this.tabla.Resize += new System.EventHandler(this.tabla_Resize);
             // 
             // Caso
             // 
-            this.Caso.FillWeight = 40.34942F;
+            this.Caso.FillWeight = 12.34942F;
             this.Caso.HeaderText = "Consecutivo";
             this.Caso.MinimumWidth = 6;
             this.Caso.Name = "Caso";
@@ -307,7 +307,7 @@ namespace GestionCasos
             // 
             // Fecha
             // 
-            this.Fecha.FillWeight = 16.34942F;
+            this.Fecha.FillWeight = 12.34942F;
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.MinimumWidth = 6;
             this.Fecha.Name = "Fecha";
@@ -316,7 +316,7 @@ namespace GestionCasos
             // 
             // Codigo
             // 
-            this.Codigo.FillWeight = 16.34942F;
+            this.Codigo.FillWeight = 10.34942F;
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
@@ -334,7 +334,7 @@ namespace GestionCasos
             // 
             // Circuito
             // 
-            this.Circuito.FillWeight = 15.96341F;
+            this.Circuito.FillWeight = 10.96341F;
             this.Circuito.HeaderText = "Circuito";
             this.Circuito.MinimumWidth = 10;
             this.Circuito.Name = "Circuito";
@@ -343,7 +343,7 @@ namespace GestionCasos
             // 
             // Recepcion
             // 
-            this.Recepcion.FillWeight = 22.34942F;
+            this.Recepcion.FillWeight = 16.34942F;
             this.Recepcion.HeaderText = "Recepcion";
             this.Recepcion.MinimumWidth = 6;
             this.Recepcion.Name = "Recepcion";
@@ -366,7 +366,7 @@ namespace GestionCasos
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             this.Comentario.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Comentario.FillWeight = 20.34942F;
+            this.Comentario.FillWeight = 16.34942F;
             this.Comentario.HeaderText = "Comentario";
             this.Comentario.MinimumWidth = 6;
             this.Comentario.Name = "Comentario";
@@ -393,7 +393,7 @@ namespace GestionCasos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(1442, 561);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -420,6 +420,7 @@ namespace GestionCasos
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaComboBox gunaComboBox3;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
+        private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Caso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
@@ -429,6 +430,5 @@ namespace GestionCasos
         private System.Windows.Forms.DataGridViewTextBoxColumn Persona;
         private System.Windows.Forms.DataGridViewButtonColumn Comentario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
     }
 }

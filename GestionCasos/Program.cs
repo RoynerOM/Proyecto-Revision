@@ -1,10 +1,5 @@
-﻿using GestionCasos.Administrador;
-using GestionCasos.Usuarios;
+﻿using GestionCasos.Usuarios;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GestionCasos
@@ -18,9 +13,9 @@ namespace GestionCasos
         static void Main()
         {
             Application.EnableVisualStyles();
-           
+
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fInstituciones());
+            Application.Run(new Form1());
         }
     }
 }

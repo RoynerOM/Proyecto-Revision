@@ -73,6 +73,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
@@ -101,7 +102,19 @@
     <Compile Include="Administrador\fInstituciones.Designer.cs">
       <DependentUpon>fInstituciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alertas\Alerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\Alerta.Designer.cs">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </Compile>
     <Compile Include="CasosFalsos.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Administrador\InformacionCasosAdmin.cs">
@@ -129,6 +142,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fInstituciones.resx">
       <DependentUpon>fInstituciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\Alerta.resx">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -179,6 +198,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-AMCONSULTORES.ico" />
+    <None Include="Resources\light_dimming_off_48px1.png" />
+    <None Include="Resources\light_dimming_off_48px.png" />
+    <None Include="Resources\delete_52px.png" />
+    <None Include="Resources\dashboard_60px.png" />
+    <None Include="Resources\edit_graph_report_100px.png" />
+    <None Include="Resources\edit_graph_report_100px1.png" />
+    <Content Include="Resources\error.png" />
+    <None Include="Resources\error_60px.png" />
+    <None Include="Resources\okpx.png" />
     <None Include="Resources\Project Name %281%29.png" />
   </ItemGroup>
   <ItemGroup>
