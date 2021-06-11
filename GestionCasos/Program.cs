@@ -17,7 +17,7 @@ namespace CategoriasSuperMercado
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AsignarCaso());
+            Application.Run(new Login());
         }
     }
 }
