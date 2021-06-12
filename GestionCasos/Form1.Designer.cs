@@ -43,7 +43,7 @@ namespace GestionCasos
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Image = global::GestionCasos.Properties.Resources.light_dimming_off_48px;
+            this.button1.Image = global::GestionCasos.Properties.Resources.light_dimming_off_48px1;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.Location = new System.Drawing.Point(12, 18);
             this.button1.Name = "button1";

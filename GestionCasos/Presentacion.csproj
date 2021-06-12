@@ -70,6 +70,9 @@
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -108,12 +111,30 @@
     <Compile Include="Alertas\Alerta.Designer.cs">
       <DependentUpon>Alerta.cs</DependentUpon>
     </Compile>
+    <Compile Include="AsignarCaso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarCaso.designer.cs">
+      <DependentUpon>AsignarCaso.cs</DependentUpon>
+    </Compile>
     <Compile Include="CasosFalsos.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +144,12 @@
     <Compile Include="Administrador\.Designer.cs">
       <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar.Designer.cs">
+      <DependentUpon>Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\AgregarComentario.cs">
       <SubType>Form</SubType>
@@ -146,8 +173,17 @@
     <EmbeddedResource Include="Alertas\Alerta.resx">
       <DependentUpon>Alerta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AsignarCaso.resx">
+      <DependentUpon>AsignarCaso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -161,6 +197,9 @@
     </Compile>
     <EmbeddedResource Include="Administrador\InformacionCasosAdmin.resx">
       <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar.resx">
+      <DependentUpon>Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\AgregarComentario.resx">
       <DependentUpon>AgregarComentario.cs</DependentUpon>
@@ -198,12 +237,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-AMCONSULTORES.ico" />
+    <None Include="Resources\WhatsApp Image 2021-06-05 at 2.44.05 PM.jpeg" />
+    <None Include="Resources\WhatsApp Image 2021-06-05 at 2.33.30 PM.jpeg" />
+    <None Include="Resources\sprite_strip.png" />
+    <None Include="Resources\solicit_accept_check_ok_theaction_6340.png" />
+    <None Include="Resources\robot-2186155_1920.png" />
+    <None Include="Resources\report_file_240px.png" />
+    <None Include="Resources\minimazar.png" />
+    <None Include="Resources\Logo-AMCONSULTORES.jpg" />
+    <None Include="Resources\login_rounded_60px.png" />
+    <None Include="Resources\image001.jpg" />
+    <None Include="Resources\group_60px.png" />
     <None Include="Resources\light_dimming_off_48px1.png" />
     <None Include="Resources\light_dimming_off_48px.png" />
     <None Include="Resources\delete_52px.png" />
     <None Include="Resources\dashboard_60px.png" />
     <None Include="Resources\edit_graph_report_100px.png" />
     <None Include="Resources\edit_graph_report_100px1.png" />
+    <None Include="Resources\bug_60px.png" />
+    <None Include="Resources\camara.png" />
+    <None Include="Resources\check_all_100px.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\dashboard_60px1.png" />
+    <None Include="Resources\data_pending_60px.png" />
+    <None Include="Resources\edit_file.png" />
+    <None Include="Resources\edit_graph_report_100px2.png" />
+    <None Include="Resources\edit_graph_report_100px11.png" />
     <Content Include="Resources\error.png" />
     <None Include="Resources\error_60px.png" />
     <None Include="Resources\okpx.png" />
