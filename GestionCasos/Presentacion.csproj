@@ -15,6 +15,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +50,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo-AMCONSULTORES.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -42,9 +64,21 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,9 +88,103 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Transitions, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\dot-net-transitions.1.2.1.0\lib\net40-full\Transitions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\fContador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\fContador.Designer.cs">
+      <DependentUpon>fContador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\fInstituciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\fInstituciones.Designer.cs">
+      <DependentUpon>fInstituciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alertas\Alerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alertas\Alerta.Designer.cs">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsignarCaso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarCaso.designer.cs">
+      <DependentUpon>AsignarCaso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CasosFalsos.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Administrador\InformacionCasosAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\.Designer.cs">
+      <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar.Designer.cs">
+      <DependentUpon>Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\AgregarComentario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\AgregarComentario.Designer.cs">
+      <DependentUpon>AgregarComentario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\CasosAsignados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\CasosAsignados.Designer.cs">
+      <DependentUpon>CasosAsignados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanasAbiertas.cs" />
+    <EmbeddedResource Include="Administrador\fContador.resx">
+      <DependentUpon>fContador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\fInstituciones.resx">
+      <DependentUpon>fInstituciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alertas\Alerta.resx">
+      <DependentUpon>Alerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AsignarCaso.resx">
+      <DependentUpon>AsignarCaso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -65,7 +193,20 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Administrador\InformacionCasosAdmin.resx">
+      <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar.resx">
+      <DependentUpon>Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\AgregarComentario.resx">
+      <DependentUpon>AgregarComentario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\CasosAsignados.resx">
+      <DependentUpon>CasosAsignados.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -93,6 +234,51 @@
       <Project>{cd7a5e15-c830-446f-889c-36c38334f16f}</Project>
       <Name>Utilidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo-AMCONSULTORES.ico" />
+    <None Include="Resources\WhatsApp Image 2021-06-05 at 2.44.05 PM.jpeg" />
+    <None Include="Resources\WhatsApp Image 2021-06-05 at 2.33.30 PM.jpeg" />
+    <None Include="Resources\sprite_strip.png" />
+    <None Include="Resources\solicit_accept_check_ok_theaction_6340.png" />
+    <None Include="Resources\robot-2186155_1920.png" />
+    <None Include="Resources\report_file_240px.png" />
+    <None Include="Resources\minimazar.png" />
+    <None Include="Resources\Logo-AMCONSULTORES.jpg" />
+    <None Include="Resources\login_rounded_60px.png" />
+    <None Include="Resources\image001.jpg" />
+    <None Include="Resources\group_60px.png" />
+    <None Include="Resources\light_dimming_off_48px1.png" />
+    <None Include="Resources\light_dimming_off_48px.png" />
+    <None Include="Resources\delete_52px.png" />
+    <None Include="Resources\dashboard_60px.png" />
+    <None Include="Resources\edit_graph_report_100px.png" />
+    <None Include="Resources\edit_graph_report_100px1.png" />
+    <None Include="Resources\bug_60px.png" />
+    <None Include="Resources\camara.png" />
+    <None Include="Resources\check_all_100px.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\dashboard_60px1.png" />
+    <None Include="Resources\data_pending_60px.png" />
+    <None Include="Resources\edit_file.png" />
+    <None Include="Resources\edit_graph_report_100px2.png" />
+    <None Include="Resources\edit_graph_report_100px11.png" />
+    <Content Include="Resources\error.png" />
+    <None Include="Resources\error_60px.png" />
+    <None Include="Resources\okpx.png" />
+    <None Include="Resources\Project Name %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
