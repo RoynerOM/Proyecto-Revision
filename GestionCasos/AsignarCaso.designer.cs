@@ -428,7 +428,7 @@ namespace GestionCasos
             this.lbTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lbTitulo.Location = new System.Drawing.Point(104, 51);
+            this.lbTitulo.Location = new System.Drawing.Point(104, 37);
             this.lbTitulo.Name = "lbTitulo";
             this.lbTitulo.Size = new System.Drawing.Size(434, 29);
             this.lbTitulo.TabIndex = 73;
