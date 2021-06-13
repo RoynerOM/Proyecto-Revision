@@ -106,6 +106,7 @@ namespace GestionCasos
                     }
                 }
             }
+
             xml.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
             ConfigurationManager.RefreshSection("appSettings");
         }
