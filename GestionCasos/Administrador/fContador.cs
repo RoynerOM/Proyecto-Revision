@@ -1,6 +1,5 @@
 ﻿using Entidades;
 using System;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Negocios;
 using Utilidades;
@@ -47,9 +46,9 @@ namespace GestionCasos.Administrador
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             contador.Cedula = txtCedula.Text;
-            contador.Nombre = txtNombre.Text;
-            contador.Apellido1 = txtApellido1.Text;
-            contador.Apellido2 = txtApellido2.Text;
+            contador.Nombre = txtNombre.Text.ToUpper();
+            contador.Apellido1 = txtApellido1.Text.ToUpper();
+            contador.Apellido2 = txtApellido2.Text.ToUpper();
 
             if (negocio.guardar(contador) == true)
             {
