@@ -113,17 +113,17 @@
     <Compile Include="Alertas\Alerta.Designer.cs">
       <DependentUpon>Alerta.cs</DependentUpon>
     </Compile>
-    <Compile Include="AsignarCaso.cs">
+    <Compile Include="Administrador\AsignarCaso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AsignarCaso.designer.cs">
+    <Compile Include="Administrador\AsignarCaso.designer.cs">
       <DependentUpon>AsignarCaso.cs</DependentUpon>
     </Compile>
     <Compile Include="CasosFalsos.cs" />
-    <Compile Include="fDashBoard.cs">
+    <Compile Include="Administrador\fDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fDashBoard.Designer.cs">
+    <Compile Include="Administrador\fDashBoard.Designer.cs">
       <DependentUpon>fDashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -132,16 +132,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Administrador\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Administrador\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal.cs">
+    <Compile Include="Administrador\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
+    <Compile Include="Administrador\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -153,10 +153,10 @@
       <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registrar.cs">
+    <Compile Include="Administrador\Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registrar.Designer.cs">
+    <Compile Include="Administrador\Registrar.Designer.cs">
       <DependentUpon>Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\AgregarComentario.cs">
@@ -181,19 +181,19 @@
     <EmbeddedResource Include="Alertas\Alerta.resx">
       <DependentUpon>Alerta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AsignarCaso.resx">
+    <EmbeddedResource Include="Administrador\AsignarCaso.resx">
       <DependentUpon>AsignarCaso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fDashBoard.resx">
+    <EmbeddedResource Include="Administrador\fDashBoard.resx">
       <DependentUpon>fDashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Administrador\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
+    <EmbeddedResource Include="Administrador\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -209,7 +209,7 @@
     <EmbeddedResource Include="Administrador\InformacionCasosAdmin.resx">
       <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registrar.resx">
+    <EmbeddedResource Include="Administrador\Registrar.resx">
       <DependentUpon>Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\AgregarComentario.resx">
