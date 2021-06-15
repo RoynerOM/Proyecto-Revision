@@ -1,4 +1,5 @@
-﻿using GestionCasos.Usuarios;
+﻿using GestionCasos.Administrador;
+using GestionCasos.Usuarios;
 using System;
 using System.Windows.Forms;
 

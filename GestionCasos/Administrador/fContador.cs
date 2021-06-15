@@ -1,18 +1,23 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using Entidades;
+using System;
 using System.Windows.Forms;
+using Negocios;
+using Utilidades;
 
 namespace GestionCasos.Administrador
 {
     public partial class fContador : Form
     {
+        t_Contador contador = new t_Contador();
+        ContadorNegocio negocio = new ContadorNegocio();
+
+        //Alertas
+        showMessageDialog Message = new showMessageDialog();
         public fContador()
         {
             InitializeComponent();
-            this.Text = "";
-            this.ControlBox = false;
             this.DoubleBuffered = true;
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
         }
 
         private void fContador_Load(object sender, EventArgs e)
@@ -20,31 +25,39 @@ namespace GestionCasos.Administrador
 
         }
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        //Remove transparent border in maximized state
+       
 
         private void fContador_Resize(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Maximized)
-                FormBorderStyle = FormBorderStyle.None;
-            else
-                FormBorderStyle = FormBorderStyle.Sizable;
+           
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
 
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+          
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            contador.Cedula = txtCedula.Text;
+            contador.Nombre = txtNombre.Text.ToUpper();
+            contador.Apellido1 = txtApellido1.Text.ToUpper();
+            contador.Apellido2 = txtApellido2.Text.ToUpper();
+
+            if (negocio.guardar(contador) == true)
+            {
+                Message.Success(new Alertas.Alerta(),"El contador se guardo correctamente");
+            }
+            else
+            {
+                Message.Danger(new Alertas.Alerta(), "No se pudo guardar");
+            }
         }
     }
 }

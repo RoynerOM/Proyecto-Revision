@@ -14,7 +14,20 @@ namespace Datos
 
         public bool guardar(t_Contador e)
         {
-            throw new NotImplementedException();
+            using (var db = new BD_JuntasEntities())
+            {
+                try
+                {
+                    db.t_Contador.Add(e);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
+            }
         }
 
         public bool modificar(t_Contador e)
