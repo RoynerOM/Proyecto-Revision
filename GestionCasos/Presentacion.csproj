@@ -239,6 +239,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-AMCONSULTORES.ico" />
+    <None Include="Resources\sign_out_60px.png" />
+    <None Include="Resources\task_60px.png" />
+    <None Include="Resources\registration_60px.png" />
+    <None Include="Resources\report_file_60px.png" />
     <None Include="Resources\WhatsApp Image 2021-06-05 at 2.44.05 PM.jpeg" />
     <None Include="Resources\WhatsApp Image 2021-06-05 at 2.33.30 PM.jpeg" />
     <None Include="Resources\sprite_strip.png" />
@@ -265,6 +269,7 @@
     <None Include="Resources\edit_file.png" />
     <None Include="Resources\edit_graph_report_100px2.png" />
     <None Include="Resources\edit_graph_report_100px11.png" />
+    <None Include="Resources\bug_60px1.png" />
     <Content Include="Resources\error.png" />
     <None Include="Resources\error_60px.png" />
     <None Include="Resources\okpx.png" />
