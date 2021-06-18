@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using Utilidades.Interfaces;
 using Datos;
+using Utilidades;
+
 namespace Negocios
 {
     //Plantilla
@@ -11,7 +13,8 @@ namespace Negocios
         DatosContador contador = new DatosContador();
         public bool eliminar(t_Contador e)
         {
-            throw new NotImplementedException();
+            //e.Estado == false;
+            return contador.eliminar(e);
         }
 
         public bool guardar(t_Contador e)
@@ -21,17 +24,23 @@ namespace Negocios
 
         public bool modificar(t_Contador e)
         {
-            throw new NotImplementedException();
+            return contador.modificar(e);
         }
 
         public t_Contador obtenerPorId(t_Contador e)
         {
-            throw new NotImplementedException();
+            return contador.obtenerPorId(e);
         }
 
         public IEnumerable<t_Contador> obtenerTodo(t_Contador e)
         {
-            throw new NotImplementedException();
+            return contador.obtenerTodo(e);
+        }
+
+        //Metodos fuera de la interfaz
+        public int CantidadContadores()
+        {
+            return contador.CantidadContadores();
         }
     }
 }

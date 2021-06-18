@@ -1,0 +1,267 @@
+[33mcommit 61e43298d6d8aff26a3866444886917c433536cd[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+Merge: 2099f5a 48c0a38
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Thu Jun 17 21:44:57 2021 -0600
+
+    Merge branch 'dev' into dev
+
+[33mcommit 2099f5a662d62e694a23b6acab10001e17777736[m
+Author: AnnerDuarte <annerduarte1@gmail.com>
+Date:   Thu Jun 17 21:29:05 2021 -0600
+
+    Actualizacion: Modelo, Registrar, Login, Asignar casos
+
+[33mcommit 48c0a381432ffa910d91c7fce023dbada86e166c[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Thu Jun 17 21:23:39 2021 -0600
+
+    Implementacion d emodo oscuro y funciones de instituciones y contador
+
+[33mcommit 9d0653960d054619290c6bb8fa4511c7e5cc1d3d[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Wed Jun 16 12:43:27 2021 -0600
+
+    Metodos crud de contador terminado falta implementacion
+
+[33mcommit b79da88ee56699a7931d9b49be1465f0fb295584[m
+Merge: 9a64001 32995d7
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Tue Jun 15 17:43:02 2021 -0600
+
+    Merge pull request #34 from 4256-1155/dev
+    
+    Dev
+
+[33mcommit 32995d72536a33677ba746967d1d5a2ce56b8686[m
+Author: AnnerDuarte <annerduarte1@gmail.com>
+Date:   Tue Jun 15 17:37:29 2021 -0600
+
+    Metiendo login en la carpeta admin
+
+[33mcommit 418e1883c03d900f783f940c5dad44e4ec71f4c3[m
+Author: AnnerDuarte <annerduarte1@gmail.com>
+Date:   Tue Jun 15 17:24:32 2021 -0600
+
+    Se movieron formularios a la carpeta admin
+
+[33mcommit d436f69de5f564e87f6a0b9ca80520619117fe70[m[33m ([m[1;31morigin/master[m[33m)[m
+Merge: 74a6884 9a64001
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Tue Jun 15 17:05:06 2021 -0600
+
+    Merge pull request #33 from RoynerOM/dev
+    
+    Dev
+
+[33mcommit 9a640010f3b09c353b95d768ab6fe9a2112acdf0[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Tue Jun 15 13:47:43 2021 -0600
+
+    Agregando la conexion en los app settings de cada capa
+
+[33mcommit 619661b93c92350ea41faa482b985ba6941c032e[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Tue Jun 15 13:34:35 2021 -0600
+
+    Funcion de guardar contador
+
+[33mcommit 6786d938abe01b899d7b34b5d24e23cc195c5306[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Tue Jun 15 12:44:32 2021 -0600
+
+    Ajuste de imagenes en el dasboard
+
+[33mcommit 74a6884241272b895a08ca12ddd329d17bb6e1cc[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Tue Jun 15 11:57:06 2021 -0600
+
+    Actualizacion de paquetes nuget
+
+[33mcommit 2bde476bc859aca2604b376fe189fc54c45fbf51[m
+Merge: 656b835 a318e87
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Sun Jun 13 14:10:21 2021 -0600
+
+    Merge pull request #32 from RoynerOM/dev
+    
+    Otra correccion
+
+[33mcommit a318e87d8da8e5a6e3c3454952b3f6e5ad03ce34[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Sun Jun 13 14:09:47 2021 -0600
+
+    Otra correccion
+
+[33mcommit 656b8353a3970ec462f4668889498a1cf62bad59[m
+Merge: ee2e2a5 edbaab9
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Sun Jun 13 13:45:34 2021 -0600
+
+    Merge pull request #31 from RoynerOM/dev
+    
+    Dev
+
+[33mcommit edbaab934ad69442939437079641b3789c14f719[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Sat Jun 12 17:26:05 2021 -0600
+
+    Correcion del pull request
+
+[33mcommit 76853055c29d8e0e2254684083193ec3574913ec[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Wed Jun 9 15:51:30 2021 -0600
+
+    Ajustes de Tablas en los formularios de administrador y usuarios
+
+[33mcommit fba2ef3595fd70d7d32219c3b8da83134300072a[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Mon Jun 7 12:05:57 2021 -0600
+
+    Formulario de para agregar un contador y para instituciones
+
+[33mcommit e269d38fb3e6b46c861276c04b65ed32aa1e6246[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Sat Jun 5 15:49:43 2021 -0600
+
+    Formulario de ver casos(Parte usuario)
+
+[33mcommit dfdd528ab62850d37a92d687c58332e98010c3c7[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Wed Jun 2 20:01:46 2021 -0600
+
+    Formulario de ver casos asignados(La del administrador)
+
+[33mcommit 98a9e7d5b13f5c7fab645b6f2cdc585a2e883a9f[m
+Merge: 77a72dd ee2e2a5
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Mon May 31 15:58:56 2021 -0600
+
+    Merge pull request #21 from RoynerOM/master
+    
+    Creacion de Clases en la capa datos y Negocio
+
+[33mcommit ee2e2a59e7eb8876f22e0c9df26962e919dcabc8[m
+Merge: 77a72dd f232f03
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Mon May 31 15:56:11 2021 -0600
+
+    Merge branch 'master' into master
+
+[33mcommit f232f035fd599536c66092eb6f9e51a271698498[m
+Author: AnnerDuarte <annerduarte1@gmail.com>
+Date:   Mon May 31 15:37:24 2021 -0600
+
+    Creacion de clases de Datos de las entidades
+
+[33mcommit 77a72dd4f0eaaa520e346cfc63cc0a2f7d5b9fa5[m[33m ([m[1;32mmaster[m[33m)[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Mon May 31 15:37:03 2021 -0600
+
+    Se agrego plantilla de metodos en la capa negocio(CRUD)
+
+[33mcommit 9acae669126791646ae11866595a5a4b21064d63[m
+Merge: 002408f 32fbb41
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Mon May 31 12:14:44 2021 -0600
+
+    Merge branch 'master' of https://github.com/RoynerOM/Proyecto-Revision
+
+[33mcommit 002408f11a6fcaa788ee470504679e1490ebfea5[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Mon May 31 12:14:32 2021 -0600
+
+    Se agrego la conexion de la base de datos con EF y las entidades
+
+[33mcommit 32fbb41feca6a1e4654be8c82c413f1ae386d8ce[m
+Merge: dcdc860 0ecf554
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Mon May 31 08:41:32 2021 -0600
+
+    Merge pull request #14 from RoynerOM/dev
+    
+    Plantilla del proyecto
+
+[33mcommit 0ecf554c314e3ea2af51bedeaeeffccb70a71e4e[m
+Merge: dcdc860 4087c38
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Mon May 31 08:36:03 2021 -0600
+
+    Merge branch 'dev' of https://github.com/RoynerOM/Proyecto-Revision into dev
+
+[33mcommit dcdc860c5655192e4216e5dadbe9cfe778ab0353[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Mon May 31 08:34:02 2021 -0600
+
+    Referencias del proyecto y interfaz crud
+
+[33mcommit 4087c38824aa018d65e71b2a78f286372b4464f0[m
+Merge: 89cf3c5 42269a7
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Sun May 30 19:24:24 2021 -0600
+
+    Merge pull request #13 from RoynerOM/master
+    
+    Actualizado
+
+[33mcommit 42269a70994f12fad2924c099ad50f95366377b4[m
+Merge: 9cd6b32 46dde3d
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Sun May 30 19:23:32 2021 -0600
+
+    Merge pull request #11 from 4256-1155/master
+    
+    knlk1
+
+[33mcommit 46dde3dfd375abbdf6b9a49544a4152b2cbb47d2[m
+Merge: 29b4daa 9cd6b32
+Author: AnnerDuarte <68350414+4256-1155@users.noreply.github.com>
+Date:   Sun May 30 19:22:01 2021 -0600
+
+    Merge branch 'RoynerOM:master' into master
+
+[33mcommit 9cd6b32d607922e38c1072435bcddc5b7d682e28[m
+Merge: 2f645d4 89cf3c5
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Sun May 30 19:21:24 2021 -0600
+
+    Merge pull request #12 from RoynerOM/dev
+    
+    Merge pull request #10 from RoynerOM/master
+
+[33mcommit 29b4daa59ee08fb2b6dfc869238137ac99f3353d[m
+Author: AnnerDuarte <annerduarte1@gmail.com>
+Date:   Sun May 30 19:18:47 2021 -0600
+
+    Prueba ca[a datos
+
+[33mcommit 2f645d43cafabbd1333319b9de9ed7c41bfc5f91[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Sun May 30 19:17:16 2021 -0600
+
+    Persona
+
+[33mcommit 89cf3c55b0a24bcc074153b17535fd95ad4916e3[m
+Merge: 2ad4aa7 0f5920d
+Author: Royner <56881204+RoynerOM@users.noreply.github.com>
+Date:   Sun May 30 18:58:23 2021 -0600
+
+    Merge pull request #10 from RoynerOM/master
+    
+    Interfaz
+
+[33mcommit 0f5920dbbe641ae49ad41b128c1e216628afb07e[m
+Merge: 03b2a73 d7de680
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Sun May 30 18:55:25 2021 -0600
+
+    Merge branch 'master' of https://github.com/RoynerOM/Proyecto-Revision
+
+[33mcommit 03b2a73e5042344da9efb2f7c610162615bcb229[m
+Author: RoynerOM <roportameza@gmail.com>
+Date:   Sun May 30 18:55:15 2021 -0600
+
+    Interfaz
+
+[33mcommit d7de68034bd953cb93b1396285d3d28e131bda1f[m
+Merge: 836c386 2ad4aa7
+Author: Royner <56881204+RoynerOM@

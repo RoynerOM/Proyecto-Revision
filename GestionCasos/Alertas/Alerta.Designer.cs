@@ -1,7 +1,7 @@
 ﻿
 namespace GestionCasos.Alertas
 {
-    partial class Alerta
+   public partial class Alerta
     {
         /// <summary>
         /// Required designer variable.

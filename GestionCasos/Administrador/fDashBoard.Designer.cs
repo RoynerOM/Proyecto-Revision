@@ -33,26 +33,23 @@ namespace GestionCasos
             this.gunaElipsePanel5 = new Guna.UI.WinForms.GunaElipsePanel();
             this.gunaElipsePanel4 = new Guna.UI.WinForms.GunaElipsePanel();
             this.pnRevisados = new Guna.UI.WinForms.GunaElipsePanel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnContadores = new Guna.UI.WinForms.GunaElipsePanel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnPendientes = new Guna.UI.WinForms.GunaElipsePanel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.DesktopPanel.SuspendLayout();
             this.pnRevisados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnContadores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnPendientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,10 +70,11 @@ namespace GestionCasos
             // 
             // gunaElipsePanel5
             // 
+            this.gunaElipsePanel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gunaElipsePanel5.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gunaElipsePanel5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
-            this.gunaElipsePanel5.Location = new System.Drawing.Point(136, 501);
+            this.gunaElipsePanel5.Location = new System.Drawing.Point(136, 461);
             this.gunaElipsePanel5.Name = "gunaElipsePanel5";
             this.gunaElipsePanel5.Radius = 20;
             this.gunaElipsePanel5.Size = new System.Drawing.Size(768, 296);
@@ -84,44 +82,37 @@ namespace GestionCasos
             // 
             // gunaElipsePanel4
             // 
+            this.gunaElipsePanel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gunaElipsePanel4.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gunaElipsePanel4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
-            this.gunaElipsePanel4.Location = new System.Drawing.Point(561, 284);
+            this.gunaElipsePanel4.Location = new System.Drawing.Point(561, 244);
             this.gunaElipsePanel4.Name = "gunaElipsePanel4";
             this.gunaElipsePanel4.Radius = 20;
-            this.gunaElipsePanel4.Size = new System.Drawing.Size(343, 177);
+            this.gunaElipsePanel4.Size = new System.Drawing.Size(343, 170);
             this.gunaElipsePanel4.TabIndex = 10;
             // 
             // pnRevisados
             // 
+            this.pnRevisados.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnRevisados.BackColor = System.Drawing.Color.Transparent;
             this.pnRevisados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnRevisados.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
-            this.pnRevisados.Controls.Add(this.panel3);
             this.pnRevisados.Controls.Add(this.label5);
             this.pnRevisados.Controls.Add(this.label6);
             this.pnRevisados.Controls.Add(this.pictureBox3);
-            this.pnRevisados.Location = new System.Drawing.Point(136, 284);
+            this.pnRevisados.Location = new System.Drawing.Point(136, 244);
             this.pnRevisados.Name = "pnRevisados";
             this.pnRevisados.Radius = 20;
-            this.pnRevisados.Size = new System.Drawing.Size(343, 177);
+            this.pnRevisados.Size = new System.Drawing.Size(343, 170);
             this.pnRevisados.TabIndex = 9;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Wheat;
-            this.panel3.Location = new System.Drawing.Point(19, 95);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(185, 1);
-            this.panel3.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(18, 102);
+            this.label5.Location = new System.Drawing.Point(32, 93);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 32);
             this.label5.TabIndex = 7;
@@ -132,51 +123,34 @@ namespace GestionCasos
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(18, 36);
+            this.label6.Location = new System.Drawing.Point(29, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 54);
             this.label6.TabIndex = 6;
             this.label6.Text = "0";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::GestionCasos.Properties.Resources.check_all_100px;
-            this.pictureBox3.Location = new System.Drawing.Point(240, 42);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(84, 90);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
             // pnContadores
             // 
+            this.pnContadores.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnContadores.BackColor = System.Drawing.Color.Transparent;
             this.pnContadores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnContadores.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
-            this.pnContadores.Controls.Add(this.panel2);
             this.pnContadores.Controls.Add(this.label2);
             this.pnContadores.Controls.Add(this.label1);
             this.pnContadores.Controls.Add(this.pictureBox1);
-            this.pnContadores.Location = new System.Drawing.Point(136, 64);
+            this.pnContadores.Location = new System.Drawing.Point(136, 24);
             this.pnContadores.Name = "pnContadores";
             this.pnContadores.Radius = 20;
-            this.pnContadores.Size = new System.Drawing.Size(343, 177);
+            this.pnContadores.Size = new System.Drawing.Size(343, 170);
             this.pnContadores.TabIndex = 8;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Wheat;
-            this.panel2.Location = new System.Drawing.Point(19, 93);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(185, 1);
-            this.panel2.TabIndex = 4;
+            this.pnContadores.Paint += new System.Windows.Forms.PaintEventHandler(this.pnContadores_Paint);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 100);
+            this.label2.Location = new System.Drawing.Point(20, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 32);
             this.label2.TabIndex = 3;
@@ -187,51 +161,33 @@ namespace GestionCasos
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(18, 34);
+            this.label1.Location = new System.Drawing.Point(16, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 54);
             this.label1.TabIndex = 2;
             this.label1.Text = "0";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.group_60px;
-            this.pictureBox1.Location = new System.Drawing.Point(240, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(84, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // pnPendientes
             // 
+            this.pnPendientes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnPendientes.BackColor = System.Drawing.Color.Transparent;
             this.pnPendientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnPendientes.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
-            this.pnPendientes.Controls.Add(this.panel4);
             this.pnPendientes.Controls.Add(this.label3);
             this.pnPendientes.Controls.Add(this.label4);
             this.pnPendientes.Controls.Add(this.pictureBox2);
-            this.pnPendientes.Location = new System.Drawing.Point(561, 64);
+            this.pnPendientes.Location = new System.Drawing.Point(561, 24);
             this.pnPendientes.Name = "pnPendientes";
             this.pnPendientes.Radius = 20;
-            this.pnPendientes.Size = new System.Drawing.Size(343, 177);
+            this.pnPendientes.Size = new System.Drawing.Size(343, 170);
             this.pnPendientes.TabIndex = 7;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Wheat;
-            this.panel4.Location = new System.Drawing.Point(19, 93);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(185, 1);
-            this.panel4.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(18, 100);
+            this.label3.Location = new System.Drawing.Point(31, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 32);
             this.label3.TabIndex = 7;
@@ -242,18 +198,41 @@ namespace GestionCasos
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(18, 34);
+            this.label4.Location = new System.Drawing.Point(28, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 54);
             this.label4.TabIndex = 6;
             this.label4.Text = "0";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GestionCasos.Properties.Resources.check_all_100px;
+            this.pictureBox3.Location = new System.Drawing.Point(251, 65);
+            this.pictureBox3.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.group_60px;
+            this.pictureBox1.Location = new System.Drawing.Point(238, 67);
+            this.pictureBox1.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GestionCasos.Properties.Resources.data_pending_60px;
-            this.pictureBox2.Location = new System.Drawing.Point(240, 40);
+            this.pictureBox2.Location = new System.Drawing.Point(243, 67);
+            this.pictureBox2.MinimumSize = new System.Drawing.Size(60, 60);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(84, 90);
+            this.pictureBox2.Size = new System.Drawing.Size(60, 60);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -266,15 +245,16 @@ namespace GestionCasos
             this.Controls.Add(this.DesktopPanel);
             this.Name = "fDashBoard";
             this.Text = "fDashBoard";
+            this.Load += new System.EventHandler(this.fDashBoard_Load);
             this.DesktopPanel.ResumeLayout(false);
             this.pnRevisados.ResumeLayout(false);
             this.pnRevisados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnContadores.ResumeLayout(false);
             this.pnContadores.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnPendientes.ResumeLayout(false);
             this.pnPendientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -286,17 +266,14 @@ namespace GestionCasos
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel5;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel4;
         private Guna.UI.WinForms.GunaElipsePanel pnRevisados;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox3;
         private Guna.UI.WinForms.GunaElipsePanel pnContadores;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI.WinForms.GunaElipsePanel pnPendientes;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;

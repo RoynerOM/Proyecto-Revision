@@ -62,9 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Params.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enumeradores\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

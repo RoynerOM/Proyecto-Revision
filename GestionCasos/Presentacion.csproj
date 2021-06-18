@@ -68,10 +68,10 @@
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
-      <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
+      <HintPath>..\..\..\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\..\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System">
@@ -113,18 +113,24 @@
     <Compile Include="Alertas\Alerta.Designer.cs">
       <DependentUpon>Alerta.cs</DependentUpon>
     </Compile>
-    <Compile Include="AsignarCaso.cs">
+    <Compile Include="Administrador\AsignarCaso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AsignarCaso.designer.cs">
+    <Compile Include="Administrador\AsignarCaso.designer.cs">
       <DependentUpon>AsignarCaso.cs</DependentUpon>
     </Compile>
     <Compile Include="CasosFalsos.cs" />
-    <Compile Include="fDashBoard.cs">
+    <Compile Include="Administrador\fDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fDashBoard.Designer.cs">
+    <Compile Include="Administrador\fDashBoard.Designer.cs">
       <DependentUpon>fDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\fConfiguraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\fConfiguraciones.Designer.cs">
+      <DependentUpon>fConfiguraciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -132,16 +138,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Administrador\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Administrador\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal.cs">
+    <Compile Include="Administrador\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
+    <Compile Include="Administrador\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -153,10 +159,10 @@
       <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registrar.cs">
+    <Compile Include="Administrador\Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registrar.Designer.cs">
+    <Compile Include="Administrador\Registrar.Designer.cs">
       <DependentUpon>Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\AgregarComentario.cs">
@@ -181,19 +187,22 @@
     <EmbeddedResource Include="Alertas\Alerta.resx">
       <DependentUpon>Alerta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AsignarCaso.resx">
+    <EmbeddedResource Include="Administrador\AsignarCaso.resx">
       <DependentUpon>AsignarCaso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fDashBoard.resx">
+    <EmbeddedResource Include="Administrador\fDashBoard.resx">
       <DependentUpon>fDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\fConfiguraciones.resx">
+      <DependentUpon>fConfiguraciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Administrador\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
+    <EmbeddedResource Include="Administrador\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -209,7 +218,7 @@
     <EmbeddedResource Include="Administrador\InformacionCasosAdmin.resx">
       <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registrar.resx">
+    <EmbeddedResource Include="Administrador\Registrar.resx">
       <DependentUpon>Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\AgregarComentario.resx">
@@ -233,6 +242,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{D150F863-A27F-4A0C-82CF-6167276715D3}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{d780d48a-c202-4cb9-b063-3a05b235c4b3}</Project>
       <Name>Entidades</Name>
@@ -248,6 +261,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-AMCONSULTORES.ico" />
+    <None Include="Resources\organization_60px.png" />
+    <None Include="Resources\settings_601px.png" />
     <None Include="Resources\sign_out_60px.png" />
     <None Include="Resources\task_60px.png" />
     <None Include="Resources\registration_60px.png" />
