@@ -5,6 +5,7 @@ using Utilidades.Interfaces;
 
 namespace Datos
 {
+    //
     public class DatosContador : ICrud<t_Contador>
     {
         public bool eliminar(t_Contador e)
