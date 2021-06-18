@@ -34,7 +34,7 @@ namespace GestionCasos
             this.lbIniciarSecion = new System.Windows.Forms.Label();
             this.txtContraseña = new Guna.UI.WinForms.GunaTextBox();
             this.txtNombreUsuario = new Guna.UI.WinForms.GunaTextBox();
-            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
+            this.btnIniciarSecion = new Guna.UI.WinForms.GunaButton();
             this.label2 = new System.Windows.Forms.Label();
             this.lbNombreUsuario = new System.Windows.Forms.Label();
             this.btnLLamar = new Guna.UI.WinForms.GunaCircleButton();
@@ -50,7 +50,7 @@ namespace GestionCasos
             this.pnTop.Controls.Add(this.lbIniciarSecion);
             this.pnTop.Controls.Add(this.txtContraseña);
             this.pnTop.Controls.Add(this.txtNombreUsuario);
-            this.pnTop.Controls.Add(this.gunaButton1);
+            this.pnTop.Controls.Add(this.btnIniciarSecion);
             this.pnTop.Controls.Add(this.label2);
             this.pnTop.Controls.Add(this.lbNombreUsuario);
             this.pnTop.Location = new System.Drawing.Point(293, 246);
@@ -109,33 +109,34 @@ namespace GestionCasos
             this.txtNombreUsuario.Size = new System.Drawing.Size(201, 26);
             this.txtNombreUsuario.TabIndex = 13;
             // 
-            // gunaButton1
+            // btnIniciarSecion
             // 
-            this.gunaButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaButton1.AnimationSpeed = 0.03F;
-            this.gunaButton1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton1.BaseColor = System.Drawing.Color.Black;
-            this.gunaButton1.BorderColor = System.Drawing.Color.Aqua;
-            this.gunaButton1.BorderSize = 1;
-            this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.gunaButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton1.Image")));
-            this.gunaButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(18, 176);
-            this.gunaButton1.Name = "gunaButton1";
-            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
-            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton1.OnHoverImage = null;
-            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton1.Radius = 20;
-            this.gunaButton1.Size = new System.Drawing.Size(201, 40);
-            this.gunaButton1.TabIndex = 10;
-            this.gunaButton1.Text = "ACCEDER";
-            this.gunaButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnIniciarSecion.AnimationHoverSpeed = 0.07F;
+            this.btnIniciarSecion.AnimationSpeed = 0.03F;
+            this.btnIniciarSecion.BackColor = System.Drawing.Color.Transparent;
+            this.btnIniciarSecion.BaseColor = System.Drawing.Color.Black;
+            this.btnIniciarSecion.BorderColor = System.Drawing.Color.Aqua;
+            this.btnIniciarSecion.BorderSize = 1;
+            this.btnIniciarSecion.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnIniciarSecion.FocusedColor = System.Drawing.Color.Empty;
+            this.btnIniciarSecion.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnIniciarSecion.ForeColor = System.Drawing.Color.White;
+            this.btnIniciarSecion.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciarSecion.Image")));
+            this.btnIniciarSecion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnIniciarSecion.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnIniciarSecion.Location = new System.Drawing.Point(18, 176);
+            this.btnIniciarSecion.Name = "btnIniciarSecion";
+            this.btnIniciarSecion.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
+            this.btnIniciarSecion.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnIniciarSecion.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnIniciarSecion.OnHoverImage = null;
+            this.btnIniciarSecion.OnPressedColor = System.Drawing.Color.Black;
+            this.btnIniciarSecion.Radius = 20;
+            this.btnIniciarSecion.Size = new System.Drawing.Size(201, 40);
+            this.btnIniciarSecion.TabIndex = 10;
+            this.btnIniciarSecion.Text = "ACCEDER";
+            this.btnIniciarSecion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnIniciarSecion.Click += new System.EventHandler(this.btnIniciarSecion_Click);
             // 
             // label2
             // 
@@ -237,7 +238,7 @@ namespace GestionCasos
         private System.Windows.Forms.Label lbIniciarSecion;
         private Guna.UI.WinForms.GunaTextBox txtContraseña;
         private Guna.UI.WinForms.GunaTextBox txtNombreUsuario;
-        private Guna.UI.WinForms.GunaButton gunaButton1;
+        private Guna.UI.WinForms.GunaButton btnIniciarSecion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbNombreUsuario;
         private Guna.UI.WinForms.GunaCircleButton btnLLamar;

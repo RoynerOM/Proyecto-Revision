@@ -8,11 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Transitions;
+using Entidades;
+using Datos;
+using Utilidades;
 
 namespace GestionCasos
 {
     public partial class Login : Form
     {
+        Principal principal = new Principal();
+        showMessageDialog Message = new showMessageDialog();
+
         public Login()
         {
             InitializeComponent();
@@ -30,8 +36,8 @@ namespace GestionCasos
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            Close();        
-        }
+            Close();
+        }        
 
         private void lbLogin_Click(object sender, EventArgs e)
         {
@@ -46,6 +52,37 @@ namespace GestionCasos
             Transition t = new Transition(new TransitionType_EaseInEaseOut(2000));
             t.add(pnTop, "Top", 12);
             t.run();
+        }
+
+        private void btnIniciarSecion_Click(object sender, EventArgs e)
+        {
+            using (BD_JuntasEntities contex = new BD_JuntasEntities())
+            {
+
+                var user = contex.t_Usuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
+                if (user != null)
+                {
+                    if (user.Clave == txtContraseña.Text)
+                    {
+                        Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
+                        this.Hide();
+                        principal.Show();
+                        
+                    }
+                    else
+                    {
+                        Message.Danger(new Alertas.Alerta(), "La contraseña es incorrecta");
+
+                    }
+                }
+                else
+                {
+                    Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
+
+                }
+
+
+            }
         }
     }
 }
