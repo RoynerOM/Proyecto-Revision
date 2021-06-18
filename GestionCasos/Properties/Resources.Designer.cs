@@ -313,6 +313,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap organization_60px {
+            get {
+                object obj = ResourceManager.GetObject("organization_60px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Project_Name__1_ {
             get {
                 object obj = ResourceManager.GetObject("Project Name (1)", resourceCulture);
@@ -362,6 +372,16 @@ namespace GestionCasos.Properties {
         
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_601px {
+            get {
+                object obj = ResourceManager.GetObject("settings_601px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap sign_out_60px {
             get {

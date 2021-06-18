@@ -56,7 +56,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enumeradores\Enums.cs" />
     <Compile Include="showMessageDialog.cs" />
     <Compile Include="Interfaces\IAlertas.cs" />
     <Compile Include="Interfaces\ICrud.cs" />

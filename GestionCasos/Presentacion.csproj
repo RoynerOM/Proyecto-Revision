@@ -126,6 +126,12 @@
     <Compile Include="Administrador\fDashBoard.Designer.cs">
       <DependentUpon>fDashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuracion\fConfiguraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\fConfiguraciones.Designer.cs">
+      <DependentUpon>fConfiguraciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fDashBoard.resx">
       <DependentUpon>fDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\fConfiguraciones.resx">
+      <DependentUpon>fConfiguraciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -252,6 +261,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-AMCONSULTORES.ico" />
+    <None Include="Resources\organization_60px.png" />
+    <None Include="Resources\settings_601px.png" />
     <None Include="Resources\sign_out_60px.png" />
     <None Include="Resources\task_60px.png" />
     <None Include="Resources\registration_60px.png" />
