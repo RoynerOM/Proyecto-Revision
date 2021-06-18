@@ -31,22 +31,22 @@ namespace GestionCasos.Administrador
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInstituciones));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.txtCuentaLey = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtCuentaDanea = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCedulaJuridica = new System.Windows.Forms.MaskedTextBox();
+            this.cbContador = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtInstitucion = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbCircuito = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gunaButton4 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
@@ -61,21 +61,21 @@ namespace GestionCasos.Administrador
             this.panel1.Controls.Add(this.gunaButton3);
             this.panel1.Controls.Add(this.gunaButton2);
             this.panel1.Controls.Add(this.gunaButton1);
-            this.panel1.Controls.Add(this.maskedTextBox3);
+            this.panel1.Controls.Add(this.txtCuentaLey);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.maskedTextBox2);
+            this.panel1.Controls.Add(this.txtCuentaDanea);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.maskedTextBox1);
-            this.panel1.Controls.Add(this.comboBox3);
+            this.panel1.Controls.Add(this.txtCedulaJuridica);
+            this.panel1.Controls.Add(this.cbContador);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtInstitucion);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.cbTipo);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cbCircuito);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtCodigo);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -83,45 +83,149 @@ namespace GestionCasos.Administrador
             this.panel1.Size = new System.Drawing.Size(884, 561);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // txtCuentaLey
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label1.Location = new System.Drawing.Point(69, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo";
+            this.txtCuentaLey.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCuentaLey.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCuentaLey.Location = new System.Drawing.Point(313, 82);
+            this.txtCuentaLey.Mask = "000-00-000-0000-0";
+            this.txtCuentaLey.Name = "txtCuentaLey";
+            this.txtCuentaLey.Size = new System.Drawing.Size(216, 33);
+            this.txtCuentaLey.TabIndex = 17;
             // 
-            // textBox1
+            // label8
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(73, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 26);
-            this.textBox1.TabIndex = 1;
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label8.Location = new System.Drawing.Point(313, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(159, 25);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Cuenta Ley 6746";
             // 
-            // label2
+            // txtCuentaDanea
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label2.Location = new System.Drawing.Point(309, 422);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Circuito";
+            this.txtCuentaDanea.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCuentaDanea.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCuentaDanea.Location = new System.Drawing.Point(73, 456);
+            this.txtCuentaDanea.Mask = "000-00-000-0000-0";
+            this.txtCuentaDanea.Name = "txtCuentaDanea";
+            this.txtCuentaDanea.Size = new System.Drawing.Size(216, 33);
+            this.txtCuentaDanea.TabIndex = 15;
             // 
-            // comboBox1
+            // label7
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label7.Location = new System.Drawing.Point(68, 420);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(136, 25);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Cuenta Danea";
+            // 
+            // txtCedulaJuridica
+            // 
+            this.txtCedulaJuridica.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCedulaJuridica.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaJuridica.Location = new System.Drawing.Point(73, 263);
+            this.txtCedulaJuridica.Mask = "0-000-000000";
+            this.txtCedulaJuridica.Name = "txtCedulaJuridica";
+            this.txtCedulaJuridica.Size = new System.Drawing.Size(216, 33);
+            this.txtCedulaJuridica.TabIndex = 13;
+            // 
+            // cbContador
+            // 
+            this.cbContador.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbContador.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbContador.FormattingEnabled = true;
+            this.cbContador.Items.AddRange(new object[] {
+            "Escuela",
+            "Colegio"});
+            this.cbContador.Location = new System.Drawing.Point(73, 359);
+            this.cbContador.Name = "cbContador";
+            this.cbContador.Size = new System.Drawing.Size(456, 33);
+            this.cbContador.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label6.Location = new System.Drawing.Point(73, 226);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(147, 25);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Cedula Juridica";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label5.Location = new System.Drawing.Point(73, 322);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 25);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Contador";
+            // 
+            // txtInstitucion
+            // 
+            this.txtInstitucion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtInstitucion.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInstitucion.Location = new System.Drawing.Point(73, 171);
+            this.txtInstitucion.Name = "txtInstitucion";
+            this.txtInstitucion.Size = new System.Drawing.Size(456, 33);
+            this.txtInstitucion.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label4.Location = new System.Drawing.Point(73, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 25);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Institucion";
+            // 
+            // cbTipo
+            // 
+            this.cbTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbTipo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Items.AddRange(new object[] {
+            "Escuela",
+            "Colegio"});
+            this.cbTipo.Location = new System.Drawing.Point(318, 264);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(211, 33);
+            this.cbTipo.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label3.Location = new System.Drawing.Point(318, 227);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 25);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Tipo";
+            // 
+            // cbCircuito
+            // 
+            this.cbCircuito.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCircuito.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCircuito.FormattingEnabled = true;
+            this.cbCircuito.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -130,151 +234,47 @@ namespace GestionCasos.Administrador
             "6",
             "7",
             "8"});
-            this.comboBox1.Location = new System.Drawing.Point(313, 446);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 28);
-            this.comboBox1.TabIndex = 3;
+            this.cbCircuito.Location = new System.Drawing.Point(313, 457);
+            this.cbCircuito.Name = "cbCircuito";
+            this.cbCircuito.Size = new System.Drawing.Size(216, 33);
+            this.cbCircuito.TabIndex = 3;
             // 
-            // label3
+            // label2
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label3.Location = new System.Drawing.Point(314, 240);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 21);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Tipo";
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label2.Location = new System.Drawing.Point(313, 420);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Circuito";
             // 
-            // comboBox2
+            // txtCodigo
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Escuela",
-            "Colegio"});
-            this.comboBox2.Location = new System.Drawing.Point(318, 264);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(188, 28);
-            this.comboBox2.TabIndex = 5;
+            this.txtCodigo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(73, 82);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(216, 33);
+            this.txtCodigo.TabIndex = 1;
             // 
-            // textBox2
+            // label1
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(73, 171);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(433, 26);
-            this.textBox2.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label4.Location = new System.Drawing.Point(69, 147);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 21);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Institucion";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label5.Location = new System.Drawing.Point(69, 326);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 21);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Contador";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label6.Location = new System.Drawing.Point(69, 239);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 21);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Cedula Juridica";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Escuela",
-            "Colegio"});
-            this.comboBox3.Location = new System.Drawing.Point(73, 359);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(433, 28);
-            this.comboBox3.TabIndex = 12;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(73, 263);
-            this.maskedTextBox1.Mask = "0-000-000000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(193, 29);
-            this.maskedTextBox1.TabIndex = 13;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.maskedTextBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(73, 445);
-            this.maskedTextBox2.Mask = "000-00-000-0000-0";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(193, 29);
-            this.maskedTextBox2.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label7.Location = new System.Drawing.Point(69, 421);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 21);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Cuenta Danea";
-            // 
-            // maskedTextBox3
-            // 
-            this.maskedTextBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.maskedTextBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox3.Location = new System.Drawing.Point(313, 82);
-            this.maskedTextBox3.Mask = "000-00-000-0000-0";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(193, 29);
-            this.maskedTextBox3.TabIndex = 17;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label8.Location = new System.Drawing.Point(309, 58);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(130, 21);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Cuenta Ley 6746";
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label1.Location = new System.Drawing.Point(73, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Codigo";
             // 
             // gunaButton4
             // 
-            this.gunaButton4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gunaButton4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gunaButton4.AnimationHoverSpeed = 0.07F;
             this.gunaButton4.AnimationSpeed = 0.03F;
             this.gunaButton4.BackColor = System.Drawing.Color.Transparent;
@@ -286,7 +286,7 @@ namespace GestionCasos.Administrador
             this.gunaButton4.ForeColor = System.Drawing.Color.White;
             this.gunaButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton4.Image")));
             this.gunaButton4.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton4.Location = new System.Drawing.Point(690, 338);
+            this.gunaButton4.Location = new System.Drawing.Point(708, 346);
             this.gunaButton4.Name = "gunaButton4";
             this.gunaButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton4.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -297,10 +297,11 @@ namespace GestionCasos.Administrador
             this.gunaButton4.Size = new System.Drawing.Size(120, 42);
             this.gunaButton4.TabIndex = 21;
             this.gunaButton4.Text = "Buscar";
+            this.gunaButton4.Click += new System.EventHandler(this.gunaButton4_Click);
             // 
             // gunaButton3
             // 
-            this.gunaButton3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gunaButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gunaButton3.AnimationHoverSpeed = 0.07F;
             this.gunaButton3.AnimationSpeed = 0.03F;
             this.gunaButton3.BackColor = System.Drawing.Color.Transparent;
@@ -312,7 +313,7 @@ namespace GestionCasos.Administrador
             this.gunaButton3.ForeColor = System.Drawing.Color.White;
             this.gunaButton3.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton3.Image")));
             this.gunaButton3.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton3.Location = new System.Drawing.Point(690, 252);
+            this.gunaButton3.Location = new System.Drawing.Point(708, 260);
             this.gunaButton3.Name = "gunaButton3";
             this.gunaButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton3.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -323,10 +324,11 @@ namespace GestionCasos.Administrador
             this.gunaButton3.Size = new System.Drawing.Size(120, 42);
             this.gunaButton3.TabIndex = 20;
             this.gunaButton3.Text = "Eliminar";
+            this.gunaButton3.Click += new System.EventHandler(this.gunaButton3_Click);
             // 
             // gunaButton2
             // 
-            this.gunaButton2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gunaButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gunaButton2.AnimationHoverSpeed = 0.07F;
             this.gunaButton2.AnimationSpeed = 0.03F;
             this.gunaButton2.BackColor = System.Drawing.Color.Transparent;
@@ -338,7 +340,7 @@ namespace GestionCasos.Administrador
             this.gunaButton2.ForeColor = System.Drawing.Color.White;
             this.gunaButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton2.Image")));
             this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton2.Location = new System.Drawing.Point(690, 157);
+            this.gunaButton2.Location = new System.Drawing.Point(708, 165);
             this.gunaButton2.Name = "gunaButton2";
             this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -352,7 +354,7 @@ namespace GestionCasos.Administrador
             // 
             // gunaButton1
             // 
-            this.gunaButton1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gunaButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gunaButton1.AnimationHoverSpeed = 0.07F;
             this.gunaButton1.AnimationSpeed = 0.03F;
             this.gunaButton1.BackColor = System.Drawing.Color.Transparent;
@@ -364,7 +366,7 @@ namespace GestionCasos.Administrador
             this.gunaButton1.ForeColor = System.Drawing.Color.White;
             this.gunaButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton1.Image")));
             this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(690, 74);
+            this.gunaButton1.Location = new System.Drawing.Point(708, 82);
             this.gunaButton1.Name = "gunaButton1";
             this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -375,6 +377,7 @@ namespace GestionCasos.Administrador
             this.gunaButton1.Size = new System.Drawing.Size(120, 42);
             this.gunaButton1.TabIndex = 18;
             this.gunaButton1.Text = "Guardar";
+            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
             // fInstituciones
             // 
@@ -385,6 +388,7 @@ namespace GestionCasos.Administrador
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "fInstituciones";
             this.Text = "fInstituciones";
+            this.Load += new System.EventHandler(this.fInstituciones_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -394,21 +398,21 @@ namespace GestionCasos.Administrador
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbCircuito;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.MaskedTextBox txtCuentaLey;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox txtCuentaDanea;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.MaskedTextBox txtCedulaJuridica;
+        private System.Windows.Forms.ComboBox cbContador;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtInstitucion;
         private System.Windows.Forms.Label label4;
         private Guna.UI.WinForms.GunaButton gunaButton4;
         private Guna.UI.WinForms.GunaButton gunaButton3;

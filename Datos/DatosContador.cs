@@ -15,6 +15,7 @@ namespace Datos
                 using (var db = new BD_JuntasEntities())
                 {
                     db.Entry<t_Contador>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
                 }
                 return true;
             }
@@ -57,6 +58,7 @@ namespace Datos
                 using (var db = new BD_JuntasEntities())
                 {
                     db.Entry<t_Contador>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
                 }
                 return true;
             }
@@ -107,6 +109,11 @@ namespace Datos
                 Console.WriteLine(ex.Message);
                 return null;
             }
+        }
+
+        public int CantidadContadores()
+        {
+            return obtenerTodo(new t_Contador()).Count();
         }
     }
 }

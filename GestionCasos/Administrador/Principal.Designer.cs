@@ -30,6 +30,8 @@ namespace GestionCasos
         private void InitializeComponent()
         {
             this.pnLateralIzquierda = new System.Windows.Forms.Panel();
+            this.btnJuntas = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnAsignarCasos = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -43,6 +45,8 @@ namespace GestionCasos
             // pnLateralIzquierda
             // 
             this.pnLateralIzquierda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
+            this.pnLateralIzquierda.Controls.Add(this.btnJuntas);
+            this.pnLateralIzquierda.Controls.Add(this.btnSettings);
             this.pnLateralIzquierda.Controls.Add(this.btnDashBoard);
             this.pnLateralIzquierda.Controls.Add(this.btnAsignarCasos);
             this.pnLateralIzquierda.Controls.Add(this.btnRegistrar);
@@ -53,8 +57,48 @@ namespace GestionCasos
             this.pnLateralIzquierda.ForeColor = System.Drawing.Color.Black;
             this.pnLateralIzquierda.Location = new System.Drawing.Point(0, 0);
             this.pnLateralIzquierda.Name = "pnLateralIzquierda";
-            this.pnLateralIzquierda.Size = new System.Drawing.Size(111, 860);
+            this.pnLateralIzquierda.Size = new System.Drawing.Size(111, 761);
             this.pnLateralIzquierda.TabIndex = 0;
+            // 
+            // btnJuntas
+            // 
+            this.btnJuntas.BackColor = System.Drawing.Color.Transparent;
+            this.btnJuntas.FlatAppearance.BorderSize = 0;
+            this.btnJuntas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnJuntas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJuntas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJuntas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.btnJuntas.Image = global::GestionCasos.Properties.Resources.organization_60px;
+            this.btnJuntas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnJuntas.Location = new System.Drawing.Point(0, 290);
+            this.btnJuntas.MinimumSize = new System.Drawing.Size(111, 90);
+            this.btnJuntas.Name = "btnJuntas";
+            this.btnJuntas.Size = new System.Drawing.Size(111, 90);
+            this.btnJuntas.TabIndex = 9;
+            this.btnJuntas.Text = "Juntas";
+            this.btnJuntas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnJuntas.UseVisualStyleBackColor = false;
+            this.btnJuntas.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.btnSettings.Image = global::GestionCasos.Properties.Resources.settings_601px;
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSettings.Location = new System.Drawing.Point(0, 482);
+            this.btnSettings.MinimumSize = new System.Drawing.Size(111, 90);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(111, 90);
+            this.btnSettings.TabIndex = 10;
+            this.btnSettings.Text = "Configuracion";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click_1);
             // 
             // btnDashBoard
             // 
@@ -86,7 +130,7 @@ namespace GestionCasos
             this.btnAsignarCasos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.btnAsignarCasos.Image = global::GestionCasos.Properties.Resources.task_60px;
             this.btnAsignarCasos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAsignarCasos.Location = new System.Drawing.Point(0, 290);
+            this.btnAsignarCasos.Location = new System.Drawing.Point(0, 386);
             this.btnAsignarCasos.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnAsignarCasos.Name = "btnAsignarCasos";
             this.btnAsignarCasos.Size = new System.Drawing.Size(111, 90);
@@ -124,12 +168,12 @@ namespace GestionCasos
             this.btnCerrarSecion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.btnCerrarSecion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSecion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSecion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
+            this.btnCerrarSecion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.btnCerrarSecion.Image = global::GestionCasos.Properties.Resources.sign_out_60px;
             this.btnCerrarSecion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCerrarSecion.Location = new System.Drawing.Point(0, 758);
+            this.btnCerrarSecion.Location = new System.Drawing.Point(0, 670);
             this.btnCerrarSecion.Name = "btnCerrarSecion";
-            this.btnCerrarSecion.Size = new System.Drawing.Size(111, 90);
+            this.btnCerrarSecion.Size = new System.Drawing.Size(111, 87);
             this.btnCerrarSecion.TabIndex = 3;
             this.btnCerrarSecion.Text = "Cerrar Seción";
             this.btnCerrarSecion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -146,7 +190,7 @@ namespace GestionCasos
             this.btnReportarBug.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.btnReportarBug.Image = global::GestionCasos.Properties.Resources.bug_60px1;
             this.btnReportarBug.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReportarBug.Location = new System.Drawing.Point(0, 386);
+            this.btnReportarBug.Location = new System.Drawing.Point(0, 574);
             this.btnReportarBug.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnReportarBug.Name = "btnReportarBug";
             this.btnReportarBug.Size = new System.Drawing.Size(111, 90);
@@ -179,7 +223,7 @@ namespace GestionCasos
             this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DesktopPanel.Location = new System.Drawing.Point(111, 0);
             this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1041, 860);
+            this.DesktopPanel.Size = new System.Drawing.Size(1041, 761);
             this.DesktopPanel.TabIndex = 1;
             // 
             // Principal
@@ -187,12 +231,11 @@ namespace GestionCasos
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
-            this.ClientSize = new System.Drawing.Size(1152, 860);
+            this.ClientSize = new System.Drawing.Size(1152, 761);
             this.Controls.Add(this.DesktopPanel);
             this.Controls.Add(this.pnLateralIzquierda);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1152, 860);
+            this.MinimumSize = new System.Drawing.Size(1152, 800);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
@@ -211,5 +254,7 @@ namespace GestionCasos
         private System.Windows.Forms.Panel pnLateralIzquierda;
         private System.Windows.Forms.Button btnDashBoard;
         private System.Windows.Forms.Panel DesktopPanel;
+        private System.Windows.Forms.Button btnJuntas;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
