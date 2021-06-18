@@ -15,6 +15,7 @@ namespace GestionCasos
     {
         private Button currentButton;
         private Form activeForm;
+
         public Principal()
         {
             InitializeComponent();
@@ -22,7 +23,6 @@ namespace GestionCasos
         }
 
         Registrar llamarRegistrar = new Registrar();
-        AsignarCaso llamarAsignarCaso = new AsignarCaso();
         private void Principal_Load(object sender, EventArgs e)
         {
             fDashBoard dashBoard = new fDashBoard();
@@ -35,7 +35,11 @@ namespace GestionCasos
 
         private void btnCerrarSecion_Click(object sender, EventArgs e)
         {
-            Close();
+            Login login = new Login();
+            
+            this.Hide();
+
+            login.Show();
         }
 
 
@@ -46,8 +50,8 @@ namespace GestionCasos
  
         private void btnAsignarCasos_Click(object sender, EventArgs e)
         {
-            llamarAsignarCaso.Show();
-            llamarAsignarCaso.TopMost = true;
+            OpenChildForm(new AsignarCaso(), sender);
+
         }
 
         private void btnDashBoard_MouseEnter(object sender, EventArgs e)
@@ -98,6 +102,11 @@ namespace GestionCasos
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fDashBoard(), sender);
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Registrar(), sender);
         }
     }
 

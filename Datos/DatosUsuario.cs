@@ -14,7 +14,21 @@ namespace Datos
 
         public bool guardar(t_Usuario e)
         {
-            throw new NotImplementedException();
+            using (var context = new BD_JuntasEntities())
+            {
+                try
+                {
+                    context.t_Usuario.Add(e);
+                    context.SaveChanges();
+
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                
+            }
         }
 
         public bool modificar(t_Usuario e)

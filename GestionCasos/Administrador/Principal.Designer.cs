@@ -30,6 +30,7 @@ namespace GestionCasos
         private void InitializeComponent()
         {
             this.pnLateralIzquierda = new System.Windows.Forms.Panel();
+            this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnAsignarCasos = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@ namespace GestionCasos
             // pnLateralIzquierda
             // 
             this.pnLateralIzquierda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
+            this.pnLateralIzquierda.Controls.Add(this.btnUsuarios);
             this.pnLateralIzquierda.Controls.Add(this.btnDashBoard);
             this.pnLateralIzquierda.Controls.Add(this.btnAsignarCasos);
             this.pnLateralIzquierda.Controls.Add(this.btnRegistrar);
@@ -55,6 +57,26 @@ namespace GestionCasos
             this.pnLateralIzquierda.Name = "pnLateralIzquierda";
             this.pnLateralIzquierda.Size = new System.Drawing.Size(111, 860);
             this.pnLateralIzquierda.TabIndex = 0;
+            // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.BackColor = System.Drawing.Color.Transparent;
+            this.btnUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.btnUsuarios.Image = global::GestionCasos.Properties.Resources.group_60px1;
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 486);
+            this.btnUsuarios.MinimumSize = new System.Drawing.Size(111, 90);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Size = new System.Drawing.Size(111, 90);
+            this.btnUsuarios.TabIndex = 9;
+            this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUsuarios.UseVisualStyleBackColor = false;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnDashBoard
             // 
@@ -211,5 +233,6 @@ namespace GestionCasos
         private System.Windows.Forms.Panel pnLateralIzquierda;
         private System.Windows.Forms.Button btnDashBoard;
         private System.Windows.Forms.Panel DesktopPanel;
+        private System.Windows.Forms.Button btnUsuarios;
     }
 }

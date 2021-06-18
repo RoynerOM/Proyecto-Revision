@@ -29,83 +29,44 @@ namespace GestionCasos
         /// </summary>
         private void InitializeComponent()
         {
-            this.gunaShadowPanel1 = new Guna.UI.WinForms.GunaShadowPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.lbTipoUsuario = new System.Windows.Forms.Label();
             this.cbTipoUsuario = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegistrar = new Guna.UI.WinForms.GunaButton();
-            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
-            this.txtNombreUsuario = new Guna.UI.WinForms.GunaTextBox();
+            this.txtContra = new Guna.UI.WinForms.GunaTextBox();
+            this.txtCedula = new Guna.UI.WinForms.GunaTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.gunaShadowPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gunaShadowPanel1
+            // panel3
             // 
-            this.gunaShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaShadowPanel1.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaShadowPanel1.Controls.Add(this.panel2);
-            this.gunaShadowPanel1.Controls.Add(this.btnClose);
-            this.gunaShadowPanel1.Controls.Add(this.panel1);
-            this.gunaShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaShadowPanel1.Location = new System.Drawing.Point(0, 0);
-            this.gunaShadowPanel1.Name = "gunaShadowPanel1";
-            this.gunaShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.gunaShadowPanel1.Size = new System.Drawing.Size(351, 551);
-            this.gunaShadowPanel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Turquoise;
-            this.panel2.Location = new System.Drawing.Point(19, 507);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(315, 2);
-            this.panel2.TabIndex = 2;
-            // 
-            // btnClose
-            // 
-            this.btnClose.AutoSize = true;
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(12, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(35, 39);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "x";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            this.btnClose.MouseHover += new System.EventHandler(this.btnClose_MouseHover);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.panel1.Controls.Add(this.lbTipoUsuario);
-            this.panel1.Controls.Add(this.cbTipoUsuario);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.btnRegistrar);
-            this.panel1.Controls.Add(this.gunaTextBox1);
-            this.panel1.Controls.Add(this.txtNombreUsuario);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 42);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(327, 458);
-            this.panel1.TabIndex = 0;
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.panel3.Controls.Add(this.lbTipoUsuario);
+            this.panel3.Controls.Add(this.cbTipoUsuario);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.btnRegistrar);
+            this.panel3.Controls.Add(this.txtContra);
+            this.panel3.Controls.Add(this.txtCedula);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(198, 30);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(638, 650);
+            this.panel3.TabIndex = 4;
             // 
             // lbTipoUsuario
             // 
             this.lbTipoUsuario.AutoSize = true;
-            this.lbTipoUsuario.Font = new System.Drawing.Font("Arial", 11F);
+            this.lbTipoUsuario.Font = new System.Drawing.Font("Arial", 13F);
             this.lbTipoUsuario.ForeColor = System.Drawing.Color.White;
-            this.lbTipoUsuario.Location = new System.Drawing.Point(59, 280);
+            this.lbTipoUsuario.Location = new System.Drawing.Point(183, 376);
             this.lbTipoUsuario.Name = "lbTipoUsuario";
-            this.lbTipoUsuario.Size = new System.Drawing.Size(109, 17);
+            this.lbTipoUsuario.Size = new System.Drawing.Size(137, 21);
             this.lbTipoUsuario.TabIndex = 19;
             this.lbTipoUsuario.Text = "Tipo de Usuario";
             // 
@@ -128,18 +89,21 @@ namespace GestionCasos
             "Administrador",
             "Normal"});
             this.cbTipoUsuario.ItemsAppearance.Parent = this.cbTipoUsuario;
-            this.cbTipoUsuario.Location = new System.Drawing.Point(62, 300);
+            this.cbTipoUsuario.Location = new System.Drawing.Point(187, 400);
             this.cbTipoUsuario.Name = "cbTipoUsuario";
             this.cbTipoUsuario.ShadowDecoration.Parent = this.cbTipoUsuario;
-            this.cbTipoUsuario.Size = new System.Drawing.Size(201, 36);
+            this.cbTipoUsuario.Size = new System.Drawing.Size(263, 36);
             this.cbTipoUsuario.TabIndex = 18;
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 18F);
             this.label3.ForeColor = System.Drawing.Color.PowderBlue;
-            this.label3.Location = new System.Drawing.Point(14, 16);
+            this.label3.Location = new System.Drawing.Point(270, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 27);
             this.label3.TabIndex = 17;
@@ -160,7 +124,7 @@ namespace GestionCasos
             this.btnRegistrar.Image = null;
             this.btnRegistrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnRegistrar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnRegistrar.Location = new System.Drawing.Point(103, 384);
+            this.btnRegistrar.Location = new System.Drawing.Point(261, 526);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
             this.btnRegistrar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -174,101 +138,106 @@ namespace GestionCasos
             this.btnRegistrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // gunaTextBox1
+            // txtContra
             // 
-            this.gunaTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(39)))));
-            this.gunaTextBox1.BorderColor = System.Drawing.Color.SeaGreen;
-            this.gunaTextBox1.BorderSize = 1;
-            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(48)))));
-            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.Aqua;
-            this.gunaTextBox1.FocusedForeColor = System.Drawing.Color.White;
-            this.gunaTextBox1.Font = new System.Drawing.Font("Arial", 9F);
-            this.gunaTextBox1.ForeColor = System.Drawing.Color.Lime;
-            this.gunaTextBox1.Location = new System.Drawing.Point(62, 227);
-            this.gunaTextBox1.Name = "gunaTextBox1";
-            this.gunaTextBox1.PasswordChar = '\0';
-            this.gunaTextBox1.Radius = 5;
-            this.gunaTextBox1.SelectedText = "";
-            this.gunaTextBox1.Size = new System.Drawing.Size(201, 36);
-            this.gunaTextBox1.TabIndex = 15;
+            this.txtContra.BackColor = System.Drawing.Color.Transparent;
+            this.txtContra.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(39)))));
+            this.txtContra.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtContra.BorderSize = 1;
+            this.txtContra.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtContra.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(48)))));
+            this.txtContra.FocusedBorderColor = System.Drawing.Color.Aqua;
+            this.txtContra.FocusedForeColor = System.Drawing.Color.White;
+            this.txtContra.Font = new System.Drawing.Font("Arial", 9F);
+            this.txtContra.ForeColor = System.Drawing.Color.Lime;
+            this.txtContra.Location = new System.Drawing.Point(187, 265);
+            this.txtContra.Name = "txtContra";
+            this.txtContra.PasswordChar = '\0';
+            this.txtContra.Radius = 5;
+            this.txtContra.SelectedText = "";
+            this.txtContra.Size = new System.Drawing.Size(263, 36);
+            this.txtContra.TabIndex = 15;
             // 
-            // txtNombreUsuario
+            // txtCedula
             // 
-            this.txtNombreUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.txtNombreUsuario.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(39)))));
-            this.txtNombreUsuario.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txtNombreUsuario.BorderSize = 1;
-            this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombreUsuario.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(48)))));
-            this.txtNombreUsuario.FocusedBorderColor = System.Drawing.Color.Aqua;
-            this.txtNombreUsuario.FocusedForeColor = System.Drawing.Color.White;
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Arial", 9F);
-            this.txtNombreUsuario.ForeColor = System.Drawing.Color.Lime;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(62, 156);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.PasswordChar = '\0';
-            this.txtNombreUsuario.Radius = 5;
-            this.txtNombreUsuario.SelectedText = "";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(201, 36);
-            this.txtNombreUsuario.TabIndex = 14;
+            this.txtCedula.BackColor = System.Drawing.Color.Transparent;
+            this.txtCedula.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(39)))));
+            this.txtCedula.BorderColor = System.Drawing.Color.SeaGreen;
+            this.txtCedula.BorderSize = 1;
+            this.txtCedula.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCedula.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(48)))));
+            this.txtCedula.FocusedBorderColor = System.Drawing.Color.Aqua;
+            this.txtCedula.FocusedForeColor = System.Drawing.Color.White;
+            this.txtCedula.Font = new System.Drawing.Font("Arial", 9F);
+            this.txtCedula.ForeColor = System.Drawing.Color.Lime;
+            this.txtCedula.Location = new System.Drawing.Point(187, 128);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.PasswordChar = '\0';
+            this.txtCedula.Radius = 5;
+            this.txtCedula.SelectedText = "";
+            this.txtCedula.Size = new System.Drawing.Size(263, 36);
+            this.txtCedula.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 11F);
+            this.label2.Font = new System.Drawing.Font("Arial", 13F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(59, 207);
+            this.label2.Location = new System.Drawing.Point(183, 244);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 17);
+            this.label2.Size = new System.Drawing.Size(103, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 11F);
+            this.label1.Font = new System.Drawing.Font("Arial", 13F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(59, 136);
+            this.label1.Location = new System.Drawing.Point(189, 107);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 17);
+            this.label1.Size = new System.Drawing.Size(67, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cedula";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Cyan;
+            this.panel1.Location = new System.Drawing.Point(20, 707);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 2);
+            this.panel1.TabIndex = 5;
             // 
             // Registrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(351, 551);
-            this.Controls.Add(this.gunaShadowPanel1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.ClientSize = new System.Drawing.Size(1041, 860);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Registrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar";
             this.Load += new System.EventHandler(this.Registrar_Load);
-            this.gunaShadowPanel1.ResumeLayout(false);
-            this.gunaShadowPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Guna.UI.WinForms.GunaShadowPanel gunaShadowPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label btnClose;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
-        private Guna.UI.WinForms.GunaTextBox txtNombreUsuario;
-        private Guna.UI.WinForms.GunaButton btnRegistrar;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel2;
-        private Guna.UI2.WinForms.Guna2ComboBox cbTipoUsuario;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbTipoUsuario;
+        private Guna.UI2.WinForms.Guna2ComboBox cbTipoUsuario;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI.WinForms.GunaButton btnRegistrar;
+        private Guna.UI.WinForms.GunaTextBox txtContra;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI.WinForms.GunaTextBox txtCedula;
+        private System.Windows.Forms.Panel panel1;
     }
 }
