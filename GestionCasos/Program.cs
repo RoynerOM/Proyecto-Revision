@@ -16,7 +16,7 @@ namespace GestionCasos
             Application.EnableVisualStyles();
 
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AsignarCaso());
+            Application.Run(new Principal());
         }
     }
 }

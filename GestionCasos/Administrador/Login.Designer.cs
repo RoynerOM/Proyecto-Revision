@@ -191,7 +191,7 @@ namespace GestionCasos
             this.btnCerrar.Image = global::GestionCasos.Properties.Resources.close;
             this.btnCerrar.Location = new System.Drawing.Point(12, 12);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(24, 25);
+            this.btnCerrar.Size = new System.Drawing.Size(26, 28);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 10;
             this.btnCerrar.TabStop = false;
@@ -199,13 +199,14 @@ namespace GestionCasos
             // 
             // pbLogo
             // 
+            this.pbLogo.BackColor = System.Drawing.Color.White;
             this.pbLogo.BaseColor = System.Drawing.Color.White;
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLogo.Image = global::GestionCasos.Properties.Resources.WhatsApp_Image_2021_06_05_at_2_44_05_PM;
+            this.pbLogo.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(273, 252);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.Size = new System.Drawing.Size(273, 254);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 14;
             this.pbLogo.TabStop = false;
             // 
@@ -214,7 +215,7 @@ namespace GestionCasos
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.ClientSize = new System.Drawing.Size(546, 252);
+            this.ClientSize = new System.Drawing.Size(546, 254);
             this.Controls.Add(this.btnLLamar);
             this.Controls.Add(this.pnTop);
             this.Controls.Add(this.btnCerrar);

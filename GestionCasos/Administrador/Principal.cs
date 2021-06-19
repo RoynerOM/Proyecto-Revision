@@ -162,15 +162,6 @@ namespace GestionCasos
         {
             OpenChildForm(new Registrar(), sender);
 
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fInstituciones(), sender);
-        }
-
-        private void btnSettings_Click_1(object sender, EventArgs e)
-        {
-            OpenChildForm(new fConfiguraciones(), sender);
-
         }
     }
 

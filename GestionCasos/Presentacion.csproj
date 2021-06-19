@@ -68,10 +68,10 @@
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
-      <HintPath>..\..\..\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System">
@@ -261,6 +261,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-AMCONSULTORES.ico" />
+    <None Include="Resources\sign_out_60px1.png" />
+    <None Include="Resources\settings_601px1.png" />
+    <None Include="Resources\group_60px1.png" />
+    <None Include="Resources\registration_60px1.png" />
+    <None Include="Resources\task_60px1.png" />
+    <None Include="Resources\organization_60px1.png" />
+    <None Include="Resources\Logo-AMCONSULTORES1.jpg" />
     <None Include="Resources\organization_60px.png" />
     <None Include="Resources\settings_601px.png" />
     <None Include="Resources\sign_out_60px.png" />

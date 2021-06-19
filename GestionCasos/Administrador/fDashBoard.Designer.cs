@@ -35,21 +35,21 @@ namespace GestionCasos
             this.pnRevisados = new Guna.UI.WinForms.GunaElipsePanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnContadores = new Guna.UI.WinForms.GunaElipsePanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnPendientes = new Guna.UI.WinForms.GunaElipsePanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.DesktopPanel.SuspendLayout();
             this.pnRevisados.SuspendLayout();
-            this.pnContadores.SuspendLayout();
-            this.pnPendientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnContadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnPendientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,6 +129,17 @@ namespace GestionCasos
             this.label6.TabIndex = 6;
             this.label6.Text = "0";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GestionCasos.Properties.Resources.task_60px;
+            this.pictureBox3.Location = new System.Drawing.Point(251, 65);
+            this.pictureBox3.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
             // pnContadores
             // 
             this.pnContadores.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -167,6 +178,17 @@ namespace GestionCasos
             this.label1.TabIndex = 2;
             this.label1.Text = "0";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.group_60px;
+            this.pictureBox1.Location = new System.Drawing.Point(238, 67);
+            this.pictureBox1.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // pnPendientes
             // 
             this.pnPendientes.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -204,28 +226,6 @@ namespace GestionCasos
             this.label4.TabIndex = 6;
             this.label4.Text = "0";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::GestionCasos.Properties.Resources.check_all_100px;
-            this.pictureBox3.Location = new System.Drawing.Point(251, 65);
-            this.pictureBox3.MinimumSize = new System.Drawing.Size(60, 60);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.group_60px;
-            this.pictureBox1.Location = new System.Drawing.Point(238, 67);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(60, 60);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GestionCasos.Properties.Resources.data_pending_60px;
@@ -249,12 +249,12 @@ namespace GestionCasos
             this.DesktopPanel.ResumeLayout(false);
             this.pnRevisados.ResumeLayout(false);
             this.pnRevisados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnContadores.ResumeLayout(false);
             this.pnContadores.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnPendientes.ResumeLayout(false);
             this.pnPendientes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 

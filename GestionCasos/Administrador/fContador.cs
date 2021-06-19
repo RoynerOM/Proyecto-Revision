@@ -214,7 +214,7 @@ namespace GestionCasos.Administrador
 
                     var datos = negocio.obtenerPorId(contador);
                    
-                    if (negocio.modificar(datos) == true)
+                    if (negocio.eliminar(datos) == true)
                     {
                         Message.Success(new Alertas.Alerta(), "El contador fue eliminado con exito");
                         LimpiarCampos();
