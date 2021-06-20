@@ -132,7 +132,7 @@ namespace GestionCasos
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GestionCasos.Properties.Resources.task_60px;
-            this.pictureBox3.Location = new System.Drawing.Point(251, 65);
+            this.pictureBox3.Location = new System.Drawing.Point(251, 52);
             this.pictureBox3.MinimumSize = new System.Drawing.Size(60, 60);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(60, 60);
@@ -181,7 +181,7 @@ namespace GestionCasos
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GestionCasos.Properties.Resources.group_60px;
-            this.pictureBox1.Location = new System.Drawing.Point(238, 67);
+            this.pictureBox1.Location = new System.Drawing.Point(251, 55);
             this.pictureBox1.MinimumSize = new System.Drawing.Size(60, 60);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(60, 60);
@@ -229,7 +229,7 @@ namespace GestionCasos
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GestionCasos.Properties.Resources.data_pending_60px;
-            this.pictureBox2.Location = new System.Drawing.Point(243, 67);
+            this.pictureBox2.Location = new System.Drawing.Point(242, 55);
             this.pictureBox2.MinimumSize = new System.Drawing.Size(60, 60);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(60, 60);

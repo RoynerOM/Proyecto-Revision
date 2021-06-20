@@ -54,7 +54,7 @@ namespace GestionCasos
             this.panel3.Controls.Add(this.txtCedula);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(198, 30);
+            this.panel3.Location = new System.Drawing.Point(7, 30);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(638, 650);
             this.panel3.TabIndex = 4;
@@ -213,7 +213,7 @@ namespace GestionCasos
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
-            this.ClientSize = new System.Drawing.Size(1041, 860);
+            this.ClientSize = new System.Drawing.Size(659, 728);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

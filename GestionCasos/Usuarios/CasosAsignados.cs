@@ -135,6 +135,7 @@ namespace GestionCasos.Usuarios
         private void CasosAsignados_Load(object sender, EventArgs e)
         {
             PintarTatjetas();
+            SetThemeColor();
         }
 
         private void tabla_Resize(object sender, EventArgs e)
@@ -144,6 +145,33 @@ namespace GestionCasos.Usuarios
 
 
 
+        }
+
+        private void SetThemeColor()
+        {
+            if (isDark == "false")
+            {
+
+                this.panel1.BackColor = Colors.White;
+                this.panel1.ForeColor = Colors.Black;
+
+                tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.Blue;
+                tabla.ColumnHeadersDefaultCellStyle.ForeColor = Colors.White;
+                tabla.RowHeadersDefaultCellStyle.BackColor = Colors.White;
+                tabla.RowHeadersDefaultCellStyle.ForeColor = Colors.Black;
+                tabla.RowsDefaultCellStyle.BackColor = Colors.White;
+                tabla.RowsDefaultCellStyle.ForeColor = Colors.Black;
+                tabla.RowHeadersDefaultCellStyle.SelectionBackColor = Colors.Gray;
+                tabla.RowsDefaultCellStyle.SelectionBackColor = Colors.Gray;
+                tabla.BackgroundColor = Color.White;
+                gunaLabel1.ForeColor = Colors.Black;
+                gunaLabel2.ForeColor = Colors.Black;
+                gunaLabel3.ForeColor = Colors.Black;
+            }
+            else
+            {
+
+            }
         }
     }
 }

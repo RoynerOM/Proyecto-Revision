@@ -23,8 +23,6 @@ namespace GestionCasos
             InitializeComponent();
             this.DoubleBuffered = true;
         }
-
-        Registrar llamarRegistrar = new Registrar();
         private void Principal_Load(object sender, EventArgs e)
         {
             SetPanelDefault();
