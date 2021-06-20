@@ -26,5 +26,15 @@ namespace GestionCasos.Usuarios
         {
             VentanasAbiertas.Form = this;
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaButton2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

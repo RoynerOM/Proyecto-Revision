@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 using Transitions;
+using Utilidades;
+
 namespace GestionCasos.Usuarios
 {
     public partial class CasosAsignados : Form
     {
         Form enUso = null;
         int ventanasAbiertas = 0;
-
+        string isDark = ConfigurationManager.AppSettings["DarkMode"];
         //Datos de prueba
         List<CasosFalsos> casos = new List<CasosFalsos>() {
-        new CasosFalsos(){ Caso="R-0001",Fecha="2020/02/10",Junta="Teodoro picado institucion o junta",Recepcion="Correo Electronico",Persona="JOSUE JARA ESCOBAR",Comentario="No tiene comentario",Estado= false},
-        new CasosFalsos(){ Caso="R-0002",Fecha="2021/02/05",Junta="Teodoro picado institucion o junta",Recepcion="Whatsapp",Persona="JOSUE JARA ESCOBAR",Comentario="No tiene comentario",Estado= true},
-        new CasosFalsos(){ Caso="R-0003",Fecha="2021/04/05",Junta="Teodoro picado institucion o junta",Recepcion="Oficina",Persona="JOSUE JARA ESCOBAR",Comentario="Documentos incompletos y mal estructurado",Estado= true},
-        new CasosFalsos(){ Caso="R-0004",Fecha="2021/01/05",Junta="Teodoro picado institucion o junta",Recepcion="Mensajero",Persona="JOSUE JARA ESCOBAR",Comentario="Todos los documentos revisados",Estado= true},
-        new CasosFalsos(){ Caso="R-0005",Fecha="2020/02/10",Junta="Teodoro picado institucion o junta",Recepcion="Correo Electronico",Persona="JOSUE JARA ESCOBAR",Comentario="No tiene comentario",Estado= false},
-        new CasosFalsos(){ Caso="R-0005",Fecha="2020/02/10",Junta="Teodoro picado institucion o junta",Recepcion="Correo Electronico",Persona="JOSUE JARA ESCOBAR",Comentario="No tiene comentario",Estado= false},
-        new CasosFalsos(){ Caso="R-0006",Fecha="2021/02/05",Junta="Teodoro picado institucion o junta",Recepcion="Whatsapp",Persona="SHIRLENY VEGA ESPINOZA",Comentario="No tiene comentario",Estado= false},
-        new CasosFalsos(){ Caso="R-0007",Fecha="2021/04/05",Junta="Teodoro picado institucion o junta",Recepcion="Oficina",Persona="GLORIANNA ACEVEDO LEDEZMA",Comentario="Documentos incompletos y mal estructurado",Estado= true},
+        new CasosFalsos(){ Caso="R-0001",Fecha="2020/02/10",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Correo Electronico",Persona="JOSUE JARA ESCOBAR",Comentario="No tiene comentario",Estado= "Pendiente"},
+        new CasosFalsos(){ Caso="R-0002",Fecha="2021/02/05",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Whatsapp",Persona="BAYRON HERNÁNDEZ DÍAZ",Comentario="No tiene comentario",Estado= "Tramitado"},
+        new CasosFalsos(){ Caso="R-0003",Fecha="2021/04/05",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Oficina",Persona="ALONSO CASTILLO LEDEZMA",Comentario="Documentos incompletos y mal estructurado",Estado= "En Revision"},
+        new CasosFalsos(){ Caso="R-0004",Fecha="2021/01/05",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Mensajero",Persona="YEIMY BARRANTES ARTAVIA",Comentario="Todos los documentos revisados",Estado= "Tramitado"},
+        new CasosFalsos(){ Caso="R-0005",Fecha="2020/02/10",Codigo=0100000,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Correo Electronico",Persona="JENIFFER ARROYO CAJINA",Comentario="No tiene comentario",Estado= "En revision"},
         };
 
         public CasosAsignados()
@@ -38,17 +38,44 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[2].Value = item.Junta.ToUpper();
                 tabla.Rows[nRows].Cells[3].Value = item.Recepcion.ToUpper();
                 tabla.Rows[nRows].Cells[4].Value = item.Comentario;
-                tabla.Rows[nRows].Cells[5].Value = item.Estado == false ? "Pendiente".ToUpper() : "Revisado".ToUpper();
+                tabla.Rows[nRows].Cells[5].Value = item.Estado.ToUpper();
 
-                if (item.Estado == false)
+                if (item.Estado.ToUpper() == "PENDIENTE")
                 {
-                    tabla.Rows[nRows].Cells[5].Style.ForeColor = Color.FromArgb(248, 81, 73);
-                    tabla.Rows[nRows].Cells[5].Style.BackColor = Color.FromArgb(50, 24, 32);
+                    if (isDark == "false")
+                    {
+                        tabla.Rows[nRows].Cells[5].Style.ForeColor = Colors.RedFont;
+                        tabla.Rows[nRows].Cells[5].Style.BackColor = Colors.RedBack;
+                    }
+                    else
+                    {
+                        tabla.Rows[nRows].Cells[5].Style.ForeColor = Color.FromArgb(248, 81, 73);
+                        tabla.Rows[nRows].Cells[5].Style.BackColor = Color.FromArgb(50, 24, 32);
+                    }
+                }
+                else if (item.Estado.ToUpper() == "TRAMITADO")
+                {
+                    if (isDark == "false")
+                    {
+                        tabla.Rows[nRows].Cells[5].Style.ForeColor = Colors.GreenFont;
+                        tabla.Rows[nRows].Cells[5].Style.BackColor = Colors.GreenBack;
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else
                 {
-                    tabla.Rows[nRows].Cells[5].Style.ForeColor = Color.FromArgb(46, 160, 67);
-                    tabla.Rows[nRows].Cells[5].Style.BackColor = Color.FromArgb(11, 38, 40);
+                    if (isDark == "false")
+                    {
+                        tabla.Rows[nRows].Cells[5].Style.ForeColor = Colors.OrangeFont;
+                        tabla.Rows[nRows].Cells[5].Style.BackColor = Colors.OrangeBack;
+                    }
+                    else
+                    {
+
+                    }
                 }
 
                 tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;

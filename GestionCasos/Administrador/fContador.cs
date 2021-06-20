@@ -226,5 +226,17 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex.Message);
             }
         }
+
+        private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTipo.SelectedText == "Nacional")
+            {
+                txtCedula.Mask = "0-0000-0000";
+            }
+            else
+            {
+                txtCedula.Mask = "0-0000-0000-0";
+            }
+        }
     }
 }

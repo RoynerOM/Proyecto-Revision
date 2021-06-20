@@ -73,6 +73,27 @@
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
@@ -104,7 +125,7 @@
     <Compile Include="Administrador\fInstituciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador\fInstituciones.Designer.cs">
+    <Compile Include="Administrador\fInstituciones.designer.cs">
       <DependentUpon>fInstituciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Alertas\Alerta.cs">
@@ -152,11 +173,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Administrador\InformacionCasosAdmin.cs">
+    <Compile Include="Administrador\fCasosAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administrador\.Designer.cs">
-      <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
+      <DependentUpon>fCasosAdmin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administrador\Registrar.cs">
@@ -165,6 +186,7 @@
     <Compile Include="Administrador\Registrar.Designer.cs">
       <DependentUpon>Registrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Usuarios\AgregarComentario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,8 +237,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Administrador\InformacionCasosAdmin.resx">
-      <DependentUpon>InformacionCasosAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Administrador\fCasosAdmin.resx">
+      <DependentUpon>fCasosAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Registrar.resx">
       <DependentUpon>Registrar.cs</DependentUpon>
@@ -261,6 +283,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-AMCONSULTORES.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\sign_out_60px1.png" />
     <None Include="Resources\settings_601px1.png" />
     <None Include="Resources\group_60px1.png" />
@@ -317,6 +352,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
