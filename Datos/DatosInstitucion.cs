@@ -71,7 +71,15 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    return (from query in db.t_Institucion where query.Codigo == e.Codigo select query).FirstOrDefault();
+                    IQueryable<t_Institucion> consulta = (IQueryable<t_Institucion>)db.t_Institucion.Find(e.Codigo);
+                    if (consulta != null)
+                    {
+                        return (t_Institucion)consulta;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
             }
 
@@ -88,7 +96,15 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    return db.t_Institucion.ToList();
+                    IQueryable<t_Institucion> consulta = (IQueryable<t_Institucion>)db.t_Institucion.ToList();
+                    if (consulta != null)
+                    {
+                        return consulta;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
             }
 
