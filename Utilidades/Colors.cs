@@ -29,5 +29,10 @@ namespace Utilidades
         //Pending
         public static Color OrangeBack = Color.FromArgb(252,244, 219);
         public static Color OrangeFont = Color.FromArgb(242, 201, 76);
+
+
+        //Purple
+        public static Color DarkBack = Color.FromArgb(20, 22, 37);
+        public static Color DarkPanel = Color.FromArgb(31, 33, 58);
     }
 }

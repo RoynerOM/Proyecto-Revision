@@ -128,6 +128,12 @@
     <Compile Include="Administrador\fInstituciones.designer.cs">
       <DependentUpon>fInstituciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\fMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\fMenu.Designer.cs">
+      <DependentUpon>fMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alertas\Alerta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fInstituciones.resx">
       <DependentUpon>fInstituciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\fMenu.resx">
+      <DependentUpon>fMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\Alerta.resx">
       <DependentUpon>Alerta.cs</DependentUpon>
@@ -286,6 +295,10 @@
     <None Include="Resources\add_60px.png" />
     <None Include="Resources\add_40px.png" />
     <None Include="Resources\pdf_40px.png" />
+    <None Include="Resources\squared_menu_60px.png" />
+    <None Include="Resources\group_60px2.png" />
+    <None Include="Resources\new_moon_60px.png" />
+    <None Include="Resources\sun_60px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

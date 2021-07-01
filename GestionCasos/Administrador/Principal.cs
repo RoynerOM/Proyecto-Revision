@@ -76,21 +76,11 @@ namespace GestionCasos
             login.Show();
         }
 
-
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fContador(), sender);
-        }
-
-        private void btnAsignarCasos_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new AsignarCaso(), sender);
-        }
-
         private void btnDashBoard_MouseEnter(object sender, EventArgs e)
         {
             btnDashBoard.BackColor = Color.FromArgb(9, 12, 16);
         }
+
         private void ActiveButton(object btnSender)
         {
             if (btnSender != null)
@@ -160,6 +150,16 @@ namespace GestionCasos
         {
             OpenChildForm(new Registrar(), sender);
 
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fConfiguraciones(), sender);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fMenu(), sender);
         }
     }
 

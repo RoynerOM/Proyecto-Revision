@@ -56,7 +56,7 @@ namespace GestionCasos.Administrador
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             this.panel1.Controls.Add(this.gunaButton4);
             this.panel1.Controls.Add(this.gunaButton3);
             this.panel1.Controls.Add(this.gunaButton2);
