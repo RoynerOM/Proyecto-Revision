@@ -283,6 +283,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo-AMCONSULTORES.ico" />
+    <None Include="Resources\add_60px.png" />
+    <None Include="Resources\add_40px.png" />
+    <None Include="Resources\pdf_40px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

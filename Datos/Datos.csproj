@@ -53,22 +53,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatosContador.cs" />
-    <Compile Include="DatosDireccionRegional.cs" />
-    <Compile Include="DatosInstitucion.cs" />
-    <Compile Include="DatosRevision.cs" />
-    <Compile Include="DatosTipoInstitucion.cs" />
-    <Compile Include="DatosUsuario.cs" />
-    <Compile Include="JuntasBD.Context.cs">
+    <Compile Include="BD_Juntas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>JuntasBD.Context.tt</DependentUpon>
+      <DependentUpon>BD_Juntas.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="JuntasBD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>JuntasBD.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DatosContador.cs" />
+    <Compile Include="DatosDireccionRegional.cs" />
+    <Compile Include="DatosInstitucion.cs" />
+    <Compile Include="DatosRevision.cs" />
+    <Compile Include="DatosTipoInstitucion.cs" />
+    <Compile Include="DatosUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,27 +82,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="JuntasBD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>JuntasBD.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="JuntasBD.edmx.diagram">
       <DependentUpon>JuntasBD.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="JuntasBD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>JuntasBD.Context.cs</LastGenOutput>
-      <DependentUpon>JuntasBD.edmx</DependentUpon>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="BD_Juntas.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JuntasBD.edmx</DependentUpon>
+      <LastGenOutput>BD_Juntas.Context.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

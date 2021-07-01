@@ -11,18 +11,45 @@ namespace GestionCasos.Administrador
     public partial class fInstituciones : Form
     {
         t_Institucion institucion = new t_Institucion();
+        ContadorNegocio persona = new ContadorNegocio();
+        DireccionRegionalNegocio regional = new DireccionRegionalNegocio();
         InstitucionNegocio negocio = new InstitucionNegocio();
         showMessageDialog message = new showMessageDialog();
         public fInstituciones()
         {
             InitializeComponent();
+            CargarCombos();
         }
 
         private void fInstituciones_Load(object sender, System.EventArgs e)
         {
             SetThemeColor();
+
         }
 
+        void CargarCombos()
+        {
+            try
+            {
+                //Combo box de circuito
+                cbCircuito.DataSource = regional.obtenerTodo(new t_Direccion_Regional());
+                cbCircuito.DisplayMember = "Circuito";
+                cbCircuito.ValueMember = "Circuito";
+
+                //Combo box de Contador
+                cbContador.DataSource = persona.obtenerTodo(new t_Persona());
+                cbContador.ValueMember = "Cedula";
+                cbContador.DisplayMember = "Nombre_Completo";
+
+
+                cbTipo.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+        }
         //Cambio de color
         private void SetThemeColor()
         {
@@ -49,9 +76,45 @@ namespace GestionCasos.Administrador
         }
 
 
+
+        void labelColorChnage()
+        {
+            label1.ForeColor = Colors.Black;
+            label2.ForeColor = Colors.Black;
+            label3.ForeColor = Colors.Black;
+            label4.ForeColor = Colors.Black;
+            label5.ForeColor = Colors.Black;
+            label6.ForeColor = Colors.Black;
+            label7.ForeColor = Colors.Black;
+            label8.ForeColor = Colors.Black;
+
+            if (txtCodigo.Text == string.Empty)
+            {
+                label1.ForeColor = Colors.RedFont;
+            }
+            if (txtCuentaLey.Text.Length < 17)
+            {
+                label8.ForeColor = Colors.RedFont;
+            }
+            if (txtInstitucion.Text == string.Empty)
+            {
+                label4.ForeColor = Colors.RedFont;
+            }
+            if (txtCuentaDanea.Text.Length < 17)
+            {
+                label7.ForeColor = Colors.RedFont;
+            }
+            if (txtCedulaJuridica.Text.Length < 7)
+            {
+                label6.ForeColor = Colors.RedFont;
+            }
+        }
+
+
         //Validar campos
         public bool ValidarCampos()
         {
+            labelColorChnage();
             if (txtCodigo.Text == string.Empty)
             {
                 return false;
@@ -65,6 +128,10 @@ namespace GestionCasos.Administrador
                 return false;
             }
             else if (txtCuentaDanea.Text == string.Empty)
+            {
+                return false;
+            }
+            else if (txtCedulaJuridica.Text == string.Empty)
             {
                 return false;
             }
@@ -83,21 +150,29 @@ namespace GestionCasos.Administrador
                 if (ValidarCampos() == true)
                 {
                     institucion.Codigo = int.Parse(txtCodigo.Text);
-                    institucion.Cuenta_Ley = txtCuentaLey.Text;
-                    institucion.Nombre = txtInstitucion.Text;
-                    institucion.Contador = cbContador.SelectedValue.ToString();
-                    institucion.Cuenta_Danea = txtCuentaDanea.Text;
-                    institucion.Cedula_Juridica = txtCedulaJuridica.Text;
-                    institucion.Circuito = (int)cbCircuito.SelectedValue;
-                    institucion.Tipo = (int)cbTipo.SelectedValue;
-
-                    if (negocio.guardar(institucion) == true)
+                   if(negocio.obtenerPorId(institucion) == null)
                     {
-                        message.Success(new Alertas.Alerta(), "La Junta se guardo correctamente");
+                        institucion.Codigo = int.Parse(txtCodigo.Text);
+                        institucion.Cuenta_Ley = txtCuentaLey.Text;
+                        institucion.Nombre = txtInstitucion.Text;
+                        institucion.Contador = cbContador.SelectedValue.ToString();
+                        institucion.Cuenta_Danea = txtCuentaDanea.Text;
+                        institucion.Cedula_Juridica = txtCedulaJuridica.Text;
+                        institucion.Circuito = (int)cbCircuito.SelectedValue;
+                        institucion.Tipo = (int)cbTipo.SelectedValue;
+
+                        if (negocio.guardar(institucion) == true)
+                        {
+                            message.Success(new Alertas.Alerta(), "La Junta se guardo correctamente");
+                        }
+                        else
+                        {
+                            message.Danger(new Alertas.Alerta(), "No se pudo guardar la junta");
+                        }
                     }
                     else
                     {
-                        message.Danger(new Alertas.Alerta(), "No se pudo guardar la junta");
+                        message.Danger(new Alertas.Alerta(), "No se pudo guardar. Institucion o junta ya existe");
                     }
                 }
             }
@@ -123,18 +198,18 @@ namespace GestionCasos.Administrador
                         txtCuentaDanea.Text = datosEncotrados.Cuenta_Danea;
                         txtInstitucion.Text = datosEncotrados.Nombre;
                         txtCedulaJuridica.Text = datosEncotrados.Cedula_Juridica;
-                        //cbTipo.Text = datosEncotrados.Tipo
-                        cbContador.Text = datosEncotrados.t_Contador.Nombre_Completo;
+                        cbTipo.SelectedIndex = datosEncotrados.Tipo;
+                        cbContador.Text = datosEncotrados.t_Persona.Nombre_Completo;
                         cbCircuito.Text = datosEncotrados.Circuito.ToString();
                     }
                     else
                     {
-                        message.Danger(new Alertas.Alerta(), "No se encontro el contador, por favor ingrese una cedula valida");
+                        message.Danger(new Alertas.Alerta(), "No se encontro la institucion o junta, por favor ingrese una codigo valido");
                     }
                 }
                 else
                 {
-                    message.Warning(new Alertas.Alerta(), "Debe de ingresar una cedula antes de buscar un contador");
+                    message.Warning(new Alertas.Alerta(), "Debe de ingresar un codigo antes de buscar una institucion");
                 }
             }
             catch (Exception ex)

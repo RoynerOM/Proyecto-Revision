@@ -56,8 +56,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Estado.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mensajeria.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="t_Contador.cs">
+    <Compile Include="t_Boleta.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="t_Direccion_Regional.cs">
@@ -66,10 +72,16 @@
     <Compile Include="t_Institucion.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="t_Persona.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="t_Revision.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="t_Tipo_Institucion.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="t_Trabajador.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="t_Usuario.cs">

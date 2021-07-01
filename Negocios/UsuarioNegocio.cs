@@ -32,7 +32,7 @@ namespace Negocios
 
             using (BD_JuntasEntities context = new BD_JuntasEntities())
             {
-                var cedula = context.t_Contador.FirstOrDefault(x => x.Cedula == ced);
+                var cedula = context.t_Persona.FirstOrDefault(x => x.Cedula == ced);
                 var v_cedula = context.t_Usuario.FirstOrDefault(x => x.Cedula == ced);
 
                 if (cedula != null && v_cedula == null)

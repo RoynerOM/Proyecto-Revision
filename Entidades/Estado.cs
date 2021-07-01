@@ -12,19 +12,18 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class t_Direccion_Regional
+    public partial class Estado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public t_Direccion_Regional()
+        public Estado()
         {
-            this.t_Institucion = new HashSet<t_Institucion>();
+            this.t_Revision = new HashSet<t_Revision>();
         }
     
-        public int Circuito { get; set; }
-        public string Direccion_Regional { get; set; }
-        public bool Estado { get; set; }
+        public int id { get; set; }
+        public string TipoEstado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<t_Institucion> t_Institucion { get; set; }
+        public virtual ICollection<t_Revision> t_Revision { get; set; }
     }
 }

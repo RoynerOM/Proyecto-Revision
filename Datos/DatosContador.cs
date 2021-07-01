@@ -6,16 +6,16 @@ using System.Linq;
 namespace Datos
 {
     //
-    public class DatosContador : ICrud<t_Contador>
+    public class DatosContador : ICrud<t_Persona>
     {
-        public bool eliminar(t_Contador e)
+        public bool eliminar(t_Persona e)
         {
             //throw new NotImplementedException();
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    db.Entry<t_Contador>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<t_Persona>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;
@@ -31,13 +31,13 @@ namespace Datos
 
 
         //Metodo de Guardar un contador
-        public bool guardar(t_Contador e)
+        public bool guardar(t_Persona e)
         {
             using (var db = new BD_JuntasEntities())
             {
                 try
                 {
-                    db.t_Contador.Add(e);
+                    db.t_Persona.Add(e);
                     db.SaveChanges();
                     return true;
                 }
@@ -51,14 +51,14 @@ namespace Datos
 
 
 
-        public bool modificar(t_Contador e)
+        public bool modificar(t_Persona e)
         {
             //throw new NotImplementedException();
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    db.Entry<t_Contador>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<t_Persona>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;
@@ -74,13 +74,13 @@ namespace Datos
 
 
         //Metodo de obtener contador por cedula
-        public t_Contador obtenerPorId(t_Contador e)
+        public t_Persona obtenerPorId(t_Persona e)
         {
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    return (from query in db.t_Contador where query.Cedula == e.Cedula select query).FirstOrDefault();
+                    return (from query in db.t_Persona where query.Cedula == e.Cedula select query).FirstOrDefault();
                 }
             }
 
@@ -94,14 +94,14 @@ namespace Datos
 
 
         //Metodo que para obtener la lista de los contadores
-        public IEnumerable<t_Contador> obtenerTodo(t_Contador e)
+        public IEnumerable<t_Persona> obtenerTodo(t_Persona e)
         {
 
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    return (from query in db.t_Contador select query).ToList();
+                    return (from query in db.t_Persona select query).ToList();
                 }
             }
 
@@ -114,7 +114,7 @@ namespace Datos
 
         public int CantidadContadores()
         {
-            return obtenerTodo(new t_Contador()).Count();
+            return obtenerTodo(new t_Persona()).Count();
         }
     }
 }

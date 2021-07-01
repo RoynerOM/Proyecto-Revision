@@ -12,12 +12,10 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class t_Usuario
+    public partial class t_Trabajador
     {
-        public int Id_Usuario { get; set; }
         public string Cedula { get; set; }
-        public string Clave { get; set; }
-        public bool Estado { get; set; }
+        public Nullable<int> Tipo { get; set; }
     
         public virtual t_Persona t_Persona { get; set; }
     }

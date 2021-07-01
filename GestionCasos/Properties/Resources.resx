@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="WhatsApp Image 2021-06-05 at 2.44.05 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WhatsApp Image 2021-06-05 at 2.44.05 PM.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sign_out_60px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sign_out_60px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Logo-AMCONSULTORES" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo-AMCONSULTORES.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,17 +157,23 @@
   <data name="WhatsApp Image 2021-06-05 at 2.33.30 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhatsApp Image 2021-06-05 at 2.33.30 PM.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit_graph_report_100px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit_graph_report_100px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bug_60px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bug_60px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="organization_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\organization_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="light_dimming_off_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light_dimming_off_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dashboard_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dashboard_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="organization_60px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\organization_60px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dashboard_60px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dashboard_60px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bug_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bug_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,23 +187,14 @@
   <data name="task_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\task_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="error_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\error_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="group_60px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\group_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="okpx" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\okpx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="group_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\group_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="edit_graph_report_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_graph_report_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="report_file_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\report_file_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="light_dimming_off_48px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\light_dimming_off_48px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,14 +220,20 @@
   <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dashboard_60px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dashboard_60px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="group_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\group_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WhatsApp Image 2021-06-05 at 2.44.05 PM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WhatsApp Image 2021-06-05 at 2.44.05 PM.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="edit_graph_report_100px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit_graph_report_100px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="report_file_240px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_file_240px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_601px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings_601px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="check_all_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check_all_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,8 +241,8 @@
   <data name="camara" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\camara.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bug_60px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bug_60px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="error_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,16 +250,16 @@
   <data name="robot-2186155_1920" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\robot-2186155_1920.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings_601px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings_601px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="report_file_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_file_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="light_dimming_off_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\light_dimming_off_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="organization_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\organization_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_601px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_601px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sign_out_60px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sign_out_60px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pdf_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pdf_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

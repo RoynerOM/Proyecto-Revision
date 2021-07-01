@@ -10,7 +10,7 @@ namespace GestionCasos.Administrador
 {
     public partial class fContador : Form
     {
-        t_Contador contador = new t_Contador();
+        t_Persona contador = new t_Persona();
         ContadorNegocio negocio = new ContadorNegocio();
 
         //Alertas
@@ -25,21 +25,25 @@ namespace GestionCasos.Administrador
 
         private void fContador_Load(object sender, EventArgs e)
         {
+            cbTipo.SelectedIndex = 0;
             SetThemeColor();
         }
+
+        //Cambio de color
         private void SetThemeColor()
         {
             if (ConfigurationManager.AppSettings["DarkMode"] == "false")
             {
 
-                this.panel1.BackColor = Color.White; 
-                this.panel1.ForeColor = Color.FromArgb(9, 12,16);
+                this.panel1.BackColor = Color.White;
+                this.panel1.ForeColor = Colors.Black;
 
-                label1.ForeColor = Color.FromArgb(9, 12, 16);
-                label2.ForeColor = Color.FromArgb(9, 12, 16);
-                label3.ForeColor = Color.FromArgb(9, 12, 16);
-                label4.ForeColor = Color.FromArgb(9, 12, 16);
-                label5.ForeColor = Color.FromArgb(9, 12, 16);
+                label1.ForeColor = Colors.Black;
+                label2.ForeColor = Colors.Black;
+                label3.ForeColor = Colors.Black;
+                label4.ForeColor = Colors.Black;
+                label5.ForeColor = Colors.Black;
+                label6.ForeColor = Colors.Black;
 
             }
             else
@@ -73,23 +77,33 @@ namespace GestionCasos.Administrador
                 //Validamos los campos
                 if (ValidarCampos() == true)
                 {
-                    //Cargarmos el modelo con los datos del formulario
                     contador.Cedula = txtCedula.Text;
-                    contador.Nombre = txtNombre.Text.ToUpper();
-                    contador.Apellido1 = txtApellido1.Text.ToUpper();
-                    contador.Apellido2 = txtApellido2.Text.ToUpper();
-
-                    //Ejecutamos el metodo de guardar y le mandamos el modelo contador ya cargado de datos
-                    if (negocio.guardar(contador) == true)
+                    if(negocio.obtenerPorId(contador) == null)
                     {
-                        //En caso de que se ejecute correctamente
-                        Message.Success(new Alertas.Alerta(), "El contador se guardo correctamente");
-                        LimpiarCampos();
+                        //Cargarmos el modelo con los datos del formulario
+                        contador.TipoId = cbTipo.SelectedIndex;
+                        contador.Cedula = txtCedula.Text;
+                        contador.Carnet = txtCarne.Text;
+                        contador.Nombre = txtNombre.Text.ToUpper();
+                        contador.Apellido1 = txtApellido1.Text.ToUpper();
+                        contador.Apellido2 = txtApellido2.Text.ToUpper();
+
+                        //Ejecutamos el metodo de guardar y le mandamos el modelo contador ya cargado de datos
+                        if (negocio.guardar(contador) == true)
+                        {
+                            //En caso de que se ejecute correctamente
+                            Message.Success(new Alertas.Alerta(), "El contador se guardo correctamente");
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            //En caso de que se ocurra un error
+                            Message.Danger(new Alertas.Alerta(), "No se pudo guardar");
+                        }
                     }
                     else
                     {
-                        //En caso de que se ocurra un error
-                        Message.Danger(new Alertas.Alerta(), "No se pudo guardar");
+                        Message.Danger(new Alertas.Alerta(), "Error al guardar. La persona ya existe ");
                     }
                 }
             }
@@ -114,6 +128,8 @@ namespace GestionCasos.Administrador
                         txtNombre.Text = datosEncotrados.Nombre;
                         txtApellido1.Text = datosEncotrados.Apellido1;
                         txtApellido2.Text = datosEncotrados.Apellido2;
+                        txtCarne.Text = datosEncotrados.Carnet;
+                        cbTipo.SelectedIndex = (int)datosEncotrados.TipoId;
                     }
                     else
                     {
@@ -132,8 +148,43 @@ namespace GestionCasos.Administrador
         }
 
         //Validaciones de los campo del formualarios
+        //Falta camboar el color del texto cuando este vacio
+        void labelColorChange()
+        {
+            label1.ForeColor = Colors.Black;
+            label2.ForeColor = Colors.Black;
+            label3.ForeColor = Colors.Black;
+            label4.ForeColor = Colors.Black;
+            label5.ForeColor = Colors.Black;
+            label6.ForeColor = Colors.Black;
+
+            if (txtCedula.Text.Length < 8)
+            {
+                label1.ForeColor = Colors.RedFont;
+            }
+            if (txtNombre.Text == string.Empty)
+            {
+                label2.ForeColor = Colors.RedFont;
+            }
+            if (txtApellido1.Text == string.Empty)
+            {
+                label3.ForeColor = Colors.RedFont;
+            }
+            if (txtApellido2.Text == string.Empty)
+            {
+                label4.ForeColor = Colors.RedFont;
+            }
+            if (txtCarne.Text == string.Empty)
+            {
+                label6.ForeColor = Colors.RedFont;
+            }
+        }
+
+
         public bool ValidarCampos()
         {
+            labelColorChange();
+
             if (txtCedula.Text == string.Empty)
             {
                 Message.Danger(new Alertas.Alerta(), "El campo de cedula no puede ser vacio");
@@ -153,12 +204,17 @@ namespace GestionCasos.Administrador
             {
                 Message.Danger(new Alertas.Alerta(), "El campo de segundo apellido no puede ser vacio");
                 return false;
+            }else if (txtCarne.Text == string.Empty)
+            {
+                Message.Danger(new Alertas.Alerta(), "El campo de carnet no puede ser vacio");
+                return false;
             }
             else
             {
                 return true;
             }
         }
+
 
 
         public void LimpiarCampos()
@@ -169,11 +225,14 @@ namespace GestionCasos.Administrador
             txtApellido2.ResetText();
         }
 
+
+
         private void label5_Click(object sender, EventArgs e)
         {
 
         }
 
+        //Actualizar
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
@@ -202,6 +261,7 @@ namespace GestionCasos.Administrador
             }
         }
 
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -227,9 +287,10 @@ namespace GestionCasos.Administrador
             }
         }
 
+
         private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbTipo.SelectedText == "Nacional")
+            if (cbTipo.SelectedIndex == 0)
             {
                 txtCedula.Mask = "0-0000-0000";
             }

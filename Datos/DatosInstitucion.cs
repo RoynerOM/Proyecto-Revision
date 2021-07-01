@@ -71,10 +71,10 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    IQueryable<t_Institucion> consulta = (IQueryable<t_Institucion>)db.t_Institucion.Find(e.Codigo);
+                    var consulta = db.t_Institucion.Include("t_Persona").FirstOrDefault( x=>  x.Codigo == e.Codigo);
                     if (consulta != null)
                     {
-                        return (t_Institucion)consulta;
+                        return consulta;
                     }
                     else
                     {
