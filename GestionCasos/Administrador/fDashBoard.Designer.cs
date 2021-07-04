@@ -32,6 +32,9 @@ namespace GestionCasos
             this.DesktopPanel = new System.Windows.Forms.Panel();
             this.gunaElipsePanel5 = new Guna.UI.WinForms.GunaElipsePanel();
             this.gunaElipsePanel4 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pnRevisados = new Guna.UI.WinForms.GunaElipsePanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,18 +47,15 @@ namespace GestionCasos
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.DesktopPanel.SuspendLayout();
             this.gunaElipsePanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnRevisados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnContadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnPendientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // DesktopPanel
@@ -69,7 +69,7 @@ namespace GestionCasos
             this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DesktopPanel.Location = new System.Drawing.Point(0, 0);
             this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1008, 682);
+            this.DesktopPanel.Size = new System.Drawing.Size(860, 682);
             this.DesktopPanel.TabIndex = 2;
             this.DesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DesktopPanel_Paint);
             // 
@@ -79,7 +79,7 @@ namespace GestionCasos
             this.gunaElipsePanel5.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gunaElipsePanel5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            this.gunaElipsePanel5.Location = new System.Drawing.Point(129, 418);
+            this.gunaElipsePanel5.Location = new System.Drawing.Point(55, 364);
             this.gunaElipsePanel5.Name = "gunaElipsePanel5";
             this.gunaElipsePanel5.Radius = 20;
             this.gunaElipsePanel5.Size = new System.Drawing.Size(768, 296);
@@ -94,11 +94,44 @@ namespace GestionCasos
             this.gunaElipsePanel4.Controls.Add(this.label7);
             this.gunaElipsePanel4.Controls.Add(this.label8);
             this.gunaElipsePanel4.Controls.Add(this.pictureBox4);
-            this.gunaElipsePanel4.Location = new System.Drawing.Point(554, 190);
+            this.gunaElipsePanel4.Location = new System.Drawing.Point(480, 190);
             this.gunaElipsePanel4.Name = "gunaElipsePanel4";
             this.gunaElipsePanel4.Radius = 20;
             this.gunaElipsePanel4.Size = new System.Drawing.Size(343, 147);
             this.gunaElipsePanel4.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(31, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(143, 32);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Instituciones";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(28, 31);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 54);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "0";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::GestionCasos.Properties.Resources.organization_60px1;
+            this.pictureBox4.Location = new System.Drawing.Point(250, 43);
+            this.pictureBox4.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 8;
+            this.pictureBox4.TabStop = false;
             // 
             // pnRevisados
             // 
@@ -109,7 +142,7 @@ namespace GestionCasos
             this.pnRevisados.Controls.Add(this.label5);
             this.pnRevisados.Controls.Add(this.label6);
             this.pnRevisados.Controls.Add(this.pictureBox3);
-            this.pnRevisados.Location = new System.Drawing.Point(129, 190);
+            this.pnRevisados.Location = new System.Drawing.Point(55, 190);
             this.pnRevisados.Name = "pnRevisados";
             this.pnRevisados.Radius = 20;
             this.pnRevisados.Size = new System.Drawing.Size(343, 147);
@@ -157,7 +190,7 @@ namespace GestionCasos
             this.pnContadores.Controls.Add(this.label2);
             this.pnContadores.Controls.Add(this.label1);
             this.pnContadores.Controls.Add(this.pictureBox1);
-            this.pnContadores.Location = new System.Drawing.Point(129, 24);
+            this.pnContadores.Location = new System.Drawing.Point(55, 24);
             this.pnContadores.Name = "pnContadores";
             this.pnContadores.Radius = 20;
             this.pnContadores.Size = new System.Drawing.Size(343, 147);
@@ -206,7 +239,7 @@ namespace GestionCasos
             this.pnPendientes.Controls.Add(this.label3);
             this.pnPendientes.Controls.Add(this.label4);
             this.pnPendientes.Controls.Add(this.pictureBox2);
-            this.pnPendientes.Location = new System.Drawing.Point(554, 24);
+            this.pnPendientes.Location = new System.Drawing.Point(480, 24);
             this.pnPendientes.Name = "pnPendientes";
             this.pnPendientes.Radius = 20;
             this.pnPendientes.Size = new System.Drawing.Size(343, 147);
@@ -245,44 +278,11 @@ namespace GestionCasos
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(31, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 32);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Instituciones";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(28, 31);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 54);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "0";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::GestionCasos.Properties.Resources.organization_60px1;
-            this.pictureBox4.Location = new System.Drawing.Point(250, 43);
-            this.pictureBox4.MinimumSize = new System.Drawing.Size(60, 60);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(60, 60);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 8;
-            this.pictureBox4.TabStop = false;
-            // 
             // fDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 682);
+            this.ClientSize = new System.Drawing.Size(860, 682);
             this.Controls.Add(this.DesktopPanel);
             this.Name = "fDashBoard";
             this.Text = "fDashBoard";
@@ -290,6 +290,7 @@ namespace GestionCasos
             this.DesktopPanel.ResumeLayout(false);
             this.gunaElipsePanel4.ResumeLayout(false);
             this.gunaElipsePanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnRevisados.ResumeLayout(false);
             this.pnRevisados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -299,7 +300,6 @@ namespace GestionCasos
             this.pnPendientes.ResumeLayout(false);
             this.pnPendientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }

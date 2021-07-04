@@ -32,14 +32,14 @@ namespace GestionCasos
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pnTop = new System.Windows.Forms.Panel();
             this.lbIniciarSecion = new System.Windows.Forms.Label();
-            this.txtContraseña = new Guna.UI.WinForms.GunaTextBox();
-            this.txtNombreUsuario = new Guna.UI.WinForms.GunaTextBox();
             this.btnIniciarSecion = new Guna.UI.WinForms.GunaButton();
             this.label2 = new System.Windows.Forms.Label();
             this.lbNombreUsuario = new System.Windows.Forms.Label();
             this.btnLLamar = new Guna.UI.WinForms.GunaCircleButton();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.pbLogo = new Guna.UI.WinForms.GunaPictureBox();
+            this.txtNombreUsuario = new Guna.UI.WinForms.GunaTextBox();
+            this.txtContraseña = new Guna.UI.WinForms.GunaTextBox();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -47,9 +47,9 @@ namespace GestionCasos
             // 
             // pnTop
             // 
-            this.pnTop.Controls.Add(this.lbIniciarSecion);
             this.pnTop.Controls.Add(this.txtContraseña);
             this.pnTop.Controls.Add(this.txtNombreUsuario);
+            this.pnTop.Controls.Add(this.lbIniciarSecion);
             this.pnTop.Controls.Add(this.btnIniciarSecion);
             this.pnTop.Controls.Add(this.label2);
             this.pnTop.Controls.Add(this.lbNombreUsuario);
@@ -62,59 +62,19 @@ namespace GestionCasos
             // 
             this.lbIniciarSecion.AutoSize = true;
             this.lbIniciarSecion.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIniciarSecion.ForeColor = System.Drawing.Color.PowderBlue;
+            this.lbIniciarSecion.ForeColor = System.Drawing.Color.White;
             this.lbIniciarSecion.Location = new System.Drawing.Point(53, 22);
             this.lbIniciarSecion.Name = "lbIniciarSecion";
             this.lbIniciarSecion.Size = new System.Drawing.Size(136, 22);
             this.lbIniciarSecion.TabIndex = 15;
             this.lbIniciarSecion.Text = "Iniciar Seción";
             // 
-            // txtContraseña
-            // 
-            this.txtContraseña.BackColor = System.Drawing.Color.Transparent;
-            this.txtContraseña.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(39)))));
-            this.txtContraseña.BorderColor = System.Drawing.Color.Aqua;
-            this.txtContraseña.BorderSize = 1;
-            this.txtContraseña.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtContraseña.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(48)))));
-            this.txtContraseña.FocusedBorderColor = System.Drawing.Color.OrangeRed;
-            this.txtContraseña.FocusedForeColor = System.Drawing.Color.White;
-            this.txtContraseña.Font = new System.Drawing.Font("Arial", 9F);
-            this.txtContraseña.ForeColor = System.Drawing.Color.Lime;
-            this.txtContraseña.Location = new System.Drawing.Point(18, 129);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.PasswordChar = '*';
-            this.txtContraseña.Radius = 5;
-            this.txtContraseña.SelectedText = "";
-            this.txtContraseña.Size = new System.Drawing.Size(201, 26);
-            this.txtContraseña.TabIndex = 14;
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.txtNombreUsuario.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(30)))), ((int)(((byte)(39)))));
-            this.txtNombreUsuario.BorderColor = System.Drawing.Color.Aqua;
-            this.txtNombreUsuario.BorderSize = 1;
-            this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombreUsuario.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(48)))));
-            this.txtNombreUsuario.FocusedBorderColor = System.Drawing.Color.OrangeRed;
-            this.txtNombreUsuario.FocusedForeColor = System.Drawing.Color.White;
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Arial", 9F);
-            this.txtNombreUsuario.ForeColor = System.Drawing.Color.Lime;
-            this.txtNombreUsuario.Location = new System.Drawing.Point(18, 82);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.PasswordChar = '\0';
-            this.txtNombreUsuario.Radius = 5;
-            this.txtNombreUsuario.SelectedText = "";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(201, 26);
-            this.txtNombreUsuario.TabIndex = 13;
-            // 
             // btnIniciarSecion
             // 
             this.btnIniciarSecion.AnimationHoverSpeed = 0.07F;
             this.btnIniciarSecion.AnimationSpeed = 0.03F;
             this.btnIniciarSecion.BackColor = System.Drawing.Color.Transparent;
-            this.btnIniciarSecion.BaseColor = System.Drawing.Color.Black;
+            this.btnIniciarSecion.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
             this.btnIniciarSecion.BorderColor = System.Drawing.Color.Aqua;
             this.btnIniciarSecion.BorderSize = 1;
             this.btnIniciarSecion.DialogResult = System.Windows.Forms.DialogResult.None;
@@ -170,14 +130,14 @@ namespace GestionCasos
             this.btnLLamar.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnLLamar.FocusedColor = System.Drawing.Color.Empty;
             this.btnLLamar.Font = new System.Drawing.Font("Arial", 18F);
-            this.btnLLamar.ForeColor = System.Drawing.Color.Black;
+            this.btnLLamar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
             this.btnLLamar.Image = null;
             this.btnLLamar.ImageSize = new System.Drawing.Size(52, 52);
             this.btnLLamar.Location = new System.Drawing.Point(342, 58);
             this.btnLLamar.Name = "btnLLamar";
-            this.btnLLamar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.btnLLamar.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnLLamar.OnHoverForeColor = System.Drawing.Color.Orange;
+            this.btnLLamar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.btnLLamar.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.btnLLamar.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
             this.btnLLamar.OnHoverImage = null;
             this.btnLLamar.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnLLamar.Size = new System.Drawing.Size(140, 141);
@@ -210,11 +170,49 @@ namespace GestionCasos
             this.pbLogo.TabIndex = 14;
             this.pbLogo.TabStop = false;
             // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.txtNombreUsuario.BaseColor = System.Drawing.Color.White;
+            this.txtNombreUsuario.BorderColor = System.Drawing.Color.Black;
+            this.txtNombreUsuario.BorderSize = 1;
+            this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombreUsuario.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtNombreUsuario.FocusedBorderColor = System.Drawing.Color.Transparent;
+            this.txtNombreUsuario.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(18, 81);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.PasswordChar = '\0';
+            this.txtNombreUsuario.Radius = 5;
+            this.txtNombreUsuario.SelectedText = "";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(201, 30);
+            this.txtNombreUsuario.TabIndex = 16;
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.BackColor = System.Drawing.Color.Transparent;
+            this.txtContraseña.BaseColor = System.Drawing.Color.White;
+            this.txtContraseña.BorderColor = System.Drawing.Color.Black;
+            this.txtContraseña.BorderSize = 1;
+            this.txtContraseña.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtContraseña.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtContraseña.FocusedBorderColor = System.Drawing.Color.Transparent;
+            this.txtContraseña.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtContraseña.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtContraseña.Location = new System.Drawing.Point(18, 129);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '\0';
+            this.txtContraseña.Radius = 5;
+            this.txtContraseña.SelectedText = "";
+            this.txtContraseña.Size = new System.Drawing.Size(201, 30);
+            this.txtContraseña.TabIndex = 17;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
             this.ClientSize = new System.Drawing.Size(546, 254);
             this.Controls.Add(this.btnLLamar);
             this.Controls.Add(this.pnTop);
@@ -222,7 +220,6 @@ namespace GestionCasos
             this.Controls.Add(this.pbLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
-            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Login_Load);
             this.pnTop.ResumeLayout(false);
@@ -237,12 +234,12 @@ namespace GestionCasos
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Panel pnTop;
         private System.Windows.Forms.Label lbIniciarSecion;
-        private Guna.UI.WinForms.GunaTextBox txtContraseña;
-        private Guna.UI.WinForms.GunaTextBox txtNombreUsuario;
         private Guna.UI.WinForms.GunaButton btnIniciarSecion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbNombreUsuario;
         private Guna.UI.WinForms.GunaCircleButton btnLLamar;
         private Guna.UI.WinForms.GunaPictureBox pbLogo;
+        private Guna.UI.WinForms.GunaTextBox txtNombreUsuario;
+        private Guna.UI.WinForms.GunaTextBox txtContraseña;
     }
 }

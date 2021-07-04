@@ -48,7 +48,7 @@ namespace GestionCasos.Administrador
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(904, 523);
+            this.panel1.Size = new System.Drawing.Size(860, 523);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -65,7 +65,7 @@ namespace GestionCasos.Administrador
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(30);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(904, 523);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(860, 523);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // gunaTileButton1
@@ -84,7 +84,7 @@ namespace GestionCasos.Administrador
             this.gunaTileButton1.Location = new System.Drawing.Point(40, 40);
             this.gunaTileButton1.Margin = new System.Windows.Forms.Padding(10);
             this.gunaTileButton1.Name = "gunaTileButton1";
-            this.gunaTileButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaTileButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.gunaTileButton1.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaTileButton1.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaTileButton1.OnHoverImage = null;
@@ -106,12 +106,12 @@ namespace GestionCasos.Administrador
             this.btnContadores.FocusedColor = System.Drawing.Color.Empty;
             this.btnContadores.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.btnContadores.ForeColor = System.Drawing.Color.White;
-            this.btnContadores.Image = global::GestionCasos.Properties.Resources.group_60px3;
+            this.btnContadores.Image = global::GestionCasos.Properties.Resources.organization_60px1;
             this.btnContadores.ImageSize = new System.Drawing.Size(60, 60);
             this.btnContadores.Location = new System.Drawing.Point(301, 40);
             this.btnContadores.Margin = new System.Windows.Forms.Padding(10);
             this.btnContadores.Name = "btnContadores";
-            this.btnContadores.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnContadores.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.btnContadores.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btnContadores.OnHoverForeColor = System.Drawing.Color.White;
             this.btnContadores.OnHoverImage = null;
@@ -133,12 +133,12 @@ namespace GestionCasos.Administrador
             this.gunaTileButton2.FocusedColor = System.Drawing.Color.Empty;
             this.gunaTileButton2.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.gunaTileButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaTileButton2.Image = global::GestionCasos.Properties.Resources.group_60px3;
+            this.gunaTileButton2.Image = global::GestionCasos.Properties.Resources.task_60px1;
             this.gunaTileButton2.ImageSize = new System.Drawing.Size(60, 60);
             this.gunaTileButton2.Location = new System.Drawing.Point(562, 40);
             this.gunaTileButton2.Margin = new System.Windows.Forms.Padding(10);
             this.gunaTileButton2.Name = "gunaTileButton2";
-            this.gunaTileButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaTileButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.gunaTileButton2.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaTileButton2.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaTileButton2.OnHoverImage = null;
@@ -165,7 +165,7 @@ namespace GestionCasos.Administrador
             this.gunaTileButton5.Location = new System.Drawing.Point(40, 202);
             this.gunaTileButton5.Margin = new System.Windows.Forms.Padding(10);
             this.gunaTileButton5.Name = "gunaTileButton5";
-            this.gunaTileButton5.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaTileButton5.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.gunaTileButton5.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaTileButton5.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaTileButton5.OnHoverImage = null;
@@ -191,7 +191,7 @@ namespace GestionCasos.Administrador
             this.gunaTileButton3.Location = new System.Drawing.Point(301, 202);
             this.gunaTileButton3.Margin = new System.Windows.Forms.Padding(10);
             this.gunaTileButton3.Name = "gunaTileButton3";
-            this.gunaTileButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaTileButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.gunaTileButton3.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaTileButton3.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaTileButton3.OnHoverImage = null;
@@ -217,7 +217,7 @@ namespace GestionCasos.Administrador
             this.gunaTileButton4.Location = new System.Drawing.Point(562, 202);
             this.gunaTileButton4.Margin = new System.Windows.Forms.Padding(10);
             this.gunaTileButton4.Name = "gunaTileButton4";
-            this.gunaTileButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaTileButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.gunaTileButton4.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaTileButton4.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaTileButton4.OnHoverImage = null;
@@ -232,7 +232,7 @@ namespace GestionCasos.Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 523);
+            this.ClientSize = new System.Drawing.Size(860, 523);
             this.Controls.Add(this.panel1);
             this.Name = "fMenu";
             this.Text = "fMenu";
