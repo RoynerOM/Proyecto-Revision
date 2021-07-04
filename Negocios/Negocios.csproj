@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="ContadorNegocio.cs" />
     <Compile Include="DireccionRegionalNegocio.cs" />
+    <Compile Include="EstadoNegocio.cs" />
     <Compile Include="InstitucionNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RevisionNegocio.cs" />

@@ -58,6 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_Juntas.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="EstadoDatos.cs" />
     <Compile Include="JuntasBD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

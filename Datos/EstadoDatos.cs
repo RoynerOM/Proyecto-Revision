@@ -1,0 +1,58 @@
+﻿using Entidades;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utilidades.Interfaces;
+
+namespace Datos
+{
+    public class EstadoDatos : ICrud<Estado>
+    {
+        public bool eliminar(Estado e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool guardar(Estado e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool modificar(Estado e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Estado obtenerPorId(Estado e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Estado> obtenerTodo(Estado e)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var lista = db.Estado.ToList();
+
+                    if (lista != null)
+                    {
+                        return lista;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+    }
+}

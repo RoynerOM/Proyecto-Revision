@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Negocios;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
@@ -13,6 +15,7 @@ namespace GestionCasos.Usuarios
         Form enUso = null;
         int ventanasAbiertas = 0;
         string isDark = ConfigurationManager.AppSettings["DarkMode"];
+        EstadoNegocio estadoNegocio = new EstadoNegocio();
         //Datos de prueba
         List<CasosFalsos> casos = new List<CasosFalsos>() {
         new CasosFalsos(){ Caso="R-0001",Fecha="2020/02/10",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Correo Electronico",Persona="JOSUE JARA ESCOBAR",Comentario="No tiene comentario",Estado= "Pendiente"},
@@ -137,7 +140,12 @@ namespace GestionCasos.Usuarios
             PintarTatjetas();
             SetThemeColor();
         }
-
+        void CargarCombos()
+        {
+            cbTramitador.DataSource = estadoNegocio.obtenerTodo(new Estado());
+            cbTramitador.ValueMember = "id";
+            cbTramitador.DisplayMember = "TipoEstado";
+        }
         private void tabla_Resize(object sender, EventArgs e)
         {
 
