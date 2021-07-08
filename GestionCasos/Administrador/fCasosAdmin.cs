@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 using Utilidades;
 
 namespace GestionCasos
 {
-    
+
     public partial class fCasosAdmin : Form
     {
 
@@ -18,7 +19,11 @@ namespace GestionCasos
         EstadoNegocio estadoNegocio = new EstadoNegocio();
         ContadorNegocio persona = new ContadorNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
+        List<t_Revision> Casos = null;
         string isDark = ConfigurationManager.AppSettings["DarkMode"];
+
+
+
         public fCasosAdmin()
         {
             InitializeComponent();
@@ -238,11 +243,40 @@ namespace GestionCasos
             CargarCombos();
         }
 
+
         public void PedirDatos()
         {
-            var lista = revisionNegocio.obtenerTodo(revision);
-            CargarTabla(lista);
+            Casos = (List<t_Revision>)revisionNegocio.obtenerTodo(revision);
+            CargarTabla(Casos);
         }
+
+        //Filtro por Estado
+        public void FilterByEstate(string valor)
+        {
+            var filtro = Casos.Where(x => x.Estado1.TipoEstado == valor);
+            CargarTabla(filtro);
+        }
+
+
+        //Filtro por tramitador
+        public void FilterByTramitador(string valor)
+        {
+            var filtro = revisionNegocio.obtenerPorContador(valor);
+            if (filtro != null)
+            {
+                CargarTabla(filtro);
+            }  
+        }
+
+
+        //Filtro por Recepcion
+        public void FilterByRecepcion(int valor)
+        {
+            var filtro = Casos.Where(x => x.Recepcion == valor);
+            CargarTabla(filtro);
+        }
+
+
         public void CargarTabla(IEnumerable<t_Revision> lista)
         {
             tabla.Rows.Clear();
@@ -265,6 +299,7 @@ namespace GestionCasos
                 tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 10);
+
                 if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE")
                 {
                     if (isDark == "false")
@@ -303,7 +338,6 @@ namespace GestionCasos
                     }
                 }
             }
-
         }
 
         //Cambio de color
@@ -314,7 +348,6 @@ namespace GestionCasos
 
                 this.panel1.BackColor = Colors.White;
                 this.panel1.ForeColor = Colors.Black;
-
                 tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.Blue;
                 tabla.ColumnHeadersDefaultCellStyle.ForeColor = Colors.White;
                 tabla.RowHeadersDefaultCellStyle.BackColor = Colors.White;
@@ -334,6 +367,7 @@ namespace GestionCasos
             }
         }
 
+
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
@@ -347,8 +381,8 @@ namespace GestionCasos
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
 
-
         }
+
 
         private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -373,24 +407,27 @@ namespace GestionCasos
             }
         }
 
+
+        //Combobox de Tramitador
         private void gunaComboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbTramitador.Text != string.Empty)
-            {
-                //FiltroPorNombre(cbTramitador.Text.Trim());
+           
+                FilterByTramitador(cbTramitador.SelectedValue.ToString());
                 cbTramitador.ResetText();
-            }
+            
         }
 
+        //Combox de Recepcion
         private void gunaComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (gunaComboBox2.Text != string.Empty)
             {
-                //FiltroPorRecepcion(gunaComboBox2.Text.Trim());
+                FilterByRecepcion((int)gunaComboBox2.SelectedValue);
                 gunaComboBox2.ResetText();
             }
         }
 
+        //Combo box de Estado
         private void gunaComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
@@ -403,11 +440,12 @@ namespace GestionCasos
                 else
                 {
                     string estado = cbEstado.Text;
-                    //FiltroPorEstado(estado);
+                    FilterByEstate(estado);
                     cbEstado.ResetText();
                 }
             }
         }
+
 
         private void tabla_Resize(object sender, EventArgs e)
         {

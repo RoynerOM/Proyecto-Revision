@@ -129,11 +129,11 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Where(x=> x.Tramitador == persona).ToList();
+                    var casos = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Where(x=> x.Tramitador == persona).ToList();
 
-                    if (caso != null)
+                    if (casos != null)
                     {
-                        return caso;
+                        return casos;
                     }
                     else
                     {

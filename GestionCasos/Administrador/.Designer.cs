@@ -99,14 +99,6 @@ namespace GestionCasos
             this.cbTramitador.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbTramitador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbTramitador.FormattingEnabled = true;
-            this.cbTramitador.Items.AddRange(new object[] {
-            "JOSUE JARA ESCOBAR ",
-            "BAYRON HERNÁNDEZ DÍAZ ",
-            "ALONSO CASTILLO LEDEZMA ",
-            "YEIMY BARRANTES ARTAVIA ",
-            "JENIFFER ARROYO CAJINA ",
-            "SHIRLENY VEGA ESPINOZA ",
-            "GLORIANNA ACEVEDO LEDEZMA "});
             this.cbTramitador.Location = new System.Drawing.Point(622, 68);
             this.cbTramitador.Margin = new System.Windows.Forms.Padding(2);
             this.cbTramitador.Name = "cbTramitador";
@@ -154,11 +146,6 @@ namespace GestionCasos
             this.gunaComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.gunaComboBox2.FormattingEnabled = true;
-            this.gunaComboBox2.Items.AddRange(new object[] {
-            "Correo Electronico",
-            "Whatsapp",
-            "Oficina",
-            "Mensajero"});
             this.gunaComboBox2.Location = new System.Drawing.Point(1058, 68);
             this.gunaComboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.gunaComboBox2.Name = "gunaComboBox2";
@@ -180,11 +167,6 @@ namespace GestionCasos
             this.cbEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Items.AddRange(new object[] {
-            "Tramitado",
-            "En revision",
-            "Pediente",
-            "Todos"});
             this.cbEstado.Location = new System.Drawing.Point(892, 68);
             this.cbEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cbEstado.Name = "cbEstado";
