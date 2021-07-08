@@ -72,19 +72,27 @@
           <Property Name="Apellido2" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nombre_Completo" Type="varchar" MaxLength="152" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
+        <EntityType Name="t_Recepcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="t_Revision">
           <Key>
             <PropertyRef Name="Id_Caso" />
           </Key>
           <Property Name="Id_Caso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Consecutivo" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" Nullable="false" />
-          <Property Name="FechaAsig" Type="date" Nullable="false" />
-          <Property Name="FechaRevision" Type="date" />
+          <Property Name="Consecutivo" Type="varchar" MaxLength="14" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="FechaInsertada" Type="nvarchar" MaxLength="30" StoreGeneratedPattern="Computed" />
+          <Property Name="FechaRevisada" Type="nvarchar" MaxLength="30" StoreGeneratedPattern="Computed" />
           <Property Name="Codigo" Type="int" Nullable="false" />
-          <Property Name="Recepcion" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Contador" Type="varchar" MaxLength="13" Nullable="false" />
-          <Property Name="Comentario" Type="varchar(max)" />
-          <Property Name="Observacion" Type="varchar(max)" />
+          <Property Name="Recepcion" Type="int" Nullable="false" />
+          <Property Name="Tramitador" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="t_Tipo_Institucion">
@@ -108,6 +116,7 @@
           <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Clave" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Rol" Type="int" />
           <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK__t_Institu__Conta__4316F928">
@@ -122,7 +131,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_Revisio__Codig__48CFD27E">
+        <Association Name="FK__t_Revisio__Codig__671F4F74">
           <End Role="t_Institucion" Type="Self.t_Institucion" Multiplicity="1" />
           <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="*" />
           <ReferentialConstraint>
@@ -134,7 +143,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_Revisio__Conta__49C3F6B7">
+        <Association Name="FK__t_Revisio__Trami__681373AD">
           <End Role="t_Persona" Type="Self.t_Persona" Multiplicity="1" />
           <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="*" />
           <ReferentialConstraint>
@@ -142,7 +151,7 @@
               <PropertyRef Name="Cedula" />
             </Principal>
             <Dependent Role="t_Revision">
-              <PropertyRef Name="Contador" />
+              <PropertyRef Name="Tramitador" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -179,6 +188,18 @@
             </Principal>
             <Dependent Role="Mensajeria">
               <PropertyRef Name="id_caso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recepcion_t_Revision">
+          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="1" />
+          <End Role="t_Revision1" Type="Self.t_Revision" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="t_Revision">
+              <PropertyRef Name="Id_Caso" />
+            </Principal>
+            <Dependent Role="t_Revision1">
+              <PropertyRef Name="Id_Caso" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -249,6 +270,7 @@
           <EntitySet Name="t_Direccion_Regional" EntityType="Self.t_Direccion_Regional" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_Institucion" EntityType="Self.t_Institucion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_Persona" EntityType="Self.t_Persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Recepcion" EntityType="Self.t_Recepcion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_Revision" EntityType="Self.t_Revision" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_Tipo_Institucion" EntityType="Self.t_Tipo_Institucion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t_Trabajador" EntityType="Self.t_Trabajador" Schema="dbo" store:Type="Tables" />
@@ -257,11 +279,11 @@
             <End Role="t_Persona" EntitySet="t_Persona" />
             <End Role="t_Institucion" EntitySet="t_Institucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_Revisio__Codig__48CFD27E" Association="Self.FK__t_Revisio__Codig__48CFD27E">
+          <AssociationSet Name="FK__t_Revisio__Codig__671F4F74" Association="Self.FK__t_Revisio__Codig__671F4F74">
             <End Role="t_Institucion" EntitySet="t_Institucion" />
             <End Role="t_Revision" EntitySet="t_Revision" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_Revisio__Conta__49C3F6B7" Association="Self.FK__t_Revisio__Conta__49C3F6B7">
+          <AssociationSet Name="FK__t_Revisio__Trami__681373AD" Association="Self.FK__t_Revisio__Trami__681373AD">
             <End Role="t_Persona" EntitySet="t_Persona" />
             <End Role="t_Revision" EntitySet="t_Revision" />
           </AssociationSet>
@@ -276,6 +298,10 @@
           <AssociationSet Name="FK_Mensajeria_t_Revision" Association="Self.FK_Mensajeria_t_Revision">
             <End Role="t_Revision" EntitySet="t_Revision" />
             <End Role="Mensajeria" EntitySet="Mensajeria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recepcion_t_Revision" Association="Self.FK_Recepcion_t_Revision">
+            <End Role="t_Revision" EntitySet="t_Revision" />
+            <End Role="t_Revision1" EntitySet="t_Revision" />
           </AssociationSet>
           <AssociationSet Name="FK_t_Boleta_t_Persona" Association="Self.FK_t_Boleta_t_Persona">
             <End Role="t_Persona" EntitySet="t_Persona" />
@@ -364,7 +390,7 @@
           <Property Name="Estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="t_Direccion_Regional" Relationship="Self.FK_t_Institucion_t_Direccion_Regional" FromRole="t_Institucion" ToRole="t_Direccion_Regional" />
           <NavigationProperty Name="t_Persona" Relationship="Self.FK__t_Institu__Conta__4316F928" FromRole="t_Institucion" ToRole="t_Persona" />
-          <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Revisio__Codig__48CFD27E" FromRole="t_Institucion" ToRole="t_Revision" />
+          <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Revisio__Codig__671F4F74" FromRole="t_Institucion" ToRole="t_Revision" />
           <NavigationProperty Name="t_Tipo_Institucion" Relationship="Self.FK_t_Institucion_t_Tipo_Institucion" FromRole="t_Institucion" ToRole="t_Tipo_Institucion" />
         </EntityType>
         <EntityType Name="t_Persona">
@@ -381,28 +407,38 @@
           <NavigationProperty Name="Mensajeria" Relationship="Self.FK_Mensajeria_t_Persona" FromRole="t_Persona" ToRole="Mensajeria" />
           <NavigationProperty Name="t_Boleta" Relationship="Self.FK_t_Boleta_t_Persona" FromRole="t_Persona" ToRole="t_Boleta" />
           <NavigationProperty Name="t_Institucion" Relationship="Self.FK__t_Institu__Conta__4316F928" FromRole="t_Persona" ToRole="t_Institucion" />
-          <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Revisio__Conta__49C3F6B7" FromRole="t_Persona" ToRole="t_Revision" />
+          <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Revisio__Trami__681373AD" FromRole="t_Persona" ToRole="t_Revision" />
           <NavigationProperty Name="t_Usuario" Relationship="Self.FK__t_Usuario__Cedul__3A81B327" FromRole="t_Persona" ToRole="t_Usuario" />
           <NavigationProperty Name="t_Trabajador" Relationship="Self.FK_t_Trabajador_t_Persona" FromRole="t_Persona" ToRole="t_Trabajador" />
+        </EntityType>
+        <EntityType Name="t_Recepcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="t_Revision">
           <Key>
             <PropertyRef Name="Id_Caso" />
           </Key>
           <Property Name="Id_Caso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Consecutivo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="FechaAsig" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="FechaRevision" Type="DateTime" Precision="0" />
+          <Property Name="Consecutivo" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaInsertada" Type="String" MaxLength="30" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FechaRevisada" Type="String" MaxLength="30" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="Codigo" Type="Int32" Nullable="false" />
-          <Property Name="Recepcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Contador" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Recepcion" Type="Int32" Nullable="false" />
+          <Property Name="Tramitador" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Estado1" Relationship="Self.FK_t_Revision_Estado" FromRole="t_Revision" ToRole="Estado" />
           <NavigationProperty Name="Mensajeria" Relationship="Self.FK_Mensajeria_t_Revision" FromRole="t_Revision" ToRole="Mensajeria" />
-          <NavigationProperty Name="t_Institucion" Relationship="Self.FK__t_Revisio__Codig__48CFD27E" FromRole="t_Revision" ToRole="t_Institucion" />
-          <NavigationProperty Name="t_Persona" Relationship="Self.FK__t_Revisio__Conta__49C3F6B7" FromRole="t_Revision" ToRole="t_Persona" />
+          <NavigationProperty Name="t_Institucion" Relationship="Self.FK__t_Revisio__Codig__671F4F74" FromRole="t_Revision" ToRole="t_Institucion" />
+          <NavigationProperty Name="t_Persona" Relationship="Self.FK__t_Revisio__Trami__681373AD" FromRole="t_Revision" ToRole="t_Persona" />
+          <NavigationProperty Name="t_Revision1" Relationship="Self.FK_Recepcion_t_Revision" FromRole="t_Revision" ToRole="t_Revision1" />
+          <NavigationProperty Name="t_Revision2" Relationship="Self.FK_Recepcion_t_Revision" FromRole="t_Revision1" ToRole="t_Revision" />
         </EntityType>
         <EntityType Name="t_Tipo_Institucion">
           <Key>
@@ -427,6 +463,7 @@
           <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Cedula" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Clave" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rol" Type="Int32" />
           <Property Name="Estado" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="t_Persona" Relationship="Self.FK__t_Usuario__Cedul__3A81B327" FromRole="t_Usuario" ToRole="t_Persona" />
         </EntityType>
@@ -502,7 +539,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_Revisio__Codig__48CFD27E">
+        <Association Name="FK__t_Revisio__Codig__671F4F74">
           <End Role="t_Institucion" Type="Self.t_Institucion" Multiplicity="1" />
           <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="*" />
           <ReferentialConstraint>
@@ -526,7 +563,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_Revisio__Conta__49C3F6B7">
+        <Association Name="FK__t_Revisio__Trami__681373AD">
           <End Role="t_Persona" Type="Self.t_Persona" Multiplicity="1" />
           <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="*" />
           <ReferentialConstraint>
@@ -534,7 +571,7 @@
               <PropertyRef Name="Cedula" />
             </Principal>
             <Dependent Role="t_Revision">
-              <PropertyRef Name="Contador" />
+              <PropertyRef Name="Tramitador" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -562,6 +599,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Recepcion_t_Revision">
+          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="1" />
+          <End Role="t_Revision1" Type="Self.t_Revision" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="t_Revision">
+              <PropertyRef Name="Id_Caso" />
+            </Principal>
+            <Dependent Role="t_Revision1">
+              <PropertyRef Name="Id_Caso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BD_JuntasEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Estado" EntityType="Self.Estado" />
           <EntitySet Name="Mensajeria" EntityType="Self.Mensajeria" />
@@ -569,6 +618,7 @@
           <EntitySet Name="t_Direccion_Regional" EntityType="Self.t_Direccion_Regional" />
           <EntitySet Name="t_Institucion" EntityType="Self.t_Institucion" />
           <EntitySet Name="t_Persona" EntityType="Self.t_Persona" />
+          <EntitySet Name="t_Recepcion" EntityType="Self.t_Recepcion" />
           <EntitySet Name="t_Revision" EntityType="Self.t_Revision" />
           <EntitySet Name="t_Tipo_Institucion" EntityType="Self.t_Tipo_Institucion" />
           <EntitySet Name="t_Trabajador" EntityType="Self.t_Trabajador" />
@@ -597,7 +647,7 @@
             <End Role="t_Persona" EntitySet="t_Persona" />
             <End Role="t_Institucion" EntitySet="t_Institucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_Revisio__Codig__48CFD27E" Association="Self.FK__t_Revisio__Codig__48CFD27E">
+          <AssociationSet Name="FK__t_Revisio__Codig__671F4F74" Association="Self.FK__t_Revisio__Codig__671F4F74">
             <End Role="t_Institucion" EntitySet="t_Institucion" />
             <End Role="t_Revision" EntitySet="t_Revision" />
           </AssociationSet>
@@ -605,7 +655,7 @@
             <End Role="t_Tipo_Institucion" EntitySet="t_Tipo_Institucion" />
             <End Role="t_Institucion" EntitySet="t_Institucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_Revisio__Conta__49C3F6B7" Association="Self.FK__t_Revisio__Conta__49C3F6B7">
+          <AssociationSet Name="FK__t_Revisio__Trami__681373AD" Association="Self.FK__t_Revisio__Trami__681373AD">
             <End Role="t_Persona" EntitySet="t_Persona" />
             <End Role="t_Revision" EntitySet="t_Revision" />
           </AssociationSet>
@@ -616,6 +666,10 @@
           <AssociationSet Name="FK_t_Trabajador_t_Persona" Association="Self.FK_t_Trabajador_t_Persona">
             <End Role="t_Persona" EntitySet="t_Persona" />
             <End Role="t_Trabajador" EntitySet="t_Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recepcion_t_Revision" Association="Self.FK_Recepcion_t_Revision">
+            <End Role="t_Revision" EntitySet="t_Revision" />
+            <End Role="t_Revision1" EntitySet="t_Revision" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -697,16 +751,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="t_Recepcion">
+            <EntityTypeMapping TypeName="BD_JuntasModel.t_Recepcion">
+              <MappingFragment StoreEntitySet="t_Recepcion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="t_Revision">
             <EntityTypeMapping TypeName="BD_JuntasModel.t_Revision">
               <MappingFragment StoreEntitySet="t_Revision">
                 <ScalarProperty Name="Id_Caso" ColumnName="Id_Caso" />
                 <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
-                <ScalarProperty Name="FechaAsig" ColumnName="FechaAsig" />
-                <ScalarProperty Name="FechaRevision" ColumnName="FechaRevision" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="FechaInsertada" ColumnName="FechaInsertada" />
+                <ScalarProperty Name="FechaRevisada" ColumnName="FechaRevisada" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Recepcion" ColumnName="Recepcion" />
-                <ScalarProperty Name="Contador" ColumnName="Contador" />
+                <ScalarProperty Name="Tramitador" ColumnName="Tramitador" />
                 <ScalarProperty Name="Comentario" ColumnName="Comentario" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -735,6 +798,7 @@
                 <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
                 <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
             </EntityTypeMapping>

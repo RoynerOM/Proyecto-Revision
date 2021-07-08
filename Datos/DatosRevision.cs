@@ -6,7 +6,7 @@ using Utilidades.Interfaces;
 
 namespace Datos
 {
-    public class DatosRevision
+    public class DatosRevision : ICrud<t_Revision>
     {
         public bool eliminar(t_Revision e)
         {
@@ -76,7 +76,7 @@ namespace Datos
                 using (var context = new BD_JuntasEntities())
                 {
 
-                    IQueryable<t_Revision> datos = (IQueryable<t_Revision>)context.t_Revision.ToList();
+                    var datos = context.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").ToList();
 
                     if (datos != null)
                     {
@@ -89,9 +89,86 @@ namespace Datos
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
 
+        //Extras
+
+        public IEnumerable<t_Revision> obtenerPorConsecutivo(string consecutivo)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var caso = db.t_Revision.Include("t_Persona").Where(x=> x.Consecutivo == consecutivo).ToList();
+
+                    if (caso != null)
+                    {
+                        return caso;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public IEnumerable<t_Revision> obtenerPorContador(string persona)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var caso = db.t_Revision.Include("t_Persona").Where(x=> x.Tramitador == persona).ToList();
+
+                    if (caso != null)
+                    {
+                        return caso;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public t_Revision obtenerPorId(t_Revision e)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var caso = db.t_Revision.Include("t_Persona").FirstOrDefault(x=> x.Id_Caso== e.Id_Caso);
+
+                    if (caso != null)
+                    {
+                        return caso;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
                 return null;
             }
         }

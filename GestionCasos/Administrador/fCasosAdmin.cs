@@ -1,4 +1,6 @@
-﻿using GestionCasos.Usuarios;
+﻿using Entidades;
+using GestionCasos.Usuarios;
+using Negocios;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,22 +13,18 @@ namespace GestionCasos
     
     public partial class fCasosAdmin : Form
     {
-        //Datos de prueba
-        List<CasosFalsos> casos = new List<CasosFalsos>() {
-        new CasosFalsos(){ Caso="R-0001",Fecha="2020/02/10",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Correo Electronico",Persona="JOSUE JARA ESCOBAR",Comentario="No tiene comentario",Estado= "Pendiente"},
-        new CasosFalsos(){ Caso="R-0002",Fecha="2021/02/05",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Whatsapp",Persona="BAYRON HERNÁNDEZ DÍAZ",Comentario="No tiene comentario",Estado= "Tramitado"},
-        new CasosFalsos(){ Caso="R-0003",Fecha="2021/04/05",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Oficina",Persona="ALONSO CASTILLO LEDEZMA",Comentario="Documentos incompletos y mal estructurado",Estado= "En Revision"},
-        new CasosFalsos(){ Caso="R-0004",Fecha="2021/01/05",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Mensajero",Persona="YEIMY BARRANTES ARTAVIA",Comentario="Todos los documentos revisados",Estado= "Tramitado"},
-        new CasosFalsos(){ Caso="R-0005",Fecha="2020/02/10",Codigo=0100000,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Correo Electronico",Persona="JENIFFER ARROYO CAJINA",Comentario="No tiene comentario",Estado= "En revision"},
-        };
 
+        t_Revision revision = new t_Revision();
+        EstadoNegocio estadoNegocio = new EstadoNegocio();
+        ContadorNegocio persona = new ContadorNegocio();
+        RevisionNegocio revisionNegocio = new RevisionNegocio();
         string isDark = ConfigurationManager.AppSettings["DarkMode"];
         public fCasosAdmin()
         {
             InitializeComponent();
 
         }
-
+        /*
         #region Filtrar por nombre
         private void FiltroPorNombre(string persona)
         {
@@ -232,27 +230,33 @@ namespace GestionCasos
 
         }
         #endregion
-
+        */
         private void FormStyle_Load(object sender, EventArgs e)
         {
-            PintarTatjetas();
+            PedirDatos();
             SetThemeColor();
+            CargarCombos();
         }
 
-        private void PintarTatjetas()
+        public void PedirDatos()
+        {
+            var lista = revisionNegocio.obtenerTodo(revision);
+            CargarTabla(lista);
+        }
+        public void CargarTabla(IEnumerable<t_Revision> lista)
         {
             tabla.Rows.Clear();
-            foreach (var item in casos)
+            foreach (var item in lista)
             {
                 int nRows = tabla.Rows.Add();
-                tabla.Rows[nRows].Cells[0].Value = item.Caso;
-                tabla.Rows[nRows].Cells[1].Value = item.Fecha;
+                tabla.Rows[nRows].Cells[0].Value = item.Consecutivo;
+                tabla.Rows[nRows].Cells[1].Value = item.Fecha.ToShortDateString();
                 tabla.Rows[nRows].Cells[2].Value = item.Codigo;
-                tabla.Rows[nRows].Cells[3].Value = item.Junta.ToUpper();
-                tabla.Rows[nRows].Cells[4].Value = item.Circuito;
-                tabla.Rows[nRows].Cells[5].Value = item.Recepcion.ToUpper();
-                tabla.Rows[nRows].Cells[6].Value = item.Persona.ToUpper();
-                tabla.Rows[nRows].Cells[8].Value = item.Estado.ToUpper();
+                tabla.Rows[nRows].Cells[3].Value = item.t_Institucion.Nombre.ToUpper();
+                tabla.Rows[nRows].Cells[4].Value = item.t_Institucion.Circuito;
+                tabla.Rows[nRows].Cells[5].Value = item.Recepcion;
+                tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
+                tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
 
                 tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -260,8 +264,8 @@ namespace GestionCasos
                 tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold",10);
-                if (item.Estado.ToUpper()  == "PENDIENTE")
+                tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 10);
+                if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE")
                 {
                     if (isDark == "false")
                     {
@@ -274,7 +278,7 @@ namespace GestionCasos
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
                     }
                 }
-                else if(item.Estado.ToUpper() == "TRAMITADO")
+                else if (item.Estado1.TipoEstado.ToUpper() == "TRAMITADO")
                 {
                     if (isDark == "false")
                     {
@@ -283,7 +287,7 @@ namespace GestionCasos
                     }
                     else
                     {
-                        
+
                     }
                 }
                 else
@@ -371,10 +375,10 @@ namespace GestionCasos
 
         private void gunaComboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (gunaComboBox3.Text != string.Empty)
+            if (cbTramitador.Text != string.Empty)
             {
-                FiltroPorNombre(gunaComboBox3.Text.Trim());
-                gunaComboBox3.ResetText();
+                //FiltroPorNombre(cbTramitador.Text.Trim());
+                cbTramitador.ResetText();
             }
         }
 
@@ -382,7 +386,7 @@ namespace GestionCasos
         {
             if (gunaComboBox2.Text != string.Empty)
             {
-                FiltroPorRecepcion(gunaComboBox2.Text.Trim());
+                //FiltroPorRecepcion(gunaComboBox2.Text.Trim());
                 gunaComboBox2.ResetText();
             }
         }
@@ -390,17 +394,17 @@ namespace GestionCasos
         private void gunaComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
-            if (gunaComboBox1.Text != string.Empty)
+            if (cbEstado.Text != string.Empty)
             {
-                if (gunaComboBox1.Text == "Todos")
+                if (cbEstado.Text == "Todos")
                 {
-                    PintarTatjetas();
+                    PedirDatos();
                 }
                 else
                 {
-                    string estado = gunaComboBox1.Text;
-                    FiltroPorEstado(estado);
-                    gunaComboBox1.ResetText();
+                    string estado = cbEstado.Text;
+                    //FiltroPorEstado(estado);
+                    cbEstado.ResetText();
                 }
             }
         }
@@ -420,6 +424,18 @@ namespace GestionCasos
             {
                 Grid.RowsDefaultCellStyle.Font = new Font(Name, 10);
             }
+        }
+
+        void CargarCombos()
+        {
+            cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
+            cbTramitador.ValueMember = "Cedula";
+            cbTramitador.DisplayMember = "Nombre_Completo";
+
+            //Estado
+            cbEstado.DataSource = estadoNegocio.obtenerTodo(new Estado());
+            cbEstado.ValueMember = "id";
+            cbEstado.DisplayMember = "TipoEstado";
         }
     }
 }

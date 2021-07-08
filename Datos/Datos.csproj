@@ -53,23 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BD_Juntas.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_Juntas.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="EstadoDatos.cs" />
-    <Compile Include="JuntasBD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JuntasBD.edmx</DependentUpon>
-    </Compile>
     <Compile Include="DatosContador.cs" />
     <Compile Include="DatosDireccionRegional.cs" />
     <Compile Include="DatosInstitucion.cs" />
     <Compile Include="DatosRevision.cs" />
     <Compile Include="DatosTipoInstitucion.cs" />
     <Compile Include="DatosUsuario.cs" />
+    <Compile Include="JuntasBD.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JuntasBD.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JuntasBD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JuntasBD.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,10 +97,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BD_Juntas.Context.tt">
+    <Content Include="JuntasBD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JuntasBD.edmx</DependentUpon>
-      <LastGenOutput>BD_Juntas.Context.cs</LastGenOutput>
+      <LastGenOutput>JuntasBD.Context.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -15,53 +15,63 @@ namespace GestionCasos.Usuarios
         Form enUso = null;
         int ventanasAbiertas = 0;
         string isDark = ConfigurationManager.AppSettings["DarkMode"];
+        t_Revision revision = new t_Revision();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
+        ContadorNegocio persona = new ContadorNegocio();
+
+        RevisionNegocio revisionNegocio = new RevisionNegocio();
         //Datos de prueba
-        List<CasosFalsos> casos = new List<CasosFalsos>() {
-        new CasosFalsos(){ Caso="R-0001",Fecha="2020/02/10",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Correo Electronico",Persona="JOSUE JARA ESCOBAR",Comentario="No tiene comentario",Estado= "Pendiente"},
-        new CasosFalsos(){ Caso="R-0002",Fecha="2021/02/05",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Whatsapp",Persona="BAYRON HERNÁNDEZ DÍAZ",Comentario="No tiene comentario",Estado= "Tramitado"},
-        new CasosFalsos(){ Caso="R-0003",Fecha="2021/04/05",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Oficina",Persona="ALONSO CASTILLO LEDEZMA",Comentario="Documentos incompletos y mal estructurado",Estado= "En Revision"},
-        new CasosFalsos(){ Caso="R-0004",Fecha="2021/01/05",Codigo=01,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Mensajero",Persona="YEIMY BARRANTES ARTAVIA",Comentario="Todos los documentos revisados",Estado= "Tramitado"},
-        new CasosFalsos(){ Caso="R-0005",Fecha="2020/02/10",Codigo=0100000,Junta="Teodoro picado institucion o junta",Circuito=01,Recepcion="Correo Electronico",Persona="JENIFFER ARROYO CAJINA",Comentario="No tiene comentario",Estado= "En revision"},
-        };
 
         public CasosAsignados()
         {
             InitializeComponent();
         }
-
-        private void PintarTatjetas()
+       public void PedirDatos()
+        {
+           var lista = revisionNegocio.obtenerTodo(revision);
+            CargarTabla(lista);
+        }
+        public void CargarTabla(IEnumerable<t_Revision> lista)
         {
             tabla.Rows.Clear();
-            foreach (var item in casos)
+            foreach (var item in lista)
             {
                 int nRows = tabla.Rows.Add();
-                tabla.Rows[nRows].Cells[0].Value = item.Caso;
-                tabla.Rows[nRows].Cells[1].Value = item.Fecha;
-                tabla.Rows[nRows].Cells[2].Value = item.Junta.ToUpper();
-                tabla.Rows[nRows].Cells[3].Value = item.Recepcion.ToUpper();
-                tabla.Rows[nRows].Cells[4].Value = item.Comentario;
-                tabla.Rows[nRows].Cells[5].Value = item.Estado.ToUpper();
+                tabla.Rows[nRows].Cells[0].Value = item.Consecutivo;
+                tabla.Rows[nRows].Cells[1].Value = item.Fecha.ToShortDateString();
+                tabla.Rows[nRows].Cells[2].Value = item.Codigo;
+                tabla.Rows[nRows].Cells[3].Value = item.t_Institucion.Nombre.ToUpper();
+                tabla.Rows[nRows].Cells[4].Value = item.t_Institucion.Circuito;
+                tabla.Rows[nRows].Cells[5].Value = item.Recepcion;
+                tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
+                tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
 
-                if (item.Estado.ToUpper() == "PENDIENTE")
+                tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 10);
+                if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE")
                 {
                     if (isDark == "false")
                     {
-                        tabla.Rows[nRows].Cells[5].Style.ForeColor = Colors.RedFont;
-                        tabla.Rows[nRows].Cells[5].Style.BackColor = Colors.RedBack;
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.RedBack;
                     }
                     else
                     {
-                        tabla.Rows[nRows].Cells[5].Style.ForeColor = Color.FromArgb(248, 81, 73);
-                        tabla.Rows[nRows].Cells[5].Style.BackColor = Color.FromArgb(50, 24, 32);
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
                     }
                 }
-                else if (item.Estado.ToUpper() == "TRAMITADO")
+                else if (item.Estado1.TipoEstado.ToUpper() == "TRAMITADO")
                 {
                     if (isDark == "false")
                     {
-                        tabla.Rows[nRows].Cells[5].Style.ForeColor = Colors.GreenFont;
-                        tabla.Rows[nRows].Cells[5].Style.BackColor = Colors.GreenBack;
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
                     }
                     else
                     {
@@ -72,21 +82,14 @@ namespace GestionCasos.Usuarios
                 {
                     if (isDark == "false")
                     {
-                        tabla.Rows[nRows].Cells[5].Style.ForeColor = Colors.OrangeFont;
-                        tabla.Rows[nRows].Cells[5].Style.BackColor = Colors.OrangeBack;
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
                     }
                     else
                     {
 
                     }
                 }
-
-                tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
         }
@@ -137,14 +140,20 @@ namespace GestionCasos.Usuarios
 
         private void CasosAsignados_Load(object sender, EventArgs e)
         {
-            PintarTatjetas();
+            PedirDatos();
             SetThemeColor();
+            CargarCombos();
         }
         void CargarCombos()
         {
-            cbTramitador.DataSource = estadoNegocio.obtenerTodo(new Estado());
-            cbTramitador.ValueMember = "id";
-            cbTramitador.DisplayMember = "TipoEstado";
+            cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
+            cbTramitador.ValueMember = "Cedula";
+            cbTramitador.DisplayMember = "Nombre_Completo";
+
+            //Estado
+            cbEstado.DataSource = estadoNegocio.obtenerTodo(new Estado());
+            cbEstado.ValueMember = "id";
+            cbEstado.DisplayMember = "TipoEstado";
         }
         private void tabla_Resize(object sender, EventArgs e)
         {
@@ -162,6 +171,8 @@ namespace GestionCasos.Usuarios
 
                 this.panel1.BackColor = Colors.White;
                 this.panel1.ForeColor = Colors.Black;
+                this.panel2.BackColor = Colors.White;
+                this.panel2.ForeColor = Colors.Black;
 
                 tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.Blue;
                 tabla.ColumnHeadersDefaultCellStyle.ForeColor = Colors.White;

@@ -31,6 +31,7 @@ namespace Datos
         public virtual DbSet<t_Direccion_Regional> t_Direccion_Regional { get; set; }
         public virtual DbSet<t_Institucion> t_Institucion { get; set; }
         public virtual DbSet<t_Persona> t_Persona { get; set; }
+        public virtual DbSet<t_Recepcion> t_Recepcion { get; set; }
         public virtual DbSet<t_Revision> t_Revision { get; set; }
         public virtual DbSet<t_Tipo_Institucion> t_Tipo_Institucion { get; set; }
         public virtual DbSet<t_Trabajador> t_Trabajador { get; set; }

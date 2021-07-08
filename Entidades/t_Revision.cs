@@ -22,11 +22,12 @@ namespace Entidades
     
         public int Id_Caso { get; set; }
         public string Consecutivo { get; set; }
-        public System.DateTime FechaAsig { get; set; }
-        public Nullable<System.DateTime> FechaRevision { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public string FechaInsertada { get; set; }
+        public string FechaRevisada { get; set; }
         public int Codigo { get; set; }
-        public string Recepcion { get; set; }
-        public string Contador { get; set; }
+        public int Recepcion { get; set; }
+        public string Tramitador { get; set; }
         public string Comentario { get; set; }
         public string Observacion { get; set; }
         public int Estado { get; set; }
@@ -36,5 +37,7 @@ namespace Entidades
         public virtual ICollection<Mensajeria> Mensajeria { get; set; }
         public virtual t_Institucion t_Institucion { get; set; }
         public virtual t_Persona t_Persona { get; set; }
+        public virtual t_Revision t_Revision1 { get; set; }
+        public virtual t_Revision t_Revision2 { get; set; }
     }
 }

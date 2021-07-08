@@ -7,12 +7,12 @@ using Datos;
 namespace Negocios
 {
     //Plantilla
-    public class RevisionNegocio
+    public class RevisionNegocio : ICrud<t_Revision>
     {
         DatosRevision datosR = new DatosRevision();
         public bool eliminar(t_Revision e)
         {
-            throw new NotImplementedException();
+            return datosR.eliminar(e);
         }
 
         public bool guardar(t_Revision e)
@@ -22,14 +22,31 @@ namespace Negocios
 
         public bool modificar(t_Revision e)
         {
-            throw new NotImplementedException();
+            return datosR.modificar(e);
         }
 
 
 
         public IEnumerable<t_Revision> obtenerTodo(t_Revision e)
         {
-            throw new NotImplementedException();
+            return datosR.obtenerTodo(e);
+        }
+
+        //Extras
+    
+        public IEnumerable<t_Revision> obtenerPorConsecutivo(string consecutivo)
+        {
+            return datosR.obtenerPorConsecutivo(consecutivo);
+        }
+
+        public IEnumerable<t_Revision> obtenerPorContador(string persona)
+        {
+            return datosR.obtenerPorContador(persona);
+        }
+
+        public t_Revision obtenerPorId(t_Revision e)
+        {
+            return datosR.obtenerPorId(e);
         }
     }
 }

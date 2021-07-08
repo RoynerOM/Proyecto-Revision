@@ -75,6 +75,9 @@
     <Compile Include="t_Persona.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="t_Recepcion.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="t_Revision.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
