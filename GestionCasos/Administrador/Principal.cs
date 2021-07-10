@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilidades;
 
 namespace GestionCasos
 {
@@ -41,11 +42,11 @@ namespace GestionCasos
             this.DesktopPanel.Controls.Add(dashBoard);
             if (ConfigurationManager.AppSettings["DarkMode"] == "false")
             {
-                color = Color.FromArgb(66, 100, 128);
+                color = Colors.BlueHover;
             }
             else
             {
-                color = Color.FromArgb(9, 12, 16);
+                color = Colors.DarkBack;
             }
             currentButton = this.btnDashBoard;
             currentButton.BackColor = color;
@@ -55,11 +56,10 @@ namespace GestionCasos
         {
             if (ConfigurationManager.AppSettings["DarkMode"] == "false")
             {
-                this.BackColor = Color.FromArgb(41, 79, 116);
-                this.DesktopPanel.BackColor = Color.FromArgb(41, 79, 116);
-                this.DesktopPanel.ForeColor = Color.White;
+                this.BackColor = Colors.White;
+                this.DesktopPanel.BackColor = Colors.White;
 
-                this.pnLateralIzquierda.BackColor = Color.FromArgb(41, 79, 116);
+                this.pnLateralIzquierda.BackColor = Colors.Blue;
                 this.pnLateralIzquierda.ForeColor = Color.White;
             }
             else
@@ -67,6 +67,8 @@ namespace GestionCasos
 
             }
         }
+
+
         private void btnCerrarSecion_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -76,10 +78,7 @@ namespace GestionCasos
             login.Show();
         }
 
-        private void btnDashBoard_MouseEnter(object sender, EventArgs e)
-        {
-            btnDashBoard.BackColor = Color.FromArgb(9, 12, 16);
-        }
+
 
         private void ActiveButton(object btnSender)
         {
@@ -91,12 +90,12 @@ namespace GestionCasos
                     Color color;
                     if (ConfigurationManager.AppSettings["DarkMode"] == "false")
                     {
-                        color = Color.FromArgb(66, 100, 128);
+                        color = Colors.BlueHover;
 
                     }
                     else
                     {
-                        color = Color.FromArgb(9, 12, 16);
+                        color = Colors.DarkBack;
                     }
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = color;
@@ -113,12 +112,12 @@ namespace GestionCasos
                     Color color;
                     if (ConfigurationManager.AppSettings["DarkMode"] == "false")
                     {
-                        color = Color.FromArgb(41, 79, 116);
+                        color = Colors.Blue;
 
                     }
                     else
                     {
-                        color = Color.FromArgb(33, 38, 45);
+                        color = Colors.DarkPanel;
                     }
                     previousBtn.BackColor = color;
                 }
@@ -161,6 +160,7 @@ namespace GestionCasos
         {
             OpenChildForm(new fMenu(), sender);
         }
+
     }
 
 }

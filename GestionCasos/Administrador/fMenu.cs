@@ -68,14 +68,12 @@ namespace GestionCasos.Administrador
 
                 btnContadores.BaseColor = Colors.Blue;
                 btnCasos.BaseColor = Colors.Blue;
-                btnBug.BaseColor = Colors.Blue;
                 btnMode.BaseColor = Colors.Blue;
                 btnReportes.BaseColor = Colors.Blue;
                 btnJuntas.BaseColor = Colors.Blue;
 
                 btnContadores.OnHoverBaseColor = Colors.BlueHover;
                 btnCasos.OnHoverBaseColor = Colors.BlueHover;
-                btnBug.OnHoverBaseColor = Colors.BlueHover;
                 btnMode.OnHoverBaseColor = Colors.BlueHover;
                 btnReportes.OnHoverBaseColor = Colors.BlueHover;
                 btnJuntas.OnHoverBaseColor = Colors.BlueHover;

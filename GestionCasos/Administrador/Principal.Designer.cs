@@ -29,18 +29,19 @@ namespace GestionCasos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.pnLateralIzquierda = new System.Windows.Forms.Panel();
-            this.DesktopPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCerrarSecion = new System.Windows.Forms.Button();
+            this.DesktopPanel = new System.Windows.Forms.Panel();
             this.pnLateralIzquierda.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnLateralIzquierda
             // 
             this.pnLateralIzquierda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            this.pnLateralIzquierda.Controls.Add(this.button1);
+            this.pnLateralIzquierda.Controls.Add(this.btnMenu);
             this.pnLateralIzquierda.Controls.Add(this.btnDashBoard);
             this.pnLateralIzquierda.Controls.Add(this.btnCerrarSecion);
             this.pnLateralIzquierda.Dock = System.Windows.Forms.DockStyle.Left;
@@ -50,46 +51,37 @@ namespace GestionCasos
             this.pnLateralIzquierda.Size = new System.Drawing.Size(111, 661);
             this.pnLateralIzquierda.TabIndex = 0;
             // 
-            // DesktopPanel
+            // btnMenu
             // 
-            this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
-            this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DesktopPanel.Location = new System.Drawing.Point(111, 0);
-            this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1025, 661);
-            this.DesktopPanel.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.button1.Image = global::GestionCasos.Properties.Resources.squared_menu_60px;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(0, 98);
-            this.button1.MinimumSize = new System.Drawing.Size(111, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 90);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Menu";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.btnMenu.Image = global::GestionCasos.Properties.Resources.squared_menu_60px;
+            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMenu.Location = new System.Drawing.Point(0, 92);
+            this.btnMenu.MinimumSize = new System.Drawing.Size(111, 90);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(111, 90);
+            this.btnMenu.TabIndex = 10;
+            this.btnMenu.Text = "Menu";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnDashBoard
             // 
             this.btnDashBoard.BackColor = System.Drawing.Color.Transparent;
             this.btnDashBoard.FlatAppearance.BorderSize = 0;
-            this.btnDashBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnDashBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashBoard.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashBoard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.btnDashBoard.Image = global::GestionCasos.Properties.Resources.dashboard_60px;
             this.btnDashBoard.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDashBoard.Location = new System.Drawing.Point(0, 2);
+            this.btnDashBoard.Location = new System.Drawing.Point(0, 1);
             this.btnDashBoard.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.Size = new System.Drawing.Size(111, 90);
@@ -110,7 +102,7 @@ namespace GestionCasos
             this.btnCerrarSecion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.btnCerrarSecion.Image = global::GestionCasos.Properties.Resources.sign_out_60px1;
             this.btnCerrarSecion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCerrarSecion.Location = new System.Drawing.Point(0, 570);
+            this.btnCerrarSecion.Location = new System.Drawing.Point(0, 571);
             this.btnCerrarSecion.Name = "btnCerrarSecion";
             this.btnCerrarSecion.Size = new System.Drawing.Size(111, 87);
             this.btnCerrarSecion.TabIndex = 3;
@@ -119,15 +111,25 @@ namespace GestionCasos
             this.btnCerrarSecion.UseVisualStyleBackColor = false;
             this.btnCerrarSecion.Click += new System.EventHandler(this.btnCerrarSecion_Click);
             // 
+            // DesktopPanel
+            // 
+            this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DesktopPanel.Location = new System.Drawing.Point(111, 0);
+            this.DesktopPanel.Name = "DesktopPanel";
+            this.DesktopPanel.Size = new System.Drawing.Size(1025, 661);
+            this.DesktopPanel.TabIndex = 1;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1136, 661);
             this.Controls.Add(this.DesktopPanel);
             this.Controls.Add(this.pnLateralIzquierda);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1152, 700);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -143,6 +145,6 @@ namespace GestionCasos
         private System.Windows.Forms.Panel pnLateralIzquierda;
         private System.Windows.Forms.Button btnDashBoard;
         private System.Windows.Forms.Panel DesktopPanel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

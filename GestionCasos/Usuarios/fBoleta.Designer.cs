@@ -34,7 +34,7 @@ namespace GestionCasos.Usuarios
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblConsecutivo = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cbMotivo1 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.cbMotivo2 = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -61,7 +61,7 @@ namespace GestionCasos.Usuarios
             this.gunaLinePanel1.Controls.Add(this.btnBoleta);
             this.gunaLinePanel1.Controls.Add(this.guna2GroupBox2);
             this.gunaLinePanel1.Controls.Add(this.guna2GroupBox1);
-            this.gunaLinePanel1.Controls.Add(this.label2);
+            this.gunaLinePanel1.Controls.Add(this.lblConsecutivo);
             this.gunaLinePanel1.Controls.Add(this.label1);
             this.gunaLinePanel1.Controls.Add(this.gunaControlBox1);
             this.gunaLinePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -108,17 +108,17 @@ namespace GestionCasos.Usuarios
             this.label1.TabIndex = 1;
             this.label1.Text = "Consecutivo: ";
             // 
-            // label2
+            // lblConsecutivo
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(126, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "R-1";
+            this.lblConsecutivo.AutoSize = true;
+            this.lblConsecutivo.BackColor = System.Drawing.Color.Transparent;
+            this.lblConsecutivo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConsecutivo.ForeColor = System.Drawing.Color.White;
+            this.lblConsecutivo.Location = new System.Drawing.Point(126, 10);
+            this.lblConsecutivo.Name = "lblConsecutivo";
+            this.lblConsecutivo.Size = new System.Drawing.Size(32, 21);
+            this.lblConsecutivo.TabIndex = 2;
+            this.lblConsecutivo.Text = "R-1";
             // 
             // guna2GroupBox1
             // 
@@ -309,6 +309,7 @@ namespace GestionCasos.Usuarios
             this.cbMotivo8.UncheckedState.BorderThickness = 0;
             this.cbMotivo8.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cbMotivo8.UseVisualStyleBackColor = false;
+            this.cbMotivo8.CheckedChanged += new System.EventHandler(this.cbMotivo8_CheckedChanged);
             // 
             // txtOtros
             // 
@@ -316,6 +317,7 @@ namespace GestionCasos.Usuarios
             this.txtOtros.Location = new System.Drawing.Point(388, 140);
             this.txtOtros.Multiline = true;
             this.txtOtros.Name = "txtOtros";
+            this.txtOtros.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtOtros.Size = new System.Drawing.Size(385, 115);
             this.txtOtros.TabIndex = 8;
             // 
@@ -389,6 +391,7 @@ namespace GestionCasos.Usuarios
             this.btnObservacion.Size = new System.Drawing.Size(223, 42);
             this.btnObservacion.TabIndex = 7;
             this.btnObservacion.Text = "Agregar Observacion";
+            this.btnObservacion.Click += new System.EventHandler(this.btnObservacion_Click);
             // 
             // fBoleta
             // 
@@ -399,7 +402,9 @@ namespace GestionCasos.Usuarios
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "fBoleta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fBoleta";
+            this.Load += new System.EventHandler(this.fBoleta_Load);
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
             this.guna2GroupBox1.ResumeLayout(false);
@@ -415,7 +420,7 @@ namespace GestionCasos.Usuarios
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
         private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblConsecutivo;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private System.Windows.Forms.TextBox txtOtros;

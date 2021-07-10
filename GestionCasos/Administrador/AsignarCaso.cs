@@ -14,6 +14,8 @@ using Datos;
 using System.IO;
 //using Utilidades.Enumerables;
 using System.Data.SqlClient;
+using System.Configuration;
+using Utilidades;
 
 namespace GestionCasos
 
@@ -70,8 +72,31 @@ namespace GestionCasos
             //Actualizar();
             CargarCombos();
             MostrarConsecutivo();
+            SetThemeColor();
         }
 
+        //Cambio de colores
+        private void SetThemeColor()
+        {
+            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+            {
+                this.BackColor = Colors.White;
+                this.panel1.BackColor = Colors.White;
+                this.panel2.BackColor = Colors.Blue;
+
+                lbConsecutivo.ForeColor = Colors.DarkBack;
+                lbCodigo.ForeColor = Colors.DarkBack;
+                lbCircuiton.ForeColor = Colors.DarkBack;
+                lbFecha.ForeColor = Colors.DarkBack;
+                lbJunta.ForeColor = Colors.DarkBack;
+                lbMedioReceptivo.ForeColor = Colors.DarkBack;
+                lbAsignado.ForeColor = Colors.DarkBack;
+            }
+            else
+            {
+
+            }
+        }
         //private void Actualizar()
         //{
         //    try
@@ -131,7 +156,7 @@ namespace GestionCasos
 
         }
 
-        //Modificado
+        //Metodo de guardar
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
@@ -161,9 +186,5 @@ namespace GestionCasos
 
         }
 
-        private void txtCodigo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

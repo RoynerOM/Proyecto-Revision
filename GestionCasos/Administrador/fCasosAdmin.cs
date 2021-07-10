@@ -31,6 +31,8 @@ namespace GestionCasos
 
         }
 
+        
+
         /*
         #region Filtrar por nombre
         private void FiltroPorNombre(string persona)
@@ -327,24 +329,28 @@ namespace GestionCasos
                 {
                     if (isDark == "false")
                     {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
+                       
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
                     }
                     else
                     {
-
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
                     }
                 }
                 else
                 {
                     if (isDark == "false")
                     {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
                     }
                     else
                     {
-
+                       
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
                     }
                 }
             }
@@ -395,7 +401,6 @@ namespace GestionCasos
 
         }
 
-
         private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -406,9 +411,14 @@ namespace GestionCasos
                 //Se evalua si la celda seleccionada es de tipo boton
                 if (Grid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
                 {
-                    AgregarComentario comentario = new AgregarComentario();
-                    comentario.ShowDialog();
+                    if (e.RowIndex != -1)
+                    {
+                        string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        DatosTemp.t_Revision = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
+                        fBoleta comentario = new fBoleta();
+                        comentario.ShowDialog();
 
+                    }
                 }
             }
             //Control de la excepcio
@@ -502,6 +512,27 @@ namespace GestionCasos
             {
                 FilterByConsecutivo(txtConsecutivo.Text);
                 cbEstado.ResetText();
+
+            }
+        }
+
+        public delegate void pasarDatos(t_Revision revision);
+
+        public event pasarDatos PasarDatosEvent;
+        private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                int fila = e.RowIndex;
+
+                string consecutivo = tabla.Rows[fila].Cells[0].Value.ToString();
+               
+
+                t_Revision revisionDatos = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
+                //Se pasan los datos
+                PasarDatosEvent(revisionDatos);
+
+                this.Close();
 
             }
         }

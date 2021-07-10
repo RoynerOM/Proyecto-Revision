@@ -17,6 +17,7 @@ namespace GestionCasos
         ContadorNegocio negocio = new ContadorNegocio();
         RevisionNegocio revision = new RevisionNegocio();
         InstitucionNegocio institucion = new InstitucionNegocio();
+        private Form activeForm;
 
         public fDashBoard()
         {
@@ -92,6 +93,31 @@ namespace GestionCasos
             }
         }
         private void pnContadores_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gunaTileButton1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fCasosAdmin());
+        }
+        //Pintar formulario hijo
+        //Formulario en uso
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.DesktopPanel.Controls.Add(childForm);
+            this.DesktopPanel.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void gunaTileButton2_Click(object sender, EventArgs e)
         {
 
         }
