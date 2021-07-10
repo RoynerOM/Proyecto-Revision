@@ -38,33 +38,57 @@ namespace GestionCasos.Administrador
             childForm.Show();
         }
 
+
         private void gunaTileButton1_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fContador());
         }
+
 
         private void btnContadores_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fInstituciones());
         }
 
+
         private void gunaTileButton2_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AsignarCaso());
         }
+
+
         void SetColorTheme()
         {
             if (ConfigurationManager.AppSettings["DarkMode"] == "false")
             {
-                gunaTileButton4.Image = global::GestionCasos.Properties.Resources.sun_60px;
-                gunaTileButton4.Text = "Modo Claro";
+                btnMode.Image = global::GestionCasos.Properties.Resources.sun_60px;
+                btnMode.Text = "Modo Claro";
+
+                flowLayoutPanel1.BackColor = Colors.White;
+
+                btnContadores.BaseColor = Colors.Blue;
+                btnCasos.BaseColor = Colors.Blue;
+                btnBug.BaseColor = Colors.Blue;
+                btnMode.BaseColor = Colors.Blue;
+                btnReportes.BaseColor = Colors.Blue;
+                btnJuntas.BaseColor = Colors.Blue;
+
+                btnContadores.OnHoverBaseColor = Colors.BlueHover;
+                btnCasos.OnHoverBaseColor = Colors.BlueHover;
+                btnBug.OnHoverBaseColor = Colors.BlueHover;
+                btnMode.OnHoverBaseColor = Colors.BlueHover;
+                btnReportes.OnHoverBaseColor = Colors.BlueHover;
+                btnJuntas.OnHoverBaseColor = Colors.BlueHover;
+
             }
             else
             {
-                gunaTileButton4.Image = global::GestionCasos.Properties.Resources.new_moon_60px;
-                gunaTileButton4.Text = "Modo Oscuro";
+                btnMode.Image = global::GestionCasos.Properties.Resources.new_moon_60px;
+                btnMode.Text = "Modo Oscuro";
             }
         }
+
+
         private void gunaTileButton4_Click(object sender, EventArgs e)
         {
             XmlDocument xml = new XmlDocument();

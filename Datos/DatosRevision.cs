@@ -42,9 +42,9 @@ namespace Datos
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -104,7 +104,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Where(x=> x.Consecutivo == consecutivo).ToList();
+                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Where(x=> x.Consecutivo == consecutivo).ToList();
 
                     if (caso != null)
                     {

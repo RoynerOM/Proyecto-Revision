@@ -15,6 +15,9 @@ namespace GestionCasos
     public partial class fDashBoard : Form
     {
         ContadorNegocio negocio = new ContadorNegocio();
+        RevisionNegocio revision = new RevisionNegocio();
+        InstitucionNegocio institucion = new InstitucionNegocio();
+
         public fDashBoard()
         {
             InitializeComponent();
@@ -32,6 +35,21 @@ namespace GestionCasos
             {
                 var cantidad = negocio.CantidadContadores();
                 label1.Text = cantidad.ToString();
+
+                var casos = revision.obtenerTodo(new t_Revision());
+
+                var pendientes = casos.Where(x => x.Estado == 1).Count();
+                lblTotaPendientes.Text = pendientes.ToString();
+
+
+                var revicion = casos.Where(x => x.Estado == 2).Count();
+                lblTotalRevisados.Text = revicion.ToString();
+
+                var tramitado = casos.Where(x => x.Estado == 3).Count();
+                var todos = casos.Count();
+
+                var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
+                lblTotalJuntas.Text = instituciones.ToString();
             }
             catch (Exception ex)
             {

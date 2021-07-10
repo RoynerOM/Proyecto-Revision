@@ -14,8 +14,9 @@ namespace Utilidades
         public static Color White = Color.White;
 
         //Colores para fondo blaco
-        public static Color Gray = Color.FromArgb(242,242,242);
+        public static Color Gray = Color.FromArgb(245, 245, 245);
         public static Color Blue = Color.FromArgb(41, 79, 116);
+        public static Color BlueHover = Color.FromArgb(66, 100, 128);
 
         //Tramited or send
         public static Color GreenBack = Color.FromArgb(211,234,221);
@@ -34,5 +35,6 @@ namespace Utilidades
         //Purple
         public static Color DarkBack = Color.FromArgb(20, 22, 37);
         public static Color DarkPanel = Color.FromArgb(31, 33, 58);
+
     }
 }

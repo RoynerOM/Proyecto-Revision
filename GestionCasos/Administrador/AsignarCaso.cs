@@ -22,28 +22,27 @@ namespace GestionCasos
     {
 
         RevisionNegocio Rnegocio = new RevisionNegocio();
-
+        ContadorNegocio persona = new ContadorNegocio();
+        RecepcionNegocio recepcion = new RecepcionNegocio();
         public AsignarCaso()
         {
             InitializeComponent();
         }
 
         //Modificado
-        private void ComboBox()
+        private void CargarCombos()
         {
-            using (BD_JuntasEntities context = new BD_JuntasEntities())
-            {
-                var listaContadores = (from c in context.t_Persona
-                                       select c).ToList();
 
-                cbAsignados.DataSource = listaContadores;
-                cbAsignados.DisplayMember = "Nombre_Completo";
-                cbAsignados.ValueMember = "Cedula";
-                //cbAsignados.SelectedValue = "Cedula";
 
-            }
+            cbAsignados.DataSource = persona.obtenerTodo(new t_Persona());
+            cbAsignados.DisplayMember = "Nombre_Completo";
+            cbAsignados.ValueMember = "Cedula";
 
-           // cbTipoUsuario.DataSource = Enum.GetValues(typeof(Enums.MedioReceptivo));
+
+            //Modificado
+            cbTipoRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
+            cbTipoRecepcion.ValueMember = "id";
+            cbTipoRecepcion.DisplayMember = "Nombre";
 
 
         }
@@ -53,29 +52,23 @@ namespace GestionCasos
         {
             try
             {
-                using (BD_JuntasEntities context = new BD_JuntasEntities())
+                using (var context = new BD_JuntasEntities())
                 {
-                    t_Revision revision = new t_Revision();
-                    var id = context.t_Revision.Max(x => x.Id_Caso);
-
-                    var cons = (from c in context.t_Revision
-                                where c.Id_Caso == id
-                                select c.Consecutivo);
-
-                    txtConsecutivo.Text = cons.SingleOrDefault();
-
+                    var id = context.t_Revision.Max(x => x.Id_Caso)+1;
+                    string cons = "R-"+id.ToString();
+                    txtConsecutivo.Text = cons;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Console.WriteLine(ex);
             }
         }
 
         private void AsignarCaso_Load(object sender, EventArgs e)
         {
             //Actualizar();
-            ComboBox();
+            CargarCombos();
             MostrarConsecutivo();
         }
 
@@ -98,7 +91,7 @@ namespace GestionCasos
         //    catch (Exception ex)
         //    {
         //        MessageBox.Show(ex.ToString());
-                
+
         //    }
         //}
 
@@ -137,23 +130,23 @@ namespace GestionCasos
 
 
         }
-        
+
         //Modificado
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
+
             t_Revision revision = new t_Revision();
 
             revision.Codigo = int.Parse(txtCodigo.Text);
-           // revision.Fecha = dtpFecha.Value;
-           // revision.Tramitador = cbAsignados.SelectedValue.ToString();
-           // revision.Recepcion = (int)cbTipoUsuario.SelectedValue;
-            //revision.Estado = (int)Enums.Estado.activo == 1 ? false : true;
+            revision.Fecha = DateTime.Parse(dtpFecha.Value.ToShortDateString());
+            revision.Tramitador = cbAsignados.SelectedValue.ToString();
+            revision.Recepcion = (int)cbTipoRecepcion.SelectedValue;
+            revision.Estado = 1;
             revision.Comentario = "No tiene comentario";
             revision.Observacion = "No tiene observacion";
             revision.Estado = 1;
-                
-            if (Rnegocio.guardar(revision))
+
+            if (Rnegocio.guardar(revision) == true)
             {
                 MessageBox.Show("Caso asignado", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MostrarConsecutivo();

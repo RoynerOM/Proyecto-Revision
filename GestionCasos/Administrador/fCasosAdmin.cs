@@ -19,6 +19,7 @@ namespace GestionCasos
         EstadoNegocio estadoNegocio = new EstadoNegocio();
         ContadorNegocio persona = new ContadorNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
+        RecepcionNegocio recepcion = new RecepcionNegocio();
         List<t_Revision> Casos = null;
         string isDark = ConfigurationManager.AppSettings["DarkMode"];
 
@@ -29,6 +30,7 @@ namespace GestionCasos
             InitializeComponent();
 
         }
+
         /*
         #region Filtrar por nombre
         private void FiltroPorNombre(string persona)
@@ -258,6 +260,14 @@ namespace GestionCasos
         }
 
 
+        //Filtro por Consecutivo
+        public void FilterByConsecutivo(string consecutivo)
+        {
+            IEnumerable<t_Revision> filtro = revisionNegocio.obtenerPorConsecutivo(consecutivo);
+            CargarTabla(filtro);
+        }
+
+
         //Filtro por tramitador
         public void FilterByTramitador(string valor)
         {
@@ -265,7 +275,7 @@ namespace GestionCasos
             if (filtro != null)
             {
                 CargarTabla(filtro);
-            }  
+            }
         }
 
 
@@ -340,6 +350,7 @@ namespace GestionCasos
             }
         }
 
+
         //Cambio de color
         private void SetThemeColor()
         {
@@ -360,6 +371,7 @@ namespace GestionCasos
                 gunaLabel1.ForeColor = Colors.Black;
                 gunaLabel2.ForeColor = Colors.Black;
                 gunaLabel3.ForeColor = Colors.Black;
+                gunaLabel4.ForeColor = Colors.Black;
             }
             else
             {
@@ -408,44 +420,6 @@ namespace GestionCasos
         }
 
 
-        //Combobox de Tramitador
-        private void gunaComboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-                FilterByTramitador(cbTramitador.SelectedValue.ToString());
-                cbTramitador.ResetText();
-            
-        }
-
-        //Combox de Recepcion
-        private void gunaComboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (gunaComboBox2.Text != string.Empty)
-            {
-                FilterByRecepcion((int)gunaComboBox2.SelectedValue);
-                gunaComboBox2.ResetText();
-            }
-        }
-
-        //Combo box de Estado
-        private void gunaComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-            if (cbEstado.Text != string.Empty)
-            {
-                if (cbEstado.Text == "Todos")
-                {
-                    PedirDatos();
-                }
-                else
-                {
-                    string estado = cbEstado.Text;
-                    FilterByEstate(estado);
-                    cbEstado.ResetText();
-                }
-            }
-        }
-
 
         private void tabla_Resize(object sender, EventArgs e)
         {
@@ -466,6 +440,7 @@ namespace GestionCasos
 
         void CargarCombos()
         {
+            //Tramitador
             cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
             cbTramitador.ValueMember = "Cedula";
             cbTramitador.DisplayMember = "Nombre_Completo";
@@ -474,6 +449,61 @@ namespace GestionCasos
             cbEstado.DataSource = estadoNegocio.obtenerTodo(new Estado());
             cbEstado.ValueMember = "id";
             cbEstado.DisplayMember = "TipoEstado";
+
+            //Recepcion
+            cbRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
+            cbRecepcion.ValueMember = "id";
+            cbRecepcion.DisplayMember = "Nombre";
+        }
+
+        //Combo de Tramitador
+        private void cbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            FilterByTramitador(cbTramitador.SelectedValue.ToString());
+            cbTramitador.ResetText();
+        }
+
+        //Combo de Estado
+        private void cbEstado_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbEstado.Text != string.Empty)
+            {
+                if (cbEstado.Text == "Todos")
+                {
+                    PedirDatos();
+                }
+                else
+                {
+                    string estado = cbEstado.Text;
+                    FilterByEstate(estado);
+                    cbEstado.ResetText();
+                }
+            }
+        }
+
+        //Filtro de recepcion
+        private void cbRecepcion_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbRecepcion.Text != string.Empty)
+            {
+                FilterByRecepcion((int)cbRecepcion.SelectedValue);
+                cbRecepcion.ResetText();
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtConsecutivo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtConsecutivo.Text != string.Empty)
+            {
+                FilterByConsecutivo(txtConsecutivo.Text);
+                cbEstado.ResetText();
+
+            }
         }
     }
 }

@@ -353,6 +353,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap more_details_60px {
+            get {
+                object obj = ResourceManager.GetObject("more_details_60px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap new_moon_60px {
             get {
                 object obj = ResourceManager.GetObject("new_moon_60px", resourceCulture);

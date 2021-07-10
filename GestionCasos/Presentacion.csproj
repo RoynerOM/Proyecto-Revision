@@ -205,6 +205,12 @@
     <Compile Include="Usuarios\CasosAsignados.Designer.cs">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\fBoleta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\fBoleta.Designer.cs">
+      <DependentUpon>fBoleta.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentanasAbiertas.cs" />
     <EmbeddedResource Include="Administrador\AsignarCaso.resx">
       <DependentUpon>AsignarCaso.cs</DependentUpon>
@@ -258,6 +264,9 @@
     <EmbeddedResource Include="Usuarios\CasosAsignados.resx">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\fBoleta.resx">
+      <DependentUpon>fBoleta.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -299,6 +308,7 @@
     <None Include="Resources\group_60px2.png" />
     <None Include="Resources\new_moon_60px.png" />
     <None Include="Resources\sun_60px.png" />
+    <None Include="Resources\more_details_60px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

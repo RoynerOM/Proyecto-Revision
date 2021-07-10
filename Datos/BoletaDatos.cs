@@ -1,80 +1,83 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
-using Utilidades.Interfaces;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utilidades.Interfaces;
+
 namespace Datos
 {
-    public class DatosInstitucion : ICrud<t_Institucion>
+    public class BoletaDatos : ICrud<t_Boleta>
     {
-        public bool eliminar(t_Institucion e)
+        public bool eliminar(t_Boleta e)
         {
-            //throw new NotImplementedException();
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    db.Entry<t_Institucion>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<t_Boleta>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
-                }
-                return true;
-            }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
-        public bool guardar(t_Institucion e)
-        {
-            using (var db = new BD_JuntasEntities())
-            {
-                try
-                {
-                    db.t_Institucion.Add(e);
-                    db.SaveChanges();
                     return true;
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return false;
-                }
             }
-        }
-
-        public bool modificar(t_Institucion e)
-        {
-            //throw new NotImplementedException();
-            try
-            {
-                using (var db = new BD_JuntasEntities())
-                {
-                    db.Entry<t_Institucion>(e).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
-                }
-                return true;
-            }
-
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 return false;
             }
         }
 
-        public t_Institucion obtenerPorId(t_Institucion e)
+        public bool guardar(t_Boleta e)
         {
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var consulta = db.t_Institucion.Include("t_Persona").FirstOrDefault( x=>  x.Codigo == e.Codigo);
-                    if (consulta != null)
+                    db.t_Boleta.Add(e);
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public bool modificar(t_Boleta e)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    db.Entry<t_Boleta>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public t_Boleta obtenerPorId(t_Boleta e)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                  var boleta =  db.t_Boleta.Include("t_Persona").Where(x => x.Id == e.Id);
+
+                    if (boleta != null)
                     {
-                        return consulta;
+                        return (t_Boleta)boleta;
                     }
                     else
                     {
@@ -82,24 +85,24 @@ namespace Datos
                     }
                 }
             }
-
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 return null;
             }
         }
 
-        public IEnumerable<t_Institucion> obtenerTodo(t_Institucion e)
+        public IEnumerable<t_Boleta> obtenerTodo(t_Boleta e)
         {
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var consulta = db.t_Institucion.ToList();
-                    if (consulta != null)
+                    var boleta = db.t_Boleta.Include("t_Persona").ToList();
+
+                    if (boleta != null)
                     {
-                        return consulta;
+                        return boleta;
                     }
                     else
                     {
@@ -107,10 +110,9 @@ namespace Datos
                     }
                 }
             }
-
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 return null;
             }
         }
