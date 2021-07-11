@@ -64,7 +64,7 @@ namespace GestionCasos.Usuarios
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(884, 561);
             this.panel1.TabIndex = 0;
@@ -82,7 +82,7 @@ namespace GestionCasos.Usuarios
             this.panel2.Controls.Add(this.tabla);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(884, 561);
             this.panel2.TabIndex = 1;
@@ -98,7 +98,7 @@ namespace GestionCasos.Usuarios
             this.txtConsecutivo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtConsecutivo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsecutivo.Location = new System.Drawing.Point(346, 67);
-            this.txtConsecutivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConsecutivo.Margin = new System.Windows.Forms.Padding(2);
             this.txtConsecutivo.Name = "txtConsecutivo";
             this.txtConsecutivo.PasswordChar = '\0';
             this.txtConsecutivo.SelectedText = "";
@@ -157,7 +157,7 @@ namespace GestionCasos.Usuarios
             this.cbRecepcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbRecepcion.FormattingEnabled = true;
             this.cbRecepcion.Location = new System.Drawing.Point(734, 68);
-            this.cbRecepcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRecepcion.Margin = new System.Windows.Forms.Padding(2);
             this.cbRecepcion.Name = "cbRecepcion";
             this.cbRecepcion.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbRecepcion.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -178,7 +178,7 @@ namespace GestionCasos.Usuarios
             this.cbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(575, 67);
-            this.cbEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbEstado.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -223,7 +223,7 @@ namespace GestionCasos.Usuarios
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.tabla.Location = new System.Drawing.Point(0, 119);
-            this.tabla.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabla.Margin = new System.Windows.Forms.Padding(2);
             this.tabla.Name = "tabla";
             this.tabla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -251,6 +251,7 @@ namespace GestionCasos.Usuarios
             this.tabla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabla.Size = new System.Drawing.Size(884, 442);
             this.tabla.TabIndex = 0;
+            this.tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellContentClick_1);
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
             // 
             // Caso
@@ -353,7 +354,7 @@ namespace GestionCasos.Usuarios
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "CasosAsignados";
             this.Text = "CasosAsignados";

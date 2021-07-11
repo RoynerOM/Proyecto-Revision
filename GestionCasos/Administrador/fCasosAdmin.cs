@@ -415,7 +415,7 @@ namespace GestionCasos
                     {
                         string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
                         DatosTemp.t_Revision = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
-                        fBoleta comentario = new fBoleta();
+                        fBoleta comentario = new fBoleta(1);
                         comentario.ShowDialog();
 
                     }

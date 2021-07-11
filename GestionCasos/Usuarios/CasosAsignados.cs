@@ -122,30 +122,7 @@ namespace GestionCasos.Usuarios
         private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            try
-            {
-                //Codigo a evaluar
-                //Convertir el objeto en un dataGrid
-                var Grid = (DataGridView)sender;
-                //Se evalua si la celda seleccionada es de tipo boton
-                if (Grid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
-                {
-                    Transition t = new Transition(new TransitionType_EaseInEaseOut(400));
-                    AgregarComentario ventana = new AgregarComentario();
-
-                    t.add(ventana, "Top", 300);
-                    t.run();
-                    ventana.StartPosition = FormStartPosition.CenterScreen;
-                    ventana.ShowDialog();
-                }
-
-            }
-            //Control de la excepcion
-            catch (Exception ex)
-            {
-                var error = ex.Data;
-                MessageBox.Show(error.ToString());
-            }
+           
         }
 
 
@@ -280,6 +257,34 @@ namespace GestionCasos.Usuarios
             this.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void tabla_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                //Codigo a evaluar
+                //Convertir el objeto en un dataGrid
+                var Grid = (DataGridView)sender;
+                //Se evalua si la celda seleccionada es de tipo boton
+                if (Grid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                {
+                    if (e.RowIndex != -1)
+                    {
+                        string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        DatosTemp.t_Revision = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
+                        fBoleta comentario = new fBoleta(0);
+                        comentario.ShowDialog();
+
+                    }
+                }
+            }
+            //Control de la excepcio
+            catch (Exception ex)
+            {
+                var error = ex.Data;
+                MessageBox.Show(error.ToString());
+            }
         }
     }
 }

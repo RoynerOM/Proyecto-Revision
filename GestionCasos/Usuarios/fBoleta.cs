@@ -17,16 +17,17 @@ namespace GestionCasos.Usuarios
     public partial class fBoleta : Form
     {
         string isDark = ConfigurationManager.AppSettings["DarkMode"];
-
+        private int TipoUsuario = 0;
         t_Boleta boleta = new t_Boleta();
         t_Revision revision = new t_Revision();
         BoletaNegocio boletaNegocio = new BoletaNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
 
         showMessageDialog Alert = new showMessageDialog();
-        public fBoleta()
+        public fBoleta(int tipo)
         {
             InitializeComponent();
+            TipoUsuario = tipo;
         }
 
         //Cambio de color
@@ -84,7 +85,8 @@ namespace GestionCasos.Usuarios
             {
                 cbMotivo8.ForeColor = Colors.RedFont;
                 return false;
-            }else if (txtObservacion.Text == string.Empty)
+            }
+            else if (txtObservacion.Text == string.Empty)
             {
                 guna2GroupBox2.ForeColor = Colors.RedFont;
                 return false;
@@ -95,12 +97,40 @@ namespace GestionCasos.Usuarios
             }
         }
 
-  
+
 
         private void CargarDatosForm()
         {
             lblConsecutivo.Text = revision.Consecutivo;
-            txtObservacion.Text = revision.Observacion;
+            var caso = revisionNegocio.obtenerPorConsecutivo(revision.Consecutivo).Where(x => x.Consecutivo == revision.Consecutivo).SingleOrDefault();
+
+            var boletas = boletaNegocio.obtenerTodo(new t_Boleta());
+
+            var filtro = boletas.Where(x => x.Nu_caso == caso.Id_Caso).SingleOrDefault();
+
+
+            cbMotivo1.Checked = (bool)filtro.Motivo1;
+            cbMotivo2.Checked = (bool)filtro.Motivo2;
+            cbMotivo3.Checked = (bool)filtro.Motivo3;
+            cbMotivo4.Checked = (bool)filtro.Motivo4;
+            cbMotivo5.Checked = (bool)filtro.Motivo5;
+            cbMotivo6.Checked = (bool)filtro.Motivo6;
+            cbMotivo7.Checked = (bool)filtro.Motivo7;
+
+            if (filtro.Motivo8 != null)
+            {
+                cbMotivo8.Checked = true;
+                txtOtros.Visible = true;
+                txtOtros.Text = filtro.Motivo8;
+            }
+            if (TipoUsuario == 0)
+            {
+                txtObservacion.Text = revision.Comentario;
+            }
+            else
+            {
+                txtObservacion.Text = revision.Observacion;
+            }
         }
 
 
@@ -109,11 +139,11 @@ namespace GestionCasos.Usuarios
         {
             try
             {
-               
-                if (ValidarCampos()== true)
+
+                if (ValidarCampos() == true)
                 {
                     //Buscar el caso por consecutivo
-                   
+
 
                     boleta.Nu_caso = revision.Id_Caso;
                     boleta.Motivo1 = cbMotivo1.Checked;
@@ -126,8 +156,18 @@ namespace GestionCasos.Usuarios
                     boleta.Motivo8 = txtOtros.Text;
                     boleta.Observacion = txtObservacion.Text;
 
-                    if (boletaNegocio.guardar(boleta) == true)
+                    if (TipoUsuario == 0 && txtObservacion.Text != string.Empty)
                     {
+                        revision.Comentario = txtObservacion.Text;
+                    }
+                    else
+                    {
+                        revision.Observacion = txtObservacion.Text;
+                    }
+
+                    if (boletaNegocio.guardar(boleta) == true && revisionNegocio.modificar(revision) == true)
+                    {
+
                         Alert.Success(new Alertas.Alerta(), "Observacion Agregada con exito");
                     }
                     else
@@ -136,7 +176,7 @@ namespace GestionCasos.Usuarios
                     }
                 }
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
 
                 Console.WriteLine(ex);
