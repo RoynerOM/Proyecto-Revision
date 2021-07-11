@@ -6,9 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using GestionCasos.Administrador;
 using Negocios;
 namespace GestionCasos
 {
@@ -60,6 +62,12 @@ namespace GestionCasos
 
         private void fDashBoard_Load(object sender, EventArgs e)
         {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
+
+            OpenChildForm(new fLoader(1, hilo));
             CargarEstadisticas();
             SetThemeColor();
         }
@@ -120,6 +128,16 @@ namespace GestionCasos
         private void gunaTileButton2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void gunaTileButton4_Click(object sender, EventArgs e)
+        {
+            //OpenChildForm(new )
+        }
+
+        private void gunaTileButton3_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fDetallesJuntas());
         }
     }
 }

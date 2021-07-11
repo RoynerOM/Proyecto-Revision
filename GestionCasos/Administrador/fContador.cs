@@ -5,11 +5,13 @@ using Negocios;
 using Utilidades;
 using System.Configuration;
 using System.Drawing;
+using System.Threading;
 
 namespace GestionCasos.Administrador
 {
     public partial class fContador : Form
     {
+        private Form activeForm = null;
         t_Persona contador = new t_Persona();
         ContadorNegocio negocio = new ContadorNegocio();
 
@@ -25,8 +27,16 @@ namespace GestionCasos.Administrador
 
         private void fContador_Load(object sender, EventArgs e)
         {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
+
+            OpenChildForm(new fLoader(1, hilo));
+
             cbTipo.SelectedIndex = 0;
             SetThemeColor();
+            CargarDatosForm();
         }
 
         //Cambio de color
@@ -113,6 +123,7 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex.Message);
             }
         }
+
 
         //Metodo de Buscar un contador
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -215,7 +226,19 @@ namespace GestionCasos.Administrador
             }
         }
 
-
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.Controls.Add(childForm);
+            this.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
         public void LimpiarCampos()
         {
@@ -232,13 +255,13 @@ namespace GestionCasos.Administrador
 
         }
 
+
         //Actualizar
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
                 
-
                 if (ValidarCampos()==true)
                 {
                     contador.Cedula = txtCedula.Text;
@@ -251,7 +274,12 @@ namespace GestionCasos.Administrador
                     if (negocio.modificar(datos)==true)
                     {
                         Message.Success(new Alertas.Alerta(), "El contador fue modificado con exito");
+                        DatosTemp.t_Persona = null;
                         LimpiarCampos();
+                    }
+                    else
+                    {
+                        Message.Danger(new Alertas.Alerta(), "No se pudo modificar");
                     }
                 }
             }
@@ -297,6 +325,19 @@ namespace GestionCasos.Administrador
             else
             {
                 txtCedula.Mask = "0-0000-0000-0";
+            }
+        }
+
+        private void CargarDatosForm()
+        {
+            if (DatosTemp.t_Persona != null)
+            {
+                txtCedula.Text = DatosTemp.t_Persona.Cedula;
+                txtNombre.Text = DatosTemp.t_Persona.Nombre;
+                txtApellido1.Text = DatosTemp.t_Persona.Apellido1;
+                txtApellido2.Text = DatosTemp.t_Persona.Apellido2;
+                txtCarne.Text = DatosTemp.t_Persona.Carnet;
+                cbTipo.SelectedIndex = (int)DatosTemp.t_Persona.TipoId;
             }
         }
     }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Transitions;
 using Utilidades;
@@ -12,25 +13,32 @@ namespace GestionCasos.Usuarios
 {
     public partial class CasosAsignados : Form
     {
-        Form enUso = null;
-        int ventanasAbiertas = 0;
-        string isDark = ConfigurationManager.AppSettings["DarkMode"];
+       private string isDark = ConfigurationManager.AppSettings["DarkMode"];
+        private string Cedula = null;
+        private Form activeForm = null;
         t_Revision revision = new t_Revision();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
         ContadorNegocio persona = new ContadorNegocio();
-
+        RecepcionNegocio recepcion = new RecepcionNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
+        List<t_Revision> Casos = null;
         //Datos de prueba
 
         public CasosAsignados()
         {
             InitializeComponent();
+            //Obtenemos la cedula desde un archivo de texto
+            Cedula = "5-0435-0765";
         }
+
+
        public void PedirDatos()
         {
-           var lista = revisionNegocio.obtenerTodo(revision);
-            CargarTabla(lista);
+            //Cargarmos la tabla con los datos relacionado a la cedula de la persona actual
+            Casos= (List<t_Revision>)revisionNegocio.obtenerTodo(revision);
+            CargarTabla(Casos.Where(x=> x.Tramitador == Cedula));
         }
+
         public void CargarTabla(IEnumerable<t_Revision> lista)
         {
             tabla.Rows.Clear();
@@ -94,6 +102,7 @@ namespace GestionCasos.Usuarios
 
         }
 
+
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
@@ -108,6 +117,7 @@ namespace GestionCasos.Usuarios
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
+
 
         private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -138,23 +148,54 @@ namespace GestionCasos.Usuarios
             }
         }
 
+
         private void CasosAsignados_Load(object sender, EventArgs e)
         {
             PedirDatos();
             SetThemeColor();
             CargarCombos();
         }
+
+
         void CargarCombos()
         {
-            cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
-            cbTramitador.ValueMember = "Cedula";
-            cbTramitador.DisplayMember = "Nombre_Completo";
 
             //Estado
             cbEstado.DataSource = estadoNegocio.obtenerTodo(new Estado());
             cbEstado.ValueMember = "id";
             cbEstado.DisplayMember = "TipoEstado";
+
+            //Recepcion
+            cbRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
+            cbRecepcion.ValueMember = "id";
+            cbRecepcion.DisplayMember = "Nombre";
         }
+
+
+        //Filtro por Consecutivo
+        public void FilterByConsecutivo(string consecutivo)
+        {
+            IEnumerable<t_Revision> filtro = revisionNegocio.obtenerPorConsecutivo(consecutivo);
+            CargarTabla(filtro);
+        }
+
+
+        //Filtro por Estado
+        public void FilterByEstate(string valor)
+        {
+            var filtro = Casos.Where(x => x.Estado1.TipoEstado == valor);
+            CargarTabla(filtro);
+        }
+
+
+        //Filtro por Recepcion
+        public void FilterByRecepcion(int valor)
+        {
+            var filtro = Casos.Where(x => x.Recepcion == valor);
+            CargarTabla(filtro);
+        }
+
+
         private void tabla_Resize(object sender, EventArgs e)
         {
 
@@ -163,6 +204,7 @@ namespace GestionCasos.Usuarios
 
 
         }
+
 
         private void SetThemeColor()
         {
@@ -191,6 +233,53 @@ namespace GestionCasos.Usuarios
             {
 
             }
+        }
+
+
+        private void cbEstado_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbEstado.Text != string.Empty)
+            {
+                if (cbEstado.Text == "Todos")
+                {
+                    PedirDatos();
+                }
+                else
+                {
+                    string estado = cbEstado.Text;
+                    FilterByEstate(estado);
+                    cbEstado.ResetText();
+                }
+            }
+        }
+
+
+        private void cbRecepcion_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbRecepcion.Text != string.Empty)
+            {
+                FilterByRecepcion((int)cbRecepcion.SelectedValue);
+                cbRecepcion.ResetText();
+            }
+        }
+
+        private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.Controls.Add(childForm);
+            this.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
     }
 }

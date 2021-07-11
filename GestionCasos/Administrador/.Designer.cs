@@ -72,7 +72,7 @@ namespace GestionCasos
             this.panel1.Controls.Add(this.tabla);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(884, 561);
             this.panel1.TabIndex = 0;
@@ -136,7 +136,7 @@ namespace GestionCasos
             this.cbTramitador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbTramitador.FormattingEnabled = true;
             this.cbTramitador.Location = new System.Drawing.Point(269, 68);
-            this.cbTramitador.Margin = new System.Windows.Forms.Padding(2);
+            this.cbTramitador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbTramitador.Name = "cbTramitador";
             this.cbTramitador.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -183,7 +183,7 @@ namespace GestionCasos
             this.cbRecepcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbRecepcion.FormattingEnabled = true;
             this.cbRecepcion.Location = new System.Drawing.Point(688, 68);
-            this.cbRecepcion.Margin = new System.Windows.Forms.Padding(2);
+            this.cbRecepcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRecepcion.Name = "cbRecepcion";
             this.cbRecepcion.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbRecepcion.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -204,7 +204,7 @@ namespace GestionCasos
             this.cbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(535, 68);
-            this.cbEstado.Margin = new System.Windows.Forms.Padding(2);
+            this.cbEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbEstado.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -249,8 +249,9 @@ namespace GestionCasos
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.tabla.Location = new System.Drawing.Point(0, 119);
-            this.tabla.Margin = new System.Windows.Forms.Padding(2);
+            this.tabla.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabla.Name = "tabla";
+            this.tabla.ReadOnly = true;
             this.tabla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
@@ -383,7 +384,7 @@ namespace GestionCasos
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "fCasosAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

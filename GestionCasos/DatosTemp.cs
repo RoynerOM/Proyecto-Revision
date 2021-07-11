@@ -10,5 +10,6 @@ namespace GestionCasos
     {
         public static t_Revision t_Revision { get; set; }
         public static t_Persona t_Persona { get; set; }
+        public static t_Institucion t_Institucion { get; set; }
     }
 }

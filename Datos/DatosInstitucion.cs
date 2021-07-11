@@ -71,7 +71,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var consulta = db.t_Institucion.Include("t_Persona").FirstOrDefault( x=>  x.Codigo == e.Codigo);
+                    var consulta = db.t_Institucion.Include("t_Persona").FirstOrDefault(x => x.Codigo == e.Codigo);
                     if (consulta != null)
                     {
                         return consulta;
@@ -96,7 +96,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var consulta = db.t_Institucion.ToList();
+                    var consulta = db.t_Institucion.Include("t_Persona").Include("t_Tipo_Institucion").ToList();
                     if (consulta != null)
                     {
                         return consulta;
@@ -114,5 +114,9 @@ namespace Datos
                 return null;
             }
         }
+
+
+
+
     }
 }

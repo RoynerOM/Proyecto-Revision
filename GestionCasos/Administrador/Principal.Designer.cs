@@ -35,6 +35,7 @@ namespace GestionCasos
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCerrarSecion = new System.Windows.Forms.Button();
             this.DesktopPanel = new System.Windows.Forms.Panel();
+            this.process1 = new System.Diagnostics.Process();
             this.pnLateralIzquierda.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,6 @@ namespace GestionCasos
             // 
             this.btnMenu.BackColor = System.Drawing.Color.Transparent;
             this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
@@ -75,7 +75,6 @@ namespace GestionCasos
             // 
             this.btnDashBoard.BackColor = System.Drawing.Color.Transparent;
             this.btnDashBoard.FlatAppearance.BorderSize = 0;
-            this.btnDashBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(60)))));
             this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashBoard.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashBoard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
@@ -120,6 +119,16 @@ namespace GestionCasos
             this.DesktopPanel.Size = new System.Drawing.Size(1025, 661);
             this.DesktopPanel.TabIndex = 1;
             // 
+            // process1
+            // 
+            this.process1.StartInfo.Domain = "";
+            this.process1.StartInfo.LoadUserProfile = false;
+            this.process1.StartInfo.Password = null;
+            this.process1.StartInfo.StandardErrorEncoding = null;
+            this.process1.StartInfo.StandardOutputEncoding = null;
+            this.process1.StartInfo.UserName = "";
+            this.process1.SynchronizingObject = this;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,5 +155,6 @@ namespace GestionCasos
         private System.Windows.Forms.Button btnDashBoard;
         private System.Windows.Forms.Panel DesktopPanel;
         private System.Windows.Forms.Button btnMenu;
+        private System.Diagnostics.Process process1;
     }
 }

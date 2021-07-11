@@ -3,6 +3,7 @@ using Negocios;
 using System;
 using System.Configuration;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using Utilidades;
 
@@ -15,15 +16,24 @@ namespace GestionCasos.Administrador
         DireccionRegionalNegocio regional = new DireccionRegionalNegocio();
         InstitucionNegocio negocio = new InstitucionNegocio();
         showMessageDialog message = new showMessageDialog();
+        private Form activeForm;
+
         public fInstituciones()
         {
             InitializeComponent();
-            CargarCombos();
         }
 
         private void fInstituciones_Load(object sender, System.EventArgs e)
         {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
+
+            OpenChildForm(new fLoader(1, hilo));
+            CargarDatosForm();
             SetThemeColor();
+            CargarCombos();
 
         }
 
@@ -75,7 +85,21 @@ namespace GestionCasos.Administrador
             }
         }
 
+        private void CargarDatosForm()
+        {
+            if (DatosTemp.t_Institucion != null)
+            {
+                txtCodigo.Text = DatosTemp.t_Institucion.Codigo.ToString();
+                txtInstitucion.Text = DatosTemp.t_Institucion.Nombre;
+                txtCedulaJuridica.Text = DatosTemp.t_Institucion.Cedula_Juridica;
+                txtCuentaDanea.Text = DatosTemp.t_Institucion.Cuenta_Danea;
+                txtCuentaLey.Text = DatosTemp.t_Institucion.Cuenta_Ley;
 
+                cbCircuito.SelectedValue = DatosTemp.t_Institucion.Circuito;
+                cbContador.SelectedValue = DatosTemp.t_Institucion.Contador;
+                cbTipo.SelectedValue = DatosTemp.t_Institucion.Tipo;
+            }
+        }
 
         void labelColorChnage()
         {
@@ -150,7 +174,7 @@ namespace GestionCasos.Administrador
                 if (ValidarCampos() == true)
                 {
                     institucion.Codigo = int.Parse(txtCodigo.Text);
-                   if(negocio.obtenerPorId(institucion) == null)
+                    if (negocio.obtenerPorId(institucion) == null)
                     {
                         institucion.Codigo = int.Parse(txtCodigo.Text);
                         institucion.Cuenta_Ley = txtCuentaLey.Text;
@@ -275,6 +299,7 @@ namespace GestionCasos.Administrador
                     if (negocio.modificar(institucion) == true)
                     {
                         message.Success(new Alertas.Alerta(), "La Junta se guardo correctamente");
+                        DatosTemp.t_Institucion = null;
                     }
                     else
                     {
@@ -286,6 +311,20 @@ namespace GestionCasos.Administrador
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.Controls.Add(childForm);
+            this.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
     }
 }

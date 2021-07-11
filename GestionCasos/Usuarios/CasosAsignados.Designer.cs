@@ -37,11 +37,11 @@ namespace GestionCasos.Usuarios
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CasosAsignados));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtConsecutivo = new Guna.UI.WinForms.GunaTextBox();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.cbTramitador = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaComboBox2 = new Guna.UI.WinForms.GunaComboBox();
+            this.cbRecepcion = new Guna.UI.WinForms.GunaComboBox();
             this.cbEstado = new Guna.UI.WinForms.GunaComboBox();
             this.tabla = new System.Windows.Forms.DataGridView();
             this.Caso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,28 +64,46 @@ namespace GestionCasos.Usuarios
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1010, 561);
+            this.panel1.Size = new System.Drawing.Size(884, 561);
             this.panel1.TabIndex = 0;
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.panel2.Controls.Add(this.txtConsecutivo);
             this.panel2.Controls.Add(this.gunaLabel3);
-            this.panel2.Controls.Add(this.cbTramitador);
             this.panel2.Controls.Add(this.gunaLabel2);
             this.panel2.Controls.Add(this.gunaLabel1);
-            this.panel2.Controls.Add(this.gunaComboBox2);
+            this.panel2.Controls.Add(this.cbRecepcion);
             this.panel2.Controls.Add(this.cbEstado);
             this.panel2.Controls.Add(this.tabla);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1010, 561);
+            this.panel2.Size = new System.Drawing.Size(884, 561);
             this.panel2.TabIndex = 1;
+            // 
+            // txtConsecutivo
+            // 
+            this.txtConsecutivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConsecutivo.BaseColor = System.Drawing.Color.White;
+            this.txtConsecutivo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.txtConsecutivo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtConsecutivo.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtConsecutivo.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtConsecutivo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtConsecutivo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsecutivo.Location = new System.Drawing.Point(346, 67);
+            this.txtConsecutivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConsecutivo.Name = "txtConsecutivo";
+            this.txtConsecutivo.PasswordChar = '\0';
+            this.txtConsecutivo.SelectedText = "";
+            this.txtConsecutivo.Size = new System.Drawing.Size(184, 28);
+            this.txtConsecutivo.TabIndex = 8;
             // 
             // gunaLabel3
             // 
@@ -93,32 +111,12 @@ namespace GestionCasos.Usuarios
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel3.Location = new System.Drawing.Point(396, 35);
+            this.gunaLabel3.Location = new System.Drawing.Point(344, 37);
             this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(156, 20);
+            this.gunaLabel3.Size = new System.Drawing.Size(164, 20);
             this.gunaLabel3.TabIndex = 7;
-            this.gunaLabel3.Text = "Filtrar Por Tramitador";
-            // 
-            // cbTramitador
-            // 
-            this.cbTramitador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTramitador.BackColor = System.Drawing.Color.Transparent;
-            this.cbTramitador.BaseColor = System.Drawing.Color.White;
-            this.cbTramitador.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.cbTramitador.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbTramitador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTramitador.FocusedColor = System.Drawing.Color.Empty;
-            this.cbTramitador.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbTramitador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
-            this.cbTramitador.FormattingEnabled = true;
-            this.cbTramitador.Location = new System.Drawing.Point(400, 68);
-            this.cbTramitador.Margin = new System.Windows.Forms.Padding(2);
-            this.cbTramitador.Name = "cbTramitador";
-            this.cbTramitador.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbTramitador.Size = new System.Drawing.Size(231, 26);
-            this.cbTramitador.TabIndex = 6;
+            this.gunaLabel3.Text = "Filtrar Por Consecutivo";
             // 
             // gunaLabel2
             // 
@@ -126,7 +124,7 @@ namespace GestionCasos.Usuarios
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel2.Location = new System.Drawing.Point(832, 35);
+            this.gunaLabel2.Location = new System.Drawing.Point(730, 35);
             this.gunaLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(151, 20);
@@ -139,32 +137,33 @@ namespace GestionCasos.Usuarios
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(666, 35);
+            this.gunaLabel1.Location = new System.Drawing.Point(572, 33);
             this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(126, 20);
             this.gunaLabel1.TabIndex = 4;
             this.gunaLabel1.Text = "Filtrar Por Estado";
             // 
-            // gunaComboBox2
+            // cbRecepcion
             // 
-            this.gunaComboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.gunaComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
-            this.gunaComboBox2.FormattingEnabled = true;
-            this.gunaComboBox2.Location = new System.Drawing.Point(836, 68);
-            this.gunaComboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.gunaComboBox2.Name = "gunaComboBox2";
-            this.gunaComboBox2.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox2.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox2.Size = new System.Drawing.Size(142, 26);
-            this.gunaComboBox2.TabIndex = 3;
+            this.cbRecepcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbRecepcion.BackColor = System.Drawing.Color.Transparent;
+            this.cbRecepcion.BaseColor = System.Drawing.Color.White;
+            this.cbRecepcion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.cbRecepcion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbRecepcion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRecepcion.FocusedColor = System.Drawing.Color.Empty;
+            this.cbRecepcion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbRecepcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.cbRecepcion.FormattingEnabled = true;
+            this.cbRecepcion.Location = new System.Drawing.Point(734, 68);
+            this.cbRecepcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbRecepcion.Name = "cbRecepcion";
+            this.cbRecepcion.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cbRecepcion.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cbRecepcion.Size = new System.Drawing.Size(142, 26);
+            this.cbRecepcion.TabIndex = 3;
+            this.cbRecepcion.SelectionChangeCommitted += new System.EventHandler(this.cbRecepcion_SelectionChangeCommitted);
             // 
             // cbEstado
             // 
@@ -178,13 +177,14 @@ namespace GestionCasos.Usuarios
             this.cbEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(670, 68);
-            this.cbEstado.Margin = new System.Windows.Forms.Padding(2);
+            this.cbEstado.Location = new System.Drawing.Point(575, 67);
+            this.cbEstado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbEstado.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbEstado.Size = new System.Drawing.Size(120, 26);
             this.cbEstado.TabIndex = 2;
+            this.cbEstado.SelectionChangeCommitted += new System.EventHandler(this.cbEstado_SelectionChangeCommitted);
             // 
             // tabla
             // 
@@ -196,12 +196,12 @@ namespace GestionCasos.Usuarios
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.tabla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
+            this.tabla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             this.tabla.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tabla.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
@@ -223,7 +223,7 @@ namespace GestionCasos.Usuarios
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.tabla.Location = new System.Drawing.Point(0, 119);
-            this.tabla.Margin = new System.Windows.Forms.Padding(2);
+            this.tabla.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabla.Name = "tabla";
             this.tabla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -237,7 +237,7 @@ namespace GestionCasos.Usuarios
             this.tabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.tabla.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -249,8 +249,9 @@ namespace GestionCasos.Usuarios
             this.tabla.RowTemplate.Height = 24;
             this.tabla.RowTemplate.ReadOnly = true;
             this.tabla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabla.Size = new System.Drawing.Size(1010, 442);
+            this.tabla.Size = new System.Drawing.Size(884, 442);
             this.tabla.TabIndex = 0;
+            this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
             // 
             // Caso
             // 
@@ -349,10 +350,10 @@ namespace GestionCasos.Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 561);
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "CasosAsignados";
             this.Text = "CasosAsignados";
@@ -370,10 +371,9 @@ namespace GestionCasos.Usuarios
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private Guna.UI.WinForms.GunaComboBox cbTramitador;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox2;
+        private Guna.UI.WinForms.GunaComboBox cbRecepcion;
         private Guna.UI.WinForms.GunaComboBox cbEstado;
         private System.Windows.Forms.DataGridView tabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn Caso;
@@ -385,5 +385,6 @@ namespace GestionCasos.Usuarios
         private System.Windows.Forms.DataGridViewTextBoxColumn Persona;
         private System.Windows.Forms.DataGridViewButtonColumn Comentario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private Guna.UI.WinForms.GunaTextBox txtConsecutivo;
     }
 }

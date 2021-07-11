@@ -17,6 +17,8 @@ namespace Utilidades
         public static Color Gray = Color.FromArgb(245, 245, 245);
         public static Color Blue = Color.FromArgb(41, 79, 116);
         public static Color BlueHover = Color.FromArgb(66, 100, 128);
+        public static Color DarkHover = Color.FromArgb(40, 40, 60);
+
 
         //Tramited or send
         public static Color GreenBack = Color.FromArgb(211,234,221);

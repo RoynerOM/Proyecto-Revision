@@ -448,7 +448,7 @@ namespace GestionCasos
             }
         }
 
-        void CargarCombos()
+       public void CargarCombos()
         {
             //Tramitador
             cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());

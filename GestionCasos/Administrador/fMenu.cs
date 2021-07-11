@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -105,13 +106,16 @@ namespace GestionCasos.Administrador
                             if (ConfigurationManager.AppSettings["DarkMode"] == "true")
                             {
                                 node.Attributes[1].Value = "false";
+                                
                             }
                             else
                             {
                                 node.Attributes[1].Value = "true";
                             }
                             showMessageDialog messageDialog = new showMessageDialog();
-                            messageDialog.Warning(new Alertas.Alerta(), "Debe reiniciar la aplicacion para aplicar los cambios");
+                            messageDialog.Warning(new Alertas.Alerta(), "La aplcacion se cerrara para aplicar los cambios");
+
+                            Application.Exit();
                         }
                     }
                 }
@@ -119,6 +123,16 @@ namespace GestionCasos.Administrador
 
             xml.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
             ConfigurationManager.RefreshSection("appSettings");
+        }
+
+        private void fMenu_Load(object sender, EventArgs e)
+        {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
+
+            OpenChildForm(new fLoader(1, hilo));
         }
     }
 }
