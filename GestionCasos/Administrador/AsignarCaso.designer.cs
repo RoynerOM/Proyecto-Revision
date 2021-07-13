@@ -30,9 +30,9 @@ namespace GestionCasos
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbAsignados = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbTipoRecepcion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtCircuito = new Guna.UI.WinForms.GunaTextBox();
@@ -47,7 +47,6 @@ namespace GestionCasos
             this.dtpFecha = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lbFecha = new System.Windows.Forms.Label();
             this.lbConsecutivo = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,33 +55,12 @@ namespace GestionCasos
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.btnGuardar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(582, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(160, 712);
             this.panel2.TabIndex = 57;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(0, 50);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnBuscar.Size = new System.Drawing.Size(160, 50);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // btnGuardar
             // 
@@ -128,6 +106,17 @@ namespace GestionCasos
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(582, 712);
             this.panel1.TabIndex = 58;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
+            this.pictureBox1.Location = new System.Drawing.Point(202, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(313, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 94;
+            this.pictureBox1.TabStop = false;
             // 
             // cbAsignados
             // 
@@ -386,17 +375,6 @@ namespace GestionCasos
             this.lbConsecutivo.TabIndex = 79;
             this.lbConsecutivo.Text = "Consecutivo:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
-            this.pictureBox1.Location = new System.Drawing.Point(202, 60);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(313, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 94;
-            this.pictureBox1.TabStop = false;
-            // 
             // AsignarCaso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,7 +398,6 @@ namespace GestionCasos
         #endregion
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2ComboBox cbAsignados;
         private Guna.UI2.WinForms.Guna2ComboBox cbTipoRecepcion;
