@@ -17,9 +17,9 @@ namespace Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public t_Persona()
         {
-            this.Mensajeria = new HashSet<Mensajeria>();
             this.t_Boleta = new HashSet<t_Boleta>();
             this.t_Institucion = new HashSet<t_Institucion>();
+            this.t_Mensajeria = new HashSet<t_Mensajeria>();
             this.t_Revision = new HashSet<t_Revision>();
             this.t_Usuario = new HashSet<t_Usuario>();
         }
@@ -33,11 +33,11 @@ namespace Entidades
         public string Nombre_Completo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mensajeria> Mensajeria { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t_Boleta> t_Boleta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t_Institucion> t_Institucion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<t_Mensajeria> t_Mensajeria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t_Revision> t_Revision { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
