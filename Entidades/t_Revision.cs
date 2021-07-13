@@ -17,7 +17,7 @@ namespace Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public t_Revision()
         {
-            this.t_Mensajeria = new HashSet<t_Mensajeria>();
+            this.Mensajeria = new HashSet<Mensajeria>();
         }
     
         public int Id_Caso { get; set; }
@@ -33,10 +33,11 @@ namespace Entidades
         public int Estado { get; set; }
     
         public virtual Estado Estado1 { get; set; }
-        public virtual t_Institucion t_Institucion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<t_Mensajeria> t_Mensajeria { get; set; }
+        public virtual ICollection<Mensajeria> Mensajeria { get; set; }
+        public virtual t_Institucion t_Institucion { get; set; }
         public virtual t_Persona t_Persona { get; set; }
-        public virtual t_Recepcion t_Recepcion { get; set; }
+        public virtual t_Revision t_Revision1 { get; set; }
+        public virtual t_Revision t_Revision2 { get; set; }
     }
 }

@@ -50,7 +50,7 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[2].Value = item.Codigo;
                 tabla.Rows[nRows].Cells[3].Value = item.t_Institucion.Nombre.ToUpper();
                 tabla.Rows[nRows].Cells[4].Value = item.t_Institucion.Circuito;
-                tabla.Rows[nRows].Cells[5].Value = item.t_Recepcion.Nombre.ToUpper();
+                tabla.Rows[nRows].Cells[5].Value = item.Recepcion;
                 tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
                 tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
 

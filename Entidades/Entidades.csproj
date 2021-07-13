@@ -59,6 +59,9 @@
     <Compile Include="Estado.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mensajeria.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="t_Boleta.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
@@ -67,9 +70,6 @@
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="t_Institucion.cs">
-      <DependentUpon>EntidadesBD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="t_Mensajeria.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="t_Persona.cs">
