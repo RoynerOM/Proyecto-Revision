@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Transitions;
@@ -13,7 +14,7 @@ namespace GestionCasos.Usuarios
 {
     public partial class CasosAsignados : Form
     {
-       private string isDark = ConfigurationManager.AppSettings["DarkMode"];
+        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private string Cedula = null;
         private Form activeForm = null;
         t_Revision revision = new t_Revision();
@@ -28,16 +29,17 @@ namespace GestionCasos.Usuarios
         {
             InitializeComponent();
             //Obtenemos la cedula desde un archivo de texto
-            Cedula = "5-0435-0765";
+            Cedula = File.ReadAllText("temp.txt");
         }
 
 
-       public void PedirDatos()
+        public void PedirDatos()
         {
             //Cargarmos la tabla con los datos relacionado a la cedula de la persona actual
-            Casos= (List<t_Revision>)revisionNegocio.obtenerTodo(revision);
-            CargarTabla(Casos.Where(x=> x.Tramitador == Cedula));
+            Casos = (List<t_Revision>)revisionNegocio.obtenerTodo(revision);
+            CargarTabla(Casos.Where(x => x.Tramitador == Cedula));
         }
+
 
         public void CargarTabla(IEnumerable<t_Revision> lista)
         {
@@ -50,7 +52,7 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[2].Value = item.Codigo;
                 tabla.Rows[nRows].Cells[3].Value = item.t_Institucion.Nombre.ToUpper();
                 tabla.Rows[nRows].Cells[4].Value = item.t_Institucion.Circuito;
-                tabla.Rows[nRows].Cells[5].Value = item.Recepcion;
+                tabla.Rows[nRows].Cells[5].Value = item.t_Recepcion.Nombre.ToUpper();
                 tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
                 tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
 
@@ -61,6 +63,7 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 10);
+
                 if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE")
                 {
                     if (isDark == "false")
@@ -84,18 +87,22 @@ namespace GestionCasos.Usuarios
                     else
                     {
 
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
                     }
                 }
                 else
                 {
                     if (isDark == "false")
                     {
+
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
                     }
                     else
                     {
-
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
                     }
                 }
             }
@@ -118,12 +125,6 @@ namespace GestionCasos.Usuarios
             }
         }
 
-
-        private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-           
-        }
 
 
         private void CasosAsignados_Load(object sender, EventArgs e)
@@ -170,16 +171,6 @@ namespace GestionCasos.Usuarios
         {
             var filtro = Casos.Where(x => x.Recepcion == valor);
             CargarTabla(filtro);
-        }
-
-
-        private void tabla_Resize(object sender, EventArgs e)
-        {
-
-
-
-
-
         }
 
 
@@ -242,7 +233,7 @@ namespace GestionCasos.Usuarios
 
         private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void OpenChildForm(Form childForm)

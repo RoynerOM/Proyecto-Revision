@@ -250,12 +250,8 @@ namespace GestionCasos.Administrador
             // 
             this.cbContador.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbContador.BackColor = System.Drawing.Color.White;
-            this.cbContador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbContador.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbContador.FormattingEnabled = true;
-            this.cbContador.Items.AddRange(new object[] {
-            "Escuela",
-            "Colegio"});
             this.cbContador.Location = new System.Drawing.Point(36, 356);
             this.cbContador.Name = "cbContador";
             this.cbContador.Size = new System.Drawing.Size(433, 31);
@@ -309,7 +305,6 @@ namespace GestionCasos.Administrador
             // cbTipo
             // 
             this.cbTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipo.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipo.FormattingEnabled = true;
             this.cbTipo.Items.AddRange(new object[] {
@@ -335,7 +330,6 @@ namespace GestionCasos.Administrador
             // cbCircuito
             // 
             this.cbCircuito.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbCircuito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCircuito.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCircuito.FormattingEnabled = true;
             this.cbCircuito.Items.AddRange(new object[] {

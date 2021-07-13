@@ -77,7 +77,7 @@ namespace GestionCasos
             if (ConfigurationManager.AppSettings["DarkMode"] == "false")
             {
 
-                this.DesktopPanel.BackColor = Color.White; 
+                this.DesktopPanel.BackColor = Color.White;
                 this.DesktopPanel.ForeColor = Color.FromArgb(41, 79, 116);
 
                 this.pnContadores.BaseColor = Color.FromArgb(41, 79, 116);
@@ -92,8 +92,11 @@ namespace GestionCasos
                 this.gunaElipsePanel4.BaseColor = Color.FromArgb(41, 79, 116);
                 this.gunaElipsePanel4.ForeColor = Color.White;
 
-                this.gunaElipsePanel5.BaseColor = Color.FromArgb(41, 79, 116);
-                this.gunaElipsePanel5.ForeColor = Color.White;
+                this.gunaElipsePanel2.BaseColor = Color.FromArgb(41, 79, 116);
+                this.gunaElipsePanel2.ForeColor = Color.White;
+
+                this.gunaElipsePanel1.BaseColor = Color.FromArgb(41, 79, 116);
+                this.gunaElipsePanel1.ForeColor = Color.White;
             }
             else
             {
@@ -127,12 +130,12 @@ namespace GestionCasos
 
         private void gunaTileButton2_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new AsignarCaso());
         }
 
         private void gunaTileButton4_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new )
+            OpenChildForm(new fDetallesPersonas());
         }
 
         private void gunaTileButton3_Click(object sender, EventArgs e)

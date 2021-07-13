@@ -29,7 +29,7 @@ namespace Negocios
 
         public Estado obtenerPorId(Estado e)
         {
-            throw new NotImplementedException();
+            return datos.obtenerPorId(e);
         }
 
         public IEnumerable<Estado> obtenerTodo(Estado e)

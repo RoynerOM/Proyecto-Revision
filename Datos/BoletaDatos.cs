@@ -73,11 +73,11 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                  var boleta =  db.t_Boleta.Include("t_Persona").Where(x => x.Id == e.Id);
+                  var boleta =  db.t_Boleta.Include("t_Persona").Where(x => x.Id == e.Id).SingleOrDefault();
 
                     if (boleta != null)
                     {
-                        return (t_Boleta)boleta;
+                        return boleta;
                     }
                     else
                     {

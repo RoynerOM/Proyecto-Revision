@@ -27,7 +27,19 @@ namespace Datos
 
         public Estado obtenerPorId(Estado e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var filtro = db.Estado.Where(x => x.id == e.id).SingleOrDefault();
+                    return filtro;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         public IEnumerable<Estado> obtenerTodo(Estado e)

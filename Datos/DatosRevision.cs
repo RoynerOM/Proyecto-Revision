@@ -35,16 +35,23 @@ namespace Datos
                 using (var context = new BD_JuntasEntities())
                 {
 
-                    context.t_Revision.Add(e);
-                    context.SaveChanges();
+                    if (e.Id_Caso == null || e.Id_Caso > 0)
+                    {
+                        context.t_Revision.Add(e);
+                    }
+                    else
+                    {
+                        context.Entry(e).State = System.Data.Entity.EntityState.Modified;
+                    }
 
+                    context.SaveChanges();
                     return true;
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 return false;
             }
         }
@@ -55,16 +62,16 @@ namespace Datos
             {
                 using (var context = new BD_JuntasEntities())
                 {
-
+                   
                     context.Entry<t_Revision>(e).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                     return true;
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Console.WriteLine(ex);
                 return false;
             }
         }
@@ -76,7 +83,7 @@ namespace Datos
                 using (var context = new BD_JuntasEntities())
                 {
 
-                    var datos = context.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").ToList();
+                    var datos = context.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").ToList();
 
                     if (datos != null)
                     {
@@ -104,7 +111,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Where(x=> x.Consecutivo == consecutivo).ToList();
+                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x=> x.Consecutivo == consecutivo).ToList();
 
                     if (caso != null)
                     {
@@ -129,7 +136,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var casos = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Where(x=> x.Tramitador == persona).ToList();
+                    var casos = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x=> x.Tramitador == persona).ToList();
 
                     if (casos != null)
                     {
@@ -154,7 +161,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").FirstOrDefault(x=> x.Id_Caso== e.Id_Caso);
+                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").FirstOrDefault(x=> x.Id_Caso== e.Id_Caso);
 
                     if (caso != null)
                     {

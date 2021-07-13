@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using Negocios;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 using Utilidades;
 
@@ -13,16 +14,11 @@ namespace GestionCasos
         UsuarioNegocio negociosU = new UsuarioNegocio();
         showMessageDialog Message = new showMessageDialog();
 
-
+        private Form activeForm = null;
         public Registrar()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-
-        }
-
-        private void MostrarNombre()
-        {
 
         }
 
@@ -55,7 +51,24 @@ namespace GestionCasos
 
         private void Registrar_Load(object sender, EventArgs e)
         {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
+        }
 
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panel1.Controls.Add(childForm);
+            this.panel1.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
     }

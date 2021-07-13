@@ -150,6 +150,7 @@ namespace GestionCasos.Reportes
             this.Controls.Add(this.panel1);
             this.Name = "fOpcionesReportes";
             this.Text = "fOpcionesReportes";
+            this.Load += new System.EventHandler(this.fOpcionesReportes_Load);
             this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

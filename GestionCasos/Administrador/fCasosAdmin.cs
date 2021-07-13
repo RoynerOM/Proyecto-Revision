@@ -8,6 +8,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
 using Utilidades;
+using System.Threading;
+using GestionCasos.Administrador;
 
 namespace GestionCasos
 {
@@ -21,7 +23,8 @@ namespace GestionCasos
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
         List<t_Revision> Casos = null;
-        string isDark = ConfigurationManager.AppSettings["DarkMode"];
+        private Form activeForm = null;
+        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
 
 
 
@@ -33,220 +36,33 @@ namespace GestionCasos
 
         
 
-        /*
-        #region Filtrar por nombre
-        private void FiltroPorNombre(string persona)
-        {
-            tabla.Rows.Clear();
-            foreach (var item in casos)
-            {
-
-                if (item.Persona == persona)
-                {
-                    int nRows = tabla.Rows.Add();
-                    tabla.Rows[nRows].Cells[0].Value = item.Caso;
-                    tabla.Rows[nRows].Cells[1].Value = item.Fecha;
-                    tabla.Rows[nRows].Cells[2].Value = item.Codigo;
-                    tabla.Rows[nRows].Cells[3].Value = item.Junta;
-                    tabla.Rows[nRows].Cells[4].Value = item.Circuito;
-                    tabla.Rows[nRows].Cells[5].Value = item.Recepcion;
-                    tabla.Rows[nRows].Cells[6].Value = item.Persona;
-                    tabla.Rows[nRows].Cells[8].Value = item.Estado.ToUpper();
-
-                    tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                    if (item.Estado.ToUpper() == "PENDIENTE")
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.RedBack;
-                        }
-                        else
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
-                        }
-                    }
-                    else if (item.Estado.ToUpper() == "TRAMITADO")
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                    else
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                }
-
-
-            }
-
-        }
-        #endregion
-
-
-        #region Filtrar por estado
-        private void FiltroPorEstado(string estado)
-        {
-            tabla.Rows.Clear();
-            foreach (var item in casos)
-            {
-
-                if (item.Estado.ToUpper() == estado.ToUpper())
-                {
-                    int nRows = tabla.Rows.Add();
-                    tabla.Rows[nRows].Cells[0].Value = item.Caso;
-                    tabla.Rows[nRows].Cells[1].Value = item.Fecha;
-                    tabla.Rows[nRows].Cells[2].Value = item.Codigo;
-                    tabla.Rows[nRows].Cells[3].Value = item.Junta;
-                    tabla.Rows[nRows].Cells[4].Value = item.Circuito;
-                    tabla.Rows[nRows].Cells[5].Value = item.Recepcion;
-                    tabla.Rows[nRows].Cells[6].Value = item.Persona;
-                    tabla.Rows[nRows].Cells[8].Value = item.Estado.ToUpper();
-
-                    tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                    if (item.Estado.ToUpper() == "PENDIENTE")
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.RedBack;
-                        }
-                        else
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
-                        }
-                    }
-                    else if (item.Estado.ToUpper() == "TRAMITADO")
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                    else
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                }
-
-
-            }
-
-        }
-        #endregion
-
-
-        #region Filtrar por Recepcion
-        private void FiltroPorRecepcion(string recepcion)
-        {
-            tabla.Rows.Clear();
-            foreach (var item in casos)
-            {
-
-                if (item.Recepcion == recepcion)
-                {
-                    int nRows = tabla.Rows.Add();
-                    tabla.Rows[nRows].Cells[0].Value = item.Caso;
-                    tabla.Rows[nRows].Cells[1].Value = item.Fecha;
-                    tabla.Rows[nRows].Cells[2].Value = item.Codigo;
-                    tabla.Rows[nRows].Cells[3].Value = item.Junta;
-                    tabla.Rows[nRows].Cells[4].Value = item.Circuito;
-                    tabla.Rows[nRows].Cells[5].Value = item.Recepcion;
-                    tabla.Rows[nRows].Cells[6].Value = item.Persona;
-                    tabla.Rows[nRows].Cells[8].Value = item.Estado.ToUpper();
-
-                    tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                    if (item.Estado.ToUpper() == "PENDIENTE")
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.RedBack;
-                        }
-                        else
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
-                        }
-                    }
-                    else if (item.Estado.ToUpper() == "TRAMITADO")
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                    else
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                }
-
-
-            }
-
-        }
-        #endregion
-        */
+      
         private void FormStyle_Load(object sender, EventArgs e)
         {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
+
+            OpenChildForm(new fLoader(1, hilo));
             PedirDatos();
             SetThemeColor();
             CargarCombos();
         }
 
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panel1.Controls.Add(childForm);
+            this.panel1.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
         public void PedirDatos()
         {
@@ -300,7 +116,7 @@ namespace GestionCasos
                 tabla.Rows[nRows].Cells[2].Value = item.Codigo;
                 tabla.Rows[nRows].Cells[3].Value = item.t_Institucion.Nombre.ToUpper();
                 tabla.Rows[nRows].Cells[4].Value = item.t_Institucion.Circuito;
-                tabla.Rows[nRows].Cells[5].Value = item.Recepcion;
+                tabla.Rows[nRows].Cells[5].Value = item.t_Recepcion.Nombre.ToUpper();
                 tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
                 tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
 
@@ -329,7 +145,21 @@ namespace GestionCasos
                 {
                     if (isDark == "false")
                     {
-                       
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
+                    }
+                    else
+                    {
+
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
+                    }
+                }
+                else
+                {
+                    if (isDark == "false")
+                    {
+
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
                     }
@@ -338,20 +168,7 @@ namespace GestionCasos
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
                     }
-                }
-                else
-                {
-                    if (isDark == "false")
-                    {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
-                    }
-                    else
-                    {
-                       
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
-                    }
+                    
                 }
             }
         }

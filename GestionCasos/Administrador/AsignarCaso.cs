@@ -16,6 +16,8 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Configuration;
 using Utilidades;
+using System.Threading;
+using GestionCasos.Administrador;
 
 namespace GestionCasos
 
@@ -26,6 +28,7 @@ namespace GestionCasos
         RevisionNegocio Rnegocio = new RevisionNegocio();
         ContadorNegocio persona = new ContadorNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
+        private Form activeForm = null;
         public AsignarCaso()
         {
             InitializeComponent();
@@ -69,6 +72,12 @@ namespace GestionCasos
 
         private void AsignarCaso_Load(object sender, EventArgs e)
         {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
+
+            OpenChildForm(new fLoader(1, hilo));
             //Actualizar();
             CargarCombos();
             MostrarConsecutivo();
@@ -186,5 +195,19 @@ namespace GestionCasos
 
         }
 
+
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panel1.Controls.Add(childForm);
+            this.panel1.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
     }
 }

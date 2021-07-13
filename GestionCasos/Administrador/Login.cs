@@ -11,6 +11,8 @@ using Transitions;
 using Entidades;
 using Datos;
 using Utilidades;
+using System.IO;
+using System.Threading;
 
 namespace GestionCasos
 {
@@ -18,7 +20,7 @@ namespace GestionCasos
     {
         Principal principal = new Principal();
         showMessageDialog Message = new showMessageDialog();
-
+        private Form activeForm = null;
         public Login()
         {
             InitializeComponent();
@@ -53,6 +55,19 @@ namespace GestionCasos
             t.add(pnTop, "Top", 12);
             t.run();
         }
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.Controls.Add(childForm);
+            this.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
         private void btnIniciarSecion_Click(object sender, EventArgs e)
         {
@@ -64,7 +79,9 @@ namespace GestionCasos
                 {
                     if (user.Clave == txtContraseña.Text)
                     {
-                        Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
+                        //Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
+                       
+                        File.WriteAllText("temp.txt", txtNombreUsuario.Text);
                         this.Hide();
                         principal.Show();
                         

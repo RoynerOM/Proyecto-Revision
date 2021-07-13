@@ -23,7 +23,7 @@ namespace GestionCasos.Administrador
             InitializeComponent();
         }
 
-        private void fInstituciones_Load(object sender, System.EventArgs e)
+        private void fInstituciones_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
@@ -31,9 +31,10 @@ namespace GestionCasos.Administrador
             while (!hilo.IsAlive) ;
 
             OpenChildForm(new fLoader(1, hilo));
-            CargarDatosForm();
+            
             SetThemeColor();
             CargarCombos();
+            CargarDatosForm();
 
         }
 
@@ -87,7 +88,8 @@ namespace GestionCasos.Administrador
 
         private void CargarDatosForm()
         {
-            if (DatosTemp.t_Institucion != null)
+            var item = negocio.obtenerPorId(DatosTemp.t_Institucion);
+            if (item != null)
             {
                 txtCodigo.Text = DatosTemp.t_Institucion.Codigo.ToString();
                 txtInstitucion.Text = DatosTemp.t_Institucion.Nombre;
@@ -95,9 +97,9 @@ namespace GestionCasos.Administrador
                 txtCuentaDanea.Text = DatosTemp.t_Institucion.Cuenta_Danea;
                 txtCuentaLey.Text = DatosTemp.t_Institucion.Cuenta_Ley;
 
-                cbCircuito.SelectedValue = DatosTemp.t_Institucion.Circuito;
-                cbContador.SelectedValue = DatosTemp.t_Institucion.Contador;
-                cbTipo.SelectedValue = DatosTemp.t_Institucion.Tipo;
+                cbCircuito.Text = DatosTemp.t_Institucion.Circuito.ToString();
+                cbContador.Text = DatosTemp.t_Institucion.t_Persona.Nombre_Completo;
+                cbTipo.Text = DatosTemp.t_Institucion.t_Tipo_Institucion.NombreTipo;
             }
         }
 
@@ -167,7 +169,7 @@ namespace GestionCasos.Administrador
 
 
         //Guardar
-        private void gunaButton1_Click(object sender, System.EventArgs e)
+        private void gunaButton1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -208,7 +210,7 @@ namespace GestionCasos.Administrador
 
 
         //Buscar
-        private void gunaButton4_Click(object sender, System.EventArgs e)
+        private void gunaButton4_Click(object sender, EventArgs e)
         {
             try
             {
@@ -222,7 +224,7 @@ namespace GestionCasos.Administrador
                         txtCuentaDanea.Text = datosEncotrados.Cuenta_Danea;
                         txtInstitucion.Text = datosEncotrados.Nombre;
                         txtCedulaJuridica.Text = datosEncotrados.Cedula_Juridica;
-                        cbTipo.SelectedIndex = datosEncotrados.Tipo;
+                        cbTipo.Text = datosEncotrados.Tipo.ToString();
                         cbContador.Text = datosEncotrados.t_Persona.Nombre_Completo;
                         cbCircuito.Text = datosEncotrados.Circuito.ToString();
                     }

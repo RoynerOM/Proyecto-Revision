@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilidades;
 
 namespace GestionCasos.Reportes
 {
@@ -18,8 +20,27 @@ namespace GestionCasos.Reportes
         public fOpcionesReportes()
         {
             InitializeComponent();
+            SetColorTheme();
         }
 
+        private void SetColorTheme()
+        {
+            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+            {
+
+
+                flowLayoutPanel1.BackColor = Colors.White;
+
+                btnContadores.BaseColor = Colors.Blue;
+                btnCasos.BaseColor = Colors.Blue;
+                btnReportes.BaseColor = Colors.Blue;
+                btnContadores.OnHoverBaseColor = Colors.BlueHover;
+                btnCasos.OnHoverBaseColor = Colors.BlueHover;
+                btnReportes.OnHoverBaseColor = Colors.BlueHover;
+
+
+            }
+        }
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -50,6 +71,11 @@ namespace GestionCasos.Reportes
         private void btnContadores_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ReporteContadores());
+
+        }
+
+        private void fOpcionesReportes_Load(object sender, EventArgs e)
+        {
 
         }
     }
