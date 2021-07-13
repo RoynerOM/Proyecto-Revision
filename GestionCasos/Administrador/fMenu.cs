@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using Utilidades;
-
+using GestionCasos.Reportes;
 namespace GestionCasos.Administrador
 {
     public partial class fMenu : Form
@@ -133,6 +133,11 @@ namespace GestionCasos.Administrador
             while (!hilo.IsAlive) ;
 
             OpenChildForm(new fLoader(1, hilo));
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fOpcionesReportes());
         }
     }
 }

@@ -46,9 +46,8 @@ namespace GestionCasos.Administrador
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1147, 644);
+            this.panel1.Size = new System.Drawing.Size(860, 523);
             this.panel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -61,10 +60,10 @@ namespace GestionCasos.Administrador
             this.flowLayoutPanel1.Controls.Add(this.btnMode);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(40, 37, 40, 37);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1147, 644);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(860, 523);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // btnContadores
@@ -80,8 +79,8 @@ namespace GestionCasos.Administrador
             this.btnContadores.ForeColor = System.Drawing.Color.White;
             this.btnContadores.Image = global::GestionCasos.Properties.Resources.group_60px3;
             this.btnContadores.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnContadores.Location = new System.Drawing.Point(53, 49);
-            this.btnContadores.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.btnContadores.Location = new System.Drawing.Point(40, 40);
+            this.btnContadores.Margin = new System.Windows.Forms.Padding(10);
             this.btnContadores.Name = "btnContadores";
             this.btnContadores.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.btnContadores.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -89,7 +88,7 @@ namespace GestionCasos.Administrador
             this.btnContadores.OnHoverImage = null;
             this.btnContadores.OnPressedColor = System.Drawing.Color.Black;
             this.btnContadores.Radius = 10;
-            this.btnContadores.Size = new System.Drawing.Size(321, 175);
+            this.btnContadores.Size = new System.Drawing.Size(241, 142);
             this.btnContadores.TabIndex = 8;
             this.btnContadores.Text = "Contadores";
             this.btnContadores.Click += new System.EventHandler(this.gunaTileButton1_Click);
@@ -107,8 +106,8 @@ namespace GestionCasos.Administrador
             this.btnJuntas.ForeColor = System.Drawing.Color.White;
             this.btnJuntas.Image = global::GestionCasos.Properties.Resources.organization_60px1;
             this.btnJuntas.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnJuntas.Location = new System.Drawing.Point(400, 49);
-            this.btnJuntas.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.btnJuntas.Location = new System.Drawing.Point(301, 40);
+            this.btnJuntas.Margin = new System.Windows.Forms.Padding(10);
             this.btnJuntas.Name = "btnJuntas";
             this.btnJuntas.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.btnJuntas.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -116,7 +115,7 @@ namespace GestionCasos.Administrador
             this.btnJuntas.OnHoverImage = null;
             this.btnJuntas.OnPressedColor = System.Drawing.Color.Black;
             this.btnJuntas.Radius = 10;
-            this.btnJuntas.Size = new System.Drawing.Size(321, 175);
+            this.btnJuntas.Size = new System.Drawing.Size(241, 142);
             this.btnJuntas.TabIndex = 7;
             this.btnJuntas.Text = "Instituciones o Juntas";
             this.btnJuntas.Click += new System.EventHandler(this.btnContadores_Click);
@@ -134,8 +133,8 @@ namespace GestionCasos.Administrador
             this.btnCasos.ForeColor = System.Drawing.Color.White;
             this.btnCasos.Image = global::GestionCasos.Properties.Resources.task_60px1;
             this.btnCasos.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnCasos.Location = new System.Drawing.Point(747, 49);
-            this.btnCasos.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.btnCasos.Location = new System.Drawing.Point(562, 40);
+            this.btnCasos.Margin = new System.Windows.Forms.Padding(10);
             this.btnCasos.Name = "btnCasos";
             this.btnCasos.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.btnCasos.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -143,7 +142,7 @@ namespace GestionCasos.Administrador
             this.btnCasos.OnHoverImage = null;
             this.btnCasos.OnPressedColor = System.Drawing.Color.Black;
             this.btnCasos.Radius = 10;
-            this.btnCasos.Size = new System.Drawing.Size(321, 175);
+            this.btnCasos.Size = new System.Drawing.Size(241, 142);
             this.btnCasos.TabIndex = 9;
             this.btnCasos.Text = "Asignacion de Casos";
             this.btnCasos.Click += new System.EventHandler(this.gunaTileButton2_Click);
@@ -161,8 +160,8 @@ namespace GestionCasos.Administrador
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::GestionCasos.Properties.Resources.report_file_60px;
             this.btnReportes.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnReportes.Location = new System.Drawing.Point(53, 248);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.btnReportes.Location = new System.Drawing.Point(40, 202);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(10);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.btnReportes.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -170,9 +169,10 @@ namespace GestionCasos.Administrador
             this.btnReportes.OnHoverImage = null;
             this.btnReportes.OnPressedColor = System.Drawing.Color.Black;
             this.btnReportes.Radius = 10;
-            this.btnReportes.Size = new System.Drawing.Size(321, 175);
+            this.btnReportes.Size = new System.Drawing.Size(241, 142);
             this.btnReportes.TabIndex = 12;
             this.btnReportes.Text = "Realizar Reportes";
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnMode
             // 
@@ -187,8 +187,8 @@ namespace GestionCasos.Administrador
             this.btnMode.ForeColor = System.Drawing.Color.White;
             this.btnMode.Image = global::GestionCasos.Properties.Resources.sun_60px;
             this.btnMode.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnMode.Location = new System.Drawing.Point(400, 248);
-            this.btnMode.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.btnMode.Location = new System.Drawing.Point(301, 202);
+            this.btnMode.Margin = new System.Windows.Forms.Padding(10);
             this.btnMode.Name = "btnMode";
             this.btnMode.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
             this.btnMode.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -196,18 +196,17 @@ namespace GestionCasos.Administrador
             this.btnMode.OnHoverImage = null;
             this.btnMode.OnPressedColor = System.Drawing.Color.Black;
             this.btnMode.Radius = 10;
-            this.btnMode.Size = new System.Drawing.Size(321, 175);
+            this.btnMode.Size = new System.Drawing.Size(241, 142);
             this.btnMode.TabIndex = 11;
             this.btnMode.Text = "Modo Oscuro";
             this.btnMode.Click += new System.EventHandler(this.gunaTileButton4_Click);
             // 
             // fMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 644);
+            this.ClientSize = new System.Drawing.Size(860, 523);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "fMenu";
             this.Text = "fMenu";
             this.Load += new System.EventHandler(this.fMenu_Load);
@@ -218,13 +217,12 @@ namespace GestionCasos.Administrador
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI.WinForms.GunaTileButton btnContadores;
         private Guna.UI.WinForms.GunaTileButton btnJuntas;
         private Guna.UI.WinForms.GunaTileButton btnCasos;
         private Guna.UI.WinForms.GunaTileButton btnReportes;
         private Guna.UI.WinForms.GunaTileButton btnMode;
+        public System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
