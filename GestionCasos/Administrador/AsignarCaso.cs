@@ -179,6 +179,9 @@ namespace GestionCasos
             revision.Comentario = "No tiene comentario";
             revision.Observacion = "No tiene observacion";
             revision.Estado = 1;
+            //revision.Acta = 0
+            //revision.Folio = 0
+            //revision.fechaActa = DateTime.Now.toShorDateTime();
 
             if (Rnegocio.guardar(revision) == true)
             {

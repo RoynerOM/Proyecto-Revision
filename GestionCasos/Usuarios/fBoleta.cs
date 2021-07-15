@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using GestionCasos.Administrador;
 using Negocios;
 using Utilidades;
 
@@ -51,6 +52,9 @@ namespace GestionCasos.Usuarios
                 cbMotivo8.ForeColor = Colors.Black;
                 lblConsecutivo.ForeColor = Colors.Black;
                 label1.ForeColor = Colors.Black;
+                label2.ForeColor = Colors.Black;
+                label3.ForeColor = Colors.Black;
+                label4.ForeColor = Colors.Black;
             }
             else
             {
@@ -105,39 +109,42 @@ namespace GestionCasos.Usuarios
         {
             try
             {
-                isNew = 0;
-                lblConsecutivo.Text = revision.Consecutivo;
-                var caso = revisionNegocio.obtenerPorConsecutivo(revision.Consecutivo).Where(x => x.Consecutivo == revision.Consecutivo).SingleOrDefault();
-
-                var boletas = boletaNegocio.obtenerTodo(new t_Boleta());
-
-                var filtro = boletas.Where(x => x.Nu_caso == caso.Id_Caso).SingleOrDefault();
-
-                if (filtro != null)
+                if (revision != null)
                 {
-                    boleta = filtro;
-                    isNew = 1;
-                    cbMotivo1.Checked = (bool)filtro.Motivo1;
-                    cbMotivo2.Checked = (bool)filtro.Motivo2;
-                    cbMotivo3.Checked = (bool)filtro.Motivo3;
-                    cbMotivo4.Checked = (bool)filtro.Motivo4;
-                    cbMotivo5.Checked = (bool)filtro.Motivo5;
-                    cbMotivo6.Checked = (bool)filtro.Motivo6;
-                    cbMotivo7.Checked = (bool)filtro.Motivo7;
+                    isNew = 0;
+                    lblConsecutivo.Text = revision.Consecutivo;
+                    var caso = revisionNegocio.obtenerPorConsecutivo(revision.Consecutivo).Where(x => x.Consecutivo == revision.Consecutivo).SingleOrDefault();
 
-                    if (filtro.Motivo8 != "Ninguno")
+                    var boletas = boletaNegocio.obtenerTodo(new t_Boleta());
+
+                    var filtro = boletas.Where(x => x.Nu_caso == caso.Id_Caso).SingleOrDefault();
+
+                    if (filtro != null)
                     {
-                        cbMotivo8.Checked = true;
-                        txtOtros.Visible = true;
-                        txtOtros.Text = filtro.Motivo8;
-                    }
-                    if (TipoUsuario == 0)
-                    {
-                        txtObservacion.Text = revision.Comentario;
-                    }
-                    else
-                    {
-                        txtObservacion.Text = revision.Observacion;
+                        boleta = filtro;
+                        isNew = 1;
+                        cbMotivo1.Checked = (bool)filtro.Motivo1;
+                        cbMotivo2.Checked = (bool)filtro.Motivo2;
+                        cbMotivo3.Checked = (bool)filtro.Motivo3;
+                        cbMotivo4.Checked = (bool)filtro.Motivo4;
+                        cbMotivo5.Checked = (bool)filtro.Motivo5;
+                        cbMotivo6.Checked = (bool)filtro.Motivo6;
+                        cbMotivo7.Checked = (bool)filtro.Motivo7;
+
+                        if (filtro.Motivo8 != "Ninguno")
+                        {
+                            cbMotivo8.Checked = true;
+                            txtOtros.Visible = true;
+                            txtOtros.Text = filtro.Motivo8;
+                        }
+                        if (TipoUsuario == 0)
+                        {
+                            txtObservacion.Text = revision.Comentario;
+                        }
+                        else
+                        {
+                            txtObservacion.Text = revision.Observacion;
+                        }
                     }
                 }
 
@@ -199,7 +206,9 @@ namespace GestionCasos.Usuarios
                     filtroCasos.FechaRevisada = DateTime.Now.ToShortDateString();
                     filtroCasos.Estado = 2;
                     filtroCasos.Estado1 = filtroEstado;
-
+                    //filtroCasos.Acta = int.Parse(txtNumeroActa.Text);
+                    //filtroCasos.Folio = int.Parse(txtFolio.Text);
+                    //filtroCasos.fechaActa = dtpFechaActa.Value.ToShortDateString();
                     if (revisionNegocio.modificar(filtroCasos) == true)
                     {
                         //Alert.Success(new Alertas.Alerta(), "Revision Modificada con exito");
@@ -240,7 +249,7 @@ namespace GestionCasos.Usuarios
                             filtroBoleta.Observacion = txtObservacion.Text;
                             filtroBoleta.Revisado_Por = revision.Tramitador;
 
-                            
+
                             if (boletaNegocio.modificar(filtroBoleta) == true)
                             {
                                 Alert.Success(new Alertas.Alerta(), "Observacion Agregada con exito");
@@ -261,6 +270,31 @@ namespace GestionCasos.Usuarios
 
                 Console.WriteLine(ex);
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        //Llamar al formulario de entrega
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                /*fEntrega entrega;
+                // var consulta = entregaNegocio.obtenerPorConsecutivo(lblConsecutivo.Text);
+                if (consulta != null)
+                {
+                    entrega = new fEntrega(consulta.Id);
+                }
+                else
+                {
+                    entrega = new fEntrega(0);
+                }
+
+                entrega.ShowDialog();*/
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
     }

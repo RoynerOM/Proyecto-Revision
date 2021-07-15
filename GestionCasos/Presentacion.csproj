@@ -146,6 +146,12 @@
     <Compile Include="Administrador\fDetallesPersonas.Designer.cs">
       <DependentUpon>fDetallesPersonas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\fEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\fEntrega.Designer.cs">
+      <DependentUpon>fEntrega.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\fInstituciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,12 @@
     <Compile Include="Reportes\fOpcionesReportes.Designer.cs">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\fReporteEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\fReporteEntrega.Designer.cs">
+      <DependentUpon>fReporteEntrega.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Usuarios\AgregarComentario.cs">
       <SubType>Form</SubType>
@@ -276,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fDetallesPersonas.resx">
       <DependentUpon>fDetallesPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\fEntrega.resx">
+      <DependentUpon>fEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fInstituciones.resx">
       <DependentUpon>fInstituciones.cs</DependentUpon>
@@ -328,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\fOpcionesReportes.resx">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\fReporteEntrega.resx">
+      <DependentUpon>fReporteEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteCasosAsignados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteContadores.rdlc" />
@@ -408,6 +426,7 @@
     <None Include="Resources\loader-list.gif" />
     <None Include="Resources\ajaxspinner.gif" />
     <None Include="Resources\loading %281%29.gif" />
+    <None Include="Resources\send_email_100px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
