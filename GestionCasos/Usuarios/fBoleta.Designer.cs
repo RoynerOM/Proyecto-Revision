@@ -31,7 +31,13 @@ namespace GestionCasos.Usuarios
         {
             this.components = new System.ComponentModel.Container();
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
-            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
+            this.dtpFechaActa = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtFolio = new Guna.UI.WinForms.GunaTextBox();
+            this.txtNumeroActa = new Guna.UI.WinForms.GunaTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnEntrega = new Guna.UI.WinForms.GunaButton();
             this.btnObservacion = new Guna.UI.WinForms.GunaButton();
             this.btnBoleta = new Guna.UI.WinForms.GunaButton();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -50,12 +56,6 @@ namespace GestionCasos.Usuarios
             this.label1 = new System.Windows.Forms.Label();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtNumeroActa = new Guna.UI.WinForms.GunaTextBox();
-            this.txtFolio = new Guna.UI.WinForms.GunaTextBox();
-            this.dtpFechaActa = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.gunaLinePanel1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
@@ -70,7 +70,7 @@ namespace GestionCasos.Usuarios
             this.gunaLinePanel1.Controls.Add(this.label4);
             this.gunaLinePanel1.Controls.Add(this.label3);
             this.gunaLinePanel1.Controls.Add(this.label2);
-            this.gunaLinePanel1.Controls.Add(this.gunaButton1);
+            this.gunaLinePanel1.Controls.Add(this.btnEntrega);
             this.gunaLinePanel1.Controls.Add(this.btnObservacion);
             this.gunaLinePanel1.Controls.Add(this.btnBoleta);
             this.gunaLinePanel1.Controls.Add(this.guna2GroupBox2);
@@ -90,32 +90,119 @@ namespace GestionCasos.Usuarios
             this.gunaLinePanel1.Size = new System.Drawing.Size(800, 700);
             this.gunaLinePanel1.TabIndex = 0;
             // 
-            // gunaButton1
+            // dtpFechaActa
             // 
-            this.gunaButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaButton1.AnimationSpeed = 0.03F;
-            this.gunaButton1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
-            this.gunaButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaButton1.Image = global::GestionCasos.Properties.Resources.send_email_100px;
-            this.gunaButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.gunaButton1.Location = new System.Drawing.Point(16, 632);
-            this.gunaButton1.Name = "gunaButton1";
-            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton1.OnHoverImage = null;
-            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton1.Radius = 5;
-            this.gunaButton1.Size = new System.Drawing.Size(185, 42);
-            this.gunaButton1.TabIndex = 8;
-            this.gunaButton1.Text = "Preparar Entrega";
-            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
+            this.dtpFechaActa.CheckedState.Parent = this.dtpFechaActa;
+            this.dtpFechaActa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpFechaActa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.dtpFechaActa.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaActa.ForeColor = System.Drawing.Color.White;
+            this.dtpFechaActa.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpFechaActa.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.dtpFechaActa.HoverState.Parent = this.dtpFechaActa;
+            this.dtpFechaActa.Location = new System.Drawing.Point(503, 99);
+            this.dtpFechaActa.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpFechaActa.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaActa.Name = "dtpFechaActa";
+            this.dtpFechaActa.ShadowDecoration.Parent = this.dtpFechaActa;
+            this.dtpFechaActa.Size = new System.Drawing.Size(247, 32);
+            this.dtpFechaActa.TabIndex = 14;
+            this.dtpFechaActa.Value = new System.DateTime(2021, 7, 15, 13, 16, 42, 737);
+            // 
+            // txtFolio
+            // 
+            this.txtFolio.BaseColor = System.Drawing.Color.White;
+            this.txtFolio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.txtFolio.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFolio.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtFolio.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtFolio.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtFolio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFolio.Location = new System.Drawing.Point(273, 99);
+            this.txtFolio.Name = "txtFolio";
+            this.txtFolio.PasswordChar = '\0';
+            this.txtFolio.SelectedText = "";
+            this.txtFolio.Size = new System.Drawing.Size(181, 32);
+            this.txtFolio.TabIndex = 13;
+            // 
+            // txtNumeroActa
+            // 
+            this.txtNumeroActa.BaseColor = System.Drawing.Color.White;
+            this.txtNumeroActa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.txtNumeroActa.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNumeroActa.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtNumeroActa.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtNumeroActa.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNumeroActa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroActa.Location = new System.Drawing.Point(49, 99);
+            this.txtNumeroActa.Name = "txtNumeroActa";
+            this.txtNumeroActa.PasswordChar = '\0';
+            this.txtNumeroActa.SelectedText = "";
+            this.txtNumeroActa.Size = new System.Drawing.Size(177, 32);
+            this.txtNumeroActa.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(499, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 21);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Fecha de acta";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(269, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 21);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Número de fólio";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(45, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 21);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Número de acta";
+            // 
+            // btnEntrega
+            // 
+            this.btnEntrega.AnimationHoverSpeed = 0.07F;
+            this.btnEntrega.AnimationSpeed = 0.03F;
+            this.btnEntrega.BackColor = System.Drawing.Color.Transparent;
+            this.btnEntrega.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
+            this.btnEntrega.BorderColor = System.Drawing.Color.Black;
+            this.btnEntrega.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEntrega.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnEntrega.FocusedColor = System.Drawing.Color.Empty;
+            this.btnEntrega.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrega.ForeColor = System.Drawing.Color.White;
+            this.btnEntrega.Image = global::GestionCasos.Properties.Resources.send_email_100px;
+            this.btnEntrega.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnEntrega.Location = new System.Drawing.Point(16, 632);
+            this.btnEntrega.Name = "btnEntrega";
+            this.btnEntrega.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnEntrega.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnEntrega.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnEntrega.OnHoverImage = null;
+            this.btnEntrega.OnPressedColor = System.Drawing.Color.Black;
+            this.btnEntrega.Radius = 5;
+            this.btnEntrega.Size = new System.Drawing.Size(185, 42);
+            this.btnEntrega.TabIndex = 8;
+            this.btnEntrega.Text = "Preparar Entrega";
+            this.btnEntrega.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
             // btnObservacion
             // 
@@ -442,93 +529,6 @@ namespace GestionCasos.Usuarios
             // 
             this.gunaDragControl1.TargetControl = this.gunaLinePanel1;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(45, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 21);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Número de acta";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(269, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 21);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Número de fólio";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(499, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 21);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Fecha de acta";
-            // 
-            // txtNumeroActa
-            // 
-            this.txtNumeroActa.BaseColor = System.Drawing.Color.White;
-            this.txtNumeroActa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.txtNumeroActa.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNumeroActa.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtNumeroActa.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtNumeroActa.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtNumeroActa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroActa.Location = new System.Drawing.Point(49, 99);
-            this.txtNumeroActa.Name = "txtNumeroActa";
-            this.txtNumeroActa.PasswordChar = '\0';
-            this.txtNumeroActa.SelectedText = "";
-            this.txtNumeroActa.Size = new System.Drawing.Size(177, 32);
-            this.txtNumeroActa.TabIndex = 12;
-            // 
-            // txtFolio
-            // 
-            this.txtFolio.BaseColor = System.Drawing.Color.White;
-            this.txtFolio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.txtFolio.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFolio.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtFolio.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtFolio.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtFolio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFolio.Location = new System.Drawing.Point(273, 99);
-            this.txtFolio.Name = "txtFolio";
-            this.txtFolio.PasswordChar = '\0';
-            this.txtFolio.SelectedText = "";
-            this.txtFolio.Size = new System.Drawing.Size(181, 32);
-            this.txtFolio.TabIndex = 13;
-            // 
-            // dtpFechaActa
-            // 
-            this.dtpFechaActa.CheckedState.Parent = this.dtpFechaActa;
-            this.dtpFechaActa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpFechaActa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.dtpFechaActa.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaActa.ForeColor = System.Drawing.Color.White;
-            this.dtpFechaActa.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtpFechaActa.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.dtpFechaActa.HoverState.Parent = this.dtpFechaActa;
-            this.dtpFechaActa.Location = new System.Drawing.Point(503, 99);
-            this.dtpFechaActa.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpFechaActa.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpFechaActa.Name = "dtpFechaActa";
-            this.dtpFechaActa.ShadowDecoration.Parent = this.dtpFechaActa;
-            this.dtpFechaActa.Size = new System.Drawing.Size(247, 32);
-            this.dtpFechaActa.TabIndex = 14;
-            this.dtpFechaActa.Value = new System.DateTime(2021, 7, 15, 13, 16, 42, 737);
-            // 
             // fBoleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -572,7 +572,7 @@ namespace GestionCasos.Usuarios
         private System.Windows.Forms.TextBox txtObservacion;
         private Guna.UI.WinForms.GunaButton btnObservacion;
         private Guna.UI.WinForms.GunaButton btnBoleta;
-        private Guna.UI.WinForms.GunaButton gunaButton1;
+        private Guna.UI.WinForms.GunaButton btnEntrega;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaActa;
         private Guna.UI.WinForms.GunaTextBox txtFolio;
         private Guna.UI.WinForms.GunaTextBox txtNumeroActa;

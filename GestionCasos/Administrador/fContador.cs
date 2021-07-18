@@ -6,6 +6,7 @@ using Utilidades;
 using System.Configuration;
 using System.Drawing;
 using System.Threading;
+using Utilidades.Enumerables;
 
 namespace GestionCasos.Administrador
 {
@@ -24,7 +25,10 @@ namespace GestionCasos.Administrador
             this.DoubleBuffered = true;
 
         }
-
+        private void CargarCombos()
+        {
+            cbTipo.DataSource = Enum.GetValues(typeof(Enums.TipoCedula));
+        }
         private void fContador_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
@@ -34,7 +38,7 @@ namespace GestionCasos.Administrador
 
             OpenChildForm(new fLoader(1, hilo));
 
-            cbTipo.SelectedIndex = 0;
+            CargarCombos();
             SetThemeColor();
             CargarDatosForm();
         }
@@ -54,6 +58,7 @@ namespace GestionCasos.Administrador
                 label4.ForeColor = Colors.Black;
                 label5.ForeColor = Colors.Black;
                 label6.ForeColor = Colors.Black;
+                
 
             }
             else
@@ -87,8 +92,9 @@ namespace GestionCasos.Administrador
                 //Validamos los campos
                 if (ValidarCampos() == true)
                 {
+                    
                     contador.Cedula = txtCedula.Text;
-                    if(negocio.obtenerPorId(contador) == null)
+                    if (negocio.obtenerPorId(contador) == null)
                     {
                         //Cargarmos el modelo con los datos del formulario
                         contador.TipoId = cbTipo.SelectedIndex;
@@ -101,6 +107,7 @@ namespace GestionCasos.Administrador
                         //Ejecutamos el metodo de guardar y le mandamos el modelo contador ya cargado de datos
                         if (negocio.guardar(contador) == true)
                         {
+                            
                             //En caso de que se ejecute correctamente
                             Message.Success(new Alertas.Alerta(), "El contador se guardo correctamente");
                             LimpiarCampos();

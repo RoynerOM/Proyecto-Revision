@@ -97,7 +97,7 @@ namespace GestionCasos.Usuarios
             this.txtConsecutivo.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtConsecutivo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtConsecutivo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsecutivo.Location = new System.Drawing.Point(346, 67);
+            this.txtConsecutivo.Location = new System.Drawing.Point(290, 65);
             this.txtConsecutivo.Margin = new System.Windows.Forms.Padding(2);
             this.txtConsecutivo.Name = "txtConsecutivo";
             this.txtConsecutivo.PasswordChar = '\0';
@@ -111,7 +111,7 @@ namespace GestionCasos.Usuarios
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel3.Location = new System.Drawing.Point(344, 37);
+            this.gunaLabel3.Location = new System.Drawing.Point(288, 35);
             this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel3.Name = "gunaLabel3";
             this.gunaLabel3.Size = new System.Drawing.Size(164, 20);
@@ -124,7 +124,7 @@ namespace GestionCasos.Usuarios
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel2.Location = new System.Drawing.Point(730, 35);
+            this.gunaLabel2.Location = new System.Drawing.Point(682, 35);
             this.gunaLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(151, 20);
@@ -137,7 +137,7 @@ namespace GestionCasos.Usuarios
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(572, 33);
+            this.gunaLabel1.Location = new System.Drawing.Point(517, 33);
             this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(126, 20);
@@ -156,12 +156,12 @@ namespace GestionCasos.Usuarios
             this.cbRecepcion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbRecepcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbRecepcion.FormattingEnabled = true;
-            this.cbRecepcion.Location = new System.Drawing.Point(734, 68);
+            this.cbRecepcion.Location = new System.Drawing.Point(686, 68);
             this.cbRecepcion.Margin = new System.Windows.Forms.Padding(2);
             this.cbRecepcion.Name = "cbRecepcion";
             this.cbRecepcion.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbRecepcion.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbRecepcion.Size = new System.Drawing.Size(142, 26);
+            this.cbRecepcion.Size = new System.Drawing.Size(190, 26);
             this.cbRecepcion.TabIndex = 3;
             this.cbRecepcion.SelectionChangeCommitted += new System.EventHandler(this.cbRecepcion_SelectionChangeCommitted);
             // 
@@ -177,7 +177,7 @@ namespace GestionCasos.Usuarios
             this.cbEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(575, 67);
+            this.cbEstado.Location = new System.Drawing.Point(520, 67);
             this.cbEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -253,6 +253,7 @@ namespace GestionCasos.Usuarios
             this.tabla.TabIndex = 0;
             this.tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellContentClick_1);
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
+            this.tabla.Resize += new System.EventHandler(this.tabla_Resize);
             // 
             // Caso
             // 

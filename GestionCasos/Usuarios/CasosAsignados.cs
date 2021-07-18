@@ -22,7 +22,7 @@ namespace GestionCasos.Usuarios
         ContadorNegocio persona = new ContadorNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
-        List<t_Revision> Casos = null;
+        IEnumerable<t_Revision> Casos = null;
         //Datos de prueba
 
         public CasosAsignados()
@@ -36,8 +36,8 @@ namespace GestionCasos.Usuarios
         public void PedirDatos()
         {
             //Cargarmos la tabla con los datos relacionado a la cedula de la persona actual
-            Casos = (List<t_Revision>)revisionNegocio.obtenerTodo(revision);
-            CargarTabla(Casos.Where(x => x.Tramitador == Cedula));
+            Casos = revisionNegocio.obtenerTodo(revision).Where(x => x.Tramitador == "5-0435-0765");
+            CargarTabla(Casos);
         }
 
 
@@ -64,8 +64,9 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 10);
 
-                if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE")
+                if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE" || item.Estado1.TipoEstado.ToUpper() == "EN REVISION")
                 {
+                    tabla.Rows[nRows].Cells[8].Value = "PENDIENTE";
                     if (isDark == "false")
                     {
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
@@ -95,14 +96,14 @@ namespace GestionCasos.Usuarios
                 {
                     if (isDark == "false")
                     {
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 75, 160);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(168, 209, 255);
 
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
                     }
                     else
                     {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 120, 255);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(0, 45, 96);
                     }
                 }
             }
@@ -153,7 +154,7 @@ namespace GestionCasos.Usuarios
         //Filtro por Consecutivo
         public void FilterByConsecutivo(string consecutivo)
         {
-            IEnumerable<t_Revision> filtro = revisionNegocio.obtenerPorConsecutivo(consecutivo);
+            IEnumerable<t_Revision> filtro = revisionNegocio.obtenerPorConsecutivo(consecutivo).Where(x=> x.Tramitador == "5-0435-0765");
             CargarTabla(filtro);
         }
 
@@ -275,6 +276,23 @@ namespace GestionCasos.Usuarios
             {
                 var error = ex.Data;
                 MessageBox.Show(error.ToString());
+            }
+        }
+
+        private void tabla_Resize(object sender, EventArgs e)
+        {
+            var Grid = (DataGridView)sender;
+
+
+            var width = tabla.Width;
+
+            if (width <= 1300)
+            {
+                Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
+            }
+            else
+            {
+                Grid.RowsDefaultCellStyle.Font = new Font(Name, 10);
             }
         }
     }

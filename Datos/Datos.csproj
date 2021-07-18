@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoletaDatos.cs" />
+    <Compile Include="EntregaDatos.cs" />
     <Compile Include="EstadoDatos.cs" />
     <Compile Include="DatosContador.cs" />
     <Compile Include="DatosDireccionRegional.cs" />

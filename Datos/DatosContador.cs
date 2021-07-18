@@ -18,6 +18,7 @@ namespace Datos
                     db.Entry<t_Persona>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
+
                 return true;
             }
 
@@ -111,6 +112,55 @@ namespace Datos
                 return null;
             }
         }
+
+        //Extras
+        public bool GuardarTrabajador(t_Trabajador e)
+        {
+            try
+            {
+                
+                using (var db = new BD_JuntasEntities())
+                {
+                    db.t_Trabajador.Add(e);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public IEnumerable< t_Trabajador> obtenerTrabador(int tipo)
+        {
+            /*
+                0 normal
+                1 admin
+             */
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var consulta = db.t_Trabajador.Include("t_Persona").Where(x=> x.Tipo == tipo);
+                    if (consulta != null)
+                    {
+                        return consulta;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
 
         public int CantidadContadores()
         {

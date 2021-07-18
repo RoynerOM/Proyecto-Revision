@@ -427,6 +427,9 @@
     <None Include="Resources\ajaxspinner.gif" />
     <None Include="Resources\loading %281%29.gif" />
     <None Include="Resources\send_email_100px.png" />
+    <None Include="Resources\back_100px.png" />
+    <None Include="Resources\more_than_100px.png" />
+    <None Include="Resources\less_than_100px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

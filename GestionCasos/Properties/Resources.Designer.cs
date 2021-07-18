@@ -93,6 +93,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back_100px {
+            get {
+                object obj = ResourceManager.GetObject("back_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bug_60px {
             get {
                 object obj = ResourceManager.GetObject("bug_60px", resourceCulture);
@@ -303,6 +313,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap less_than_100px {
+            get {
+                object obj = ResourceManager.GetObject("less_than_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap light_dimming_off_48px {
             get {
                 object obj = ResourceManager.GetObject("light_dimming_off_48px", resourceCulture);
@@ -386,6 +406,16 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap more_details_60px {
             get {
                 object obj = ResourceManager.GetObject("more_details_60px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap more_than_100px {
+            get {
+                object obj = ResourceManager.GetObject("more_than_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

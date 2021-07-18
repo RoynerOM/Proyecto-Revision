@@ -24,6 +24,7 @@ namespace GestionCasos.Usuarios
         BoletaNegocio boletaNegocio = new BoletaNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
+        EntregaNegocio entregaNegocio = new EntregaNegocio();
         private int isNew = 0;
         showMessageDialog Alert = new showMessageDialog();
         public fBoleta(int tipo)
@@ -67,7 +68,7 @@ namespace GestionCasos.Usuarios
             SetThemeColor();
 
             txtOtros.Visible = false;
-
+            btnEntrega.Visible = false;
             revision = DatosTemp.t_Revision;
             CargarDatosForm();
         }
@@ -121,6 +122,7 @@ namespace GestionCasos.Usuarios
 
                     if (filtro != null)
                     {
+                        btnEntrega.Visible = true;
                         boleta = filtro;
                         isNew = 1;
                         cbMotivo1.Checked = (bool)filtro.Motivo1;
@@ -130,7 +132,7 @@ namespace GestionCasos.Usuarios
                         cbMotivo5.Checked = (bool)filtro.Motivo5;
                         cbMotivo6.Checked = (bool)filtro.Motivo6;
                         cbMotivo7.Checked = (bool)filtro.Motivo7;
-
+                        
                         if (filtro.Motivo8 != "Ninguno")
                         {
                             cbMotivo8.Checked = true;
@@ -145,6 +147,10 @@ namespace GestionCasos.Usuarios
                         {
                             txtObservacion.Text = revision.Observacion;
                         }
+
+                        txtNumeroActa.Text = caso.numeroActa.ToString();
+                        txtFolio.Text = caso.numeroFolio.ToString();
+                        dtpFechaActa.Value = (DateTime)caso.fechaActa;
                     }
                 }
 
@@ -204,11 +210,11 @@ namespace GestionCasos.Usuarios
                     Estado filtroEstado = estadoNegocio.obtenerPorId(state);
 
                     filtroCasos.FechaRevisada = DateTime.Now.ToShortDateString();
-                    filtroCasos.Estado = 2;
+                    filtroCasos.Estado = 3;
                     filtroCasos.Estado1 = filtroEstado;
-                    //filtroCasos.Acta = int.Parse(txtNumeroActa.Text);
-                    //filtroCasos.Folio = int.Parse(txtFolio.Text);
-                    //filtroCasos.fechaActa = dtpFechaActa.Value.ToShortDateString();
+                    filtroCasos.numeroActa = int.Parse(txtNumeroActa.Text);
+                    filtroCasos.numeroFolio = int.Parse(txtFolio.Text);
+                    filtroCasos.fechaActa = dtpFechaActa.Value;
                     if (revisionNegocio.modificar(filtroCasos) == true)
                     {
                         //Alert.Success(new Alertas.Alerta(), "Revision Modificada con exito");
@@ -219,6 +225,7 @@ namespace GestionCasos.Usuarios
                             {
                                 Alert.Success(new Alertas.Alerta(), "Observacion Agregada con exito");
                                 DatosTemp.t_Boleta = null;
+                                btnEntrega.Visible = true;
 
                             }
                             else
@@ -279,23 +286,24 @@ namespace GestionCasos.Usuarios
         {
             try
             {
-                /*fEntrega entrega;
-                // var consulta = entregaNegocio.obtenerPorConsecutivo(lblConsecutivo.Text);
+                fEntrega entrega;
+                var consulta =  entregaNegocio.obtenerPorCaso(lblConsecutivo.Text);
                 if (consulta != null)
                 {
-                    entrega = new fEntrega(consulta.Id);
+                    entrega = new fEntrega(consulta);
                 }
                 else
                 {
-                    entrega = new fEntrega(0);
+                    entrega = new fEntrega(null);
                 }
 
-                entrega.ShowDialog();*/
+                entrega.ShowDialog();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
         }
+
     }
 }

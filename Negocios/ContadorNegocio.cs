@@ -42,5 +42,16 @@ namespace Negocios
         {
             return contador.CantidadContadores();
         }
+
+
+        public bool GuardarTrabajador(t_Trabajador e)
+        {
+            return contador.GuardarTrabajador(e);
+        }
+
+        public IEnumerable<t_Trabajador> obtenerTrabador(int tipo)
+        {
+            return contador.obtenerTrabador(tipo);
+        }
     }
 }

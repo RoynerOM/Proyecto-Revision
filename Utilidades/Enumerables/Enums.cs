@@ -18,8 +18,20 @@ namespace Utilidades.Enumerables
 
         public enum Estado
         {
-            activo ,
+            activo,
             inactivo
+        }
+
+        public enum Tipo
+        {
+            Contador = 0,
+            Tramitador = 1
+        }
+
+        public enum TipoCedula
+        {
+            Nacional = 0,
+            Dimex = 1
         }
 
     }

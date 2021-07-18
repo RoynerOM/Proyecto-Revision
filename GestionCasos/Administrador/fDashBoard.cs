@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using GestionCasos.Administrador;
+using GestionCasos.Usuarios;
 using Negocios;
 namespace GestionCasos
 {
@@ -20,6 +21,7 @@ namespace GestionCasos
         RevisionNegocio revision = new RevisionNegocio();
         InstitucionNegocio institucion = new InstitucionNegocio();
         private Form activeForm;
+        private int Role = 1;
 
         public fDashBoard()
         {
@@ -36,23 +38,51 @@ namespace GestionCasos
         {
             try
             {
-                var cantidad = negocio.CantidadContadores();
-                label1.Text = cantidad.ToString();
+                if (Role == 1)
+                {
+                    var cantidad = negocio.CantidadContadores();
+                    label1.Text = cantidad.ToString();
 
-                var casos = revision.obtenerTodo(new t_Revision());
+                    var casos = revision.obtenerTodo(new t_Revision());
 
-                var pendientes = casos.Where(x => x.Estado == 1).Count();
-                lblTotaPendientes.Text = pendientes.ToString();
+                    //En revisio
+                    var pendientes = casos.Where(x => x.Estado == 2).Count();
+                    lblTotaPendientes.Text = pendientes.ToString();
+                    lblPendientes.Text = "Casos en revision";
+
+                    //Tramitados
+                    var revicion = casos.Where(x => x.Estado == 3).Count();
+                    lblTotalRevisados.Text = revicion.ToString();
+                    lblRevisados.Text = "Casos tramitados";
+
+                    //Entrgados
+                    var entregados = casos.Where(x => x.Estado == 4).Count();
+                    lblEntregados.Text = entregados.ToString();
+                    label5.Text = "Casos Entrgados";
+
+                    var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
+                    lblTotalJuntas.Text = instituciones.ToString();
+                }
+                else
+                {
+                    var cantidad = negocio.CantidadContadores();
+                    label1.Text = cantidad.ToString();
+
+                    var casos = revision.obtenerTodo(new t_Revision());
+
+                    var pendientes = casos.Where(x => x.Estado == 2).Count();
+                    lblTotaPendientes.Text = pendientes.ToString();
 
 
-                var revicion = casos.Where(x => x.Estado == 2).Count();
-                lblTotalRevisados.Text = revicion.ToString();
+                    var tramitado = casos.Where(x => x.Estado == 3).Count();
+                    lblTotalRevisados.Text = tramitado.ToString();
 
-                var tramitado = casos.Where(x => x.Estado == 3).Count();
-                var todos = casos.Count();
+                    var entregados = casos.Where(x => x.Estado == 4).Count();
+                    lblEntregados.Text = entregados.ToString();
 
-                var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
-                lblTotalJuntas.Text = instituciones.ToString();
+                    var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
+                    lblTotalJuntas.Text = instituciones.ToString();
+                }
             }
             catch (Exception ex)
             {
@@ -110,7 +140,15 @@ namespace GestionCasos
 
         private void gunaTileButton1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fCasosAdmin());
+
+            if (Role == 1)
+            {
+                OpenChildForm(new fCasosAdmin());
+            }
+            else
+            {
+                OpenChildForm(new CasosAsignados());
+            }
         }
         //Pintar formulario hijo
         //Formulario en uso

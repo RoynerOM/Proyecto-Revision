@@ -66,6 +66,9 @@
     <Compile Include="t_Direccion_Regional.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="t_EntregaCasos.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="t_Institucion.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>

@@ -169,30 +169,37 @@ namespace GestionCasos
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            t_Revision revision = new t_Revision();
-
-            revision.Codigo = int.Parse(txtCodigo.Text);
-            revision.Fecha = DateTime.Parse(dtpFecha.Value.ToShortDateString());
-            revision.Tramitador = cbAsignados.SelectedValue.ToString();
-            revision.Recepcion = (int)cbTipoRecepcion.SelectedValue;
-            revision.Estado = 1;
-            revision.Comentario = "No tiene comentario";
-            revision.Observacion = "No tiene observacion";
-            revision.Estado = 1;
-            //revision.Acta = 0
-            //revision.Folio = 0
-            //revision.fechaActa = DateTime.Now.toShorDateTime();
-
-            if (Rnegocio.guardar(revision) == true)
+            try
             {
-                MessageBox.Show("Caso asignado", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MostrarConsecutivo();
+                t_Revision revision = new t_Revision();
 
+                revision.Codigo = int.Parse(txtCodigo.Text);
+                revision.Fecha = dtpFecha.Value;
+                revision.Tramitador = cbAsignados.SelectedValue.ToString();
+                revision.Recepcion = (int)cbTipoRecepcion.SelectedValue;
+                revision.Comentario = "No tiene comentario";
+                revision.Observacion = "No tiene observacion";
+                revision.Estado = 2;
+                revision.numeroActa = 0;
+                revision.numeroFolio = 0;
+                revision.fechaActa = null;
+
+                if (Rnegocio.guardar(revision) == true)
+                {
+                    MessageBox.Show("Caso asignado", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MostrarConsecutivo();
+
+                }
+                else
+                {
+                    MessageBox.Show("Error al asignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al asignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                Console.WriteLine(ex);
             }
 
 

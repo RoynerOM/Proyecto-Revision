@@ -31,11 +31,11 @@ namespace GestionCasos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.pnLateralIzquierda = new System.Windows.Forms.Panel();
+            this.DesktopPanel = new System.Windows.Forms.Panel();
+            this.process1 = new System.Diagnostics.Process();
             this.btnMenu = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCerrarSecion = new System.Windows.Forms.Button();
-            this.DesktopPanel = new System.Windows.Forms.Panel();
-            this.process1 = new System.Diagnostics.Process();
             this.pnLateralIzquierda.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +51,25 @@ namespace GestionCasos
             this.pnLateralIzquierda.Name = "pnLateralIzquierda";
             this.pnLateralIzquierda.Size = new System.Drawing.Size(111, 661);
             this.pnLateralIzquierda.TabIndex = 0;
+            // 
+            // DesktopPanel
+            // 
+            this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DesktopPanel.Location = new System.Drawing.Point(111, 0);
+            this.DesktopPanel.Name = "DesktopPanel";
+            this.DesktopPanel.Size = new System.Drawing.Size(1025, 661);
+            this.DesktopPanel.TabIndex = 1;
+            // 
+            // process1
+            // 
+            this.process1.StartInfo.Domain = "";
+            this.process1.StartInfo.LoadUserProfile = false;
+            this.process1.StartInfo.Password = null;
+            this.process1.StartInfo.StandardErrorEncoding = null;
+            this.process1.StartInfo.StandardOutputEncoding = null;
+            this.process1.StartInfo.UserName = "";
+            this.process1.SynchronizingObject = this;
             // 
             // btnMenu
             // 
@@ -109,25 +128,6 @@ namespace GestionCasos
             this.btnCerrarSecion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCerrarSecion.UseVisualStyleBackColor = false;
             this.btnCerrarSecion.Click += new System.EventHandler(this.btnCerrarSecion_Click);
-            // 
-            // DesktopPanel
-            // 
-            this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
-            this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DesktopPanel.Location = new System.Drawing.Point(111, 0);
-            this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1025, 661);
-            this.DesktopPanel.TabIndex = 1;
-            // 
-            // process1
-            // 
-            this.process1.StartInfo.Domain = "";
-            this.process1.StartInfo.LoadUserProfile = false;
-            this.process1.StartInfo.Password = null;
-            this.process1.StartInfo.StandardErrorEncoding = null;
-            this.process1.StartInfo.StandardOutputEncoding = null;
-            this.process1.StartInfo.UserName = "";
-            this.process1.SynchronizingObject = this;
             // 
             // Principal
             // 

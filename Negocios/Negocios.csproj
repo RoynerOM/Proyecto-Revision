@@ -55,6 +55,7 @@
     <Compile Include="BoletaNegocio.cs" />
     <Compile Include="ContadorNegocio.cs" />
     <Compile Include="DireccionRegionalNegocio.cs" />
+    <Compile Include="EntregaNegocio.cs" />
     <Compile Include="EstadoNegocio.cs" />
     <Compile Include="InstitucionNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

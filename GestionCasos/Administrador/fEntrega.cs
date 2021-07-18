@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,17 +17,20 @@ namespace GestionCasos.Administrador
 {
     public partial class fEntrega : Form
     {
-
+        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         ContadorNegocio personaNegocio = new ContadorNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
-        //t_EntregaCasos entregaCasos = new t_EntregaCasos();
-
+        EntregaNegocio entregaNegocio = new EntregaNegocio();
+        EstadoNegocio estadoNegocio = new EstadoNegocio();
+        RevisionNegocio revisionNegocio = new RevisionNegocio();
         showMessageDialog Message = new showMessageDialog();
-        private int _id = 0;
-        public fEntrega(int id)
+        private t_EntregaCasos entregaCasos = null;
+        
+
+        public fEntrega(t_EntregaCasos id)
         {
             InitializeComponent();
-            _id = id;
+            entregaCasos = id;
         }
 
         private void CargarDatos()
@@ -34,15 +38,38 @@ namespace GestionCasos.Administrador
 
             try
             {
-                if (_id != 0)
+                
+                if (entregaCasos != null)
                 {
                     btnGuardar.Visible = false;
                     btnPdf.Visible = true;
+                    lblFecha.Visible = true;
+
+                    txtCedula.Text = entregaCasos.Cedula;
+                    txtNombre.Text = entregaCasos.t_Persona.Nombre;
+                    txtApellido1.Text = entregaCasos.t_Persona.Apellido1;
+                    txtApellido2.Text = entregaCasos.t_Persona.Apellido2;
+                    cbTipo.SelectedIndex = (int)entregaCasos.t_Persona.TipoId;
+                    cbEntrega.Text = entregaCasos.t_Recepcion.Nombre;
+                    txtConsecutivo.Text = entregaCasos.t_Revision.Consecutivo;
+                    lblFecha.Text = "Entregado "+entregaCasos.FechaEntrega.ToLongDateString();
+                    if (entregaCasos.Pago == 0)
+                    {
+                        cbCheque.Checked = true;
+                        cbTranferencia.Checked = false;
+                    }
+                    else
+                    {
+                        cbCheque.Checked = false;
+                        cbTranferencia.Checked = true;
+                    }
                 }
                 else
                 {
                     btnGuardar.Visible = true;
                     btnPdf.Visible = false;
+
+                    txtConsecutivo.Text = DatosTemp.t_Revision.Consecutivo;
                 }
             }
             catch (Exception ex)
@@ -51,6 +78,8 @@ namespace GestionCasos.Administrador
             }
 
         }
+
+
         public void CargarCombos()
         {
             cbTipo.SelectedIndex = 0;
@@ -119,7 +148,9 @@ namespace GestionCasos.Administrador
 
         private void fEntrega_Load(object sender, EventArgs e)
         {
+            lblFecha.Visible = false;
             CargarCombos();
+            CargarDatos();
         }
 
 
@@ -154,10 +185,20 @@ namespace GestionCasos.Administrador
         private void labelColorChange()
         {
 
-            label3.ForeColor = Colors.Black;
-            label4.ForeColor = Colors.Black;
-            label6.ForeColor = Colors.Black;
-            label7.ForeColor = Colors.Black;
+            if (isDark == "false")
+            {
+                label3.ForeColor = Colors.Black;
+                label4.ForeColor = Colors.Black;
+                label6.ForeColor = Colors.Black;
+                label7.ForeColor = Colors.Black;
+            }
+            else
+            {
+                label3.ForeColor = Colors.White;
+                label4.ForeColor = Colors.White;
+                label6.ForeColor = Colors.White;
+                label7.ForeColor = Colors.White;
+            }
 
             if (txtCedula.Text.Length < 8)
             {
@@ -212,41 +253,53 @@ namespace GestionCasos.Administrador
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            /* try
-             {
-                 //t_EntregaCasos entregaCasos = new t_EntregaCasos();
-                 if (ValidarCampos()== true)
-                 {
-                     entregaCasos.Cedula = txtCedula.Text;
-                     entregaCasos.Recepcion = (int)cbEntrega.SelectedValue;
-                     if (cbCheque.Checked == true)
-                     {
-                         //Por cheque
-                         entregaCasos.Pago = 0;
-                     }
-                     else
-                     {
-                         //Por Transferencia
-                         entregaCasos.Pago = 1;
-                     }
-                     entregaCasos.Id_Caso = int.Parse(txtConsecutivo.Text);
-                     entregaCasos.FechaEntrega = DateTime.Now.ToShortDateString();
+            try
+            {
+                t_EntregaCasos entregaCasos = new t_EntregaCasos();
+                if (ValidarCampos() == true)
+                {
+                    entregaCasos.Cedula = txtCedula.Text;
+                    entregaCasos.Recepcion = (int)cbEntrega.SelectedValue;
 
-                     if (entregaNegocio.guardar(entregaCasos) == true)
-                     {
-                         Message.Success(new Alertas.Alerta(), "La informacion fue guardada");
-                     }
-                     else
-                     {
-                         Message.Danger(new Alertas.Alerta(), "No se pudo guaardar la informacion");
-                     }
-                 }
-             }
-             catch (Exception ex)
-             {
+                    if (cbCheque.Checked == true)
+                    {
+                        //Por cheque
+                        entregaCasos.Pago = 0;
+                    }
+                    else
+                    {
+                        //Por Transferencia
+                        entregaCasos.Pago = 1;
+                    }
+                    
+                    Estado state = new Estado();
+                    state.id = 4;
 
-                 Console.WriteLine(ex);
-            }*/
+                    t_Revision revision = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text).SingleOrDefault();
+                    //Cambio el estado en entregado
+                    Estado estado = estadoNegocio.obtenerPorId(state);
+                    revision.Estado = estado.id;
+                    revision.Estado1 = estado;
+
+                    entregaCasos.Id_Caso = revision.Id_Caso;
+                    entregaCasos.FechaEntrega = DateTime.Now;
+
+                    if (entregaNegocio.guardar(entregaCasos) == true && revisionNegocio.modificar(revision)==true)
+                    {
+                        Message.Success(new Alertas.Alerta(), "La informacion fue guardada");
+                        btnPdf.Visible = true;
+                    }
+                    else
+                    {
+                        Message.Danger(new Alertas.Alerta(), "No se pudo guaardar la informacion");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
     }
 }

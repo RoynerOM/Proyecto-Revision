@@ -22,6 +22,7 @@ namespace GestionCasos
         ContadorNegocio persona = new ContadorNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
+
         List<t_Revision> Casos = null;
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
@@ -39,6 +40,8 @@ namespace GestionCasos
       
         private void FormStyle_Load(object sender, EventArgs e)
         {
+            DatosTemp.backForm = DatosTemp.Form;
+            DatosTemp.Form = this;
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
@@ -155,6 +158,20 @@ namespace GestionCasos
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
                     }
                 }
+                else if (item.Estado1.TipoEstado.ToUpper() == "ENTREGADO")
+                {
+                    if (isDark == "false")
+                    {
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 75, 160);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(168, 209, 255);
+                        
+                    }
+                    else
+                    {
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 120, 255);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(0, 45, 96);
+                    }
+                }
                 else
                 {
                     if (isDark == "false")
@@ -162,6 +179,7 @@ namespace GestionCasos
 
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
+                        
                     }
                     else
                     {
@@ -333,25 +351,22 @@ namespace GestionCasos
             }
         }
 
-        public delegate void pasarDatos(t_Revision revision);
-
-        public event pasarDatos PasarDatosEvent;
         private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
-            {
-                int fila = e.RowIndex;
+            //if (e.RowIndex != -1)
+            //{
+            //    int fila = e.RowIndex;
 
-                string consecutivo = tabla.Rows[fila].Cells[0].Value.ToString();
+            //    string consecutivo = tabla.Rows[fila].Cells[0].Value.ToString();
                
 
-                t_Revision revisionDatos = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
-                //Se pasan los datos
-                PasarDatosEvent(revisionDatos);
+            //    t_Revision revisionDatos = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
+            //    //Se pasan los datos
+            //    PasarDatosEvent(revisionDatos);
 
-                this.Close();
+            //    this.Close();
 
-            }
+            //}
         }
     }
 }

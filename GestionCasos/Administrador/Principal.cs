@@ -19,11 +19,12 @@ namespace GestionCasos
     {
         private Button currentButton;
         private Form activeForm;
-
-        public Principal()
+        private int Rol = 0;
+        public Principal(int role)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            Rol = role;
         }
 
 
@@ -146,6 +147,7 @@ namespace GestionCasos
         {
             if (activeForm != null)
                 activeForm.Close();
+            DatosTemp.Form = childForm;
             ActiveButton(btnSender);
             activeForm = childForm;
             childForm.TopLevel = false;
@@ -163,6 +165,7 @@ namespace GestionCasos
             if (activeForm != null)
                 activeForm.Close();
             activeForm = childForm;
+            DatosTemp.Form = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -196,7 +199,6 @@ namespace GestionCasos
         {
             OpenChildForm(new fMenu(), sender);
         }
-
     }
 
 }

@@ -18,7 +18,7 @@ namespace GestionCasos
 {
     public partial class Login : Form
     {
-        Principal principal = new Principal();
+        
         showMessageDialog Message = new showMessageDialog();
         private Form activeForm = null;
         public Login()
@@ -71,20 +71,26 @@ namespace GestionCasos
 
         private void btnIniciarSecion_Click(object sender, EventArgs e)
         {
-            using (BD_JuntasEntities contex = new BD_JuntasEntities())
+            using (var contex = new BD_JuntasEntities())
             {
-
+                Principal principal;
                 var user = contex.t_Usuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
                 if (user != null)
                 {
                     if (user.Clave == txtContraseña.Text)
                     {
-                        //Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
-                       
-                        File.WriteAllText("temp.txt", txtNombreUsuario.Text);
+                        if (user.Rol == 0)
+                        {
+                            //Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
+                            principal = new Principal((int)user.Rol);
+                            File.WriteAllText("temp.txt", txtNombreUsuario.Text);
+                        }
+                        else
+                        {
+                            principal = new Principal((int)user.Rol);
+                        }
                         this.Hide();
                         principal.Show();
-                        
                     }
                     else
                     {
@@ -97,8 +103,6 @@ namespace GestionCasos
                     Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
 
                 }
-
-
             }
         }
     }
