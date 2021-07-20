@@ -37,7 +37,6 @@ namespace GestionCasos
             this.cbTipoRecepcion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtCircuito = new Guna.UI.WinForms.GunaTextBox();
             this.txtJuntaAdm = new Guna.UI.WinForms.GunaTextBox();
-            this.txtConsecutivo = new Guna.UI.WinForms.GunaTextBox();
             this.lbAsignado = new System.Windows.Forms.Label();
             this.lbMedioReceptivo = new System.Windows.Forms.Label();
             this.lbCircuiton = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@ namespace GestionCasos
             this.dtpFecha = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lbFecha = new System.Windows.Forms.Label();
             this.lbConsecutivo = new System.Windows.Forms.Label();
+            this.txtConsecutivo = new Guna.UI.WinForms.GunaTextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -209,28 +209,6 @@ namespace GestionCasos
             this.txtJuntaAdm.Size = new System.Drawing.Size(313, 36);
             this.txtJuntaAdm.TabIndex = 90;
             // 
-            // txtConsecutivo
-            // 
-            this.txtConsecutivo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtConsecutivo.BackColor = System.Drawing.Color.Transparent;
-            this.txtConsecutivo.BaseColor = System.Drawing.Color.White;
-            this.txtConsecutivo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.txtConsecutivo.BorderSize = 1;
-            this.txtConsecutivo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtConsecutivo.Enabled = false;
-            this.txtConsecutivo.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(48)))));
-            this.txtConsecutivo.FocusedBorderColor = System.Drawing.Color.Aqua;
-            this.txtConsecutivo.FocusedForeColor = System.Drawing.Color.Yellow;
-            this.txtConsecutivo.Font = new System.Drawing.Font("Arial", 9F);
-            this.txtConsecutivo.ForeColor = System.Drawing.Color.Lime;
-            this.txtConsecutivo.Location = new System.Drawing.Point(201, 222);
-            this.txtConsecutivo.Name = "txtConsecutivo";
-            this.txtConsecutivo.PasswordChar = '\0';
-            this.txtConsecutivo.Radius = 5;
-            this.txtConsecutivo.SelectedText = "";
-            this.txtConsecutivo.Size = new System.Drawing.Size(313, 36);
-            this.txtConsecutivo.TabIndex = 89;
-            // 
             // lbAsignado
             // 
             this.lbAsignado.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -375,6 +353,28 @@ namespace GestionCasos
             this.lbConsecutivo.TabIndex = 79;
             this.lbConsecutivo.Text = "Consecutivo:";
             // 
+            // txtConsecutivo
+            // 
+            this.txtConsecutivo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtConsecutivo.BackColor = System.Drawing.Color.Transparent;
+            this.txtConsecutivo.BaseColor = System.Drawing.Color.White;
+            this.txtConsecutivo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.txtConsecutivo.BorderSize = 1;
+            this.txtConsecutivo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtConsecutivo.Enabled = false;
+            this.txtConsecutivo.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(48)))));
+            this.txtConsecutivo.FocusedBorderColor = System.Drawing.Color.Aqua;
+            this.txtConsecutivo.FocusedForeColor = System.Drawing.Color.Yellow;
+            this.txtConsecutivo.Font = new System.Drawing.Font("Arial", 9F);
+            this.txtConsecutivo.ForeColor = System.Drawing.Color.Lime;
+            this.txtConsecutivo.Location = new System.Drawing.Point(201, 222);
+            this.txtConsecutivo.Name = "txtConsecutivo";
+            this.txtConsecutivo.PasswordChar = '\0';
+            this.txtConsecutivo.Radius = 5;
+            this.txtConsecutivo.SelectedText = "";
+            this.txtConsecutivo.Size = new System.Drawing.Size(313, 36);
+            this.txtConsecutivo.TabIndex = 89;
+            // 
             // AsignarCaso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,7 +403,6 @@ namespace GestionCasos
         private Guna.UI2.WinForms.Guna2ComboBox cbTipoRecepcion;
         private Guna.UI.WinForms.GunaTextBox txtCircuito;
         private Guna.UI.WinForms.GunaTextBox txtJuntaAdm;
-        private Guna.UI.WinForms.GunaTextBox txtConsecutivo;
         private System.Windows.Forms.Label lbAsignado;
         private System.Windows.Forms.Label lbMedioReceptivo;
         private System.Windows.Forms.Label lbCircuiton;
@@ -414,5 +413,6 @@ namespace GestionCasos
         private System.Windows.Forms.Label lbFecha;
         private System.Windows.Forms.Label lbConsecutivo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI.WinForms.GunaTextBox txtConsecutivo;
     }
 }

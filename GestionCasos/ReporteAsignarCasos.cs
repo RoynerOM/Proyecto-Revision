@@ -1,4 +1,5 @@
-﻿using System;
+﻿//using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,8 +20,20 @@ namespace GestionCasos
 
         private void ReporteAsignarCasos_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet.CasosAsignados' Puede moverla o quitarla según sea necesario.
-            this.CasosAsignadosTableAdapter.Fill(this.BD_JuntasDataSet.CasosAsignados);
+
+
+            try
+            {
+              
+                // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet.CasosAsignados' Puede moverla o quitarla según sea necesario.
+                this.CasosAsignadosTableAdapter.Fill(this.BD_JuntasDataSet.CasosAsignados);
+                this.reportViewer1.RefreshReport();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
             this.reportViewer1.RefreshReport();
         }

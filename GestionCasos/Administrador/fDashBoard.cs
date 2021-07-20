@@ -23,10 +23,12 @@ namespace GestionCasos
         private Form activeForm;
         private int Role = 1;
 
-        public fDashBoard()
+        public fDashBoard(int Rol)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            Role = Rol;
+
         }
 
         private void DesktopPanel_Paint(object sender, PaintEventArgs e)

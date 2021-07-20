@@ -209,6 +209,7 @@ namespace GestionCasos.Usuarios
         {
             if (cbEstado.Text != string.Empty)
             {
+
                 if (cbEstado.Text == "Todos")
                 {
                     PedirDatos();

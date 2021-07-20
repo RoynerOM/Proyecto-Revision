@@ -37,7 +37,7 @@ namespace GestionCasos
         private void SetPanelDefault()
         {
             Color color;
-            fDashBoard dashBoard = new fDashBoard();
+            fDashBoard dashBoard = new fDashBoard(Rol);
             dashBoard.TopLevel = false;
             dashBoard.FormBorderStyle = FormBorderStyle.None;
             dashBoard.Dock = DockStyle.Fill;
@@ -178,7 +178,7 @@ namespace GestionCasos
 
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fDashBoard(), sender);
+            OpenChildForm(new fDashBoard(Rol), sender);
         }
 
 
