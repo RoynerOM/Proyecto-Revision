@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos.Administrador
 {
@@ -23,6 +24,7 @@ namespace GestionCasos.Administrador
             InitializeComponent();
         }
 
+
         private void fInstituciones_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
@@ -31,14 +33,15 @@ namespace GestionCasos.Administrador
             while (!hilo.IsAlive) ;
 
             OpenChildForm(new fLoader(1, hilo));
-            
+
             SetThemeColor();
             CargarCombos();
             CargarDatosForm();
 
         }
 
-        void CargarCombos()
+
+        private void CargarCombos()
         {
             try
             {
@@ -53,7 +56,7 @@ namespace GestionCasos.Administrador
                 cbContador.DisplayMember = "Nombre_Completo";
 
 
-                cbTipo.SelectedIndex = 0;
+                cbTipo.DataSource = Enum.GetValues(typeof(Enums.TipoEscuela));
             }
             catch (Exception ex)
             {
@@ -61,6 +64,8 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex.Message);
             }
         }
+
+
         //Cambio de color
         private void SetThemeColor()
         {
@@ -86,20 +91,21 @@ namespace GestionCasos.Administrador
             }
         }
 
+
         private void CargarDatosForm()
         {
-            var item = negocio.obtenerPorId(DatosTemp.t_Institucion);
-            if (item != null)
+            institucion = negocio.obtenerPorId(DatosTemp.t_Institucion);
+            if (institucion != null)
             {
-                txtCodigo.Text = DatosTemp.t_Institucion.Codigo.ToString();
-                txtInstitucion.Text = DatosTemp.t_Institucion.Nombre;
-                txtCedulaJuridica.Text = DatosTemp.t_Institucion.Cedula_Juridica;
-                txtCuentaDanea.Text = DatosTemp.t_Institucion.Cuenta_Danea;
-                txtCuentaLey.Text = DatosTemp.t_Institucion.Cuenta_Ley;
+                txtCodigo.Text = institucion.Codigo.ToString();
+                txtInstitucion.Text = institucion.Nombre;
+                txtCedulaJuridica.Text = institucion.Cedula_Juridica;
+                txtCuentaDanea.Text = institucion.Cuenta_Danea;
+                txtCuentaLey.Text = institucion.Cuenta_Ley;
 
-                cbCircuito.Text = DatosTemp.t_Institucion.Circuito.ToString();
-                cbContador.Text = DatosTemp.t_Institucion.t_Persona.Nombre_Completo;
-                cbTipo.Text = DatosTemp.t_Institucion.t_Tipo_Institucion.NombreTipo;
+                cbCircuito.Text = institucion.Circuito.ToString();
+                cbContador.Text = institucion.t_Persona.Nombre_Completo;
+                cbTipo.Text = institucion.t_Tipo_Institucion.NombreTipo;
             }
         }
 
@@ -173,19 +179,22 @@ namespace GestionCasos.Administrador
         {
             try
             {
+
                 if (ValidarCampos() == true)
                 {
                     institucion.Codigo = int.Parse(txtCodigo.Text);
-                    if (negocio.obtenerPorId(institucion) == null)
+                    institucion = negocio.obtenerPorId(institucion);
+                    if (institucion == null)
                     {
                         institucion.Codigo = int.Parse(txtCodigo.Text);
                         institucion.Cuenta_Ley = txtCuentaLey.Text;
                         institucion.Nombre = txtInstitucion.Text;
-                        institucion.Contador = cbContador.SelectedValue.ToString();
+                        institucion.Contador = (string)cbContador.SelectedValue;
                         institucion.Cuenta_Danea = txtCuentaDanea.Text;
                         institucion.Cedula_Juridica = txtCedulaJuridica.Text;
                         institucion.Circuito = (int)cbCircuito.SelectedValue;
                         institucion.Tipo = (int)cbTipo.SelectedValue;
+
 
                         if (negocio.guardar(institucion) == true)
                         {
@@ -224,7 +233,7 @@ namespace GestionCasos.Administrador
                         txtCuentaDanea.Text = datosEncotrados.Cuenta_Danea;
                         txtInstitucion.Text = datosEncotrados.Nombre;
                         txtCedulaJuridica.Text = datosEncotrados.Cedula_Juridica;
-                        cbTipo.Text = datosEncotrados.Tipo.ToString();
+                        cbTipo.Text = Enum.GetName(typeof(Enums.TipoEscuela), datosEncotrados.Tipo);
                         cbContador.Text = datosEncotrados.t_Persona.Nombre_Completo;
                         cbCircuito.Text = datosEncotrados.Circuito.ToString();
                     }
@@ -288,24 +297,29 @@ namespace GestionCasos.Administrador
         {
             try
             {
+                t_Persona p = new t_Persona();
                 if (ValidarCampos() == true)
                 {
                     institucion.Cuenta_Ley = txtCuentaLey.Text;
                     institucion.Nombre = txtInstitucion.Text;
-                    institucion.Contador = cbContador.SelectedValue.ToString();
                     institucion.Cuenta_Danea = txtCuentaDanea.Text;
                     institucion.Cedula_Juridica = txtCedulaJuridica.Text;
-                    institucion.Circuito = (int)cbCircuito.SelectedValue;
-                    institucion.Tipo = (int)cbTipo.SelectedValue;
+                    //institucion.Circuito = (int)cbCircuito.SelectedValue;
+                    //institucion.Tipo = (int)cbTipo.SelectedValue;
 
+                    p.Cedula = cbContador.SelectedValue.ToString();
+                    p = persona.obtenerPorId(p);
+                    institucion.Contador = p.Cedula;
+                    institucion.t_Persona = p;
                     if (negocio.modificar(institucion) == true)
                     {
-                        message.Success(new Alertas.Alerta(), "La Junta se guardo correctamente");
+                        message.Success(new Alertas.Alerta(), "La Junta modificada correctamente");
+                        LimpiarCampos();
                         DatosTemp.t_Institucion = null;
                     }
                     else
                     {
-                        message.Danger(new Alertas.Alerta(), "No se pudo guardar la junta");
+                        message.Danger(new Alertas.Alerta(), "No se pudo modificar la junta");
                     }
                 }
             }
@@ -314,6 +328,7 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex.Message);
             }
         }
+
 
         private void OpenChildForm(Form childForm)
         {
@@ -327,6 +342,18 @@ namespace GestionCasos.Administrador
             this.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fDetallesJuntas());
+        }
+
+
+        private void btnDetalles_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new fDetallesJuntas());
         }
     }
 }

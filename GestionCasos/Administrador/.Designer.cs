@@ -93,7 +93,7 @@ namespace GestionCasos
             this.txtConsecutivo.Name = "txtConsecutivo";
             this.txtConsecutivo.PasswordChar = '\0';
             this.txtConsecutivo.SelectedText = "";
-            this.txtConsecutivo.Size = new System.Drawing.Size(160, 28);
+            this.txtConsecutivo.Size = new System.Drawing.Size(177, 28);
             this.txtConsecutivo.TabIndex = 10;
             this.txtConsecutivo.TextChanged += new System.EventHandler(this.txtConsecutivo_TextChanged);
             // 
@@ -119,9 +119,9 @@ namespace GestionCasos
             this.gunaLabel3.Location = new System.Drawing.Point(241, 35);
             this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(156, 20);
+            this.gunaLabel3.Size = new System.Drawing.Size(135, 20);
             this.gunaLabel3.TabIndex = 7;
-            this.gunaLabel3.Text = "Filtrar Por Tramitador";
+            this.gunaLabel3.Text = "Filtrar Por Persona";
             // 
             // cbTramitador
             // 

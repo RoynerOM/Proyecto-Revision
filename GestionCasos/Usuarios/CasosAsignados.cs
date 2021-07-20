@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using GestionCasos.Administrador;
 using Negocios;
 using System;
 using System.Collections.Generic;
@@ -6,23 +7,28 @@ using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using Transitions;
 using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos.Usuarios
 {
     public partial class CasosAsignados : Form
     {
-        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private string Cedula = null;
         private Form activeForm = null;
+        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
+
         t_Revision revision = new t_Revision();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
         ContadorNegocio persona = new ContadorNegocio();
-        RecepcionNegocio recepcion = new RecepcionNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
+        RecepcionNegocio recepcion = new RecepcionNegocio();
+
         IEnumerable<t_Revision> Casos = null;
+
         //Datos de prueba
 
         public CasosAsignados()
@@ -33,12 +39,29 @@ namespace GestionCasos.Usuarios
         }
 
 
+        private void CasosAsignados_Load(object sender, EventArgs e)
+        {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
+
+            OpenChildForm(new fLoader(1, hilo));
+            PedirDatos();
+            SetThemeColor();
+            CargarCombos();
+        }
+
+
         public void PedirDatos()
         {
             //Cargarmos la tabla con los datos relacionado a la cedula de la persona actual
-            Casos = revisionNegocio.obtenerTodo(revision).Where(x => x.Tramitador == "5-0435-0765");
+            Casos = revisionNegocio.obtenerTodo(revision).Where(x => x.Tramitador == Cedula);
             CargarTabla(Casos);
         }
+
+
+        #region Funciones usados en el datagrid
 
 
         public void CargarTabla(IEnumerable<t_Revision> lista)
@@ -60,10 +83,12 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 10);
 
+                
                 if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE" || item.Estado1.TipoEstado.ToUpper() == "EN REVISION")
                 {
                     tabla.Rows[nRows].Cells[8].Value = "PENDIENTE";
@@ -114,64 +139,49 @@ namespace GestionCasos.Usuarios
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-            if (screenWidth >= 990)
+
+            if (screenWidth >= 1300)
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             }
             else
             {
-
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
 
 
-
-        private void CasosAsignados_Load(object sender, EventArgs e)
+        private void tabla_Resize(object sender, EventArgs e)
         {
-            PedirDatos();
-            SetThemeColor();
-            CargarCombos();
+            var Grid = (DataGridView)sender;
+
+            var width = tabla.Width;
+
+            if (width <= 1300)
+            {
+                Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
+            }
+            else
+            {
+                Grid.RowsDefaultCellStyle.Font = new Font(Name, 10);
+            }
         }
 
 
-        void CargarCombos()
+        #endregion
+
+
+        private void CargarCombos()
         {
 
             //Estado
-            cbEstado.DataSource = estadoNegocio.obtenerTodo(new Estado());
-            cbEstado.ValueMember = "id";
-            cbEstado.DisplayMember = "TipoEstado";
+            cbEstado.DataSource = Enum.GetValues(typeof(Enums.TipoEstado));
+
 
             //Recepcion
             cbRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
             cbRecepcion.ValueMember = "id";
             cbRecepcion.DisplayMember = "Nombre";
-        }
-
-
-        //Filtro por Consecutivo
-        public void FilterByConsecutivo(string consecutivo)
-        {
-            IEnumerable<t_Revision> filtro = revisionNegocio.obtenerPorConsecutivo(consecutivo).Where(x=> x.Tramitador == "5-0435-0765");
-            CargarTabla(filtro);
-        }
-
-
-        //Filtro por Estado
-        public void FilterByEstate(string valor)
-        {
-            var filtro = Casos.Where(x => x.Estado1.TipoEstado == valor);
-            CargarTabla(filtro);
-        }
-
-
-        //Filtro por Recepcion
-        public void FilterByRecepcion(int valor)
-        {
-            var filtro = Casos.Where(x => x.Recepcion == valor);
-            CargarTabla(filtro);
         }
 
 
@@ -205,19 +215,30 @@ namespace GestionCasos.Usuarios
         }
 
 
+        #region Funciones para filtros
+
+
+        //Filtro por Recepcion
+        public void FilterByRecepcion(int valor)
+        {
+            var filtro = Casos.Where(x => x.Recepcion == valor);
+            CargarTabla(filtro);
+        }
+
+
         private void cbEstado_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cbEstado.Text != string.Empty)
             {
 
-                if (cbEstado.Text == "Todos")
+                if (cbEstado.Text == "TODOS")
                 {
                     PedirDatos();
                 }
                 else
                 {
-                    string estado = cbEstado.Text;
-                    FilterByEstate(estado);
+                    var filtro = Casos.Where(x => x.Estado == (int)cbEstado.SelectedValue);
+                    CargarTabla(filtro);
                     cbEstado.ResetText();
                 }
             }
@@ -232,6 +253,19 @@ namespace GestionCasos.Usuarios
                 cbRecepcion.ResetText();
             }
         }
+
+
+        private void txtConsecutivo_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtConsecutivo.Text != string.Empty)
+            {
+                var filtro = Casos.Where(x => x.Consecutivo.StartsWith(txtConsecutivo.Text.ToUpper()));
+                CargarTabla(filtro);
+            }
+        }
+
+        #endregion
+
 
         private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -280,21 +314,6 @@ namespace GestionCasos.Usuarios
             }
         }
 
-        private void tabla_Resize(object sender, EventArgs e)
-        {
-            var Grid = (DataGridView)sender;
-
-
-            var width = tabla.Width;
-
-            if (width <= 1300)
-            {
-                Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
-            }
-            else
-            {
-                Grid.RowsDefaultCellStyle.Font = new Font(Name, 10);
-            }
-        }
+       
     }
 }

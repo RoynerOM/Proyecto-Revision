@@ -71,38 +71,48 @@ namespace GestionCasos
 
         private void btnIniciarSecion_Click(object sender, EventArgs e)
         {
-            using (var contex = new BD_JuntasEntities())
+            try
             {
-                Principal principal;
-                var user = contex.t_Usuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
-                if (user != null)
+                using (var contex = new BD_JuntasEntities())
                 {
-                    if (user.Clave == txtContraseña.Text)
+                    Principal principal;
+                    var user = contex.t_Usuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
+                    if (user != null)
                     {
-                        if (user.Rol == 0)
+                        if (user.Clave == txtContraseña.Text)
                         {
-                            //Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
-                            principal = new Principal((int)user.Rol);
+                            if (user.Rol == 0)
+                            {
+                                //Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
+                                principal = new Principal(0);
+                               
+                            }
+                            else
+                            {
+                                principal = new Principal(1);
+                               
+                            }
                             File.WriteAllText("temp.txt", txtNombreUsuario.Text);
+                            this.Hide();
+                            principal.Show();
                         }
                         else
                         {
-                            principal = new Principal((int)user.Rol);
+                            Message.Danger(new Alertas.Alerta(), "La contraseña es incorrecta");
+
                         }
-                        this.Hide();
-                        principal.Show();
                     }
                     else
                     {
-                        Message.Danger(new Alertas.Alerta(), "La contraseña es incorrecta");
+                        Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
 
                     }
                 }
-                else
-                {
-                    Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
+            }
+            catch (Exception ex)
+            {
 
-                }
+                Console.WriteLine(ex);
             }
         }
     }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -21,13 +22,14 @@ namespace GestionCasos
         RevisionNegocio revision = new RevisionNegocio();
         InstitucionNegocio institucion = new InstitucionNegocio();
         private Form activeForm;
-        private int Role = 1;
-
+        private int Role = 0;
+        private string cedula = null;
         public fDashBoard(int Rol)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             Role = Rol;
+            cedula = File.ReadAllText("temp.txt");
 
         }
 
@@ -72,14 +74,14 @@ namespace GestionCasos
 
                     var casos = revision.obtenerTodo(new t_Revision());
 
-                    var pendientes = casos.Where(x => x.Estado == 2).Count();
+                    var pendientes = casos.Where(x => x.Estado == 2 && x.Tramitador == cedula).Count();
                     lblTotaPendientes.Text = pendientes.ToString();
 
 
-                    var tramitado = casos.Where(x => x.Estado == 3).Count();
+                    var tramitado = casos.Where(x => x.Estado == 3 && x.Tramitador == cedula).Count();
                     lblTotalRevisados.Text = tramitado.ToString();
 
-                    var entregados = casos.Where(x => x.Estado == 4).Count();
+                    var entregados = casos.Where(x => x.Estado == 4 && x.Tramitador == cedula).Count();
                     lblEntregados.Text = entregados.ToString();
 
                     var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();

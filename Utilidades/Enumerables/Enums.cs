@@ -34,5 +34,18 @@ namespace Utilidades.Enumerables
             Dimex = 1
         }
 
+        public enum TipoEstado
+        {
+            PENDIENTE = 2,
+            TRAMITADO = 3,
+            ENTREGADO = 4,
+            TODOS = 5
+        }
+
+        public enum TipoEscuela
+        {
+            ESCUELA = 1,
+            COLEGIO =2
+        }
     }
 }

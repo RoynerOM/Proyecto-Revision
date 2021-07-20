@@ -49,8 +49,8 @@ namespace GestionCasos.Usuarios
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Junta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Circuito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Recepcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tramitador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comentario = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -104,6 +104,7 @@ namespace GestionCasos.Usuarios
             this.txtConsecutivo.SelectedText = "";
             this.txtConsecutivo.Size = new System.Drawing.Size(184, 28);
             this.txtConsecutivo.TabIndex = 8;
+            this.txtConsecutivo.TextChanged += new System.EventHandler(this.txtConsecutivo_TextChanged_1);
             // 
             // gunaLabel3
             // 
@@ -216,8 +217,8 @@ namespace GestionCasos.Usuarios
             this.Codigo,
             this.Junta,
             this.Circuito,
-            this.Recepcion,
-            this.Persona,
+            this.Nombre,
+            this.Tramitador,
             this.Comentario,
             this.Estado});
             this.tabla.EnableHeadersVisualStyles = false;
@@ -300,23 +301,20 @@ namespace GestionCasos.Usuarios
             this.Circuito.ReadOnly = true;
             this.Circuito.Width = 60;
             // 
-            // Recepcion
+            // Nombre
             // 
-            this.Recepcion.FillWeight = 16.34942F;
-            this.Recepcion.HeaderText = "Recepcion";
-            this.Recepcion.MinimumWidth = 6;
-            this.Recepcion.Name = "Recepcion";
-            this.Recepcion.ReadOnly = true;
-            this.Recepcion.Width = 200;
+            this.Nombre.FillWeight = 20.34942F;
+            this.Nombre.HeaderText = "Recepcion";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 200;
             // 
-            // Persona
+            // Tramitador
             // 
-            this.Persona.FillWeight = 35.2508F;
-            this.Persona.HeaderText = "Tramitador";
-            this.Persona.MinimumWidth = 6;
-            this.Persona.Name = "Persona";
-            this.Persona.ReadOnly = true;
-            this.Persona.Width = 250;
+            this.Tramitador.FillWeight = 27.34942F;
+            this.Tramitador.HeaderText = "Asignado a";
+            this.Tramitador.Name = "Tramitador";
+            this.Tramitador.ReadOnly = true;
             // 
             // Comentario
             // 
@@ -377,16 +375,16 @@ namespace GestionCasos.Usuarios
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaComboBox cbRecepcion;
         private Guna.UI.WinForms.GunaComboBox cbEstado;
+        private Guna.UI.WinForms.GunaTextBox txtConsecutivo;
         private System.Windows.Forms.DataGridView tabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn Caso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Junta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Circuito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Recepcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Persona;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tramitador;
         private System.Windows.Forms.DataGridViewButtonColumn Comentario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private Guna.UI.WinForms.GunaTextBox txtConsecutivo;
     }
 }

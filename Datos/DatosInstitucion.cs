@@ -71,7 +71,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var consulta = db.t_Institucion.Include("t_Persona").FirstOrDefault(x => x.Codigo == e.Codigo);
+                    var consulta = db.t_Institucion.Include("t_Persona").Include("t_Tipo_Institucion").Where(x => x.Codigo == e.Codigo).SingleOrDefault();
                     if (consulta != null)
                     {
                         return consulta;

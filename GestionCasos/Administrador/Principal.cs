@@ -17,6 +17,7 @@ namespace GestionCasos
 {
     public partial class Principal : Form
     {
+        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private Button currentButton;
         private Form activeForm;
         private int Rol = 0;
@@ -42,7 +43,7 @@ namespace GestionCasos
             dashBoard.FormBorderStyle = FormBorderStyle.None;
             dashBoard.Dock = DockStyle.Fill;
             this.DesktopPanel.Controls.Add(dashBoard);
-            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+            if (isDark == "false")
             {
                 color = Colors.BlueHover;
             }
@@ -58,7 +59,7 @@ namespace GestionCasos
 
         private void SetThemeColor()
         {
-            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+            if (isDark == "false")
             {
                 BackColor = Colors.White;
                 DesktopPanel.BackColor = Colors.White;
@@ -67,6 +68,7 @@ namespace GestionCasos
                 pnLateralIzquierda.ForeColor = Color.White;
                 btnDashBoard.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnMenu.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+                btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
             }
             else
             {
@@ -78,6 +80,8 @@ namespace GestionCasos
 
                 btnDashBoard.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
                 btnMenu.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
+                btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
+
             }
         }
 
@@ -101,7 +105,7 @@ namespace GestionCasos
                 {
                     DisableButton();
                     Color color;
-                    if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+                    if (isDark == "false")
                     {
                         color = Colors.BlueHover;
 
@@ -125,7 +129,7 @@ namespace GestionCasos
                 if (previousBtn.GetType() == typeof(Button))
                 {
                     Color color;
-                    if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+                    if (isDark == "false")
                     {
                         color = Colors.Blue;
                     }

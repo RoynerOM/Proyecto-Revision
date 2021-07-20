@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Xml;
 using Utilidades;
 using GestionCasos.Reportes;
+using System.Diagnostics;
+
 namespace GestionCasos.Administrador
 {
     public partial class fMenu : Form
@@ -112,9 +114,16 @@ namespace GestionCasos.Administrador
                             {
                                 node.Attributes[1].Value = "true";
                             }
-                            showMessageDialog messageDialog = new showMessageDialog();
-                            messageDialog.Warning(new Alertas.Alerta(), "La aplcacion se cerrara para aplicar los cambios");
 
+                            showMessageDialog messageDialog = new showMessageDialog();
+                            messageDialog.Warning(new Alertas.Alerta(), "La aplicación se cerrará para aplicar los cambios");
+
+                            ProcessStartInfo Info = new ProcessStartInfo();
+                            Info.Arguments = "/C ping 127.0.0.1 -n 2 && \"" + Application.ExecutablePath + "\"";
+                            Info.WindowStyle = ProcessWindowStyle.Hidden;
+                            Info.CreateNoWindow = true;
+                            Info.FileName = "cmd.exe";
+                            Process.Start(Info);
                             Application.Exit();
                         }
                     }

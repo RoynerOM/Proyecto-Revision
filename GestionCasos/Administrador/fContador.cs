@@ -28,6 +28,7 @@ namespace GestionCasos.Administrador
         private void CargarCombos()
         {
             cbTipo.DataSource = Enum.GetValues(typeof(Enums.TipoCedula));
+            cbTipoPersona.DataSource = Enum.GetValues(typeof(Enums.Tipo));
         }
         private void fContador_Load(object sender, EventArgs e)
         {
@@ -58,11 +59,9 @@ namespace GestionCasos.Administrador
                 label4.ForeColor = Colors.Black;
                 label5.ForeColor = Colors.Black;
                 label6.ForeColor = Colors.Black;
-                
+                label7.ForeColor = Colors.Black;
+                label8.ForeColor = Colors.Black;
 
-            }
-            else
-            {
 
             }
         }
@@ -92,7 +91,7 @@ namespace GestionCasos.Administrador
                 //Validamos los campos
                 if (ValidarCampos() == true)
                 {
-                    
+                    t_Trabajador trabajador = new t_Trabajador();
                     contador.Cedula = txtCedula.Text;
                     if (negocio.obtenerPorId(contador) == null)
                     {
@@ -103,14 +102,18 @@ namespace GestionCasos.Administrador
                         contador.Nombre = txtNombre.Text.ToUpper();
                         contador.Apellido1 = txtApellido1.Text.ToUpper();
                         contador.Apellido2 = txtApellido2.Text.ToUpper();
-
+                        trabajador.Cedula = contador.Cedula;
+                        trabajador.Tipo = (int)cbTipoPersona.SelectedValue;
                         //Ejecutamos el metodo de guardar y le mandamos el modelo contador ya cargado de datos
                         if (negocio.guardar(contador) == true)
                         {
+                            if (negocio.GuardarTrabajador(trabajador)==true)
+                            {
+                                //En caso de que se ejecute correctamente
+                                Message.Success(new Alertas.Alerta(), "El contador se guardo correctamente");
+                                LimpiarCampos();
+                            }
                             
-                            //En caso de que se ejecute correctamente
-                            Message.Success(new Alertas.Alerta(), "El contador se guardo correctamente");
-                            LimpiarCampos();
                         }
                         else
                         {
@@ -167,7 +170,7 @@ namespace GestionCasos.Administrador
 
         //Validaciones de los campo del formualarios
         //Falta camboar el color del texto cuando este vacio
-        void labelColorChange()
+        private void labelColorChange()
         {
             label1.ForeColor = Colors.Black;
             label2.ForeColor = Colors.Black;
@@ -225,6 +228,10 @@ namespace GestionCasos.Administrador
             }else if (txtCarne.Text == string.Empty)
             {
                 Message.Danger(new Alertas.Alerta(), "El campo de carnet no puede ser vacio");
+                return false;
+            }
+            else if(txtCorreo.Text != string.Empty)
+            {
                 return false;
             }
             else
@@ -331,7 +338,7 @@ namespace GestionCasos.Administrador
             }
             else
             {
-                txtCedula.Mask = "0-0000-0000-0";
+                txtCedula.Mask = "000000000000";
             }
         }
 
@@ -346,6 +353,11 @@ namespace GestionCasos.Administrador
                 txtCarne.Text = DatosTemp.t_Persona.Carnet;
                 cbTipo.SelectedIndex = (int)DatosTemp.t_Persona.TipoId;
             }
+        }
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fDetallesPersonas());
         }
     }
 }

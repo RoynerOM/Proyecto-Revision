@@ -35,13 +35,9 @@ namespace GestionCasos
 
         }
 
-        
-
-      
+       
         private void FormStyle_Load(object sender, EventArgs e)
         {
-            DatosTemp.backForm = DatosTemp.Form;
-            DatosTemp.Form = this;
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
@@ -127,11 +123,13 @@ namespace GestionCasos
                 tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 10);
 
-                if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE")
+                #region Codigo comentado
+                /*if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE")
                 {
                     if (isDark == "false")
                     {
@@ -143,8 +141,11 @@ namespace GestionCasos
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
                     }
-                }
-                else if (item.Estado1.TipoEstado.ToUpper() == "TRAMITADO")
+                }*/
+                #endregion
+
+
+                if (item.Estado1.TipoEstado.ToUpper() == "TRAMITADO")
                 {
                     if (isDark == "false")
                     {
@@ -191,7 +192,38 @@ namespace GestionCasos
             }
         }
 
+        private void panel1_Resize(object sender, EventArgs e)
+        {
+            var screenWidth = panel1.Width;
 
+            if (screenWidth >= 1200)
+            {
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            else
+            {
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+
+        }
+
+
+        private void tabla_Resize(object sender, EventArgs e)
+        {
+            var Grid = (DataGridView)sender;
+
+
+            var width = tabla.Width;
+
+            if (width <= 1300)
+            {
+                Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
+            }
+            else
+            {
+                Grid.RowsDefaultCellStyle.Font = new Font(Name, 10);
+            }
+        }
         //Cambio de color
         private void SetThemeColor()
         {
@@ -221,20 +253,7 @@ namespace GestionCasos
         }
 
 
-        private void panel1_Resize(object sender, EventArgs e)
-        {
-            var screenWidth = panel1.Width;
-
-            if (screenWidth >= 1200)
-            {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            }
-            else
-            {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            }
-
-        }
+       
 
         private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -266,22 +285,7 @@ namespace GestionCasos
 
 
 
-        private void tabla_Resize(object sender, EventArgs e)
-        {
-            var Grid = (DataGridView)sender;
-
-
-            var width = tabla.Width;
-
-            if (width <= 1300)
-            {
-                Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
-            }
-            else
-            {
-                Grid.RowsDefaultCellStyle.Font = new Font(Name, 10);
-            }
-        }
+       
 
        public void CargarCombos()
         {

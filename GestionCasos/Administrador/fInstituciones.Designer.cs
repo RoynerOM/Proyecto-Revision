@@ -45,18 +45,20 @@ namespace GestionCasos.Administrador
             this.label5 = new System.Windows.Forms.Label();
             this.txtInstitucion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbTipo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbCircuito = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnDetalles = new Guna.UI.WinForms.GunaButton();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.cbCircuito = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.panel1.Controls.Add(this.btnDetalles);
             this.panel1.Controls.Add(this.gunaButton4);
             this.panel1.Controls.Add(this.gunaButton3);
             this.panel1.Controls.Add(this.gunaButton2);
@@ -98,7 +100,7 @@ namespace GestionCasos.Administrador
             this.gunaButton4.ForeColor = System.Drawing.Color.White;
             this.gunaButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton4.Image")));
             this.gunaButton4.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton4.Location = new System.Drawing.Point(566, 334);
+            this.gunaButton4.Location = new System.Drawing.Point(566, 305);
             this.gunaButton4.Name = "gunaButton4";
             this.gunaButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton4.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -125,7 +127,7 @@ namespace GestionCasos.Administrador
             this.gunaButton3.ForeColor = System.Drawing.Color.White;
             this.gunaButton3.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton3.Image")));
             this.gunaButton3.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton3.Location = new System.Drawing.Point(566, 248);
+            this.gunaButton3.Location = new System.Drawing.Point(566, 225);
             this.gunaButton3.Name = "gunaButton3";
             this.gunaButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton3.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -152,7 +154,7 @@ namespace GestionCasos.Administrador
             this.gunaButton2.ForeColor = System.Drawing.Color.White;
             this.gunaButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton2.Image")));
             this.gunaButton2.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton2.Location = new System.Drawing.Point(566, 153);
+            this.gunaButton2.Location = new System.Drawing.Point(566, 147);
             this.gunaButton2.Name = "gunaButton2";
             this.gunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton2.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -250,6 +252,7 @@ namespace GestionCasos.Administrador
             // 
             this.cbContador.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbContador.BackColor = System.Drawing.Color.White;
+            this.cbContador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbContador.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbContador.FormattingEnabled = true;
             this.cbContador.Location = new System.Drawing.Point(36, 356);
@@ -302,19 +305,6 @@ namespace GestionCasos.Administrador
             this.label4.TabIndex = 6;
             this.label4.Text = "Institucion";
             // 
-            // cbTipo
-            // 
-            this.cbTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbTipo.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTipo.FormattingEnabled = true;
-            this.cbTipo.Items.AddRange(new object[] {
-            "Escuela",
-            "Colegio"});
-            this.cbTipo.Location = new System.Drawing.Point(280, 256);
-            this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(188, 31);
-            this.cbTipo.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -326,25 +316,6 @@ namespace GestionCasos.Administrador
             this.label3.Size = new System.Drawing.Size(46, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tipo";
-            // 
-            // cbCircuito
-            // 
-            this.cbCircuito.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbCircuito.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCircuito.FormattingEnabled = true;
-            this.cbCircuito.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8"});
-            this.cbCircuito.Location = new System.Drawing.Point(276, 72);
-            this.cbCircuito.Name = "cbCircuito";
-            this.cbCircuito.Size = new System.Drawing.Size(193, 31);
-            this.cbCircuito.TabIndex = 3;
             // 
             // label2
             // 
@@ -379,6 +350,67 @@ namespace GestionCasos.Administrador
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo";
             // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDetalles.AnimationHoverSpeed = 0.07F;
+            this.btnDetalles.AnimationSpeed = 0.03F;
+            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
+            this.btnDetalles.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
+            this.btnDetalles.BorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDetalles.FocusedColor = System.Drawing.Color.Empty;
+            this.btnDetalles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
+            this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnDetalles.Location = new System.Drawing.Point(566, 385);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnDetalles.OnHoverImage = null;
+            this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
+            this.btnDetalles.Radius = 5;
+            this.btnDetalles.Size = new System.Drawing.Size(138, 42);
+            this.btnDetalles.TabIndex = 23;
+            this.btnDetalles.Text = "Detalles";
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click_1);
+            // 
+            // cbTipo
+            // 
+            this.cbTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipo.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Items.AddRange(new object[] {
+            "Escuela",
+            "Colegio"});
+            this.cbTipo.Location = new System.Drawing.Point(280, 256);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(188, 31);
+            this.cbTipo.TabIndex = 5;
+            // 
+            // cbCircuito
+            // 
+            this.cbCircuito.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCircuito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCircuito.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCircuito.FormattingEnabled = true;
+            this.cbCircuito.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.cbCircuito.Location = new System.Drawing.Point(276, 72);
+            this.cbCircuito.Name = "cbCircuito";
+            this.cbCircuito.Size = new System.Drawing.Size(193, 31);
+            this.cbCircuito.TabIndex = 3;
+            // 
             // fInstituciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,9 +432,7 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbCircuito;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox txtCuentaLey;
         private System.Windows.Forms.Label label8;
@@ -418,5 +448,8 @@ namespace GestionCasos.Administrador
         private Guna.UI.WinForms.GunaButton gunaButton3;
         private Guna.UI.WinForms.GunaButton gunaButton2;
         private Guna.UI.WinForms.GunaButton gunaButton1;
+        private Guna.UI.WinForms.GunaButton btnDetalles;
+        private System.Windows.Forms.ComboBox cbTipo;
+        private System.Windows.Forms.ComboBox cbCircuito;
     }
 }
