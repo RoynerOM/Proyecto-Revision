@@ -19,13 +19,8 @@ namespace GestionCasos
 
         private void ReporteJuntas_Load(object sender, EventArgs e)
         {
-           
-        }
-
-        private void ReporteJuntas_Load_1(object sender, EventArgs e)
-        {
             // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet1.Juntas' Puede moverla o quitarla según sea necesario.
-            this.JuntasTableAdapter.Fill(this.dbsJuntas.Juntas);
+            this.JuntasTableAdapter.Fill(this.BD_JuntasDataSet1.Juntas);
 
             this.reportViewer1.RefreshReport();
         }

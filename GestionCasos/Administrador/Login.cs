@@ -19,8 +19,10 @@ namespace GestionCasos
     public partial class Login : Form
     {
         
+        Registrar llamarRegistrar = new Registrar();
         showMessageDialog Message = new showMessageDialog();
         private Form activeForm = null;
+
         public Login()
         {
             InitializeComponent();
@@ -28,31 +30,20 @@ namespace GestionCasos
 
         private void Login_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            //Falta codigo aqui
+            cbIdentificacion.SelectedIndex = 0;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }        
 
-        private void lbLogin_Click(object sender, EventArgs e)
-        {
-            //lbLogin.ForeColor = Color.Aqua;
-            //this.Size = new Size(544, 248);
-
-        }
 
         private void btnLLamar_Click(object sender, EventArgs e)
         {
             btnLLamar.Visible = false;
             Transition t = new Transition(new TransitionType_EaseInEaseOut(2000));
-            t.add(pnTop, "Top", 12);
+            t.add(pnTop, "Top", 1);
             t.run();
         }
         private void OpenChildForm(Form childForm)
@@ -73,7 +64,7 @@ namespace GestionCasos
         {
             try
             {
-                using (var contex = new BD_JuntasEntities())
+                using (BD_JuntasEntities contex = new BD_JuntasEntities())
                 {
                     Principal principal;
                     var user = contex.t_Usuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
@@ -85,16 +76,15 @@ namespace GestionCasos
                             {
                                 //Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
                                 principal = new Principal(0);
-                               
                             }
                             else
                             {
                                 principal = new Principal(1);
-                               
                             }
                             File.WriteAllText("temp.txt", txtNombreUsuario.Text);
                             this.Hide();
                             principal.Show();
+
                         }
                         else
                         {
@@ -107,12 +97,30 @@ namespace GestionCasos
                         Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
 
                     }
+
                 }
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
+            }
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+
+            llamarRegistrar.ShowDialog();
+        }
+
+        private void cbIdentificacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbIdentificacion.SelectedIndex == 0)
+            {
+                txtNombreUsuario.Mask = "0-0000-0000";
+            }
+            else
+            {
+                txtNombreUsuario.Mask = "000000000000";
             }
         }
     }

@@ -23,6 +23,7 @@ namespace GestionCasos.Administrador
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            SetThemeColor();
 
         }
         private void CargarCombos()
@@ -40,7 +41,6 @@ namespace GestionCasos.Administrador
             OpenChildForm(new fLoader(1, hilo));
 
             CargarCombos();
-            SetThemeColor();
             CargarDatosForm();
         }
 

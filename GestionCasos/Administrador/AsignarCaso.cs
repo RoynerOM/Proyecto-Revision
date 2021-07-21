@@ -32,6 +32,7 @@ namespace GestionCasos
         public AsignarCaso()
         {
             InitializeComponent();
+            SetThemeColor();
         }
 
         //Modificado
@@ -76,12 +77,11 @@ namespace GestionCasos
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-
             OpenChildForm(new fLoader(1, hilo));
             //Actualizar();
             CargarCombos();
             MostrarConsecutivo();
-            SetThemeColor();
+            
         }
 
         //Cambio de colores

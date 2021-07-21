@@ -31,27 +31,13 @@ namespace GestionCasos
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.ContadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.BD_JuntasDataSet1 = new GestionCasos.BD_JuntasDataSet1();
-            this.ContadoresTableAdapter = new GestionCasos.BD_JuntasDataSet1TableAdapters.ContadoresTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.ContadoresBindingSource)).BeginInit();
+            this.BD_JuntasDataSet1 = new GestionCasos.BD_JuntasDataSet1();
+            this.ContadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ContadoresTableAdapter = new GestionCasos.BD_JuntasDataSet1TableAdapters.ContadoresTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContadoresBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ContadoresBindingSource
-            // 
-            this.ContadoresBindingSource.DataMember = "Contadores";
-            this.ContadoresBindingSource.DataSource = this.BD_JuntasDataSet1;
-            // 
-            // BD_JuntasDataSet1
-            // 
-            this.BD_JuntasDataSet1.DataSetName = "BD_JuntasDataSet1";
-            this.BD_JuntasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ContadoresTableAdapter
-            // 
-            this.ContadoresTableAdapter.ClearBeforeFill = true;
             // 
             // reportViewer1
             // 
@@ -66,6 +52,20 @@ namespace GestionCasos
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
+            // BD_JuntasDataSet1
+            // 
+            this.BD_JuntasDataSet1.DataSetName = "BD_JuntasDataSet1";
+            this.BD_JuntasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ContadoresBindingSource
+            // 
+            this.ContadoresBindingSource.DataMember = "Contadores";
+            this.ContadoresBindingSource.DataSource = this.BD_JuntasDataSet1;
+            // 
+            // ContadoresTableAdapter
+            // 
+            this.ContadoresTableAdapter.ClearBeforeFill = true;
+            // 
             // ReporteContadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -75,16 +75,17 @@ namespace GestionCasos
             this.Name = "ReporteContadores";
             this.Text = "ReporteContadores";
             this.Load += new System.EventHandler(this.ReporteContadores_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ContadoresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContadoresBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource ContadoresBindingSource;
         private BD_JuntasDataSet1 BD_JuntasDataSet1;
         private BD_JuntasDataSet1TableAdapters.ContadoresTableAdapter ContadoresTableAdapter;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

@@ -36,6 +36,7 @@ namespace GestionCasos.Administrador
             this.btnCasos = new Guna.UI.WinForms.GunaTileButton();
             this.btnReportes = new Guna.UI.WinForms.GunaTileButton();
             this.btnMode = new Guna.UI.WinForms.GunaTileButton();
+            this.btnBackup = new Guna.UI.WinForms.GunaTileButton();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +59,7 @@ namespace GestionCasos.Administrador
             this.flowLayoutPanel1.Controls.Add(this.btnCasos);
             this.flowLayoutPanel1.Controls.Add(this.btnReportes);
             this.flowLayoutPanel1.Controls.Add(this.btnMode);
+            this.flowLayoutPanel1.Controls.Add(this.btnBackup);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
@@ -201,6 +203,33 @@ namespace GestionCasos.Administrador
             this.btnMode.Text = "Modo Oscuro";
             this.btnMode.Click += new System.EventHandler(this.gunaTileButton4_Click);
             // 
+            // btnBackup
+            // 
+            this.btnBackup.AnimationHoverSpeed = 0.07F;
+            this.btnBackup.AnimationSpeed = 0.03F;
+            this.btnBackup.BackColor = System.Drawing.Color.Transparent;
+            this.btnBackup.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.btnBackup.BorderColor = System.Drawing.Color.Black;
+            this.btnBackup.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnBackup.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBackup.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnBackup.ForeColor = System.Drawing.Color.White;
+            this.btnBackup.Image = global::GestionCasos.Properties.Resources.data_backup_60px;
+            this.btnBackup.ImageSize = new System.Drawing.Size(60, 60);
+            this.btnBackup.Location = new System.Drawing.Point(562, 202);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(10);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
+            this.btnBackup.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnBackup.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnBackup.OnHoverImage = null;
+            this.btnBackup.OnPressedColor = System.Drawing.Color.Black;
+            this.btnBackup.Radius = 10;
+            this.btnBackup.Size = new System.Drawing.Size(241, 142);
+            this.btnBackup.TabIndex = 13;
+            this.btnBackup.Text = "Backup";
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
             // fMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,5 +253,6 @@ namespace GestionCasos.Administrador
         private Guna.UI.WinForms.GunaTileButton btnMode;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Guna.UI.WinForms.GunaTileButton btnBackup;
     }
 }

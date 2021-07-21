@@ -32,6 +32,7 @@ namespace GestionCasos
         public fCasosAdmin()
         {
             InitializeComponent();
+            SetThemeColor();
 
         }
 
@@ -45,7 +46,6 @@ namespace GestionCasos
 
             OpenChildForm(new fLoader(1, hilo));
             PedirDatos();
-            SetThemeColor();
             CargarCombos();
         }
 

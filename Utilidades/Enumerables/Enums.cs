@@ -27,7 +27,11 @@ namespace Utilidades.Enumerables
             Contador = 0,
             Tramitador = 1
         }
-
+        public enum Rol
+        {
+            Administrador = 0,
+            Normal = 1
+        }
         public enum TipoCedula
         {
             Nacional = 0,

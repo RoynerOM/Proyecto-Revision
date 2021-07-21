@@ -30,69 +30,54 @@ namespace GestionCasos
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lbTipoUsuario = new System.Windows.Forms.Label();
-            this.cbTipoUsuario = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnCerrarR = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegistrar = new Guna.UI.WinForms.GunaButton();
             this.txtContra = new Guna.UI.WinForms.GunaTextBox();
             this.txtCedula = new Guna.UI.WinForms.GunaTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarR)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.lbTipoUsuario);
-            this.panel3.Controls.Add(this.cbTipoUsuario);
+            this.panel3.Controls.Add(this.btnCerrarR);
+            this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.btnRegistrar);
             this.panel3.Controls.Add(this.txtContra);
             this.panel3.Controls.Add(this.txtCedula);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(198, 30);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(638, 650);
+            this.panel3.Size = new System.Drawing.Size(329, 389);
             this.panel3.TabIndex = 4;
             // 
-            // lbTipoUsuario
+            // btnCerrarR
             // 
-            this.lbTipoUsuario.AutoSize = true;
-            this.lbTipoUsuario.Font = new System.Drawing.Font("Arial", 13F);
-            this.lbTipoUsuario.ForeColor = System.Drawing.Color.White;
-            this.lbTipoUsuario.Location = new System.Drawing.Point(183, 376);
-            this.lbTipoUsuario.Name = "lbTipoUsuario";
-            this.lbTipoUsuario.Size = new System.Drawing.Size(137, 21);
-            this.lbTipoUsuario.TabIndex = 19;
-            this.lbTipoUsuario.Text = "Tipo de Usuario";
+            this.btnCerrarR.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrarR.Image = global::GestionCasos.Properties.Resources.close;
+            this.btnCerrarR.Location = new System.Drawing.Point(300, 3);
+            this.btnCerrarR.Name = "btnCerrarR";
+            this.btnCerrarR.Size = new System.Drawing.Size(26, 28);
+            this.btnCerrarR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrarR.TabIndex = 20;
+            this.btnCerrarR.TabStop = false;
+            this.btnCerrarR.Click += new System.EventHandler(this.btnCerrarR_Click);
             // 
-            // cbTipoUsuario
+            // panel1
             // 
-            this.cbTipoUsuario.BackColor = System.Drawing.Color.White;
-            this.cbTipoUsuario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.cbTipoUsuario.BorderRadius = 5;
-            this.cbTipoUsuario.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTipoUsuario.FocusedColor = System.Drawing.Color.Empty;
-            this.cbTipoUsuario.FocusedState.Parent = this.cbTipoUsuario;
-            this.cbTipoUsuario.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbTipoUsuario.ForeColor = System.Drawing.Color.Black;
-            this.cbTipoUsuario.FormattingEnabled = true;
-            this.cbTipoUsuario.HoverState.Parent = this.cbTipoUsuario;
-            this.cbTipoUsuario.ItemHeight = 30;
-            this.cbTipoUsuario.Items.AddRange(new object[] {
-            "Administrador",
-            "Normal"});
-            this.cbTipoUsuario.ItemsAppearance.Parent = this.cbTipoUsuario;
-            this.cbTipoUsuario.Location = new System.Drawing.Point(187, 400);
-            this.cbTipoUsuario.Name = "cbTipoUsuario";
-            this.cbTipoUsuario.ShadowDecoration.Parent = this.cbTipoUsuario;
-            this.cbTipoUsuario.Size = new System.Drawing.Size(263, 36);
-            this.cbTipoUsuario.TabIndex = 18;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.panel1.Location = new System.Drawing.Point(12, 362);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(303, 10);
+            this.panel1.TabIndex = 5;
             // 
             // label3
             // 
@@ -102,7 +87,7 @@ namespace GestionCasos
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 18F);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(55, 42);
+            this.label3.Location = new System.Drawing.Point(32, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 27);
             this.label3.TabIndex = 17;
@@ -123,7 +108,7 @@ namespace GestionCasos
             this.btnRegistrar.Image = null;
             this.btnRegistrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnRegistrar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnRegistrar.Location = new System.Drawing.Point(261, 526);
+            this.btnRegistrar.Location = new System.Drawing.Point(103, 304);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
             this.btnRegistrar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -149,7 +134,7 @@ namespace GestionCasos
             this.txtContra.FocusedForeColor = System.Drawing.Color.Empty;
             this.txtContra.Font = new System.Drawing.Font("Arial", 9F);
             this.txtContra.ForeColor = System.Drawing.Color.Black;
-            this.txtContra.Location = new System.Drawing.Point(187, 265);
+            this.txtContra.Location = new System.Drawing.Point(31, 227);
             this.txtContra.Name = "txtContra";
             this.txtContra.PasswordChar = '\0';
             this.txtContra.Radius = 5;
@@ -169,7 +154,7 @@ namespace GestionCasos
             this.txtCedula.FocusedForeColor = System.Drawing.Color.Empty;
             this.txtCedula.Font = new System.Drawing.Font("Arial", 9F);
             this.txtCedula.ForeColor = System.Drawing.Color.Black;
-            this.txtCedula.Location = new System.Drawing.Point(187, 128);
+            this.txtCedula.Location = new System.Drawing.Point(31, 141);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.PasswordChar = '\0';
             this.txtCedula.Radius = 5;
@@ -181,8 +166,8 @@ namespace GestionCasos
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 13F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(183, 244);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(27, 206);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 21);
             this.label2.TabIndex = 1;
@@ -192,36 +177,27 @@ namespace GestionCasos
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 13F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(189, 107);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(33, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cedula";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.panel1.Location = new System.Drawing.Point(20, 707);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 4);
-            this.panel1.TabIndex = 5;
             // 
             // Registrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1041, 860);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(329, 389);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Registrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registrar";
             this.Load += new System.EventHandler(this.Registrar_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrarR)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,8 +205,6 @@ namespace GestionCasos
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lbTipoUsuario;
-        private Guna.UI2.WinForms.Guna2ComboBox cbTipoUsuario;
         private System.Windows.Forms.Label label3;
         private Guna.UI.WinForms.GunaButton btnRegistrar;
         private Guna.UI.WinForms.GunaTextBox txtContra;
@@ -238,5 +212,6 @@ namespace GestionCasos
         private System.Windows.Forms.Label label1;
         private Guna.UI.WinForms.GunaTextBox txtCedula;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox btnCerrarR;
     }
 }

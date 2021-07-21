@@ -22,48 +22,10 @@ namespace GestionCasos.Reportes
         {
             InitializeComponent();
             this.Rol = Rol;
-        }
-
-        private void SetColorTheme()
-        {
-            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
-            {
-
-
-                flowLayoutPanel1.BackColor = Colors.White;
-
-                btnContadores.BaseColor = Colors.Blue;
-                btnCasos.BaseColor = Colors.Blue;
-                btnReportes.BaseColor = Colors.Blue;
-                btnContadores.OnHoverBaseColor = Colors.BlueHover;
-                btnCasos.OnHoverBaseColor = Colors.BlueHover;
-                btnReportes.OnHoverBaseColor = Colors.BlueHover;
-
-
-            }
+            SetThemeColor();
         }
 
 
-      
-
-
-        private void btnCasos_Click(object sender, EventArgs e)
-        {
-
-            OpenChildForm(new ReporteAsignarCasos());
-        }
-
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ReporteJuntas());
-
-        }
-
-        private void btnContadores_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ReporteContadores());
-
-        }
         //private void OpcionesPermitidas()
         //{
         //    if (Rol == 0)
@@ -91,18 +53,26 @@ namespace GestionCasos.Reportes
         //}
 
 
-        private void fOpcionesReportes_Load(object sender, EventArgs e)
+        private void SetThemeColor()
         {
-            Procesos proceso = new Procesos();
-            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
-            hilo.Start();                           // Ejecutamos el subproceso
-            while (!hilo.IsAlive) ;
+            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+            {
 
-            OpenChildForm(new fLoader(1, hilo));
-            SetColorTheme();
+                flowLayoutPanel1.BackColor = Colors.White;
+
+                btnContadores.BaseColor = Colors.Blue;
+                btnCasos.BaseColor = Colors.Blue;
+                btnReportes.BaseColor = Colors.Blue;
+                btnEntregas.BaseColor = Colors.Blue;
+
+
+                btnContadores.OnHoverBaseColor = Colors.BlueHover;
+                btnCasos.OnHoverBaseColor = Colors.BlueHover;
+                btnReportes.OnHoverBaseColor = Colors.BlueHover;
+                btnEntregas.OnHoverBaseColor = Colors.BlueHover;
+
+            }
         }
-
-
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -115,6 +85,39 @@ namespace GestionCasos.Reportes
             this.panel1.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+
+        private void btnCasos_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ReporteAsignarCasos());
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ReporteJuntas());
+
+        }
+
+        private void btnContadores_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ReporteContadores());
+
+        }
+
+        private void fOpcionesReportes_Load(object sender, EventArgs e)
+        {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
+            OpenChildForm(new fLoader(1, hilo));
+            
+        }
+
+        private void btnEntregas_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ReporteEntregaDeCasos());
         }
     }
 }

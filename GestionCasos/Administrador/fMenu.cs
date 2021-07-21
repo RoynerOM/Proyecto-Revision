@@ -12,46 +12,25 @@ using System.Windows.Forms;
 using System.Xml;
 using Utilidades;
 using GestionCasos.Reportes;
+using System.Data.SqlClient;
 using System.Diagnostics;
 
 namespace GestionCasos.Administrador
 {
     public partial class fMenu : Form
     {
+        SqlConnection conexion = new SqlConnection(@"data source=.\SQLEXPRESS;initial catalog=BD_Juntas;integrated security=True;MultipleActiveResultSets=True;");
+
         private Form activeForm;
         private int Rol = 0;
         public fMenu(int Rol)
         {
             InitializeComponent();
             this.Rol = Rol;
-            SetColorTheme();
+            SetThemeColor();
+
         }
 
-        private void OpcionesPermitidas()
-        {
-            if (Rol == 0)
-            {
-                btnCasos.Visible = false;
-                btnCasos.Enabled = false;
-
-                btnContadores.Visible = false;
-                btnContadores.Enabled = false;
-
-                btnJuntas.Visible = false;
-                btnJuntas.Enabled = false;
-            }
-            else
-            {
-                btnCasos.Visible = true;
-                btnCasos.Enabled = true;
-
-                btnContadores.Visible = true;
-                btnContadores.Enabled = true;
-
-                btnJuntas.Visible = true;
-                btnJuntas.Enabled = true;
-            }
-        }
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -85,7 +64,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void SetColorTheme()
+        private void SetThemeColor()
         {
             if (ConfigurationManager.AppSettings["DarkMode"] == "false")
             {
@@ -99,13 +78,14 @@ namespace GestionCasos.Administrador
                 btnMode.BaseColor = Colors.Blue;
                 btnReportes.BaseColor = Colors.Blue;
                 btnJuntas.BaseColor = Colors.Blue;
+                btnBackup.BaseColor = Colors.Blue;
 
                 btnContadores.OnHoverBaseColor = Colors.BlueHover;
                 btnCasos.OnHoverBaseColor = Colors.BlueHover;
                 btnMode.OnHoverBaseColor = Colors.BlueHover;
                 btnReportes.OnHoverBaseColor = Colors.BlueHover;
                 btnJuntas.OnHoverBaseColor = Colors.BlueHover;
-
+                btnBackup.OnHoverBaseColor = Colors.BlueHover;
             }
             else
             {
@@ -139,7 +119,6 @@ namespace GestionCasos.Administrador
                             {
                                 node.Attributes[1].Value = "true";
                             }
-
                             showMessageDialog messageDialog = new showMessageDialog();
                             messageDialog.Warning(new Alertas.Alerta(), "La aplicación se cerrará para aplicar los cambios");
 
@@ -159,20 +138,48 @@ namespace GestionCasos.Administrador
             ConfigurationManager.RefreshSection("appSettings");
         }
 
+
         private void fMenu_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-
             OpenChildForm(new fLoader(1, hilo));
-            OpcionesPermitidas();
         }
+
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fOpcionesReportes(Rol));
+        }
+
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            string nombre_copia = (System.DateTime.Today.Day.ToString() + "-" + System.DateTime.Today.Month.ToString() + "-" + System.DateTime.Today.Year.ToString() + "-" + System.DateTime.Now.Hour.ToString() + "-" + System.DateTime.Now.Minute.ToString() + "-" + System.DateTime.Now.Second.ToString() + "DBJuntas");
+
+            string comando_consulta = "BACKUP DATABASE [BD_Juntas] TO  DISK = N'C:\\Program Files\\Microsoft SQL Server\\MSSQL15.SQLEXPRESS\\MSSQL\\Backup\\" + nombre_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'BD_Juntas-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+
+            SqlCommand cmd = new SqlCommand(comando_consulta, conexion);
+
+            try
+            {
+                conexion.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("La copia de la base de datos due creada");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se creo la base de datos porque eres un inutil");
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+                conexion.Dispose();
+            }
+
         }
     }
 }

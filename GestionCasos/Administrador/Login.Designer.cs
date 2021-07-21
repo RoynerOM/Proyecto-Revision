@@ -31,8 +31,11 @@ namespace GestionCasos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pnTop = new System.Windows.Forms.Panel();
-            this.txtContraseña = new Guna.UI.WinForms.GunaTextBox();
-            this.txtNombreUsuario = new Guna.UI.WinForms.GunaTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbIdentificacion = new System.Windows.Forms.ComboBox();
+            this.btnRegistrar = new System.Windows.Forms.Label();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.txtNombreUsuario = new System.Windows.Forms.MaskedTextBox();
             this.lbIniciarSecion = new System.Windows.Forms.Label();
             this.btnIniciarSecion = new Guna.UI.WinForms.GunaButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,63 +50,83 @@ namespace GestionCasos
             // 
             // pnTop
             // 
+            this.pnTop.Controls.Add(this.label3);
+            this.pnTop.Controls.Add(this.cbIdentificacion);
+            this.pnTop.Controls.Add(this.btnRegistrar);
             this.pnTop.Controls.Add(this.txtContraseña);
             this.pnTop.Controls.Add(this.txtNombreUsuario);
             this.pnTop.Controls.Add(this.lbIniciarSecion);
             this.pnTop.Controls.Add(this.btnIniciarSecion);
             this.pnTop.Controls.Add(this.label2);
             this.pnTop.Controls.Add(this.lbNombreUsuario);
-            this.pnTop.Location = new System.Drawing.Point(293, 246);
+            this.pnTop.Location = new System.Drawing.Point(290, 365);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(234, 224);
+            this.pnTop.Size = new System.Drawing.Size(298, 326);
             this.pnTop.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(29, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 21);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Identificacion";
+            // 
+            // cbIdentificacion
+            // 
+            this.cbIdentificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbIdentificacion.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIdentificacion.FormattingEnabled = true;
+            this.cbIdentificacion.Items.AddRange(new object[] {
+            "Nacional",
+            "Index"});
+            this.cbIdentificacion.Location = new System.Drawing.Point(33, 82);
+            this.cbIdentificacion.Name = "cbIdentificacion";
+            this.cbIdentificacion.Size = new System.Drawing.Size(243, 27);
+            this.cbIdentificacion.TabIndex = 19;
+            this.cbIdentificacion.SelectedIndexChanged += new System.EventHandler(this.cbIdentificacion_SelectedIndexChanged);
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.AutoSize = true;
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.Cyan;
+            this.btnRegistrar.Location = new System.Drawing.Point(105, 250);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(95, 18);
+            this.btnRegistrar.TabIndex = 18;
+            this.btnRegistrar.Text = "Registrarse";
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // txtContraseña
             // 
-            this.txtContraseña.BackColor = System.Drawing.Color.Transparent;
-            this.txtContraseña.BaseColor = System.Drawing.Color.White;
-            this.txtContraseña.BorderColor = System.Drawing.Color.Black;
-            this.txtContraseña.BorderSize = 1;
-            this.txtContraseña.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtContraseña.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtContraseña.FocusedBorderColor = System.Drawing.Color.Transparent;
-            this.txtContraseña.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtContraseña.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtContraseña.Location = new System.Drawing.Point(18, 129);
+            this.txtContraseña.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseña.Location = new System.Drawing.Point(33, 206);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.PasswordChar = '\0';
-            this.txtContraseña.Radius = 5;
-            this.txtContraseña.SelectedText = "";
-            this.txtContraseña.Size = new System.Drawing.Size(201, 30);
+            this.txtContraseña.PasswordChar = '$';
+            this.txtContraseña.Size = new System.Drawing.Size(243, 27);
             this.txtContraseña.TabIndex = 17;
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.txtNombreUsuario.BaseColor = System.Drawing.Color.White;
-            this.txtNombreUsuario.BorderColor = System.Drawing.Color.Black;
-            this.txtNombreUsuario.BorderSize = 1;
-            this.txtNombreUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombreUsuario.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtNombreUsuario.FocusedBorderColor = System.Drawing.Color.Transparent;
-            this.txtNombreUsuario.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNombreUsuario.Location = new System.Drawing.Point(18, 75);
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.Location = new System.Drawing.Point(33, 144);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.PasswordChar = '\0';
-            this.txtNombreUsuario.Radius = 5;
-            this.txtNombreUsuario.SelectedText = "";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(201, 30);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(243, 27);
             this.txtNombreUsuario.TabIndex = 16;
             // 
             // lbIniciarSecion
             // 
             this.lbIniciarSecion.AutoSize = true;
-            this.lbIniciarSecion.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIniciarSecion.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIniciarSecion.ForeColor = System.Drawing.Color.White;
-            this.lbIniciarSecion.Location = new System.Drawing.Point(53, 16);
+            this.lbIniciarSecion.Location = new System.Drawing.Point(74, 10);
             this.lbIniciarSecion.Name = "lbIniciarSecion";
-            this.lbIniciarSecion.Size = new System.Drawing.Size(136, 22);
+            this.lbIniciarSecion.Size = new System.Drawing.Size(148, 26);
             this.lbIniciarSecion.TabIndex = 15;
             this.lbIniciarSecion.Text = "Iniciar Seción";
             // 
@@ -113,7 +136,7 @@ namespace GestionCasos
             this.btnIniciarSecion.AnimationSpeed = 0.03F;
             this.btnIniciarSecion.BackColor = System.Drawing.Color.Transparent;
             this.btnIniciarSecion.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.btnIniciarSecion.BorderColor = System.Drawing.Color.Aqua;
+            this.btnIniciarSecion.BorderColor = System.Drawing.Color.Empty;
             this.btnIniciarSecion.BorderSize = 1;
             this.btnIniciarSecion.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnIniciarSecion.FocusedColor = System.Drawing.Color.Empty;
@@ -122,7 +145,7 @@ namespace GestionCasos
             this.btnIniciarSecion.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciarSecion.Image")));
             this.btnIniciarSecion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnIniciarSecion.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnIniciarSecion.Location = new System.Drawing.Point(18, 176);
+            this.btnIniciarSecion.Location = new System.Drawing.Point(86, 285);
             this.btnIniciarSecion.Name = "btnIniciarSecion";
             this.btnIniciarSecion.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
             this.btnIniciarSecion.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -130,7 +153,7 @@ namespace GestionCasos
             this.btnIniciarSecion.OnHoverImage = null;
             this.btnIniciarSecion.OnPressedColor = System.Drawing.Color.Black;
             this.btnIniciarSecion.Radius = 20;
-            this.btnIniciarSecion.Size = new System.Drawing.Size(201, 40);
+            this.btnIniciarSecion.Size = new System.Drawing.Size(138, 38);
             this.btnIniciarSecion.TabIndex = 10;
             this.btnIniciarSecion.Text = "ACCEDER";
             this.btnIniciarSecion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -139,22 +162,22 @@ namespace GestionCasos
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(15, 111);
+            this.label2.Location = new System.Drawing.Point(29, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 15);
+            this.label2.Size = new System.Drawing.Size(110, 21);
             this.label2.TabIndex = 12;
             this.label2.Text = "Contraseña";
             // 
             // lbNombreUsuario
             // 
             this.lbNombreUsuario.AutoSize = true;
-            this.lbNombreUsuario.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombreUsuario.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.lbNombreUsuario.Location = new System.Drawing.Point(15, 57);
+            this.lbNombreUsuario.Location = new System.Drawing.Point(29, 118);
             this.lbNombreUsuario.Name = "lbNombreUsuario";
-            this.lbNombreUsuario.Size = new System.Drawing.Size(47, 15);
+            this.lbNombreUsuario.Size = new System.Drawing.Size(71, 21);
             this.lbNombreUsuario.TabIndex = 11;
             this.lbNombreUsuario.Text = "Cedula";
             // 
@@ -171,7 +194,7 @@ namespace GestionCasos
             this.btnLLamar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
             this.btnLLamar.Image = null;
             this.btnLLamar.ImageSize = new System.Drawing.Size(52, 52);
-            this.btnLLamar.Location = new System.Drawing.Point(342, 58);
+            this.btnLLamar.Location = new System.Drawing.Point(369, 102);
             this.btnLLamar.Name = "btnLLamar";
             this.btnLLamar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
             this.btnLLamar.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
@@ -203,7 +226,7 @@ namespace GestionCasos
             this.pbLogo.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(273, 254);
+            this.pbLogo.Size = new System.Drawing.Size(273, 350);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 14;
             this.pbLogo.TabStop = false;
@@ -213,13 +236,13 @@ namespace GestionCasos
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
-            this.ClientSize = new System.Drawing.Size(546, 254);
+            this.ClientSize = new System.Drawing.Size(600, 350);
             this.Controls.Add(this.btnLLamar);
             this.Controls.Add(this.pnTop);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.pbLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(546, 254);
+            this.MinimumSize = new System.Drawing.Size(600, 350);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Login_Load);
@@ -240,7 +263,10 @@ namespace GestionCasos
         private System.Windows.Forms.Label lbNombreUsuario;
         private Guna.UI.WinForms.GunaCircleButton btnLLamar;
         private Guna.UI.WinForms.GunaPictureBox pbLogo;
-        private Guna.UI.WinForms.GunaTextBox txtNombreUsuario;
-        private Guna.UI.WinForms.GunaTextBox txtContraseña;
+        private System.Windows.Forms.MaskedTextBox txtNombreUsuario;
+        private System.Windows.Forms.Label btnRegistrar;
+        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbIdentificacion;
     }
 }

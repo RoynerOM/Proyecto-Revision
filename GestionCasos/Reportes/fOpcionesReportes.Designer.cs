@@ -34,6 +34,7 @@ namespace GestionCasos.Reportes
             this.btnContadores = new Guna.UI.WinForms.GunaTileButton();
             this.btnCasos = new Guna.UI.WinForms.GunaTileButton();
             this.btnReportes = new Guna.UI.WinForms.GunaTileButton();
+            this.btnEntregas = new Guna.UI.WinForms.GunaTileButton();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@ namespace GestionCasos.Reportes
             this.flowLayoutPanel1.Controls.Add(this.btnContadores);
             this.flowLayoutPanel1.Controls.Add(this.btnCasos);
             this.flowLayoutPanel1.Controls.Add(this.btnReportes);
+            this.flowLayoutPanel1.Controls.Add(this.btnEntregas);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
@@ -140,6 +142,34 @@ namespace GestionCasos.Reportes
             this.btnReportes.Size = new System.Drawing.Size(212, 142);
             this.btnReportes.TabIndex = 12;
             this.btnReportes.Text = "Instituciones";
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // btnEntregas
+            // 
+            this.btnEntregas.AnimationHoverSpeed = 0.07F;
+            this.btnEntregas.AnimationSpeed = 0.03F;
+            this.btnEntregas.BackColor = System.Drawing.Color.Transparent;
+            this.btnEntregas.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.btnEntregas.BorderColor = System.Drawing.Color.Black;
+            this.btnEntregas.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnEntregas.FocusedColor = System.Drawing.Color.Empty;
+            this.btnEntregas.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnEntregas.ForeColor = System.Drawing.Color.White;
+            this.btnEntregas.Image = global::GestionCasos.Properties.Resources.report_file_60px;
+            this.btnEntregas.ImageSize = new System.Drawing.Size(60, 60);
+            this.btnEntregas.Location = new System.Drawing.Point(40, 202);
+            this.btnEntregas.Margin = new System.Windows.Forms.Padding(10);
+            this.btnEntregas.Name = "btnEntregas";
+            this.btnEntregas.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
+            this.btnEntregas.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnEntregas.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnEntregas.OnHoverImage = null;
+            this.btnEntregas.OnPressedColor = System.Drawing.Color.Black;
+            this.btnEntregas.Radius = 10;
+            this.btnEntregas.Size = new System.Drawing.Size(212, 142);
+            this.btnEntregas.TabIndex = 13;
+            this.btnEntregas.Text = "Entregas";
+            this.btnEntregas.Click += new System.EventHandler(this.btnEntregas_Click);
             // 
             // fOpcionesReportes
             // 
@@ -164,5 +194,6 @@ namespace GestionCasos.Reportes
         private Guna.UI.WinForms.GunaTileButton btnContadores;
         private Guna.UI.WinForms.GunaTileButton btnCasos;
         private Guna.UI.WinForms.GunaTileButton btnReportes;
+        private Guna.UI.WinForms.GunaTileButton btnEntregas;
     }
 }

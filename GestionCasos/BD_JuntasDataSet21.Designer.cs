@@ -20,17 +20,17 @@ namespace GestionCasos {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dbsJuntas")]
+    [global::System.Xml.Serialization.XmlRootAttribute("BD_JuntasDataSet2")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dbsJuntas : global::System.Data.DataSet {
+    public partial class BD_JuntasDataSet2 : global::System.Data.DataSet {
         
-        private JuntasDataTable tableJuntas;
+        private EntregaDeCasosDataTable tableEntregaDeCasos;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public dbsJuntas() {
+        public BD_JuntasDataSet2() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace GestionCasos {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected dbsJuntas(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected BD_JuntasDataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace GestionCasos {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Juntas"] != null)) {
-                    base.Tables.Add(new JuntasDataTable(ds.Tables["Juntas"]));
+                if ((ds.Tables["EntregaDeCasos"] != null)) {
+                    base.Tables.Add(new EntregaDeCasosDataTable(ds.Tables["EntregaDeCasos"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace GestionCasos {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public JuntasDataTable Juntas {
+        public EntregaDeCasosDataTable EntregaDeCasos {
             get {
-                return this.tableJuntas;
+                return this.tableEntregaDeCasos;
             }
         }
         
@@ -127,7 +127,7 @@ namespace GestionCasos {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dbsJuntas cln = ((dbsJuntas)(base.Clone()));
+            BD_JuntasDataSet2 cln = ((BD_JuntasDataSet2)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace GestionCasos {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Juntas"] != null)) {
-                    base.Tables.Add(new JuntasDataTable(ds.Tables["Juntas"]));
+                if ((ds.Tables["EntregaDeCasos"] != null)) {
+                    base.Tables.Add(new EntregaDeCasosDataTable(ds.Tables["EntregaDeCasos"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace GestionCasos {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableJuntas = ((JuntasDataTable)(base.Tables["Juntas"]));
+            this.tableEntregaDeCasos = ((EntregaDeCasosDataTable)(base.Tables["EntregaDeCasos"]));
             if ((initTable == true)) {
-                if ((this.tableJuntas != null)) {
-                    this.tableJuntas.InitVars();
+                if ((this.tableEntregaDeCasos != null)) {
+                    this.tableEntregaDeCasos.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace GestionCasos {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dbsJuntas";
+            this.DataSetName = "BD_JuntasDataSet2";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dbsJuntas.xsd";
+            this.Namespace = "http://tempuri.org/BD_JuntasDataSet2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableJuntas = new JuntasDataTable();
-            base.Tables.Add(this.tableJuntas);
+            this.tableEntregaDeCasos = new EntregaDeCasosDataTable();
+            base.Tables.Add(this.tableEntregaDeCasos);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeJuntas() {
+        private bool ShouldSerializeEntregaDeCasos() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace GestionCasos {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dbsJuntas ds = new dbsJuntas();
+            BD_JuntasDataSet2 ds = new BD_JuntasDataSet2();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,39 +270,59 @@ namespace GestionCasos {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void JuntasRowChangeEventHandler(object sender, JuntasRowChangeEvent e);
+        public delegate void EntregaDeCasosRowChangeEventHandler(object sender, EntregaDeCasosRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class JuntasDataTable : global::System.Data.TypedTableBase<JuntasRow> {
+        public partial class EntregaDeCasosDataTable : global::System.Data.TypedTableBase<EntregaDeCasosRow> {
+            
+            private global::System.Data.DataColumn columnNombre_Completo;
+            
+            private global::System.Data.DataColumn columnRecepcion;
             
             private global::System.Data.DataColumn columnCodigo;
             
-            private global::System.Data.DataColumn columnCircuito;
-            
-            private global::System.Data.DataColumn columnNombreTipo;
-            
             private global::System.Data.DataColumn columnNombre;
             
-            private global::System.Data.DataColumn columnDireccion_Regional;
+            private global::System.Data.DataColumn columnCircuito;
             
-            private global::System.Data.DataColumn columnCedula_Juridica;
+            private global::System.Data.DataColumn columnConsecutivo;
             
-            private global::System.Data.DataColumn columnCuenta_Danea;
+            private global::System.Data.DataColumn columnnumeroActa;
             
-            private global::System.Data.DataColumn columnCuenta_Ley;
+            private global::System.Data.DataColumn columnnumeroFolio;
             
-            private global::System.Data.DataColumn columnContador;
+            private global::System.Data.DataColumn columnfechaActa;
             
-            private global::System.Data.DataColumn columnEstado;
+            private global::System.Data.DataColumn columnObservacion;
+            
+            private global::System.Data.DataColumn columnMotivo1;
+            
+            private global::System.Data.DataColumn columnMotivo2;
+            
+            private global::System.Data.DataColumn columnMotivo3;
+            
+            private global::System.Data.DataColumn columnMotivo4;
+            
+            private global::System.Data.DataColumn columnMotivo5;
+            
+            private global::System.Data.DataColumn columnMotivo6;
+            
+            private global::System.Data.DataColumn columnMotivo7;
+            
+            private global::System.Data.DataColumn columnMotivo8;
+            
+            private global::System.Data.DataColumn columnPago;
+            
+            private global::System.Data.DataColumn columnFechaEntrega;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public JuntasDataTable() {
-                this.TableName = "Juntas";
+            public EntregaDeCasosDataTable() {
+                this.TableName = "EntregaDeCasos";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -310,7 +330,7 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal JuntasDataTable(global::System.Data.DataTable table) {
+            internal EntregaDeCasosDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -327,9 +347,25 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected JuntasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected EntregaDeCasosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Nombre_CompletoColumn {
+                get {
+                    return this.columnNombre_Completo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RecepcionColumn {
+                get {
+                    return this.columnRecepcion;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -337,22 +373,6 @@ namespace GestionCasos {
             public global::System.Data.DataColumn CodigoColumn {
                 get {
                     return this.columnCodigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CircuitoColumn {
-                get {
-                    return this.columnCircuito;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NombreTipoColumn {
-                get {
-                    return this.columnNombreTipo;
                 }
             }
             
@@ -366,49 +386,129 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Direccion_RegionalColumn {
+            public global::System.Data.DataColumn CircuitoColumn {
                 get {
-                    return this.columnDireccion_Regional;
+                    return this.columnCircuito;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Cedula_JuridicaColumn {
+            public global::System.Data.DataColumn ConsecutivoColumn {
                 get {
-                    return this.columnCedula_Juridica;
+                    return this.columnConsecutivo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Cuenta_DaneaColumn {
+            public global::System.Data.DataColumn numeroActaColumn {
                 get {
-                    return this.columnCuenta_Danea;
+                    return this.columnnumeroActa;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Cuenta_LeyColumn {
+            public global::System.Data.DataColumn numeroFolioColumn {
                 get {
-                    return this.columnCuenta_Ley;
+                    return this.columnnumeroFolio;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ContadorColumn {
+            public global::System.Data.DataColumn fechaActaColumn {
                 get {
-                    return this.columnContador;
+                    return this.columnfechaActa;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn EstadoColumn {
+            public global::System.Data.DataColumn ObservacionColumn {
                 get {
-                    return this.columnEstado;
+                    return this.columnObservacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Motivo1Column {
+                get {
+                    return this.columnMotivo1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Motivo2Column {
+                get {
+                    return this.columnMotivo2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Motivo3Column {
+                get {
+                    return this.columnMotivo3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Motivo4Column {
+                get {
+                    return this.columnMotivo4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Motivo5Column {
+                get {
+                    return this.columnMotivo5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Motivo6Column {
+                get {
+                    return this.columnMotivo6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Motivo7Column {
+                get {
+                    return this.columnMotivo7;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Motivo8Column {
+                get {
+                    return this.columnMotivo8;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PagoColumn {
+                get {
+                    return this.columnPago;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FechaEntregaColumn {
+                get {
+                    return this.columnFechaEntrega;
                 }
             }
             
@@ -423,54 +523,91 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public JuntasRow this[int index] {
+            public EntregaDeCasosRow this[int index] {
                 get {
-                    return ((JuntasRow)(this.Rows[index]));
+                    return ((EntregaDeCasosRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event JuntasRowChangeEventHandler JuntasRowChanging;
+            public event EntregaDeCasosRowChangeEventHandler EntregaDeCasosRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event JuntasRowChangeEventHandler JuntasRowChanged;
+            public event EntregaDeCasosRowChangeEventHandler EntregaDeCasosRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event JuntasRowChangeEventHandler JuntasRowDeleting;
+            public event EntregaDeCasosRowChangeEventHandler EntregaDeCasosRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event JuntasRowChangeEventHandler JuntasRowDeleted;
+            public event EntregaDeCasosRowChangeEventHandler EntregaDeCasosRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddJuntasRow(JuntasRow row) {
+            public void AddEntregaDeCasosRow(EntregaDeCasosRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public JuntasRow AddJuntasRow(int Codigo, int Circuito, string NombreTipo, string Nombre, string Direccion_Regional, string Cedula_Juridica, string Cuenta_Danea, string Cuenta_Ley, string Contador, bool Estado) {
-                JuntasRow rowJuntasRow = ((JuntasRow)(this.NewRow()));
+            public EntregaDeCasosRow AddEntregaDeCasosRow(
+                        string Nombre_Completo, 
+                        string Recepcion, 
+                        int Codigo, 
+                        string Nombre, 
+                        int Circuito, 
+                        string Consecutivo, 
+                        int numeroActa, 
+                        int numeroFolio, 
+                        System.DateTime fechaActa, 
+                        string Observacion, 
+                        bool Motivo1, 
+                        bool Motivo2, 
+                        bool Motivo3, 
+                        bool Motivo4, 
+                        bool Motivo5, 
+                        bool Motivo6, 
+                        bool Motivo7, 
+                        string Motivo8, 
+                        int Pago, 
+                        System.DateTime FechaEntrega) {
+                EntregaDeCasosRow rowEntregaDeCasosRow = ((EntregaDeCasosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        Nombre_Completo,
+                        Recepcion,
                         Codigo,
-                        Circuito,
-                        NombreTipo,
                         Nombre,
-                        Direccion_Regional,
-                        Cedula_Juridica,
-                        Cuenta_Danea,
-                        Cuenta_Ley,
-                        Contador,
-                        Estado};
-                rowJuntasRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowJuntasRow);
-                return rowJuntasRow;
+                        Circuito,
+                        Consecutivo,
+                        numeroActa,
+                        numeroFolio,
+                        fechaActa,
+                        Observacion,
+                        Motivo1,
+                        Motivo2,
+                        Motivo3,
+                        Motivo4,
+                        Motivo5,
+                        Motivo6,
+                        Motivo7,
+                        Motivo8,
+                        Pago,
+                        FechaEntrega};
+                rowEntregaDeCasosRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEntregaDeCasosRow);
+                return rowEntregaDeCasosRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EntregaDeCasosRow FindByCodigo(int Codigo) {
+                return ((EntregaDeCasosRow)(this.Rows.Find(new object[] {
+                            Codigo})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                JuntasDataTable cln = ((JuntasDataTable)(base.Clone()));
+                EntregaDeCasosDataTable cln = ((EntregaDeCasosDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -478,90 +615,121 @@ namespace GestionCasos {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new JuntasDataTable();
+                return new EntregaDeCasosDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
+                this.columnNombre_Completo = base.Columns["Nombre_Completo"];
+                this.columnRecepcion = base.Columns["Recepcion"];
                 this.columnCodigo = base.Columns["Codigo"];
-                this.columnCircuito = base.Columns["Circuito"];
-                this.columnNombreTipo = base.Columns["NombreTipo"];
                 this.columnNombre = base.Columns["Nombre"];
-                this.columnDireccion_Regional = base.Columns["Direccion_Regional"];
-                this.columnCedula_Juridica = base.Columns["Cedula_Juridica"];
-                this.columnCuenta_Danea = base.Columns["Cuenta_Danea"];
-                this.columnCuenta_Ley = base.Columns["Cuenta_Ley"];
-                this.columnContador = base.Columns["Contador"];
-                this.columnEstado = base.Columns["Estado"];
+                this.columnCircuito = base.Columns["Circuito"];
+                this.columnConsecutivo = base.Columns["Consecutivo"];
+                this.columnnumeroActa = base.Columns["numeroActa"];
+                this.columnnumeroFolio = base.Columns["numeroFolio"];
+                this.columnfechaActa = base.Columns["fechaActa"];
+                this.columnObservacion = base.Columns["Observacion"];
+                this.columnMotivo1 = base.Columns["Motivo1"];
+                this.columnMotivo2 = base.Columns["Motivo2"];
+                this.columnMotivo3 = base.Columns["Motivo3"];
+                this.columnMotivo4 = base.Columns["Motivo4"];
+                this.columnMotivo5 = base.Columns["Motivo5"];
+                this.columnMotivo6 = base.Columns["Motivo6"];
+                this.columnMotivo7 = base.Columns["Motivo7"];
+                this.columnMotivo8 = base.Columns["Motivo8"];
+                this.columnPago = base.Columns["Pago"];
+                this.columnFechaEntrega = base.Columns["FechaEntrega"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
+                this.columnNombre_Completo = new global::System.Data.DataColumn("Nombre_Completo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre_Completo);
+                this.columnRecepcion = new global::System.Data.DataColumn("Recepcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRecepcion);
                 this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodigo);
-                this.columnCircuito = new global::System.Data.DataColumn("Circuito", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCircuito);
-                this.columnNombreTipo = new global::System.Data.DataColumn("NombreTipo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombreTipo);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnDireccion_Regional = new global::System.Data.DataColumn("Direccion_Regional", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDireccion_Regional);
-                this.columnCedula_Juridica = new global::System.Data.DataColumn("Cedula_Juridica", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCedula_Juridica);
-                this.columnCuenta_Danea = new global::System.Data.DataColumn("Cuenta_Danea", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCuenta_Danea);
-                this.columnCuenta_Ley = new global::System.Data.DataColumn("Cuenta_Ley", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCuenta_Ley);
-                this.columnContador = new global::System.Data.DataColumn("Contador", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnContador);
-                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEstado);
+                this.columnCircuito = new global::System.Data.DataColumn("Circuito", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCircuito);
+                this.columnConsecutivo = new global::System.Data.DataColumn("Consecutivo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsecutivo);
+                this.columnnumeroActa = new global::System.Data.DataColumn("numeroActa", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumeroActa);
+                this.columnnumeroFolio = new global::System.Data.DataColumn("numeroFolio", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumeroFolio);
+                this.columnfechaActa = new global::System.Data.DataColumn("fechaActa", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaActa);
+                this.columnObservacion = new global::System.Data.DataColumn("Observacion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnObservacion);
+                this.columnMotivo1 = new global::System.Data.DataColumn("Motivo1", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotivo1);
+                this.columnMotivo2 = new global::System.Data.DataColumn("Motivo2", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotivo2);
+                this.columnMotivo3 = new global::System.Data.DataColumn("Motivo3", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotivo3);
+                this.columnMotivo4 = new global::System.Data.DataColumn("Motivo4", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotivo4);
+                this.columnMotivo5 = new global::System.Data.DataColumn("Motivo5", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotivo5);
+                this.columnMotivo6 = new global::System.Data.DataColumn("Motivo6", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotivo6);
+                this.columnMotivo7 = new global::System.Data.DataColumn("Motivo7", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotivo7);
+                this.columnMotivo8 = new global::System.Data.DataColumn("Motivo8", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMotivo8);
+                this.columnPago = new global::System.Data.DataColumn("Pago", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPago);
+                this.columnFechaEntrega = new global::System.Data.DataColumn("FechaEntrega", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFechaEntrega);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCodigo}, true));
+                this.columnNombre_Completo.ReadOnly = true;
+                this.columnNombre_Completo.MaxLength = 152;
+                this.columnRecepcion.AllowDBNull = false;
+                this.columnRecepcion.MaxLength = 50;
                 this.columnCodigo.AllowDBNull = false;
-                this.columnCircuito.AllowDBNull = false;
-                this.columnNombreTipo.AllowDBNull = false;
-                this.columnNombreTipo.MaxLength = 10;
+                this.columnCodigo.Unique = true;
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.MaxLength = 2147483647;
-                this.columnDireccion_Regional.AllowDBNull = false;
-                this.columnDireccion_Regional.MaxLength = 2147483647;
-                this.columnCedula_Juridica.AllowDBNull = false;
-                this.columnCedula_Juridica.MaxLength = 20;
-                this.columnCuenta_Danea.AllowDBNull = false;
-                this.columnCuenta_Danea.MaxLength = 20;
-                this.columnCuenta_Ley.AllowDBNull = false;
-                this.columnCuenta_Ley.MaxLength = 20;
-                this.columnContador.ReadOnly = true;
-                this.columnContador.MaxLength = 152;
-                this.columnEstado.AllowDBNull = false;
+                this.columnCircuito.AllowDBNull = false;
+                this.columnConsecutivo.ReadOnly = true;
+                this.columnConsecutivo.MaxLength = 14;
+                this.columnObservacion.AllowDBNull = false;
+                this.columnObservacion.MaxLength = 2147483647;
+                this.columnMotivo8.MaxLength = 2147483647;
+                this.columnPago.AllowDBNull = false;
+                this.columnFechaEntrega.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public JuntasRow NewJuntasRow() {
-                return ((JuntasRow)(this.NewRow()));
+            public EntregaDeCasosRow NewEntregaDeCasosRow() {
+                return ((EntregaDeCasosRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new JuntasRow(builder);
+                return new EntregaDeCasosRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(JuntasRow);
+                return typeof(EntregaDeCasosRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.JuntasRowChanged != null)) {
-                    this.JuntasRowChanged(this, new JuntasRowChangeEvent(((JuntasRow)(e.Row)), e.Action));
+                if ((this.EntregaDeCasosRowChanged != null)) {
+                    this.EntregaDeCasosRowChanged(this, new EntregaDeCasosRowChangeEvent(((EntregaDeCasosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -569,8 +737,8 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.JuntasRowChanging != null)) {
-                    this.JuntasRowChanging(this, new JuntasRowChangeEvent(((JuntasRow)(e.Row)), e.Action));
+                if ((this.EntregaDeCasosRowChanging != null)) {
+                    this.EntregaDeCasosRowChanging(this, new EntregaDeCasosRowChangeEvent(((EntregaDeCasosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -578,8 +746,8 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.JuntasRowDeleted != null)) {
-                    this.JuntasRowDeleted(this, new JuntasRowChangeEvent(((JuntasRow)(e.Row)), e.Action));
+                if ((this.EntregaDeCasosRowDeleted != null)) {
+                    this.EntregaDeCasosRowDeleted(this, new EntregaDeCasosRowChangeEvent(((EntregaDeCasosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -587,14 +755,14 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.JuntasRowDeleting != null)) {
-                    this.JuntasRowDeleting(this, new JuntasRowChangeEvent(((JuntasRow)(e.Row)), e.Action));
+                if ((this.EntregaDeCasosRowDeleting != null)) {
+                    this.EntregaDeCasosRowDeleting(this, new EntregaDeCasosRowChangeEvent(((EntregaDeCasosRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveJuntasRow(JuntasRow row) {
+            public void RemoveEntregaDeCasosRow(EntregaDeCasosRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -603,7 +771,7 @@ namespace GestionCasos {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dbsJuntas ds = new dbsJuntas();
+                BD_JuntasDataSet2 ds = new BD_JuntasDataSet2();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -621,7 +789,7 @@ namespace GestionCasos {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "JuntasDataTable";
+                attribute2.FixedValue = "EntregaDeCasosDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -665,47 +833,52 @@ namespace GestionCasos {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class JuntasRow : global::System.Data.DataRow {
+        public partial class EntregaDeCasosRow : global::System.Data.DataRow {
             
-            private JuntasDataTable tableJuntas;
+            private EntregaDeCasosDataTable tableEntregaDeCasos;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal JuntasRow(global::System.Data.DataRowBuilder rb) : 
+            internal EntregaDeCasosRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableJuntas = ((JuntasDataTable)(this.Table));
+                this.tableEntregaDeCasos = ((EntregaDeCasosDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Nombre_Completo {
+                get {
+                    try {
+                        return ((string)(this[this.tableEntregaDeCasos.Nombre_CompletoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Nombre_Completo\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.Nombre_CompletoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Recepcion {
+                get {
+                    return ((string)(this[this.tableEntregaDeCasos.RecepcionColumn]));
+                }
+                set {
+                    this[this.tableEntregaDeCasos.RecepcionColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Codigo {
                 get {
-                    return ((int)(this[this.tableJuntas.CodigoColumn]));
+                    return ((int)(this[this.tableEntregaDeCasos.CodigoColumn]));
                 }
                 set {
-                    this[this.tableJuntas.CodigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Circuito {
-                get {
-                    return ((int)(this[this.tableJuntas.CircuitoColumn]));
-                }
-                set {
-                    this[this.tableJuntas.CircuitoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string NombreTipo {
-                get {
-                    return ((string)(this[this.tableJuntas.NombreTipoColumn]));
-                }
-                set {
-                    this[this.tableJuntas.NombreTipoColumn] = value;
+                    this[this.tableEntregaDeCasos.CodigoColumn] = value;
                 }
             }
             
@@ -713,94 +886,403 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Nombre {
                 get {
-                    return ((string)(this[this.tableJuntas.NombreColumn]));
+                    return ((string)(this[this.tableEntregaDeCasos.NombreColumn]));
                 }
                 set {
-                    this[this.tableJuntas.NombreColumn] = value;
+                    this[this.tableEntregaDeCasos.NombreColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Direccion_Regional {
+            public int Circuito {
                 get {
-                    return ((string)(this[this.tableJuntas.Direccion_RegionalColumn]));
+                    return ((int)(this[this.tableEntregaDeCasos.CircuitoColumn]));
                 }
                 set {
-                    this[this.tableJuntas.Direccion_RegionalColumn] = value;
+                    this[this.tableEntregaDeCasos.CircuitoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Cedula_Juridica {
-                get {
-                    return ((string)(this[this.tableJuntas.Cedula_JuridicaColumn]));
-                }
-                set {
-                    this[this.tableJuntas.Cedula_JuridicaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Cuenta_Danea {
-                get {
-                    return ((string)(this[this.tableJuntas.Cuenta_DaneaColumn]));
-                }
-                set {
-                    this[this.tableJuntas.Cuenta_DaneaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Cuenta_Ley {
-                get {
-                    return ((string)(this[this.tableJuntas.Cuenta_LeyColumn]));
-                }
-                set {
-                    this[this.tableJuntas.Cuenta_LeyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Contador {
+            public string Consecutivo {
                 get {
                     try {
-                        return ((string)(this[this.tableJuntas.ContadorColumn]));
+                        return ((string)(this[this.tableEntregaDeCasos.ConsecutivoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Contador\' in table \'Juntas\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Consecutivo\' in table \'EntregaDeCasos\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableJuntas.ContadorColumn] = value;
+                    this[this.tableEntregaDeCasos.ConsecutivoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Estado {
+            public int numeroActa {
                 get {
-                    return ((bool)(this[this.tableJuntas.EstadoColumn]));
+                    try {
+                        return ((int)(this[this.tableEntregaDeCasos.numeroActaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'numeroActa\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableJuntas.EstadoColumn] = value;
+                    this[this.tableEntregaDeCasos.numeroActaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsContadorNull() {
-                return this.IsNull(this.tableJuntas.ContadorColumn);
+            public int numeroFolio {
+                get {
+                    try {
+                        return ((int)(this[this.tableEntregaDeCasos.numeroFolioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'numeroFolio\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.numeroFolioColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetContadorNull() {
-                this[this.tableJuntas.ContadorColumn] = global::System.Convert.DBNull;
+            public System.DateTime fechaActa {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableEntregaDeCasos.fechaActaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fechaActa\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.fechaActaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Observacion {
+                get {
+                    return ((string)(this[this.tableEntregaDeCasos.ObservacionColumn]));
+                }
+                set {
+                    this[this.tableEntregaDeCasos.ObservacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Motivo1 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableEntregaDeCasos.Motivo1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Motivo1\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.Motivo1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Motivo2 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableEntregaDeCasos.Motivo2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Motivo2\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.Motivo2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Motivo3 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableEntregaDeCasos.Motivo3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Motivo3\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.Motivo3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Motivo4 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableEntregaDeCasos.Motivo4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Motivo4\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.Motivo4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Motivo5 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableEntregaDeCasos.Motivo5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Motivo5\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.Motivo5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Motivo6 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableEntregaDeCasos.Motivo6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Motivo6\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.Motivo6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Motivo7 {
+                get {
+                    try {
+                        return ((bool)(this[this.tableEntregaDeCasos.Motivo7Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Motivo7\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.Motivo7Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Motivo8 {
+                get {
+                    try {
+                        return ((string)(this[this.tableEntregaDeCasos.Motivo8Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Motivo8\' in table \'EntregaDeCasos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaDeCasos.Motivo8Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Pago {
+                get {
+                    return ((int)(this[this.tableEntregaDeCasos.PagoColumn]));
+                }
+                set {
+                    this[this.tableEntregaDeCasos.PagoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime FechaEntrega {
+                get {
+                    return ((global::System.DateTime)(this[this.tableEntregaDeCasos.FechaEntregaColumn]));
+                }
+                set {
+                    this[this.tableEntregaDeCasos.FechaEntregaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNombre_CompletoNull() {
+                return this.IsNull(this.tableEntregaDeCasos.Nombre_CompletoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNombre_CompletoNull() {
+                this[this.tableEntregaDeCasos.Nombre_CompletoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConsecutivoNull() {
+                return this.IsNull(this.tableEntregaDeCasos.ConsecutivoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConsecutivoNull() {
+                this[this.tableEntregaDeCasos.ConsecutivoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnumeroActaNull() {
+                return this.IsNull(this.tableEntregaDeCasos.numeroActaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnumeroActaNull() {
+                this[this.tableEntregaDeCasos.numeroActaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnumeroFolioNull() {
+                return this.IsNull(this.tableEntregaDeCasos.numeroFolioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnumeroFolioNull() {
+                this[this.tableEntregaDeCasos.numeroFolioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsfechaActaNull() {
+                return this.IsNull(this.tableEntregaDeCasos.fechaActaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetfechaActaNull() {
+                this[this.tableEntregaDeCasos.fechaActaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMotivo1Null() {
+                return this.IsNull(this.tableEntregaDeCasos.Motivo1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMotivo1Null() {
+                this[this.tableEntregaDeCasos.Motivo1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMotivo2Null() {
+                return this.IsNull(this.tableEntregaDeCasos.Motivo2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMotivo2Null() {
+                this[this.tableEntregaDeCasos.Motivo2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMotivo3Null() {
+                return this.IsNull(this.tableEntregaDeCasos.Motivo3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMotivo3Null() {
+                this[this.tableEntregaDeCasos.Motivo3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMotivo4Null() {
+                return this.IsNull(this.tableEntregaDeCasos.Motivo4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMotivo4Null() {
+                this[this.tableEntregaDeCasos.Motivo4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMotivo5Null() {
+                return this.IsNull(this.tableEntregaDeCasos.Motivo5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMotivo5Null() {
+                this[this.tableEntregaDeCasos.Motivo5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMotivo6Null() {
+                return this.IsNull(this.tableEntregaDeCasos.Motivo6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMotivo6Null() {
+                this[this.tableEntregaDeCasos.Motivo6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMotivo7Null() {
+                return this.IsNull(this.tableEntregaDeCasos.Motivo7Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMotivo7Null() {
+                this[this.tableEntregaDeCasos.Motivo7Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMotivo8Null() {
+                return this.IsNull(this.tableEntregaDeCasos.Motivo8Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMotivo8Null() {
+                this[this.tableEntregaDeCasos.Motivo8Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -808,22 +1290,22 @@ namespace GestionCasos {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class JuntasRowChangeEvent : global::System.EventArgs {
+        public class EntregaDeCasosRowChangeEvent : global::System.EventArgs {
             
-            private JuntasRow eventRow;
+            private EntregaDeCasosRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public JuntasRowChangeEvent(JuntasRow row, global::System.Data.DataRowAction action) {
+            public EntregaDeCasosRowChangeEvent(EntregaDeCasosRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public JuntasRow Row {
+            public EntregaDeCasosRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -839,7 +1321,7 @@ namespace GestionCasos {
         }
     }
 }
-namespace GestionCasos.dbsJuntasTableAdapters {
+namespace GestionCasos.BD_JuntasDataSet2TableAdapters {
     
     
     /// <summary>
@@ -851,7 +1333,7 @@ namespace GestionCasos.dbsJuntasTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class JuntasTableAdapter : global::System.ComponentModel.Component {
+    public partial class EntregaDeCasosTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -865,7 +1347,7 @@ namespace GestionCasos.dbsJuntasTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public JuntasTableAdapter() {
+        public EntregaDeCasosTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -962,17 +1444,27 @@ namespace GestionCasos.dbsJuntasTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Juntas";
+            tableMapping.DataSetTable = "EntregaDeCasos";
+            tableMapping.ColumnMappings.Add("Nombre_Completo", "Nombre_Completo");
+            tableMapping.ColumnMappings.Add("Recepcion", "Recepcion");
             tableMapping.ColumnMappings.Add("Codigo", "Codigo");
-            tableMapping.ColumnMappings.Add("Circuito", "Circuito");
-            tableMapping.ColumnMappings.Add("NombreTipo", "NombreTipo");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
-            tableMapping.ColumnMappings.Add("Direccion_Regional", "Direccion_Regional");
-            tableMapping.ColumnMappings.Add("Cedula_Juridica", "Cedula_Juridica");
-            tableMapping.ColumnMappings.Add("Cuenta_Danea", "Cuenta_Danea");
-            tableMapping.ColumnMappings.Add("Cuenta_Ley", "Cuenta_Ley");
-            tableMapping.ColumnMappings.Add("Contador", "Contador");
-            tableMapping.ColumnMappings.Add("Estado", "Estado");
+            tableMapping.ColumnMappings.Add("Circuito", "Circuito");
+            tableMapping.ColumnMappings.Add("Consecutivo", "Consecutivo");
+            tableMapping.ColumnMappings.Add("numeroActa", "numeroActa");
+            tableMapping.ColumnMappings.Add("numeroFolio", "numeroFolio");
+            tableMapping.ColumnMappings.Add("fechaActa", "fechaActa");
+            tableMapping.ColumnMappings.Add("Observacion", "Observacion");
+            tableMapping.ColumnMappings.Add("Motivo1", "Motivo1");
+            tableMapping.ColumnMappings.Add("Motivo2", "Motivo2");
+            tableMapping.ColumnMappings.Add("Motivo3", "Motivo3");
+            tableMapping.ColumnMappings.Add("Motivo4", "Motivo4");
+            tableMapping.ColumnMappings.Add("Motivo5", "Motivo5");
+            tableMapping.ColumnMappings.Add("Motivo6", "Motivo6");
+            tableMapping.ColumnMappings.Add("Motivo7", "Motivo7");
+            tableMapping.ColumnMappings.Add("Motivo8", "Motivo8");
+            tableMapping.ColumnMappings.Add("Pago", "Pago");
+            tableMapping.ColumnMappings.Add("FechaEntrega", "FechaEntrega");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -989,7 +1481,9 @@ namespace GestionCasos.dbsJuntasTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Juntas.*\r\nFROM            Juntas";
+            this._commandCollection[0].CommandText = "SELECT Nombre_Completo, Recepcion, Codigo, Nombre, Circuito, Consecutivo, numeroA" +
+                "cta, numeroFolio, fechaActa, Observacion, Motivo1, Motivo2, Motivo3, Motivo4, Mo" +
+                "tivo5, Motivo6, Motivo7, Motivo8, Pago, FechaEntrega FROM dbo.EntregaDeCasos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -997,7 +1491,7 @@ namespace GestionCasos.dbsJuntasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dbsJuntas.JuntasDataTable dataTable) {
+        public virtual int Fill(BD_JuntasDataSet2.EntregaDeCasosDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1010,9 +1504,9 @@ namespace GestionCasos.dbsJuntasTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dbsJuntas.JuntasDataTable GetData() {
+        public virtual BD_JuntasDataSet2.EntregaDeCasosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            dbsJuntas.JuntasDataTable dataTable = new dbsJuntas.JuntasDataTable();
+            BD_JuntasDataSet2.EntregaDeCasosDataTable dataTable = new BD_JuntasDataSet2.EntregaDeCasosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1086,7 +1580,7 @@ namespace GestionCasos.dbsJuntasTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(dbsJuntas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(BD_JuntasDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1096,7 +1590,7 @@ namespace GestionCasos.dbsJuntasTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(dbsJuntas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(BD_JuntasDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1106,7 +1600,7 @@ namespace GestionCasos.dbsJuntasTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(dbsJuntas dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(BD_JuntasDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1140,7 +1634,7 @@ namespace GestionCasos.dbsJuntasTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(dbsJuntas dataSet) {
+        public virtual int UpdateAll(BD_JuntasDataSet2 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

@@ -25,6 +25,7 @@ namespace GestionCasos.Administrador
         public fDetallesPersonas()
         {
             InitializeComponent();
+            SetThemeColor();
         }
 
 
@@ -49,10 +50,8 @@ namespace GestionCasos.Administrador
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-
             OpenChildForm(new fLoader(1, hilo));
             CargarCombos();
-            SetThemeColor();
             PedirDatos();
         }
 

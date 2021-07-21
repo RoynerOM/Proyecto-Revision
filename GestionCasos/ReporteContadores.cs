@@ -22,7 +22,6 @@ namespace GestionCasos
             // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet1.Contadores' Puede moverla o quitarla según sea necesario.
             this.ContadoresTableAdapter.Fill(this.BD_JuntasDataSet1.Contadores);
 
-            //this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }
     }

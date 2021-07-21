@@ -26,13 +26,15 @@ namespace GestionCasos
             InitializeComponent();
             this.DoubleBuffered = true;
             Rol = role;
+            SetThemeColor();
         }
 
 
         private void Principal_Load(object sender, EventArgs e)
         {
+            
             SetPanelDefault();
-            SetThemeColor();
+            
         }
 
         private void SetPanelDefault()

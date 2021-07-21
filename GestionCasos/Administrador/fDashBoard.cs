@@ -30,7 +30,7 @@ namespace GestionCasos
             this.DoubleBuffered = true;
             Role = Rol;
             cedula = File.ReadAllText("temp.txt");
-
+            SetThemeColor();
         }
 
         private void DesktopPanel_Paint(object sender, PaintEventArgs e)
@@ -107,10 +107,10 @@ namespace GestionCasos
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-
+            
             OpenChildForm(new fLoader(1, hilo));
             CargarEstadisticas();
-            SetThemeColor();
+           
         }
 
         private void SetThemeColor()

@@ -36,6 +36,7 @@ namespace GestionCasos.Usuarios
             InitializeComponent();
             //Obtenemos la cedula desde un archivo de texto
             Cedula = File.ReadAllText("temp.txt");
+            SetThemeColor();
         }
 
 
@@ -48,7 +49,6 @@ namespace GestionCasos.Usuarios
 
             OpenChildForm(new fLoader(1, hilo));
             PedirDatos();
-            SetThemeColor();
             CargarCombos();
         }
 

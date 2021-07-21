@@ -22,6 +22,7 @@ namespace GestionCasos.Administrador
         public fInstituciones()
         {
             InitializeComponent();
+            SetThemeColor();
         }
 
 
@@ -33,8 +34,6 @@ namespace GestionCasos.Administrador
             while (!hilo.IsAlive) ;
 
             OpenChildForm(new fLoader(1, hilo));
-
-            SetThemeColor();
             CargarCombos();
             CargarDatosForm();
 
