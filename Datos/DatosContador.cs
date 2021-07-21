@@ -143,7 +143,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var consulta = db.t_Trabajador.Include("t_Persona").Where(x=> x.Tipo == tipo);
+                    var consulta = db.t_Trabajador.Where(x=> x.Tipo == tipo).ToList();
                     if (consulta != null)
                     {
                         return consulta;

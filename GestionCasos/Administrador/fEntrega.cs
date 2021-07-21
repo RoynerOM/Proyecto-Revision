@@ -256,6 +256,7 @@ namespace GestionCasos.Administrador
             try
             {
                 t_EntregaCasos entregaCasos = new t_EntregaCasos();
+                t_Revision revision = new t_Revision();
                 if (ValidarCampos() == true)
                 {
                     entregaCasos.Cedula = txtCedula.Text;
@@ -272,26 +273,26 @@ namespace GestionCasos.Administrador
                         entregaCasos.Pago = 1;
                     }
                     
-                    Estado state = new Estado();
-                    state.id = 4;
+                    Estado estado = new Estado();
+                    estado.id = 4;
 
-                    t_Revision revision = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text).SingleOrDefault();
+                    revision = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text).SingleOrDefault();
                     //Cambio el estado en entregado
-                    Estado estado = estadoNegocio.obtenerPorId(state);
+                    estado = estadoNegocio.obtenerPorId(estado);
                     revision.Estado = estado.id;
                     revision.Estado1 = estado;
 
                     entregaCasos.Id_Caso = revision.Id_Caso;
                     entregaCasos.FechaEntrega = DateTime.Now;
 
-                    if (entregaNegocio.guardar(entregaCasos) == true && revisionNegocio.modificar(revision)==true)
+                    if (revisionNegocio.modificar(revision) == true && entregaNegocio.guardar(entregaCasos) == true)
                     {
-                        Message.Success(new Alertas.Alerta(), "La informacion fue guardada");
+                        Message.Success(new Alertas.Alerta(), "La informacion de entrega fue guardada");
                         btnPdf.Visible = true;
                     }
                     else
                     {
-                        Message.Danger(new Alertas.Alerta(), "No se pudo guaardar la informacion");
+                        Message.Danger(new Alertas.Alerta(), "No se pudo guardar la informacion de la entrega");
                     }
                 }
             }

@@ -201,7 +201,7 @@ namespace GestionCasos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fMenu(), sender);
+            OpenChildForm(new fMenu(Rol), sender);
         }
     }
 

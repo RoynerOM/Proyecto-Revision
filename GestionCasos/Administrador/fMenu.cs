@@ -19,14 +19,39 @@ namespace GestionCasos.Administrador
     public partial class fMenu : Form
     {
         private Form activeForm;
-
-        public fMenu()
+        private int Rol = 0;
+        public fMenu(int Rol)
         {
             InitializeComponent();
+            this.Rol = Rol;
             SetColorTheme();
         }
 
+        private void OpcionesPermitidas()
+        {
+            if (Rol == 0)
+            {
+                btnCasos.Visible = false;
+                btnCasos.Enabled = false;
 
+                btnContadores.Visible = false;
+                btnContadores.Enabled = false;
+
+                btnJuntas.Visible = false;
+                btnJuntas.Enabled = false;
+            }
+            else
+            {
+                btnCasos.Visible = true;
+                btnCasos.Enabled = true;
+
+                btnContadores.Visible = true;
+                btnContadores.Enabled = true;
+
+                btnJuntas.Visible = true;
+                btnJuntas.Enabled = true;
+            }
+        }
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -60,7 +85,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        void SetColorTheme()
+        private void SetColorTheme()
         {
             if (ConfigurationManager.AppSettings["DarkMode"] == "false")
             {
@@ -108,7 +133,7 @@ namespace GestionCasos.Administrador
                             if (ConfigurationManager.AppSettings["DarkMode"] == "true")
                             {
                                 node.Attributes[1].Value = "false";
-                                
+
                             }
                             else
                             {
@@ -142,11 +167,12 @@ namespace GestionCasos.Administrador
             while (!hilo.IsAlive) ;
 
             OpenChildForm(new fLoader(1, hilo));
+            OpcionesPermitidas();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fOpcionesReportes());
+            OpenChildForm(new fOpcionesReportes(Rol));
         }
     }
 }

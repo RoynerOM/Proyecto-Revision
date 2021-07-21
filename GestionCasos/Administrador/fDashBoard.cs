@@ -44,8 +44,9 @@ namespace GestionCasos
             {
                 if (Role == 1)
                 {
-                    var cantidad = negocio.CantidadContadores();
-                    label1.Text = cantidad.ToString();
+                    var contadores = negocio.obtenerTrabador(0).Count();
+                    label1.Text = contadores.ToString();
+
 
                     var casos = revision.obtenerTodo(new t_Revision());
 
@@ -66,11 +67,14 @@ namespace GestionCasos
 
                     var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
                     lblTotalJuntas.Text = instituciones.ToString();
+
+                    var tramitadores = negocio.obtenerTrabador(1).Count();
+                    lblTramitadores.Text = tramitadores.ToString();
                 }
                 else
                 {
-                    var cantidad = negocio.CantidadContadores();
-                    label1.Text = cantidad.ToString();
+                    var contadores = negocio.obtenerTrabador(0).Count();
+                    label1.Text = contadores.ToString();
 
                     var casos = revision.obtenerTodo(new t_Revision());
 
@@ -86,6 +90,9 @@ namespace GestionCasos
 
                     var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
                     lblTotalJuntas.Text = instituciones.ToString();
+
+                    var tramitadores = negocio.obtenerTrabador(1).Count();
+                    lblTramitadores.Text = tramitadores.ToString();
                 }
             }
             catch (Exception ex)
@@ -94,7 +101,7 @@ namespace GestionCasos
             }
         }
 
-        private void fDashBoard_Load(object sender, EventArgs e)
+        private void FDashBoard_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
@@ -137,12 +144,12 @@ namespace GestionCasos
 
             }
         }
-        private void pnContadores_Paint(object sender, PaintEventArgs e)
+        private void PnContadores_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void gunaTileButton1_Click(object sender, EventArgs e)
+        private void GunaTileButton1_Click(object sender, EventArgs e)
         {
 
             if (Role == 1)
@@ -170,17 +177,17 @@ namespace GestionCasos
             childForm.Show();
         }
 
-        private void gunaTileButton2_Click(object sender, EventArgs e)
+        private void GunaTileButton2_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AsignarCaso());
         }
 
-        private void gunaTileButton4_Click(object sender, EventArgs e)
+        private void GunaTileButton4_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fDetallesPersonas());
         }
 
-        private void gunaTileButton3_Click(object sender, EventArgs e)
+        private void GunaTileButton3_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fDetallesJuntas());
         }

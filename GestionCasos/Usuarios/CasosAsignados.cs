@@ -302,6 +302,10 @@ namespace GestionCasos.Usuarios
                         DatosTemp.t_Revision = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
                         fBoleta comentario = new fBoleta(0);
                         comentario.ShowDialog();
+                        if (comentario.IsDisposed ==  true)
+                        {
+                            this.Refresh();
+                        }
 
                     }
                 }

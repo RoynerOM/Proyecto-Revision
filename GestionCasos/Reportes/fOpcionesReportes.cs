@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
@@ -16,11 +17,11 @@ namespace GestionCasos.Reportes
     public partial class fOpcionesReportes : Form
     {
         private Form activeForm;
-
-        public fOpcionesReportes()
+        private int Rol = 0;
+        public fOpcionesReportes(int Rol)
         {
             InitializeComponent();
-            SetColorTheme();
+            this.Rol = Rol;
         }
 
         private void SetColorTheme()
@@ -41,19 +42,9 @@ namespace GestionCasos.Reportes
 
             }
         }
-        private void OpenChildForm(Form childForm)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.panel1.Controls.Add(childForm);
-            this.panel1.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
+
+
+      
 
 
         private void btnCasos_Click(object sender, EventArgs e)
@@ -73,10 +64,57 @@ namespace GestionCasos.Reportes
             OpenChildForm(new ReporteContadores());
 
         }
+        //private void OpcionesPermitidas()
+        //{
+        //    if (Rol == 0)
+        //    {
+        //        btnCasos.Visible = false;
+        //        btnCasos.Enabled = false;
+
+        //        btnContadores.Visible = false;
+        //        btnContadores.Enabled = false;
+
+        //        btnJuntas.Visible = false;
+        //        btnJuntas.Enabled = false;
+        //    }
+        //    else
+        //    {
+        //        btnCasos.Visible = true;
+        //        btnCasos.Enabled = true;
+
+        //        btnContadores.Visible = true;
+        //        btnContadores.Enabled = true;
+
+        //        btnJuntas.Visible = true;
+        //        btnJuntas.Enabled = true;
+        //    }
+        //}
+
 
         private void fOpcionesReportes_Load(object sender, EventArgs e)
         {
+            Procesos proceso = new Procesos();
+            Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
+            hilo.Start();                           // Ejecutamos el subproceso
+            while (!hilo.IsAlive) ;
 
+            OpenChildForm(new fLoader(1, hilo));
+            SetColorTheme();
+        }
+
+
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panel1.Controls.Add(childForm);
+            this.panel1.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
     }
 }

@@ -19,14 +19,17 @@ namespace GestionCasos.Usuarios
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private int TipoUsuario = 0;
+        private int isNew = 0;
         t_Boleta boleta = new t_Boleta();
         t_Revision revision = new t_Revision();
         BoletaNegocio boletaNegocio = new BoletaNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
         EntregaNegocio entregaNegocio = new EntregaNegocio();
-        private int isNew = 0;
+        
         showMessageDialog Alert = new showMessageDialog();
+
+
         public fBoleta(int tipo)
         {
             InitializeComponent();
@@ -139,7 +142,7 @@ namespace GestionCasos.Usuarios
                             txtOtros.Visible = true;
                             txtOtros.Text = filtro.Motivo8;
                         }
-                        if (TipoUsuario == 0)
+                        if (TipoUsuario == 1)
                         {
                             txtObservacion.Text = revision.Comentario;
                         }
@@ -191,30 +194,32 @@ namespace GestionCasos.Usuarios
                     {
                         boleta.Motivo8 = "Ninguno";
                     }
+
                     boleta.Observacion = txtObservacion.Text;
                     boleta.Revisado_Por = revision.Tramitador;
 
-                    if (TipoUsuario == 0 && txtObservacion.Text != string.Empty)
-                    {
-                        revision.Comentario = txtObservacion.Text;
-                    }
-                    else
-                    {
-                        revision.Observacion = txtObservacion.Text;
-                    }
+                   
 
                     Estado state = new Estado();
-                    state.id = 2;
+                    state.id = 3;
 
                     t_Revision filtroCasos = revisionNegocio.obtenerPorConsecutivo(revision.Consecutivo).SingleOrDefault();
-                    Estado filtroEstado = estadoNegocio.obtenerPorId(state);
+                    state = estadoNegocio.obtenerPorId(state);
 
                     filtroCasos.FechaRevisada = DateTime.Now.ToShortDateString();
-                    filtroCasos.Estado = 3;
-                    filtroCasos.Estado1 = filtroEstado;
+                    filtroCasos.Estado = state.id;
+                    filtroCasos.Estado1 = state;
                     filtroCasos.numeroActa = int.Parse(txtNumeroActa.Text);
                     filtroCasos.numeroFolio = int.Parse(txtFolio.Text);
                     filtroCasos.fechaActa = dtpFechaActa.Value;
+                    if (TipoUsuario == 1 && txtObservacion.Text != string.Empty)
+                    {
+                        filtroCasos.Comentario = txtObservacion.Text;
+                    }
+                    else
+                    {
+                        filtroCasos.Observacion = txtObservacion.Text;
+                    }
                     if (revisionNegocio.modificar(filtroCasos) == true)
                     {
                         //Alert.Success(new Alertas.Alerta(), "Revision Modificada con exito");
@@ -274,9 +279,7 @@ namespace GestionCasos.Usuarios
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
-                MessageBox.Show(ex.Message);
             }
         }
 

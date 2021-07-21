@@ -34,6 +34,11 @@ namespace GestionCasos.Administrador
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtCedulaJuridica = new System.Windows.Forms.MaskedTextBox();
+            this.txtNombre = new Guna.UI.WinForms.GunaTextBox();
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.cbTramitador = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.tabla = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Circuito = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,11 +48,6 @@ namespace GestionCasos.Administrador
             this.Cuenta_Danea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cuenta_Ley = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbTramitador = new Guna.UI.WinForms.GunaComboBox();
-            this.txtNombre = new Guna.UI.WinForms.GunaTextBox();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
@@ -75,10 +75,90 @@ namespace GestionCasos.Administrador
             this.txtCedulaJuridica.Location = new System.Drawing.Point(687, 66);
             this.txtCedulaJuridica.Mask = "0-000-000000";
             this.txtCedulaJuridica.Name = "txtCedulaJuridica";
-            this.txtCedulaJuridica.Size = new System.Drawing.Size(170, 25);
+            this.txtCedulaJuridica.Size = new System.Drawing.Size(185, 25);
             this.txtCedulaJuridica.TabIndex = 20;
             this.txtCedulaJuridica.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCedulaJuridica_MaskInputRejected);
             this.txtCedulaJuridica.TextChanged += new System.EventHandler(this.txtCedulaJuridica_TextChanged);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNombre.BaseColor = System.Drawing.Color.White;
+            this.txtNombre.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombre.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtNombre.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtNombre.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(41, 63);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PasswordChar = '\0';
+            this.txtNombre.SelectedText = "";
+            this.txtNombre.Size = new System.Drawing.Size(281, 28);
+            this.txtNombre.TabIndex = 19;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.gunaLabel4.Location = new System.Drawing.Point(37, 32);
+            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(206, 20);
+            this.gunaLabel4.TabIndex = 18;
+            this.gunaLabel4.Text = "Filtrar Por Institucion o Junta";
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.gunaLabel3.Location = new System.Drawing.Point(365, 32);
+            this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(145, 20);
+            this.gunaLabel3.TabIndex = 17;
+            this.gunaLabel3.Text = "Filtrar Por Contador";
+            // 
+            // cbTramitador
+            // 
+            this.cbTramitador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTramitador.BackColor = System.Drawing.Color.Transparent;
+            this.cbTramitador.BaseColor = System.Drawing.Color.White;
+            this.cbTramitador.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.cbTramitador.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbTramitador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTramitador.FocusedColor = System.Drawing.Color.Empty;
+            this.cbTramitador.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbTramitador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.cbTramitador.FormattingEnabled = true;
+            this.cbTramitador.Items.AddRange(new object[] {
+            "TODOS"});
+            this.cbTramitador.Location = new System.Drawing.Point(369, 65);
+            this.cbTramitador.Margin = new System.Windows.Forms.Padding(2);
+            this.cbTramitador.Name = "cbTramitador";
+            this.cbTramitador.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cbTramitador.Size = new System.Drawing.Size(271, 26);
+            this.cbTramitador.TabIndex = 16;
+            this.cbTramitador.SelectionChangeCommitted += new System.EventHandler(this.cbTramitador_SelectionChangeCommitted);
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.gunaLabel1.Location = new System.Drawing.Point(683, 32);
+            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(128, 20);
+            this.gunaLabel1.TabIndex = 14;
+            this.gunaLabel1.Text = "Filtrar Por Cedula";
             // 
             // tabla
             // 
@@ -212,86 +292,6 @@ namespace GestionCasos.Administrador
             this.Contador.Name = "Contador";
             this.Contador.ReadOnly = true;
             this.Contador.Width = 300;
-            // 
-            // cbTramitador
-            // 
-            this.cbTramitador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTramitador.BackColor = System.Drawing.Color.Transparent;
-            this.cbTramitador.BaseColor = System.Drawing.Color.White;
-            this.cbTramitador.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.cbTramitador.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbTramitador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTramitador.FocusedColor = System.Drawing.Color.Empty;
-            this.cbTramitador.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbTramitador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
-            this.cbTramitador.FormattingEnabled = true;
-            this.cbTramitador.Items.AddRange(new object[] {
-            "TODOS"});
-            this.cbTramitador.Location = new System.Drawing.Point(428, 65);
-            this.cbTramitador.Margin = new System.Windows.Forms.Padding(2);
-            this.cbTramitador.Name = "cbTramitador";
-            this.cbTramitador.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbTramitador.Size = new System.Drawing.Size(231, 26);
-            this.cbTramitador.TabIndex = 16;
-            this.cbTramitador.SelectionChangeCommitted += new System.EventHandler(this.cbTramitador_SelectionChangeCommitted);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.BaseColor = System.Drawing.Color.White;
-            this.txtNombre.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtNombre.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtNombre.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(189, 63);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PasswordChar = '\0';
-            this.txtNombre.SelectedText = "";
-            this.txtNombre.Size = new System.Drawing.Size(210, 28);
-            this.txtNombre.TabIndex = 19;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(683, 32);
-            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(128, 20);
-            this.gunaLabel1.TabIndex = 14;
-            this.gunaLabel1.Text = "Filtrar Por Cedula";
-            // 
-            // gunaLabel3
-            // 
-            this.gunaLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaLabel3.AutoSize = true;
-            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel3.Location = new System.Drawing.Point(424, 32);
-            this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(145, 20);
-            this.gunaLabel3.TabIndex = 17;
-            this.gunaLabel3.Text = "Filtrar Por Contador";
-            // 
-            // gunaLabel4
-            // 
-            this.gunaLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaLabel4.AutoSize = true;
-            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel4.Location = new System.Drawing.Point(185, 32);
-            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(206, 20);
-            this.gunaLabel4.TabIndex = 18;
-            this.gunaLabel4.Text = "Filtrar Por Institucion o Junta";
             // 
             // fDetallesJuntas
             // 
