@@ -31,6 +31,7 @@ namespace GestionCasos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.pnLateralIzquierda = new System.Windows.Forms.Panel();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCerrarSecion = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@ namespace GestionCasos
             // pnLateralIzquierda
             // 
             this.pnLateralIzquierda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.pnLateralIzquierda.Controls.Add(this.btnReportes);
             this.pnLateralIzquierda.Controls.Add(this.btnMenu);
             this.pnLateralIzquierda.Controls.Add(this.btnDashBoard);
             this.pnLateralIzquierda.Controls.Add(this.btnCerrarSecion);
@@ -50,6 +52,25 @@ namespace GestionCasos
             this.pnLateralIzquierda.Name = "pnLateralIzquierda";
             this.pnLateralIzquierda.Size = new System.Drawing.Size(111, 661);
             this.pnLateralIzquierda.TabIndex = 0;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.btnReportes.Image = global::GestionCasos.Properties.Resources.report_file_60px;
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReportes.Location = new System.Drawing.Point(0, 181);
+            this.btnReportes.MinimumSize = new System.Drawing.Size(111, 90);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(111, 90);
+            this.btnReportes.TabIndex = 11;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnMenu
             // 
@@ -143,5 +164,6 @@ namespace GestionCasos
         private System.Windows.Forms.Button btnDashBoard;
         private System.Windows.Forms.Panel DesktopPanel;
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnReportes;
     }
 }

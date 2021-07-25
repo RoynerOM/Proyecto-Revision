@@ -1,5 +1,6 @@
 ﻿using GestionCasos.Administrador;
 using GestionCasos.Configuracion;
+using GestionCasos.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,11 +22,11 @@ namespace GestionCasos
         private Button currentButton;
         private Form activeForm;
         private int Rol = 0;
-        public Principal(int role)
+        public Principal(int Rol)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            Rol = role;
+            this.Rol = Rol;
             SetThemeColor();
         }
 
@@ -71,6 +72,7 @@ namespace GestionCasos
                 btnDashBoard.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnMenu.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+                btnReportes.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
             }
             else
             {
@@ -83,6 +85,7 @@ namespace GestionCasos
                 btnDashBoard.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
                 btnMenu.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
                 btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
+                btnReportes.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
 
             }
         }
@@ -204,6 +207,11 @@ namespace GestionCasos
         private void button1_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fMenu(Rol), sender);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new fOpcionesReportes(Rol), sender);
         }
     }
 

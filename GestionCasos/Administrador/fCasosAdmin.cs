@@ -22,21 +22,21 @@ namespace GestionCasos
         ContadorNegocio persona = new ContadorNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
-
+        EntregaNegocio entregaNegocio = new EntregaNegocio();
         List<t_Revision> Casos = null;
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
+        private bool entrega = false;
 
 
-
-        public fCasosAdmin()
+        public fCasosAdmin(bool entrega)
         {
             InitializeComponent();
             SetThemeColor();
-
+            this.entrega = entrega;
         }
 
-       
+
         private void FormStyle_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
@@ -269,8 +269,17 @@ namespace GestionCasos
                     {
                         string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
                         DatosTemp.t_Revision = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
-                        fBoleta comentario = new fBoleta(1);
-                        comentario.ShowDialog();
+                        if (entrega == false)
+                        {
+                            fBoleta comentario = new fBoleta(1);
+                            comentario.ShowDialog();
+                        }
+                        else
+                        {
+                            t_EntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
+                            fEntrega entrega = new fEntrega(entregaCasos);
+                            entrega.ShowDialog();
+                        }
 
                     }
                 }

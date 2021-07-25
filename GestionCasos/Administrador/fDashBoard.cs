@@ -154,11 +154,11 @@ namespace GestionCasos
 
             if (Role == 1)
             {
-                OpenChildForm(new fCasosAdmin());
+                OpenChildForm(new fCasosAdmin(false));
             }
             else
             {
-                OpenChildForm(new CasosAsignados());
+                OpenChildForm(new CasosAsignados(false));
             }
         }
         //Pintar formulario hijo
@@ -184,7 +184,14 @@ namespace GestionCasos
 
         private void GunaTileButton4_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fDetallesPersonas());
+            if (Role == 1)
+            {
+                OpenChildForm(new fCasosAdmin(true));
+            }
+            else
+            {
+                OpenChildForm(new CasosAsignados(true));
+            }
         }
 
         private void GunaTileButton3_Click(object sender, EventArgs e)

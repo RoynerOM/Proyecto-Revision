@@ -31,8 +31,37 @@ namespace GestionCasos.Administrador
         {
             InitializeComponent();
             entregaCasos = id;
+            SetThemeColor();
         }
 
+        //Cambio de color
+        private void SetThemeColor()
+        {
+            if (isDark == "false")
+            {
+
+                this.BackColor = Colors.White;
+                this.ForeColor = Colors.Black;
+                this.gunaLinePanel1.BackColor = Colors.White;
+
+                cbCheque.ForeColor = Colors.Black;
+                cbTranferencia.ForeColor = Colors.Black;
+           
+
+                label1.ForeColor = Colors.Black;
+                label2.ForeColor = Colors.Black;
+                label3.ForeColor = Colors.Black;
+                label4.ForeColor = Colors.Black;
+                label5.ForeColor = Colors.Black;
+                label6.ForeColor = Colors.Black;
+                label7.ForeColor = Colors.Black;
+                label8.ForeColor = Colors.Black;
+            }
+            else
+            {
+
+            }
+        }
         private void CargarDatos()
         {
 

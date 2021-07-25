@@ -20,23 +20,24 @@ namespace GestionCasos.Usuarios
         private string Cedula = null;
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-
+        private bool entrega = false;
         t_Revision revision = new t_Revision();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
         ContadorNegocio persona = new ContadorNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
-
+        EntregaNegocio entregaNegocio = new EntregaNegocio();
         IEnumerable<t_Revision> Casos = null;
 
         //Datos de prueba
 
-        public CasosAsignados()
+        public CasosAsignados(bool entrega)
         {
             InitializeComponent();
             //Obtenemos la cedula desde un archivo de texto
             Cedula = File.ReadAllText("temp.txt");
             SetThemeColor();
+            this.entrega = entrega;
         }
 
 
@@ -300,13 +301,22 @@ namespace GestionCasos.Usuarios
                     {
                         string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
                         DatosTemp.t_Revision = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
-                        fBoleta comentario = new fBoleta(0);
-                        comentario.ShowDialog();
-                        if (comentario.IsDisposed ==  true)
+                        if (entrega == false)
                         {
-                            this.Refresh();
-                        }
 
+                            fBoleta comentario = new fBoleta(0);
+                            comentario.ShowDialog();
+                            if (comentario.IsDisposed == true)
+                            {
+                                this.Refresh();
+                            }
+                        }
+                        else
+                        {
+                            t_EntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
+                            fEntrega entrega = new fEntrega(entregaCasos);
+                            entrega.ShowDialog();
+                        }
                     }
                 }
             }

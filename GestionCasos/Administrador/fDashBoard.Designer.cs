@@ -210,7 +210,7 @@ namespace GestionCasos
             this.gunaTileButton4.FocusedColor = System.Drawing.Color.Empty;
             this.gunaTileButton4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaTileButton4.ForeColor = System.Drawing.Color.White;
-            this.gunaTileButton4.Image = global::GestionCasos.Properties.Resources.group_60px;
+            this.gunaTileButton4.Image = global::GestionCasos.Properties.Resources.send_email_100px;
             this.gunaTileButton4.ImageSize = new System.Drawing.Size(52, 52);
             this.gunaTileButton4.Location = new System.Drawing.Point(424, 513);
             this.gunaTileButton4.Name = "gunaTileButton4";
@@ -222,7 +222,7 @@ namespace GestionCasos
             this.gunaTileButton4.Radius = 5;
             this.gunaTileButton4.Size = new System.Drawing.Size(160, 93);
             this.gunaTileButton4.TabIndex = 3;
-            this.gunaTileButton4.Text = "Detalles Personas";
+            this.gunaTileButton4.Text = "Entregas";
             this.gunaTileButton4.Click += new System.EventHandler(this.GunaTileButton4_Click);
             // 
             // gunaTileButton3

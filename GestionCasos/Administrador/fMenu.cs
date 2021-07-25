@@ -14,6 +14,7 @@ using Utilidades;
 using GestionCasos.Reportes;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using GestionCasos.Usuarios;
 
 namespace GestionCasos.Administrador
 {
@@ -43,6 +44,26 @@ namespace GestionCasos.Administrador
             this.panel1.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+
+        }
+
+        private void OpcionesPermitidas()
+        {
+            if (Rol == 0)
+            {
+                btnCasos.Visible = false;
+                btnCasos.Enabled = false;
+                btnReportes.Visible = false;
+                btnReportes.Enabled = false;
+                
+            }
+            else
+            {
+                btnCasos.Visible = true;
+                btnCasos.Enabled = true;
+                btnReportes.Visible = false;
+                btnReportes.Enabled = false;
+            }
         }
 
 
@@ -79,6 +100,7 @@ namespace GestionCasos.Administrador
                 btnReportes.BaseColor = Colors.Blue;
                 btnJuntas.BaseColor = Colors.Blue;
                 btnBackup.BaseColor = Colors.Blue;
+                btnEntregas.BaseColor = Colors.Blue;
 
                 btnContadores.OnHoverBaseColor = Colors.BlueHover;
                 btnCasos.OnHoverBaseColor = Colors.BlueHover;
@@ -86,6 +108,7 @@ namespace GestionCasos.Administrador
                 btnReportes.OnHoverBaseColor = Colors.BlueHover;
                 btnJuntas.OnHoverBaseColor = Colors.BlueHover;
                 btnBackup.OnHoverBaseColor = Colors.BlueHover;
+                btnEntregas.OnHoverBaseColor = Colors.BlueHover;
             }
             else
             {
@@ -146,6 +169,7 @@ namespace GestionCasos.Administrador
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
             OpenChildForm(new fLoader(1, hilo));
+            OpcionesPermitidas();
         }
 
 
@@ -179,7 +203,18 @@ namespace GestionCasos.Administrador
                 conexion.Close();
                 conexion.Dispose();
             }
+        }
 
+        private void btnEntregas_Click(object sender, EventArgs e)
+        {
+            if (Rol == 0)
+            {
+                OpenChildForm(new CasosAsignados(true));
+            }
+            else
+            {
+                OpenChildForm(new fCasosAdmin(true));
+            }
         }
     }
 }
