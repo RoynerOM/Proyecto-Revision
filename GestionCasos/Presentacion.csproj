@@ -236,7 +236,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="CasosFalsos.cs" />
     <Compile Include="Administrador\fDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,12 +302,6 @@
       <DependentUpon>fReporteEntrega.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Usuarios\AgregarComentario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuarios\AgregarComentario.Designer.cs">
-      <DependentUpon>AgregarComentario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Usuarios\CasosAsignados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,9 +391,6 @@
     <EmbeddedResource Include="Reportes\ReporteCasosAsignados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteContadores.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteJuntas.rdlc" />
-    <EmbeddedResource Include="Usuarios\AgregarComentario.resx">
-      <DependentUpon>AgregarComentario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\CasosAsignados.resx">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </EmbeddedResource>
