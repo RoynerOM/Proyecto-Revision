@@ -31,6 +31,7 @@ namespace GestionCasos.Administrador
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fContador));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDetalles = new Guna.UI.WinForms.GunaButton();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@ namespace GestionCasos.Administrador
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDetalles = new Guna.UI.WinForms.GunaButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,16 +84,43 @@ namespace GestionCasos.Administrador
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.MinimumSize = new System.Drawing.Size(750, 569);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1002, 569);
+            this.panel1.Size = new System.Drawing.Size(943, 569);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDetalles.AnimationHoverSpeed = 0.07F;
+            this.btnDetalles.AnimationSpeed = 0.03F;
+            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
+            this.btnDetalles.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
+            this.btnDetalles.BorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDetalles.FocusedColor = System.Drawing.Color.Empty;
+            this.btnDetalles.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
+            this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnDetalles.Location = new System.Drawing.Point(803, 418);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnDetalles.OnHoverImage = null;
+            this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
+            this.btnDetalles.Radius = 5;
+            this.btnDetalles.Size = new System.Drawing.Size(127, 42);
+            this.btnDetalles.TabIndex = 22;
+            this.btnDetalles.Text = "Detalles";
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
             // 
             // txtCorreo
             // 
             this.txtCorreo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(399, 430);
+            this.txtCorreo.Location = new System.Drawing.Point(375, 430);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(267, 30);
             this.txtCorreo.TabIndex = 21;
@@ -104,11 +131,11 @@ namespace GestionCasos.Administrador
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.label8.Location = new System.Drawing.Point(395, 404);
+            this.label8.Location = new System.Drawing.Point(371, 404);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(157, 23);
             this.label8.TabIndex = 20;
-            this.label8.Text = "Correo Electronico";
+            this.label8.Text = "Correo Electrónico";
             // 
             // label7
             // 
@@ -116,11 +143,11 @@ namespace GestionCasos.Administrador
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.label7.Location = new System.Drawing.Point(395, 197);
+            this.label7.Location = new System.Drawing.Point(371, 197);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 23);
+            this.label7.Size = new System.Drawing.Size(136, 23);
             this.label7.TabIndex = 19;
-            this.label7.Text = "Tipo de persona";
+            this.label7.Text = "Tipo de Usuario";
             // 
             // cbTipoPersona
             // 
@@ -138,7 +165,7 @@ namespace GestionCasos.Administrador
             this.cbTipoPersona.Items.AddRange(new object[] {
             "Nacional",
             "Dimex"});
-            this.cbTipoPersona.Location = new System.Drawing.Point(399, 223);
+            this.cbTipoPersona.Location = new System.Drawing.Point(375, 223);
             this.cbTipoPersona.Name = "cbTipoPersona";
             this.cbTipoPersona.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbTipoPersona.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -149,7 +176,7 @@ namespace GestionCasos.Administrador
             // 
             this.txtCarne.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCarne.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarne.Location = new System.Drawing.Point(58, 224);
+            this.txtCarne.Location = new System.Drawing.Point(34, 224);
             this.txtCarne.Name = "txtCarne";
             this.txtCarne.Size = new System.Drawing.Size(267, 30);
             this.txtCarne.TabIndex = 17;
@@ -160,11 +187,11 @@ namespace GestionCasos.Administrador
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.label6.Location = new System.Drawing.Point(54, 197);
+            this.label6.Location = new System.Drawing.Point(30, 197);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 23);
+            this.label6.Size = new System.Drawing.Size(63, 23);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Carne";
+            this.label6.Text = "Carnet";
             // 
             // label5
             // 
@@ -172,11 +199,11 @@ namespace GestionCasos.Administrador
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.label5.Location = new System.Drawing.Point(53, 101);
+            this.label5.Location = new System.Drawing.Point(29, 101);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 23);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Tipo de Cedula";
+            this.label5.Text = "Tipo de Cédula";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // cbTipo
@@ -195,7 +222,7 @@ namespace GestionCasos.Administrador
             this.cbTipo.Items.AddRange(new object[] {
             "Nacional",
             "Dimex"});
-            this.cbTipo.Location = new System.Drawing.Point(58, 127);
+            this.cbTipo.Location = new System.Drawing.Point(34, 127);
             this.cbTipo.Name = "cbTipo";
             this.cbTipo.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbTipo.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -217,7 +244,7 @@ namespace GestionCasos.Administrador
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnBuscar.Location = new System.Drawing.Point(863, 342);
+            this.btnBuscar.Location = new System.Drawing.Point(803, 342);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnBuscar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -244,7 +271,7 @@ namespace GestionCasos.Administrador
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnEliminar.Location = new System.Drawing.Point(863, 263);
+            this.btnEliminar.Location = new System.Drawing.Point(803, 263);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnEliminar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -271,7 +298,7 @@ namespace GestionCasos.Administrador
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnModificar.Location = new System.Drawing.Point(863, 188);
+            this.btnModificar.Location = new System.Drawing.Point(803, 188);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnModificar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -298,7 +325,7 @@ namespace GestionCasos.Administrador
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnGuardar.Location = new System.Drawing.Point(863, 116);
+            this.btnGuardar.Location = new System.Drawing.Point(803, 116);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnGuardar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -315,7 +342,7 @@ namespace GestionCasos.Administrador
             // 
             this.txtApellido2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtApellido2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido2.Location = new System.Drawing.Point(57, 430);
+            this.txtApellido2.Location = new System.Drawing.Point(33, 430);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(267, 30);
             this.txtApellido2.TabIndex = 9;
@@ -326,7 +353,7 @@ namespace GestionCasos.Administrador
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.label4.Location = new System.Drawing.Point(54, 404);
+            this.label4.Location = new System.Drawing.Point(30, 404);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(154, 23);
             this.label4.TabIndex = 8;
@@ -336,7 +363,7 @@ namespace GestionCasos.Administrador
             // 
             this.txtApellido1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtApellido1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido1.Location = new System.Drawing.Point(399, 326);
+            this.txtApellido1.Location = new System.Drawing.Point(375, 326);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(267, 30);
             this.txtApellido1.TabIndex = 7;
@@ -345,7 +372,7 @@ namespace GestionCasos.Administrador
             // 
             this.txtCedula.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedula.Location = new System.Drawing.Point(399, 128);
+            this.txtCedula.Location = new System.Drawing.Point(375, 128);
             this.txtCedula.Mask = "0-0000-0000";
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(267, 30);
@@ -355,7 +382,7 @@ namespace GestionCasos.Administrador
             // 
             this.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(58, 326);
+            this.txtNombre.Location = new System.Drawing.Point(34, 326);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(267, 30);
             this.txtNombre.TabIndex = 5;
@@ -366,7 +393,7 @@ namespace GestionCasos.Administrador
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.label3.Location = new System.Drawing.Point(395, 300);
+            this.label3.Location = new System.Drawing.Point(371, 300);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(137, 23);
             this.label3.TabIndex = 4;
@@ -378,7 +405,7 @@ namespace GestionCasos.Administrador
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.label2.Location = new System.Drawing.Point(53, 300);
+            this.label2.Location = new System.Drawing.Point(29, 300);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 23);
             this.label2.TabIndex = 2;
@@ -390,44 +417,17 @@ namespace GestionCasos.Administrador
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.label1.Location = new System.Drawing.Point(395, 101);
+            this.label1.Location = new System.Drawing.Point(371, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cedula";
-            // 
-            // btnDetalles
-            // 
-            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDetalles.AnimationHoverSpeed = 0.07F;
-            this.btnDetalles.AnimationSpeed = 0.03F;
-            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
-            this.btnDetalles.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
-            this.btnDetalles.BorderColor = System.Drawing.Color.Black;
-            this.btnDetalles.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnDetalles.FocusedColor = System.Drawing.Color.Empty;
-            this.btnDetalles.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalles.ForeColor = System.Drawing.Color.White;
-            this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
-            this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnDetalles.Location = new System.Drawing.Point(863, 418);
-            this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnDetalles.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnDetalles.OnHoverImage = null;
-            this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
-            this.btnDetalles.Radius = 5;
-            this.btnDetalles.Size = new System.Drawing.Size(127, 42);
-            this.btnDetalles.TabIndex = 22;
-            this.btnDetalles.Text = "Detalles";
-            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
+            this.label1.Text = "Cédula";
             // 
             // fContador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 569);
+            this.ClientSize = new System.Drawing.Size(943, 569);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

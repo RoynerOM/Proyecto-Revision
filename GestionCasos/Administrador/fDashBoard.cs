@@ -14,6 +14,8 @@ using Entidades;
 using GestionCasos.Administrador;
 using GestionCasos.Usuarios;
 using Negocios;
+using Utilidades.Enumerables;
+
 namespace GestionCasos
 {
     public partial class fDashBoard : Form
@@ -22,13 +24,13 @@ namespace GestionCasos
         RevisionNegocio revision = new RevisionNegocio();
         InstitucionNegocio institucion = new InstitucionNegocio();
         private Form activeForm;
-        private int Role = 0;
+        private int Rol = (int)Enums.Tipo.Tramitador;
         private string cedula = null;
         public fDashBoard(int Rol)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            Role = Rol;
+            this.Rol = Rol;
             cedula = File.ReadAllText("temp.txt");
             SetThemeColor();
         }
@@ -42,7 +44,7 @@ namespace GestionCasos
         {
             try
             {
-                if (Role == 1)
+                if (Rol == (int)Enums.Tipo.Contador)
                 {
                     var contadores = negocio.obtenerTrabador(0).Count();
                     label1.Text = contadores.ToString();
@@ -152,7 +154,7 @@ namespace GestionCasos
         private void GunaTileButton1_Click(object sender, EventArgs e)
         {
 
-            if (Role == 1)
+            if (Rol == (int)Enums.Tipo.Contador)
             {
                 OpenChildForm(new fCasosAdmin(false));
             }
@@ -184,7 +186,7 @@ namespace GestionCasos
 
         private void GunaTileButton4_Click(object sender, EventArgs e)
         {
-            if (Role == 1)
+            if (Rol == (int)Enums.Tipo.Contador)
             {
                 OpenChildForm(new fCasosAdmin(true));
             }
@@ -196,7 +198,7 @@ namespace GestionCasos
 
         private void GunaTileButton3_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fDetallesJuntas());
+            OpenChildForm(new fDetallesJuntas(Rol));
         }
     }
 }

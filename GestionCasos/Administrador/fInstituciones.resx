@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="gunaButton4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAABi1JREFUeF7t
         nVnMXVMUx7+2KTpoY4qgQtqah9IGNcYQPHkxhuKBSKkIpfHowZCaHkiERDw0hhA1PIihIkSIuYjShCDU
@@ -150,7 +150,7 @@
         u9jVcRzHcRxnWBkZ+RfHx9R0z65axAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="gunaButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnEliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAABHJJREFUeF7t
         3DluFFEQxnHvHIHFkMB54AxEFoj7ABl7xBJBQI5kySAkroAwZEgsAZmp6vl3a2boBttv8Yfr/aQnMd34
@@ -175,7 +175,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="gunaButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAABYBJREFUeF7t
         3EmoXEUUBuDnlGBAEV1ETDQqxgEcNnErbkVcKCLEEVy4F3UpGHQnmIXDIkQ3gvMA4oC6dKEbcZPggCPO
@@ -204,7 +204,7 @@
         cNj3IA4h5F34U4jbEfl/gDSXtbUjhfQ6+YrRo1oAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="gunaButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnGuardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAidJREFUaEPt
         2kFKBDEQheG5gIjgStG113HwLm69jwqCeBpXuhUF9QBjtf1biFid5E13mEA+yCa+epXG7ay6ruu6rttt

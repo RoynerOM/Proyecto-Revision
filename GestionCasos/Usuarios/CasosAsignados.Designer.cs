@@ -138,7 +138,7 @@ namespace GestionCasos.Usuarios
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(517, 33);
+            this.gunaLabel1.Location = new System.Drawing.Point(501, 35);
             this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(126, 20);
@@ -178,12 +178,12 @@ namespace GestionCasos.Usuarios
             this.cbEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(520, 67);
+            this.cbEstado.Location = new System.Drawing.Point(505, 67);
             this.cbEstado.Margin = new System.Windows.Forms.Padding(2);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbEstado.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbEstado.Size = new System.Drawing.Size(120, 26);
+            this.cbEstado.Size = new System.Drawing.Size(153, 26);
             this.cbEstado.TabIndex = 2;
             this.cbEstado.SelectionChangeCommitted += new System.EventHandler(this.cbEstado_SelectionChangeCommitted);
             // 
@@ -203,7 +203,7 @@ namespace GestionCasos.Usuarios
             this.tabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
@@ -277,7 +277,7 @@ namespace GestionCasos.Usuarios
             // Codigo
             // 
             this.Codigo.FillWeight = 10.34942F;
-            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.HeaderText = "Código";
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
@@ -286,7 +286,7 @@ namespace GestionCasos.Usuarios
             // Junta
             // 
             this.Junta.FillWeight = 40.2508F;
-            this.Junta.HeaderText = "Institucion/Junta";
+            this.Junta.HeaderText = "Junta";
             this.Junta.MinimumWidth = 6;
             this.Junta.Name = "Junta";
             this.Junta.ReadOnly = true;
@@ -304,7 +304,7 @@ namespace GestionCasos.Usuarios
             // Nombre
             // 
             this.Nombre.FillWeight = 20.34942F;
-            this.Nombre.HeaderText = "Recepcion";
+            this.Nombre.HeaderText = "Recepción";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
             this.Nombre.Width = 200;

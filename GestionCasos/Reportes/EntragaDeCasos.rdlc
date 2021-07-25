@@ -1747,7 +1747,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>BD_JuntasDataSet2</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\anner\Desktop\Proyecto Juntas\GestionCasos\BD_JuntasDataSet2.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\source\repos\Proyecto-Revision\GestionCasos\BD_JuntasDataSet2.xsd</rd:SchemaPath>
         <rd:TableName>EntregaDeCasos</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

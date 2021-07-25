@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Entidades;
 using Negocios;
 using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos.Administrador
 {
@@ -21,19 +22,20 @@ namespace GestionCasos.Administrador
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         InstitucionNegocio institucionNegocio = new InstitucionNegocio();
         ContadorNegocio persona = new ContadorNegocio();
-        List<t_Institucion> Instituciones = null;
+        IEnumerable<t_Institucion> Instituciones = null;
+        private int Rol = (int)Enums.Tipo.Tramitador;
 
-
-        public fDetallesJuntas()
+        public fDetallesJuntas(int Rol)
         {
             InitializeComponent();
+            this.Rol = Rol;
             SetThemeColor();
         }
 
 
         public void PedirDatos()
         {
-            Instituciones = (List<t_Institucion>)institucionNegocio.obtenerTodo(new t_Institucion());
+            Instituciones = institucionNegocio.obtenerTodo(new t_Institucion());
             CargarTabla(Instituciones);
         }
 
@@ -78,6 +80,17 @@ namespace GestionCasos.Administrador
             foreach (var item in lista)
             {
                 int nRows = tabla.Rows.Add();
+                tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                 tabla.Rows[nRows].Cells[0].Value = item.Codigo;
                 tabla.Rows[nRows].Cells[1].Value = item.Circuito;
                 tabla.Rows[nRows].Cells[2].Value = item.t_Tipo_Institucion.NombreTipo;
@@ -86,14 +99,31 @@ namespace GestionCasos.Administrador
                 tabla.Rows[nRows].Cells[5].Value = item.Cuenta_Danea;
                 tabla.Rows[nRows].Cells[6].Value = item.Cuenta_Ley;
                 tabla.Rows[nRows].Cells[7].Value = item.t_Persona.Nombre_Completo.ToUpper();
+               // tabla.Rows[nRows].Cells[7].Value = item.Contacto.ToUpper();
+                //tabla.Rows[nRows].Cells[9].Value = item.Telefono;
 
                 tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[7].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows[nRows].Cells[9].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+                tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[5].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[6].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[7].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[9].Style.Font = new Font((string)"Segoe UI Semibold", 9);
             }
         }
 
@@ -138,8 +168,6 @@ namespace GestionCasos.Administrador
         private void tabla_Resize(object sender, EventArgs e)
         {
             var Grid = (DataGridView)sender;
-
-
             var width = tabla.Width;
 
             if (width <= 1300)
@@ -222,7 +250,7 @@ namespace GestionCasos.Administrador
                 DatosTemp.t_Institucion = Instituciones.Where(x => x.Codigo == codigo).SingleOrDefault();
 
 
-                OpenChildForm(new fInstituciones());
+                OpenChildForm(new fInstituciones(Rol));
 
             }
         }

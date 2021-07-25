@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos.Administrador
 {
@@ -21,10 +22,12 @@ namespace GestionCasos.Administrador
         ContadorNegocio persona = new ContadorNegocio();
         List<t_Persona> Personas = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
+        private int Rol = (int)Enums.Tipo.Tramitador;
 
-        public fDetallesPersonas()
+        public fDetallesPersonas(int Rol)
         {
             InitializeComponent();
+            this.Rol = Rol;
             SetThemeColor();
         }
 
@@ -95,6 +98,11 @@ namespace GestionCasos.Administrador
             foreach (var item in lista)
             {
                 int nRows = tabla.Rows.Add();
+                tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                 tabla.Rows[nRows].Cells[0].Value = item.Cedula;
                 tabla.Rows[nRows].Cells[1].Value = item.TipoId == 0 ? "NACIONAL" : "DIMEX";
                 tabla.Rows[nRows].Cells[2].Value = item.Carnet;
@@ -105,6 +113,12 @@ namespace GestionCasos.Administrador
                 tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+
             }
         }
 
@@ -136,20 +150,14 @@ namespace GestionCasos.Administrador
         {
             var screenWidth = panel1.Width;
 
-            if (screenWidth >= 1200)
+            if (screenWidth >= 1000)
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             else
             {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
-        }
-
-
-        private void tabla_RegionChanged(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -177,6 +185,7 @@ namespace GestionCasos.Administrador
             CargarTabla(filtro);
         }
 
+
         private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -189,7 +198,7 @@ namespace GestionCasos.Administrador
                 DatosTemp.t_Persona = Personas.Where(x => x.Cedula == cedula).SingleOrDefault();
 
 
-                OpenChildForm(new fContador());
+                OpenChildForm(new fContador(Rol));
 
             }
         }

@@ -42,6 +42,7 @@ namespace GestionCasos.Administrador
             this.TipoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Carnet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre_Completo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
@@ -144,7 +145,7 @@ namespace GestionCasos.Administrador
             this.tabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
@@ -156,7 +157,8 @@ namespace GestionCasos.Administrador
             this.Cedula,
             this.TipoId,
             this.Carnet,
-            this.Nombre_Completo});
+            this.Nombre_Completo,
+            this.correo});
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.tabla.Location = new System.Drawing.Point(0, 119);
@@ -190,20 +192,19 @@ namespace GestionCasos.Administrador
             this.tabla.Size = new System.Drawing.Size(882, 442);
             this.tabla.TabIndex = 0;
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
-            this.tabla.RegionChanged += new System.EventHandler(this.tabla_RegionChanged);
             this.tabla.Resize += new System.EventHandler(this.tabla_Resize);
             // 
             // Cedula
             // 
             this.Cedula.FillWeight = 34.30288F;
-            this.Cedula.HeaderText = "Cedula";
+            this.Cedula.HeaderText = "Cédula";
             this.Cedula.Name = "Cedula";
             this.Cedula.ReadOnly = true;
             // 
             // TipoId
             // 
             this.TipoId.FillWeight = 12.09137F;
-            this.TipoId.HeaderText = "Tipo de Cedula";
+            this.TipoId.HeaderText = "Tipo de Cédula";
             this.TipoId.Name = "TipoId";
             this.TipoId.ReadOnly = true;
             // 
@@ -220,6 +221,13 @@ namespace GestionCasos.Administrador
             this.Nombre_Completo.HeaderText = "Nombre Completo";
             this.Nombre_Completo.Name = "Nombre_Completo";
             this.Nombre_Completo.ReadOnly = true;
+            // 
+            // correo
+            // 
+            this.correo.FillWeight = 34.30288F;
+            this.correo.HeaderText = "Correo";
+            this.correo.Name = "correo";
+            this.correo.ReadOnly = true;
             // 
             // fDetallesPersonas
             // 
@@ -249,5 +257,6 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carnet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Completo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn correo;
     }
 }

@@ -152,6 +152,7 @@ namespace GestionCasos
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.Load += new System.EventHandler(this.Principal_Load);
             this.pnLateralIzquierda.ResumeLayout(false);
             this.ResumeLayout(false);

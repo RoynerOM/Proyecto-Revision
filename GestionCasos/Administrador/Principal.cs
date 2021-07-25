@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos
 {
@@ -21,7 +22,7 @@ namespace GestionCasos
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private Button currentButton;
         private Form activeForm;
-        private int Rol = 0;
+        private int Rol = (int)Enums.Tipo.Tramitador;
         public Principal(int Rol)
         {
             InitializeComponent();
@@ -212,6 +213,12 @@ namespace GestionCasos
         private void button1_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new fOpcionesReportes(Rol), sender);
+        }
+
+        private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GC.Collect();
+            Application.ExitThread();
         }
     }
 

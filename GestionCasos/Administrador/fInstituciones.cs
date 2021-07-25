@@ -18,11 +18,28 @@ namespace GestionCasos.Administrador
         InstitucionNegocio negocio = new InstitucionNegocio();
         showMessageDialog message = new showMessageDialog();
         private Form activeForm;
-
-        public fInstituciones()
+        private int Rol = (int)Enums.Tipo.Tramitador;
+        public fInstituciones(int Rol)
         {
             InitializeComponent();
+            this.Rol = Rol;
             SetThemeColor();
+        }
+
+
+        private void FuncionesPermitidas()
+        {
+            //Usuario Tramitador
+            if (Rol == (int)Enums.Tipo.Tramitador)
+            {
+                btnModificar.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
+            else
+            {
+                btnModificar.Enabled = true;
+                btnEliminar.Enabled = true;
+            }
         }
 
 
@@ -32,7 +49,7 @@ namespace GestionCasos.Administrador
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-
+            FuncionesPermitidas();
             OpenChildForm(new fLoader(1, hilo));
             CargarCombos();
             CargarDatosForm();
@@ -101,7 +118,8 @@ namespace GestionCasos.Administrador
                 txtCedulaJuridica.Text = institucion.Cedula_Juridica;
                 txtCuentaDanea.Text = institucion.Cuenta_Danea;
                 txtCuentaLey.Text = institucion.Cuenta_Ley;
-
+                //txtContacto.Text = institucion.Contacto;
+                //txtTelefono.Text = institucion.Telefono;
                 cbCircuito.Text = institucion.Circuito.ToString();
                 cbContador.Text = institucion.t_Persona.Nombre_Completo;
                 cbTipo.Text = institucion.t_Tipo_Institucion.NombreTipo;
@@ -193,7 +211,8 @@ namespace GestionCasos.Administrador
                         institucion.Cedula_Juridica = txtCedulaJuridica.Text;
                         institucion.Circuito = (int)cbCircuito.SelectedValue;
                         institucion.Tipo = (int)cbTipo.SelectedValue;
-
+                        //institucion.Contacto = txtContacto.Text;
+                        //institucion.Telefono = txtTelefono.Text;
 
                         if (negocio.guardar(institucion) == true)
                         {
@@ -235,6 +254,8 @@ namespace GestionCasos.Administrador
                         cbTipo.Text = Enum.GetName(typeof(Enums.TipoEscuela), datosEncotrados.Tipo);
                         cbContador.Text = datosEncotrados.t_Persona.Nombre_Completo;
                         cbCircuito.Text = datosEncotrados.Circuito.ToString();
+                        //txtContacto.Text = datosEncotrados.Contacto;
+                        //txtTelefono.Text = datosEncotrados.Telefono;
                     }
                     else
                     {
@@ -344,15 +365,9 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void btnDetalles_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fDetallesJuntas());
-        }
-
-
         private void btnDetalles_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new fDetallesJuntas());
+            OpenChildForm(new fDetallesJuntas(Rol));
         }
     }
 }

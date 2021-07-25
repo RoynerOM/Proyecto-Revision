@@ -50,8 +50,8 @@ namespace GestionCasos
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Junta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Circuito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Recepcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre_Completo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comentario = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -228,7 +228,7 @@ namespace GestionCasos
             this.tabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
@@ -242,8 +242,8 @@ namespace GestionCasos
             this.Codigo,
             this.Junta,
             this.Circuito,
-            this.Recepcion,
-            this.Persona,
+            this.Nombre,
+            this.Nombre_Completo,
             this.Comentario,
             this.Estado});
             this.tabla.EnableHeadersVisualStyles = false;
@@ -303,7 +303,7 @@ namespace GestionCasos
             // Codigo
             // 
             this.Codigo.FillWeight = 10.34942F;
-            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.HeaderText = "Código";
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
@@ -312,7 +312,7 @@ namespace GestionCasos
             // Junta
             // 
             this.Junta.FillWeight = 40.2508F;
-            this.Junta.HeaderText = "Institucion/Junta";
+            this.Junta.HeaderText = "Junta";
             this.Junta.MinimumWidth = 6;
             this.Junta.Name = "Junta";
             this.Junta.ReadOnly = true;
@@ -327,23 +327,19 @@ namespace GestionCasos
             this.Circuito.ReadOnly = true;
             this.Circuito.Width = 60;
             // 
-            // Recepcion
+            // Nombre
             // 
-            this.Recepcion.FillWeight = 16.34942F;
-            this.Recepcion.HeaderText = "Recepcion";
-            this.Recepcion.MinimumWidth = 6;
-            this.Recepcion.Name = "Recepcion";
-            this.Recepcion.ReadOnly = true;
-            this.Recepcion.Width = 200;
+            this.Nombre.FillWeight = 20.96341F;
+            this.Nombre.HeaderText = "Recepción";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
-            // Persona
+            // Nombre_Completo
             // 
-            this.Persona.FillWeight = 35.2508F;
-            this.Persona.HeaderText = "Tramitador";
-            this.Persona.MinimumWidth = 6;
-            this.Persona.Name = "Persona";
-            this.Persona.ReadOnly = true;
-            this.Persona.Width = 250;
+            this.Nombre_Completo.FillWeight = 40.96341F;
+            this.Nombre_Completo.HeaderText = "Asignado a";
+            this.Nombre_Completo.Name = "Nombre_Completo";
+            this.Nombre_Completo.ReadOnly = true;
             // 
             // Comentario
             // 
@@ -407,16 +403,16 @@ namespace GestionCasos
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaComboBox cbTramitador;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
+        private Guna.UI.WinForms.GunaTextBox txtConsecutivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Caso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Junta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Circuito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Recepcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Persona;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Completo;
         private System.Windows.Forms.DataGridViewButtonColumn Comentario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private Guna.UI.WinForms.GunaLabel gunaLabel4;
-        private Guna.UI.WinForms.GunaTextBox txtConsecutivo;
     }
 }

@@ -48,6 +48,8 @@ namespace GestionCasos.Administrador
             this.Cuenta_Danea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cuenta_Ley = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
@@ -176,7 +178,7 @@ namespace GestionCasos.Administrador
             this.tabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
@@ -192,7 +194,9 @@ namespace GestionCasos.Administrador
             this.Cedula_Juridica,
             this.Cuenta_Danea,
             this.Cuenta_Ley,
-            this.Contador});
+            this.Contador,
+            this.Contacto,
+            this.Telefono});
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.tabla.Location = new System.Drawing.Point(0, 147);
@@ -232,14 +236,14 @@ namespace GestionCasos.Administrador
             // Codigo
             // 
             this.Codigo.FillWeight = 14.44133F;
-            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.HeaderText = "Código";
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
             this.Codigo.Width = 90;
             // 
             // Circuito
             // 
-            this.Circuito.FillWeight = 12.5583F;
+            this.Circuito.FillWeight = 10.5583F;
             this.Circuito.HeaderText = "Circuito";
             this.Circuito.Name = "Circuito";
             this.Circuito.ReadOnly = true;
@@ -263,15 +267,15 @@ namespace GestionCasos.Administrador
             // 
             // Cedula_Juridica
             // 
-            this.Cedula_Juridica.FillWeight = 25.5583F;
-            this.Cedula_Juridica.HeaderText = "Cedula Juridica";
+            this.Cedula_Juridica.FillWeight = 23.5583F;
+            this.Cedula_Juridica.HeaderText = "Codula Jurídica";
             this.Cedula_Juridica.Name = "Cedula_Juridica";
             this.Cedula_Juridica.ReadOnly = true;
             this.Cedula_Juridica.Width = 161;
             // 
             // Cuenta_Danea
             // 
-            this.Cuenta_Danea.FillWeight = 25.5583F;
+            this.Cuenta_Danea.FillWeight = 23.5583F;
             this.Cuenta_Danea.HeaderText = "Cuenta Danea";
             this.Cuenta_Danea.Name = "Cuenta_Danea";
             this.Cuenta_Danea.ReadOnly = true;
@@ -279,7 +283,7 @@ namespace GestionCasos.Administrador
             // 
             // Cuenta_Ley
             // 
-            this.Cuenta_Ley.FillWeight = 25.5583F;
+            this.Cuenta_Ley.FillWeight = 23.5583F;
             this.Cuenta_Ley.HeaderText = "Cuenta Ley";
             this.Cuenta_Ley.Name = "Cuenta_Ley";
             this.Cuenta_Ley.ReadOnly = true;
@@ -287,11 +291,25 @@ namespace GestionCasos.Administrador
             // 
             // Contador
             // 
-            this.Contador.FillWeight = 25.5583F;
+            this.Contador.FillWeight = 35.5583F;
             this.Contador.HeaderText = "Contador";
             this.Contador.Name = "Contador";
             this.Contador.ReadOnly = true;
             this.Contador.Width = 300;
+            // 
+            // Contacto
+            // 
+            this.Contacto.FillWeight = 30.5583F;
+            this.Contacto.HeaderText = "Contacto";
+            this.Contacto.Name = "Contacto";
+            this.Contacto.ReadOnly = true;
+            // 
+            // Telefono
+            // 
+            this.Telefono.FillWeight = 20.5583F;
+            this.Telefono.HeaderText = "Teléfono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
             // 
             // fDetallesJuntas
             // 
@@ -316,6 +334,11 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView tabla;
         private System.Windows.Forms.MaskedTextBox txtCedulaJuridica;
+        private Guna.UI.WinForms.GunaComboBox cbTramitador;
+        private Guna.UI.WinForms.GunaTextBox txtNombre;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
+        private Guna.UI.WinForms.GunaLabel gunaLabel3;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Circuito;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
@@ -324,10 +347,7 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta_Danea;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta_Ley;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contador;
-        private Guna.UI.WinForms.GunaComboBox cbTramitador;
-        private Guna.UI.WinForms.GunaTextBox txtNombre;
-        private Guna.UI.WinForms.GunaLabel gunaLabel4;
-        private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Contacto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
     }
 }

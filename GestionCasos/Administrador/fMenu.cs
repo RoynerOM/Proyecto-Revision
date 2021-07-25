@@ -15,22 +15,26 @@ using GestionCasos.Reportes;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using GestionCasos.Usuarios;
+using Utilidades.Enumerables;
 
 namespace GestionCasos.Administrador
 {
     public partial class fMenu : Form
     {
-        SqlConnection conexion = new SqlConnection(@"data source=.\SQLEXPRESS;initial catalog=BD_Juntas;integrated security=True;MultipleActiveResultSets=True;");
-
+        SqlConnection conexion = new SqlConnection(@"data source=LAPTOP-H55D7MQE\SQLEXPRESS;initial catalog=BD_Juntas;user id=roy;password=6514;MultipleActiveResultSets=True;");
+        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private Form activeForm;
-        private int Rol = 0;
+        private int Rol;
+
         public fMenu(int Rol)
         {
-            InitializeComponent();
             this.Rol = Rol;
+            InitializeComponent();
+           
             SetThemeColor();
 
         }
+
 
         private void OpenChildForm(Form childForm)
         {
@@ -47,9 +51,10 @@ namespace GestionCasos.Administrador
 
         }
 
+
         private void OpcionesPermitidas()
         {
-            if (Rol == 0)
+            if (Rol == 1)
             {
                 btnCasos.Visible = false;
                 btnCasos.Enabled = false;
@@ -69,13 +74,13 @@ namespace GestionCasos.Administrador
 
         private void gunaTileButton1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fContador());
+            OpenChildForm(new fContador(Rol));
         }
 
 
         private void btnContadores_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fInstituciones());
+            OpenChildForm(new fInstituciones(Rol));
         }
 
 
@@ -87,7 +92,7 @@ namespace GestionCasos.Administrador
 
         private void SetThemeColor()
         {
-            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+            if (isDark == "false")
             {
                 btnMode.Image = global::GestionCasos.Properties.Resources.sun_60px;
                 btnMode.Text = "Modo Claro";
@@ -205,9 +210,10 @@ namespace GestionCasos.Administrador
             }
         }
 
+
         private void btnEntregas_Click(object sender, EventArgs e)
         {
-            if (Rol == 0)
+            if (Rol == (int)Enums.Tipo.Tramitador)
             {
                 OpenChildForm(new CasosAsignados(true));
             }
