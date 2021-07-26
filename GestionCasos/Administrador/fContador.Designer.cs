@@ -31,6 +31,7 @@ namespace GestionCasos.Administrador
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fContador));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDetalles = new Guna.UI.WinForms.GunaButton();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@ namespace GestionCasos.Administrador
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDetalles = new Guna.UI.WinForms.GunaButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +89,33 @@ namespace GestionCasos.Administrador
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDetalles.AnimationHoverSpeed = 0.07F;
+            this.btnDetalles.AnimationSpeed = 0.03F;
+            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
+            this.btnDetalles.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
+            this.btnDetalles.BorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDetalles.FocusedColor = System.Drawing.Color.Empty;
+            this.btnDetalles.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
+            this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnDetalles.Location = new System.Drawing.Point(863, 418);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnDetalles.OnHoverImage = null;
+            this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
+            this.btnDetalles.Radius = 5;
+            this.btnDetalles.Size = new System.Drawing.Size(127, 42);
+            this.btnDetalles.TabIndex = 22;
+            this.btnDetalles.Text = "Detalles";
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
+            // 
             // txtCorreo
             // 
             this.txtCorreo.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -108,7 +135,7 @@ namespace GestionCasos.Administrador
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(157, 23);
             this.label8.TabIndex = 20;
-            this.label8.Text = "Correo Electronico";
+            this.label8.Text = "Correo Electrónico";
             // 
             // label7
             // 
@@ -162,9 +189,9 @@ namespace GestionCasos.Administrador
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.label6.Location = new System.Drawing.Point(54, 197);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 23);
+            this.label6.Size = new System.Drawing.Size(63, 23);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Carne";
+            this.label6.Text = "Carnet";
             // 
             // label5
             // 
@@ -176,7 +203,7 @@ namespace GestionCasos.Administrador
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 23);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Tipo de Cedula";
+            this.label5.Text = "Tipo de Cédula";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // cbTipo
@@ -394,34 +421,7 @@ namespace GestionCasos.Administrador
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cedula";
-            // 
-            // btnDetalles
-            // 
-            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDetalles.AnimationHoverSpeed = 0.07F;
-            this.btnDetalles.AnimationSpeed = 0.03F;
-            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
-            this.btnDetalles.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
-            this.btnDetalles.BorderColor = System.Drawing.Color.Black;
-            this.btnDetalles.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnDetalles.FocusedColor = System.Drawing.Color.Empty;
-            this.btnDetalles.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalles.ForeColor = System.Drawing.Color.White;
-            this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
-            this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnDetalles.Location = new System.Drawing.Point(863, 418);
-            this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnDetalles.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnDetalles.OnHoverImage = null;
-            this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
-            this.btnDetalles.Radius = 5;
-            this.btnDetalles.Size = new System.Drawing.Size(127, 42);
-            this.btnDetalles.TabIndex = 22;
-            this.btnDetalles.Text = "Detalles";
-            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
+            this.label1.Text = "Cédula";
             // 
             // fContador
             // 

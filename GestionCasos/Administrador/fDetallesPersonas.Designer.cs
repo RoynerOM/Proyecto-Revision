@@ -73,9 +73,9 @@ namespace GestionCasos.Administrador
             this.gunaLabel4.Location = new System.Drawing.Point(388, 31);
             this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(128, 20);
+            this.gunaLabel4.Size = new System.Drawing.Size(129, 20);
             this.gunaLabel4.TabIndex = 9;
-            this.gunaLabel4.Text = "Filtrar Por Cedula";
+            this.gunaLabel4.Text = "Filtrar por Cédula";
             // 
             // gunaLabel3
             // 
@@ -86,9 +86,9 @@ namespace GestionCasos.Administrador
             this.gunaLabel3.Location = new System.Drawing.Point(632, 31);
             this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(208, 20);
+            this.gunaLabel3.Size = new System.Drawing.Size(209, 20);
             this.gunaLabel3.TabIndex = 7;
-            this.gunaLabel3.Text = "Filtrar Por Nombre Completo";
+            this.gunaLabel3.Text = "Filtrar por Nombre Completo";
             // 
             // cbTramitador
             // 
@@ -196,14 +196,14 @@ namespace GestionCasos.Administrador
             // Cedula
             // 
             this.Cedula.FillWeight = 34.30288F;
-            this.Cedula.HeaderText = "Cedula";
+            this.Cedula.HeaderText = "Cédula";
             this.Cedula.Name = "Cedula";
             this.Cedula.ReadOnly = true;
             // 
             // TipoId
             // 
             this.TipoId.FillWeight = 12.09137F;
-            this.TipoId.HeaderText = "Tipo de Cedula";
+            this.TipoId.HeaderText = "Tipo de Cédula";
             this.TipoId.Name = "TipoId";
             this.TipoId.ReadOnly = true;
             // 

@@ -65,7 +65,7 @@ namespace GestionCasos
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(111, 90);
             this.btnMenu.TabIndex = 10;
-            this.btnMenu.Text = "Menu";
+            this.btnMenu.Text = "Menú";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.button1_Click);
@@ -103,7 +103,7 @@ namespace GestionCasos
             this.btnCerrarSecion.Name = "btnCerrarSecion";
             this.btnCerrarSecion.Size = new System.Drawing.Size(111, 87);
             this.btnCerrarSecion.TabIndex = 3;
-            this.btnCerrarSecion.Text = "Cerrar Seción";
+            this.btnCerrarSecion.Text = "Cerrar Sesión";
             this.btnCerrarSecion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCerrarSecion.UseVisualStyleBackColor = false;
             this.btnCerrarSecion.Click += new System.EventHandler(this.btnCerrarSecion_Click);

@@ -107,9 +107,9 @@ namespace GestionCasos.Administrador
             this.gunaLabel4.Location = new System.Drawing.Point(37, 32);
             this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(206, 20);
+            this.gunaLabel4.Size = new System.Drawing.Size(207, 20);
             this.gunaLabel4.TabIndex = 18;
-            this.gunaLabel4.Text = "Filtrar Por Institucion o Junta";
+            this.gunaLabel4.Text = "Filtrar por Institución ó Junta";
             // 
             // gunaLabel3
             // 
@@ -120,9 +120,9 @@ namespace GestionCasos.Administrador
             this.gunaLabel3.Location = new System.Drawing.Point(365, 32);
             this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(145, 20);
+            this.gunaLabel3.Size = new System.Drawing.Size(146, 20);
             this.gunaLabel3.TabIndex = 17;
-            this.gunaLabel3.Text = "Filtrar Por Contador";
+            this.gunaLabel3.Text = "Filtrar por Contador";
             // 
             // cbTramitador
             // 
@@ -156,9 +156,9 @@ namespace GestionCasos.Administrador
             this.gunaLabel1.Location = new System.Drawing.Point(683, 32);
             this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(128, 20);
+            this.gunaLabel1.Size = new System.Drawing.Size(129, 20);
             this.gunaLabel1.TabIndex = 14;
-            this.gunaLabel1.Text = "Filtrar Por Cedula";
+            this.gunaLabel1.Text = "Filtrar por Cédula";
             // 
             // tabla
             // 
@@ -264,7 +264,7 @@ namespace GestionCasos.Administrador
             // Cedula_Juridica
             // 
             this.Cedula_Juridica.FillWeight = 25.5583F;
-            this.Cedula_Juridica.HeaderText = "Cedula Juridica";
+            this.Cedula_Juridica.HeaderText = "Cedula Jurídica";
             this.Cedula_Juridica.Name = "Cedula_Juridica";
             this.Cedula_Juridica.ReadOnly = true;
             this.Cedula_Juridica.Width = 161;
@@ -272,7 +272,7 @@ namespace GestionCasos.Administrador
             // Cuenta_Danea
             // 
             this.Cuenta_Danea.FillWeight = 25.5583F;
-            this.Cuenta_Danea.HeaderText = "Cuenta Danea";
+            this.Cuenta_Danea.HeaderText = "Cuenta Danae";
             this.Cuenta_Danea.Name = "Cuenta_Danea";
             this.Cuenta_Danea.ReadOnly = true;
             this.Cuenta_Danea.Width = 162;
@@ -316,6 +316,11 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView tabla;
         private System.Windows.Forms.MaskedTextBox txtCedulaJuridica;
+        private Guna.UI.WinForms.GunaComboBox cbTramitador;
+        private Guna.UI.WinForms.GunaTextBox txtNombre;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
+        private Guna.UI.WinForms.GunaLabel gunaLabel3;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Circuito;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
@@ -324,10 +329,5 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta_Danea;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta_Ley;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contador;
-        private Guna.UI.WinForms.GunaComboBox cbTramitador;
-        private Guna.UI.WinForms.GunaTextBox txtNombre;
-        private Guna.UI.WinForms.GunaLabel gunaLabel4;
-        private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
     }
 }

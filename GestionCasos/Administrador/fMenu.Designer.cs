@@ -119,7 +119,7 @@ namespace GestionCasos.Administrador
             this.btnJuntas.Radius = 10;
             this.btnJuntas.Size = new System.Drawing.Size(241, 142);
             this.btnJuntas.TabIndex = 7;
-            this.btnJuntas.Text = "Instituciones o Juntas";
+            this.btnJuntas.Text = "Juntas";
             this.btnJuntas.Click += new System.EventHandler(this.btnContadores_Click);
             // 
             // btnCasos
@@ -146,7 +146,7 @@ namespace GestionCasos.Administrador
             this.btnCasos.Radius = 10;
             this.btnCasos.Size = new System.Drawing.Size(241, 142);
             this.btnCasos.TabIndex = 9;
-            this.btnCasos.Text = "Asignacion de Casos";
+            this.btnCasos.Text = "Asignación de Casos";
             this.btnCasos.Click += new System.EventHandler(this.gunaTileButton2_Click);
             // 
             // btnReportes

@@ -221,6 +221,11 @@
     <Compile Include="Alertas\Alerta.Designer.cs">
       <DependentUpon>Alerta.cs</DependentUpon>
     </Compile>
+    <Compile Include="BD_JuntasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BD_JuntasDataSet11.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -230,11 +235,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_JuntasDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BD_JuntasDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="CasosFalsos.cs" />
     <Compile Include="Administrador\fDashBoard.cs">
@@ -256,6 +256,24 @@
     <Compile Include="Administrador\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteCasosAsignados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteCasosAsignados.Designer.cs">
+      <DependentUpon>ReporteCasosAsignados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteEntregaDeCasos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteEntregaDeCasos.Designer.cs">
+      <DependentUpon>ReporteEntregaDeCasos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\fReporteEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\fReporteEntrega.designer.cs">
+      <DependentUpon>fReporteEntrega.cs</DependentUpon>
+    </Compile>
     <Compile Include="Procesos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -266,23 +284,11 @@
       <DependentUpon>fCasosAdmin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteAsignarCasos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteAsignarCasos.Designer.cs">
-      <DependentUpon>ReporteAsignarCasos.cs</DependentUpon>
-    </Compile>
     <Compile Include="ReporteContadores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReporteContadores.Designer.cs">
       <DependentUpon>ReporteContadores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReporteEntregaDeCasos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteEntregaDeCasos.designer.cs">
-      <DependentUpon>ReporteEntregaDeCasos.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteJuntas.cs">
       <SubType>Form</SubType>
@@ -295,12 +301,6 @@
     </Compile>
     <Compile Include="Reportes\fOpcionesReportes.Designer.cs">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\fReporteEntrega.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\fReporteEntrega.Designer.cs">
-      <DependentUpon>fReporteEntrega.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Usuarios\AgregarComentario.cs">
@@ -363,6 +363,15 @@
     <EmbeddedResource Include="Administrador\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCasosAsignados.resx">
+      <DependentUpon>ReporteCasosAsignados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteEntregaDeCasos.resx">
+      <DependentUpon>ReporteEntregaDeCasos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\fReporteEntrega.resx">
+      <DependentUpon>fReporteEntrega.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -376,14 +385,8 @@
     <EmbeddedResource Include="Administrador\fCasosAdmin.resx">
       <DependentUpon>fCasosAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteAsignarCasos.resx">
-      <DependentUpon>ReporteAsignarCasos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReporteContadores.resx">
       <DependentUpon>ReporteContadores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteEntregaDeCasos.resx">
-      <DependentUpon>ReporteEntregaDeCasos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteJuntas.resx">
       <DependentUpon>ReporteJuntas.cs</DependentUpon>
@@ -391,9 +394,6 @@
     <EmbeddedResource Include="Reportes\EntragaDeCasos.rdlc" />
     <EmbeddedResource Include="Reportes\fOpcionesReportes.resx">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\fReporteEntrega.resx">
-      <DependentUpon>fReporteEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteCasosAsignados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteContadores.rdlc" />
@@ -412,7 +412,7 @@
     </None>
     <None Include="BD_JuntasDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet3.Designer.cs</LastGenOutput>
+      <LastGenOutput>BD_JuntasDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="BD_JuntasDataSet.xss">

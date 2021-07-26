@@ -357,9 +357,9 @@ namespace GestionCasos
             this.lblRevisados.ForeColor = System.Drawing.Color.White;
             this.lblRevisados.Location = new System.Drawing.Point(20, 63);
             this.lblRevisados.Name = "lblRevisados";
-            this.lblRevisados.Size = new System.Drawing.Size(172, 30);
+            this.lblRevisados.Size = new System.Drawing.Size(174, 30);
             this.lblRevisados.TabIndex = 7;
-            this.lblRevisados.Text = "Casos tramitados";
+            this.lblRevisados.Text = "Casos Tramitados";
             // 
             // lblTotalRevisados
             // 

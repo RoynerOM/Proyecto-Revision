@@ -82,6 +82,7 @@
           <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Apellido2" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nombre_Completo" Type="varchar" MaxLength="152" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Correo" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="t_Recepcion">
           <Key>
@@ -122,6 +123,7 @@
           </Key>
           <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Tipo" Type="int" />
+          <Property Name="Estado" Type="bit" />
         </EntityType>
         <EntityType Name="t_Usuario">
           <Key>
@@ -561,6 +563,7 @@
           <NavigationProperty Name="t_Revision" Relationship="BD_JuntasModel.FK__t_Revisio__Trami__2610A626" FromRole="t_Persona" ToRole="t_Revision" />
           <NavigationProperty Name="t_Usuario" Relationship="BD_JuntasModel.FK__t_Usuario__Cedul__3A81B327" FromRole="t_Persona" ToRole="t_Usuario" />
           <NavigationProperty Name="t_Trabajador" Relationship="BD_JuntasModel.FK_t_Trabajador_t_Persona" FromRole="t_Persona" ToRole="t_Trabajador" />
+          <Property Name="Correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="t_Recepcion">
           <Key>
@@ -611,6 +614,7 @@
           <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="Tipo" Type="Int32" />
           <NavigationProperty Name="t_Persona" Relationship="BD_JuntasModel.FK_t_Trabajador_t_Persona" FromRole="t_Trabajador" ToRole="t_Persona" />
+          <Property Name="Estado" Type="Boolean" />
         </EntityType>
         <EntityType Name="t_Usuario">
           <Key>
@@ -884,6 +888,7 @@
           <EntitySetMapping Name="t_Persona">
             <EntityTypeMapping TypeName="BD_JuntasModel.t_Persona">
               <MappingFragment StoreEntitySet="t_Persona">
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre_Completo" />
                 <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
                 <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
@@ -933,6 +938,7 @@
           <EntitySetMapping Name="t_Trabajador">
             <EntityTypeMapping TypeName="BD_JuntasModel.t_Trabajador">
               <MappingFragment StoreEntitySet="t_Trabajador">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
               </MappingFragment>

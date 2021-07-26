@@ -31,6 +31,7 @@ namespace GestionCasos.Administrador
         {
             this.components = new System.ComponentModel.Container();
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.txtConsecutivo = new Guna.UI.WinForms.GunaTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbEntrega = new Guna.UI.WinForms.GunaComboBox();
@@ -53,7 +54,6 @@ namespace GestionCasos.Administrador
             this.label1 = new System.Windows.Forms.Label();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.lblFecha = new System.Windows.Forms.Label();
             this.gunaLinePanel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,18 @@ namespace GestionCasos.Administrador
             this.gunaLinePanel1.Name = "gunaLinePanel1";
             this.gunaLinePanel1.Size = new System.Drawing.Size(800, 600);
             this.gunaLinePanel1.TabIndex = 0;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(81)))), ((int)(((byte)(73)))));
+            this.lblFecha.Location = new System.Drawing.Point(87, 482);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(128, 20);
+            this.lblFecha.TabIndex = 31;
+            this.lblFecha.Text = "Fecha de Entrega";
             // 
             // txtConsecutivo
             // 
@@ -212,7 +224,7 @@ namespace GestionCasos.Administrador
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 23);
             this.label5.TabIndex = 25;
-            this.label5.Text = "Tipo de Cedula";
+            this.label5.Text = "Tipo de Cédula";
             // 
             // cbTipo
             // 
@@ -322,7 +334,7 @@ namespace GestionCasos.Administrador
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 23);
             this.label7.TabIndex = 16;
-            this.label7.Text = "Cedula";
+            this.label7.Text = "Cédula";
             // 
             // guna2GroupBox1
             // 
@@ -387,9 +399,9 @@ namespace GestionCasos.Administrador
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.label2.Location = new System.Drawing.Point(445, 253);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 23);
+            this.label2.Size = new System.Drawing.Size(138, 23);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Tipo De Entrega";
+            this.label2.Text = "Tipo de Entrega";
             // 
             // label1
             // 
@@ -421,18 +433,6 @@ namespace GestionCasos.Administrador
             // gunaDragControl1
             // 
             this.gunaDragControl1.TargetControl = this.gunaLinePanel1;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(81)))), ((int)(((byte)(73)))));
-            this.lblFecha.Location = new System.Drawing.Point(87, 482);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(128, 20);
-            this.lblFecha.TabIndex = 31;
-            this.lblFecha.Text = "Fecha de Entrega";
             // 
             // fEntrega
             // 

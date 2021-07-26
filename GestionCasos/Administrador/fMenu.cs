@@ -167,11 +167,10 @@ namespace GestionCasos.Administrador
             {
                 conexion.Open();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("La copia de la base de datos due creada");
+                MessageBox.Show("La copia de la base de datos fue creada");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se creo la base de datos porque eres un inutil");
                 MessageBox.Show(ex.Message);
             }
             finally

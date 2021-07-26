@@ -31,18 +31,27 @@ namespace GestionCasos
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.BD_JuntasDataSet2 = new GestionCasos.BD_JuntasDataSet2();
             this.EntregaDeCasosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BD_JuntasDataSet2 = new GestionCasos.BD_JuntasDataSet2();
             this.EntregaDeCasosTableAdapter = new GestionCasos.BD_JuntasDataSet2TableAdapters.EntregaDeCasosTableAdapter();
-            this.BD_JuntasDataSet = new GestionCasos.BD_JuntasDataSet();
-            this.CasosAsignadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.CasosAsignadosTableAdapter = new GestionCasos.BD_JuntasDataSetTableAdapters.CasosAsignadosTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet2)).BeginInit();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.EntregaDeCasosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CasosAsignadosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // EntregaDeCasosBindingSource
+            // 
+            this.EntregaDeCasosBindingSource.DataMember = "EntregaDeCasos";
+            this.EntregaDeCasosBindingSource.DataSource = this.BD_JuntasDataSet2;
+            // 
+            // BD_JuntasDataSet2
+            // 
+            this.BD_JuntasDataSet2.DataSetName = "BD_JuntasDataSet2";
+            this.BD_JuntasDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // EntregaDeCasosTableAdapter
+            // 
+            this.EntregaDeCasosTableAdapter.ClearBeforeFill = true;
             // 
             // reportViewer1
             // 
@@ -55,35 +64,7 @@ namespace GestionCasos
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.reportViewer1.TabIndex = 1;
-            // 
-            // BD_JuntasDataSet2
-            // 
-            this.BD_JuntasDataSet2.DataSetName = "BD_JuntasDataSet2";
-            this.BD_JuntasDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // EntregaDeCasosBindingSource
-            // 
-            this.EntregaDeCasosBindingSource.DataMember = "EntregaDeCasos";
-            this.EntregaDeCasosBindingSource.DataSource = this.BD_JuntasDataSet2;
-            // 
-            // EntregaDeCasosTableAdapter
-            // 
-            this.EntregaDeCasosTableAdapter.ClearBeforeFill = true;
-            // 
-            // BD_JuntasDataSet
-            // 
-            this.BD_JuntasDataSet.DataSetName = "BD_JuntasDataSet";
-            this.BD_JuntasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // CasosAsignadosBindingSource
-            // 
-            this.CasosAsignadosBindingSource.DataMember = "CasosAsignados";
-            this.CasosAsignadosBindingSource.DataSource = this.BD_JuntasDataSet;
-            // 
-            // CasosAsignadosTableAdapter
-            // 
-            this.CasosAsignadosTableAdapter.ClearBeforeFill = true;
+            this.reportViewer1.TabIndex = 0;
             // 
             // ReporteEntregaDeCasos
             // 
@@ -94,22 +75,16 @@ namespace GestionCasos
             this.Name = "ReporteEntregaDeCasos";
             this.Text = "ReporteEntregaDeCasos";
             this.Load += new System.EventHandler(this.ReporteEntregaDeCasos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EntregaDeCasosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CasosAsignadosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource EntregaDeCasosBindingSource;
         private BD_JuntasDataSet2 BD_JuntasDataSet2;
         private BD_JuntasDataSet2TableAdapters.EntregaDeCasosTableAdapter EntregaDeCasosTableAdapter;
-        private System.Windows.Forms.BindingSource CasosAsignadosBindingSource;
-        private BD_JuntasDataSet BD_JuntasDataSet;
-        private BD_JuntasDataSetTableAdapters.CasosAsignadosTableAdapter CasosAsignadosTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

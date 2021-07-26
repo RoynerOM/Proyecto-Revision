@@ -31,6 +31,7 @@ namespace GestionCasos.Administrador
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInstituciones));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDetalles = new Guna.UI.WinForms.GunaButton();
             this.gunaButton4 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
@@ -45,13 +46,12 @@ namespace GestionCasos.Administrador
             this.label5 = new System.Windows.Forms.Label();
             this.txtInstitucion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cbCircuito = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDetalles = new Guna.UI.WinForms.GunaButton();
-            this.cbTipo = new System.Windows.Forms.ComboBox();
-            this.cbCircuito = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,33 @@ namespace GestionCasos.Administrador
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(738, 537);
             this.panel1.TabIndex = 0;
+            // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDetalles.AnimationHoverSpeed = 0.07F;
+            this.btnDetalles.AnimationSpeed = 0.03F;
+            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
+            this.btnDetalles.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
+            this.btnDetalles.BorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDetalles.FocusedColor = System.Drawing.Color.Empty;
+            this.btnDetalles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
+            this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnDetalles.Location = new System.Drawing.Point(566, 385);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnDetalles.OnHoverImage = null;
+            this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
+            this.btnDetalles.Radius = 5;
+            this.btnDetalles.Size = new System.Drawing.Size(138, 42);
+            this.btnDetalles.TabIndex = 23;
+            this.btnDetalles.Text = "Detalles";
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click_1);
             // 
             // gunaButton4
             // 
@@ -236,7 +263,7 @@ namespace GestionCasos.Administrador
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 23);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Cuenta Danea";
+            this.label7.Text = "Cuenta Danae";
             // 
             // txtCedulaJuridica
             // 
@@ -270,7 +297,7 @@ namespace GestionCasos.Administrador
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 23);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Cedula Juridica";
+            this.label6.Text = "Cédula Jurídica";
             // 
             // label5
             // 
@@ -303,7 +330,21 @@ namespace GestionCasos.Administrador
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Institucion";
+            this.label4.Text = "Institución";
+            // 
+            // cbTipo
+            // 
+            this.cbTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipo.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Items.AddRange(new object[] {
+            "Escuela",
+            "Colegio"});
+            this.cbTipo.Location = new System.Drawing.Point(280, 256);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(188, 31);
+            this.cbTipo.TabIndex = 5;
             // 
             // label3
             // 
@@ -316,6 +357,26 @@ namespace GestionCasos.Administrador
             this.label3.Size = new System.Drawing.Size(46, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tipo";
+            // 
+            // cbCircuito
+            // 
+            this.cbCircuito.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCircuito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCircuito.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCircuito.FormattingEnabled = true;
+            this.cbCircuito.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.cbCircuito.Location = new System.Drawing.Point(276, 72);
+            this.cbCircuito.Name = "cbCircuito";
+            this.cbCircuito.Size = new System.Drawing.Size(193, 31);
+            this.cbCircuito.TabIndex = 3;
             // 
             // label2
             // 
@@ -348,68 +409,7 @@ namespace GestionCasos.Administrador
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo";
-            // 
-            // btnDetalles
-            // 
-            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDetalles.AnimationHoverSpeed = 0.07F;
-            this.btnDetalles.AnimationSpeed = 0.03F;
-            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
-            this.btnDetalles.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
-            this.btnDetalles.BorderColor = System.Drawing.Color.Black;
-            this.btnDetalles.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnDetalles.FocusedColor = System.Drawing.Color.Empty;
-            this.btnDetalles.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalles.ForeColor = System.Drawing.Color.White;
-            this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
-            this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnDetalles.Location = new System.Drawing.Point(566, 385);
-            this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnDetalles.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnDetalles.OnHoverImage = null;
-            this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
-            this.btnDetalles.Radius = 5;
-            this.btnDetalles.Size = new System.Drawing.Size(138, 42);
-            this.btnDetalles.TabIndex = 23;
-            this.btnDetalles.Text = "Detalles";
-            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click_1);
-            // 
-            // cbTipo
-            // 
-            this.cbTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTipo.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTipo.FormattingEnabled = true;
-            this.cbTipo.Items.AddRange(new object[] {
-            "Escuela",
-            "Colegio"});
-            this.cbTipo.Location = new System.Drawing.Point(280, 256);
-            this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(188, 31);
-            this.cbTipo.TabIndex = 5;
-            // 
-            // cbCircuito
-            // 
-            this.cbCircuito.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbCircuito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCircuito.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCircuito.FormattingEnabled = true;
-            this.cbCircuito.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8"});
-            this.cbCircuito.Location = new System.Drawing.Point(276, 72);
-            this.cbCircuito.Name = "cbCircuito";
-            this.cbCircuito.Size = new System.Drawing.Size(193, 31);
-            this.cbCircuito.TabIndex = 3;
+            this.label1.Text = "Código";
             // 
             // fInstituciones
             // 

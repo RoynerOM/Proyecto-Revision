@@ -49,12 +49,24 @@ namespace GestionCasos
 
         private void Registrar_Load(object sender, EventArgs e)
         {
-
+            cbIdentificacion.SelectedIndex = 0;
         }
 
         private void btnCerrarR_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbIdentificacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbIdentificacion.SelectedIndex == 0)
+            {
+                txtCedula.Mask = "0-0000-0000";
+            }
+            else
+            {
+                txtCedula.Mask = "000000000000";
+            }
         }
     }
 }
