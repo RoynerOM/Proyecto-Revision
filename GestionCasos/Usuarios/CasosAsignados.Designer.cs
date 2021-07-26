@@ -294,7 +294,7 @@ namespace GestionCasos.Usuarios
             // 
             // Circuito
             // 
-            this.Circuito.FillWeight = 9.96341F;
+            this.Circuito.FillWeight = 10.96341F;
             this.Circuito.HeaderText = "Circuito";
             this.Circuito.MinimumWidth = 10;
             this.Circuito.Name = "Circuito";
@@ -311,7 +311,7 @@ namespace GestionCasos.Usuarios
             // 
             // Tramitador
             // 
-            this.Tramitador.FillWeight = 27.34942F;
+            this.Tramitador.FillWeight = 40.34942F;
             this.Tramitador.HeaderText = "Asignado a";
             this.Tramitador.Name = "Tramitador";
             this.Tramitador.ReadOnly = true;

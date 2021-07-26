@@ -187,6 +187,7 @@ namespace GestionCasos.Administrador
         {
             try
             {
+                var contador = new t_Persona();
                 if (txtCedula.Text != string.Empty)
                 {
                     contador.Cedula = txtCedula.Text.Trim();
@@ -432,6 +433,43 @@ namespace GestionCasos.Administrador
         private void btnDetalles_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fDetallesPersonas(Rol));
+        }
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                try
+                {
+                    var contador = new t_Persona();
+                    if (txtCedula.Text != string.Empty)
+                    {
+                        contador.Cedula = txtCedula.Text.Trim();
+                        var datosEncotrados = negocio.obtenerPorId(contador);
+                        if (datosEncotrados != null)
+                        {
+                            txtNombre.Text = datosEncotrados.Nombre;
+                            txtApellido1.Text = datosEncotrados.Apellido1;
+                            txtApellido2.Text = datosEncotrados.Apellido2;
+                            txtCarne.Text = datosEncotrados.Carnet;
+                            cbTipo.SelectedIndex = (int)datosEncotrados.TipoId;
+                        }
+                        else
+                        {
+                            Message.Danger(new Alertas.Alerta(), "No se encontro el contador, por favor ingrese una cedula valida");
+                        }
+                    }
+                    else
+                    {
+                        Message.Warning(new Alertas.Alerta(), "Debe de ingresar una cedula antes de buscar un contador");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //En caso de que ocurra  un error en el programa se lanza la excepcion  y que no se rompa la ejecucion
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
     }
 }

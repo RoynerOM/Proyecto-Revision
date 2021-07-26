@@ -494,6 +494,9 @@
     <None Include="Resources\more_than_100px.png" />
     <None Include="Resources\less_than_100px.png" />
     <None Include="Resources\data_backup_60px.png" />
+    <None Include="Resources\left_60px.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\delete_100px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

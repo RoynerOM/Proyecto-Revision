@@ -377,6 +377,7 @@ namespace GestionCasos.Administrador
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(267, 30);
             this.txtCedula.TabIndex = 6;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtNombre
             // 

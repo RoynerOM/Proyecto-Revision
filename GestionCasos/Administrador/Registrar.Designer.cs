@@ -30,7 +30,6 @@ namespace GestionCasos
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCerrarR = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegistrar = new Guna.UI.WinForms.GunaButton();
@@ -38,6 +37,7 @@ namespace GestionCasos
             this.txtCedula = new Guna.UI.WinForms.GunaTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCerrarR = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarR)).BeginInit();
             this.SuspendLayout();
@@ -59,18 +59,6 @@ namespace GestionCasos
             this.panel3.Size = new System.Drawing.Size(329, 389);
             this.panel3.TabIndex = 4;
             // 
-            // btnCerrarR
-            // 
-            this.btnCerrarR.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarR.Image = global::GestionCasos.Properties.Resources.close;
-            this.btnCerrarR.Location = new System.Drawing.Point(300, 3);
-            this.btnCerrarR.Name = "btnCerrarR";
-            this.btnCerrarR.Size = new System.Drawing.Size(26, 28);
-            this.btnCerrarR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrarR.TabIndex = 20;
-            this.btnCerrarR.TabStop = false;
-            this.btnCerrarR.Click += new System.EventHandler(this.btnCerrarR_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
@@ -87,7 +75,7 @@ namespace GestionCasos
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 18F);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(32, 41);
+            this.label3.Location = new System.Drawing.Point(26, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 27);
             this.label3.TabIndex = 17;
@@ -108,7 +96,7 @@ namespace GestionCasos
             this.btnRegistrar.Image = null;
             this.btnRegistrar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnRegistrar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnRegistrar.Location = new System.Drawing.Point(103, 304);
+            this.btnRegistrar.Location = new System.Drawing.Point(89, 304);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
             this.btnRegistrar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -116,7 +104,7 @@ namespace GestionCasos
             this.btnRegistrar.OnHoverImage = null;
             this.btnRegistrar.OnPressedColor = System.Drawing.Color.Black;
             this.btnRegistrar.Radius = 20;
-            this.btnRegistrar.Size = new System.Drawing.Size(118, 40);
+            this.btnRegistrar.Size = new System.Drawing.Size(149, 40);
             this.btnRegistrar.TabIndex = 16;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -154,7 +142,7 @@ namespace GestionCasos
             this.txtCedula.FocusedForeColor = System.Drawing.Color.Empty;
             this.txtCedula.Font = new System.Drawing.Font("Arial", 9F);
             this.txtCedula.ForeColor = System.Drawing.Color.Black;
-            this.txtCedula.Location = new System.Drawing.Point(31, 141);
+            this.txtCedula.Location = new System.Drawing.Point(31, 137);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.PasswordChar = '\0';
             this.txtCedula.Radius = 5;
@@ -167,7 +155,7 @@ namespace GestionCasos
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 13F);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(27, 206);
+            this.label2.Location = new System.Drawing.Point(33, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 21);
             this.label2.TabIndex = 1;
@@ -178,11 +166,23 @@ namespace GestionCasos
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 13F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(33, 120);
+            this.label1.Location = new System.Drawing.Point(33, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cedula";
+            this.label1.Text = "Cédula";
+            // 
+            // btnCerrarR
+            // 
+            this.btnCerrarR.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrarR.Image = global::GestionCasos.Properties.Resources.back;
+            this.btnCerrarR.Location = new System.Drawing.Point(278, 3);
+            this.btnCerrarR.Name = "btnCerrarR";
+            this.btnCerrarR.Size = new System.Drawing.Size(48, 31);
+            this.btnCerrarR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrarR.TabIndex = 20;
+            this.btnCerrarR.TabStop = false;
+            this.btnCerrarR.Click += new System.EventHandler(this.btnCerrarR_Click);
             // 
             // Registrar
             // 

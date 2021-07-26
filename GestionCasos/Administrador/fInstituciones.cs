@@ -12,13 +12,14 @@ namespace GestionCasos.Administrador
 {
     public partial class fInstituciones : Form
     {
+        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         t_Institucion institucion = new t_Institucion();
         ContadorNegocio persona = new ContadorNegocio();
         DireccionRegionalNegocio regional = new DireccionRegionalNegocio();
         InstitucionNegocio negocio = new InstitucionNegocio();
         showMessageDialog message = new showMessageDialog();
         private Form activeForm;
-        private int Rol = (int)Enums.Tipo.Tramitador;
+        private int Rol;
         public fInstituciones(int Rol)
         {
             InitializeComponent();
@@ -85,7 +86,7 @@ namespace GestionCasos.Administrador
         //Cambio de color
         private void SetThemeColor()
         {
-            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+            if (isDark == "false")
             {
 
                 this.panel1.BackColor = Color.White;
@@ -99,6 +100,8 @@ namespace GestionCasos.Administrador
                 label6.ForeColor = Colors.Black;
                 label7.ForeColor = Colors.Black;
                 label8.ForeColor = Colors.Black;
+                label9.ForeColor = Colors.Black;
+                label10.ForeColor = Colors.Black;
 
             }
             else
@@ -128,14 +131,33 @@ namespace GestionCasos.Administrador
 
         void labelColorChnage()
         {
-            label1.ForeColor = Colors.Black;
-            label2.ForeColor = Colors.Black;
-            label3.ForeColor = Colors.Black;
-            label4.ForeColor = Colors.Black;
-            label5.ForeColor = Colors.Black;
-            label6.ForeColor = Colors.Black;
-            label7.ForeColor = Colors.Black;
-            label8.ForeColor = Colors.Black;
+            if (isDark == "false")
+            {
+                label1.ForeColor = Colors.Black;
+                label2.ForeColor = Colors.Black;
+                label3.ForeColor = Colors.Black;
+                label4.ForeColor = Colors.Black;
+                label5.ForeColor = Colors.Black;
+                label6.ForeColor = Colors.Black;
+                label7.ForeColor = Colors.Black;
+                label8.ForeColor = Colors.Black;
+                label9.ForeColor = Colors.Black;
+                label10.ForeColor = Colors.Black;
+            }
+            else
+            {
+                label1.ForeColor = Colors.White;
+                label2.ForeColor = Colors.White;
+                label3.ForeColor = Colors.White;
+                label4.ForeColor = Colors.White;
+                label5.ForeColor = Colors.White;
+                label6.ForeColor = Colors.White;
+                label7.ForeColor = Colors.White;
+                label8.ForeColor = Colors.White;
+                label9.ForeColor = Colors.White;
+                label10.ForeColor = Colors.White;
+            }
+
 
             if (txtCodigo.Text == string.Empty)
             {
@@ -241,6 +263,7 @@ namespace GestionCasos.Administrador
         {
             try
             {
+                var institucion = new t_Institucion();
                 if (txtCodigo.Text != string.Empty)
                 {
                     institucion.Codigo = int.Parse(txtCodigo.Text);
@@ -368,6 +391,49 @@ namespace GestionCasos.Administrador
         private void btnDetalles_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new fDetallesJuntas(Rol));
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+
+
+                try
+                {
+                    var institucion = new t_Institucion();
+                    if (txtCodigo.Text != string.Empty)
+                    {
+                        institucion.Codigo = int.Parse(txtCodigo.Text);
+                        var datosEncotrados = negocio.obtenerPorId(institucion);
+                        if (datosEncotrados != null)
+                        {
+                            txtCuentaLey.Text = datosEncotrados.Cuenta_Ley;
+                            txtCuentaDanea.Text = datosEncotrados.Cuenta_Danea;
+                            txtInstitucion.Text = datosEncotrados.Nombre;
+                            txtCedulaJuridica.Text = datosEncotrados.Cedula_Juridica;
+                            cbTipo.Text = Enum.GetName(typeof(Enums.TipoEscuela), datosEncotrados.Tipo);
+                            cbContador.Text = datosEncotrados.t_Persona.Nombre_Completo;
+                            cbCircuito.Text = datosEncotrados.Circuito.ToString();
+                            //txtContacto.Text = datosEncotrados.Contacto;
+                            //txtTelefono.Text = datosEncotrados.Telefono;
+                        }
+                        else
+                        {
+                            message.Danger(new Alertas.Alerta(), "No se encontro la institucion o junta, por favor ingrese una codigo valido");
+                        }
+                    }
+                    else
+                    {
+                        message.Warning(new Alertas.Alerta(), "Debe de ingresar un codigo antes de buscar una institucion");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //En caso de que ocurra  un error en el programa se lanza la excepcion  y que no se rompa la ejecucion
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
     }
 }

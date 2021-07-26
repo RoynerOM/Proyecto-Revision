@@ -31,6 +31,10 @@ namespace GestionCasos.Administrador
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInstituciones));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtContacto = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnDetalles = new Guna.UI.WinForms.GunaButton();
             this.btnBuscar = new Guna.UI.WinForms.GunaButton();
             this.btnEliminar = new Guna.UI.WinForms.GunaButton();
@@ -52,10 +56,6 @@ namespace GestionCasos.Administrador
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtContacto = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,6 +93,49 @@ namespace GestionCasos.Administrador
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(916, 601);
             this.panel1.TabIndex = 0;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTelefono.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(120, 560);
+            this.txtTelefono.Mask = "000-0000";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(432, 30);
+            this.txtTelefono.TabIndex = 27;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label10.Location = new System.Drawing.Point(116, 531);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(161, 23);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Número Telefónico";
+            // 
+            // txtContacto
+            // 
+            this.txtContacto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtContacto.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContacto.Location = new System.Drawing.Point(119, 478);
+            this.txtContacto.Name = "txtContacto";
+            this.txtContacto.Size = new System.Drawing.Size(433, 30);
+            this.txtContacto.TabIndex = 25;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label9.Location = new System.Drawing.Point(114, 450);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(178, 23);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Nombre de Contacto";
             // 
             // btnDetalles
             // 
@@ -406,6 +449,7 @@ namespace GestionCasos.Administrador
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(193, 30);
             this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // label1
             // 
@@ -418,49 +462,6 @@ namespace GestionCasos.Administrador
             this.label1.Size = new System.Drawing.Size(68, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo";
-            // 
-            // txtContacto
-            // 
-            this.txtContacto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContacto.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContacto.Location = new System.Drawing.Point(119, 478);
-            this.txtContacto.Name = "txtContacto";
-            this.txtContacto.Size = new System.Drawing.Size(433, 30);
-            this.txtContacto.TabIndex = 25;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label9.Location = new System.Drawing.Point(114, 450);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(178, 23);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Nombre de Contacto";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label10.Location = new System.Drawing.Point(116, 531);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(161, 23);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Número Telefónico";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTelefono.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(120, 560);
-            this.txtTelefono.Mask = "000-0000";
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(432, 30);
-            this.txtTelefono.TabIndex = 27;
             // 
             // fInstituciones
             // 

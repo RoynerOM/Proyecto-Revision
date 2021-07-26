@@ -183,7 +183,7 @@ namespace GestionCasos.Usuarios
             }
             else
             {
-                Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
+                Grid.RowsDefaultCellStyle.Font = new Font(Name, 10);
             }
         }
 

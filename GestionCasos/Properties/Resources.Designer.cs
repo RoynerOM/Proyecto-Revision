@@ -93,6 +93,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back {
+            get {
+                object obj = ResourceManager.GetObject("back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap back_100px {
             get {
                 object obj = ResourceManager.GetObject("back_100px", resourceCulture);
@@ -186,6 +196,16 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap data_pending_60px {
             get {
                 object obj = ResourceManager.GetObject("data_pending_60px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_100px {
+            get {
+                object obj = ResourceManager.GetObject("delete_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +336,16 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap image001 {
             get {
                 object obj = ResourceManager.GetObject("image001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap left_60px {
+            get {
+                object obj = ResourceManager.GetObject("left_60px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
