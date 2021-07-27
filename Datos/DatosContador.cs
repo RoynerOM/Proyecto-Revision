@@ -160,7 +160,33 @@ namespace Datos
                 return null;
             }
         }
-
+        public t_Trabajador obtenerTrabador(string cedula)
+        {
+            /*
+                1 normal
+                0 admin
+             */
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var consulta = db.t_Trabajador.Where(x => x.Cedula == cedula).SingleOrDefault();
+                    if (consulta != null)
+                    {
+                        return consulta;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
 
         public int CantidadContadores()
         {

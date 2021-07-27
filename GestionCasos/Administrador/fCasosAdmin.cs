@@ -130,6 +130,7 @@ namespace GestionCasos
                 tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
                 tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
 
+                tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -185,7 +186,7 @@ namespace GestionCasos
                     {
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 75, 160);
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(168, 209, 255);
-                        
+
                     }
                     else
                     {
@@ -200,14 +201,14 @@ namespace GestionCasos
 
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
-                        
+
                     }
                     else
                     {
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
                     }
-                    
+
                 }
             }
         }
@@ -215,14 +216,34 @@ namespace GestionCasos
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-
-            if (screenWidth >= 1300)
+            lblScreen.Text = screenWidth.ToString();
+            if (screenWidth <= 1200)
             {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                tabla.Columns[0].Width = 90;
+                tabla.Columns[1].Width = 100;
+                tabla.Columns[2].Width = 80;
+                tabla.Columns[3].Width = 200;
+                tabla.Columns[4].Width = 70;
+                tabla.Columns[5].Width = 100;
+                tabla.Columns[6].Width = 220;
+                tabla.Columns[7].Width = 120;
+                tabla.Columns[8].Width = 100;
+            }else if (screenWidth >200 && screenWidth <= 1250)
+            {
+                tabla.Columns[0].Width = 95;
+                tabla.Columns[1].Width = 105;
+                tabla.Columns[2].Width = 80;
+                tabla.Columns[3].Width = 230;
+                tabla.Columns[4].Width = 70;
+                tabla.Columns[5].Width = 105;
+                tabla.Columns[6].Width = 240;
+                tabla.Columns[7].Width = 120;
+                tabla.Columns[8].Width = 105;
             }
             else
             {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
 
         }
@@ -241,7 +262,7 @@ namespace GestionCasos
             }
             else
             {
-                Grid.RowsDefaultCellStyle.Font = new Font(Name, 10);
+                Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
             }
         }
         //Cambio de color
@@ -273,7 +294,7 @@ namespace GestionCasos
         }
 
 
-       
+
 
         private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -314,9 +335,9 @@ namespace GestionCasos
 
 
 
-       
 
-       public void CargarCombos()
+
+        public void CargarCombos()
         {
             //Tramitador
             cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
@@ -391,7 +412,7 @@ namespace GestionCasos
             //    int fila = e.RowIndex;
 
             //    string consecutivo = tabla.Rows[fila].Cells[0].Value.ToString();
-               
+
 
             //    t_Revision revisionDatos = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
             //    //Se pasan los datos

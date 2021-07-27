@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace GestionCasos
 {
-    public partial class ReporteAsignarCasos : Form
+    public partial class ReporteCasosAsignados : Form
     {
-        public ReporteAsignarCasos()
+        public ReporteCasosAsignados()
         {
             InitializeComponent();
         }
 
-        private void ReporteAsignarCasos_Load(object sender, EventArgs e)
+        private void ReporteCasosAsignados_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet.CasosAsignados' Puede moverla o quitarla según sea necesario.
             this.CasosAsignadosTableAdapter.Fill(this.BD_JuntasDataSet.CasosAsignados);

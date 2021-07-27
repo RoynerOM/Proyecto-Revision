@@ -53,5 +53,10 @@ namespace Negocios
         {
             return contador.obtenerTrabador(tipo);
         }
+
+        public t_Trabajador obtenerTrabador(string cedula)
+        {
+            return contador.obtenerTrabador(cedula);
+        }
     }
 }

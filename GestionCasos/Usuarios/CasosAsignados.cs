@@ -47,7 +47,7 @@ namespace GestionCasos.Usuarios
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-
+            lblScreen.Visible = false;
             OpenChildForm(new fLoader(1, hilo));
             PedirDatos();
             CargarCombos();
@@ -67,7 +67,10 @@ namespace GestionCasos.Usuarios
 
         public void CargarTabla(IEnumerable<t_Revision> lista)
         {
+            
+           
             tabla.Rows.Clear();
+
             foreach (var item in lista)
             {
                 int nRows = tabla.Rows.Add();
@@ -90,6 +93,7 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
                 tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
 
+                tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -109,7 +113,7 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
 
 
-                if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE" || item.Estado1.TipoEstado.ToUpper() == "EN REVISION")
+                if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE" || item.Estado1.TipoEstado.ToUpper() == "EN REVISIÓN")
                 {
                     tabla.Rows[nRows].Cells[8].Value = "PENDIENTE";
                     if (isDark == "false")
@@ -159,14 +163,35 @@ namespace GestionCasos.Usuarios
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-
-            if (screenWidth >= 1300)
+            //lblScreen.Text = screenWidth.ToString();
+            if (screenWidth <= 1200)
             {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                tabla.Columns[0].Width = 90;
+                tabla.Columns[1].Width = 100;
+                tabla.Columns[2].Width = 80;
+                tabla.Columns[3].Width = 200;
+                tabla.Columns[4].Width = 70;
+                tabla.Columns[5].Width = 100;
+                tabla.Columns[6].Width = 220;
+                tabla.Columns[7].Width = 120;
+                tabla.Columns[8].Width = 100;
+            }
+            else if (screenWidth > 200 && screenWidth <= 1250)
+            {
+                tabla.Columns[0].Width = 95;
+                tabla.Columns[1].Width = 105;
+                tabla.Columns[2].Width = 80;
+                tabla.Columns[3].Width = 230;
+                tabla.Columns[4].Width = 70;
+                tabla.Columns[5].Width = 105;
+                tabla.Columns[6].Width = 240;
+                tabla.Columns[7].Width = 120;
+                tabla.Columns[8].Width = 105;
             }
             else
             {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
 

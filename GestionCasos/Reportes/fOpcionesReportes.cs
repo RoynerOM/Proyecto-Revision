@@ -90,7 +90,7 @@ namespace GestionCasos.Reportes
 
         private void btnCasos_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ReporteAsignarCasos());
+            OpenChildForm(new ReporteCasosAsignados());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)

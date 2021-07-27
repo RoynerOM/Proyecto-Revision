@@ -16,6 +16,7 @@ namespace Entidades
     {
         public string Cedula { get; set; }
         public Nullable<int> Tipo { get; set; }
+        public Nullable<bool> Estado { get; set; }
     
         public virtual t_Persona t_Persona { get; set; }
     }

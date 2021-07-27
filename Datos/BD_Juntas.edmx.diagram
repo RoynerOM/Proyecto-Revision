@@ -5,33 +5,33 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e31547f039594ba6b81f9691540906ae" Name="Diagram1">
-        <EntityTypeShape EntityType="BD_JuntasModel.Estado" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Boleta" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Direccion_Regional" Width="1.5" PointX="3.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_EntregaCasos" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Institucion" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Mensajeria" Width="1.5" PointX="10.5" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Persona" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Recepcion" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Revision" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Tipo_Institucion" Width="1.5" PointX="3.75" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Trabajador" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BD_JuntasModel.t_Usuario" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Revisio__Estad__27F8EE98" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK_t_Boleta_t_Persona" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK_t_Institucion_t_Direccion_Regional" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Entrega__Cedul__41B8C09B" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Entrega__Id_Ca__43A1090D" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Entrega__Recep__42ACE4D4" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Institu__Conta__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Revisio__Codig__251C81ED" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK_t_Institucion_t_Tipo_Institucion" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Mensaje__id_Ca__2AD55B43" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Mensaje__Mensa__2BC97F7C" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Revisio__Trami__2610A626" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Usuario__Cedul__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK_t_Trabajador_t_Persona" ManuallyRouted="false" />
-        <AssociationConnector Association="BD_JuntasModel.FK__t_Revisio__Recep__2704CA5F" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BD_JuntasModel.Estado" Width="1.5" PointX="6" PointY="13.75" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Boleta" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Direccion_Regional" Width="1.5" PointX="3.75" PointY="18" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_EntregaCasos" Width="1.5" PointX="6" PointY="5.375" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Institucion" Width="1.5" PointX="6" PointY="9" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Mensajeria" Width="1.5" PointX="10.5" PointY="9.75" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Persona" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Recepcion" Width="1.5" PointX="6" PointY="2.25" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Revision" Width="1.5" PointX="8.25" PointY="8.375" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Tipo_Institucion" Width="1.5" PointX="3.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Trabajador" Width="1.5" PointX="3" PointY="14.875" />
+        <EntityTypeShape EntityType="BD_JuntasModel.t_Usuario" Width="1.5" PointX="3" PointY="20.875" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Revisio__Estad__27F8EE98" />
+        <AssociationConnector Association="BD_JuntasModel.FK_t_Boleta_t_Persona" />
+        <AssociationConnector Association="BD_JuntasModel.FK_t_Institucion_t_Direccion_Regional" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Entrega__Cedul__41B8C09B" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Entrega__Id_Ca__43A1090D" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Entrega__Recep__42ACE4D4" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Institu__Conta__4316F928" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Revisio__Codig__251C81ED" />
+        <AssociationConnector Association="BD_JuntasModel.FK_t_Institucion_t_Tipo_Institucion" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Mensaje__id_Ca__2AD55B43" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Mensaje__Mensa__2BC97F7C" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Revisio__Trami__2610A626" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Usuario__Cedul__3A81B327" />
+        <AssociationConnector Association="BD_JuntasModel.FK_t_Trabajador_t_Persona" />
+        <AssociationConnector Association="BD_JuntasModel.FK__t_Revisio__Recep__2704CA5F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -148,7 +148,7 @@ namespace GestionCasos.Administrador
                         contador.Nombre = txtNombre.Text.ToUpper();
                         contador.Apellido1 = txtApellido1.Text.ToUpper();
                         contador.Apellido2 = txtApellido2.Text.ToUpper();
-                        //contador.correo = txtCorreo.Text;
+                        contador.Correo = txtCorreo.Text;
                         trabajador.Cedula = contador.Cedula;
                         trabajador.Tipo = (int)cbTipoPersona.SelectedValue;
                         //Ejecutamos el metodo de guardar y le mandamos el modelo contador ya cargado de datos
@@ -425,6 +425,7 @@ namespace GestionCasos.Administrador
                 txtApellido1.Text = DatosTemp.t_Persona.Apellido1;
                 txtApellido2.Text = DatosTemp.t_Persona.Apellido2;
                 txtCarne.Text = DatosTemp.t_Persona.Carnet;
+                txtCorreo.Text = DatosTemp.t_Persona.Correo;
                 cbTipo.SelectedIndex = (int)DatosTemp.t_Persona.TipoId;
             }
         }

@@ -59,7 +59,7 @@
   <xs:element name="BD_JuntasDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BD_JuntasDataSet1" msprop:Generator_UserDSName="BD_JuntasDataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Contadores" msprop:Generator_TableClassName="ContadoresDataTable" msprop:Generator_TableVarName="tableContadores" msprop:Generator_RowChangedName="ContadoresRowChanged" msprop:Generator_TablePropName="Contadores" msprop:Generator_RowDeletingName="ContadoresRowDeleting" msprop:Generator_RowChangingName="ContadoresRowChanging" msprop:Generator_RowEvHandlerName="ContadoresRowChangeEventHandler" msprop:Generator_RowDeletedName="ContadoresRowDeleted" msprop:Generator_RowClassName="ContadoresRow" msprop:Generator_UserTableName="Contadores" msprop:Generator_RowEvArgName="ContadoresRowChangeEvent">
+        <xs:element name="Contadores" msprop:Generator_TableClassName="ContadoresDataTable" msprop:Generator_TableVarName="tableContadores" msprop:Generator_TablePropName="Contadores" msprop:Generator_RowDeletingName="ContadoresRowDeleting" msprop:Generator_RowChangingName="ContadoresRowChanging" msprop:Generator_RowEvHandlerName="ContadoresRowChangeEventHandler" msprop:Generator_RowDeletedName="ContadoresRowDeleted" msprop:Generator_UserTableName="Contadores" msprop:Generator_RowChangedName="ContadoresRowChanged" msprop:Generator_RowEvArgName="ContadoresRowChangeEvent" msprop:Generator_RowClassName="ContadoresRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cedula" msprop:Generator_ColumnVarNameInTable="columnCedula" msprop:Generator_ColumnPropNameInRow="Cedula" msprop:Generator_ColumnPropNameInTable="CedulaColumn" msprop:Generator_UserColumnName="Cedula">
@@ -87,7 +87,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Juntas" msprop:Generator_TableClassName="JuntasDataTable" msprop:Generator_TableVarName="tableJuntas" msprop:Generator_RowChangedName="JuntasRowChanged" msprop:Generator_TablePropName="Juntas" msprop:Generator_RowDeletingName="JuntasRowDeleting" msprop:Generator_RowChangingName="JuntasRowChanging" msprop:Generator_RowEvHandlerName="JuntasRowChangeEventHandler" msprop:Generator_RowDeletedName="JuntasRowDeleted" msprop:Generator_RowClassName="JuntasRow" msprop:Generator_UserTableName="Juntas" msprop:Generator_RowEvArgName="JuntasRowChangeEvent">
+        <xs:element name="Juntas" msprop:Generator_TableClassName="JuntasDataTable" msprop:Generator_TableVarName="tableJuntas" msprop:Generator_TablePropName="Juntas" msprop:Generator_RowDeletingName="JuntasRowDeleting" msprop:Generator_RowChangingName="JuntasRowChanging" msprop:Generator_RowEvHandlerName="JuntasRowChangeEventHandler" msprop:Generator_RowDeletedName="JuntasRowDeleted" msprop:Generator_UserTableName="Juntas" msprop:Generator_RowChangedName="JuntasRowChanged" msprop:Generator_RowEvArgName="JuntasRowChangeEvent" msprop:Generator_RowClassName="JuntasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:int" />

@@ -54,6 +54,7 @@ namespace GestionCasos
             this.Nombre_Completo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comentario = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblScreen = new Guna.UI.WinForms.GunaLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +62,7 @@ namespace GestionCasos
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.panel1.Controls.Add(this.lblScreen);
             this.panel1.Controls.Add(this.txtConsecutivo);
             this.panel1.Controls.Add(this.gunaLabel4);
             this.panel1.Controls.Add(this.gunaLabel3);
@@ -289,7 +291,7 @@ namespace GestionCasos
             this.Caso.MinimumWidth = 6;
             this.Caso.Name = "Caso";
             this.Caso.ReadOnly = true;
-            this.Caso.Width = 125;
+            this.Caso.Width = 61;
             // 
             // Fecha
             // 
@@ -298,7 +300,7 @@ namespace GestionCasos
             this.Fecha.MinimumWidth = 6;
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 120;
+            this.Fecha.Width = 61;
             // 
             // Codigo
             // 
@@ -307,7 +309,7 @@ namespace GestionCasos
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 81;
+            this.Codigo.Width = 51;
             // 
             // Junta
             // 
@@ -316,7 +318,7 @@ namespace GestionCasos
             this.Junta.MinimumWidth = 6;
             this.Junta.Name = "Junta";
             this.Junta.ReadOnly = true;
-            this.Junta.Width = 300;
+            this.Junta.Width = 198;
             // 
             // Circuito
             // 
@@ -325,7 +327,7 @@ namespace GestionCasos
             this.Circuito.MinimumWidth = 10;
             this.Circuito.Name = "Circuito";
             this.Circuito.ReadOnly = true;
-            this.Circuito.Width = 60;
+            this.Circuito.Width = 49;
             // 
             // Nombre
             // 
@@ -333,6 +335,7 @@ namespace GestionCasos
             this.Nombre.HeaderText = "Recepción";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 103;
             // 
             // Nombre_Completo
             // 
@@ -340,6 +343,7 @@ namespace GestionCasos
             this.Nombre_Completo.HeaderText = "Asignado a";
             this.Nombre_Completo.Name = "Nombre_Completo";
             this.Nombre_Completo.ReadOnly = true;
+            this.Nombre_Completo.Width = 202;
             // 
             // Comentario
             // 
@@ -358,7 +362,7 @@ namespace GestionCasos
             this.Comentario.Text = "Ver Comentario";
             this.Comentario.ToolTipText = "Ver Comentario Del Caso";
             this.Comentario.UseColumnTextForButtonValue = true;
-            this.Comentario.Width = 160;
+            this.Comentario.Width = 80;
             // 
             // Estado
             // 
@@ -369,7 +373,19 @@ namespace GestionCasos
             this.Estado.MinimumWidth = 6;
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
-            this.Estado.Width = 125;
+            this.Estado.Width = 61;
+            // 
+            // lblScreen
+            // 
+            this.lblScreen.AutoSize = true;
+            this.lblScreen.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.lblScreen.Location = new System.Drawing.Point(2, 0);
+            this.lblScreen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblScreen.Name = "lblScreen";
+            this.lblScreen.Size = new System.Drawing.Size(135, 20);
+            this.lblScreen.TabIndex = 11;
+            this.lblScreen.Text = "Filtrar Por Persona";
             // 
             // fCasosAdmin
             // 
@@ -414,5 +430,6 @@ namespace GestionCasos
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Completo;
         private System.Windows.Forms.DataGridViewButtonColumn Comentario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private Guna.UI.WinForms.GunaLabel lblScreen;
     }
 }

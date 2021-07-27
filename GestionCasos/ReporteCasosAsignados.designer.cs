@@ -1,7 +1,7 @@
 ﻿
 namespace GestionCasos
 {
-    partial class ReporteAsignarCasos
+    partial class ReporteCasosAsignados
     {
         /// <summary>
         /// Required designer variable.
@@ -31,24 +31,13 @@ namespace GestionCasos
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.CasosAsignadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.BD_JuntasDataSet = new GestionCasos.BD_JuntasDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.BD_JuntasDataSet = new GestionCasos.BD_JuntasDataSet();
+            this.CasosAsignadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CasosAsignadosTableAdapter = new GestionCasos.BD_JuntasDataSetTableAdapters.CasosAsignadosTableAdapter();
-            this.t_RevisionTableAdapter1 = new GestionCasos.BD_JuntasDataSetTableAdapters.t_RevisionTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.CasosAsignadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CasosAsignadosBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // CasosAsignadosBindingSource
-            // 
-            this.CasosAsignadosBindingSource.DataMember = "CasosAsignados";
-            this.CasosAsignadosBindingSource.DataSource = this.BD_JuntasDataSet;
-            // 
-            // BD_JuntasDataSet
-            // 
-            this.BD_JuntasDataSet.DataSetName = "BD_JuntasDataSet";
-            this.BD_JuntasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -63,25 +52,31 @@ namespace GestionCasos
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
+            // BD_JuntasDataSet
+            // 
+            this.BD_JuntasDataSet.DataSetName = "BD_JuntasDataSet";
+            this.BD_JuntasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // CasosAsignadosBindingSource
+            // 
+            this.CasosAsignadosBindingSource.DataMember = "CasosAsignados";
+            this.CasosAsignadosBindingSource.DataSource = this.BD_JuntasDataSet;
+            // 
             // CasosAsignadosTableAdapter
             // 
             this.CasosAsignadosTableAdapter.ClearBeforeFill = true;
             // 
-            // t_RevisionTableAdapter1
-            // 
-            this.t_RevisionTableAdapter1.ClearBeforeFill = true;
-            // 
-            // ReporteAsignarCasos
+            // ReporteCasosAsignados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "ReporteAsignarCasos";
-            this.Text = "ReporteAsignarCasos";
-            this.Load += new System.EventHandler(this.ReporteAsignarCasos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.CasosAsignadosBindingSource)).EndInit();
+            this.Name = "ReporteCasosAsignados";
+            this.Text = "ReporteCasosAsignados";
+            this.Load += new System.EventHandler(this.ReporteCasosAsignados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CasosAsignadosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -92,6 +87,5 @@ namespace GestionCasos
         private System.Windows.Forms.BindingSource CasosAsignadosBindingSource;
         private BD_JuntasDataSet BD_JuntasDataSet;
         private BD_JuntasDataSetTableAdapters.CasosAsignadosTableAdapter CasosAsignadosTableAdapter;
-        private BD_JuntasDataSetTableAdapters.t_RevisionTableAdapter t_RevisionTableAdapter1;
     }
 }
