@@ -76,7 +76,7 @@ namespace GestionCasos.Administrador
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(128, 20);
             this.gunaLabel4.TabIndex = 9;
-            this.gunaLabel4.Text = "Filtrar Por Cedula";
+            this.gunaLabel4.Text = "Filtrar Por Cédula";
             // 
             // gunaLabel3
             // 

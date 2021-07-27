@@ -348,7 +348,7 @@ namespace GestionCasos.Administrador
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 23);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Cedula Juridica";
+            this.label6.Text = "Cédula Jurídica";
             // 
             // label5
             // 
@@ -381,7 +381,7 @@ namespace GestionCasos.Administrador
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Institucion";
+            this.label4.Text = "Institución";
             // 
             // cbTipo
             // 
@@ -461,7 +461,7 @@ namespace GestionCasos.Administrador
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo";
+            this.label1.Text = "Código";
             // 
             // fInstituciones
             // 

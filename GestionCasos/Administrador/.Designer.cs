@@ -54,7 +54,6 @@ namespace GestionCasos
             this.Nombre_Completo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comentario = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblScreen = new Guna.UI.WinForms.GunaLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +61,6 @@ namespace GestionCasos
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
-            this.panel1.Controls.Add(this.lblScreen);
             this.panel1.Controls.Add(this.txtConsecutivo);
             this.panel1.Controls.Add(this.gunaLabel4);
             this.panel1.Controls.Add(this.gunaLabel3);
@@ -375,18 +373,6 @@ namespace GestionCasos
             this.Estado.ReadOnly = true;
             this.Estado.Width = 61;
             // 
-            // lblScreen
-            // 
-            this.lblScreen.AutoSize = true;
-            this.lblScreen.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScreen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.lblScreen.Location = new System.Drawing.Point(2, 0);
-            this.lblScreen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblScreen.Name = "lblScreen";
-            this.lblScreen.Size = new System.Drawing.Size(135, 20);
-            this.lblScreen.TabIndex = 11;
-            this.lblScreen.Text = "Filtrar Por Persona";
-            // 
             // fCasosAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,6 +416,5 @@ namespace GestionCasos
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Completo;
         private System.Windows.Forms.DataGridViewButtonColumn Comentario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private Guna.UI.WinForms.GunaLabel lblScreen;
     }
 }

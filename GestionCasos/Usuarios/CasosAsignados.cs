@@ -47,7 +47,6 @@ namespace GestionCasos.Usuarios
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-            lblScreen.Visible = false;
             OpenChildForm(new fLoader(1, hilo));
             PedirDatos();
             CargarCombos();

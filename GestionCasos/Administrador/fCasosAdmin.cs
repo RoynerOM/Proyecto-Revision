@@ -216,7 +216,6 @@ namespace GestionCasos
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-            lblScreen.Text = screenWidth.ToString();
             if (screenWidth <= 1200)
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;

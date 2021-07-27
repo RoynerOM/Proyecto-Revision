@@ -99,7 +99,7 @@ namespace GestionCasos.Administrador
                 tabla.Rows[nRows].Cells[5].Value = item.Cuenta_Danea;
                 tabla.Rows[nRows].Cells[6].Value = item.Cuenta_Ley;
                 tabla.Rows[nRows].Cells[7].Value = item.t_Persona.Nombre_Completo.ToUpper();
-               // tabla.Rows[nRows].Cells[7].Value = item.Contacto.ToUpper();
+               // tabla.Rows[nRows].Cells[8].Value = item.Contacto.ToUpper();
                 //tabla.Rows[nRows].Cells[9].Value = item.Telefono;
 
                 tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -185,13 +185,24 @@ namespace GestionCasos.Administrador
         {
             var screenWidth = panel1.Width;
 
-            if (screenWidth >= 1200)
+            if (screenWidth < 1200)
             {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                tabla.Columns[0].Width = 90;
+                tabla.Columns[1].Width = 60;
+                tabla.Columns[2].Width = 90;
+                tabla.Columns[3].Width = 220;
+                tabla.Columns[4].Width = 120;
+                tabla.Columns[5].Width = 140;
+                tabla.Columns[6].Width = 140;
+                tabla.Columns[7].Width = 220;
+                tabla.Columns[8].Width = 220;
+                tabla.Columns[8].Width = 100;
+               
             }
             else
             {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
 

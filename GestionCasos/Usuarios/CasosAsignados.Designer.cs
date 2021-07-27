@@ -44,7 +44,6 @@ namespace GestionCasos.Usuarios
             this.cbRecepcion = new Guna.UI.WinForms.GunaComboBox();
             this.cbEstado = new Guna.UI.WinForms.GunaComboBox();
             this.tabla = new System.Windows.Forms.DataGridView();
-            this.lblScreen = new System.Windows.Forms.Label();
             this.Caso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +73,6 @@ namespace GestionCasos.Usuarios
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
-            this.panel2.Controls.Add(this.lblScreen);
             this.panel2.Controls.Add(this.txtConsecutivo);
             this.panel2.Controls.Add(this.gunaLabel3);
             this.panel2.Controls.Add(this.gunaLabel2);
@@ -132,7 +130,7 @@ namespace GestionCasos.Usuarios
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(151, 20);
             this.gunaLabel2.TabIndex = 5;
-            this.gunaLabel2.Text = "Filtrar Por Recepcion";
+            this.gunaLabel2.Text = "Filtrar Por Recepción";
             // 
             // gunaLabel1
             // 
@@ -258,16 +256,6 @@ namespace GestionCasos.Usuarios
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
             this.tabla.Resize += new System.EventHandler(this.tabla_Resize);
             // 
-            // lblScreen
-            // 
-            this.lblScreen.AutoSize = true;
-            this.lblScreen.ForeColor = System.Drawing.Color.Black;
-            this.lblScreen.Location = new System.Drawing.Point(12, 42);
-            this.lblScreen.Name = "lblScreen";
-            this.lblScreen.Size = new System.Drawing.Size(35, 13);
-            this.lblScreen.TabIndex = 9;
-            this.lblScreen.Text = "label1";
-            // 
             // Caso
             // 
             this.Caso.FillWeight = 12.34942F;
@@ -390,7 +378,6 @@ namespace GestionCasos.Usuarios
         private Guna.UI.WinForms.GunaComboBox cbEstado;
         private Guna.UI.WinForms.GunaTextBox txtConsecutivo;
         private System.Windows.Forms.DataGridView tabla;
-        private System.Windows.Forms.Label lblScreen;
         private System.Windows.Forms.DataGridViewTextBoxColumn Caso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
