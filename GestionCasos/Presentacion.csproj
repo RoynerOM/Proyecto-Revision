@@ -264,6 +264,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_JuntasDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BD_JuntasDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BD_JuntasDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Configuracion\fConfiguraciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +285,12 @@
     <Compile Include="Administrador\.Designer.cs">
       <DependentUpon>fCasosAdmin.cs</DependentUpon>
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteBoletaDevolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteBoletaDevolucion.Designer.cs">
+      <DependentUpon>ReporteBoletaDevolucion.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteCasosAsignados.cs">
       <SubType>Form</SubType>
@@ -385,6 +396,9 @@
     <EmbeddedResource Include="Administrador\fCasosAdmin.resx">
       <DependentUpon>fCasosAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteBoletaDevolucion.resx">
+      <DependentUpon>ReporteBoletaDevolucion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteCasosAsignados.resx">
       <DependentUpon>ReporteCasosAsignados.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,6 +421,7 @@
     <EmbeddedResource Include="Reportes\ReporteCasosAsignados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteContadores.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteJuntas.rdlc" />
+    <EmbeddedResource Include="rptBoleta.rdlc" />
     <EmbeddedResource Include="Usuarios\CasosAsignados.resx">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </EmbeddedResource>
@@ -445,6 +460,17 @@
     </None>
     <None Include="BD_JuntasDataSet2.xss">
       <DependentUpon>BD_JuntasDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="BD_JuntasDataSet3.xsc">
+      <DependentUpon>BD_JuntasDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="BD_JuntasDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BD_JuntasDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BD_JuntasDataSet3.xss">
+      <DependentUpon>BD_JuntasDataSet3.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Presentacion_TemporaryKey.pfx" />
@@ -500,6 +526,10 @@
     <None Include="Resources\left_60px.png" />
     <None Include="Resources\back.png" />
     <None Include="Resources\delete_100px.png" />
+    <None Include="Resources\eye.png" />
+    <None Include="Resources\eye_48px.png" />
+    <None Include="Resources\eyea.png" />
+    <None Include="Resources\eyeb.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -55,7 +55,7 @@ namespace GestionCasos.Administrador
                 label5.ForeColor = Colors.Black;
                 label6.ForeColor = Colors.Black;
                 label7.ForeColor = Colors.Black;
-                label8.ForeColor = Colors.Black;
+                lblConsecutivo.ForeColor = Colors.Black;
             }
             else
             {
@@ -80,7 +80,7 @@ namespace GestionCasos.Administrador
                     txtApellido2.Text = entregaCasos.t_Persona.Apellido2;
                     cbTipo.SelectedIndex = (int)entregaCasos.t_Persona.TipoId;
                     cbEntrega.Text = entregaCasos.t_Recepcion.Nombre;
-                    txtConsecutivo.Text = entregaCasos.t_Revision.Consecutivo;
+                    lblConsecutivo.Text = entregaCasos.t_Revision.Consecutivo;
                     lblFecha.Text = "Entregado "+entregaCasos.FechaEntrega.ToLongDateString();
                     if (entregaCasos.Pago == 0)
                     {
@@ -98,7 +98,7 @@ namespace GestionCasos.Administrador
                     btnGuardar.Visible = true;
                     btnPdf.Visible = false;
 
-                    txtConsecutivo.Text = DatosTemp.t_Revision.Consecutivo;
+                    lblConsecutivo.Text = DatosTemp.t_Revision.Consecutivo;
                 }
             }
             catch (Exception ex)
@@ -206,7 +206,8 @@ namespace GestionCasos.Administrador
 
         private void btn_Click(object sender, EventArgs e)
         {
-            fReporteEntrega entrega = new fReporteEntrega(txtConsecutivo.Text);
+            ReporteBoletaDevolucion entrega = new ReporteBoletaDevolucion(lblConsecutivo.Text);
+            entrega.WindowState = FormWindowState.Maximized;
             entrega.ShowDialog();
         }
 
@@ -220,6 +221,7 @@ namespace GestionCasos.Administrador
                 label4.ForeColor = Colors.Black;
                 label6.ForeColor = Colors.Black;
                 label7.ForeColor = Colors.Black;
+                label9.ForeColor = Colors.Black;
             }
             else
             {
@@ -227,6 +229,7 @@ namespace GestionCasos.Administrador
                 label4.ForeColor = Colors.White;
                 label6.ForeColor = Colors.White;
                 label7.ForeColor = Colors.White;
+                label9.ForeColor = Colors.White;
             }
 
             if (txtCedula.Text.Length < 8)
@@ -280,6 +283,8 @@ namespace GestionCasos.Administrador
         }
 
 
+
+        //Guardar informacion de entrega
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -305,7 +310,7 @@ namespace GestionCasos.Administrador
                     Estado estado = new Estado();
                     estado.id = 4;
 
-                    revision = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text).SingleOrDefault();
+                    revision = revisionNegocio.obtenerPorConsecutivo(lblConsecutivo.Text).SingleOrDefault();
                     //Cambio el estado en entregado
                     estado = estadoNegocio.obtenerPorId(estado);
                     revision.Estado = estado.id;

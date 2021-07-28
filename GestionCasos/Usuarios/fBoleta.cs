@@ -12,6 +12,7 @@ using Entidades;
 using GestionCasos.Administrador;
 using Negocios;
 using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos.Usuarios
 {
@@ -25,7 +26,6 @@ namespace GestionCasos.Usuarios
         BoletaNegocio boletaNegocio = new BoletaNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
-        EntregaNegocio entregaNegocio = new EntregaNegocio();
         
         showMessageDialog Alert = new showMessageDialog();
 
@@ -60,10 +60,6 @@ namespace GestionCasos.Usuarios
                 label3.ForeColor = Colors.Black;
                 label4.ForeColor = Colors.Black;
             }
-            else
-            {
-
-            }
         }
 
         private void fBoleta_Load(object sender, EventArgs e)
@@ -71,7 +67,6 @@ namespace GestionCasos.Usuarios
             SetThemeColor();
 
             txtOtros.Visible = false;
-            btnEntrega.Visible = false;
             revision = DatosTemp.t_Revision;
             CargarDatosForm();
         }
@@ -89,7 +84,7 @@ namespace GestionCasos.Usuarios
             }
         }
 
-        bool ValidarCampos()
+        private bool ValidarCampos()
         {
             if (txtOtros.Visible == true && txtOtros.Text == string.Empty)
             {
@@ -125,7 +120,6 @@ namespace GestionCasos.Usuarios
 
                     if (filtro != null)
                     {
-                        btnEntrega.Visible = true;
                         boleta = filtro;
                         isNew = 1;
                         cbMotivo1.Checked = (bool)filtro.Motivo1;
@@ -136,7 +130,7 @@ namespace GestionCasos.Usuarios
                         cbMotivo6.Checked = (bool)filtro.Motivo6;
                         cbMotivo7.Checked = (bool)filtro.Motivo7;
                         
-                        if (filtro.Motivo8 != "Ninguno")
+                        if (filtro.Motivo8 != "")
                         {
                             cbMotivo8.Checked = true;
                             txtOtros.Visible = true;
@@ -192,11 +186,11 @@ namespace GestionCasos.Usuarios
                     }
                     else
                     {
-                        boleta.Motivo8 = "Ninguno";
+                        boleta.Motivo8 = "";
                     }
 
                     boleta.Observacion = txtObservacion.Text;
-                    boleta.Revisado_Por = revision.Tramitador;
+                    boleta.RevisadoPor = revision.Tramitador;
 
                    
 
@@ -212,7 +206,7 @@ namespace GestionCasos.Usuarios
                     filtroCasos.numeroActa = int.Parse(txtNumeroActa.Text);
                     filtroCasos.numeroFolio = int.Parse(txtFolio.Text);
                     filtroCasos.fechaActa = dtpFechaActa.Value;
-                    if (TipoUsuario == 1 && txtObservacion.Text != string.Empty)
+                    if (TipoUsuario == (int)Enums.Tipo.Tramitador && txtObservacion.Text != string.Empty)
                     {
                         filtroCasos.Comentario = txtObservacion.Text;
                     }
@@ -230,8 +224,6 @@ namespace GestionCasos.Usuarios
                             {
                                 Alert.Success(new Alertas.Alerta(), "Observacion Agregada con exito");
                                 DatosTemp.t_Boleta = null;
-                                btnEntrega.Visible = true;
-
                             }
                             else
                             {
@@ -256,17 +248,17 @@ namespace GestionCasos.Usuarios
                             }
                             else
                             {
-                                filtroBoleta.Motivo8 = "Ninguno";
+                                filtroBoleta.Motivo8 = "";
                             }
+
                             filtroBoleta.Observacion = txtObservacion.Text;
-                            filtroBoleta.Revisado_Por = revision.Tramitador;
+                            filtroBoleta.RevisadoPor = revision.Tramitador;
 
 
                             if (boletaNegocio.modificar(filtroBoleta) == true)
                             {
-                                Alert.Success(new Alertas.Alerta(), "Observacion Agregada con exito");
+                                Alert.Success(new Alertas.Alerta(), "Observacion Modificada con exito");
                                 DatosTemp.t_Boleta = null;
-
                             }
                             else
                             {
@@ -274,7 +266,6 @@ namespace GestionCasos.Usuarios
                             }
                         }
                     }
-
                 }
             }
             catch (Exception ex)
@@ -282,31 +273,5 @@ namespace GestionCasos.Usuarios
                 Console.WriteLine(ex);
             }
         }
-
-
-        //Llamar al formulario de entrega
-        private void gunaButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                fEntrega entrega;
-                var consulta =  entregaNegocio.obtenerPorCaso(lblConsecutivo.Text);
-                if (consulta != null)
-                {
-                    entrega = new fEntrega(consulta);
-                }
-                else
-                {
-                    entrega = new fEntrega(null);
-                }
-
-                entrega.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
-
     }
 }

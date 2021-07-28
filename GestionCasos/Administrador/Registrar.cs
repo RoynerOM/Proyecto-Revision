@@ -127,5 +127,19 @@ namespace GestionCasos
                 }
             }
         }
+
+        private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
+        {
+            if (txtContra.PasswordChar == '•')
+            {
+                txtContra.PasswordChar = '\0';
+                gunaAdvenceTileButton1.Image = global::GestionCasos.Properties.Resources.eyea;
+            }
+            else
+            {
+                txtContra.PasswordChar = '•';
+                gunaAdvenceTileButton1.Image = global::GestionCasos.Properties.Resources.eyeb;
+            }
+        }
     }
 }

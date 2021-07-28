@@ -628,7 +628,7 @@
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
-              <Style>Dashed</Style>
+              <Style>Solid</Style>
             </Border>
           </Style>
         </Line>

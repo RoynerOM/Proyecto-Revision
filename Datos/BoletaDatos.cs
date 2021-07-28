@@ -98,7 +98,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var boleta = db.t_Boleta.Include("t_Persona").ToList();
+                    var boleta = db.t_Boleta.Include("t_Persona").Include("t_Revision").Include("t_Institucion").ToList();
 
                     if (boleta != null)
                     {

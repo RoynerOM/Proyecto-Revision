@@ -17,6 +17,7 @@ namespace Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public t_Revision()
         {
+            this.t_Boleta = new HashSet<t_Boleta>();
             this.t_EntregaCasos = new HashSet<t_EntregaCasos>();
             this.t_Mensajeria = new HashSet<t_Mensajeria>();
         }
@@ -37,6 +38,8 @@ namespace Entidades
         public Nullable<System.DateTime> fechaActa { get; set; }
     
         public virtual Estado Estado1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<t_Boleta> t_Boleta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t_EntregaCasos> t_EntregaCasos { get; set; }
         public virtual t_Institucion t_Institucion { get; set; }

@@ -37,7 +37,6 @@ namespace GestionCasos.Usuarios
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnEntrega = new Guna.UI.WinForms.GunaButton();
             this.btnObservacion = new Guna.UI.WinForms.GunaButton();
             this.btnBoleta = new Guna.UI.WinForms.GunaButton();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -70,7 +69,6 @@ namespace GestionCasos.Usuarios
             this.gunaLinePanel1.Controls.Add(this.label4);
             this.gunaLinePanel1.Controls.Add(this.label3);
             this.gunaLinePanel1.Controls.Add(this.label2);
-            this.gunaLinePanel1.Controls.Add(this.btnEntrega);
             this.gunaLinePanel1.Controls.Add(this.btnObservacion);
             this.gunaLinePanel1.Controls.Add(this.btnBoleta);
             this.gunaLinePanel1.Controls.Add(this.guna2GroupBox2);
@@ -176,33 +174,6 @@ namespace GestionCasos.Usuarios
             this.label2.Size = new System.Drawing.Size(127, 21);
             this.label2.TabIndex = 9;
             this.label2.Text = "Número de acta";
-            // 
-            // btnEntrega
-            // 
-            this.btnEntrega.AnimationHoverSpeed = 0.07F;
-            this.btnEntrega.AnimationSpeed = 0.03F;
-            this.btnEntrega.BackColor = System.Drawing.Color.Transparent;
-            this.btnEntrega.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
-            this.btnEntrega.BorderColor = System.Drawing.Color.Black;
-            this.btnEntrega.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEntrega.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnEntrega.FocusedColor = System.Drawing.Color.Empty;
-            this.btnEntrega.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrega.ForeColor = System.Drawing.Color.White;
-            this.btnEntrega.Image = global::GestionCasos.Properties.Resources.send_email_100px;
-            this.btnEntrega.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEntrega.Location = new System.Drawing.Point(16, 632);
-            this.btnEntrega.Name = "btnEntrega";
-            this.btnEntrega.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnEntrega.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnEntrega.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnEntrega.OnHoverImage = null;
-            this.btnEntrega.OnPressedColor = System.Drawing.Color.Black;
-            this.btnEntrega.Radius = 5;
-            this.btnEntrega.Size = new System.Drawing.Size(185, 42);
-            this.btnEntrega.TabIndex = 8;
-            this.btnEntrega.Text = "Preparar Entrega";
-            this.btnEntrega.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
             // btnObservacion
             // 
@@ -572,7 +543,6 @@ namespace GestionCasos.Usuarios
         private System.Windows.Forms.TextBox txtObservacion;
         private Guna.UI.WinForms.GunaButton btnObservacion;
         private Guna.UI.WinForms.GunaButton btnBoleta;
-        private Guna.UI.WinForms.GunaButton btnEntrega;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaActa;
         private Guna.UI.WinForms.GunaTextBox txtFolio;
         private Guna.UI.WinForms.GunaTextBox txtNumeroActa;
