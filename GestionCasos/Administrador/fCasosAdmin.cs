@@ -1,15 +1,15 @@
 ﻿using Entidades;
+using GestionCasos.Administrador;
 using GestionCasos.Usuarios;
 using Negocios;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Linq;
-using Utilidades;
 using System.Threading;
-using GestionCasos.Administrador;
+using System.Windows.Forms;
+using Utilidades;
 
 namespace GestionCasos
 {
@@ -228,7 +228,8 @@ namespace GestionCasos
                 tabla.Columns[6].Width = 220;
                 tabla.Columns[7].Width = 120;
                 tabla.Columns[8].Width = 100;
-            }else if (screenWidth >200 && screenWidth <= 1250)
+            }
+            else if (screenWidth > 200 && screenWidth <= 1250)
             {
                 tabla.Columns[0].Width = 95;
                 tabla.Columns[1].Width = 105;

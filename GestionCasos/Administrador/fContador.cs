@@ -1,13 +1,13 @@
 ﻿using Entidades;
-using System;
-using System.Windows.Forms;
 using Negocios;
-using Utilidades;
+using System;
 using System.Configuration;
 using System.Drawing;
-using System.Threading;
-using Utilidades.Enumerables;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Forms;
+using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos.Administrador
 {
@@ -138,6 +138,7 @@ namespace GestionCasos.Administrador
                 if (ValidarCampos() == true)
                 {
                     t_Trabajador trabajador = new t_Trabajador();
+                    t_Mensajero m = new t_Mensajero();
                     contador.Cedula = txtCedula.Text;
                     if (negocio.obtenerPorId(contador) == null)
                     {
@@ -149,10 +150,18 @@ namespace GestionCasos.Administrador
                         contador.Apellido1 = txtApellido1.Text.ToUpper();
                         contador.Apellido2 = txtApellido2.Text.ToUpper();
                         contador.Correo = txtCorreo.Text;
+
                         trabajador.Cedula = contador.Cedula;
                         trabajador.Tipo = (int)cbTipoPersona.SelectedValue;
+                        trabajador.Estado = true;
+
+                        m.Cedula = txtCedula.Text;
+                        m.Nombre = txtNombre.Text.ToUpper();
+                        m.Apellido1 = txtApellido1.Text.ToUpper();
+                        m.Apellido2 = txtApellido2.Text.ToUpper();
+
                         //Ejecutamos el metodo de guardar y le mandamos el modelo contador ya cargado de datos
-                        if (negocio.guardar(contador) == true)
+                        if (negocio.guardar(contador) == true && negocio.guardar(m) == true)
                         {
                             if (negocio.GuardarTrabajador(trabajador) == true)
                             {
@@ -381,8 +390,6 @@ namespace GestionCasos.Administrador
         {
             try
             {
-
-
                 if (ValidarCampos() == true)
                 {
                     contador.Cedula = txtCedula.Text;

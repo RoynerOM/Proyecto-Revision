@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Utilidades.Enumerables
+﻿namespace Utilidades.Enumerables
 {
     public class Enums
     {
@@ -49,7 +43,7 @@ namespace Utilidades.Enumerables
         public enum TipoEscuela
         {
             ESCUELA = 1,
-            COLEGIO =2
+            COLEGIO = 2
         }
     }
 }

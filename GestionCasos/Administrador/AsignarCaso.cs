@@ -1,23 +1,14 @@
-﻿using Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Transitions;
-using Negocios;
-using Datos;
-using System.IO;
-//using Utilidades.Enumerables;
-using System.Data.SqlClient;
-using System.Configuration;
-using Utilidades;
-using System.Threading;
+﻿using Datos;
+using Entidades;
 using GestionCasos.Administrador;
+using Negocios;
+using System;
+//using Utilidades.Enumerables;
+using System.Configuration;
+using System.Linq;
+using System.Threading;
+using System.Windows.Forms;
+using Utilidades;
 
 namespace GestionCasos
 
@@ -60,8 +51,8 @@ namespace GestionCasos
             {
                 using (var context = new BD_JuntasEntities())
                 {
-                    var id = context.t_Revision.Max(x => x.Id_Caso)+1;
-                    string cons = "R-"+id.ToString();
+                    var id = context.t_Revision.Max(x => x.Id_Caso) + 1;
+                    string cons = "R-" + id.ToString();
                     txtConsecutivo.Text = cons;
                 }
             }
@@ -81,7 +72,7 @@ namespace GestionCasos
             //Actualizar();
             CargarCombos();
             MostrarConsecutivo();
-            
+
         }
 
         //Cambio de colores

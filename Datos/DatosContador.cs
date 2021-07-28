@@ -1,8 +1,8 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
-using Utilidades.Interfaces;
 using System.Linq;
+using Utilidades.Interfaces;
 namespace Datos
 {
     //
@@ -50,7 +50,23 @@ namespace Datos
             }
         }
 
-
+        public bool guardar(t_Mensajero e)
+        {
+            using (var db = new BD_JuntasEntities())
+            {
+                try
+                {
+                    db.t_Mensajero.Add(e);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
+            }
+        }
 
         public bool modificar(t_Persona e)
         {
@@ -84,7 +100,6 @@ namespace Datos
                     return (from query in db.t_Persona where query.Cedula == e.Cedula select query).FirstOrDefault();
                 }
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -105,7 +120,6 @@ namespace Datos
                     return (from query in db.t_Persona select query).ToList();
                 }
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -118,7 +132,6 @@ namespace Datos
         {
             try
             {
-                
                 using (var db = new BD_JuntasEntities())
                 {
                     db.t_Trabajador.Add(e);
@@ -133,17 +146,18 @@ namespace Datos
             }
         }
 
-        public IEnumerable< t_Trabajador> obtenerTrabador(int tipo)
+        /*
+              0 normal
+              1 admin
+        este se usa en el formulario de entrega
+           */
+        public viewTrabajador obtenerTrabadorBy(string cedula)
         {
-            /*
-                0 normal
-                1 admin
-             */
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var consulta = db.t_Trabajador.Where(x=> x.Tipo == tipo).ToList();
+                    var consulta = db.viewTrabajador.Where(x => x.Cedula == cedula).SingleOrDefault();
                     if (consulta != null)
                     {
                         return consulta;
@@ -160,6 +174,32 @@ namespace Datos
                 return null;
             }
         }
+
+        public IEnumerable<viewTrabajador> obtenerTrabador(int tipo)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var consulta = db.viewTrabajador.Where(x => x.Tipo == tipo).ToList();
+                    if (consulta != null)
+                    {
+                        return consulta;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+
         public t_Trabajador obtenerTrabador(string cedula)
         {
             /*

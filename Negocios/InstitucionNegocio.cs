@@ -1,8 +1,7 @@
-﻿using Entidades;
-using System;
+﻿using Datos;
+using Entidades;
 using System.Collections.Generic;
 using Utilidades.Interfaces;
-using Datos;
 namespace Negocios
 {
     //Plantilla

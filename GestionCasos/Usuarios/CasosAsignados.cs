@@ -9,7 +9,6 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using Transitions;
 using Utilidades;
 using Utilidades.Enumerables;
 
@@ -66,8 +65,8 @@ namespace GestionCasos.Usuarios
 
         public void CargarTabla(IEnumerable<t_Revision> lista)
         {
-            
-           
+
+
             tabla.Rows.Clear();
 
             foreach (var item in lista)
@@ -371,6 +370,6 @@ namespace GestionCasos.Usuarios
             }
         }
 
-       
+
     }
 }

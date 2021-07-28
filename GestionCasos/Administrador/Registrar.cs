@@ -1,7 +1,6 @@
 ﻿using Entidades;
 using Negocios;
 using System;
-using System.Threading;
 using System.Windows.Forms;
 using Utilidades;
 using Utilidades.Enumerables;
@@ -36,7 +35,7 @@ namespace GestionCasos
                         usuario.Cedula = txtCedula.Text;
                         usuario.Clave = txtContra.Text;
                         usuario.Rol = trabajador.Tipo;
-                        usuario.Estado = (int)Enums.Estado.activo == 1 ? false : true;
+                        usuario.Estado = (int)Enums.Estado.activo != 1;
 
                         if (negociosU.guardar(usuario))
                         {
@@ -86,14 +85,14 @@ namespace GestionCasos
 
         private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar( Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 try
                 {
                     t_Usuario usuario = new t_Usuario();
                     t_Trabajador trabajador = new t_Trabajador();
                     trabajador = contadorNegocio.obtenerTrabador(txtCedula.Text);
-                    
+
                     if (trabajador != null)
                     {
                         if (negociosU.ComprobarCedula(txtCedula.Text))
@@ -102,7 +101,7 @@ namespace GestionCasos
                             usuario.Clave = txtContra.Text;
                             usuario.Rol = trabajador.Tipo;
                             usuario.Estado = (int)Enums.Estado.activo == 1 ? false : true;
-                            
+
                             if (negociosU.guardar(usuario))
                             {
                                 Message.Success(new Alertas.Alerta(), "El usuario se registró correctamente");

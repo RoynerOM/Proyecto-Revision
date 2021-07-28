@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Entidades;
+using GestionCasos.Administrador;
+using GestionCasos.Usuarios;
+using Negocios;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
-using GestionCasos.Administrador;
-using GestionCasos.Usuarios;
-using Negocios;
 using Utilidades.Enumerables;
 
 namespace GestionCasos
@@ -109,10 +105,10 @@ namespace GestionCasos
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-            
+
             OpenChildForm(new fLoader(1, hilo));
             CargarEstadisticas();
-           
+
         }
 
         private void SetThemeColor()

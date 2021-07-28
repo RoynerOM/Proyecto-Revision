@@ -1,11 +1,7 @@
-﻿using Entidades;
-using System;
+﻿using Datos;
+using Entidades;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilidades.Interfaces;
-using Datos;
 namespace Negocios
 {
     public class BoletaNegocio : ICrud<t_Boleta>
@@ -15,7 +11,7 @@ namespace Negocios
 
         public bool eliminar(t_Boleta e)
         {
-           // e.estado = false;
+            // e.estado = false;
             return datos.eliminar(e);
         }
 

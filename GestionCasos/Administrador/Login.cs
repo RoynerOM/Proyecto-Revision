@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using Datos;
+using System;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Transitions;
-using Entidades;
-using Datos;
 using Utilidades;
-using System.IO;
-using System.Threading;
 
 namespace GestionCasos
 {
@@ -126,7 +118,7 @@ namespace GestionCasos
 
         private void btnIniciarSecion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)

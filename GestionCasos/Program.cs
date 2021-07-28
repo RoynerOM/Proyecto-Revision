@@ -1,6 +1,4 @@
-﻿using GestionCasos.Administrador;
-using GestionCasos.Usuarios;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace GestionCasos
@@ -16,7 +14,7 @@ namespace GestionCasos
             Application.EnableVisualStyles();
 
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new ReporteEntregaDeCasos());
         }
     }
 }

@@ -91,17 +91,17 @@ namespace GestionCasos.Administrador
             this.panel1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(916, 601);
+            this.panel1.Size = new System.Drawing.Size(916, 602);
             this.panel1.TabIndex = 0;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTelefono.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(120, 560);
+            this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(120, 561);
             this.txtTelefono.Mask = "000-0000";
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(432, 30);
+            this.txtTelefono.Size = new System.Drawing.Size(432, 29);
             this.txtTelefono.TabIndex = 27;
             // 
             // label10
@@ -119,10 +119,10 @@ namespace GestionCasos.Administrador
             // txtContacto
             // 
             this.txtContacto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContacto.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContacto.Location = new System.Drawing.Point(119, 478);
+            this.txtContacto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContacto.Location = new System.Drawing.Point(119, 479);
             this.txtContacto.Name = "txtContacto";
-            this.txtContacto.Size = new System.Drawing.Size(433, 30);
+            this.txtContacto.Size = new System.Drawing.Size(433, 29);
             this.txtContacto.TabIndex = 25;
             // 
             // label9
@@ -151,7 +151,7 @@ namespace GestionCasos.Administrador
             this.btnDetalles.ForeColor = System.Drawing.Color.White;
             this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
             this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnDetalles.Location = new System.Drawing.Point(748, 352);
+            this.btnDetalles.Location = new System.Drawing.Point(748, 353);
             this.btnDetalles.Name = "btnDetalles";
             this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -178,7 +178,7 @@ namespace GestionCasos.Administrador
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnBuscar.Location = new System.Drawing.Point(748, 272);
+            this.btnBuscar.Location = new System.Drawing.Point(748, 273);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnBuscar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -205,7 +205,7 @@ namespace GestionCasos.Administrador
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnEliminar.Location = new System.Drawing.Point(748, 192);
+            this.btnEliminar.Location = new System.Drawing.Point(748, 193);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnEliminar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -232,7 +232,7 @@ namespace GestionCasos.Administrador
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnModificar.Location = new System.Drawing.Point(748, 114);
+            this.btnModificar.Location = new System.Drawing.Point(748, 115);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnModificar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -259,7 +259,7 @@ namespace GestionCasos.Administrador
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnGuardar.Location = new System.Drawing.Point(748, 37);
+            this.btnGuardar.Location = new System.Drawing.Point(748, 38);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnGuardar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -275,11 +275,11 @@ namespace GestionCasos.Administrador
             // txtCuentaLey
             // 
             this.txtCuentaLey.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCuentaLey.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuentaLey.Location = new System.Drawing.Point(359, 388);
+            this.txtCuentaLey.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCuentaLey.Location = new System.Drawing.Point(359, 389);
             this.txtCuentaLey.Mask = "000-00-000-0000-0";
             this.txtCuentaLey.Name = "txtCuentaLey";
-            this.txtCuentaLey.Size = new System.Drawing.Size(193, 30);
+            this.txtCuentaLey.Size = new System.Drawing.Size(193, 29);
             this.txtCuentaLey.TabIndex = 17;
             // 
             // label8
@@ -297,11 +297,11 @@ namespace GestionCasos.Administrador
             // txtCuentaDanea
             // 
             this.txtCuentaDanea.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCuentaDanea.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuentaDanea.Location = new System.Drawing.Point(119, 388);
+            this.txtCuentaDanea.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCuentaDanea.Location = new System.Drawing.Point(119, 389);
             this.txtCuentaDanea.Mask = "000-00-000-0000-0";
             this.txtCuentaDanea.Name = "txtCuentaDanea";
-            this.txtCuentaDanea.Size = new System.Drawing.Size(193, 30);
+            this.txtCuentaDanea.Size = new System.Drawing.Size(193, 29);
             this.txtCuentaDanea.TabIndex = 15;
             // 
             // label7
@@ -319,11 +319,11 @@ namespace GestionCasos.Administrador
             // txtCedulaJuridica
             // 
             this.txtCedulaJuridica.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCedulaJuridica.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaJuridica.Location = new System.Drawing.Point(120, 207);
+            this.txtCedulaJuridica.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaJuridica.Location = new System.Drawing.Point(120, 208);
             this.txtCedulaJuridica.Mask = "0-000-000000";
             this.txtCedulaJuridica.Name = "txtCedulaJuridica";
-            this.txtCedulaJuridica.Size = new System.Drawing.Size(193, 30);
+            this.txtCedulaJuridica.Size = new System.Drawing.Size(193, 29);
             this.txtCedulaJuridica.TabIndex = 13;
             // 
             // cbContador
@@ -331,11 +331,11 @@ namespace GestionCasos.Administrador
             this.cbContador.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbContador.BackColor = System.Drawing.Color.White;
             this.cbContador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbContador.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbContador.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbContador.FormattingEnabled = true;
-            this.cbContador.Location = new System.Drawing.Point(120, 297);
+            this.cbContador.Location = new System.Drawing.Point(120, 298);
             this.cbContador.Name = "cbContador";
-            this.cbContador.Size = new System.Drawing.Size(433, 31);
+            this.cbContador.Size = new System.Drawing.Size(433, 29);
             this.cbContador.TabIndex = 12;
             // 
             // label6
@@ -365,10 +365,10 @@ namespace GestionCasos.Administrador
             // txtInstitucion
             // 
             this.txtInstitucion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtInstitucion.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInstitucion.Location = new System.Drawing.Point(119, 119);
+            this.txtInstitucion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInstitucion.Location = new System.Drawing.Point(119, 120);
             this.txtInstitucion.Name = "txtInstitucion";
-            this.txtInstitucion.Size = new System.Drawing.Size(433, 30);
+            this.txtInstitucion.Size = new System.Drawing.Size(433, 29);
             this.txtInstitucion.TabIndex = 7;
             // 
             // label4
@@ -377,7 +377,7 @@ namespace GestionCasos.Administrador
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label4.Location = new System.Drawing.Point(114, 92);
+            this.label4.Location = new System.Drawing.Point(114, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 6;
@@ -387,14 +387,14 @@ namespace GestionCasos.Administrador
             // 
             this.cbTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTipo.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipo.FormattingEnabled = true;
             this.cbTipo.Items.AddRange(new object[] {
             "Escuela",
             "Colegio"});
-            this.cbTipo.Location = new System.Drawing.Point(364, 208);
+            this.cbTipo.Location = new System.Drawing.Point(364, 209);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(188, 31);
+            this.cbTipo.Size = new System.Drawing.Size(188, 29);
             this.cbTipo.TabIndex = 5;
             // 
             // label3
@@ -413,7 +413,7 @@ namespace GestionCasos.Administrador
             // 
             this.cbCircuito.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbCircuito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCircuito.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCircuito.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCircuito.FormattingEnabled = true;
             this.cbCircuito.Items.AddRange(new object[] {
             "1",
@@ -424,9 +424,9 @@ namespace GestionCasos.Administrador
             "6",
             "7",
             "8"});
-            this.cbCircuito.Location = new System.Drawing.Point(359, 37);
+            this.cbCircuito.Location = new System.Drawing.Point(359, 38);
             this.cbCircuito.Name = "cbCircuito";
-            this.cbCircuito.Size = new System.Drawing.Size(193, 31);
+            this.cbCircuito.Size = new System.Drawing.Size(193, 29);
             this.cbCircuito.TabIndex = 3;
             // 
             // label2
@@ -444,10 +444,10 @@ namespace GestionCasos.Administrador
             // txtCodigo
             // 
             this.txtCodigo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(119, 37);
+            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(119, 38);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(193, 30);
+            this.txtCodigo.Size = new System.Drawing.Size(193, 29);
             this.txtCodigo.TabIndex = 1;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
@@ -467,7 +467,7 @@ namespace GestionCasos.Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 601);
+            this.ClientSize = new System.Drawing.Size(916, 602);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(754, 576);
             this.Name = "fInstituciones";

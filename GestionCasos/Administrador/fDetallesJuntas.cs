@@ -1,16 +1,13 @@
-﻿using System;
+﻿using Entidades;
+using Negocios;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
-using Negocios;
 using Utilidades;
 using Utilidades.Enumerables;
 
@@ -42,7 +39,7 @@ namespace GestionCasos.Administrador
         //Filtro por Contador
         public void FilterByTramitador(string valor)
         {
-            var filtro = Instituciones.Where(x=>x.Contador == valor);
+            var filtro = Instituciones.Where(x => x.Contador == valor);
             if (filtro != null)
             {
                 CargarTabla(filtro);
@@ -99,8 +96,8 @@ namespace GestionCasos.Administrador
                 tabla.Rows[nRows].Cells[5].Value = item.Cuenta_Danea;
                 tabla.Rows[nRows].Cells[6].Value = item.Cuenta_Ley;
                 tabla.Rows[nRows].Cells[7].Value = item.t_Persona.Nombre_Completo.ToUpper();
-               // tabla.Rows[nRows].Cells[8].Value = item.Contacto.ToUpper();
-                //tabla.Rows[nRows].Cells[9].Value = item.Telefono;
+                tabla.Rows[nRows].Cells[8].Value = item.Contacto.ToUpper();
+                tabla.Rows[nRows].Cells[9].Value = item.Telefono;
 
                 tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -134,7 +131,7 @@ namespace GestionCasos.Administrador
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-            
+
             OpenChildForm(new fLoader(1, hilo));
 
             PedirDatos();
@@ -184,21 +181,20 @@ namespace GestionCasos.Administrador
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-
-            if (screenWidth < 1200)
+            tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            if (screenWidth < 1440)
             {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                 tabla.Columns[0].Width = 90;
                 tabla.Columns[1].Width = 60;
                 tabla.Columns[2].Width = 90;
-                tabla.Columns[3].Width = 220;
+                tabla.Columns[3].Width = 300;
                 tabla.Columns[4].Width = 120;
                 tabla.Columns[5].Width = 140;
                 tabla.Columns[6].Width = 140;
-                tabla.Columns[7].Width = 220;
-                tabla.Columns[8].Width = 220;
-                tabla.Columns[8].Width = 100;
-               
+                tabla.Columns[7].Width = 300;
+                tabla.Columns[8].Width = 300;
+                tabla.Columns[9].Width = 100;
+
             }
             else
             {
@@ -209,7 +205,7 @@ namespace GestionCasos.Administrador
 
         private void txtCedulaJuridica_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-           
+
         }
 
 

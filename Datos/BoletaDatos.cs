@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Datos
@@ -73,7 +71,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                  var boleta =  db.t_Boleta.Include("t_Persona").Where(x => x.Id == e.Id).SingleOrDefault();
+                    var boleta = db.t_Boleta.Include("t_Persona").Where(x => x.Id == e.Id).SingleOrDefault();
 
                     if (boleta != null)
                     {

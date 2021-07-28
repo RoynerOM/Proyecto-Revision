@@ -1,16 +1,14 @@
-﻿using Entidades;
-using System;
+﻿using Datos;
+using Entidades;
 using System.Collections.Generic;
 using Utilidades.Interfaces;
-using Datos;
-using Utilidades;
 
 namespace Negocios
 {
     //Plantilla
     public class ContadorNegocio : ICrud<t_Persona>
     {
-        DatosContador contador = new DatosContador();
+        readonly DatosContador contador = new DatosContador();
         public bool eliminar(t_Persona e)
         {
             //e.Estado == false;
@@ -18,6 +16,11 @@ namespace Negocios
         }
 
         public bool guardar(t_Persona e)
+        {
+            return contador.guardar(e);
+        }
+
+        public bool guardar(t_Mensajero e)
         {
             return contador.guardar(e);
         }
@@ -49,11 +52,14 @@ namespace Negocios
             return contador.GuardarTrabajador(e);
         }
 
-        public IEnumerable<t_Trabajador> obtenerTrabador(int tipo)
+        public IEnumerable<viewTrabajador> obtenerTrabador(int tipo)
         {
             return contador.obtenerTrabador(tipo);
         }
-
+        public viewTrabajador obtenerTrabadorBy(string cedula)
+        {
+            return contador.obtenerTrabadorBy(cedula);
+        }
         public t_Trabajador obtenerTrabador(string cedula)
         {
             return contador.obtenerTrabador(cedula);

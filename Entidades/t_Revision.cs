@@ -19,7 +19,6 @@ namespace Entidades
         {
             this.t_Boleta = new HashSet<t_Boleta>();
             this.t_EntregaCasos = new HashSet<t_EntregaCasos>();
-            this.t_Mensajeria = new HashSet<t_Mensajeria>();
         }
     
         public int Id_Caso { get; set; }
@@ -43,8 +42,6 @@ namespace Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t_EntregaCasos> t_EntregaCasos { get; set; }
         public virtual t_Institucion t_Institucion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<t_Mensajeria> t_Mensajeria { get; set; }
         public virtual t_Persona t_Persona { get; set; }
         public virtual t_Recepcion t_Recepcion { get; set; }
     }

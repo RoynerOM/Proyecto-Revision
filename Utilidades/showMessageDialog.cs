@@ -17,7 +17,7 @@ namespace Utilidades
         public void Danger(Form form, string mensaje)
         {
             form.BackColor = RED;
-            Params.Properties(2,mensaje);
+            Params.Properties(2, mensaje);
             Slide(form);
             form.ShowDialog();
         }

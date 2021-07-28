@@ -2,13 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Datos
 {
-   public class RecepcionDatos : ICrud<t_Recepcion>
+    public class RecepcionDatos : ICrud<t_Recepcion>
     {
         public bool eliminar(t_Recepcion e)
         {

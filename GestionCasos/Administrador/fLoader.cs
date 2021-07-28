@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
 
@@ -46,7 +39,7 @@ namespace GestionCasos.Administrador
             {
                 // Una vez transcurrido el tiempo inicialmente establecido
                 // establezco un intervalo de un segundo para mirar si el proceso a terminado.
-                
+
                 if (timer1.Interval != 1000)
                     timer1.Interval = 1000;
 

@@ -1,8 +1,8 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
-using Utilidades.Interfaces;
 using System.Linq;
+using Utilidades.Interfaces;
 namespace Datos
 {
     public class DatosDireccionRegional : ICrud<t_Direccion_Regional>
@@ -70,7 +70,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                   IQueryable<t_Direccion_Regional> consulta =  db.t_Direccion_Regional;
+                    IQueryable<t_Direccion_Regional> consulta = db.t_Direccion_Regional;
                     if (consulta != null)
                     {
                         return (t_Direccion_Regional)consulta;

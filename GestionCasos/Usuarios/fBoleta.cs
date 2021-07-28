@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Entidades;
+using Negocios;
+using System;
 using System.Configuration;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
-using GestionCasos.Administrador;
-using Negocios;
 using Utilidades;
 using Utilidades.Enumerables;
 
@@ -26,7 +20,7 @@ namespace GestionCasos.Usuarios
         BoletaNegocio boletaNegocio = new BoletaNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
-        
+
         showMessageDialog Alert = new showMessageDialog();
 
 
@@ -129,7 +123,7 @@ namespace GestionCasos.Usuarios
                         cbMotivo5.Checked = (bool)filtro.Motivo5;
                         cbMotivo6.Checked = (bool)filtro.Motivo6;
                         cbMotivo7.Checked = (bool)filtro.Motivo7;
-                        
+
                         if (filtro.Motivo8 != "")
                         {
                             cbMotivo8.Checked = true;
@@ -192,7 +186,7 @@ namespace GestionCasos.Usuarios
                     boleta.Observacion = txtObservacion.Text;
                     boleta.RevisadoPor = revision.Tramitador;
 
-                   
+
 
                     Estado state = new Estado();
                     state.id = 3;

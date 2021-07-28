@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using Utilidades;
@@ -22,12 +16,12 @@ namespace GestionCasos.Configuracion
 
         private void guna2ToggleSwitch1_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void guna2ToggleSwitch1_Click(object sender, EventArgs e)
         {
-           
+
             XmlDocument xml = new XmlDocument();
             xml.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
 
@@ -39,7 +33,7 @@ namespace GestionCasos.Configuracion
                     {
                         if (node.Attributes[0].Value == "DarkMode")
                         {
-     
+
 
                             if (guna2ToggleSwitch1.Checked == false)
                             {

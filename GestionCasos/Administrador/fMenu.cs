@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using GestionCasos.Reportes;
+using GestionCasos.Usuarios;
+using System;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using Utilidades;
-using GestionCasos.Reportes;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using GestionCasos.Usuarios;
 using Utilidades.Enumerables;
 
 namespace GestionCasos.Administrador
@@ -30,7 +23,7 @@ namespace GestionCasos.Administrador
         {
             this.Rol = Rol;
             InitializeComponent();
-           
+
             SetThemeColor();
 
         }
@@ -60,7 +53,7 @@ namespace GestionCasos.Administrador
                 btnCasos.Enabled = false;
                 btnReportes.Visible = false;
                 btnReportes.Enabled = false;
-                
+
             }
             else
             {

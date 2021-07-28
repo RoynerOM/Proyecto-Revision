@@ -1,8 +1,7 @@
-﻿using Entidades;
-using System;
+﻿using Datos;
+using Entidades;
 using System.Collections.Generic;
 using Utilidades.Interfaces;
-using Datos;
 
 namespace Negocios
 {
@@ -33,7 +32,7 @@ namespace Negocios
         }
 
         //Extras
-    
+
         public IEnumerable<t_Revision> obtenerPorConsecutivo(string consecutivo)
         {
             return datosR.obtenerPorConsecutivo(consecutivo);

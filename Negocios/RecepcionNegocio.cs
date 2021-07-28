@@ -1,15 +1,12 @@
-﻿using Entidades;
+﻿using Datos;
+using Entidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilidades.Interfaces;
-using Datos;
 
 namespace Negocios
 {
-   public class RecepcionNegocio : ICrud<t_Recepcion>
+    public class RecepcionNegocio : ICrud<t_Recepcion>
     {
         RecepcionDatos datos = new RecepcionDatos();
         public bool eliminar(t_Recepcion e)

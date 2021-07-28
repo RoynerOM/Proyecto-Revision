@@ -72,7 +72,7 @@
     <Compile Include="t_Institucion.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Mensajeria.cs">
+    <Compile Include="t_Mensajero.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="t_Persona.cs">
@@ -91,6 +91,9 @@
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="t_Usuario.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="viewTrabajador.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
   </ItemGroup>
