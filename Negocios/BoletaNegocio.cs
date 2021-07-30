@@ -33,10 +33,19 @@ namespace Negocios
             return datos.obtenerPorId(e);
         }
 
+        public t_Boleta obtenerPorId(string e)
+        {
+            return datos.obtenerPorId(e);
+        }
 
         public IEnumerable<t_Boleta> obtenerTodo(t_Boleta e)
         {
             return datos.obtenerTodo(e);
+        }
+
+        public t_Boleta obtenerPorId(int caso)
+        {
+            return datos.obtenerPorId(caso);
         }
     }
 }

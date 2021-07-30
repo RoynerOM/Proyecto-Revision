@@ -27,7 +27,7 @@ namespace GestionCasos.Usuarios
         RecepcionNegocio recepcion = new RecepcionNegocio();
         EntregaNegocio entregaNegocio = new EntregaNegocio();
         IEnumerable<t_Revision> Casos = null;
-
+        showMessageDialog Alerta = new showMessageDialog();
         //Datos de prueba
 
         public CasosAsignados(bool entrega)
@@ -54,11 +54,33 @@ namespace GestionCasos.Usuarios
 
         public void PedirDatos()
         {
-            //Cargarmos la tabla con los datos relacionado a la cedula de la persona actual
-            Casos = revisionNegocio.obtenerTodo(revision).Where(x => x.Tramitador == Cedula);
-            CargarTabla(Casos);
+            try
+            {
+                //Cargarmos la tabla con los datos relacionado a la cedula de la persona actual
+                Casos = revisionNegocio.obtenerTodo(revision).Where(x => x.Tramitador == Cedula);
+                DatosTemp.MultiUser = false;
+                CargarTabla(Casos);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
 
+        public void PedirDatos(int i = 0)
+        {
+            try
+            {
+                //Cargarmos la tabla con los datos relacionado a la cedula de la persona actual
+                CargarTabla(revisionNegocio.obtenerTodo(revision));
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
+        }
 
         #region Funciones usados en el datagrid
 
@@ -139,6 +161,19 @@ namespace GestionCasos.Usuarios
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
                     }
                 }
+                else if (item.Estado1.TipoEstado.ToUpper() == "POR ENTREGAR")
+                {
+                    if (isDark == "false")
+                    {
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleFore;
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack;
+                    }
+                    else
+                    {
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleBack;
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack2;
+                    }
+                }
                 else
                 {
                     if (isDark == "false")
@@ -217,14 +252,27 @@ namespace GestionCasos.Usuarios
         private void CargarCombos()
         {
 
-            //Estado
-            cbEstado.DataSource = Enum.GetValues(typeof(Enums.TipoEstado));
+            try
+            {
+                //Tramitador
+                cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
+                cbTramitador.ValueMember = "Cedula";
+                cbTramitador.DisplayMember = "Nombre_Completo";
 
+                //Estado
+                cbEstado.DataSource = estadoNegocio.obtenerTodo(new Estado());
+                cbEstado.ValueMember = "id";
+                cbEstado.DisplayMember = "TipoEstado";
 
-            //Recepcion
-            cbRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
-            cbRecepcion.ValueMember = "id";
-            cbRecepcion.DisplayMember = "Nombre";
+                //Recepcion
+                cbRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
+                cbRecepcion.ValueMember = "id";
+                cbRecepcion.DisplayMember = "Nombre";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
 
@@ -250,6 +298,7 @@ namespace GestionCasos.Usuarios
                 gunaLabel1.ForeColor = Colors.Black;
                 gunaLabel2.ForeColor = Colors.Black;
                 gunaLabel3.ForeColor = Colors.Black;
+                gunaLabel4.ForeColor = Colors.Black;
             }
             else
             {
@@ -260,60 +309,93 @@ namespace GestionCasos.Usuarios
 
         #region Funciones para filtros
 
-
-        //Filtro por Recepcion
-        public void FilterByRecepcion(int valor)
-        {
-            var filtro = Casos.Where(x => x.Recepcion == valor);
-            CargarTabla(filtro);
-        }
-
-
         private void cbEstado_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cbEstado.Text != string.Empty)
+            try
             {
+                if (cbEstado.Text != string.Empty)
+                {
+                    if ((int)cbEstado.SelectedValue == 6)
+                    {
+                        if (DatosTemp.MultiUser == true)
+                        {
+                            PedirDatos(0);
+                        }
+                        else
+                        {
+                            PedirDatos();
+                        }
+                    }
+                    else
+                    {
+                        var filtro = revisionNegocio.FilterBy((int)cbEstado.SelectedValue).Where(x => x.Tramitador == Cedula);
+                        if (filtro != null)
+                            CargarTabla(filtro);
+                    }
 
-                if (cbEstado.Text == "TODOS")
-                {
-                    PedirDatos();
                 }
-                else
-                {
-                    var filtro = Casos.Where(x => x.Estado == (int)cbEstado.SelectedValue);
-                    CargarTabla(filtro);
-                    cbEstado.ResetText();
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
 
         private void cbRecepcion_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cbRecepcion.Text != string.Empty)
+            try
             {
-                FilterByRecepcion((int)cbRecepcion.SelectedValue);
-                cbRecepcion.ResetText();
+                if (cbRecepcion.Text != string.Empty)
+                {
+                    var filtro = revisionNegocio.FilterBy((int)cbRecepcion.SelectedValue, 0).Where(x => x.Tramitador == Cedula);
+                    if (filtro != null)
+                        CargarTabla(filtro);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
 
         private void txtConsecutivo_TextChanged_1(object sender, EventArgs e)
         {
-            if (txtConsecutivo.Text != string.Empty)
+            try
             {
-                var filtro = Casos.Where(x => x.Consecutivo.StartsWith(txtConsecutivo.Text.ToUpper()));
-                CargarTabla(filtro);
+                if (txtConsecutivo.Text != string.Empty)
+                {
+                    var filtro = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text).Where(x => x.Tramitador == Cedula);
+                    if (filtro != null)
+                        CargarTabla(filtro);
+                }
+                else
+                    PedirDatos();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
+
+        private void cbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                var filtro = revisionNegocio.obtenerPorContador(cbTramitador.SelectedValue.ToString());
+                if (filtro != null)
+                    CargarTabla(filtro);
+                DatosTemp.MultiUser = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
         #endregion
 
-
-        private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void OpenChildForm(Form childForm)
         {
@@ -342,22 +424,25 @@ namespace GestionCasos.Usuarios
                     if (e.RowIndex != -1)
                     {
                         string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        DatosTemp.t_Revision = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
                         if (entrega == false)
                         {
-
-                            fBoleta comentario = new fBoleta(0);
+                            fBoleta comentario = new fBoleta(0, consecutivo);
                             comentario.ShowDialog();
-                            if (comentario.IsDisposed == true)
-                            {
-                                this.Refresh();
-                            }
                         }
                         else
                         {
-                            t_EntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
-                            fEntrega entrega = new fEntrega(entregaCasos);
-                            entrega.ShowDialog();
+                            t_Revision r = revisionNegocio.ObtenerPorCaso(consecutivo);
+                            if (r.Estado > 3)
+                            {
+                                t_EntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
+                                fEntrega entrega = new fEntrega(entregaCasos, consecutivo);
+                                entrega.ShowDialog();
+                            }
+                            else
+                            {
+                                Alerta.Danger(new Alertas.Alerta(), "Documento no tramitado. No se puede cargar la información de entrega, porque el documento no ha sido revisado");
+                            }
+
                         }
                     }
                 }
@@ -370,6 +455,9 @@ namespace GestionCasos.Usuarios
             }
         }
 
-
+        private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
+        {
+            PedirDatos();
+        }
     }
 }

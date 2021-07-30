@@ -112,9 +112,9 @@ namespace GestionCasos.Administrador
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.label10.Location = new System.Drawing.Point(116, 531);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(161, 23);
+            this.label10.Size = new System.Drawing.Size(82, 23);
             this.label10.TabIndex = 26;
-            this.label10.Text = "Número Telefónico";
+            this.label10.Text = "Contacto";
             // 
             // txtContacto
             // 
@@ -133,9 +133,9 @@ namespace GestionCasos.Administrador
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.label9.Location = new System.Drawing.Point(114, 450);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(178, 23);
+            this.label9.Size = new System.Drawing.Size(109, 23);
             this.label9.TabIndex = 24;
-            this.label9.Text = "Nombre de Contacto";
+            this.label9.Text = "Responsable";
             // 
             // btnDetalles
             // 

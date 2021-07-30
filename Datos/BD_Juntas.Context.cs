@@ -37,6 +37,7 @@ namespace Datos
         public virtual DbSet<t_Tipo_Institucion> t_Tipo_Institucion { get; set; }
         public virtual DbSet<t_Trabajador> t_Trabajador { get; set; }
         public virtual DbSet<t_Usuario> t_Usuario { get; set; }
+        public virtual DbSet<viewBoleta> viewBoleta { get; set; }
         public virtual DbSet<viewTrabajador> viewTrabajador { get; set; }
     }
 }

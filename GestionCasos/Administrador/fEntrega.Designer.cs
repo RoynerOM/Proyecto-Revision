@@ -31,13 +31,11 @@ namespace GestionCasos.Administrador
         {
             this.components = new System.ComponentModel.Container();
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
-            this.txtObs = new System.Windows.Forms.TextBox();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblConsecutivo = new System.Windows.Forms.Label();
             this.cbEntrega = new Guna.UI.WinForms.GunaComboBox();
-            this.btnPdf = new Guna.UI.WinForms.GunaButton();
-            this.btnGuardar = new Guna.UI.WinForms.GunaButton();
             this.txtApellido2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
@@ -53,13 +51,17 @@ namespace GestionCasos.Administrador
             this.label1 = new System.Windows.Forms.Label();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
+            this.btnTipo = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.btnPdf = new Guna.UI.WinForms.GunaButton();
+            this.btnGuardar = new Guna.UI.WinForms.GunaButton();
             this.gunaLinePanel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaLinePanel1
             // 
-            this.gunaLinePanel1.Controls.Add(this.txtObs);
+            this.gunaLinePanel1.Controls.Add(this.btnTipo);
+            this.gunaLinePanel1.Controls.Add(this.txtObservacion);
             this.gunaLinePanel1.Controls.Add(this.label9);
             this.gunaLinePanel1.Controls.Add(this.lblFecha);
             this.gunaLinePanel1.Controls.Add(this.lblConsecutivo);
@@ -91,16 +93,16 @@ namespace GestionCasos.Administrador
             this.gunaLinePanel1.Size = new System.Drawing.Size(900, 600);
             this.gunaLinePanel1.TabIndex = 0;
             // 
-            // txtObs
+            // txtObservacion
             // 
-            this.txtObs.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtObs.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObs.Location = new System.Drawing.Point(23, 407);
-            this.txtObs.Multiline = true;
-            this.txtObs.Name = "txtObs";
-            this.txtObs.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtObs.Size = new System.Drawing.Size(571, 79);
-            this.txtObs.TabIndex = 33;
+            this.txtObservacion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtObservacion.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservacion.Location = new System.Drawing.Point(23, 407);
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtObservacion.Size = new System.Drawing.Size(571, 79);
+            this.txtObservacion.TabIndex = 33;
             // 
             // label9
             // 
@@ -159,60 +161,6 @@ namespace GestionCasos.Administrador
             this.cbEntrega.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbEntrega.Size = new System.Drawing.Size(267, 31);
             this.cbEntrega.TabIndex = 28;
-            // 
-            // btnPdf
-            // 
-            this.btnPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPdf.AnimationHoverSpeed = 0.07F;
-            this.btnPdf.AnimationSpeed = 0.03F;
-            this.btnPdf.BackColor = System.Drawing.Color.Transparent;
-            this.btnPdf.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
-            this.btnPdf.BorderColor = System.Drawing.Color.Black;
-            this.btnPdf.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnPdf.FocusedColor = System.Drawing.Color.Empty;
-            this.btnPdf.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPdf.ForeColor = System.Drawing.Color.White;
-            this.btnPdf.Image = global::GestionCasos.Properties.Resources.pdf_40px;
-            this.btnPdf.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnPdf.Location = new System.Drawing.Point(714, 93);
-            this.btnPdf.Name = "btnPdf";
-            this.btnPdf.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnPdf.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnPdf.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnPdf.OnHoverImage = null;
-            this.btnPdf.OnPressedColor = System.Drawing.Color.Black;
-            this.btnPdf.Radius = 5;
-            this.btnPdf.Size = new System.Drawing.Size(160, 42);
-            this.btnPdf.TabIndex = 27;
-            this.btnPdf.Text = "Exportar";
-            this.btnPdf.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGuardar.AnimationHoverSpeed = 0.07F;
-            this.btnGuardar.AnimationSpeed = 0.03F;
-            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(160)))), ((int)(((byte)(67)))));
-            this.btnGuardar.BorderColor = System.Drawing.Color.Black;
-            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnGuardar.FocusedColor = System.Drawing.Color.Empty;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Image = global::GestionCasos.Properties.Resources.add_40px;
-            this.btnGuardar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnGuardar.Location = new System.Drawing.Point(714, 93);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnGuardar.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnGuardar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnGuardar.OnHoverImage = null;
-            this.btnGuardar.OnPressedColor = System.Drawing.Color.Black;
-            this.btnGuardar.Radius = 5;
-            this.btnGuardar.Size = new System.Drawing.Size(160, 42);
-            this.btnGuardar.TabIndex = 26;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtApellido2
             // 
@@ -398,6 +346,92 @@ namespace GestionCasos.Administrador
             // 
             this.gunaDragControl1.TargetControl = this.gunaLinePanel1;
             // 
+            // btnTipo
+            // 
+            this.btnTipo.AnimationHoverSpeed = 0.07F;
+            this.btnTipo.AnimationSpeed = 0.03F;
+            this.btnTipo.BackColor = System.Drawing.Color.Transparent;
+            this.btnTipo.BaseColor = System.Drawing.Color.White;
+            this.btnTipo.BorderColor = System.Drawing.Color.White;
+            this.btnTipo.CheckedBaseColor = System.Drawing.Color.White;
+            this.btnTipo.CheckedBorderColor = System.Drawing.Color.White;
+            this.btnTipo.CheckedForeColor = System.Drawing.Color.White;
+            this.btnTipo.CheckedImage = global::GestionCasos.Properties.Resources.d_100px;
+            this.btnTipo.CheckedLineColor = System.Drawing.Color.White;
+            this.btnTipo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTipo.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnTipo.FocusedColor = System.Drawing.Color.Empty;
+            this.btnTipo.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnTipo.ForeColor = System.Drawing.Color.White;
+            this.btnTipo.Image = global::GestionCasos.Properties.Resources.n_100px;
+            this.btnTipo.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnTipo.LineColor = System.Drawing.Color.White;
+            this.btnTipo.Location = new System.Drawing.Point(245, 97);
+            this.btnTipo.Name = "btnTipo";
+            this.btnTipo.OnHoverBaseColor = System.Drawing.Color.Gainsboro;
+            this.btnTipo.OnHoverBorderColor = System.Drawing.Color.White;
+            this.btnTipo.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnTipo.OnHoverImage = null;
+            this.btnTipo.OnHoverLineColor = System.Drawing.Color.White;
+            this.btnTipo.OnPressedColor = System.Drawing.Color.White;
+            this.btnTipo.Size = new System.Drawing.Size(45, 28);
+            this.btnTipo.TabIndex = 34;
+            this.btnTipo.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
+            // 
+            // btnPdf
+            // 
+            this.btnPdf.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPdf.AnimationHoverSpeed = 0.07F;
+            this.btnPdf.AnimationSpeed = 0.03F;
+            this.btnPdf.BackColor = System.Drawing.Color.Transparent;
+            this.btnPdf.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
+            this.btnPdf.BorderColor = System.Drawing.Color.Black;
+            this.btnPdf.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnPdf.FocusedColor = System.Drawing.Color.Empty;
+            this.btnPdf.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPdf.ForeColor = System.Drawing.Color.White;
+            this.btnPdf.Image = global::GestionCasos.Properties.Resources.pdf_40px;
+            this.btnPdf.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnPdf.Location = new System.Drawing.Point(714, 168);
+            this.btnPdf.Name = "btnPdf";
+            this.btnPdf.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnPdf.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnPdf.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnPdf.OnHoverImage = null;
+            this.btnPdf.OnPressedColor = System.Drawing.Color.Black;
+            this.btnPdf.Radius = 5;
+            this.btnPdf.Size = new System.Drawing.Size(160, 42);
+            this.btnPdf.TabIndex = 27;
+            this.btnPdf.Text = "Exportar";
+            this.btnPdf.Click += new System.EventHandler(this.btn_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGuardar.AnimationHoverSpeed = 0.07F;
+            this.btnGuardar.AnimationSpeed = 0.03F;
+            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(160)))), ((int)(((byte)(67)))));
+            this.btnGuardar.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnGuardar.FocusedColor = System.Drawing.Color.Empty;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Image = global::GestionCasos.Properties.Resources.add_40px;
+            this.btnGuardar.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnGuardar.Location = new System.Drawing.Point(714, 93);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnGuardar.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnGuardar.OnHoverImage = null;
+            this.btnGuardar.OnPressedColor = System.Drawing.Color.Black;
+            this.btnGuardar.Radius = 5;
+            this.btnGuardar.Size = new System.Drawing.Size(160, 42);
+            this.btnGuardar.TabIndex = 26;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // fEntrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,7 +476,8 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.TextBox txtApellido2;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
-        private System.Windows.Forms.TextBox txtObs;
+        private System.Windows.Forms.TextBox txtObservacion;
         private System.Windows.Forms.Label label1;
+        private Guna.UI.WinForms.GunaAdvenceTileButton btnTipo;
     }
 }

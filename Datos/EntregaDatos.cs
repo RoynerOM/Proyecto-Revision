@@ -34,7 +34,21 @@ namespace Datos
 
         public bool modificar(t_EntregaCasos e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    db.Entry<t_EntregaCasos>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+                return false;
+            }
         }
 
         public t_EntregaCasos obtenerPorId(t_EntregaCasos e)
@@ -78,9 +92,8 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var consulta = db.t_EntregaCasos.Include("t_Persona")
-                                                    .Include("t_Revision")
-                                                    .Include("t_Recepcion")
+                    var consulta = db.t_EntregaCasos.Include("t_Revision")
+                                                    .Include("t_Mensajero")
                                                     .Where(x => x.t_Revision.Consecutivo == consecutivo).SingleOrDefault();
                     if (consulta != null)
                     {

@@ -4,10 +4,11 @@
     {
         public enum MedioReceptivo
         {
-            Correo,
-            Oficina,
-            Mensajero,
-            Whatsapp
+            Correo =1,
+            Whatsapp=2,
+            Oficina=3,
+            Mensajero=4,
+           
         }
 
         public enum Estado

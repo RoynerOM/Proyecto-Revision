@@ -94,15 +94,13 @@ namespace Datos
             }
         }
 
-        //Extras
-
-        public IEnumerable<t_Revision> obtenerPorConsecutivo(string consecutivo)
+        public t_Revision ObtenerPorCaso(string consecutivo)
         {
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Consecutivo == consecutivo).ToList();
+                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Consecutivo.StartsWith(consecutivo.ToUpper())).SingleOrDefault();
 
                     if (caso != null)
                     {
@@ -121,6 +119,34 @@ namespace Datos
             }
         }
 
+        //Extras
+        //Filter by onsecutivo
+        public IEnumerable<t_Revision> obtenerPorConsecutivo(string consecutivo)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Consecutivo.StartsWith(consecutivo.ToUpper())).ToList();
+
+                    if (caso != null)
+                    {
+                        return caso;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        //Filter by Persona
         public IEnumerable<t_Revision> obtenerPorContador(string persona)
         {
             try
@@ -146,6 +172,7 @@ namespace Datos
             }
         }
 
+        //Filter by id caso
         public t_Revision obtenerPorId(t_Revision e)
         {
             try
@@ -170,5 +197,61 @@ namespace Datos
                 return null;
             }
         }
+
+
+        //Filter by estado
+        public IEnumerable<t_Revision> FilterBy(int estado)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Estado == estado).ToList();
+
+                    if (caso != null)
+                    {
+                        return caso;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        //Extras
+        //Filter by onsecutivo
+        public IEnumerable<t_Revision> FilterBy(int recepcion,int opc = 0)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Recepcion == recepcion).ToList();
+
+                    if (caso != null)
+                    {
+                        return caso;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+
     }
 }

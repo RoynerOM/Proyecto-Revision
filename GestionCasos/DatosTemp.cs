@@ -8,8 +8,7 @@ namespace GestionCasos
         public static t_Persona t_Persona { get; set; }
         public static t_Institucion t_Institucion { get; set; }
         public static t_Boleta t_Boleta { get; set; }
-
-        public static Form backForm { get; set; }
-        public static Form Form { get; set; }
+        public static bool MultiUser = false;
+        
     }
 }

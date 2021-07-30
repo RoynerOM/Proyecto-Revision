@@ -37,7 +37,10 @@ namespace Negocios
         {
             return datosR.obtenerPorConsecutivo(consecutivo);
         }
-
+        public t_Revision ObtenerPorCaso(string consecutivo)
+        {
+            return datosR.ObtenerPorCaso(consecutivo);
+        }
         public IEnumerable<t_Revision> obtenerPorContador(string persona)
         {
             return datosR.obtenerPorContador(persona);
@@ -46,6 +49,17 @@ namespace Negocios
         public t_Revision obtenerPorId(t_Revision e)
         {
             return datosR.obtenerPorId(e);
+        }
+
+
+        public IEnumerable<t_Revision> FilterBy(int recepcion, int opc = 0)
+        {
+            return datosR.FilterBy(recepcion, opc);
+        }
+
+        public IEnumerable<t_Revision> FilterBy(int estado)
+        {
+            return datosR.FilterBy(estado);
         }
     }
 }

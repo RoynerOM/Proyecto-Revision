@@ -38,7 +38,6 @@ namespace GestionCasos
             this.label3 = new System.Windows.Forms.Label();
             this.lblTramitadores = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.gunaTileButton4 = new Guna.UI.WinForms.GunaTileButton();
             this.gunaTileButton3 = new Guna.UI.WinForms.GunaTileButton();
             this.gunaElipsePanel4 = new Guna.UI.WinForms.GunaElipsePanel();
             this.lblJuntas = new System.Windows.Forms.Label();
@@ -78,7 +77,6 @@ namespace GestionCasos
             this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             this.DesktopPanel.Controls.Add(this.gunaElipsePanel2);
             this.DesktopPanel.Controls.Add(this.gunaElipsePanel1);
-            this.DesktopPanel.Controls.Add(this.gunaTileButton4);
             this.DesktopPanel.Controls.Add(this.gunaTileButton3);
             this.DesktopPanel.Controls.Add(this.gunaElipsePanel4);
             this.DesktopPanel.Controls.Add(this.gunaTileButton2);
@@ -89,7 +87,7 @@ namespace GestionCasos
             this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DesktopPanel.Location = new System.Drawing.Point(0, 0);
             this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(812, 686);
+            this.DesktopPanel.Size = new System.Drawing.Size(812, 583);
             this.DesktopPanel.TabIndex = 2;
             this.DesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DesktopPanel_Paint);
             // 
@@ -102,7 +100,7 @@ namespace GestionCasos
             this.gunaElipsePanel2.Controls.Add(this.label5);
             this.gunaElipsePanel2.Controls.Add(this.lblEntregados);
             this.gunaElipsePanel2.Controls.Add(this.pictureBox6);
-            this.gunaElipsePanel2.Location = new System.Drawing.Point(456, 209);
+            this.gunaElipsePanel2.Location = new System.Drawing.Point(456, 157);
             this.gunaElipsePanel2.MinimumSize = new System.Drawing.Size(343, 114);
             this.gunaElipsePanel2.Name = "gunaElipsePanel2";
             this.gunaElipsePanel2.Radius = 20;
@@ -154,7 +152,7 @@ namespace GestionCasos
             this.gunaElipsePanel1.Controls.Add(this.label3);
             this.gunaElipsePanel1.Controls.Add(this.lblTramitadores);
             this.gunaElipsePanel1.Controls.Add(this.pictureBox5);
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(31, 349);
+            this.gunaElipsePanel1.Location = new System.Drawing.Point(31, 297);
             this.gunaElipsePanel1.MinimumSize = new System.Drawing.Size(343, 114);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Radius = 20;
@@ -197,34 +195,6 @@ namespace GestionCasos
             this.pictureBox5.TabIndex = 5;
             this.pictureBox5.TabStop = false;
             // 
-            // gunaTileButton4
-            // 
-            this.gunaTileButton4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gunaTileButton4.AnimationHoverSpeed = 0.07F;
-            this.gunaTileButton4.AnimationSpeed = 0.03F;
-            this.gunaTileButton4.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTileButton4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(80)))), ((int)(((byte)(111)))));
-            this.gunaTileButton4.BorderColor = System.Drawing.Color.Black;
-            this.gunaTileButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaTileButton4.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaTileButton4.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaTileButton4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaTileButton4.ForeColor = System.Drawing.Color.White;
-            this.gunaTileButton4.Image = global::GestionCasos.Properties.Resources.send_email_100px;
-            this.gunaTileButton4.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton4.Location = new System.Drawing.Point(424, 513);
-            this.gunaTileButton4.Name = "gunaTileButton4";
-            this.gunaTileButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.gunaTileButton4.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaTileButton4.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaTileButton4.OnHoverImage = null;
-            this.gunaTileButton4.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaTileButton4.Radius = 5;
-            this.gunaTileButton4.Size = new System.Drawing.Size(160, 93);
-            this.gunaTileButton4.TabIndex = 3;
-            this.gunaTileButton4.Text = "Entregas";
-            this.gunaTileButton4.Click += new System.EventHandler(this.GunaTileButton4_Click);
-            // 
             // gunaTileButton3
             // 
             this.gunaTileButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -240,7 +210,7 @@ namespace GestionCasos
             this.gunaTileButton3.ForeColor = System.Drawing.Color.White;
             this.gunaTileButton3.Image = global::GestionCasos.Properties.Resources.organization_60px;
             this.gunaTileButton3.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton3.Location = new System.Drawing.Point(241, 513);
+            this.gunaTileButton3.Location = new System.Drawing.Point(214, 456);
             this.gunaTileButton3.Name = "gunaTileButton3";
             this.gunaTileButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton3.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -262,7 +232,7 @@ namespace GestionCasos
             this.gunaElipsePanel4.Controls.Add(this.lblJuntas);
             this.gunaElipsePanel4.Controls.Add(this.lblTotalJuntas);
             this.gunaElipsePanel4.Controls.Add(this.pictureBox4);
-            this.gunaElipsePanel4.Location = new System.Drawing.Point(457, 349);
+            this.gunaElipsePanel4.Location = new System.Drawing.Point(457, 297);
             this.gunaElipsePanel4.MinimumSize = new System.Drawing.Size(343, 114);
             this.gunaElipsePanel4.Name = "gunaElipsePanel4";
             this.gunaElipsePanel4.Radius = 20;
@@ -320,7 +290,7 @@ namespace GestionCasos
             this.gunaTileButton2.ForeColor = System.Drawing.Color.White;
             this.gunaTileButton2.Image = global::GestionCasos.Properties.Resources.task_60px;
             this.gunaTileButton2.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton2.Location = new System.Drawing.Point(607, 513);
+            this.gunaTileButton2.Location = new System.Drawing.Point(457, 456);
             this.gunaTileButton2.Name = "gunaTileButton2";
             this.gunaTileButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton2.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -342,7 +312,7 @@ namespace GestionCasos
             this.pnRevisados.Controls.Add(this.lblRevisados);
             this.pnRevisados.Controls.Add(this.lblTotalRevisados);
             this.pnRevisados.Controls.Add(this.pictureBox3);
-            this.pnRevisados.Location = new System.Drawing.Point(31, 209);
+            this.pnRevisados.Location = new System.Drawing.Point(31, 157);
             this.pnRevisados.MinimumSize = new System.Drawing.Size(343, 114);
             this.pnRevisados.Name = "pnRevisados";
             this.pnRevisados.Radius = 20;
@@ -400,7 +370,7 @@ namespace GestionCasos
             this.gunaTileButton1.ForeColor = System.Drawing.Color.White;
             this.gunaTileButton1.Image = global::GestionCasos.Properties.Resources.more_details_60px;
             this.gunaTileButton1.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton1.Location = new System.Drawing.Point(57, 513);
+            this.gunaTileButton1.Location = new System.Drawing.Point(31, 456);
             this.gunaTileButton1.Name = "gunaTileButton1";
             this.gunaTileButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -422,7 +392,7 @@ namespace GestionCasos
             this.pnContadores.Controls.Add(this.label2);
             this.pnContadores.Controls.Add(this.label1);
             this.pnContadores.Controls.Add(this.pictureBox1);
-            this.pnContadores.Location = new System.Drawing.Point(31, 67);
+            this.pnContadores.Location = new System.Drawing.Point(31, 15);
             this.pnContadores.MinimumSize = new System.Drawing.Size(343, 114);
             this.pnContadores.Name = "pnContadores";
             this.pnContadores.Radius = 20;
@@ -475,7 +445,7 @@ namespace GestionCasos
             this.pnPendientes.Controls.Add(this.lblPendientes);
             this.pnPendientes.Controls.Add(this.lblTotaPendientes);
             this.pnPendientes.Controls.Add(this.pictureBox2);
-            this.pnPendientes.Location = new System.Drawing.Point(456, 67);
+            this.pnPendientes.Location = new System.Drawing.Point(456, 15);
             this.pnPendientes.MinimumSize = new System.Drawing.Size(343, 114);
             this.pnPendientes.Name = "pnPendientes";
             this.pnPendientes.Radius = 20;
@@ -522,7 +492,7 @@ namespace GestionCasos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 686);
+            this.ClientSize = new System.Drawing.Size(812, 583);
             this.Controls.Add(this.DesktopPanel);
             this.Name = "fDashBoard";
             this.Text = "fDashBoard";
@@ -569,7 +539,6 @@ namespace GestionCasos
         private System.Windows.Forms.Label lblJuntas;
         private System.Windows.Forms.Label lblTotalJuntas;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private Guna.UI.WinForms.GunaTileButton gunaTileButton4;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton3;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton2;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton1;

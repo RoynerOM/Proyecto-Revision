@@ -17,10 +17,10 @@ namespace Entidades
         public int Id { get; set; }
         public string Cedula { get; set; }
         public int Recepcion { get; set; }
+        public int Pago { get; set; }
         public int Id_Caso { get; set; }
         public System.DateTime FechaEntrega { get; set; }
         public string Observacion { get; set; }
-        public int Pago { get; set; }
     
         public virtual t_Mensajero t_Mensajero { get; set; }
         public virtual t_Revision t_Revision { get; set; }

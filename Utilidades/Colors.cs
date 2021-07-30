@@ -33,5 +33,11 @@ namespace Utilidades
         public static Color DarkBack = Color.FromArgb(20, 22, 37);
         public static Color DarkPanel = Color.FromArgb(31, 33, 58);
 
+        //estado por entregar
+        public static Color PurpleFore = Color.FromArgb(155, 81, 224);
+        public static Color PurpleBack = Color.FromArgb(225, 220, 249);
+
+        public static Color PurpleBack2 = Color.FromArgb(59, 30, 85);
+
     }
 }

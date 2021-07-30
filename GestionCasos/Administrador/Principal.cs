@@ -1,6 +1,7 @@
 ﻿using GestionCasos.Administrador;
 using GestionCasos.Configuracion;
 using GestionCasos.Reportes;
+using GestionCasos.Usuarios;
 using System;
 using System.Configuration;
 using System.Drawing;
@@ -67,6 +68,7 @@ namespace GestionCasos
                 btnMenu.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnReportes.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+                btnEntregas.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
             }
             else
             {
@@ -80,7 +82,7 @@ namespace GestionCasos
                 btnMenu.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
                 btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
                 btnReportes.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
-
+                btnEntregas.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
             }
         }
 
@@ -150,7 +152,6 @@ namespace GestionCasos
         {
             if (activeForm != null)
                 activeForm.Close();
-            DatosTemp.Form = childForm;
             ActiveButton(btnSender);
             activeForm = childForm;
             childForm.TopLevel = false;
@@ -168,7 +169,6 @@ namespace GestionCasos
             if (activeForm != null)
                 activeForm.Close();
             activeForm = childForm;
-            DatosTemp.Form = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -212,6 +212,18 @@ namespace GestionCasos
         {
             GC.Collect();
             Application.ExitThread();
+        }
+
+        private void btnEntregas_Click(object sender, EventArgs e)
+        {
+            if (Rol == (int)Enums.Tipo.Tramitador)
+            {
+                OpenChildForm(new CasosAsignados(true),sender);
+            }
+            else
+            {
+                OpenChildForm(new fCasosAdmin(true),sender);
+            }
         }
     }
 

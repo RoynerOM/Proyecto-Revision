@@ -71,7 +71,57 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var boleta = db.t_Boleta.Include("t_Persona").Where(x => x.Id == e.Id).SingleOrDefault();
+                    var boleta = db.t_Boleta.Include("t_Revision").Where(x => x.Id == e.Id).SingleOrDefault();
+
+                    if (boleta != null)
+                    {
+                        return boleta;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public t_Boleta obtenerPorId(int e)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var boleta = db.t_Boleta.Include("t_Revision").Where(x => x.t_Revision.Id_Caso == e).SingleOrDefault();
+
+                    if (boleta != null)
+                    {
+                        return boleta;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public t_Boleta obtenerPorId(string e)
+        {
+            try
+            {
+                using (var db = new BD_JuntasEntities())
+                {
+                    var boleta = db.t_Boleta.Include("t_Revision").Where(x => x.t_Revision.Consecutivo == e).SingleOrDefault();
 
                     if (boleta != null)
                     {
@@ -96,7 +146,7 @@ namespace Datos
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var boleta = db.t_Boleta.Include("t_Persona").Include("t_Revision").Include("t_Institucion").ToList();
+                    var boleta = db.t_Boleta.Include("t_Revision").ToList();
 
                     if (boleta != null)
                     {

@@ -12,10 +12,14 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class t_Boleta
+    public partial class viewBoleta
     {
         public int Id { get; set; }
-        public int Nu_caso { get; set; }
+        public int Codigo { get; set; }
+        public string Consecutivo { get; set; }
+        public int Circuito { get; set; }
+        public string Nombre { get; set; }
+        public string Cedula_Juridica { get; set; }
         public bool Motivo1 { get; set; }
         public bool Motivo2 { get; set; }
         public bool Motivo3 { get; set; }
@@ -26,7 +30,9 @@ namespace Entidades
         public string Motivo8 { get; set; }
         public string Observacion { get; set; }
         public System.DateTime FechaCreado { get; set; }
-    
-        public virtual t_Revision t_Revision { get; set; }
+        public string Nombre_Completo { get; set; }
+        public Nullable<int> numeroActa { get; set; }
+        public Nullable<int> numeroFolio { get; set; }
+        public Nullable<System.DateTime> fechaActa { get; set; }
     }
 }

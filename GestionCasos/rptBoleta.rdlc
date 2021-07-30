@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>fd765e83-8575-4553-b0c1-668236726e75</rd:DataSourceID>
+      <rd:DataSourceID>fb6845c4-c4b9-40d3-80b5-9ba1da12dd63</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -131,7 +131,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
             <Top>3.55354cm</Top>
-            <Left>2.11779cm</Left>
+            <Left>2.17553cm</Left>
             <Height>0.62646cm</Height>
             <Width>1.89146cm</Width>
             <Style>
@@ -163,7 +163,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
             <Top>2.09833cm</Top>
-            <Left>4.54766cm</Left>
+            <Left>4.6054cm</Left>
             <Height>0.81167cm</Height>
             <Width>13.09216cm</Width>
             <ZIndex>1</ZIndex>
@@ -196,7 +196,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox13</rd:DefaultName>
             <Top>4.24146cm</Top>
-            <Left>2.08892cm</Left>
+            <Left>2.14666cm</Left>
             <Height>0.6cm</Height>
             <Width>1.89146cm</Width>
             <ZIndex>2</ZIndex>
@@ -228,8 +228,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox14</rd:DefaultName>
-            <Top>4.24146cm</Top>
-            <Left>10.32807cm</Left>
+            <Top>4.26792cm</Top>
+            <Left>10.38581cm</Left>
             <Height>0.6cm</Height>
             <Width>3.74354cm</Width>
             <ZIndex>3</ZIndex>
@@ -262,7 +262,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox15</rd:DefaultName>
             <Top>3.58cm</Top>
-            <Left>10.32807cm</Left>
+            <Left>10.38581cm</Left>
             <Height>0.6cm</Height>
             <Width>3.47896cm</Width>
             <ZIndex>4</ZIndex>
@@ -270,146 +270,6 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Codigo">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!Codigo.Value, "DataSet1")</Value>
-                    <Style>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Codigo</rd:DefaultName>
-            <Top>3.58cm</Top>
-            <Left>4.18564cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.96604cm</Width>
-            <ZIndex>5</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Circuito">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!Circuito.Value, "DataSet1")</Value>
-                    <Style>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Circuito</rd:DefaultName>
-            <Top>4.24146cm</Top>
-            <Left>4.15677cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.96604cm</Width>
-            <ZIndex>6</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Nombre">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Nombre.Value, "DataSet1")</Value>
-                    <Style>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Nombre</rd:DefaultName>
-            <Top>4.24146cm</Top>
-            <Left>14.17745cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.52068cm</Width>
-            <ZIndex>7</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Cedula_Juridica">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Cedula_Juridica.Value, "DataSet1")</Value>
-                    <Style>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Cedula_Juridica</rd:DefaultName>
-            <Top>3.58cm</Top>
-            <Left>13.91286cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.52068cm</Width>
-            <ZIndex>8</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -434,10 +294,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox20</rd:DefaultName>
-            <Left>16.79787cm</Left>
+            <Left>16.85561cm</Left>
             <Height>0.6cm</Height>
             <Width>1.59604cm</Width>
-            <ZIndex>9</ZIndex>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -468,81 +328,14 @@
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
             <Top>0.59931cm</Top>
-            <Left>16.39217cm</Left>
+            <Left>16.44991cm</Left>
             <Height>0.6cm</Height>
             <Width>1.96646cm</Width>
-            <ZIndex>10</ZIndex>
+            <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="FechaCreado">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=CDate(Fields!FechaCreado.Value).ToShortDateString</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>FechaCreado</rd:DefaultName>
-            <Left>18.46446cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.87042cm</Width>
-            <ZIndex>11</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Id">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!Id.Value, "DataSet1")</Value>
-                    <Style>
-                      <Color>Red</Color>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Id</rd:DefaultName>
-            <Top>0.59931cm</Top>
-            <Left>18.42919cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.87042cm</Width>
-            <ZIndex>12</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -567,11 +360,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox24</rd:DefaultName>
-            <Top>5.77604cm</Top>
-            <Left>2.11779cm</Left>
+            <Top>5.8025cm</Top>
+            <Left>2.17553cm</Left>
             <Height>0.6cm</Height>
             <Width>1.89146cm</Width>
-            <ZIndex>13</ZIndex>
+            <ZIndex>7</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -603,11 +396,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>6.51688cm</Top>
-            <Left>4.40384cm</Left>
+            <Top>6.54334cm</Top>
+            <Left>4.43271cm</Left>
             <Height>0.6cm</Height>
             <Width>7.23604cm</Width>
-            <ZIndex>14</ZIndex>
+            <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -619,175 +412,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <GaugePanel Name="GaugePanel1">
-            <StateIndicators>
-              <StateIndicator Name="Indicator1">
-                <GaugeInputValue>
-                  <Value>=IIF(Fields!Motivo1.Value = TRUE,100,0)</Value>
-                  <Multiplier>1</Multiplier>
-                  <DataElementOutput>NoOutput</DataElementOutput>
-                </GaugeInputValue>
-                <TransformationType>None</TransformationType>
-                <TransformationScope />
-                <MinimumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MinimumValue>
-                <MaximumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MaximumValue>
-                <IndicatorStyle>None</IndicatorStyle>
-                <IndicatorImage>
-                  <Source>External</Source>
-                  <Value />
-                </IndicatorImage>
-                <ScaleFactor>1</ScaleFactor>
-                <IndicatorStates>
-                  <IndicatorState Name="QuartersNoneFilled">
-                    <StartValue>
-                      <Value>0</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersNoneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersOneFilled">
-                    <StartValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersOneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersTwoFilled">
-                    <StartValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersTwoFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersThreeFilled">
-                    <StartValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersThreeFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersAllFilled">
-                    <StartValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>100</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersAllFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                </IndicatorStates>
-                <Angle>0</Angle>
-                <StateDataElementName />
-                <rd:IconsSet>FiveQuarters</rd:IconsSet>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <Top>4</Top>
-                <Left>4</Left>
-                <Height>92</Height>
-                <Width>92</Width>
-              </StateIndicator>
-            </StateIndicators>
-            <AutoLayout>true</AutoLayout>
-            <BackFrame>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Gainsboro</BackgroundColor>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                <BackgroundHatchType>None</BackgroundHatchType>
-                <ShadowOffset>0pt</ShadowOffset>
-              </Style>
-              <FrameBackground>
-                <Style>
-                  <BackgroundColor>Silver</BackgroundColor>
-                  <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                  <BackgroundHatchType>None</BackgroundHatchType>
-                </Style>
-              </FrameBackground>
-              <FrameImage>
-                <Source>External</Source>
-                <Value />
-              </FrameImage>
-            </BackFrame>
-            <TopImage>
-              <Source>External</Source>
-              <Value />
-            </TopImage>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>6.51688cm</Top>
-            <Left>3.83328cm</Left>
-            <Height>0.5cm</Height>
-            <Width>0.5cm</Width>
-            <ZIndex>15</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </GaugePanel>
           <Textbox Name="Textbox26">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -809,11 +433,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>7.29326cm</Top>
-            <Left>4.40384cm</Left>
+            <Top>7.31972cm</Top>
+            <Left>4.43271cm</Left>
             <Height>0.6cm</Height>
             <Width>7.23603cm</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -825,175 +449,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <GaugePanel Name="GaugePanel2">
-            <StateIndicators>
-              <StateIndicator Name="Indicator1">
-                <GaugeInputValue>
-                  <Value>=IIF(Fields!Motivo2.Value = TRUE,100,0)</Value>
-                  <Multiplier>1</Multiplier>
-                  <DataElementOutput>NoOutput</DataElementOutput>
-                </GaugeInputValue>
-                <TransformationType>None</TransformationType>
-                <TransformationScope />
-                <MinimumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MinimumValue>
-                <MaximumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MaximumValue>
-                <IndicatorStyle>None</IndicatorStyle>
-                <IndicatorImage>
-                  <Source>External</Source>
-                  <Value />
-                </IndicatorImage>
-                <ScaleFactor>1</ScaleFactor>
-                <IndicatorStates>
-                  <IndicatorState Name="QuartersNoneFilled">
-                    <StartValue>
-                      <Value>0</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersNoneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersOneFilled">
-                    <StartValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersOneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersTwoFilled">
-                    <StartValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersTwoFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersThreeFilled">
-                    <StartValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersThreeFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersAllFilled">
-                    <StartValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>100</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersAllFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                </IndicatorStates>
-                <Angle>0</Angle>
-                <StateDataElementName />
-                <rd:IconsSet>FiveQuarters</rd:IconsSet>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <Top>4</Top>
-                <Left>4</Left>
-                <Height>92</Height>
-                <Width>92</Width>
-              </StateIndicator>
-            </StateIndicators>
-            <AutoLayout>true</AutoLayout>
-            <BackFrame>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Gainsboro</BackgroundColor>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                <BackgroundHatchType>None</BackgroundHatchType>
-                <ShadowOffset>0pt</ShadowOffset>
-              </Style>
-              <FrameBackground>
-                <Style>
-                  <BackgroundColor>Silver</BackgroundColor>
-                  <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                  <BackgroundHatchType>None</BackgroundHatchType>
-                </Style>
-              </FrameBackground>
-              <FrameImage>
-                <Source>External</Source>
-                <Value />
-              </FrameImage>
-            </BackFrame>
-            <TopImage>
-              <Source>External</Source>
-              <Value />
-            </TopImage>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>7.29326cm</Top>
-            <Left>3.83328cm</Left>
-            <Height>0.5cm</Height>
-            <Width>0.5cm</Width>
-            <ZIndex>17</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </GaugePanel>
           <Textbox Name="Textbox27">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1015,11 +470,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>8.06965cm</Top>
+            <Top>8.09611cm</Top>
             <Left>4.40384cm</Left>
             <Height>0.6cm</Height>
             <Width>7.23604cm</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>10</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1031,175 +486,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <GaugePanel Name="GaugePanel3">
-            <StateIndicators>
-              <StateIndicator Name="Indicator1">
-                <GaugeInputValue>
-                  <Value>=IIF(Fields!Motivo3.Value = TRUE,100,0)</Value>
-                  <Multiplier>1</Multiplier>
-                  <DataElementOutput>NoOutput</DataElementOutput>
-                </GaugeInputValue>
-                <TransformationType>None</TransformationType>
-                <TransformationScope />
-                <MinimumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MinimumValue>
-                <MaximumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MaximumValue>
-                <IndicatorStyle>None</IndicatorStyle>
-                <IndicatorImage>
-                  <Source>External</Source>
-                  <Value />
-                </IndicatorImage>
-                <ScaleFactor>1</ScaleFactor>
-                <IndicatorStates>
-                  <IndicatorState Name="QuartersNoneFilled">
-                    <StartValue>
-                      <Value>0</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersNoneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersOneFilled">
-                    <StartValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersOneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersTwoFilled">
-                    <StartValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersTwoFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersThreeFilled">
-                    <StartValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersThreeFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersAllFilled">
-                    <StartValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>100</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersAllFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                </IndicatorStates>
-                <Angle>0</Angle>
-                <StateDataElementName />
-                <rd:IconsSet>FiveQuarters</rd:IconsSet>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <Top>4</Top>
-                <Left>4</Left>
-                <Height>92</Height>
-                <Width>92</Width>
-              </StateIndicator>
-            </StateIndicators>
-            <AutoLayout>true</AutoLayout>
-            <BackFrame>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Gainsboro</BackgroundColor>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                <BackgroundHatchType>None</BackgroundHatchType>
-                <ShadowOffset>0pt</ShadowOffset>
-              </Style>
-              <FrameBackground>
-                <Style>
-                  <BackgroundColor>Silver</BackgroundColor>
-                  <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                  <BackgroundHatchType>None</BackgroundHatchType>
-                </Style>
-              </FrameBackground>
-              <FrameImage>
-                <Source>External</Source>
-                <Value />
-              </FrameImage>
-            </BackFrame>
-            <TopImage>
-              <Source>External</Source>
-              <Value />
-            </TopImage>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>8.06965cm</Top>
-            <Left>3.83328cm</Left>
-            <Height>0.5cm</Height>
-            <Width>0.5cm</Width>
-            <ZIndex>19</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </GaugePanel>
           <Textbox Name="Textbox28">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1221,11 +507,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>8.06964cm</Top>
+            <Top>8.0961cm</Top>
             <Left>12.74704cm</Left>
             <Height>0.6cm</Height>
             <Width>7.23604cm</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1237,175 +523,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <GaugePanel Name="GaugePanel4">
-            <StateIndicators>
-              <StateIndicator Name="Indicator1">
-                <GaugeInputValue>
-                  <Value>=IIF(Fields!Motivo4.Value = TRUE,100,0)</Value>
-                  <Multiplier>1</Multiplier>
-                  <DataElementOutput>NoOutput</DataElementOutput>
-                </GaugeInputValue>
-                <TransformationType>None</TransformationType>
-                <TransformationScope />
-                <MinimumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MinimumValue>
-                <MaximumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MaximumValue>
-                <IndicatorStyle>None</IndicatorStyle>
-                <IndicatorImage>
-                  <Source>External</Source>
-                  <Value />
-                </IndicatorImage>
-                <ScaleFactor>1</ScaleFactor>
-                <IndicatorStates>
-                  <IndicatorState Name="QuartersNoneFilled">
-                    <StartValue>
-                      <Value>0</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersNoneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersOneFilled">
-                    <StartValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersOneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersTwoFilled">
-                    <StartValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersTwoFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersThreeFilled">
-                    <StartValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersThreeFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersAllFilled">
-                    <StartValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>100</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersAllFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                </IndicatorStates>
-                <Angle>0</Angle>
-                <StateDataElementName />
-                <rd:IconsSet>FiveQuarters</rd:IconsSet>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <Top>4</Top>
-                <Left>4</Left>
-                <Height>92</Height>
-                <Width>92</Width>
-              </StateIndicator>
-            </StateIndicators>
-            <AutoLayout>true</AutoLayout>
-            <BackFrame>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Gainsboro</BackgroundColor>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                <BackgroundHatchType>None</BackgroundHatchType>
-                <ShadowOffset>0pt</ShadowOffset>
-              </Style>
-              <FrameBackground>
-                <Style>
-                  <BackgroundColor>Silver</BackgroundColor>
-                  <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                  <BackgroundHatchType>None</BackgroundHatchType>
-                </Style>
-              </FrameBackground>
-              <FrameImage>
-                <Source>External</Source>
-                <Value />
-              </FrameImage>
-            </BackFrame>
-            <TopImage>
-              <Source>External</Source>
-              <Value />
-            </TopImage>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>8.06964cm</Top>
-            <Left>12.17648cm</Left>
-            <Height>0.5cm</Height>
-            <Width>0.5cm</Width>
-            <ZIndex>21</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </GaugePanel>
           <Textbox Name="Textbox29">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1427,11 +544,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>8.84604cm</Top>
+            <Top>8.8725cm</Top>
             <Left>4.40384cm</Left>
             <Height>0.6cm</Height>
             <Width>7.23604cm</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>12</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1443,175 +560,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <GaugePanel Name="GaugePanel5">
-            <StateIndicators>
-              <StateIndicator Name="Indicator1">
-                <GaugeInputValue>
-                  <Value>=IIF(Fields!Motivo5.Value = TRUE,100,0)</Value>
-                  <Multiplier>1</Multiplier>
-                  <DataElementOutput>NoOutput</DataElementOutput>
-                </GaugeInputValue>
-                <TransformationType>None</TransformationType>
-                <TransformationScope />
-                <MinimumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MinimumValue>
-                <MaximumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MaximumValue>
-                <IndicatorStyle>None</IndicatorStyle>
-                <IndicatorImage>
-                  <Source>External</Source>
-                  <Value />
-                </IndicatorImage>
-                <ScaleFactor>1</ScaleFactor>
-                <IndicatorStates>
-                  <IndicatorState Name="QuartersNoneFilled">
-                    <StartValue>
-                      <Value>0</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersNoneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersOneFilled">
-                    <StartValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersOneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersTwoFilled">
-                    <StartValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersTwoFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersThreeFilled">
-                    <StartValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersThreeFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersAllFilled">
-                    <StartValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>100</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersAllFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                </IndicatorStates>
-                <Angle>0</Angle>
-                <StateDataElementName />
-                <rd:IconsSet>FiveQuarters</rd:IconsSet>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <Top>4</Top>
-                <Left>4</Left>
-                <Height>92</Height>
-                <Width>92</Width>
-              </StateIndicator>
-            </StateIndicators>
-            <AutoLayout>true</AutoLayout>
-            <BackFrame>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Gainsboro</BackgroundColor>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                <BackgroundHatchType>None</BackgroundHatchType>
-                <ShadowOffset>0pt</ShadowOffset>
-              </Style>
-              <FrameBackground>
-                <Style>
-                  <BackgroundColor>Silver</BackgroundColor>
-                  <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                  <BackgroundHatchType>None</BackgroundHatchType>
-                </Style>
-              </FrameBackground>
-              <FrameImage>
-                <Source>External</Source>
-                <Value />
-              </FrameImage>
-            </BackFrame>
-            <TopImage>
-              <Source>External</Source>
-              <Value />
-            </TopImage>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>8.84604cm</Top>
-            <Left>3.83328cm</Left>
-            <Height>0.5cm</Height>
-            <Width>0.5cm</Width>
-            <ZIndex>23</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </GaugePanel>
           <Textbox Name="Textbox30">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1633,11 +581,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>6.51688cm</Top>
+            <Top>6.54334cm</Top>
             <Left>12.74705cm</Left>
             <Height>0.6cm</Height>
             <Width>7.23604cm</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1649,175 +597,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <GaugePanel Name="GaugePanel6">
-            <StateIndicators>
-              <StateIndicator Name="Indicator1">
-                <GaugeInputValue>
-                  <Value>=IIF(Fields!Motivo6.Value = TRUE,100,0)</Value>
-                  <Multiplier>1</Multiplier>
-                  <DataElementOutput>NoOutput</DataElementOutput>
-                </GaugeInputValue>
-                <TransformationType>None</TransformationType>
-                <TransformationScope />
-                <MinimumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MinimumValue>
-                <MaximumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MaximumValue>
-                <IndicatorStyle>None</IndicatorStyle>
-                <IndicatorImage>
-                  <Source>External</Source>
-                  <Value />
-                </IndicatorImage>
-                <ScaleFactor>1</ScaleFactor>
-                <IndicatorStates>
-                  <IndicatorState Name="QuartersNoneFilled">
-                    <StartValue>
-                      <Value>0</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersNoneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersOneFilled">
-                    <StartValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersOneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersTwoFilled">
-                    <StartValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersTwoFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersThreeFilled">
-                    <StartValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersThreeFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersAllFilled">
-                    <StartValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>100</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersAllFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                </IndicatorStates>
-                <Angle>0</Angle>
-                <StateDataElementName />
-                <rd:IconsSet>FiveQuarters</rd:IconsSet>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <Top>4</Top>
-                <Left>4</Left>
-                <Height>92</Height>
-                <Width>92</Width>
-              </StateIndicator>
-            </StateIndicators>
-            <AutoLayout>true</AutoLayout>
-            <BackFrame>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Gainsboro</BackgroundColor>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                <BackgroundHatchType>None</BackgroundHatchType>
-                <ShadowOffset>0pt</ShadowOffset>
-              </Style>
-              <FrameBackground>
-                <Style>
-                  <BackgroundColor>Silver</BackgroundColor>
-                  <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                  <BackgroundHatchType>None</BackgroundHatchType>
-                </Style>
-              </FrameBackground>
-              <FrameImage>
-                <Source>External</Source>
-                <Value />
-              </FrameImage>
-            </BackFrame>
-            <TopImage>
-              <Source>External</Source>
-              <Value />
-            </TopImage>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>6.51688cm</Top>
-            <Left>12.17649cm</Left>
-            <Height>0.5cm</Height>
-            <Width>0.5cm</Width>
-            <ZIndex>25</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </GaugePanel>
           <Textbox Name="Textbox31">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1839,11 +618,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>7.29326cm</Top>
+            <Top>7.31972cm</Top>
             <Left>12.74705cm</Left>
             <Height>0.6cm</Height>
             <Width>7.23603cm</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1855,175 +634,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <GaugePanel Name="GaugePanel7">
-            <StateIndicators>
-              <StateIndicator Name="Indicator1">
-                <GaugeInputValue>
-                  <Value>=IIF(Fields!Motivo7.Value = TRUE,100,0)</Value>
-                  <Multiplier>1</Multiplier>
-                  <DataElementOutput>NoOutput</DataElementOutput>
-                </GaugeInputValue>
-                <TransformationType>None</TransformationType>
-                <TransformationScope />
-                <MinimumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MinimumValue>
-                <MaximumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MaximumValue>
-                <IndicatorStyle>None</IndicatorStyle>
-                <IndicatorImage>
-                  <Source>External</Source>
-                  <Value />
-                </IndicatorImage>
-                <ScaleFactor>1</ScaleFactor>
-                <IndicatorStates>
-                  <IndicatorState Name="QuartersNoneFilled">
-                    <StartValue>
-                      <Value>0</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersNoneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersOneFilled">
-                    <StartValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersOneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersTwoFilled">
-                    <StartValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersTwoFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersThreeFilled">
-                    <StartValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersThreeFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersAllFilled">
-                    <StartValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>100</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersAllFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                </IndicatorStates>
-                <Angle>0</Angle>
-                <StateDataElementName />
-                <rd:IconsSet>FiveQuarters</rd:IconsSet>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <Top>4</Top>
-                <Left>4</Left>
-                <Height>92</Height>
-                <Width>92</Width>
-              </StateIndicator>
-            </StateIndicators>
-            <AutoLayout>true</AutoLayout>
-            <BackFrame>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Gainsboro</BackgroundColor>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                <BackgroundHatchType>None</BackgroundHatchType>
-                <ShadowOffset>0pt</ShadowOffset>
-              </Style>
-              <FrameBackground>
-                <Style>
-                  <BackgroundColor>Silver</BackgroundColor>
-                  <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                  <BackgroundHatchType>None</BackgroundHatchType>
-                </Style>
-              </FrameBackground>
-              <FrameImage>
-                <Source>External</Source>
-                <Value />
-              </FrameImage>
-            </BackFrame>
-            <TopImage>
-              <Source>External</Source>
-              <Value />
-            </TopImage>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>7.29326cm</Top>
-            <Left>12.17649cm</Left>
-            <Height>0.5cm</Height>
-            <Width>0.5cm</Width>
-            <ZIndex>27</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </GaugePanel>
           <Textbox Name="Textbox32">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -2045,11 +655,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox25</rd:DefaultName>
-            <Top>8.84604cm</Top>
+            <Top>8.8725cm</Top>
             <Left>12.74704cm</Left>
             <Height>0.6cm</Height>
             <Width>1.20354cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2059,207 +669,6 @@
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <GaugePanel Name="GaugePanel8">
-            <StateIndicators>
-              <StateIndicator Name="Indicator1">
-                <GaugeInputValue>
-                  <Value>=IIF(Fields!Motivo8.Value = "",0,100)</Value>
-                  <Multiplier>1</Multiplier>
-                  <DataElementOutput>NoOutput</DataElementOutput>
-                </GaugeInputValue>
-                <TransformationType>None</TransformationType>
-                <TransformationScope />
-                <MinimumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MinimumValue>
-                <MaximumValue>
-                  <Value>NaN</Value>
-                  <Multiplier>1</Multiplier>
-                </MaximumValue>
-                <IndicatorStyle>None</IndicatorStyle>
-                <IndicatorImage>
-                  <Source>External</Source>
-                  <Value />
-                </IndicatorImage>
-                <ScaleFactor>1</ScaleFactor>
-                <IndicatorStates>
-                  <IndicatorState Name="QuartersNoneFilled">
-                    <StartValue>
-                      <Value>0</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersNoneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersOneFilled">
-                    <StartValue>
-                      <Value>20</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersOneFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersTwoFilled">
-                    <StartValue>
-                      <Value>40</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersTwoFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersThreeFilled">
-                    <StartValue>
-                      <Value>60</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersThreeFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                  <IndicatorState Name="QuartersAllFilled">
-                    <StartValue>
-                      <Value>80</Value>
-                      <Multiplier>1</Multiplier>
-                    </StartValue>
-                    <EndValue>
-                      <Value>100</Value>
-                      <Multiplier>1</Multiplier>
-                    </EndValue>
-                    <Color>Black</Color>
-                    <ScaleFactor>1</ScaleFactor>
-                    <IndicatorStyle>QuartersAllFilled</IndicatorStyle>
-                    <IndicatorImage>
-                      <Source>External</Source>
-                      <Value />
-                    </IndicatorImage>
-                  </IndicatorState>
-                </IndicatorStates>
-                <Angle>0</Angle>
-                <StateDataElementName />
-                <rd:IconsSet>FiveQuarters</rd:IconsSet>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <ShadowOffset>0pt</ShadowOffset>
-                </Style>
-                <Top>4</Top>
-                <Left>4</Left>
-                <Height>92</Height>
-                <Width>92</Width>
-              </StateIndicator>
-            </StateIndicators>
-            <AutoLayout>true</AutoLayout>
-            <BackFrame>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Gainsboro</BackgroundColor>
-                <BackgroundGradientType>None</BackgroundGradientType>
-                <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                <BackgroundHatchType>None</BackgroundHatchType>
-                <ShadowOffset>0pt</ShadowOffset>
-              </Style>
-              <FrameBackground>
-                <Style>
-                  <BackgroundColor>Silver</BackgroundColor>
-                  <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
-                  <BackgroundGradientEndColor>Gray</BackgroundGradientEndColor>
-                  <BackgroundHatchType>None</BackgroundHatchType>
-                </Style>
-              </FrameBackground>
-              <FrameImage>
-                <Source>External</Source>
-                <Value />
-              </FrameImage>
-            </BackFrame>
-            <TopImage>
-              <Source>External</Source>
-              <Value />
-            </TopImage>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>8.84604cm</Top>
-            <Left>12.17648cm</Left>
-            <Height>0.5cm</Height>
-            <Width>0.5cm</Width>
-            <ZIndex>29</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <BackgroundColor>White</BackgroundColor>
-            </Style>
-          </GaugePanel>
-          <Textbox Name="Motivo8">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Motivo8.Value, "DataSet1")</Value>
-                    <Style>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Motivo8</rd:DefaultName>
-            <Top>8.84605cm</Top>
-            <Left>14.12697cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.83104cm</Width>
-            <ZIndex>30</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-              <PaddingLeft>4pt</PaddingLeft>
-              <PaddingRight>4pt</PaddingRight>
-              <PaddingTop>4pt</PaddingTop>
-              <PaddingBottom>4pt</PaddingBottom>
             </Style>
           </Textbox>
           <Textbox Name="Textbox34">
@@ -2280,11 +689,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox34</rd:DefaultName>
-            <Top>10.82958cm</Top>
+            <Top>10.85604cm</Top>
             <Left>2.11779cm</Left>
             <Height>0.6cm</Height>
             <Width>2.92876cm</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2293,38 +702,6 @@
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Observacion">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Observacion.Value, "DataSet1")</Value>
-                    <Style>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Observacion</rd:DefaultName>
-            <Top>10.82958cm</Top>
-            <Left>5.15239cm</Left>
-            <Height>0.6cm</Height>
-            <Width>15.81208cm</Width>
-            <ZIndex>32</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-              <PaddingLeft>4pt</PaddingLeft>
-              <PaddingRight>4pt</PaddingRight>
-              <PaddingTop>4pt</PaddingTop>
-              <PaddingBottom>4pt</PaddingBottom>
             </Style>
           </Textbox>
           <Textbox Name="Textbox37">
@@ -2345,44 +722,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox37</rd:DefaultName>
-            <Top>16.35938cm</Top>
+            <Top>16.38584cm</Top>
             <Left>2.11134cm</Left>
             <Height>0.6cm</Height>
             <Width>2.92876cm</Width>
-            <ZIndex>33</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Nombre_Completo">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Nombre_Completo.Value, "DataSet1")</Value>
-                    <Style>
-                      <FontSize>11pt</FontSize>
-                      <FontWeight>Normal</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Nombre_Completo</rd:DefaultName>
-            <Top>16.35938cm</Top>
-            <Left>5.14593cm</Left>
-            <Height>0.6cm</Height>
-            <Width>15.81208cm</Width>
-            <ZIndex>34</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2599,7 +943,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=CDate(Fields!fechaActa.Value).ToShortDateString</Value>
+                                  <Value>=Fields!fechaActa.Value</Value>
                                   <Style>
                                     <FontSize>11pt</FontSize>
                                   </Style>
@@ -2697,19 +1041,229 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>12.65938cm</Top>
+            <Top>12.68584cm</Top>
             <Left>2.1178cm</Left>
             <Height>2.7125cm</Height>
             <Width>18.2107cm</Width>
-            <ZIndex>35</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Nombre_Completo">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Nombre_Completo.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Nombre_Completo</rd:DefaultName>
+            <Top>16.38584cm</Top>
+            <Left>5.11066cm</Left>
+            <Height>0.6cm</Height>
+            <Width>15.94199cm</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Observacion">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Observacion.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Observacion</rd:DefaultName>
+            <Top>10.85604cm</Top>
+            <Left>5.15238cm</Left>
+            <Height>0.6cm</Height>
+            <Width>15.80563cm</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Motivo8">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Motivo8.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Motivo8</rd:DefaultName>
+            <Top>8.8725cm</Top>
+            <Left>14.05641cm</Left>
+            <Height>0.6cm</Height>
+            <Width>6.9016cm</Width>
+            <ZIndex>21</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Cedula_Juridica">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Cedula_Juridica.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Cedula_Juridica</rd:DefaultName>
+            <Top>3.55354cm</Top>
+            <Left>13.9706cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>22</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Nombre">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Nombre.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Nombre</rd:DefaultName>
+            <Top>4.2241cm</Top>
+            <Left>14.16463cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>23</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Codigo">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!Codigo.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Codigo</rd:DefaultName>
+            <Top>3.60646cm</Top>
+            <Left>4.17724cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>24</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Circuito">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!Circuito.Value, "DataSet1")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Circuito</rd:DefaultName>
+            <Top>4.26792cm</Top>
+            <Left>4.03812cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>25</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>16.95938cm</Height>
+        <Height>17.17104cm</Height>
         <Style />
       </Body>
       <Width>21.59cm</Width>

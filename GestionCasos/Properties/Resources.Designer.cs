@@ -163,6 +163,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap d_100px {
+            get {
+                object obj = ResourceManager.GetObject("d_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dashboard_60px {
             get {
                 object obj = ResourceManager.GetObject("dashboard_60px", resourceCulture);
@@ -503,6 +513,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap n_100px {
+            get {
+                object obj = ResourceManager.GetObject("n_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap new_moon_60px {
             get {
                 object obj = ResourceManager.GetObject("new_moon_60px", resourceCulture);
@@ -583,6 +603,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reload {
+            get {
+                object obj = ResourceManager.GetObject("reload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap report_file_240px {
             get {
                 object obj = ResourceManager.GetObject("report_file_240px", resourceCulture);
@@ -606,6 +636,16 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap robot_2186155_1920 {
             get {
                 object obj = ResourceManager.GetObject("robot-2186155_1920", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_60px {
+            get {
+                object obj = ResourceManager.GetObject("send_60px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -716,6 +756,16 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap task_60px1 {
             get {
                 object obj = ResourceManager.GetObject("task_60px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap task_planning_48px {
+            get {
+                object obj = ResourceManager.GetObject("task_planning_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

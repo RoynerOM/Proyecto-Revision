@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using GestionCasos.Administrador;
+using GestionCasos.Alertas;
 using GestionCasos.Usuarios;
 using Negocios;
 using System;
@@ -23,11 +24,11 @@ namespace GestionCasos
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
         EntregaNegocio entregaNegocio = new EntregaNegocio();
-        List<t_Revision> Casos = null;
+        IEnumerable<t_Revision> Casos = null;
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private bool entrega = false;
-
+        showMessageDialog Alerta = new showMessageDialog();
 
         public fCasosAdmin(bool entrega)
         {
@@ -49,6 +50,7 @@ namespace GestionCasos
             CargarCombos();
         }
 
+
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -63,155 +65,138 @@ namespace GestionCasos
             childForm.Show();
         }
 
+
         public void PedirDatos()
         {
-            Casos = (List<t_Revision>)revisionNegocio.obtenerTodo(revision);
+            Casos = revisionNegocio.obtenerTodo(revision);
             CargarTabla(Casos);
-        }
-
-        //Filtro por Estado
-        public void FilterByEstate(string valor)
-        {
-            var filtro = Casos.Where(x => x.Estado1.TipoEstado == valor);
-            CargarTabla(filtro);
-        }
-
-
-        //Filtro por Consecutivo
-        public void FilterByConsecutivo(string consecutivo)
-        {
-            IEnumerable<t_Revision> filtro = revisionNegocio.obtenerPorConsecutivo(consecutivo);
-            CargarTabla(filtro);
-        }
-
-
-        //Filtro por tramitador
-        public void FilterByTramitador(string valor)
-        {
-            var filtro = revisionNegocio.obtenerPorContador(valor);
-            if (filtro != null)
-            {
-                CargarTabla(filtro);
-            }
-        }
-
-
-        //Filtro por Recepcion
-        public void FilterByRecepcion(int valor)
-        {
-            var filtro = Casos.Where(x => x.Recepcion == valor);
-            CargarTabla(filtro);
         }
 
 
         public void CargarTabla(IEnumerable<t_Revision> lista)
         {
-            tabla.Columns[3].HeaderText = "Junta";
-            tabla.Rows.Clear();
-            foreach (var item in lista)
+            try
             {
-                int nRows = tabla.Rows.Add();
-                tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                tabla.Rows[nRows].Cells[0].Value = item.Consecutivo;
-                tabla.Rows[nRows].Cells[1].Value = item.Fecha.ToShortDateString();
-                tabla.Rows[nRows].Cells[2].Value = item.Codigo;
-                tabla.Rows[nRows].Cells[3].Value = item.t_Institucion.Nombre.ToUpper();
-                tabla.Rows[nRows].Cells[4].Value = item.t_Institucion.Circuito;
-                tabla.Rows[nRows].Cells[5].Value = item.t_Recepcion.Nombre.ToUpper();
-                tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
-                tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
-
-                tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-                tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[5].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[6].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[7].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-
-                #region Codigo comentado
-                /*if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE")
+                tabla.Columns[3].HeaderText = "Junta";
+                tabla.Rows.Clear();
+                foreach (var item in lista)
                 {
-                    if (isDark == "false")
+                    int nRows = tabla.Rows.Add();
+
+                    #region Cabecera de la tabla
+                    tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    #endregion
+
+
+                    tabla.Rows[nRows].Cells[0].Value = item.Consecutivo;
+                    tabla.Rows[nRows].Cells[1].Value = item.Fecha.ToShortDateString();
+                    tabla.Rows[nRows].Cells[2].Value = item.Codigo;
+                    tabla.Rows[nRows].Cells[3].Value = item.t_Institucion.Nombre.ToUpper();
+                    tabla.Rows[nRows].Cells[4].Value = item.t_Institucion.Circuito;
+                    tabla.Rows[nRows].Cells[5].Value = item.t_Recepcion.Nombre.ToUpper();
+                    tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
+                    tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
+
+
+                    #region Centrado de texto de las celdas
+                    tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    #endregion
+
+
+                    #region Tipo de fuente de las tabla
+                    tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[5].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[6].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[7].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    #endregion
+
+
+
+                    if (item.Estado1.TipoEstado.ToUpper() == "TRAMITADO")
                     {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.RedBack;
+                        if (isDark == "false")
+                        {
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
+                        }
+                        else
+                        {
+
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
+                        }
+                    }
+                    else if (item.Estado1.TipoEstado.ToUpper() == "ENTREGADO")
+                    {
+                        if (isDark == "false")
+                        {
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 75, 160);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(168, 209, 255);
+
+                        }
+                        else
+                        {
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 120, 255);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(0, 45, 96);
+                        }
+                    }
+                    else if (item.Estado1.TipoEstado.ToUpper() == "POR ENTREGAR")
+                    {
+                        if (isDark == "false")
+                        {
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleFore;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack;
+                        }
+                        else
+                        {
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleBack;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack2;
+                        }
                     }
                     else
                     {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
+                        if (isDark == "false")
+                        {
+
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
+
+                        }
+                        else
+                        {
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
+                        }
+
                     }
-                }*/
-                #endregion
-
-
-                if (item.Estado1.TipoEstado.ToUpper() == "TRAMITADO")
-                {
-                    if (isDark == "false")
-                    {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
-                    }
-                    else
-                    {
-
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
                     }
                 }
-                else if (item.Estado1.TipoEstado.ToUpper() == "ENTREGADO")
-                {
-                    if (isDark == "false")
-                    {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 75, 160);
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(168, 209, 255);
-
-                    }
-                    else
-                    {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 120, 255);
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(0, 45, 96);
-                    }
-                }
-                else
-                {
-                    if (isDark == "false")
-                    {
-
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
-
-                    }
-                    else
-                    {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
-                    }
-
-                }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
+
 
         private void panel1_Resize(object sender, EventArgs e)
         {
@@ -265,6 +250,7 @@ namespace GestionCasos
                 Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
             }
         }
+
         //Cambio de color
         private void SetThemeColor()
         {
@@ -293,9 +279,6 @@ namespace GestionCasos
             }
         }
 
-
-
-
         private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -309,17 +292,24 @@ namespace GestionCasos
                     if (e.RowIndex != -1)
                     {
                         string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        DatosTemp.t_Revision = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
                         if (entrega == false)
                         {
-                            fBoleta comentario = new fBoleta(1);
+                            fBoleta comentario = new fBoleta(1,consecutivo);
                             comentario.ShowDialog();
                         }
                         else
                         {
-                            t_EntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
-                            fEntrega entrega = new fEntrega(entregaCasos);
-                            entrega.ShowDialog();
+                            t_Revision r = revisionNegocio.ObtenerPorCaso(consecutivo);
+                            if (r.Estado >=3)
+                            {
+                                t_EntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
+                                fEntrega entrega = new fEntrega(entregaCasos, consecutivo);
+                                entrega.ShowDialog();
+                            }
+                            else
+                            {
+                                Alerta.Danger(new Alerta(), "Documento no tramitado. No se puede cargar la información de entrega, porque el documento no ha sido revisado");
+                            }
                         }
 
                     }
@@ -334,9 +324,6 @@ namespace GestionCasos
         }
 
 
-
-
-
         public void CargarCombos()
         {
             //Tramitador
@@ -347,63 +334,74 @@ namespace GestionCasos
             //Estado
             cbEstado.DataSource = estadoNegocio.obtenerTodo(new Estado());
             cbEstado.ValueMember = "id";
-            cbEstado.DisplayMember = "TipoEstado";
+            cbEstado.DisplayMember = "TipoEstado".ToUpper();
 
             //Recepcion
             cbRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
             cbRecepcion.ValueMember = "id";
-            cbRecepcion.DisplayMember = "Nombre";
+            cbRecepcion.DisplayMember = "Nombre".ToUpper();
         }
 
-        //Combo de Tramitador
+
+        #region Filtros de lso datos
+        //Filtro de Tramitador
         private void cbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            FilterByTramitador(cbTramitador.SelectedValue.ToString());
-            cbTramitador.ResetText();
+            try
+            {
+                var filtro = revisionNegocio.obtenerPorContador(cbTramitador.SelectedValue.ToString());
+                if (filtro != null)
+                    CargarTabla(filtro);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         //Combo de Estado
         private void cbEstado_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cbEstado.Text != string.Empty)
+            try
             {
-                if (cbEstado.Text == "Todos")
+                if (cbEstado.Text != string.Empty)
                 {
-                    PedirDatos();
+                    if ((int)cbEstado.SelectedValue == 6)
+                        PedirDatos();
+                    else
+                        CargarTabla(revisionNegocio.FilterBy((int)cbEstado.SelectedValue));
                 }
-                else
-                {
-                    string estado = cbEstado.Text;
-                    FilterByEstate(estado);
-                    cbEstado.ResetText();
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
         //Filtro de recepcion
         private void cbRecepcion_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cbRecepcion.Text != string.Empty)
+            try
             {
-                FilterByRecepcion((int)cbRecepcion.SelectedValue);
-                cbRecepcion.ResetText();
+                if (cbRecepcion.Text != string.Empty)
+                    CargarTabla(revisionNegocio.FilterBy((int)cbRecepcion.SelectedValue, 0));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        //Filtro por consecutivo
         private void txtConsecutivo_TextChanged(object sender, EventArgs e)
         {
             if (txtConsecutivo.Text != string.Empty)
-            {
-                FilterByConsecutivo(txtConsecutivo.Text);
-                cbEstado.ResetText();
-
-            }
+                CargarTabla(revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text));
+            else
+                PedirDatos();
         }
+        #endregion
+
 
         private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -421,6 +419,19 @@ namespace GestionCasos
             //    this.Close();
 
             //}
+        }
+
+
+        private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
+        {
+            PedirDatos();
+        }
+
+        private void tabla_Paint(object sender, PaintEventArgs e)
+        {
+
+
+
         }
     }
 }

@@ -59,9 +59,9 @@ namespace GestionCasos
                     lblRevisados.Text = "Casos tramitados";
 
                     //Entrgados
-                    var entregados = casos.Where(x => x.Estado == 4).Count();
+                    var entregados = casos.Where(x => x.Estado == 5).Count();
                     lblEntregados.Text = entregados.ToString();
-                    label5.Text = "Casos Entrgados";
+                    label5.Text = "Casos Entregados";
 
                     var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
                     lblTotalJuntas.Text = instituciones.ToString();

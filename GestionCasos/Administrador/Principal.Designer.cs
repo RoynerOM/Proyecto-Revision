@@ -31,17 +31,19 @@ namespace GestionCasos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.pnLateralIzquierda = new System.Windows.Forms.Panel();
+            this.DesktopPanel = new System.Windows.Forms.Panel();
+            this.btnEntregas = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCerrarSecion = new System.Windows.Forms.Button();
-            this.DesktopPanel = new System.Windows.Forms.Panel();
             this.pnLateralIzquierda.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnLateralIzquierda
             // 
             this.pnLateralIzquierda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.pnLateralIzquierda.Controls.Add(this.btnEntregas);
             this.pnLateralIzquierda.Controls.Add(this.btnReportes);
             this.pnLateralIzquierda.Controls.Add(this.btnMenu);
             this.pnLateralIzquierda.Controls.Add(this.btnDashBoard);
@@ -52,6 +54,34 @@ namespace GestionCasos
             this.pnLateralIzquierda.Name = "pnLateralIzquierda";
             this.pnLateralIzquierda.Size = new System.Drawing.Size(111, 661);
             this.pnLateralIzquierda.TabIndex = 0;
+            // 
+            // DesktopPanel
+            // 
+            this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DesktopPanel.Location = new System.Drawing.Point(111, 0);
+            this.DesktopPanel.Name = "DesktopPanel";
+            this.DesktopPanel.Size = new System.Drawing.Size(1025, 661);
+            this.DesktopPanel.TabIndex = 1;
+            // 
+            // btnEntregas
+            // 
+            this.btnEntregas.BackColor = System.Drawing.Color.Transparent;
+            this.btnEntregas.FlatAppearance.BorderSize = 0;
+            this.btnEntregas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntregas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntregas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.btnEntregas.Image = global::GestionCasos.Properties.Resources.send_60px;
+            this.btnEntregas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEntregas.Location = new System.Drawing.Point(0, 271);
+            this.btnEntregas.MinimumSize = new System.Drawing.Size(111, 90);
+            this.btnEntregas.Name = "btnEntregas";
+            this.btnEntregas.Size = new System.Drawing.Size(111, 90);
+            this.btnEntregas.TabIndex = 12;
+            this.btnEntregas.Text = "Entregas";
+            this.btnEntregas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEntregas.UseVisualStyleBackColor = false;
+            this.btnEntregas.Click += new System.EventHandler(this.btnEntregas_Click);
             // 
             // btnReportes
             // 
@@ -129,15 +159,6 @@ namespace GestionCasos
             this.btnCerrarSecion.UseVisualStyleBackColor = false;
             this.btnCerrarSecion.Click += new System.EventHandler(this.btnCerrarSecion_Click);
             // 
-            // DesktopPanel
-            // 
-            this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
-            this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DesktopPanel.Location = new System.Drawing.Point(111, 0);
-            this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1025, 661);
-            this.DesktopPanel.TabIndex = 1;
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,5 +187,6 @@ namespace GestionCasos
         private System.Windows.Forms.Panel DesktopPanel;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Button btnEntregas;
     }
 }
