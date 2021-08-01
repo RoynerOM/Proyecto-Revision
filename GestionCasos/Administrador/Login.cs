@@ -102,7 +102,8 @@ namespace GestionCasos
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                MessageBox.Show(ex.ToString());
+                //Console.WriteLine(ex);
             }
         }
 

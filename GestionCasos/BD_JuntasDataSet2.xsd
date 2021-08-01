@@ -7,40 +7,85 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_JuntasConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_JuntasConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionCasos.Properties.Settings.GlobalReference.Default.BD_JuntasConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EntregaDeCasosTableAdapter" GeneratorDataComponentClassName="EntregaDeCasosTableAdapter" Name="EntregaDeCasos" UserDataComponentName="EntregaDeCasosTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EntregaCasosTableAdapter" GeneratorDataComponentClassName="EntregaCasosTableAdapter" Name="EntregaCasos" UserDataComponentName="EntregaCasosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BD_JuntasConnectionString (Settings)" DbObjectName="BD_Juntas.dbo.EntregaDeCasos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BD_JuntasConnectionString (Settings)" DbObjectName="BD_Juntas.dbo.EntregaCasos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Nombre_Completo, Recepcion, Codigo, Nombre, Circuito, Consecutivo, numeroActa, numeroFolio, fechaActa, Observacion, Motivo1, Motivo2, Motivo3, Motivo4, Motivo5, Motivo6, Motivo7, Motivo8, Pago, FechaEntrega FROM dbo.EntregaDeCasos</CommandText>
+                    <CommandText>SELECT Consecutivo, Codigo, Circuito, Nombre, Nombre_Completo, FechaInsertada, FechaEntrega, Mensajero, Observacion FROM dbo.EntregaCasos</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="Nombre_Completo" DataSetColumn="Nombre_Completo" />
-              <Mapping SourceColumn="Recepcion" DataSetColumn="Recepcion" />
-              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
-              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
-              <Mapping SourceColumn="Circuito" DataSetColumn="Circuito" />
               <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
-              <Mapping SourceColumn="numeroActa" DataSetColumn="numeroActa" />
-              <Mapping SourceColumn="numeroFolio" DataSetColumn="numeroFolio" />
-              <Mapping SourceColumn="fechaActa" DataSetColumn="fechaActa" />
-              <Mapping SourceColumn="Observacion" DataSetColumn="Observacion" />
-              <Mapping SourceColumn="Motivo1" DataSetColumn="Motivo1" />
-              <Mapping SourceColumn="Motivo2" DataSetColumn="Motivo2" />
-              <Mapping SourceColumn="Motivo3" DataSetColumn="Motivo3" />
-              <Mapping SourceColumn="Motivo4" DataSetColumn="Motivo4" />
-              <Mapping SourceColumn="Motivo5" DataSetColumn="Motivo5" />
-              <Mapping SourceColumn="Motivo6" DataSetColumn="Motivo6" />
-              <Mapping SourceColumn="Motivo7" DataSetColumn="Motivo7" />
-              <Mapping SourceColumn="Motivo8" DataSetColumn="Motivo8" />
-              <Mapping SourceColumn="Pago" DataSetColumn="Pago" />
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Circuito" DataSetColumn="Circuito" />
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="Nombre_Completo" DataSetColumn="Nombre_Completo" />
+              <Mapping SourceColumn="FechaInsertada" DataSetColumn="FechaInsertada" />
               <Mapping SourceColumn="FechaEntrega" DataSetColumn="FechaEntrega" />
+              <Mapping SourceColumn="Mensajero" DataSetColumn="Mensajero" />
+              <Mapping SourceColumn="Observacion" DataSetColumn="Observacion" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="BD_JuntasConnectionString (Settings)" DbObjectName="BD_Juntas.dbo.filtroConseEntrega" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.filtroConseEntrega</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@consecutivo" Precision="0" ProviderType="VarChar" Scale="0" Size="14" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="BD_JuntasConnectionString (Settings)" DbObjectName="BD_Juntas.dbo.filtrarCircuiEntrega" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.filtrarCircuiEntrega</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@circuito" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="BD_JuntasConnectionString (Settings)" DbObjectName="BD_Juntas.dbo.filtrarCodigoEntrega" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy2" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="FillBy2" GetMethodModifier="Public" GetMethodName="GetDataBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillBy2">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.filtrarCodigoEntrega</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@codigo" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="BD_JuntasConnectionString (Settings)" DbObjectName="BD_Juntas.dbo.filtrarIntituEntrega" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy3" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="FillBy3" GetMethodModifier="Public" GetMethodName="GetDataBy3" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillBy3">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.filtrarIntituEntrega</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@institucion" Precision="0" ProviderType="VarChar" Scale="0" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="BD_JuntasConnectionString (Settings)" DbObjectName="BD_Juntas.dbo.filtrarPersoEntrega" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy4" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy4" GeneratorSourceName="FillBy4" GetMethodModifier="Public" GetMethodName="GetDataBy4" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillBy4">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.filtrarPersoEntrega</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="152" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -50,32 +95,9 @@
   <xs:element name="BD_JuntasDataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BD_JuntasDataSet2" msprop:Generator_UserDSName="BD_JuntasDataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="EntregaDeCasos" msprop:Generator_TableClassName="EntregaDeCasosDataTable" msprop:Generator_TableVarName="tableEntregaDeCasos" msprop:Generator_TablePropName="EntregaDeCasos" msprop:Generator_RowDeletingName="EntregaDeCasosRowDeleting" msprop:Generator_RowChangingName="EntregaDeCasosRowChanging" msprop:Generator_RowEvHandlerName="EntregaDeCasosRowChangeEventHandler" msprop:Generator_RowDeletedName="EntregaDeCasosRowDeleted" msprop:Generator_UserTableName="EntregaDeCasos" msprop:Generator_RowChangedName="EntregaDeCasosRowChanged" msprop:Generator_RowEvArgName="EntregaDeCasosRowChangeEvent" msprop:Generator_RowClassName="EntregaDeCasosRow">
+        <xs:element name="EntregaCasos" msprop:Generator_TableClassName="EntregaCasosDataTable" msprop:Generator_TableVarName="tableEntregaCasos" msprop:Generator_RowChangedName="EntregaCasosRowChanged" msprop:Generator_TablePropName="EntregaCasos" msprop:Generator_RowDeletingName="EntregaCasosRowDeleting" msprop:Generator_RowChangingName="EntregaCasosRowChanging" msprop:Generator_RowEvHandlerName="EntregaCasosRowChangeEventHandler" msprop:Generator_RowDeletedName="EntregaCasosRowDeleted" msprop:Generator_RowClassName="EntregaCasosRow" msprop:Generator_UserTableName="EntregaCasos" msprop:Generator_RowEvArgName="EntregaCasosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Nombre_Completo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombre_Completo" msprop:Generator_ColumnPropNameInRow="Nombre_Completo" msprop:Generator_ColumnPropNameInTable="Nombre_CompletoColumn" msprop:Generator_UserColumnName="Nombre_Completo" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="152" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Recepcion" msprop:Generator_ColumnVarNameInTable="columnRecepcion" msprop:Generator_ColumnPropNameInRow="Recepcion" msprop:Generator_ColumnPropNameInTable="RecepcionColumn" msprop:Generator_UserColumnName="Recepcion">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:int" />
-              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Circuito" msprop:Generator_ColumnVarNameInTable="columnCircuito" msprop:Generator_ColumnPropNameInRow="Circuito" msprop:Generator_ColumnPropNameInTable="CircuitoColumn" msprop:Generator_UserColumnName="Circuito" type="xs:int" />
               <xs:element name="Consecutivo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -83,9 +105,37 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="numeroActa" msprop:Generator_ColumnVarNameInTable="columnnumeroActa" msprop:Generator_ColumnPropNameInRow="numeroActa" msprop:Generator_ColumnPropNameInTable="numeroActaColumn" msprop:Generator_UserColumnName="numeroActa" type="xs:int" minOccurs="0" />
-              <xs:element name="numeroFolio" msprop:Generator_ColumnVarNameInTable="columnnumeroFolio" msprop:Generator_ColumnPropNameInRow="numeroFolio" msprop:Generator_ColumnPropNameInTable="numeroFolioColumn" msprop:Generator_UserColumnName="numeroFolio" type="xs:int" minOccurs="0" />
-              <xs:element name="fechaActa" msprop:Generator_ColumnVarNameInTable="columnfechaActa" msprop:Generator_ColumnPropNameInRow="fechaActa" msprop:Generator_ColumnPropNameInTable="fechaActaColumn" msprop:Generator_UserColumnName="fechaActa" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:int" />
+              <xs:element name="Circuito" msprop:Generator_ColumnVarNameInTable="columnCircuito" msprop:Generator_ColumnPropNameInRow="Circuito" msprop:Generator_ColumnPropNameInTable="CircuitoColumn" msprop:Generator_UserColumnName="Circuito" type="xs:int" />
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombre_Completo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombre_Completo" msprop:Generator_ColumnPropNameInRow="Nombre_Completo" msprop:Generator_ColumnPropNameInTable="Nombre_CompletoColumn" msprop:Generator_UserColumnName="Nombre_Completo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaInsertada" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFechaInsertada" msprop:Generator_ColumnPropNameInRow="FechaInsertada" msprop:Generator_ColumnPropNameInTable="FechaInsertadaColumn" msprop:Generator_UserColumnName="FechaInsertada" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaEntrega" msprop:Generator_ColumnVarNameInTable="columnFechaEntrega" msprop:Generator_ColumnPropNameInRow="FechaEntrega" msprop:Generator_ColumnPropNameInTable="FechaEntregaColumn" msprop:Generator_UserColumnName="FechaEntrega" type="xs:dateTime" />
+              <xs:element name="Mensajero" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMensajero" msprop:Generator_ColumnPropNameInRow="Mensajero" msprop:Generator_ColumnPropNameInTable="MensajeroColumn" msprop:Generator_UserColumnName="Mensajero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="Observacion" msprop:Generator_ColumnVarNameInTable="columnObservacion" msprop:Generator_ColumnPropNameInRow="Observacion" msprop:Generator_ColumnPropNameInTable="ObservacionColumn" msprop:Generator_UserColumnName="Observacion">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -93,29 +143,13 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Motivo1" msprop:Generator_ColumnVarNameInTable="columnMotivo1" msprop:Generator_ColumnPropNameInRow="Motivo1" msprop:Generator_ColumnPropNameInTable="Motivo1Column" msprop:Generator_UserColumnName="Motivo1" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Motivo2" msprop:Generator_ColumnVarNameInTable="columnMotivo2" msprop:Generator_ColumnPropNameInRow="Motivo2" msprop:Generator_ColumnPropNameInTable="Motivo2Column" msprop:Generator_UserColumnName="Motivo2" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Motivo3" msprop:Generator_ColumnVarNameInTable="columnMotivo3" msprop:Generator_ColumnPropNameInRow="Motivo3" msprop:Generator_ColumnPropNameInTable="Motivo3Column" msprop:Generator_UserColumnName="Motivo3" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Motivo4" msprop:Generator_ColumnVarNameInTable="columnMotivo4" msprop:Generator_ColumnPropNameInRow="Motivo4" msprop:Generator_ColumnPropNameInTable="Motivo4Column" msprop:Generator_UserColumnName="Motivo4" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Motivo5" msprop:Generator_ColumnVarNameInTable="columnMotivo5" msprop:Generator_ColumnPropNameInRow="Motivo5" msprop:Generator_ColumnPropNameInTable="Motivo5Column" msprop:Generator_UserColumnName="Motivo5" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Motivo6" msprop:Generator_ColumnVarNameInTable="columnMotivo6" msprop:Generator_ColumnPropNameInRow="Motivo6" msprop:Generator_ColumnPropNameInTable="Motivo6Column" msprop:Generator_UserColumnName="Motivo6" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Motivo7" msprop:Generator_ColumnVarNameInTable="columnMotivo7" msprop:Generator_ColumnPropNameInRow="Motivo7" msprop:Generator_ColumnPropNameInTable="Motivo7Column" msprop:Generator_UserColumnName="Motivo7" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Motivo8" msprop:Generator_ColumnVarNameInTable="columnMotivo8" msprop:Generator_ColumnPropNameInRow="Motivo8" msprop:Generator_ColumnPropNameInTable="Motivo8Column" msprop:Generator_UserColumnName="Motivo8" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Pago" msprop:Generator_ColumnVarNameInTable="columnPago" msprop:Generator_ColumnPropNameInRow="Pago" msprop:Generator_ColumnPropNameInTable="PagoColumn" msprop:Generator_UserColumnName="Pago" type="xs:int" />
-              <xs:element name="FechaEntrega" msprop:Generator_ColumnVarNameInTable="columnFechaEntrega" msprop:Generator_ColumnPropNameInRow="FechaEntrega" msprop:Generator_ColumnPropNameInTable="FechaEntregaColumn" msprop:Generator_UserColumnName="FechaEntrega" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:EntregaDeCasos" />
+      <xs:selector xpath=".//mstns:EntregaCasos" />
       <xs:field xpath="mstns:Codigo" />
     </xs:unique>
   </xs:element>

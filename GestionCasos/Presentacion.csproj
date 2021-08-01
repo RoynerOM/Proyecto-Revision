@@ -246,6 +246,9 @@
     <Compile Include="Alertas\Alerta.Designer.cs">
       <DependentUpon>Alerta.cs</DependentUpon>
     </Compile>
+    <Compile Include="BD_JuntasDataSet.cs">
+      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BD_JuntasDataSet1.cs">
       <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
     </Compile>
@@ -296,7 +299,7 @@
     <Compile Include="ReporteEntregaDeCasos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteEntregaDeCasos.designer.cs">
+    <Compile Include="ReporteEntregaDeCasos.Designer.cs">
       <DependentUpon>ReporteEntregaDeCasos.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteJuntas.cs">
@@ -397,7 +400,6 @@
     <EmbeddedResource Include="ReporteJuntas.resx">
       <DependentUpon>ReporteJuntas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\EntragaDeCasos.rdlc" />
     <EmbeddedResource Include="Reportes\fOpcionesReportes.resx">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -406,6 +408,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteCasosAsignados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteContadores.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteEntregaDeCasos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteJuntas.rdlc" />
     <EmbeddedResource Include="Usuarios\CasosAsignados.resx">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
