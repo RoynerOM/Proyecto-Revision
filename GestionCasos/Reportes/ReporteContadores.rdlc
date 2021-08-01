@@ -31,7 +31,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cedula</Value>
+                              <Value>Cédula</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -66,7 +66,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Tipo Id</Value>
+                              <Value>Tipo Cédula</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -322,8 +322,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsContadores</DataSetName>
-        <Top>0.41078cm</Top>
-        <Left>0.28787cm</Left>
+        <Top>1.68078cm</Top>
+        <Left>0.3175cm</Left>
         <Height>1.2cm</Height>
         <Width>20.83281cm</Width>
         <Style>
@@ -332,11 +332,44 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Lista de Contadores y Tramitadores</Value>
+                <Style>
+                  <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.35363cm</Top>
+        <Left>4.8891cm</Left>
+        <Height>0.9175cm</Height>
+        <Width>12.79229cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>1.61078cm</Height>
+    <Height>2.88078cm</Height>
     <Style />
   </Body>
-  <Width>21.60795cm</Width>
+  <Width>21.59cm</Width>
   <Page>
     <PageHeader>
       <Height>3.29445cm</Height>
@@ -347,9 +380,8 @@
           <Source>Embedded</Source>
           <Value>Imagen1</Value>
           <Sizing>FitProportional</Sizing>
-          <Left>0.28787cm</Left>
           <Height>3.29445cm</Height>
-          <Width>20.83281cm</Width>
+          <Width>21.59cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -364,7 +396,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.86062cm</Height>
+      <Height>1.67541cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -385,8 +417,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>0.93548cm</Top>
-          <Left>18.22235cm</Left>
+          <Top>0.97278cm</Top>
+          <Left>17.90485cm</Left>
           <Height>0.6cm</Height>
           <Width>3.21583cm</Width>
           <Style>
@@ -443,8 +475,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.17639cm</Top>
-          <Left>0.91582cm</Left>
+          <Top>0.25695cm</Top>
+          <Left>0.59832cm</Left>
           <Height>0.6cm</Height>
           <Width>4.19876cm</Width>
           <ZIndex>1</ZIndex>
@@ -480,7 +512,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>0.18639cm</Top>
+          <Top>0.26695cm</Top>
           <Left>18.51485cm</Left>
           <Height>0.6cm</Height>
           <Width>2.60583cm</Width>
@@ -517,8 +549,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>0.93548cm</Top>
-          <Left>5.89452cm</Left>
+          <Top>0.33751cm</Top>
+          <Left>5.57702cm</Left>
           <Height>0.6cm</Height>
           <Width>11.78687cm</Width>
           <ZIndex>3</ZIndex>
@@ -549,8 +581,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>0.92548cm</Top>
-          <Left>0.28787cm</Left>
+          <Top>0.90223cm</Top>
           <Height>0.6cm</Height>
           <Width>4.22516cm</Width>
           <ZIndex>4</ZIndex>
@@ -565,7 +596,7 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Left>0.01795cm</Left>
+          <Top>0.07056cm</Top>
           <Height>0cm</Height>
           <Width>21.59cm</Width>
           <ZIndex>5</ZIndex>
@@ -579,7 +610,7 @@
           <Source>Embedded</Source>
           <Value>Imagen2</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.17639cm</Top>
+          <Top>0.25695cm</Top>
           <Left>17.90485cm</Left>
           <Height>0.61cm</Height>
           <Width>0.61cm</Width>
@@ -594,8 +625,8 @@
           <Source>Embedded</Source>
           <Value>Imagen11</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.92548cm</Top>
-          <Left>5.21396cm</Left>
+          <Top>0.32751cm</Top>
+          <Left>4.89646cm</Left>
           <Height>0.61cm</Height>
           <Width>0.61cm</Width>
           <ZIndex>7</ZIndex>
@@ -609,8 +640,8 @@
           <Source>Embedded</Source>
           <Value>Imagen3</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.17639cm</Top>
-          <Left>0.62332cm</Left>
+          <Top>0.25695cm</Top>
+          <Left>0.30582cm</Left>
           <Height>0.61cm</Height>
           <Width>0.61cm</Width>
           <ZIndex>8</ZIndex>
@@ -620,18 +651,6 @@
             </Border>
           </Style>
         </Image>
-        <Line Name="Line3">
-          <Top>0.07056cm</Top>
-          <Left>0.28787cm</Left>
-          <Height>0cm</Height>
-          <Width>20.83281cm</Width>
-          <ZIndex>9</ZIndex>
-          <Style>
-            <Border>
-              <Style>Solid</Style>
-            </Border>
-          </Style>
-        </Line>
       </ReportItems>
       <Style>
         <Border>

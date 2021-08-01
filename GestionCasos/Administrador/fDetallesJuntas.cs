@@ -203,12 +203,6 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void txtCedulaJuridica_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-
         private void txtCedulaJuridica_TextChanged(object sender, EventArgs e)
         {
             if (txtCedulaJuridica.Text.Length > 6)
@@ -223,12 +217,24 @@ namespace GestionCasos.Administrador
         }
 
 
-
         private void cbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            var filtro = Instituciones.Where(x => x.Contador == cbTramitador.SelectedValue.ToString());
-
-            CargarTabla(filtro);
+            try
+            {
+                var filtro = Instituciones.Where(x => x.Contador == cbTramitador.SelectedValue.ToString());
+                if (filtro != null)
+                {
+                    CargarTabla(filtro);
+                }
+                else
+                {
+                    Console.WriteLine("No hay datos a mostrar");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private void OpenChildForm(Form childForm)
@@ -247,19 +253,31 @@ namespace GestionCasos.Administrador
 
         private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            try
             {
-                int fila = e.RowIndex;
+                if (e.RowIndex != -1)
+                {
+                    int fila = e.RowIndex;
 
-                int codigo = (int)tabla.Rows[fila].Cells[0].Value;
+                    int codigo = (int)tabla.Rows[fila].Cells[0].Value;
 
 
-                DatosTemp.t_Institucion = Instituciones.Where(x => x.Codigo == codigo).SingleOrDefault();
+                    DatosTemp.t_Institucion = Instituciones.Where(x => x.Codigo == codigo).SingleOrDefault();
 
 
-                OpenChildForm(new fInstituciones(Rol));
+                    OpenChildForm(new fInstituciones(Rol));
 
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
+        {
+            PedirDatos();
         }
     }
 }

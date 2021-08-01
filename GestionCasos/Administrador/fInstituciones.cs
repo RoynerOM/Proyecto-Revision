@@ -10,10 +10,13 @@ using Utilidades.Enumerables;
 
 namespace GestionCasos.Administrador
 {
+    /*
+     Falta revisar el edit and delete
+     */
     public partial class fInstituciones : Form
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-        t_Institucion institucion = new t_Institucion();
+       
         ContadorNegocio persona = new ContadorNegocio();
         DireccionRegionalNegocio regional = new DireccionRegionalNegocio();
         InstitucionNegocio negocio = new InstitucionNegocio();
@@ -104,16 +107,12 @@ namespace GestionCasos.Administrador
                 label10.ForeColor = Colors.Black;
 
             }
-            else
-            {
-
-            }
         }
 
 
         private void CargarDatosForm()
         {
-            institucion = negocio.obtenerPorId(DatosTemp.t_Institucion);
+            t_Institucion institucion = DatosTemp.t_Institucion;
             if (institucion != null)
             {
                 txtCodigo.Text = institucion.Codigo.ToString();
@@ -218,21 +217,21 @@ namespace GestionCasos.Administrador
         {
             try
             {
-
+               
                 if (ValidarCampos() == true)
                 {
-                    institucion.Codigo = int.Parse(txtCodigo.Text);
-                    institucion = negocio.obtenerPorId(institucion);
-                    if (institucion == null)
+                    t_Institucion institucion = new t_Institucion();
+                    var i = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
+                    if (i == null)
                     {
                         institucion.Codigo = int.Parse(txtCodigo.Text);
-                        institucion.Cuenta_Ley = txtCuentaLey.Text;
-                        institucion.Nombre = txtInstitucion.Text;
-                        institucion.Contador = (string)cbContador.SelectedValue;
-                        institucion.Cuenta_Danea = txtCuentaDanea.Text;
-                        institucion.Cedula_Juridica = txtCedulaJuridica.Text;
                         institucion.Circuito = (int)cbCircuito.SelectedValue;
                         institucion.Tipo = (int)cbTipo.SelectedValue;
+                        institucion.Nombre = txtInstitucion.Text;
+                        institucion.Cedula_Juridica = txtCedulaJuridica.Text;
+                        institucion.Cuenta_Danea = txtCuentaDanea.Text;
+                        institucion.Cuenta_Ley = txtCuentaLey.Text;
+                        institucion.Contador = (string)cbContador.SelectedValue;
                         institucion.Responsable = txtContacto.Text;
                         institucion.Contacto = txtTelefono.Text;
 
@@ -263,11 +262,9 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                var institucion = new t_Institucion();
                 if (txtCodigo.Text != string.Empty)
                 {
-                    institucion.Codigo = int.Parse(txtCodigo.Text);
-                    var datosEncotrados = negocio.obtenerPorId(institucion);
+                    var datosEncotrados = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
                     if (datosEncotrados != null)
                     {
                         txtCuentaLey.Text = datosEncotrados.Cuenta_Ley;
@@ -303,13 +300,12 @@ namespace GestionCasos.Administrador
         {
             try
             {
+                t_Institucion institucion = new t_Institucion();
                 if (txtCodigo.Text != string.Empty)
                 {
-                    institucion.Codigo = int.Parse(txtCodigo.Text);
+                    institucion = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
 
-                    var datos = negocio.obtenerPorId(institucion);
-
-                    if (negocio.eliminar(datos) == true)
+                    if (negocio.eliminar(institucion) == true)
                     {
                         message.Success(new Alertas.Alerta(), "El contador fue eliminado con exito");
                         LimpiarCampos();
@@ -341,8 +337,11 @@ namespace GestionCasos.Administrador
             try
             {
                 t_Persona p = new t_Persona();
+                t_Institucion institucion = new t_Institucion();
                 if (ValidarCampos() == true)
                 {
+                    institucion.Codigo = int.Parse(txtCodigo.Text);
+                    institucion = negocio.obtenerPorId(institucion);
                     institucion.Cuenta_Ley = txtCuentaLey.Text;
                     institucion.Nombre = txtInstitucion.Text;
                     institucion.Cuenta_Danea = txtCuentaDanea.Text;
@@ -397,15 +396,11 @@ namespace GestionCasos.Administrador
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-
-
                 try
                 {
-                    var institucion = new t_Institucion();
                     if (txtCodigo.Text != string.Empty)
                     {
-                        institucion.Codigo = int.Parse(txtCodigo.Text);
-                        var datosEncotrados = negocio.obtenerPorId(institucion);
+                        var datosEncotrados = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
                         if (datosEncotrados != null)
                         {
                             txtCuentaLey.Text = datosEncotrados.Cuenta_Ley;

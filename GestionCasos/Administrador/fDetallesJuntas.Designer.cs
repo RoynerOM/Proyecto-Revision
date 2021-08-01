@@ -50,12 +50,14 @@ namespace GestionCasos.Administrador
             this.Contador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.gunaAdvenceTileButton1);
             this.panel1.Controls.Add(this.txtCedulaJuridica);
             this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.gunaLabel4);
@@ -66,7 +68,7 @@ namespace GestionCasos.Administrador
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(884, 561);
+            this.panel1.Size = new System.Drawing.Size(976, 561);
             this.panel1.TabIndex = 0;
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
@@ -74,12 +76,11 @@ namespace GestionCasos.Administrador
             // 
             this.txtCedulaJuridica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCedulaJuridica.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaJuridica.Location = new System.Drawing.Point(687, 66);
+            this.txtCedulaJuridica.Location = new System.Drawing.Point(779, 66);
             this.txtCedulaJuridica.Mask = "0-000-000000";
             this.txtCedulaJuridica.Name = "txtCedulaJuridica";
             this.txtCedulaJuridica.Size = new System.Drawing.Size(185, 25);
             this.txtCedulaJuridica.TabIndex = 20;
-            this.txtCedulaJuridica.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCedulaJuridica_MaskInputRejected);
             this.txtCedulaJuridica.TextChanged += new System.EventHandler(this.txtCedulaJuridica_TextChanged);
             // 
             // txtNombre
@@ -92,7 +93,7 @@ namespace GestionCasos.Administrador
             this.txtNombre.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtNombre.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(41, 63);
+            this.txtNombre.Location = new System.Drawing.Point(133, 63);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
             this.txtNombre.SelectedText = "";
@@ -106,7 +107,7 @@ namespace GestionCasos.Administrador
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel4.Location = new System.Drawing.Point(37, 32);
+            this.gunaLabel4.Location = new System.Drawing.Point(129, 32);
             this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel4.Name = "gunaLabel4";
             this.gunaLabel4.Size = new System.Drawing.Size(206, 20);
@@ -119,7 +120,7 @@ namespace GestionCasos.Administrador
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel3.Location = new System.Drawing.Point(365, 32);
+            this.gunaLabel3.Location = new System.Drawing.Point(457, 32);
             this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel3.Name = "gunaLabel3";
             this.gunaLabel3.Size = new System.Drawing.Size(145, 20);
@@ -140,7 +141,7 @@ namespace GestionCasos.Administrador
             this.cbTramitador.FormattingEnabled = true;
             this.cbTramitador.Items.AddRange(new object[] {
             "TODOS"});
-            this.cbTramitador.Location = new System.Drawing.Point(369, 65);
+            this.cbTramitador.Location = new System.Drawing.Point(461, 65);
             this.cbTramitador.Margin = new System.Windows.Forms.Padding(2);
             this.cbTramitador.Name = "cbTramitador";
             this.cbTramitador.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -155,7 +156,7 @@ namespace GestionCasos.Administrador
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(683, 32);
+            this.gunaLabel1.Location = new System.Drawing.Point(775, 32);
             this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(185, 20);
@@ -228,7 +229,7 @@ namespace GestionCasos.Administrador
             this.tabla.RowTemplate.Height = 24;
             this.tabla.RowTemplate.ReadOnly = true;
             this.tabla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabla.Size = new System.Drawing.Size(884, 413);
+            this.tabla.Size = new System.Drawing.Size(976, 413);
             this.tabla.TabIndex = 11;
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
             this.tabla.Resize += new System.EventHandler(this.tabla_Resize);
@@ -312,12 +313,46 @@ namespace GestionCasos.Administrador
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
             // 
+            // gunaAdvenceTileButton1
+            // 
+            this.gunaAdvenceTileButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaAdvenceTileButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaAdvenceTileButton1.AnimationSpeed = 0.03F;
+            this.gunaAdvenceTileButton1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaAdvenceTileButton1.BorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton1.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.gunaAdvenceTileButton1.CheckedBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton1.CheckedForeColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton1.CheckedImage = global::GestionCasos.Properties.Resources.reload;
+            this.gunaAdvenceTileButton1.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.gunaAdvenceTileButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaAdvenceTileButton1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaAdvenceTileButton1.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.gunaAdvenceTileButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceTileButton1.Image = global::GestionCasos.Properties.Resources.reload;
+            this.gunaAdvenceTileButton1.ImageSize = new System.Drawing.Size(25, 25);
+            this.gunaAdvenceTileButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceTileButton1.Location = new System.Drawing.Point(32, 51);
+            this.gunaAdvenceTileButton1.Name = "gunaAdvenceTileButton1";
+            this.gunaAdvenceTileButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaAdvenceTileButton1.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton1.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceTileButton1.OnHoverImage = null;
+            this.gunaAdvenceTileButton1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceTileButton1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton1.Radius = 18;
+            this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(40, 40);
+            this.gunaAdvenceTileButton1.TabIndex = 21;
+            this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
+            // 
             // fDetallesJuntas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(976, 561);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "fDetallesJuntas";
@@ -350,5 +385,6 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.DataGridViewTextBoxColumn Contador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contacto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private Guna.UI.WinForms.GunaAdvenceTileButton gunaAdvenceTileButton1;
     }
 }

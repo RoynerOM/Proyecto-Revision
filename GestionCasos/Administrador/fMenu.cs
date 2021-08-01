@@ -18,7 +18,7 @@ namespace GestionCasos.Administrador
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private Form activeForm;
         private int Rol;
-
+        showMessageDialog Alerta = new showMessageDialog();
         public fMenu(int Rol)
         {
             this.Rol = Rol;
@@ -99,7 +99,7 @@ namespace GestionCasos.Administrador
                 btnJuntas.BaseColor = Colors.Blue;
                 btnBackup.BaseColor = Colors.Blue;
                 btnEntregas.BaseColor = Colors.Blue;
-
+                this.BackColor = Colors.White;
                 btnContadores.OnHoverBaseColor = Colors.BlueHover;
                 btnCasos.OnHoverBaseColor = Colors.BlueHover;
                 btnMode.OnHoverBaseColor = Colors.BlueHover;
@@ -189,12 +189,12 @@ namespace GestionCasos.Administrador
             {
                 conexion.Open();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("La copia de la base de datos due creada");
+                Alerta.Success(new Alertas.Alerta(),"La copia de la base de datos due creada");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se creo la base de datos porque eres un inutil");
-                MessageBox.Show(ex.Message);
+                Alerta.Danger(new Alertas.Alerta(),"No se creo la base de datos porque eres un inutil");
+                Alerta.Danger(new Alertas.Alerta(),ex.Message);
             }
             finally
             {

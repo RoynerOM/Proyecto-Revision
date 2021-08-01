@@ -20,9 +20,10 @@ namespace GestionCasos.Administrador
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         showMessageDialog Message = new showMessageDialog();
         t_EntregaCasos entrega = new t_EntregaCasos();
-        private bool existePersona;
         private string consecutivo = null;
         bool state = false;
+
+
         public fEntrega(t_EntregaCasos id, string consecutivo)
         {
             InitializeComponent();
@@ -63,7 +64,6 @@ namespace GestionCasos.Administrador
 
                 if (entrega != null)
                 {
-                    existePersona = true;
                     btnPdf.Visible = true;
                     lblFecha.Visible = true;
 
@@ -110,11 +110,21 @@ namespace GestionCasos.Administrador
 
         public void CargarCombos()
         {
-            var data = recepcion.obtenerTodo(new t_Recepcion());
-            //Recepcion
-            cbEntrega.DataSource = data.Where(x => x.id >= 3).ToList();
-            cbEntrega.ValueMember = "id";
-            cbEntrega.DisplayMember = "Nombre";
+            try
+            {
+                var data = recepcion.obtenerTodo(new t_Recepcion());
+                if (data != null)
+                {
+                    //Recepcion
+                    cbEntrega.DataSource = data.Where(x => x.id >= 3).ToList();
+                    cbEntrega.ValueMember = "id";
+                    cbEntrega.DisplayMember = "Nombre";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
 
@@ -133,11 +143,6 @@ namespace GestionCasos.Administrador
                         txtNombre.Text = persona.Nombre.ToUpper();
                         txtApellido1.Text = persona.Apellido1.ToUpper();
                         txtApellido2.Text = persona.Apellido2.ToUpper();
-                        existePersona = true;
-                    }
-                    else
-                    {
-                        existePersona = false;
                     }
 
                 }

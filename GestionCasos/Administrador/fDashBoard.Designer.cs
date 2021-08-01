@@ -57,6 +57,7 @@ namespace GestionCasos
             this.lblPendientes = new System.Windows.Forms.Label();
             this.lblTotaPendientes = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.DesktopPanel.SuspendLayout();
             this.gunaElipsePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -75,6 +76,7 @@ namespace GestionCasos
             // DesktopPanel
             // 
             this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.DesktopPanel.Controls.Add(this.label4);
             this.DesktopPanel.Controls.Add(this.gunaElipsePanel2);
             this.DesktopPanel.Controls.Add(this.gunaElipsePanel1);
             this.DesktopPanel.Controls.Add(this.gunaTileButton3);
@@ -488,6 +490,18 @@ namespace GestionCasos
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("JetBrains Mono", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(562, 572);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(250, 11);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Copyright © 2021 Anner Tejada D.,Royner Oporta M.";
+            // 
             // fDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,6 +512,7 @@ namespace GestionCasos
             this.Text = "fDashBoard";
             this.Load += new System.EventHandler(this.FDashBoard_Load);
             this.DesktopPanel.ResumeLayout(false);
+            this.DesktopPanel.PerformLayout();
             this.gunaElipsePanel2.ResumeLayout(false);
             this.gunaElipsePanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -550,5 +565,6 @@ namespace GestionCasos
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTramitadores;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label4;
     }
 }

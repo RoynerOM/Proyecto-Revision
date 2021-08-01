@@ -246,28 +246,26 @@
     <Compile Include="Alertas\Alerta.Designer.cs">
       <DependentUpon>Alerta.cs</DependentUpon>
     </Compile>
-    <Compile Include="BD_JuntasDataSet1.cs">
-      <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
+    <Compile Include="BD_JuntasDataSet.cs">
+      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BD_JuntasDataSet1.Designer.cs">
+    <Compile Include="BD_JuntasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BD_JuntasDataSet12.Designer.cs">
+    <Compile Include="BD_JuntasDataSet1.cs">
+      <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BD_JuntasDataSet11.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BD_JuntasDataSet2.Designer.cs">
+    <Compile Include="BD_JuntasDataSet21.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_JuntasDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BD_JuntasDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_JuntasDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\fConfiguraciones.cs">
       <SubType>Form</SubType>
@@ -411,7 +409,6 @@
     <EmbeddedResource Include="ReporteJuntas.resx">
       <DependentUpon>ReporteJuntas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\EntragaDeCasos.rdlc" />
     <EmbeddedResource Include="Reportes\fOpcionesReportes.resx">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,8 +417,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteCasosAsignados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteContadores.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteEntregaDeCasos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteJuntas.rdlc" />
-    <EmbeddedResource Include="rptBoleta.rdlc" />
     <EmbeddedResource Include="Usuarios\CasosAsignados.resx">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </EmbeddedResource>
@@ -433,7 +430,7 @@
     </None>
     <None Include="BD_JuntasDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>BD_JuntasDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="BD_JuntasDataSet.xss">
@@ -444,8 +441,7 @@
     </None>
     <None Include="BD_JuntasDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet12.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+      <LastGenOutput>BD_JuntasDataSet11.Designer.cs</LastGenOutput>
     </None>
     <None Include="BD_JuntasDataSet1.xss">
       <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
@@ -455,22 +451,10 @@
     </None>
     <None Include="BD_JuntasDataSet2.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+      <LastGenOutput>BD_JuntasDataSet21.Designer.cs</LastGenOutput>
     </None>
     <None Include="BD_JuntasDataSet2.xss">
       <DependentUpon>BD_JuntasDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="BD_JuntasDataSet3.xsc">
-      <DependentUpon>BD_JuntasDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="BD_JuntasDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BD_JuntasDataSet3.xss">
-      <DependentUpon>BD_JuntasDataSet3.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Presentacion_TemporaryKey.pfx" />

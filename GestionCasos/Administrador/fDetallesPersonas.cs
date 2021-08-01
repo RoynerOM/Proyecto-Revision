@@ -99,22 +99,23 @@ namespace GestionCasos.Administrador
                 tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+                tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[0].Value = item.Cedula;
                 tabla.Rows[nRows].Cells[1].Value = item.TipoId == 0 ? "NACIONAL" : "DIMEX";
                 tabla.Rows[nRows].Cells[2].Value = item.Carnet;
                 tabla.Rows[nRows].Cells[3].Value = item.Nombre_Completo;
-
+                tabla.Rows[nRows].Cells[4].Value = item.Correo;
 
                 tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+                tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
                 tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
                 tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
                 tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
 
             }
         }
@@ -133,8 +134,16 @@ namespace GestionCasos.Administrador
         {
             if (txtCedula.Text != null)
             {
-                var filtro = Personas.Where(x => x.Cedula.StartsWith(txtCedula.Text));
-                CargarTabla(filtro);
+                try
+                {
+                    var filtro = Personas.Where(x => x.Cedula.StartsWith(txtCedula.Text));
+                    CargarTabla(filtro);
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex);
+                }
             }
             else
             {
@@ -178,8 +187,16 @@ namespace GestionCasos.Administrador
 
         private void cbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            var filtro = Personas.Where(x => x.Cedula == cbTramitador.SelectedValue.ToString());
-            CargarTabla(filtro);
+            try
+            {
+                var filtro = Personas.Where(x => x.Cedula == cbTramitador.SelectedValue.ToString());
+                CargarTabla(filtro);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
 
 
@@ -198,6 +215,11 @@ namespace GestionCasos.Administrador
                 OpenChildForm(new fContador(Rol));
 
             }
+        }
+
+        private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
+        {
+            PedirDatos();
         }
     }
 }

@@ -709,21 +709,54 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsJuntas</DataSetName>
-        <Top>0.33814cm</Top>
+        <Top>2.24314cm</Top>
         <Left>0.13262cm</Left>
         <Height>1.14708cm</Height>
-        <Width>34.79805cm</Width>
+        <Width>34.79806cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Reporte de juntas</Value>
+                <Style>
+                  <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.66782cm</Top>
+        <Left>14.9987cm</Left>
+        <Height>1.07625cm</Height>
+        <Width>6.49521cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>1.48522cm</Height>
+    <Height>3.39022cm</Height>
     <Style />
   </Body>
-  <Width>34.93067cm</Width>
+  <Width>35.56cm</Width>
   <Page>
     <PageHeader>
       <Height>5.01755cm</Height>
@@ -735,7 +768,7 @@
           <Value>Imagen1</Value>
           <Sizing>Fit</Sizing>
           <Height>5.01755cm</Height>
-          <Width>34.93067cm</Width>
+          <Width>35.56cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1010,8 +1043,8 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>25cm</PageHeight>
-    <PageWidth>35.3cm</PageWidth>
+    <PageHeight>21.59cm</PageHeight>
+    <PageWidth>35.56cm</PageWidth>
     <InteractiveHeight>20cm</InteractiveHeight>
     <InteractiveWidth>36cm</InteractiveWidth>
     <LeftMargin>0cm</LeftMargin>

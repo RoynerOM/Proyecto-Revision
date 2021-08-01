@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using Utilidades;
 using Utilidades.Enumerables;
 
 namespace GestionCasos
@@ -136,10 +137,8 @@ namespace GestionCasos
 
                 this.gunaElipsePanel1.BaseColor = Color.FromArgb(41, 79, 116);
                 this.gunaElipsePanel1.ForeColor = Color.White;
-            }
-            else
-            {
 
+                this.label4.ForeColor = Colors.Black;
             }
         }
         private void PnContadores_Paint(object sender, PaintEventArgs e)

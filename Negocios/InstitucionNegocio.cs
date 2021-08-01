@@ -24,9 +24,14 @@ namespace Negocios
             return datos.modificar(e);
         }
 
-        public t_Institucion obtenerPorId(t_Institucion e)
+        public t_Institucion obtenerPorId(int e)
         {
             return datos.obtenerPorId(e);
+        }
+
+        public t_Institucion obtenerPorId(t_Institucion e)
+        {
+            throw new System.NotImplementedException();
         }
 
         public IEnumerable<t_Institucion> obtenerTodo(t_Institucion e)

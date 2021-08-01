@@ -208,6 +208,7 @@ namespace GestionCasos.Administrador
                         txtApellido2.Text = datosEncotrados.Apellido2;
                         txtCarne.Text = datosEncotrados.Carnet;
                         cbTipo.SelectedIndex = (int)datosEncotrados.TipoId;
+                        txtCorreo.Text = datosEncotrados.Correo;
                     }
                     else
                     {

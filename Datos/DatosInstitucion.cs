@@ -65,13 +65,13 @@ namespace Datos
             }
         }
 
-        public t_Institucion obtenerPorId(t_Institucion e)
+        public t_Institucion obtenerPorId(int e)
         {
             try
             {
                 using (var db = new BD_JuntasEntities())
                 {
-                    var consulta = db.t_Institucion.Include("t_Persona").Include("t_Tipo_Institucion").Where(x => x.Codigo == e.Codigo).SingleOrDefault();
+                    var consulta = db.t_Institucion.Include("t_Persona").Include("t_Tipo_Institucion").Where(x => x.Codigo == e).SingleOrDefault();
                     if (consulta != null)
                     {
                         return consulta;
@@ -88,6 +88,11 @@ namespace Datos
                 Console.WriteLine(ex.Message);
                 return null;
             }
+        }
+
+        public t_Institucion obtenerPorId(t_Institucion e)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<t_Institucion> obtenerTodo(t_Institucion e)
