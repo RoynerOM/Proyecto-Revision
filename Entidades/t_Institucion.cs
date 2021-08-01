@@ -29,8 +29,8 @@ namespace Entidades
         public string Cuenta_Ley { get; set; }
         public string Contador { get; set; }
         public bool Estado { get; set; }
+        public string Responsable { get; set; }
         public string Contacto { get; set; }
-        public string Telefono { get; set; }
     
         public virtual t_Direccion_Regional t_Direccion_Regional { get; set; }
         public virtual t_Persona t_Persona { get; set; }

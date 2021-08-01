@@ -121,8 +121,8 @@ namespace GestionCasos.Administrador
                 txtCedulaJuridica.Text = institucion.Cedula_Juridica;
                 txtCuentaDanea.Text = institucion.Cuenta_Danea;
                 txtCuentaLey.Text = institucion.Cuenta_Ley;
-                txtContacto.Text = institucion.Contacto;
-                txtTelefono.Text = institucion.Telefono;
+                txtContacto.Text = institucion.Responsable;
+                txtTelefono.Text = institucion.Contacto;
                 cbCircuito.Text = institucion.Circuito.ToString();
                 cbContador.Text = institucion.t_Persona.Nombre_Completo;
                 cbTipo.Text = institucion.t_Tipo_Institucion.NombreTipo;
@@ -233,8 +233,8 @@ namespace GestionCasos.Administrador
                         institucion.Cedula_Juridica = txtCedulaJuridica.Text;
                         institucion.Circuito = (int)cbCircuito.SelectedValue;
                         institucion.Tipo = (int)cbTipo.SelectedValue;
-                        institucion.Contacto = txtContacto.Text;
-                        institucion.Telefono = txtTelefono.Text;
+                        institucion.Responsable = txtContacto.Text;
+                        institucion.Contacto = txtTelefono.Text;
 
                         if (negocio.guardar(institucion) == true)
                         {
@@ -277,8 +277,8 @@ namespace GestionCasos.Administrador
                         cbTipo.Text = Enum.GetName(typeof(Enums.TipoEscuela), datosEncotrados.Tipo);
                         cbContador.Text = datosEncotrados.t_Persona.Nombre_Completo;
                         cbCircuito.Text = datosEncotrados.Circuito.ToString();
-                        txtContacto.Text = datosEncotrados.Contacto;
-                        txtTelefono.Text = datosEncotrados.Telefono;
+                        txtContacto.Text = datosEncotrados.Responsable;
+                        txtTelefono.Text = datosEncotrados.Contacto;
                     }
                     else
                     {
@@ -415,8 +415,8 @@ namespace GestionCasos.Administrador
                             cbTipo.Text = Enum.GetName(typeof(Enums.TipoEscuela), datosEncotrados.Tipo);
                             cbContador.Text = datosEncotrados.t_Persona.Nombre_Completo;
                             cbCircuito.Text = datosEncotrados.Circuito.ToString();
-                            txtContacto.Text = datosEncotrados.Contacto;
-                            txtTelefono.Text = datosEncotrados.Telefono;
+                            txtContacto.Text = datosEncotrados.Responsable;
+                            txtTelefono.Text = datosEncotrados.Contacto;
                         }
                         else
                         {

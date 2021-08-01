@@ -17,17 +17,17 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nu_caso" Type="int" Nullable="false" />
-          <Property Name="Motivo1" Type="bit" Nullable="false" />
-          <Property Name="Motivo2" Type="bit" Nullable="false" />
-          <Property Name="Motivo3" Type="bit" Nullable="false" />
-          <Property Name="Motivo4" Type="bit" Nullable="false" />
-          <Property Name="Motivo5" Type="bit" Nullable="false" />
-          <Property Name="Motivo6" Type="bit" Nullable="false" />
-          <Property Name="Motivo7" Type="bit" Nullable="false" />
-          <Property Name="Motivo8" Type="varchar(max)" Nullable="false" />
-          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
-          <Property Name="FechaCreado" Type="date" Nullable="false" />
+          <Property Name="Nu_caso" Type="int" />
+          <Property Name="Motivo1" Type="bit" />
+          <Property Name="Motivo2" Type="bit" />
+          <Property Name="Motivo3" Type="bit" />
+          <Property Name="Motivo4" Type="bit" />
+          <Property Name="Motivo5" Type="bit" />
+          <Property Name="Motivo6" Type="bit" />
+          <Property Name="Motivo7" Type="bit" />
+          <Property Name="Motivo8" Type="varchar(max)" />
+          <Property Name="Observacion" Type="varchar(max)" />
+          <Property Name="FechaCreado" Type="date" />
         </EntityType>
         <EntityType Name="t_Direccion_Regional">
           <Key>
@@ -62,8 +62,8 @@
           <Property Name="Cuenta_Ley" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Contador" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="Estado" Type="bit" Nullable="false" />
-          <Property Name="Contacto" Type="varchar" MaxLength="50" />
-          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Responsable" Type="varchar(max)" />
+          <Property Name="Contacto" Type="varchar" MaxLength="9" />
         </EntityType>
         <EntityType Name="t_Mensajero">
           <Key>
@@ -87,6 +87,7 @@
           <Property Name="Apellido2" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nombre_Completo" Type="varchar" MaxLength="152" StoreGeneratedPattern="Computed" Nullable="false" />
           <Property Name="Correo" Type="varchar(max)" />
+          <Property Name="FechaRegistro" Type="date" />
         </EntityType>
         <EntityType Name="t_Recepcion">
           <Key>
@@ -149,16 +150,6 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewBoleta' does not have a primary 
             <PropertyRef Name="Circuito" />
             <PropertyRef Name="Nombre" />
             <PropertyRef Name="Cedula_Juridica" />
-            <PropertyRef Name="Motivo1" />
-            <PropertyRef Name="Motivo2" />
-            <PropertyRef Name="Motivo3" />
-            <PropertyRef Name="Motivo4" />
-            <PropertyRef Name="Motivo5" />
-            <PropertyRef Name="Motivo6" />
-            <PropertyRef Name="Motivo7" />
-            <PropertyRef Name="Motivo8" />
-            <PropertyRef Name="Observacion" />
-            <PropertyRef Name="FechaCreado" />
             <PropertyRef Name="Nombre_Completo" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
@@ -167,16 +158,16 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewBoleta' does not have a primary 
           <Property Name="Circuito" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
           <Property Name="Cedula_Juridica" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Motivo1" Type="bit" Nullable="false" />
-          <Property Name="Motivo2" Type="bit" Nullable="false" />
-          <Property Name="Motivo3" Type="bit" Nullable="false" />
-          <Property Name="Motivo4" Type="bit" Nullable="false" />
-          <Property Name="Motivo5" Type="bit" Nullable="false" />
-          <Property Name="Motivo6" Type="bit" Nullable="false" />
-          <Property Name="Motivo7" Type="bit" Nullable="false" />
-          <Property Name="Motivo8" Type="varchar(max)" Nullable="false" />
-          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
-          <Property Name="FechaCreado" Type="date" Nullable="false" />
+          <Property Name="Motivo1" Type="bit" />
+          <Property Name="Motivo2" Type="bit" />
+          <Property Name="Motivo3" Type="bit" />
+          <Property Name="Motivo4" Type="bit" />
+          <Property Name="Motivo5" Type="bit" />
+          <Property Name="Motivo6" Type="bit" />
+          <Property Name="Motivo7" Type="bit" />
+          <Property Name="Motivo8" Type="varchar(max)" />
+          <Property Name="Observacion" Type="varchar(max)" />
+          <Property Name="FechaCreado" Type="date" />
           <Property Name="Nombre_Completo" Type="varchar" MaxLength="152" Nullable="false" />
           <Property Name="numeroActa" Type="int" />
           <Property Name="numeroFolio" Type="int" />
@@ -200,31 +191,7 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
           <Property Name="Tipo" Type="int" />
           <Property Name="Estado" Type="bit" />
         </EntityType>
-        <Association Name="FK__t_Boleta__Nu_cas__5A4F643B">
-          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="1" />
-          <End Role="t_Boleta" Type="Self.t_Boleta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_Revision">
-              <PropertyRef Name="Id_Caso" />
-            </Principal>
-            <Dependent Role="t_Boleta">
-              <PropertyRef Name="Nu_caso" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_Entrega__Cedul__4FD1D5C8">
-          <End Role="t_Mensajero" Type="Self.t_Mensajero" Multiplicity="1" />
-          <End Role="t_EntregaCasos" Type="Self.t_EntregaCasos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_Mensajero">
-              <PropertyRef Name="Cedula" />
-            </Principal>
-            <Dependent Role="t_EntregaCasos">
-              <PropertyRef Name="Cedula" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_Entrega__Id_Ca__51BA1E3A">
+        <Association Name="FK__t_Entrega__Id_Ca__43A1090D">
           <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="1" />
           <End Role="t_EntregaCasos" Type="Self.t_EntregaCasos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -236,7 +203,7 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_Entrega__Recep__50C5FA01">
+        <Association Name="FK__t_Entrega__Recep__42ACE4D4">
           <End Role="t_Recepcion" Type="Self.t_Recepcion" Multiplicity="1" />
           <End Role="t_EntregaCasos" Type="Self.t_EntregaCasos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -316,6 +283,30 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
               <PropertyRef Name="Cedula" />
             </Principal>
             <Dependent Role="t_Usuario">
+              <PropertyRef Name="Cedula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_Boleta_t_Revision">
+          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="0..1" />
+          <End Role="t_Boleta" Type="Self.t_Boleta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Revision">
+              <PropertyRef Name="Id_Caso" />
+            </Principal>
+            <Dependent Role="t_Boleta">
+              <PropertyRef Name="Nu_caso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_EntregaCasos_t_Mensajero">
+          <End Role="t_Mensajero" Type="Self.t_Mensajero" Multiplicity="1" />
+          <End Role="t_EntregaCasos" Type="Self.t_EntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Mensajero">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="t_EntregaCasos">
               <PropertyRef Name="Cedula" />
             </Dependent>
           </ReferentialConstraint>
@@ -404,19 +395,11 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
     [viewTrabajador].[Estado] AS [Estado]
     FROM [dbo].[viewTrabajador] AS [viewTrabajador]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__t_Boleta__Nu_cas__5A4F643B" Association="Self.FK__t_Boleta__Nu_cas__5A4F643B">
-            <End Role="t_Revision" EntitySet="t_Revision" />
-            <End Role="t_Boleta" EntitySet="t_Boleta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_Entrega__Cedul__4FD1D5C8" Association="Self.FK__t_Entrega__Cedul__4FD1D5C8">
-            <End Role="t_Mensajero" EntitySet="t_Mensajero" />
-            <End Role="t_EntregaCasos" EntitySet="t_EntregaCasos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_Entrega__Id_Ca__51BA1E3A" Association="Self.FK__t_Entrega__Id_Ca__51BA1E3A">
+          <AssociationSet Name="FK__t_Entrega__Id_Ca__43A1090D" Association="Self.FK__t_Entrega__Id_Ca__43A1090D">
             <End Role="t_Revision" EntitySet="t_Revision" />
             <End Role="t_EntregaCasos" EntitySet="t_EntregaCasos" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_Entrega__Recep__50C5FA01" Association="Self.FK__t_Entrega__Recep__50C5FA01">
+          <AssociationSet Name="FK__t_Entrega__Recep__42ACE4D4" Association="Self.FK__t_Entrega__Recep__42ACE4D4">
             <End Role="t_Recepcion" EntitySet="t_Recepcion" />
             <End Role="t_EntregaCasos" EntitySet="t_EntregaCasos" />
           </AssociationSet>
@@ -443,6 +426,14 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
           <AssociationSet Name="FK__t_Usuario__Cedul__3A81B327" Association="Self.FK__t_Usuario__Cedul__3A81B327">
             <End Role="t_Persona" EntitySet="t_Persona" />
             <End Role="t_Usuario" EntitySet="t_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_Boleta_t_Revision" Association="Self.FK_t_Boleta_t_Revision">
+            <End Role="t_Revision" EntitySet="t_Revision" />
+            <End Role="t_Boleta" EntitySet="t_Boleta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_EntregaCasos_t_Mensajero" Association="Self.FK_t_EntregaCasos_t_Mensajero">
+            <End Role="t_Mensajero" EntitySet="t_Mensajero" />
+            <End Role="t_EntregaCasos" EntitySet="t_EntregaCasos" />
           </AssociationSet>
           <AssociationSet Name="FK_t_Institucion_t_Direccion_Regional" Association="Self.FK_t_Institucion_t_Direccion_Regional">
             <End Role="t_Direccion_Regional" EntitySet="t_Direccion_Regional" />
@@ -475,18 +466,18 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nu_caso" Type="Int32" Nullable="false" />
-          <Property Name="Motivo1" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo2" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo3" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo4" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo5" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo6" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo7" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Boleta__Nu_cas__5A4F643B" FromRole="t_Boleta" ToRole="t_Revision" />
+          <Property Name="Nu_caso" Type="Int32" />
+          <Property Name="Motivo1" Type="Boolean" />
+          <Property Name="Motivo2" Type="Boolean" />
+          <Property Name="Motivo3" Type="Boolean" />
+          <Property Name="Motivo4" Type="Boolean" />
+          <Property Name="Motivo5" Type="Boolean" />
+          <Property Name="Motivo6" Type="Boolean" />
+          <Property Name="Motivo7" Type="Boolean" />
+          <Property Name="Motivo8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreado" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="t_Revision" Relationship="Self.FK_t_Boleta_t_Revision" FromRole="t_Boleta" ToRole="t_Revision" />
         </EntityType>
         <EntityType Name="t_Direccion_Regional">
           <Key>
@@ -508,9 +499,9 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
           <Property Name="Id_Caso" Type="Int32" Nullable="false" />
           <Property Name="FechaEntrega" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="t_Mensajero" Relationship="Self.FK__t_Entrega__Cedul__4FD1D5C8" FromRole="t_EntregaCasos" ToRole="t_Mensajero" />
-          <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Entrega__Id_Ca__51BA1E3A" FromRole="t_EntregaCasos" ToRole="t_Revision" />
-          <NavigationProperty Name="t_Recepcion" Relationship="Self.FK__t_Entrega__Recep__50C5FA01" FromRole="t_EntregaCasos" ToRole="t_Recepcion" />
+          <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Entrega__Id_Ca__43A1090D" FromRole="t_EntregaCasos" ToRole="t_Revision" />
+          <NavigationProperty Name="t_Recepcion" Relationship="Self.FK__t_Entrega__Recep__42ACE4D4" FromRole="t_EntregaCasos" ToRole="t_Recepcion" />
+          <NavigationProperty Name="t_Mensajero" Relationship="Self.FK_t_EntregaCasos_t_Mensajero" FromRole="t_EntregaCasos" ToRole="t_Mensajero" />
         </EntityType>
         <EntityType Name="t_Institucion">
           <Key>
@@ -525,8 +516,8 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
           <Property Name="Cuenta_Ley" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Contador" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Estado" Type="Boolean" Nullable="false" />
-          <Property Name="Contacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Responsable" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Contacto" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="t_Direccion_Regional" Relationship="Self.FK_t_Institucion_t_Direccion_Regional" FromRole="t_Institucion" ToRole="t_Direccion_Regional" />
           <NavigationProperty Name="t_Persona" Relationship="Self.FK__t_Institu__Conta__4316F928" FromRole="t_Institucion" ToRole="t_Persona" />
           <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Revisio__Codig__251C81ED" FromRole="t_Institucion" ToRole="t_Revision" />
@@ -541,7 +532,7 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
           <Property Name="Apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nombre_Completo" Type="String" MaxLength="152" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
-          <NavigationProperty Name="t_EntregaCasos" Relationship="Self.FK__t_Entrega__Cedul__4FD1D5C8" FromRole="t_Mensajero" ToRole="t_EntregaCasos" />
+          <NavigationProperty Name="t_EntregaCasos" Relationship="Self.FK_t_EntregaCasos_t_Mensajero" FromRole="t_Mensajero" ToRole="t_EntregaCasos" />
         </EntityType>
         <EntityType Name="t_Persona">
           <Key>
@@ -555,6 +546,7 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
           <Property Name="Apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nombre_Completo" Type="String" MaxLength="152" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="Correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="0" />
           <NavigationProperty Name="t_Institucion" Relationship="Self.FK__t_Institu__Conta__4316F928" FromRole="t_Persona" ToRole="t_Institucion" />
           <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Revisio__Trami__2610A626" FromRole="t_Persona" ToRole="t_Revision" />
           <NavigationProperty Name="t_Usuario" Relationship="Self.FK__t_Usuario__Cedul__3A81B327" FromRole="t_Persona" ToRole="t_Usuario" />
@@ -566,7 +558,7 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="t_EntregaCasos" Relationship="Self.FK__t_Entrega__Recep__50C5FA01" FromRole="t_Recepcion" ToRole="t_EntregaCasos" />
+          <NavigationProperty Name="t_EntregaCasos" Relationship="Self.FK__t_Entrega__Recep__42ACE4D4" FromRole="t_Recepcion" ToRole="t_EntregaCasos" />
           <NavigationProperty Name="t_Revision" Relationship="Self.FK__t_Revisio__Recep__2704CA5F" FromRole="t_Recepcion" ToRole="t_Revision" />
         </EntityType>
         <EntityType Name="t_Revision">
@@ -588,8 +580,8 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
           <Property Name="numeroFolio" Type="Int32" />
           <Property Name="fechaActa" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Estado1" Relationship="Self.FK__t_Revisio__Estad__27F8EE98" FromRole="t_Revision" ToRole="Estado" />
-          <NavigationProperty Name="t_Boleta" Relationship="Self.FK__t_Boleta__Nu_cas__5A4F643B" FromRole="t_Revision" ToRole="t_Boleta" />
-          <NavigationProperty Name="t_EntregaCasos" Relationship="Self.FK__t_Entrega__Id_Ca__51BA1E3A" FromRole="t_Revision" ToRole="t_EntregaCasos" />
+          <NavigationProperty Name="t_Boleta" Relationship="Self.FK_t_Boleta_t_Revision" FromRole="t_Revision" ToRole="t_Boleta" />
+          <NavigationProperty Name="t_EntregaCasos" Relationship="Self.FK__t_Entrega__Id_Ca__43A1090D" FromRole="t_Revision" ToRole="t_EntregaCasos" />
           <NavigationProperty Name="t_Institucion" Relationship="Self.FK__t_Revisio__Codig__251C81ED" FromRole="t_Revision" ToRole="t_Institucion" />
           <NavigationProperty Name="t_Persona" Relationship="Self.FK__t_Revisio__Trami__2610A626" FromRole="t_Revision" ToRole="t_Persona" />
           <NavigationProperty Name="t_Recepcion" Relationship="Self.FK__t_Revisio__Recep__2704CA5F" FromRole="t_Revision" ToRole="t_Recepcion" />
@@ -630,16 +622,6 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
             <PropertyRef Name="Circuito" />
             <PropertyRef Name="Nombre" />
             <PropertyRef Name="Cedula_Juridica" />
-            <PropertyRef Name="Motivo1" />
-            <PropertyRef Name="Motivo2" />
-            <PropertyRef Name="Motivo3" />
-            <PropertyRef Name="Motivo4" />
-            <PropertyRef Name="Motivo5" />
-            <PropertyRef Name="Motivo6" />
-            <PropertyRef Name="Motivo7" />
-            <PropertyRef Name="Motivo8" />
-            <PropertyRef Name="Observacion" />
-            <PropertyRef Name="FechaCreado" />
             <PropertyRef Name="Nombre_Completo" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
@@ -648,16 +630,16 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
           <Property Name="Circuito" Type="Int32" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Cedula_Juridica" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Motivo1" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo2" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo3" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo4" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo5" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo6" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo7" Type="Boolean" Nullable="false" />
-          <Property Name="Motivo8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Motivo1" Type="Boolean" />
+          <Property Name="Motivo2" Type="Boolean" />
+          <Property Name="Motivo3" Type="Boolean" />
+          <Property Name="Motivo4" Type="Boolean" />
+          <Property Name="Motivo5" Type="Boolean" />
+          <Property Name="Motivo6" Type="Boolean" />
+          <Property Name="Motivo7" Type="Boolean" />
+          <Property Name="Motivo8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreado" Type="DateTime" Precision="0" />
           <Property Name="Nombre_Completo" Type="String" MaxLength="152" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="numeroActa" Type="Int32" />
           <Property Name="numeroFolio" Type="Int32" />
@@ -691,8 +673,8 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_Boleta__Nu_cas__5A4F643B">
-          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="1" />
+        <Association Name="FK_t_Boleta_t_Revision">
+          <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="0..1" />
           <End Role="t_Boleta" Type="Self.t_Boleta" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="t_Revision">
@@ -715,19 +697,7 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_Entrega__Cedul__4FD1D5C8">
-          <End Role="t_Mensajero" Type="Self.t_Mensajero" Multiplicity="1" />
-          <End Role="t_EntregaCasos" Type="Self.t_EntregaCasos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="t_Mensajero">
-              <PropertyRef Name="Cedula" />
-            </Principal>
-            <Dependent Role="t_EntregaCasos">
-              <PropertyRef Name="Cedula" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__t_Entrega__Id_Ca__51BA1E3A">
+        <Association Name="FK__t_Entrega__Id_Ca__43A1090D">
           <End Role="t_Revision" Type="Self.t_Revision" Multiplicity="1" />
           <End Role="t_EntregaCasos" Type="Self.t_EntregaCasos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -739,7 +709,7 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t_Entrega__Recep__50C5FA01">
+        <Association Name="FK__t_Entrega__Recep__42ACE4D4">
           <End Role="t_Recepcion" Type="Self.t_Recepcion" Multiplicity="1" />
           <End Role="t_EntregaCasos" Type="Self.t_EntregaCasos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -748,6 +718,18 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
             </Principal>
             <Dependent Role="t_EntregaCasos">
               <PropertyRef Name="Recepcion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t_EntregaCasos_t_Mensajero">
+          <End Role="t_Mensajero" Type="Self.t_Mensajero" Multiplicity="1" />
+          <End Role="t_EntregaCasos" Type="Self.t_EntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Mensajero">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="t_EntregaCasos">
+              <PropertyRef Name="Cedula" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -854,7 +836,7 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
             <End Role="Estado" EntitySet="Estado" />
             <End Role="t_Revision" EntitySet="t_Revision" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_Boleta__Nu_cas__5A4F643B" Association="Self.FK__t_Boleta__Nu_cas__5A4F643B">
+          <AssociationSet Name="FK_t_Boleta_t_Revision" Association="Self.FK_t_Boleta_t_Revision">
             <End Role="t_Revision" EntitySet="t_Revision" />
             <End Role="t_Boleta" EntitySet="t_Boleta" />
           </AssociationSet>
@@ -862,16 +844,16 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
             <End Role="t_Direccion_Regional" EntitySet="t_Direccion_Regional" />
             <End Role="t_Institucion" EntitySet="t_Institucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_Entrega__Cedul__4FD1D5C8" Association="Self.FK__t_Entrega__Cedul__4FD1D5C8">
-            <End Role="t_Mensajero" EntitySet="t_Mensajero" />
-            <End Role="t_EntregaCasos" EntitySet="t_EntregaCasos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__t_Entrega__Id_Ca__51BA1E3A" Association="Self.FK__t_Entrega__Id_Ca__51BA1E3A">
+          <AssociationSet Name="FK__t_Entrega__Id_Ca__43A1090D" Association="Self.FK__t_Entrega__Id_Ca__43A1090D">
             <End Role="t_Revision" EntitySet="t_Revision" />
             <End Role="t_EntregaCasos" EntitySet="t_EntregaCasos" />
           </AssociationSet>
-          <AssociationSet Name="FK__t_Entrega__Recep__50C5FA01" Association="Self.FK__t_Entrega__Recep__50C5FA01">
+          <AssociationSet Name="FK__t_Entrega__Recep__42ACE4D4" Association="Self.FK__t_Entrega__Recep__42ACE4D4">
             <End Role="t_Recepcion" EntitySet="t_Recepcion" />
+            <End Role="t_EntregaCasos" EntitySet="t_EntregaCasos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t_EntregaCasos_t_Mensajero" Association="Self.FK_t_EntregaCasos_t_Mensajero">
+            <End Role="t_Mensajero" EntitySet="t_Mensajero" />
             <End Role="t_EntregaCasos" EntitySet="t_EntregaCasos" />
           </AssociationSet>
           <AssociationSet Name="FK__t_Institu__Conta__4316F928" Association="Self.FK__t_Institu__Conta__4316F928">
@@ -969,8 +951,8 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
                 <ScalarProperty Name="Cuenta_Ley" ColumnName="Cuenta_Ley" />
                 <ScalarProperty Name="Contador" ColumnName="Contador" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
                 <ScalarProperty Name="Contacto" ColumnName="Contacto" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -996,6 +978,7 @@ warning 6002: The table/view 'BD_Juntas.dbo.viewTrabajador' does not have a prim
                 <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
                 <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre_Completo" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

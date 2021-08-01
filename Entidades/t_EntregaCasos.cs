@@ -22,8 +22,8 @@ namespace Entidades
         public System.DateTime FechaEntrega { get; set; }
         public string Observacion { get; set; }
     
-        public virtual t_Mensajero t_Mensajero { get; set; }
         public virtual t_Revision t_Revision { get; set; }
         public virtual t_Recepcion t_Recepcion { get; set; }
+        public virtual t_Mensajero t_Mensajero { get; set; }
     }
 }

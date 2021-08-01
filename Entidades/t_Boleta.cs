@@ -15,17 +15,17 @@ namespace Entidades
     public partial class t_Boleta
     {
         public int Id { get; set; }
-        public int Nu_caso { get; set; }
-        public bool Motivo1 { get; set; }
-        public bool Motivo2 { get; set; }
-        public bool Motivo3 { get; set; }
-        public bool Motivo4 { get; set; }
-        public bool Motivo5 { get; set; }
-        public bool Motivo6 { get; set; }
-        public bool Motivo7 { get; set; }
+        public Nullable<int> Nu_caso { get; set; }
+        public Nullable<bool> Motivo1 { get; set; }
+        public Nullable<bool> Motivo2 { get; set; }
+        public Nullable<bool> Motivo3 { get; set; }
+        public Nullable<bool> Motivo4 { get; set; }
+        public Nullable<bool> Motivo5 { get; set; }
+        public Nullable<bool> Motivo6 { get; set; }
+        public Nullable<bool> Motivo7 { get; set; }
         public string Motivo8 { get; set; }
         public string Observacion { get; set; }
-        public System.DateTime FechaCreado { get; set; }
+        public Nullable<System.DateTime> FechaCreado { get; set; }
     
         public virtual t_Revision t_Revision { get; set; }
     }

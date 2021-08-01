@@ -53,17 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BD_Juntas.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_Juntas.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD_Juntas.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_Juntas.edmx</DependentUpon>
-    </Compile>
     <Compile Include="BoletaDatos.cs" />
+    <Compile Include="DBJuntas.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBJuntas.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBJuntas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBJuntas.edmx</DependentUpon>
+    </Compile>
     <Compile Include="EntregaDatos.cs" />
     <Compile Include="EstadoDatos.cs" />
     <Compile Include="DatosContador.cs" />
@@ -87,12 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="BD_Juntas.edmx">
+    <EntityDeploy Include="DBJuntas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BD_Juntas.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBJuntas.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BD_Juntas.edmx.diagram">
-      <DependentUpon>BD_Juntas.edmx</DependentUpon>
+    <None Include="DBJuntas.edmx.diagram">
+      <DependentUpon>DBJuntas.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -100,10 +100,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BD_Juntas.Context.tt">
+    <Content Include="DBJuntas.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BD_Juntas.edmx</DependentUpon>
-      <LastGenOutput>BD_Juntas.Context.cs</LastGenOutput>
+      <DependentUpon>DBJuntas.edmx</DependentUpon>
+      <LastGenOutput>DBJuntas.Context.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

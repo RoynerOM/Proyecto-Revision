@@ -30,6 +30,7 @@ namespace Entidades
         public string Apellido2 { get; set; }
         public string Nombre_Completo { get; set; }
         public string Correo { get; set; }
+        public Nullable<System.DateTime> FechaRegistro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t_Institucion> t_Institucion { get; set; }
