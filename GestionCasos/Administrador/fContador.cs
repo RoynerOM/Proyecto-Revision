@@ -15,7 +15,7 @@ namespace GestionCasos.Administrador
     {
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-        t_Persona contador = new t_Persona();
+        tPersona contador = new tPersona();
         ContadorNegocio negocio = new ContadorNegocio();
 
         //Alertas
@@ -29,7 +29,6 @@ namespace GestionCasos.Administrador
             this.DoubleBuffered = true;
             this.Rol = Rol;
             SetThemeColor();
-
         }
 
 
@@ -137,13 +136,13 @@ namespace GestionCasos.Administrador
                 //Validamos los campos
                 if (ValidarCampos() == true)
                 {
-                    t_Trabajador trabajador = new t_Trabajador();
-                    t_Mensajero m = new t_Mensajero();
+                    tTrabajador trabajador = new tTrabajador();
+                    tMensajero m = new tMensajero();
                     contador.Cedula = txtCedula.Text;
                     if (negocio.obtenerPorId(contador) == null)
                     {
                         //Cargarmos el modelo con los datos del formulario
-                        contador.TipoId = cbTipo.SelectedIndex;
+                        contador.TipoIdentificacion = cbTipo.SelectedIndex;
                         contador.Cedula = txtCedula.Text;
                         contador.Carnet = txtCarne.Text;
                         contador.Nombre = txtNombre.Text.ToUpper();
@@ -153,9 +152,9 @@ namespace GestionCasos.Administrador
 
                         trabajador.Cedula = contador.Cedula;
                         trabajador.Tipo = (int)cbTipoPersona.SelectedValue;
-                        trabajador.Estado = true;
+                        trabajador.Activo = true;
 
-                        m.Cedula = txtCedula.Text;
+                        m.CedulaMensajero = txtCedula.Text;
                         m.Nombre = txtNombre.Text.ToUpper();
                         m.Apellido1 = txtApellido1.Text.ToUpper();
                         m.Apellido2 = txtApellido2.Text.ToUpper();
@@ -169,7 +168,6 @@ namespace GestionCasos.Administrador
                                 Message.Success(new Alertas.Alerta(), "El contador se guardo correctamente");
                                 LimpiarCampos();
                             }
-
                         }
                         else
                         {
@@ -196,7 +194,7 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                var contador = new t_Persona();
+                var contador = new tPersona();
                 if (txtCedula.Text != string.Empty)
                 {
                     contador.Cedula = txtCedula.Text.Trim();
@@ -207,7 +205,7 @@ namespace GestionCasos.Administrador
                         txtApellido1.Text = datosEncotrados.Apellido1;
                         txtApellido2.Text = datosEncotrados.Apellido2;
                         txtCarne.Text = datosEncotrados.Carnet;
-                        cbTipo.SelectedIndex = (int)datosEncotrados.TipoId;
+                        cbTipo.SelectedIndex = (int)datosEncotrados.TipoIdentificacion;
                         txtCorreo.Text = datosEncotrados.Correo;
                     }
                     else
@@ -371,7 +369,7 @@ namespace GestionCasos.Administrador
                     if (negocio.modificar(datos) == true)
                     {
                         Message.Success(new Alertas.Alerta(), "El contador fue modificado con exito");
-                        DatosTemp.t_Persona = null;
+                        DatosTemp.tPersona = null;
                         LimpiarCampos();
                     }
                     else
@@ -426,15 +424,15 @@ namespace GestionCasos.Administrador
 
         private void CargarDatosForm()
         {
-            if (DatosTemp.t_Persona != null)
+            if (DatosTemp.tPersona != null)
             {
-                txtCedula.Text = DatosTemp.t_Persona.Cedula;
-                txtNombre.Text = DatosTemp.t_Persona.Nombre;
-                txtApellido1.Text = DatosTemp.t_Persona.Apellido1;
-                txtApellido2.Text = DatosTemp.t_Persona.Apellido2;
-                txtCarne.Text = DatosTemp.t_Persona.Carnet;
-                txtCorreo.Text = DatosTemp.t_Persona.Correo;
-                cbTipo.SelectedIndex = (int)DatosTemp.t_Persona.TipoId;
+                txtCedula.Text = DatosTemp.tPersona.Cedula;
+                txtNombre.Text = DatosTemp.tPersona.Nombre;
+                txtApellido1.Text = DatosTemp.tPersona.Apellido1;
+                txtApellido2.Text = DatosTemp.tPersona.Apellido2;
+                txtCarne.Text = DatosTemp.tPersona.Carnet;
+                txtCorreo.Text = DatosTemp.tPersona.Correo;
+                cbTipo.SelectedIndex = (int)DatosTemp.tPersona.TipoIdentificacion;
             }
         }
 
@@ -450,7 +448,7 @@ namespace GestionCasos.Administrador
             {
                 try
                 {
-                    var contador = new t_Persona();
+                    var contador = new tPersona();
                     if (txtCedula.Text != string.Empty)
                     {
                         contador.Cedula = txtCedula.Text.Trim();
@@ -461,7 +459,7 @@ namespace GestionCasos.Administrador
                             txtApellido1.Text = datosEncotrados.Apellido1;
                             txtApellido2.Text = datosEncotrados.Apellido2;
                             txtCarne.Text = datosEncotrados.Carnet;
-                            cbTipo.SelectedIndex = (int)datosEncotrados.TipoId;
+                            cbTipo.SelectedIndex = (int)datosEncotrados.TipoIdentificacion;
                         }
                         else
                         {

@@ -5,16 +5,16 @@ using System.Linq;
 using Utilidades.Interfaces;
 namespace Datos
 {
-    public class DatosInstitucion : ICrud<t_Institucion>
+    public class DatosInstitucion : ICrud<tInstitucion>
     {
-        public bool eliminar(t_Institucion e)
+        public bool eliminar(tInstitucion e)
         {
             //throw new NotImplementedException();
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Institucion>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tInstitucion>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;
@@ -27,13 +27,13 @@ namespace Datos
             }
         }
 
-        public bool guardar(t_Institucion e)
+        public bool guardar(tInstitucion e)
         {
-            using (var db = new BD_JuntasEntities())
+            using (var db = new BDJuntasEntities())
             {
                 try
                 {
-                    db.t_Institucion.Add(e);
+                    db.tInstitucion.Add(e);
                     db.SaveChanges();
                     return true;
                 }
@@ -45,14 +45,14 @@ namespace Datos
             }
         }
 
-        public bool modificar(t_Institucion e)
+        public bool modificar(tInstitucion e)
         {
             //throw new NotImplementedException();
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Institucion>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tInstitucion>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;
@@ -65,13 +65,13 @@ namespace Datos
             }
         }
 
-        public t_Institucion obtenerPorId(int e)
+        public tInstitucion obtenerPorId(int e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.t_Institucion.Include("t_Persona").Include("t_Tipo_Institucion").Where(x => x.Codigo == e).SingleOrDefault();
+                    var consulta = db.tInstitucion.Include("tPersona").Include("tTipoInstitucion").Where(x => x.Codigo == e).SingleOrDefault();
                     if (consulta != null)
                     {
                         return consulta;
@@ -90,18 +90,18 @@ namespace Datos
             }
         }
 
-        public t_Institucion obtenerPorId(t_Institucion e)
+        public tInstitucion obtenerPorId(tInstitucion e)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<t_Institucion> obtenerTodo(t_Institucion e)
+        public IEnumerable<tInstitucion> obtenerTodo(tInstitucion e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.t_Institucion.Include("t_Persona").Include("t_Tipo_Institucion").ToList();
+                    var consulta = db.tInstitucion.Include("tPersona").Include("tTipoInstitucion").ToList();
                     if (consulta != null)
                     {
                         return consulta;
@@ -119,9 +119,5 @@ namespace Datos
                 return null;
             }
         }
-
-
-
-
     }
 }

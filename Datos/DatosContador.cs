@@ -6,16 +6,16 @@ using Utilidades.Interfaces;
 namespace Datos
 {
     //
-    public class DatosContador : ICrud<t_Persona>
+    public class DatosContador : ICrud<tPersona>
     {
-        public bool eliminar(t_Persona e)
+        public bool eliminar(tPersona e)
         {
             //throw new NotImplementedException();
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Persona>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tPersona>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
 
@@ -32,13 +32,13 @@ namespace Datos
 
 
         //Metodo de Guardar un contador
-        public bool guardar(t_Persona e)
+        public bool guardar(tPersona e)
         {
-            using (var db = new BD_JuntasEntities())
+            using (var db = new BDJuntasEntities())
             {
                 try
                 {
-                    db.t_Persona.Add(e);
+                    db.tPersona.Add(e);
                     db.SaveChanges();
                     return true;
                 }
@@ -50,13 +50,13 @@ namespace Datos
             }
         }
 
-        public bool guardar(t_Mensajero e)
+        public bool guardar(tMensajero e)
         {
-            using (var db = new BD_JuntasEntities())
+            using (var db = new BDJuntasEntities())
             {
                 try
                 {
-                    db.t_Mensajero.Add(e);
+                    db.tMensajero.Add(e);
                     db.SaveChanges();
                     return true;
                 }
@@ -68,14 +68,14 @@ namespace Datos
             }
         }
 
-        public bool modificar(t_Persona e)
+        public bool modificar(tPersona e)
         {
             //throw new NotImplementedException();
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Persona>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tPersona>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;
@@ -91,13 +91,13 @@ namespace Datos
 
 
         //Metodo de obtener contador por cedula
-        public t_Persona obtenerPorId(t_Persona e)
+        public tPersona obtenerPorId(tPersona e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    return (from query in db.t_Persona where query.Cedula == e.Cedula select query).FirstOrDefault();
+                    return (from query in db.tPersona where query.Cedula == e.Cedula select query).FirstOrDefault();
                 }
             }
             catch (Exception ex)
@@ -110,14 +110,14 @@ namespace Datos
 
 
         //Metodo que para obtener la lista de los contadores
-        public IEnumerable<t_Persona> obtenerTodo(t_Persona e)
+        public IEnumerable<tPersona> obtenerTodo(tPersona e)
         {
 
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    return (from query in db.t_Persona select query).ToList();
+                    return (from query in db.tPersona select query).ToList();
                 }
             }
             catch (Exception ex)
@@ -128,13 +128,13 @@ namespace Datos
         }
 
         //Extras
-        public bool GuardarTrabajador(t_Trabajador e)
+        public bool GuardarTrabajador(tTrabajador e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.t_Trabajador.Add(e);
+                    db.tTrabajador.Add(e);
                     db.SaveChanges();
                     return true;
                 }
@@ -155,7 +155,7 @@ namespace Datos
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
                     var consulta = db.viewTrabajador.Where(x => x.Cedula == cedula).SingleOrDefault();
                     if (consulta != null)
@@ -179,7 +179,7 @@ namespace Datos
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
                     var consulta = db.viewTrabajador.Where(x => x.Tipo == tipo).ToList();
                     if (consulta != null)
@@ -200,7 +200,7 @@ namespace Datos
         }
 
 
-        public t_Trabajador obtenerTrabador(string cedula)
+        public tTrabajador obtenerTrabador(string cedula)
         {
             /*
                 1 normal
@@ -208,9 +208,9 @@ namespace Datos
              */
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.t_Trabajador.Where(x => x.Cedula == cedula).SingleOrDefault();
+                    var consulta = db.tTrabajador.Where(x => x.Cedula == cedula).SingleOrDefault();
                     if (consulta != null)
                     {
                         return consulta;
@@ -230,7 +230,7 @@ namespace Datos
 
         public int CantidadContadores()
         {
-            return obtenerTodo(new t_Persona()).Count();
+            return obtenerTodo(new tPersona()).Count();
         }
     }
 }

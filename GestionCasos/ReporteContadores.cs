@@ -22,9 +22,8 @@ namespace GestionCasos
 
         private void ReporteContadores_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet1.Contadores' Puede moverla o quitarla según sea necesario.
-            this.ContadoresTableAdapter.Fill(this.BD_JuntasDataSet1.Contadores);
-
+            // TODO: This line of code loads data into the 'dtsContador.tPersona' table. You can move, or remove it, as needed.
+            this.tPersonaTableAdapter.Fill(this.dtsContador.tPersona);
             this.reportViewer1.RefreshReport();
         }
     }

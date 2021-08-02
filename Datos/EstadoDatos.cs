@@ -6,30 +6,30 @@ using Utilidades.Interfaces;
 
 namespace Datos
 {
-    public class EstadoDatos : ICrud<Estado>
+    public class EstadoDatos : ICrud<tEstado>
     {
-        public bool eliminar(Estado e)
+        public bool eliminar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(Estado e)
+        public bool guardar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public bool modificar(Estado e)
+        public bool modificar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public Estado obtenerPorId(Estado e)
+        public tEstado obtenerPorId(tEstado e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var filtro = db.Estado.Where(x => x.id == e.id).SingleOrDefault();
+                    var filtro = db.tEstado.Where(x => x.IdEstado == e.IdEstado).SingleOrDefault();
                     return filtro;
                 }
             }
@@ -40,13 +40,13 @@ namespace Datos
             }
         }
 
-        public IEnumerable<Estado> obtenerTodo(Estado e)
+        public IEnumerable<tEstado> obtenerTodo(tEstado e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var lista = db.Estado.ToList();
+                    var lista = db.tEstado.ToList();
 
                     if (lista != null)
                     {

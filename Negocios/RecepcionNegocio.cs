@@ -6,30 +6,30 @@ using Utilidades.Interfaces;
 
 namespace Negocios
 {
-    public class RecepcionNegocio : ICrud<t_Recepcion>
+    public class RecepcionNegocio : ICrud<tRecepcion>
     {
         RecepcionDatos datos = new RecepcionDatos();
-        public bool eliminar(t_Recepcion e)
+        public bool eliminar(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(t_Recepcion e)
+        public bool guardar(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public bool modificar(t_Recepcion e)
+        public bool modificar(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public t_Recepcion obtenerPorId(t_Recepcion e)
+        public tRecepcion obtenerPorId(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<t_Recepcion> obtenerTodo(t_Recepcion e)
+        public IEnumerable<tRecepcion> obtenerTodo(tRecepcion e)
         {
             return datos.obtenerTodo(e);
         }

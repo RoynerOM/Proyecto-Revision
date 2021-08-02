@@ -6,36 +6,36 @@ using Utilidades.Interfaces;
 namespace Negocios
 {
     //Plantilla
-    public class ContadorNegocio : ICrud<t_Persona>
+    public class ContadorNegocio : ICrud<tPersona>
     {
         readonly DatosContador contador = new DatosContador();
-        public bool eliminar(t_Persona e)
+        public bool eliminar(tPersona e)
         {
             //e.Estado == false;
             return contador.eliminar(e);
         }
 
-        public bool guardar(t_Persona e)
+        public bool guardar(tPersona e)
         {
             return contador.guardar(e);
         }
 
-        public bool guardar(t_Mensajero e)
+        public bool guardar(tMensajero e)
         {
             return contador.guardar(e);
         }
 
-        public bool modificar(t_Persona e)
+        public bool modificar(tPersona e)
         {
             return contador.modificar(e);
         }
 
-        public t_Persona obtenerPorId(t_Persona e)
+        public tPersona obtenerPorId(tPersona e)
         {
             return contador.obtenerPorId(e);
         }
 
-        public IEnumerable<t_Persona> obtenerTodo(t_Persona e)
+        public IEnumerable<tPersona> obtenerTodo(tPersona e)
         {
             return contador.obtenerTodo(e);
         }
@@ -47,7 +47,7 @@ namespace Negocios
         }
 
 
-        public bool GuardarTrabajador(t_Trabajador e)
+        public bool GuardarTrabajador(tTrabajador e)
         {
             return contador.GuardarTrabajador(e);
         }
@@ -60,7 +60,7 @@ namespace Negocios
         {
             return contador.obtenerTrabadorBy(cedula);
         }
-        public t_Trabajador obtenerTrabador(string cedula)
+        public tTrabajador obtenerTrabador(string cedula)
         {
             return contador.obtenerTrabador(cedula);
         }

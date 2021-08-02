@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtsEntregaCasos" targetNamespace="http://tempuri.org/dtsEntregaCasos.xsd" xmlns:mstns="http://tempuri.org/dtsEntregaCasos.xsd" xmlns="http://tempuri.org/dtsEntregaCasos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BDJuntasConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDJuntasConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionCasos.Properties.Settings.GlobalReference.Default.BDJuntasConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EntregaTableTableAdapter" GeneratorDataComponentClassName="EntregaTableTableAdapter" Name="EntregaTable" UserDataComponentName="EntregaTableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tRevision.Consecutivo, tInstitucion.Codigo, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.FechaAsignada, tEntregaCasos.FechaEntrega, tEntregaCasos.Observacion, 
+                         tMensajero.NombreCompleto AS Mensajero
+FROM            tEntregaCasos INNER JOIN
+                         tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero INNER JOIN
+                         tRevision ON tEntregaCasos.Caso = tRevision.IdCaso INNER JOIN
+                         tInstitucion ON tEntregaCasos.Junta = tInstitucion.Codigo INNER JOIN
+                         tPersona ON tEntregaCasos.Asignado = tPersona.Cedula</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="Circuito" DataSetColumn="Circuito" />
+              <Mapping SourceColumn="Institucion" DataSetColumn="Institucion" />
+              <Mapping SourceColumn="Asignado" DataSetColumn="Asignado" />
+              <Mapping SourceColumn="FechaAsignada" DataSetColumn="FechaAsignada" />
+              <Mapping SourceColumn="FechaEntrega" DataSetColumn="FechaEntrega" />
+              <Mapping SourceColumn="Observacion" DataSetColumn="Observacion" />
+              <Mapping SourceColumn="Mensajero" DataSetColumn="Mensajero" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtsEntregaCasos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsEntregaCasos" msprop:Generator_UserDSName="dtsEntregaCasos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="EntregaTable" msprop:Generator_TableClassName="EntregaTableDataTable" msprop:Generator_TableVarName="tableEntregaTable" msprop:Generator_TablePropName="EntregaTable" msprop:Generator_RowDeletingName="EntregaTableRowDeleting" msprop:Generator_RowChangingName="EntregaTableRowChanging" msprop:Generator_RowEvHandlerName="EntregaTableRowChangeEventHandler" msprop:Generator_RowDeletedName="EntregaTableRowDeleted" msprop:Generator_UserTableName="EntregaTable" msprop:Generator_RowChangedName="EntregaTableRowChanged" msprop:Generator_RowEvArgName="EntregaTableRowChangeEvent" msprop:Generator_RowClassName="EntregaTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Consecutivo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:int" />
+              <xs:element name="Circuito" msprop:Generator_ColumnVarNameInTable="columnCircuito" msprop:Generator_ColumnPropNameInRow="Circuito" msprop:Generator_ColumnPropNameInTable="CircuitoColumn" msprop:Generator_UserColumnName="Circuito" type="xs:int" />
+              <xs:element name="Institucion" msprop:Generator_ColumnVarNameInTable="columnInstitucion" msprop:Generator_ColumnPropNameInRow="Institucion" msprop:Generator_ColumnPropNameInTable="InstitucionColumn" msprop:Generator_UserColumnName="Institucion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Asignado" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAsignado" msprop:Generator_ColumnPropNameInRow="Asignado" msprop:Generator_ColumnPropNameInTable="AsignadoColumn" msprop:Generator_UserColumnName="Asignado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaAsignada" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFechaAsignada" msprop:Generator_ColumnPropNameInRow="FechaAsignada" msprop:Generator_ColumnPropNameInTable="FechaAsignadaColumn" msprop:Generator_UserColumnName="FechaAsignada" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaEntrega" msprop:Generator_ColumnVarNameInTable="columnFechaEntrega" msprop:Generator_ColumnPropNameInRow="FechaEntrega" msprop:Generator_ColumnPropNameInTable="FechaEntregaColumn" msprop:Generator_UserColumnName="FechaEntrega" type="xs:dateTime" />
+              <xs:element name="Observacion" msprop:Generator_ColumnVarNameInTable="columnObservacion" msprop:Generator_ColumnPropNameInRow="Observacion" msprop:Generator_ColumnPropNameInTable="ObservacionColumn" msprop:Generator_UserColumnName="Observacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mensajero" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMensajero" msprop:Generator_ColumnPropNameInRow="Mensajero" msprop:Generator_ColumnPropNameInTable="MensajeroColumn" msprop:Generator_UserColumnName="Mensajero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EntregaTable" />
+      <xs:field xpath="mstns:Codigo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

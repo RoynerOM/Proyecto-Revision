@@ -14,7 +14,7 @@ namespace GestionCasos.Administrador
 {
     public partial class fMenu : Form
     {
-        SqlConnection conexion = new SqlConnection(@"data source=LAPTOP-H55D7MQE\SQLEXPRESS;initial catalog=BD_Juntas;user id=roy;password=6514;MultipleActiveResultSets=True;");
+        SqlConnection conexion = new SqlConnection(@"data source=.\SQLEXPRESS;initial catalog=BDJuntas;user id=roy;password=6514;MultipleActiveResultSets=True;");
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private Form activeForm;
         private int Rol;

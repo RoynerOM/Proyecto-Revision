@@ -47,7 +47,7 @@ namespace GestionCasos
                     label1.Text = contadores.ToString();
 
 
-                    var casos = revision.obtenerTodo(new t_Revision());
+                    var casos = revision.obtenerTodo(new tRevision());
 
                     //En revisio
                     var pendientes = casos.Where(x => x.Estado == 2).Count();
@@ -64,7 +64,7 @@ namespace GestionCasos
                     lblEntregados.Text = entregados.ToString();
                     label5.Text = "Casos Entregados";
 
-                    var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
+                    var instituciones = institucion.obtenerTodo(new tInstitucion()).Count();
                     lblTotalJuntas.Text = instituciones.ToString();
 
                     var tramitadores = negocio.obtenerTrabador(1).Count();
@@ -75,7 +75,7 @@ namespace GestionCasos
                     var contadores = negocio.obtenerTrabador(0).Count();
                     label1.Text = contadores.ToString();
 
-                    var casos = revision.obtenerTodo(new t_Revision());
+                    var casos = revision.obtenerTodo(new tRevision());
 
                     var pendientes = casos.Where(x => x.Estado == 2 && x.Tramitador == cedula).Count();
                     lblTotaPendientes.Text = pendientes.ToString();
@@ -87,7 +87,7 @@ namespace GestionCasos
                     var entregados = casos.Where(x => x.Estado == 4 && x.Tramitador == cedula).Count();
                     lblEntregados.Text = entregados.ToString();
 
-                    var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
+                    var instituciones = institucion.obtenerTodo(new tInstitucion()).Count();
                     lblTotalJuntas.Text = instituciones.ToString();
 
                     var tramitadores = negocio.obtenerTrabador(1).Count();

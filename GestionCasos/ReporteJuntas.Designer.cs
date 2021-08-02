@@ -32,7 +32,6 @@ namespace GestionCasos
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.JuntasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.BD_JuntasDataSet1 = new GestionCasos.BD_JuntasDataSet1();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
@@ -47,22 +46,9 @@ namespace GestionCasos
             this.label5 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.JuntasTableAdapter = new GestionCasos.BD_JuntasDataSet1TableAdapters.JuntasTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.JuntasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // JuntasBindingSource
-            // 
-            this.JuntasBindingSource.DataMember = "Juntas";
-            this.JuntasBindingSource.DataSource = this.BD_JuntasDataSet1;
-            // 
-            // BD_JuntasDataSet1
-            // 
-            this.BD_JuntasDataSet1.DataSetName = "BD_JuntasDataSet1";
-            this.BD_JuntasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -238,7 +224,7 @@ namespace GestionCasos
             // 
             // JuntasTableAdapter
             // 
-            this.JuntasTableAdapter.ClearBeforeFill = true;
+            
             // 
             // ReporteJuntas
             // 
@@ -250,8 +236,6 @@ namespace GestionCasos
             this.Name = "ReporteJuntas";
             this.Text = "ReporteJuntas";
             this.Load += new System.EventHandler(this.ReporteJuntas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.JuntasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
@@ -263,8 +247,6 @@ namespace GestionCasos
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource JuntasBindingSource;
-        private BD_JuntasDataSet1 BD_JuntasDataSet1;
-        private BD_JuntasDataSet1TableAdapters.JuntasTableAdapter JuntasTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private System.Windows.Forms.Label label4;

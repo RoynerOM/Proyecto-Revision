@@ -17,8 +17,8 @@ namespace GestionCasos.Usuarios
         private int isNew = 0;
         private string consecutivo = null;
 
-        t_Boleta boleta = new t_Boleta();
-        t_Revision revision = new t_Revision();
+        tBoleta boleta = new tBoleta();
+        tRevision revision = new tRevision();
         BoletaNegocio boletaNegocio = new BoletaNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
@@ -144,7 +144,7 @@ namespace GestionCasos.Usuarios
             {
                 //Obtengo el caso
                 revision = revisionNegocio.ObtenerPorCaso(consecutivo);
-                var filtro = boletaNegocio.obtenerPorId(revision.Id_Caso);
+                var filtro = boletaNegocio.obtenerPorId(revision.IdCaso);
 
                 if (filtro != null)
                 {
@@ -199,12 +199,12 @@ namespace GestionCasos.Usuarios
         {
             try
             {
-                t_Boleta boleta = new t_Boleta();
+                tBoleta boleta = new tBoleta();
                 boleta = boletaNegocio.obtenerPorId(consecutivo);
                 var caso = revisionNegocio.ObtenerPorCaso(consecutivo);
                 if (boleta != null)
                 {
-                    boleta.Nu_caso = caso.Id_Caso;
+                    boleta.IdCaso = caso.IdCaso;
                     boleta.Motivo1 = cbMotivo1.Checked;
                     boleta.Motivo2 = cbMotivo2.Checked;
                     boleta.Motivo3 = cbMotivo3.Checked;
@@ -240,9 +240,9 @@ namespace GestionCasos.Usuarios
                     if (ValidarCampos() == true)
                     {
                         //Buscar el caso por consecutivo
-                        t_Boleta newBoleta = new t_Boleta();
+                        tBoleta newBoleta = new tBoleta();
 
-                        newBoleta.Nu_caso = revision.Id_Caso;
+                        newBoleta.IdCaso = revision.IdCaso;
                         newBoleta.Motivo1 = cbMotivo1.Checked;
                         newBoleta.Motivo2 = cbMotivo2.Checked;
                         newBoleta.Motivo3 = cbMotivo3.Checked;
@@ -267,16 +267,16 @@ namespace GestionCasos.Usuarios
                         //Fin de informacion de boleta
 
                         //Cambio de estado de boleta
-                        Estado state = new Estado();
-                        state.id = 3;
+                        tEstado state = new tEstado();
+                        state.IdEstado = 3;
                         //Informacion del caso
-                        //t_Revision filtroCasos = revisionNegocio.ObtenerPorCaso(consecutivo);
+                        //tRevision filtroCasos = revisionNegocio.ObtenerPorCaso(consecutivo);
                         state = estadoNegocio.obtenerPorId(state);
                         //Fin de obtener la informacion del estado
 
                         revision.FechaRevisada = DateTime.Now.ToShortDateString();
-                        revision.Estado = state.id;
-                        revision.Estado1 = state;
+                        revision.Estado = state.IdEstado;
+                        revision.tEstado = state;
                         revision.numeroActa = int.Parse(txtNumeroActa.Text);
                         revision.numeroFolio = int.Parse(txtFolio.Text);
                         revision.fechaActa = dtpFechaActa.Value;
@@ -325,12 +325,12 @@ namespace GestionCasos.Usuarios
         {
             try
             {
-                Estado state = new Estado();
-                state.id = 4;
+                tEstado state = new tEstado();
+                state.IdEstado = 4;
 
                 state = estadoNegocio.obtenerPorId(state);
-                revision.Estado = state.id;
-                revision.Estado1 = state;
+                revision.Estado = state.IdEstado;
+                revision.tEstado = state;
 
                 if (revisionNegocio.modificar(revision) == true)
                 {

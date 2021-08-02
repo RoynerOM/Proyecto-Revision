@@ -5,21 +5,21 @@ using System.Linq;
 using Utilidades.Interfaces;
 namespace Datos
 {
-    public class EntregaDatos : ICrud<t_EntregaCasos>
+    public class EntregaDatos : ICrud<tEntregaCasos>
     {
-        public bool eliminar(t_EntregaCasos e)
+        public bool eliminar(tEntregaCasos e)
         {
             throw new NotImplementedException();
         }
 
         //  Metodo de guardar la informacion de la entrega
-        public bool guardar(t_EntregaCasos e)
+        public bool guardar(tEntregaCasos e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.t_EntregaCasos.Add(e);
+                    db.tEntregaCasos.Add(e);
                     db.SaveChanges();
                     return true;
                 }
@@ -32,13 +32,13 @@ namespace Datos
             }
         }
 
-        public bool modificar(t_EntregaCasos e)
+        public bool modificar(tEntregaCasos e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_EntregaCasos>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tEntregaCasos>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                     return true;
                 }
@@ -51,15 +51,15 @@ namespace Datos
             }
         }
 
-        public t_EntregaCasos obtenerPorId(t_EntregaCasos e)
+        public tEntregaCasos obtenerPorId(tEntregaCasos e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.t_EntregaCasos.Include("t_Persona")
-                                                    .Include("t_Revision")
-                                                    .Include("t_Recepcion")
+                    var consulta = db.tEntregaCasos.Include("tPersona")
+                                                    .Include("tRevision")
+                                                    .Include("tRecepcion")
                                                     .Where(x => x.Id == e.Id).SingleOrDefault();
                     if (consulta != null)
                     {
@@ -79,22 +79,22 @@ namespace Datos
             }
         }
 
-        public IEnumerable<t_EntregaCasos> obtenerTodo(t_EntregaCasos e)
+        public IEnumerable<tEntregaCasos> obtenerTodo(tEntregaCasos e)
         {
             throw new NotImplementedException();
         }
 
 
         //Funciones extras
-        public t_EntregaCasos obtenerPorCaso(string consecutivo)
+        public tEntregaCasos obtenerPorCaso(string consecutivo)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.t_EntregaCasos.Include("t_Revision")
-                                                    .Include("t_Mensajero")
-                                                    .Where(x => x.t_Revision.Consecutivo == consecutivo).SingleOrDefault();
+                    var consulta = db.tEntregaCasos.Include("tRevision")
+                                                    .Include("tMensajero")
+                                                    .Where(x => x.tRevision.Consecutivo == consecutivo).SingleOrDefault();
                     if (consulta != null)
                     {
                         return consulta;

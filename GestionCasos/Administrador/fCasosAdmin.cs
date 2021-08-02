@@ -18,17 +18,18 @@ namespace GestionCasos
     public partial class fCasosAdmin : Form
     {
 
-        t_Revision revision = new t_Revision();
+        tRevision revision = new tRevision();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
         ContadorNegocio persona = new ContadorNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
         EntregaNegocio entregaNegocio = new EntregaNegocio();
-        IEnumerable<t_Revision> Casos = null;
+        showMessageDialog Alerta = new showMessageDialog();
+        IEnumerable<tRevision> Casos = null;
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private bool entrega = false;
-        showMessageDialog Alerta = new showMessageDialog();
+
 
         public fCasosAdmin(bool entrega)
         {
@@ -68,12 +69,23 @@ namespace GestionCasos
 
         public void PedirDatos()
         {
-            Casos = revisionNegocio.obtenerTodo(revision);
-            CargarTabla(Casos);
+            try
+            {
+                Casos = revisionNegocio.obtenerTodo(revision);
+
+                if (Casos != null)
+                {
+                    CargarTabla(Casos);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
 
-        public void CargarTabla(IEnumerable<t_Revision> lista)
+        public void CargarTabla(IEnumerable<tRevision> lista)
         {
             try
             {
@@ -99,11 +111,11 @@ namespace GestionCasos
                     tabla.Rows[nRows].Cells[0].Value = item.Consecutivo;
                     tabla.Rows[nRows].Cells[1].Value = item.Fecha.ToShortDateString();
                     tabla.Rows[nRows].Cells[2].Value = item.Codigo;
-                    tabla.Rows[nRows].Cells[3].Value = item.t_Institucion.Nombre.ToUpper();
-                    tabla.Rows[nRows].Cells[4].Value = item.t_Institucion.Circuito;
-                    tabla.Rows[nRows].Cells[5].Value = item.t_Recepcion.Nombre.ToUpper();
-                    tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
-                    tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
+                    tabla.Rows[nRows].Cells[3].Value = item.tInstitucion.Nombre.ToUpper();
+                    tabla.Rows[nRows].Cells[4].Value = item.tInstitucion.Circuito;
+                    tabla.Rows[nRows].Cells[5].Value = item.tRecepcion.Recepcion.ToUpper();
+                    tabla.Rows[nRows].Cells[6].Value = item.tPersona.NombreCompleto.ToUpper();
+                    tabla.Rows[nRows].Cells[8].Value = item.tEstado.Estado.ToUpper();
 
 
                     #region Centrado de texto de las celdas
@@ -132,7 +144,7 @@ namespace GestionCasos
 
 
 
-                    if (item.Estado1.TipoEstado.ToUpper() == "TRAMITADO")
+                    if (item.tEstado.Estado.ToUpper() == "TRAMITADO")
                     {
                         if (isDark == "false")
                         {
@@ -141,18 +153,16 @@ namespace GestionCasos
                         }
                         else
                         {
-
                             tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
                             tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
                         }
                     }
-                    else if (item.Estado1.TipoEstado.ToUpper() == "ENTREGADO")
+                    else if (item.tEstado.Estado.ToUpper() == "ENTREGADO")
                     {
                         if (isDark == "false")
                         {
                             tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 75, 160);
                             tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(168, 209, 255);
-
                         }
                         else
                         {
@@ -160,7 +170,7 @@ namespace GestionCasos
                             tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(0, 45, 96);
                         }
                     }
-                    else if (item.Estado1.TipoEstado.ToUpper() == "POR ENTREGAR")
+                    else if (item.tEstado.Estado.ToUpper() == "POR ENTREGAR")
                     {
                         if (isDark == "false")
                         {
@@ -180,17 +190,15 @@ namespace GestionCasos
 
                             tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
                             tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
-
                         }
                         else
                         {
                             tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
                             tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
                         }
-
-                    }
                     }
                 }
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
@@ -230,14 +238,12 @@ namespace GestionCasos
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
-
         }
 
 
         private void tabla_Resize(object sender, EventArgs e)
         {
             var Grid = (DataGridView)sender;
-
 
             var width = tabla.Width;
 
@@ -256,7 +262,6 @@ namespace GestionCasos
         {
             if (isDark == "false")
             {
-
                 this.panel1.BackColor = Colors.White;
                 this.panel1.ForeColor = Colors.Black;
                 tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.Blue;
@@ -294,15 +299,15 @@ namespace GestionCasos
                         string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
                         if (entrega == false)
                         {
-                            fBoleta comentario = new fBoleta(1,consecutivo);
+                            fBoleta comentario = new fBoleta(1, consecutivo);
                             comentario.ShowDialog();
                         }
                         else
                         {
-                            t_Revision r = revisionNegocio.ObtenerPorCaso(consecutivo);
-                            if (r.Estado >=3)
+                            tRevision r = revisionNegocio.ObtenerPorCaso(consecutivo);
+                            if (r.Estado >= 3)
                             {
-                                t_EntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
+                                tEntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
                                 fEntrega entrega = new fEntrega(entregaCasos, consecutivo);
                                 entrega.ShowDialog();
                             }
@@ -311,15 +316,13 @@ namespace GestionCasos
                                 Alerta.Danger(new Alerta(), "Documento no tramitado. No se puede cargar la información de entrega, porque el documento no ha sido revisado");
                             }
                         }
-
                     }
                 }
             }
             //Control de la excepcio
             catch (Exception ex)
             {
-                var error = ex.Data;
-                MessageBox.Show(error.ToString());
+                Console.WriteLine(ex);
             }
         }
 
@@ -327,19 +330,19 @@ namespace GestionCasos
         public void CargarCombos()
         {
             //Tramitador
-            cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
+            cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
             cbTramitador.ValueMember = "Cedula";
-            cbTramitador.DisplayMember = "Nombre_Completo";
+            cbTramitador.DisplayMember = "NombreCompleto";
 
             //Estado
-            cbEstado.DataSource = estadoNegocio.obtenerTodo(new Estado());
-            cbEstado.ValueMember = "id";
-            cbEstado.DisplayMember = "TipoEstado".ToUpper();
+            cbEstado.DataSource = estadoNegocio.obtenerTodo(new tEstado());
+            cbEstado.ValueMember = "IdEstado";
+            cbEstado.DisplayMember = "Estado".ToUpper();
 
             //Recepcion
-            cbRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
+            cbRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
             cbRecepcion.ValueMember = "id";
-            cbRecepcion.DisplayMember = "Nombre".ToUpper();
+            cbRecepcion.DisplayMember = "Recepcion".ToUpper();
         }
 
 
@@ -378,27 +381,46 @@ namespace GestionCasos
             }
         }
 
+
         //Filtro de recepcion
         private void cbRecepcion_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
                 if (cbRecepcion.Text != string.Empty)
-                    CargarTabla(revisionNegocio.FilterBy((int)cbRecepcion.SelectedValue, 0));
+                {
+                    var i = revisionNegocio.FilterBy((int)cbRecepcion.SelectedValue, 0);
+                    if (i != null)
+                    {
+                        CargarTabla(i);
+                    }
+                }
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine();
+                Console.WriteLine(ex);
             }
         }
+
 
         //Filtro por consecutivo
         private void txtConsecutivo_TextChanged(object sender, EventArgs e)
         {
             if (txtConsecutivo.Text != string.Empty)
-                CargarTabla(revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text));
+            {
+                var i = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text);
+
+                if (i != null)
+                {
+                    CargarTabla(i);
+                }
+            }
             else
+            {
                 PedirDatos();
+            }
+                
         }
         #endregion
 
@@ -412,7 +434,7 @@ namespace GestionCasos
             //    string consecutivo = tabla.Rows[fila].Cells[0].Value.ToString();
 
 
-            //    t_Revision revisionDatos = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
+            //    tRevision revisionDatos = Casos.Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
             //    //Se pasan los datos
             //    PasarDatosEvent(revisionDatos);
 
@@ -429,9 +451,6 @@ namespace GestionCasos
 
         private void tabla_Paint(object sender, PaintEventArgs e)
         {
-
-
-
         }
     }
 }

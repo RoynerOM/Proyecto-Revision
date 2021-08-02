@@ -17,17 +17,5 @@ namespace GestionCasos
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
         }
-
-        /*
-         
-         el problema es la llave hay que hacer una clave compuesta
-        hay que aplicar el mismo toque como las relacion provincia canton distrito
-
-        el problema es que no pueden haber llaves foraneas repetidas
-        hay que hacer una clave compuesta
-
-
-        informacion del mensajero quitar entidad(metodo sucio xd)
-         */
     }
 }

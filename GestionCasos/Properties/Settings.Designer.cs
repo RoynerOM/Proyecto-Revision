@@ -42,5 +42,15 @@ namespace GestionCasos.Properties {
                 return ((string)(this["BD_JuntasConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=BDJuntas;User ID=roy;Password=6514")]
+        public string BDJuntasConnectionString {
+            get {
+                return ((string)(this["BDJuntasConnectionString"]));
+            }
+        }
     }
 }

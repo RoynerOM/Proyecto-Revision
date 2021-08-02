@@ -19,12 +19,11 @@ namespace GestionCasos.Administrador
         EstadoNegocio estadoNegocio = new EstadoNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         showMessageDialog Message = new showMessageDialog();
-        t_EntregaCasos entrega = new t_EntregaCasos();
+        tEntregaCasos entrega = new tEntregaCasos();
         private string consecutivo = null;
         bool state = false;
 
-
-        public fEntrega(t_EntregaCasos id, string consecutivo)
+        public fEntrega(tEntregaCasos id, string consecutivo)
         {
             InitializeComponent();
             //entrega = id;
@@ -67,17 +66,16 @@ namespace GestionCasos.Administrador
                     btnPdf.Visible = true;
                     lblFecha.Visible = true;
 
-                    txtCedula.Text = entrega.Cedula;
-                    txtNombre.Text = entrega.t_Mensajero.Nombre;
-                    txtApellido1.Text = entrega.t_Mensajero.Apellido1;
-                    txtApellido2.Text = entrega.t_Mensajero.Apellido2;
+                    txtCedula.Text = entrega.tMensajero.CedulaMensajero;
+                    txtNombre.Text = entrega.tMensajero.Nombre;
+                    txtApellido1.Text = entrega.tMensajero.Apellido1;
+                    txtApellido2.Text = entrega.tMensajero.Apellido2;
                     txtCedula.Enabled = false;
                     txtNombre.Enabled = false;
                     txtApellido1.Enabled = false;
                     txtApellido2.Enabled = false;
                     cbEntrega.Text = Enum.GetName(typeof(Enums.MedioReceptivo), entrega.Recepcion);
                     lblConsecutivo.Text = consecutivo;
-
 
 
                     if (entrega.Pago == 0)
@@ -112,13 +110,13 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                var data = recepcion.obtenerTodo(new t_Recepcion());
+                var data = recepcion.obtenerTodo(new tRecepcion());
                 if (data != null)
                 {
                     //Recepcion
                     cbEntrega.DataSource = data.Where(x => x.id >= 3).ToList();
                     cbEntrega.ValueMember = "id";
-                    cbEntrega.DisplayMember = "Nombre";
+                    cbEntrega.DisplayMember = "Recepcion";
                 }
             }
             catch (Exception ex)
@@ -153,21 +151,6 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex);
             }
         }
-
-
-
-        //private void cbTipo_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (cbTipo.SelectedIndex == 0)
-        //    {
-        //        txtCedula.Mask = "0-0000-0000";
-        //    }
-        //    else
-        //    {
-        //        txtCedula.Mask = "000000000000";
-        //    }
-        //}
-
 
 
         private void fEntrega_Load(object sender, EventArgs e)
@@ -283,13 +266,13 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                t_EntregaCasos entregaCasos = new t_EntregaCasos();
-                t_Revision revision = new t_Revision();
-                t_Mensajero m = new t_Mensajero();
-                t_EntregaCasos ec = new t_EntregaCasos();
+                tEntregaCasos entregaCasos = new tEntregaCasos();
+                tRevision revision = new tRevision();
+                tMensajero m = new tMensajero();
+                tEntregaCasos ec = new tEntregaCasos();
 
                 //Se inserta la persona en caso de que no exista
-                m.Cedula = txtCedula.Text;
+                m.CedulaMensajero = txtCedula.Text;
                 m.Nombre = txtNombre.Text.ToUpper();
                 m.Apellido1 = txtApellido1.Text.ToUpper();
                 m.Apellido2 = txtApellido2.Text.ToUpper();
@@ -329,11 +312,11 @@ namespace GestionCasos.Administrador
                     //En caso contrario se guarda
                     else
                     {
-                        //var r = recepcion.obtenerTodo(new t_Recepcion()).Where(x => x.id == (int)cbEntrega.SelectedValue).SingleOrDefault();
+                        //var r = recepcion.obtenerTodo(new tRecepcion()).Where(x => x.id == (int)cbEntrega.SelectedValue).SingleOrDefault();
 
-                        entregaCasos.Cedula = txtCedula.Text;
+                        entregaCasos.Mensajero = int.Parse(txtCedula.Text);
                         entregaCasos.Recepcion = (int)cbEntrega.SelectedValue;
-                        //entregaCasos.t_Recepcion = r;
+                        //entregaCasos.tRecepcion = r;
 
                         if (cbCheque.Checked == true)
                         {
@@ -346,15 +329,15 @@ namespace GestionCasos.Administrador
                             entregaCasos.Pago = 1;
                         }
 
-                        Estado estado = new Estado();
-                        estado.id = 5;
+                        tEstado estado = new tEstado();
+                        estado.IdEstado = 5;
                         estado = estadoNegocio.obtenerPorId(estado);
                         revision = revisionNegocio.ObtenerPorCaso(consecutivo);
                         //Cambio el estado en entregado
-                        revision.Estado = estado.id;
-                        revision.Estado1 = estado;
+                        revision.Estado = estado.IdEstado;
+                        revision.tEstado = estado;
 
-                        entregaCasos.Id_Caso = revision.Id_Caso;
+                        entregaCasos.Caso = revision.IdCaso;
                         entregaCasos.FechaEntrega = DateTime.Now;
                         entregaCasos.Observacion = txtObservacion.Text;
 

@@ -18,8 +18,8 @@ namespace Entidades
         public string Nombre { get; set; }
         public string Apellido1 { get; set; }
         public string Apellido2 { get; set; }
-        public string Nombre_Completo { get; set; }
-        public Nullable<int> Tipo { get; set; }
-        public Nullable<bool> Estado { get; set; }
+        public string NombreCompleto { get; set; }
+        public int Tipo { get; set; }
+        public Nullable<bool> Activo { get; set; }
     }
 }

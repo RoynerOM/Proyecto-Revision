@@ -31,8 +31,6 @@ namespace GestionCasos
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.CasosAsignadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.BD_JuntasDataSet = new GestionCasos.BD_JuntasDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gunaLinePanel3 = new Guna.UI.WinForms.GunaLinePanel();
@@ -51,30 +49,22 @@ namespace GestionCasos
             this.label5 = new System.Windows.Forms.Label();
             this.txtConsecutivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CasosAsignadosTableAdapter = new GestionCasos.BD_JuntasDataSetTableAdapters.CasosAsignadosTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.CasosAsignadosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet)).BeginInit();
+            this.dtsCasos = new GestionCasos.dtsCasos();
+            this.CasosTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CasosTableTableAdapter = new GestionCasos.dtsCasosTableAdapters.CasosTableTableAdapter();
             this.panel1.SuspendLayout();
             this.gunaLinePanel3.SuspendLayout();
             this.gunaLinePanel2.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsCasos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CasosTableBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // CasosAsignadosBindingSource
-            // 
-            this.CasosAsignadosBindingSource.DataMember = "CasosAsignados";
-            this.CasosAsignadosBindingSource.DataSource = this.BD_JuntasDataSet;
-            // 
-            // BD_JuntasDataSet
-            // 
-            this.BD_JuntasDataSet.DataSetName = "BD_JuntasDataSet";
-            this.BD_JuntasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "dsCasosAsignados";
-            reportDataSource1.Value = this.CasosAsignadosBindingSource;
+            reportDataSource1.Name = "dtsCasos";
+            reportDataSource1.Value = this.CasosTableBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionCasos.Reportes.ReporteCasosAsignados.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 99);
@@ -270,9 +260,19 @@ namespace GestionCasos
             this.label1.TabIndex = 13;
             this.label1.Text = "Consecutivo";
             // 
-            // CasosAsignadosTableAdapter
+            // dtsCasos
             // 
-            this.CasosAsignadosTableAdapter.ClearBeforeFill = true;
+            this.dtsCasos.DataSetName = "dtsCasos";
+            this.dtsCasos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // CasosTableBindingSource
+            // 
+            this.CasosTableBindingSource.DataMember = "CasosTable";
+            this.CasosTableBindingSource.DataSource = this.dtsCasos;
+            // 
+            // CasosTableTableAdapter
+            // 
+            this.CasosTableTableAdapter.ClearBeforeFill = true;
             // 
             // ReporteCasosAsignados
             // 
@@ -284,14 +284,14 @@ namespace GestionCasos
             this.Name = "ReporteCasosAsignados";
             this.Text = "ReporteCasosAsignados";
             this.Load += new System.EventHandler(this.ReporteCasosAsignados_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.CasosAsignadosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.gunaLinePanel3.ResumeLayout(false);
             this.gunaLinePanel2.ResumeLayout(false);
             this.gunaLinePanel2.PerformLayout();
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsCasos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CasosTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,9 +299,6 @@ namespace GestionCasos
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource CasosAsignadosBindingSource;
-        private BD_JuntasDataSet BD_JuntasDataSet;
-        private BD_JuntasDataSetTableAdapters.CasosAsignadosTableAdapter CasosAsignadosTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private System.Windows.Forms.ComboBox cbReception;
@@ -319,5 +316,8 @@ namespace GestionCasos
         private System.Windows.Forms.Button txtBuscar1;
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel3;
         private System.Windows.Forms.Button btnRefrescar;
+        private System.Windows.Forms.BindingSource CasosTableBindingSource;
+        private dtsCasos dtsCasos;
+        private dtsCasosTableAdapters.CasosTableTableAdapter CasosTableTableAdapter;
     }
 }

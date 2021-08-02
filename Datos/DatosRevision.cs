@@ -6,16 +6,16 @@ using Utilidades.Interfaces;
 
 namespace Datos
 {
-    public class DatosRevision : ICrud<t_Revision>
+    public class DatosRevision : ICrud<tRevision>
     {
-        public bool eliminar(t_Revision e)
+        public bool eliminar(tRevision e)
         {
             try
             {
-                using (var context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
 
-                    context.Entry<t_Revision>(e).State = System.Data.Entity.EntityState.Modified;
+                    context.Entry<tRevision>(e).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                     return true;
 
@@ -28,13 +28,13 @@ namespace Datos
             }
         }
 
-        public bool guardar(t_Revision e)
+        public bool guardar(tRevision e)
         {
             try
             {
-                using (var context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
-                    context.t_Revision.Add(e);
+                    context.tRevision.Add(e);
                     context.SaveChanges();
                     return true;
 
@@ -47,14 +47,14 @@ namespace Datos
             }
         }
 
-        public bool modificar(t_Revision e)
+        public bool modificar(tRevision e)
         {
             try
             {
-                using (var context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
 
-                    context.Entry<t_Revision>(e).State = System.Data.Entity.EntityState.Modified;
+                    context.Entry<tRevision>(e).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                     return true;
 
@@ -67,14 +67,14 @@ namespace Datos
             }
         }
 
-        public IEnumerable<t_Revision> obtenerTodo(t_Revision e)
+        public IEnumerable<tRevision> obtenerTodo(tRevision e)
         {
             try
             {
-                using (var context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
 
-                    var datos = context.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").ToList();
+                    var datos = context.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").ToList();
 
                     if (datos != null)
                     {
@@ -94,13 +94,13 @@ namespace Datos
             }
         }
 
-        public t_Revision ObtenerPorCaso(string consecutivo)
+        public tRevision ObtenerPorCaso(string consecutivo)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Consecutivo.StartsWith(consecutivo.ToUpper())).SingleOrDefault();
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Consecutivo.StartsWith(consecutivo.ToUpper())).SingleOrDefault();
 
                     if (caso != null)
                     {
@@ -121,13 +121,13 @@ namespace Datos
 
         //Extras
         //Filter by onsecutivo
-        public IEnumerable<t_Revision> obtenerPorConsecutivo(string consecutivo)
+        public IEnumerable<tRevision> obtenerPorConsecutivo(string consecutivo)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Consecutivo.StartsWith(consecutivo.ToUpper())).ToList();
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Consecutivo.StartsWith(consecutivo.ToUpper())).ToList();
 
                     if (caso != null)
                     {
@@ -147,13 +147,13 @@ namespace Datos
         }
 
         //Filter by Persona
-        public IEnumerable<t_Revision> obtenerPorContador(string persona)
+        public IEnumerable<tRevision> obtenerPorContador(string persona)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var casos = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Tramitador == persona).ToList();
+                    var casos = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Tramitador == persona).ToList();
 
                     if (casos != null)
                     {
@@ -173,13 +173,13 @@ namespace Datos
         }
 
         //Filter by id caso
-        public t_Revision obtenerPorId(t_Revision e)
+        public tRevision obtenerPorId(tRevision e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").FirstOrDefault(x => x.Id_Caso == e.Id_Caso);
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").FirstOrDefault(x => x.IdCaso == e.IdCaso);
 
                     if (caso != null)
                     {
@@ -199,14 +199,14 @@ namespace Datos
         }
 
 
-        //Filter by estado
-        public IEnumerable<t_Revision> FilterBy(int estado)
+        //Filter by tEstado
+        public IEnumerable<tRevision> FilterBy(int estado)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Estado == estado).ToList();
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Estado == estado).ToList();
 
                     if (caso != null)
                     {
@@ -227,13 +227,13 @@ namespace Datos
 
         //Extras
         //Filter by onsecutivo
-        public IEnumerable<t_Revision> FilterBy(int recepcion,int opc = 0)
+        public IEnumerable<tRevision> FilterBy(int recepcion,int opc = 0)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Include("t_Recepcion").Where(x => x.Recepcion == recepcion).ToList();
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Recepcion == recepcion).ToList();
 
                     if (caso != null)
                     {

@@ -539,14 +539,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Cedula_Juridica">
+                    <Textbox Name="CedulaJuridica">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Cedula_Juridica.Value</Value>
+                              <Value>=Fields!CedulaJuridica.Value</Value>
                               <Style>
                                 <FontFamily />
                                 <FontSize>9pt</FontSize>
@@ -558,7 +558,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Cedula_Juridica</rd:DefaultName>
+                      <rd:DefaultName>CedulaJuridica</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -575,14 +575,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Cuenta_Danea">
+                    <Textbox Name="CuentaDanea">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Cuenta_Danea.Value</Value>
+                              <Value>=Fields!CuentaDanea.Value</Value>
                               <Style>
                                 <FontFamily />
                                 <FontSize>9pt</FontSize>
@@ -594,7 +594,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Cuenta_Danea</rd:DefaultName>
+                      <rd:DefaultName>CuentaDanea</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -611,14 +611,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Cuenta_Ley">
+                    <Textbox Name="CuentaLey">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Cuenta_Ley.Value</Value>
+                              <Value>=Fields!CuentaLey.Value</Value>
                               <Style>
                                 <FontFamily />
                                 <FontSize>9pt</FontSize>
@@ -630,7 +630,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Cuenta_Ley</rd:DefaultName>
+                      <rd:DefaultName>CuentaLey</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1091,16 +1091,16 @@
           <DataField>Direccion_Regional</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Cedula_Juridica">
-          <DataField>Cedula_Juridica</DataField>
+        <Field Name="CedulaJuridica">
+          <DataField>CedulaJuridica</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Cuenta_Danea">
-          <DataField>Cuenta_Danea</DataField>
+        <Field Name="CuentaDanea">
+          <DataField>CuentaDanea</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Cuenta_Ley">
-          <DataField>Cuenta_Ley</DataField>
+        <Field Name="CuentaLey">
+          <DataField>CuentaLey</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Contador">

@@ -246,27 +246,6 @@
     <Compile Include="Alertas\Alerta.Designer.cs">
       <DependentUpon>Alerta.cs</DependentUpon>
     </Compile>
-    <Compile Include="BD_JuntasDataSet.cs">
-      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BD_JuntasDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BD_JuntasDataSet1.cs">
-      <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BD_JuntasDataSet11.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BD_JuntasDataSet21.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_JuntasDataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Configuracion\fConfiguraciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +253,40 @@
       <DependentUpon>fConfiguraciones.cs</DependentUpon>
     </Compile>
     <Compile Include="DatosTemp.cs" />
+    <Compile Include="dtsBoleta.cs">
+      <DependentUpon>dtsBoleta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsBoleta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsBoleta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsCasos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsCasos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsContador.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsContador.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsEntregaCasos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsEntregaCasos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsJuntas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsJuntas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Procesos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -353,6 +366,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fDetallesPersonas.resx">
       <DependentUpon>fDetallesPersonas.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fEntrega.resx">
       <DependentUpon>fEntrega.cs</DependentUpon>
@@ -380,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\fConfiguraciones.resx">
       <DependentUpon>fConfiguraciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -425,36 +442,60 @@
     <EmbeddedResource Include="Usuarios\fBoleta.resx">
       <DependentUpon>fBoleta.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="BD_JuntasDataSet.xsc">
-      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
+    <None Include="dtsBoleta.xsc">
+      <DependentUpon>dtsBoleta.xsd</DependentUpon>
     </None>
-    <None Include="BD_JuntasDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet.Designer.cs</LastGenOutput>
+    <None Include="dtsBoleta.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="BD_JuntasDataSet.xss">
-      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BD_JuntasDataSet1.xsc">
-      <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BD_JuntasDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet11.Designer.cs</LastGenOutput>
+      <LastGenOutput>dtsBoleta.Designer.cs</LastGenOutput>
     </None>
-    <None Include="BD_JuntasDataSet1.xss">
-      <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
+    <None Include="dtsBoleta.xss">
+      <DependentUpon>dtsBoleta.xsd</DependentUpon>
     </None>
-    <None Include="BD_JuntasDataSet2.xsc">
-      <DependentUpon>BD_JuntasDataSet2.xsd</DependentUpon>
+    <None Include="dtsCasos.xsc">
+      <DependentUpon>dtsCasos.xsd</DependentUpon>
     </None>
-    <None Include="BD_JuntasDataSet2.xsd">
+    <None Include="dtsCasos.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet21.Designer.cs</LastGenOutput>
+      <LastGenOutput>dtsCasos.Designer.cs</LastGenOutput>
     </None>
-    <None Include="BD_JuntasDataSet2.xss">
-      <DependentUpon>BD_JuntasDataSet2.xsd</DependentUpon>
+    <None Include="dtsCasos.xss">
+      <DependentUpon>dtsCasos.xsd</DependentUpon>
+    </None>
+    <None Include="dtsContador.xsc">
+      <DependentUpon>dtsContador.xsd</DependentUpon>
+    </None>
+    <None Include="dtsContador.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsContador.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsContador.xss">
+      <DependentUpon>dtsContador.xsd</DependentUpon>
+    </None>
+    <None Include="dtsEntregaCasos.xsc">
+      <DependentUpon>dtsEntregaCasos.xsd</DependentUpon>
+    </None>
+    <None Include="dtsEntregaCasos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsEntregaCasos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsEntregaCasos.xss">
+      <DependentUpon>dtsEntregaCasos.xsd</DependentUpon>
+    </None>
+    <None Include="dtsJuntas.xsc">
+      <DependentUpon>dtsJuntas.xsd</DependentUpon>
+    </None>
+    <None Include="dtsJuntas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsJuntas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsJuntas.xss">
+      <DependentUpon>dtsJuntas.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Presentacion_TemporaryKey.pfx" />

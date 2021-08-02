@@ -5,20 +5,20 @@ using Utilidades.Interfaces;
 
 namespace Datos
 {
-    public class DatosUsuario : ICrud<t_Usuario>
+    public class DatosUsuario : ICrud<tUsuario>
     {
-        public bool eliminar(t_Usuario e)
+        public bool eliminar(tUsuario e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(t_Usuario e)
+        public bool guardar(tUsuario e)
         {
-            using (var context = new BD_JuntasEntities())
+            using (var context = new BDJuntasEntities())
             {
                 try
                 {
-                    context.t_Usuario.Add(e);
+                    context.tUsuario.Add(e);
                     context.SaveChanges();
 
                     return true;
@@ -31,17 +31,17 @@ namespace Datos
             }
         }
 
-        public bool modificar(t_Usuario e)
+        public bool modificar(tUsuario e)
         {
             throw new NotImplementedException();
         }
 
-        public t_Usuario obtenerPorId(t_Usuario e)
+        public tUsuario obtenerPorId(tUsuario e)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<t_Usuario> obtenerTodo(t_Usuario e)
+        public IEnumerable<tUsuario> obtenerTodo(tUsuario e)
         {
             throw new NotImplementedException();
         }

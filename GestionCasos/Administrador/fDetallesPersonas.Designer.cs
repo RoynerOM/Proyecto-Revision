@@ -39,9 +39,9 @@ namespace GestionCasos.Administrador
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabla = new System.Windows.Forms.DataGridView();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoIdentificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Carnet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre_Completo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.panel1.SuspendLayout();
@@ -157,9 +157,9 @@ namespace GestionCasos.Administrador
             this.tabla.ColumnHeadersHeight = 50;
             this.tabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cedula,
-            this.TipoId,
+            this.TipoIdentificacion,
             this.Carnet,
-            this.Nombre_Completo,
+            this.NombreCompleto,
             this.correo});
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
@@ -203,12 +203,12 @@ namespace GestionCasos.Administrador
             this.Cedula.Name = "Cedula";
             this.Cedula.ReadOnly = true;
             // 
-            // TipoId
+            // TipoIdentificacion
             // 
-            this.TipoId.FillWeight = 12.09137F;
-            this.TipoId.HeaderText = "Tipo de Cédula";
-            this.TipoId.Name = "TipoId";
-            this.TipoId.ReadOnly = true;
+            this.TipoIdentificacion.FillWeight = 12.09137F;
+            this.TipoIdentificacion.HeaderText = "Tipo de Cédula";
+            this.TipoIdentificacion.Name = "TipoIdentificacion";
+            this.TipoIdentificacion.ReadOnly = true;
             // 
             // Carnet
             // 
@@ -217,12 +217,12 @@ namespace GestionCasos.Administrador
             this.Carnet.Name = "Carnet";
             this.Carnet.ReadOnly = true;
             // 
-            // Nombre_Completo
+            // NombreCompleto
             // 
-            this.Nombre_Completo.FillWeight = 34.30288F;
-            this.Nombre_Completo.HeaderText = "Nombre Completo";
-            this.Nombre_Completo.Name = "Nombre_Completo";
-            this.Nombre_Completo.ReadOnly = true;
+            this.NombreCompleto.FillWeight = 34.30288F;
+            this.NombreCompleto.HeaderText = "Nombre Completo";
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.ReadOnly = true;
             // 
             // correo
             // 
@@ -289,9 +289,9 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView tabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoIdentificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carnet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Completo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
         private System.Windows.Forms.DataGridViewTextBoxColumn correo;
         private Guna.UI.WinForms.GunaAdvenceTileButton gunaAdvenceTileButton1;
     }

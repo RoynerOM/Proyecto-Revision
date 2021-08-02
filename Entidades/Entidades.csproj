@@ -56,44 +56,47 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="Estado.cs">
-      <DependentUpon>EntidadesBD.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="t_Boleta.cs">
+    <Compile Include="tBoleta.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Direccion_Regional.cs">
+    <Compile Include="tDireccionRegional.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_EntregaCasos.cs">
+    <Compile Include="tEntregaCasos.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Institucion.cs">
+    <Compile Include="tEstado.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Mensajero.cs">
+    <Compile Include="tInstitucion.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Persona.cs">
+    <Compile Include="tMensajero.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Recepcion.cs">
+    <Compile Include="tPersona.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Revision.cs">
+    <Compile Include="tRecepcion.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Tipo_Institucion.cs">
+    <Compile Include="tRevision.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Trabajador.cs">
+    <Compile Include="tTipoInstitucion.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="t_Usuario.cs">
+    <Compile Include="tTrabajador.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tUsuario.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="viewBoleta.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="viewContadores.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="viewTrabajador.cs">

@@ -5,15 +5,15 @@ using System.Linq;
 using Utilidades.Interfaces;
 namespace Datos
 {
-    public class DatosDireccionRegional : ICrud<t_Direccion_Regional>
+    public class DatosDireccionRegional : ICrud<tDireccionRegional>
     {
-        public bool eliminar(t_Direccion_Regional e)
+        public bool eliminar(tDireccionRegional e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Direccion_Regional>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tDireccionRegional>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                     return true;
                 }
@@ -26,13 +26,13 @@ namespace Datos
             }
         }
 
-        public bool guardar(t_Direccion_Regional e)
+        public bool guardar(tDireccionRegional e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.t_Direccion_Regional.Add(e);
+                    db.tDireccionRegional.Add(e);
                     db.SaveChanges();
                     return true;
                 }
@@ -45,13 +45,13 @@ namespace Datos
             }
         }
 
-        public bool modificar(t_Direccion_Regional e)
+        public bool modificar(tDireccionRegional e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Direccion_Regional>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tDireccionRegional>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                     return true;
                 }
@@ -64,16 +64,16 @@ namespace Datos
             }
         }
 
-        public t_Direccion_Regional obtenerPorId(t_Direccion_Regional e)
+        public tDireccionRegional obtenerPorId(tDireccionRegional e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    IQueryable<t_Direccion_Regional> consulta = db.t_Direccion_Regional;
+                    IQueryable<tDireccionRegional> consulta = db.tDireccionRegional;
                     if (consulta != null)
                     {
-                        return (t_Direccion_Regional)consulta;
+                        return (tDireccionRegional)consulta;
                     }
                     else
                     {
@@ -89,13 +89,13 @@ namespace Datos
             }
         }
 
-        public IEnumerable<t_Direccion_Regional> obtenerTodo(t_Direccion_Regional e)
+        public IEnumerable<tDireccionRegional> obtenerTodo(tDireccionRegional e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    IQueryable<t_Direccion_Regional> consulta = db.t_Direccion_Regional;
+                    IQueryable<tDireccionRegional> consulta = db.tDireccionRegional;
                     if (consulta != null)
                     {
                         return consulta.ToList();

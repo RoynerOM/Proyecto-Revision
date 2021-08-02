@@ -4,36 +4,36 @@ using System.Collections.Generic;
 using Utilidades.Interfaces;
 namespace Negocios
 {
-    public class EntregaNegocio : ICrud<t_EntregaCasos>
+    public class EntregaNegocio : ICrud<tEntregaCasos>
     {
         EntregaDatos datos = new EntregaDatos();
-        public bool eliminar(t_EntregaCasos e)
+        public bool eliminar(tEntregaCasos e)
         {
             return datos.eliminar(e);
         }
 
-        public bool guardar(t_EntregaCasos e)
+        public bool guardar(tEntregaCasos e)
         {
             return datos.guardar(e);
         }
 
-        public bool modificar(t_EntregaCasos e)
+        public bool modificar(tEntregaCasos e)
         {
             return datos.modificar(e);
         }
 
-        public t_EntregaCasos obtenerPorId(t_EntregaCasos e)
+        public tEntregaCasos obtenerPorId(tEntregaCasos e)
         {
             return datos.obtenerPorId(e);
         }
 
-        public IEnumerable<t_EntregaCasos> obtenerTodo(t_EntregaCasos e)
+        public IEnumerable<tEntregaCasos> obtenerTodo(tEntregaCasos e)
         {
             return datos.obtenerTodo(e);
         }
 
         //Funciones extras
-        public t_EntregaCasos obtenerPorCaso(string consecutivo)
+        public tEntregaCasos obtenerPorCaso(string consecutivo)
         {
             return datos.obtenerPorCaso(consecutivo);
         }

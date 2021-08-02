@@ -52,7 +52,7 @@ namespace GestionCasos
             this.Junta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Circuito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre_Completo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comentario = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -293,7 +293,7 @@ namespace GestionCasos
             this.Junta,
             this.Circuito,
             this.Nombre,
-            this.Nombre_Completo,
+            this.NombreCompleto,
             this.Comentario,
             this.Estado});
             this.tabla.EnableHeadersVisualStyles = false;
@@ -386,13 +386,13 @@ namespace GestionCasos
             this.Nombre.ReadOnly = true;
             this.Nombre.Width = 103;
             // 
-            // Nombre_Completo
+            // NombreCompleto
             // 
-            this.Nombre_Completo.FillWeight = 40.96341F;
-            this.Nombre_Completo.HeaderText = "Asignado a";
-            this.Nombre_Completo.Name = "Nombre_Completo";
-            this.Nombre_Completo.ReadOnly = true;
-            this.Nombre_Completo.Width = 202;
+            this.NombreCompleto.FillWeight = 40.96341F;
+            this.NombreCompleto.HeaderText = "Asignado a";
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.ReadOnly = true;
+            this.NombreCompleto.Width = 202;
             // 
             // Comentario
             // 
@@ -463,7 +463,7 @@ namespace GestionCasos
         private System.Windows.Forms.DataGridViewTextBoxColumn Junta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Circuito;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Completo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
         private System.Windows.Forms.DataGridViewButtonColumn Comentario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private Guna.UI.WinForms.GunaAdvenceTileButton gunaAdvenceTileButton1;

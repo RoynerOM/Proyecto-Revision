@@ -20,13 +20,13 @@ namespace GestionCasos.Usuarios
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private bool entrega = false;
-        t_Revision revision = new t_Revision();
+        tRevision revision = new tRevision();
         EstadoNegocio estadoNegocio = new EstadoNegocio();
         ContadorNegocio persona = new ContadorNegocio();
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
         EntregaNegocio entregaNegocio = new EntregaNegocio();
-        IEnumerable<t_Revision> Casos = null;
+        IEnumerable<tRevision> Casos = null;
         showMessageDialog Alerta = new showMessageDialog();
         //Datos de prueba
 
@@ -85,7 +85,7 @@ namespace GestionCasos.Usuarios
         #region Funciones usados en el datagrid
 
 
-        public void CargarTabla(IEnumerable<t_Revision> lista)
+        public void CargarTabla(IEnumerable<tRevision> lista)
         {
 
 
@@ -107,11 +107,11 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[0].Value = item.Consecutivo;
                 tabla.Rows[nRows].Cells[1].Value = item.Fecha.ToShortDateString();
                 tabla.Rows[nRows].Cells[2].Value = item.Codigo;
-                tabla.Rows[nRows].Cells[3].Value = item.t_Institucion.Nombre.ToUpper();
-                tabla.Rows[nRows].Cells[4].Value = item.t_Institucion.Circuito;
-                tabla.Rows[nRows].Cells[5].Value = item.t_Recepcion.Nombre.ToUpper();
-                tabla.Rows[nRows].Cells[6].Value = item.t_Persona.Nombre_Completo.ToUpper();
-                tabla.Rows[nRows].Cells[8].Value = item.Estado1.TipoEstado.ToUpper();
+                tabla.Rows[nRows].Cells[3].Value = item.tInstitucion.Nombre.ToUpper();
+                tabla.Rows[nRows].Cells[4].Value = item.tInstitucion.Circuito;
+                tabla.Rows[nRows].Cells[5].Value = item.tRecepcion.Recepcion.ToUpper();
+                tabla.Rows[nRows].Cells[6].Value = item.tPersona.NombreCompleto.ToUpper();
+                tabla.Rows[nRows].Cells[8].Value = item.tEstado.Estado.ToUpper();
 
                 tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -133,7 +133,7 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
 
 
-                if (item.Estado1.TipoEstado.ToUpper() == "PENDIENTE" || item.Estado1.TipoEstado.ToUpper() == "EN REVISIÓN")
+                if (item.tEstado.Estado.ToUpper() == "PENDIENTE" || item.tEstado.Estado.ToUpper() == "EN REVISIÓN")
                 {
                     tabla.Rows[nRows].Cells[8].Value = "PENDIENTE";
                     if (isDark == "false")
@@ -147,7 +147,7 @@ namespace GestionCasos.Usuarios
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
                     }
                 }
-                else if (item.Estado1.TipoEstado.ToUpper() == "TRAMITADO")
+                else if (item.tEstado.Estado.ToUpper() == "TRAMITADO")
                 {
                     if (isDark == "false")
                     {
@@ -161,7 +161,7 @@ namespace GestionCasos.Usuarios
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
                     }
                 }
-                else if (item.Estado1.TipoEstado.ToUpper() == "POR ENTREGAR")
+                else if (item.tEstado.Estado.ToUpper() == "POR ENTREGAR")
                 {
                     if (isDark == "false")
                     {
@@ -255,17 +255,17 @@ namespace GestionCasos.Usuarios
             try
             {
                 //Tramitador
-                cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
+                cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
                 cbTramitador.ValueMember = "Cedula";
-                cbTramitador.DisplayMember = "Nombre_Completo";
+                cbTramitador.DisplayMember = "NombreCompleto";
 
                 //Estado
-                cbEstado.DataSource = estadoNegocio.obtenerTodo(new Estado());
+                cbEstado.DataSource = estadoNegocio.obtenerTodo(new tEstado());
                 cbEstado.ValueMember = "id";
                 cbEstado.DisplayMember = "TipoEstado";
 
                 //Recepcion
-                cbRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
+                cbRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
                 cbRecepcion.ValueMember = "id";
                 cbRecepcion.DisplayMember = "Nombre";
             }
@@ -431,10 +431,10 @@ namespace GestionCasos.Usuarios
                         }
                         else
                         {
-                            t_Revision r = revisionNegocio.ObtenerPorCaso(consecutivo);
+                            tRevision r = revisionNegocio.ObtenerPorCaso(consecutivo);
                             if (r.Estado > 3)
                             {
-                                t_EntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
+                                tEntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
                                 fEntrega entrega = new fEntrega(entregaCasos, consecutivo);
                                 entrega.ShowDialog();
                             }

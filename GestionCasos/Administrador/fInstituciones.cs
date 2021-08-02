@@ -66,14 +66,14 @@ namespace GestionCasos.Administrador
             try
             {
                 //Combo box de circuito
-                cbCircuito.DataSource = regional.obtenerTodo(new t_Direccion_Regional());
+                cbCircuito.DataSource = regional.obtenerTodo(new tDireccionRegional());
                 cbCircuito.DisplayMember = "Circuito";
                 cbCircuito.ValueMember = "Circuito";
 
                 //Combo box de Contador
                 cbContador.DataSource = persona.obtenerTrabador((int)Enums.Tipo.Contador);
                 cbContador.ValueMember = "Cedula";
-                cbContador.DisplayMember = "Nombre_Completo";
+                cbContador.DisplayMember = "NombreCompleto";
 
 
                 cbTipo.DataSource = Enum.GetValues(typeof(Enums.TipoEscuela));
@@ -112,19 +112,19 @@ namespace GestionCasos.Administrador
 
         private void CargarDatosForm()
         {
-            t_Institucion institucion = DatosTemp.t_Institucion;
+            tInstitucion institucion = DatosTemp.tInstitucion;
             if (institucion != null)
             {
                 txtCodigo.Text = institucion.Codigo.ToString();
                 txtInstitucion.Text = institucion.Nombre;
-                txtCedulaJuridica.Text = institucion.Cedula_Juridica;
-                txtCuentaDanea.Text = institucion.Cuenta_Danea;
-                txtCuentaLey.Text = institucion.Cuenta_Ley;
+                txtCedulaJuridica.Text = institucion.CedulaJuridica;
+                txtCuentaDanea.Text = institucion.CuentaDanea;
+                txtCuentaLey.Text = institucion.CuentaLey;
                 txtContacto.Text = institucion.Responsable;
                 txtTelefono.Text = institucion.Contacto;
                 cbCircuito.Text = institucion.Circuito.ToString();
-                cbContador.Text = institucion.t_Persona.Nombre_Completo;
-                cbTipo.Text = institucion.t_Tipo_Institucion.NombreTipo;
+                cbContador.Text = institucion.tPersona.NombreCompleto;
+                cbTipo.Text = institucion.tTipoInstitucion.NombreTipo;
             }
         }
 
@@ -220,7 +220,7 @@ namespace GestionCasos.Administrador
                
                 if (ValidarCampos() == true)
                 {
-                    t_Institucion institucion = new t_Institucion();
+                    tInstitucion institucion = new tInstitucion();
                     var i = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
                     if (i == null)
                     {
@@ -228,9 +228,9 @@ namespace GestionCasos.Administrador
                         institucion.Circuito = (int)cbCircuito.SelectedValue;
                         institucion.Tipo = (int)cbTipo.SelectedValue;
                         institucion.Nombre = txtInstitucion.Text;
-                        institucion.Cedula_Juridica = txtCedulaJuridica.Text;
-                        institucion.Cuenta_Danea = txtCuentaDanea.Text;
-                        institucion.Cuenta_Ley = txtCuentaLey.Text;
+                        institucion.CedulaJuridica = txtCedulaJuridica.Text;
+                        institucion.CuentaDanea = txtCuentaDanea.Text;
+                        institucion.CuentaLey = txtCuentaLey.Text;
                         institucion.Contador = (string)cbContador.SelectedValue;
                         institucion.Responsable = txtContacto.Text;
                         institucion.Contacto = txtTelefono.Text;
@@ -267,12 +267,12 @@ namespace GestionCasos.Administrador
                     var datosEncotrados = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
                     if (datosEncotrados != null)
                     {
-                        txtCuentaLey.Text = datosEncotrados.Cuenta_Ley;
-                        txtCuentaDanea.Text = datosEncotrados.Cuenta_Danea;
+                        txtCuentaLey.Text = datosEncotrados.CuentaLey;
+                        txtCuentaDanea.Text = datosEncotrados.CuentaDanea;
                         txtInstitucion.Text = datosEncotrados.Nombre;
-                        txtCedulaJuridica.Text = datosEncotrados.Cedula_Juridica;
+                        txtCedulaJuridica.Text = datosEncotrados.CedulaJuridica;
                         cbTipo.Text = Enum.GetName(typeof(Enums.TipoEscuela), datosEncotrados.Tipo);
-                        cbContador.Text = datosEncotrados.t_Persona.Nombre_Completo;
+                        cbContador.Text = datosEncotrados.tPersona.NombreCompleto;
                         cbCircuito.Text = datosEncotrados.Circuito.ToString();
                         txtContacto.Text = datosEncotrados.Responsable;
                         txtTelefono.Text = datosEncotrados.Contacto;
@@ -300,7 +300,7 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                t_Institucion institucion = new t_Institucion();
+                tInstitucion institucion = new tInstitucion();
                 if (txtCodigo.Text != string.Empty)
                 {
                     institucion = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
@@ -336,28 +336,28 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                t_Persona p = new t_Persona();
-                t_Institucion institucion = new t_Institucion();
+                tPersona p = new tPersona();
+                tInstitucion institucion = new tInstitucion();
                 if (ValidarCampos() == true)
                 {
                     institucion.Codigo = int.Parse(txtCodigo.Text);
                     institucion = negocio.obtenerPorId(institucion);
-                    institucion.Cuenta_Ley = txtCuentaLey.Text;
+                    institucion.CuentaLey = txtCuentaLey.Text;
                     institucion.Nombre = txtInstitucion.Text;
-                    institucion.Cuenta_Danea = txtCuentaDanea.Text;
-                    institucion.Cedula_Juridica = txtCedulaJuridica.Text;
+                    institucion.CuentaDanea = txtCuentaDanea.Text;
+                    institucion.CedulaJuridica = txtCedulaJuridica.Text;
                     //institucion.Circuito = (int)cbCircuito.SelectedValue;
                     //institucion.Tipo = (int)cbTipo.SelectedValue;
 
                     p.Cedula = cbContador.SelectedValue.ToString();
                     p = persona.obtenerPorId(p);
                     institucion.Contador = p.Cedula;
-                    institucion.t_Persona = p;
+                    institucion.tPersona = p;
                     if (negocio.modificar(institucion) == true)
                     {
                         message.Success(new Alertas.Alerta(), "La Junta modificada correctamente");
                         LimpiarCampos();
-                        DatosTemp.t_Institucion = null;
+                        DatosTemp.tInstitucion = null;
                     }
                     else
                     {
@@ -403,12 +403,12 @@ namespace GestionCasos.Administrador
                         var datosEncotrados = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
                         if (datosEncotrados != null)
                         {
-                            txtCuentaLey.Text = datosEncotrados.Cuenta_Ley;
-                            txtCuentaDanea.Text = datosEncotrados.Cuenta_Danea;
+                            txtCuentaLey.Text = datosEncotrados.CuentaLey;
+                            txtCuentaDanea.Text = datosEncotrados.CuentaDanea;
                             txtInstitucion.Text = datosEncotrados.Nombre;
-                            txtCedulaJuridica.Text = datosEncotrados.Cedula_Juridica;
+                            txtCedulaJuridica.Text = datosEncotrados.CedulaJuridica;
                             cbTipo.Text = Enum.GetName(typeof(Enums.TipoEscuela), datosEncotrados.Tipo);
-                            cbContador.Text = datosEncotrados.t_Persona.Nombre_Completo;
+                            cbContador.Text = datosEncotrados.tPersona.NombreCompleto;
                             cbCircuito.Text = datosEncotrados.Circuito.ToString();
                             txtContacto.Text = datosEncotrados.Responsable;
                             txtTelefono.Text = datosEncotrados.Contacto;

@@ -6,35 +6,35 @@ using Utilidades.Interfaces;
 
 namespace Datos
 {
-    public class RecepcionDatos : ICrud<t_Recepcion>
+    public class RecepcionDatos : ICrud<tRecepcion>
     {
-        public bool eliminar(t_Recepcion e)
+        public bool eliminar(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(t_Recepcion e)
+        public bool guardar(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public bool modificar(t_Recepcion e)
+        public bool modificar(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public t_Recepcion obtenerPorId(t_Recepcion e)
+        public tRecepcion obtenerPorId(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<t_Recepcion> obtenerTodo(t_Recepcion e)
+        public IEnumerable<tRecepcion> obtenerTodo(tRecepcion e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var lista = db.t_Recepcion.ToList();
+                    var lista = db.tRecepcion.ToList();
 
                     if (lista != null)
                     {

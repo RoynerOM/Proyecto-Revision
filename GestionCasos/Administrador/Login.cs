@@ -56,10 +56,10 @@ namespace GestionCasos
         {
             try
             {
-                using (BD_JuntasEntities contex = new BD_JuntasEntities())
+                using (BDJuntasEntities contex = new BDJuntasEntities())
                 {
                     Principal principal;
-                    var user = contex.t_Usuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
+                    var user = contex.tUsuario.Where(u => u.Cedula == txtNombreUsuario.Text).SingleOrDefault();
                     if (user != null)
                     {
                         if (user.Clave == txtContraseña.Text)
@@ -127,10 +127,10 @@ namespace GestionCasos
             {
                 try
                 {
-                    using (BD_JuntasEntities contex = new BD_JuntasEntities())
+                    using (BDJuntasEntities contex = new BDJuntasEntities())
                     {
                         Principal principal;
-                        var user = contex.t_Usuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
+                        var user = contex.tUsuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
                         if (user != null)
                         {
                             if (user.Clave == txtContraseña.Text)
@@ -176,10 +176,10 @@ namespace GestionCasos
             {
                 try
                 {
-                    using (BD_JuntasEntities contex = new BD_JuntasEntities())
+                    using (BDJuntasEntities contex = new BDJuntasEntities())
                     {
                         Principal principal;
-                        var user = contex.t_Usuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
+                        var user = contex.tUsuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
                         if (user != null)
                         {
                             if (user.Clave == txtContraseña.Text)

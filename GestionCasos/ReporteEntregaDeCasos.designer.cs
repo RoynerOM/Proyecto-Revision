@@ -30,11 +30,10 @@ namespace GestionCasos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.EntregaCasosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.BD_JuntasDataSet2 = new GestionCasos.BD_JuntasDataSet2();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             this.cbContadores = new System.Windows.Forms.ComboBox();
             this.txtInstitucion = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -47,23 +46,14 @@ namespace GestionCasos
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.EntregaCasosTableAdapter = new GestionCasos.BD_JuntasDataSet2TableAdapters.EntregaCasosTableAdapter();
-            this.btnRefrescar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.EntregaCasosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet2)).BeginInit();
+            this.dtsEntregaCasos = new GestionCasos.dtsEntregaCasos();
+            this.EntregaTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EntregaTableTableAdapter = new GestionCasos.dtsEntregaCasosTableAdapters.EntregaTableTableAdapter();
             this.panel1.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsEntregaCasos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EntregaTableBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // EntregaCasosBindingSource
-            // 
-            this.EntregaCasosBindingSource.DataMember = "EntregaCasos";
-            this.EntregaCasosBindingSource.DataSource = this.BD_JuntasDataSet2;
-            // 
-            // BD_JuntasDataSet2
-            // 
-            this.BD_JuntasDataSet2.DataSetName = "BD_JuntasDataSet2";
-            this.BD_JuntasDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -98,6 +88,17 @@ namespace GestionCasos
             this.gunaLinePanel1.Name = "gunaLinePanel1";
             this.gunaLinePanel1.Size = new System.Drawing.Size(800, 93);
             this.gunaLinePanel1.TabIndex = 2;
+            // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefrescar.Location = new System.Drawing.Point(674, 53);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(72, 23);
+            this.btnRefrescar.TabIndex = 39;
+            this.btnRefrescar.Text = "Refrescar ";
+            this.btnRefrescar.UseVisualStyleBackColor = true;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // cbContadores
             // 
@@ -220,9 +221,9 @@ namespace GestionCasos
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.DocumentMapWidth = 66;
-            reportDataSource5.Name = "dsEntregaDeCasos";
-            reportDataSource5.Value = this.EntregaCasosBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
+            reportDataSource2.Name = "dtsEntregaCasos";
+            reportDataSource2.Value = this.EntregaTableBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionCasos.Reportes.ReporteEntregaDeCasos.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 93);
             this.reportViewer1.Name = "reportViewer1";
@@ -230,20 +231,19 @@ namespace GestionCasos
             this.reportViewer1.Size = new System.Drawing.Size(800, 357);
             this.reportViewer1.TabIndex = 4;
             // 
-            // EntregaCasosTableAdapter
+            // dtsEntregaCasos
             // 
-            this.EntregaCasosTableAdapter.ClearBeforeFill = true;
+            this.dtsEntregaCasos.DataSetName = "dtsEntregaCasos";
+            this.dtsEntregaCasos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnRefrescar
+            // EntregaTableBindingSource
             // 
-            this.btnRefrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefrescar.Location = new System.Drawing.Point(674, 53);
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(72, 23);
-            this.btnRefrescar.TabIndex = 39;
-            this.btnRefrescar.Text = "Refrescar ";
-            this.btnRefrescar.UseVisualStyleBackColor = true;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            this.EntregaTableBindingSource.DataMember = "EntregaTable";
+            this.EntregaTableBindingSource.DataSource = this.dtsEntregaCasos;
+            // 
+            // EntregaTableTableAdapter
+            // 
+            this.EntregaTableTableAdapter.ClearBeforeFill = true;
             // 
             // ReporteEntregaDeCasos
             // 
@@ -255,11 +255,11 @@ namespace GestionCasos
             this.Name = "ReporteEntregaDeCasos";
             this.Text = "ReporteEntregaDeCasos";
             this.Load += new System.EventHandler(this.ReporteEntregaDeCasos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.EntregaCasosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsEntregaCasos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EntregaTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -274,9 +274,6 @@ namespace GestionCasos
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource EntregaCasosBindingSource;
-        private BD_JuntasDataSet2 BD_JuntasDataSet2;
-        private BD_JuntasDataSet2TableAdapters.EntregaCasosTableAdapter EntregaCasosTableAdapter;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtConsecutivo;
         private System.Windows.Forms.TextBox txtCodigo;
@@ -284,5 +281,8 @@ namespace GestionCasos
         private System.Windows.Forms.TextBox txtInstitucion;
         private System.Windows.Forms.ComboBox cbContadores;
         private System.Windows.Forms.Button btnRefrescar;
+        private System.Windows.Forms.BindingSource EntregaTableBindingSource;
+        private dtsEntregaCasos dtsEntregaCasos;
+        private dtsEntregaCasosTableAdapters.EntregaTableTableAdapter EntregaTableTableAdapter;
     }
 }

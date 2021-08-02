@@ -44,9 +44,9 @@ namespace GestionCasos.Administrador
             this.Circuito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cedula_Juridica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cuenta_Danea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cuenta_Ley = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CedulaJuridica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CuentaDanea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CuentaLey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -192,9 +192,9 @@ namespace GestionCasos.Administrador
             this.Circuito,
             this.Tipo,
             this.Nombre,
-            this.Cedula_Juridica,
-            this.Cuenta_Danea,
-            this.Cuenta_Ley,
+            this.CedulaJuridica,
+            this.CuentaDanea,
+            this.CuentaLey,
             this.Contador,
             this.Contacto,
             this.Telefono});
@@ -266,29 +266,29 @@ namespace GestionCasos.Administrador
             this.Nombre.ReadOnly = true;
             this.Nombre.Width = 320;
             // 
-            // Cedula_Juridica
+            // CedulaJuridica
             // 
-            this.Cedula_Juridica.FillWeight = 20.5583F;
-            this.Cedula_Juridica.HeaderText = "Cédula Jurídica";
-            this.Cedula_Juridica.Name = "Cedula_Juridica";
-            this.Cedula_Juridica.ReadOnly = true;
-            this.Cedula_Juridica.Width = 161;
+            this.CedulaJuridica.FillWeight = 20.5583F;
+            this.CedulaJuridica.HeaderText = "Cédula Jurídica";
+            this.CedulaJuridica.Name = "CedulaJuridica";
+            this.CedulaJuridica.ReadOnly = true;
+            this.CedulaJuridica.Width = 161;
             // 
-            // Cuenta_Danea
+            // CuentaDanea
             // 
-            this.Cuenta_Danea.FillWeight = 20.5583F;
-            this.Cuenta_Danea.HeaderText = "Cuenta Danea";
-            this.Cuenta_Danea.Name = "Cuenta_Danea";
-            this.Cuenta_Danea.ReadOnly = true;
-            this.Cuenta_Danea.Width = 162;
+            this.CuentaDanea.FillWeight = 20.5583F;
+            this.CuentaDanea.HeaderText = "Cuenta Danea";
+            this.CuentaDanea.Name = "CuentaDanea";
+            this.CuentaDanea.ReadOnly = true;
+            this.CuentaDanea.Width = 162;
             // 
-            // Cuenta_Ley
+            // CuentaLey
             // 
-            this.Cuenta_Ley.FillWeight = 20.5583F;
-            this.Cuenta_Ley.HeaderText = "Cuenta Ley";
-            this.Cuenta_Ley.Name = "Cuenta_Ley";
-            this.Cuenta_Ley.ReadOnly = true;
-            this.Cuenta_Ley.Width = 161;
+            this.CuentaLey.FillWeight = 20.5583F;
+            this.CuentaLey.HeaderText = "Cuenta Ley";
+            this.CuentaLey.Name = "CuentaLey";
+            this.CuentaLey.ReadOnly = true;
+            this.CuentaLey.Width = 161;
             // 
             // Contador
             // 
@@ -379,9 +379,9 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.DataGridViewTextBoxColumn Circuito;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cedula_Juridica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta_Danea;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta_Ley;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CedulaJuridica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CuentaDanea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CuentaLey;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contacto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;

@@ -25,7 +25,7 @@ namespace GestionCasos
             //txtConsecutivo.Text = "R-";
 
             // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet.CasosAsignados' Puede moverla o quitarla según sea necesario.
-            this.CasosAsignadosTableAdapter.Fill(this.BD_JuntasDataSet.CasosAsignados);
+            this.CasosTableTableAdapter.Fill(this.dtsCasos.CasosTable);
             this.reportViewer1.RefreshReport();
         }
 
@@ -33,7 +33,7 @@ namespace GestionCasos
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                this.CasosAsignadosTableAdapter.FillBy(this.BD_JuntasDataSet.CasosAsignados, txtConsecutivo.Text);
+               // this.CasosTableTableAdapter.FillBy(this.dtsCasos.CasosTable, txtConsecutivo.Text);
                 this.reportViewer1.RefreshReport();
 
             }
@@ -48,18 +48,18 @@ namespace GestionCasos
         {
             if (txtConsecutivo.Text != string.Empty)
             {
-                this.CasosAsignadosTableAdapter.FillBy(this.BD_JuntasDataSet.CasosAsignados, txtConsecutivo.Text);
+                //this.CasosTableTableAdapter.FillBy(this.dtsCasos.CasosAsignados, txtConsecutivo.Text);
                 this.reportViewer1.RefreshReport();
 
             }
             if (cbReception.Text != string.Empty)
             {
-                this.CasosAsignadosTableAdapter.FillBy1(this.BD_JuntasDataSet.CasosAsignados, cbReception.Text);
+                //this.CasosTableTableAdapter.FillBy1(this.dtsCasos.CasosAsignados, cbReception.Text);
                 this.reportViewer1.RefreshReport();
             }
             if (txtConsecutivo.Text != string.Empty && cbReception.Text != string.Empty)
             {
-                this.CasosAsignadosTableAdapter.FillBy2(this.BD_JuntasDataSet.CasosAsignados, txtConsecutivo.Text, cbReception.Text);
+                //this.CasosTableTableAdapter.FillBy2(this.dtsCasos, txtConsecutivo.Text, cbReception.Text);
                 this.reportViewer1.RefreshReport();
 
             }
@@ -67,7 +67,7 @@ namespace GestionCasos
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
-            this.CasosAsignadosTableAdapter.Fill(this.BD_JuntasDataSet.CasosAsignados);
+            //this.CasosTableTableAdapter.Fill(this.dtsCasos);
             this.reportViewer1.RefreshReport();
 
             txtConsecutivo.Clear();
@@ -76,7 +76,7 @@ namespace GestionCasos
 
         private void btnBuscar2_Click(object sender, EventArgs e)
         {
-            this.CasosAsignadosTableAdapter.FillBy3(this.BD_JuntasDataSet.CasosAsignados, dtpFechaInicio.Value, dtpFechaFinal.Value);
+            //this.CasosTableTableAdapter.FillBy3(this.dtsCasos, dtpFechaInicio.Value, dtpFechaFinal.Value);
             this.reportViewer1.RefreshReport();
 
         }

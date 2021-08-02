@@ -19,7 +19,9 @@ namespace GestionCasos
         RevisionNegocio Rnegocio = new RevisionNegocio();
         ContadorNegocio persona = new ContadorNegocio();
         RecepcionNegocio recepcion = new RecepcionNegocio();
+        showMessageDialog Alerta = new showMessageDialog();
         private Form activeForm = null;
+
         public AsignarCaso()
         {
             InitializeComponent();
@@ -29,19 +31,14 @@ namespace GestionCasos
         //Modificado
         private void CargarCombos()
         {
-
-
-            cbAsignados.DataSource = persona.obtenerTodo(new t_Persona());
-            cbAsignados.DisplayMember = "Nombre_Completo";
+            cbAsignados.DataSource = persona.obtenerTodo(new tPersona());
+            cbAsignados.DisplayMember = "NombreCompleto";
             cbAsignados.ValueMember = "Cedula";
 
-
             //Modificado
-            cbTipoRecepcion.DataSource = recepcion.obtenerTodo(new t_Recepcion());
+            cbTipoRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
             cbTipoRecepcion.ValueMember = "id";
             cbTipoRecepcion.DisplayMember = "Nombre";
-
-
         }
 
         //Modificado
@@ -49,9 +46,9 @@ namespace GestionCasos
         {
             try
             {
-                using (var context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
-                    var id = context.t_Revision.Max(x => x.Id_Caso) + 1;
+                    var id = context.tRevision.Max(x => x.IdCaso) + 1;
                     string cons = "R-" + id.ToString();
                     txtConsecutivo.Text = cons;
                 }
@@ -72,7 +69,6 @@ namespace GestionCasos
             //Actualizar();
             CargarCombos();
             MostrarConsecutivo();
-
         }
 
         //Cambio de colores
@@ -97,41 +93,19 @@ namespace GestionCasos
 
             }
         }
-        //private void Actualizar()
-        //{
-        //    try
-        //    {
-        //        t_Revision rev = new t_Revision();
-        //        using (BD_JuntasEntities con = new BD_JuntasEntities())
-        //        {
 
-        //            rev = con.t_Revision.First(x => x.Id_Caso == 1);
-
-        //            rev.Contador = "1-1111-1111";
-
-        //            con.Entry<t_Revision>(rev).State = System.Data.Entity.EntityState.Modified;
-        //            con.SaveChanges();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString());
-
-        //    }
-        //}
 
         private void AsignarCaso_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                using (BD_JuntasEntities context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
-
                     if (txtCodigo.Text != string.Empty)
                     {
                         int cod = int.Parse(txtCodigo.Text);
 
-                        var codigo = context.t_Institucion.FirstOrDefault(x => x.Codigo == cod);
+                        var codigo = context.tInstitucion.FirstOrDefault(x => x.Codigo == cod);
 
                         if (codigo != null)
                         {
@@ -140,29 +114,23 @@ namespace GestionCasos
                         }
                         else
                         {
-                            MessageBox.Show($"El codigo {txtCodigo.Text} no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Alerta.Danger(new Alertas.Alerta(), $"El código {txtCodigo.Text} no existe");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Falta llenar el codigo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        Alerta.Danger(new Alertas.Alerta(), $"Falta llenar el código");
                     }
-
-
                 }
             }
-
-
         }
 
         //Metodo de guardar
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
             try
             {
-                t_Revision revision = new t_Revision();
+                tRevision revision = new tRevision();
 
                 revision.Codigo = int.Parse(txtCodigo.Text);
                 revision.Fecha = dtpFecha.Value;
@@ -177,23 +145,18 @@ namespace GestionCasos
 
                 if (Rnegocio.guardar(revision) == true)
                 {
-                    MessageBox.Show("Caso asignado", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Alerta.Success(new Alertas.Alerta(), "Caso asignado");
                     MostrarConsecutivo();
-
                 }
                 else
                 {
-                    MessageBox.Show("Error al asignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    Alerta.Success(new Alertas.Alerta(), "Error al asignar");
                 }
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
-
-
         }
 
 

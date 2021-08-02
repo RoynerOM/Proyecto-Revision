@@ -6,15 +6,15 @@ using Utilidades.Interfaces;
 
 namespace Datos
 {
-    public class BoletaDatos : ICrud<t_Boleta>
+    public class BoletaDatos : ICrud<tBoleta>
     {
-        public bool eliminar(t_Boleta e)
+        public bool eliminar(tBoleta e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Boleta>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tBoleta>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 
                     return true;
@@ -27,13 +27,13 @@ namespace Datos
             }
         }
 
-        public bool guardar(t_Boleta e)
+        public bool guardar(tBoleta e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.t_Boleta.Add(e);
+                    db.tBoleta.Add(e);
                     db.SaveChanges();
 
                     return true;
@@ -46,13 +46,13 @@ namespace Datos
             }
         }
 
-        public bool modificar(t_Boleta e)
+        public bool modificar(tBoleta e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Boleta>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tBoleta>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 
                     return true;
@@ -65,13 +65,13 @@ namespace Datos
             }
         }
 
-        public t_Boleta obtenerPorId(t_Boleta e)
+        public tBoleta obtenerPorId(tBoleta e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var boleta = db.t_Boleta.Include("t_Revision").Where(x => x.Id == e.Id).SingleOrDefault();
+                    var boleta = db.tBoleta.Include("tRevision").Where(x => x.Id == e.Id).SingleOrDefault();
 
                     if (boleta != null)
                     {
@@ -90,13 +90,13 @@ namespace Datos
             }
         }
 
-        public t_Boleta obtenerPorId(int e)
+        public tBoleta obtenerPorId(int e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var boleta = db.t_Boleta.Include("t_Revision").Where(x => x.t_Revision.Id_Caso == e).SingleOrDefault();
+                    var boleta = db.tBoleta.Include("tRevision").Where(x => x.tRevision.IdCaso == e).SingleOrDefault();
 
                     if (boleta != null)
                     {
@@ -115,13 +115,13 @@ namespace Datos
             }
         }
 
-        public t_Boleta obtenerPorId(string e)
+        public tBoleta obtenerPorId(string e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var boleta = db.t_Boleta.Include("t_Revision").Where(x => x.t_Revision.Consecutivo == e).SingleOrDefault();
+                    var boleta = db.tBoleta.Include("tRevision").Where(x => x.tRevision.Consecutivo == e).SingleOrDefault();
 
                     if (boleta != null)
                     {
@@ -140,13 +140,13 @@ namespace Datos
             }
         }
 
-        public IEnumerable<t_Boleta> obtenerTodo(t_Boleta e)
+        public IEnumerable<tBoleta> obtenerTodo(tBoleta e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var boleta = db.t_Boleta.Include("t_Revision").ToList();
+                    var boleta = db.tBoleta.Include("tRevision").ToList();
 
                     if (boleta != null)
                     {

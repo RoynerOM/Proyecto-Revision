@@ -17,7 +17,7 @@ namespace GestionCasos.Administrador
     {
         private Form activeForm = null;
         ContadorNegocio persona = new ContadorNegocio();
-        List<t_Persona> Personas = null;
+        List<tPersona> Personas = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private int Rol = (int)Enums.Tipo.Tramitador;
 
@@ -58,8 +58,15 @@ namespace GestionCasos.Administrador
 
         public void PedirDatos()
         {
-            Personas = (List<t_Persona>)persona.obtenerTodo(new t_Persona());
-            CargarTabla(Personas);
+            try
+            {
+                Personas = (List<tPersona>)persona.obtenerTodo(new tPersona());
+                CargarTabla(Personas);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         //Cambio de color
@@ -67,7 +74,6 @@ namespace GestionCasos.Administrador
         {
             if (isDark == "false")
             {
-
                 this.panel1.BackColor = Colors.White;
                 this.panel1.ForeColor = Colors.Black;
                 tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.Blue;
@@ -82,41 +88,43 @@ namespace GestionCasos.Administrador
                 gunaLabel3.ForeColor = Colors.Black;
                 gunaLabel4.ForeColor = Colors.Black;
             }
-            else
-            {
-
-            }
         }
 
-
-        public void CargarTabla(IEnumerable<t_Persona> lista)
+        public void CargarTabla(IEnumerable<tPersona> lista)
         {
-            tabla.Rows.Clear();
-            foreach (var item in lista)
+            try
             {
-                int nRows = tabla.Rows.Add();
-                tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[0].Value = item.Cedula;
-                tabla.Rows[nRows].Cells[1].Value = item.TipoId == 0 ? "NACIONAL" : "DIMEX";
-                tabla.Rows[nRows].Cells[2].Value = item.Carnet;
-                tabla.Rows[nRows].Cells[3].Value = item.Nombre_Completo;
-                tabla.Rows[nRows].Cells[4].Value = item.Correo;
+                tabla.Rows.Clear();
+                foreach (var item in lista)
+                {
+                    int nRows = tabla.Rows.Add();
+                    tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[0].Value = item.Cedula;
+                    tabla.Rows[nRows].Cells[1].Value = item.TipoIdentificacion == 0 ? "NACIONAL" : "DIMEX";
+                    tabla.Rows[nRows].Cells[2].Value = item.Carnet;
+                    tabla.Rows[nRows].Cells[3].Value = item.NombreCompleto;
+                    tabla.Rows[nRows].Cells[4].Value = item.Correo;
 
-                tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
 
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
@@ -124,9 +132,9 @@ namespace GestionCasos.Administrador
         public void CargarCombos()
         {
             //Tramitador
-            cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
+            cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
             cbTramitador.ValueMember = "Cedula";
-            cbTramitador.DisplayMember = "Nombre_Completo";
+            cbTramitador.DisplayMember = "NombreCompleto";
         }
 
 
@@ -141,7 +149,6 @@ namespace GestionCasos.Administrador
                 }
                 catch (Exception ex)
                 {
-
                     Console.WriteLine(ex);
                 }
             }
@@ -209,7 +216,7 @@ namespace GestionCasos.Administrador
                 string cedula = tabla.Rows[fila].Cells[0].Value.ToString();
 
 
-                DatosTemp.t_Persona = Personas.Where(x => x.Cedula == cedula).SingleOrDefault();
+                DatosTemp.tPersona = Personas.Where(x => x.Cedula == cedula).SingleOrDefault();
 
 
                 OpenChildForm(new fContador(Rol));

@@ -24,8 +24,8 @@ namespace GestionCasos
         {
             try
             {
-                t_Usuario usuario = new t_Usuario();
-                t_Trabajador trabajador = new t_Trabajador();
+                tUsuario usuario = new tUsuario();
+                tTrabajador trabajador = new tTrabajador();
                 trabajador = contadorNegocio.obtenerTrabador(txtCedula.Text);
 
                 if (trabajador != null)
@@ -89,8 +89,8 @@ namespace GestionCasos
             {
                 try
                 {
-                    t_Usuario usuario = new t_Usuario();
-                    t_Trabajador trabajador = new t_Trabajador();
+                    tUsuario usuario = new tUsuario();
+                    tTrabajador trabajador = new tTrabajador();
                     trabajador = contadorNegocio.obtenerTrabador(txtCedula.Text);
 
                     if (trabajador != null)

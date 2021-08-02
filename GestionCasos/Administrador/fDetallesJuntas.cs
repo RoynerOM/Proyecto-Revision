@@ -19,7 +19,7 @@ namespace GestionCasos.Administrador
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         InstitucionNegocio institucionNegocio = new InstitucionNegocio();
         ContadorNegocio persona = new ContadorNegocio();
-        IEnumerable<t_Institucion> Instituciones = null;
+        IEnumerable<tInstitucion> Instituciones = null;
         private int Rol = (int)Enums.Tipo.Tramitador;
 
         public fDetallesJuntas(int Rol)
@@ -32,17 +32,24 @@ namespace GestionCasos.Administrador
 
         public void PedirDatos()
         {
-            Instituciones = institucionNegocio.obtenerTodo(new t_Institucion());
+            Instituciones = institucionNegocio.obtenerTodo(new tInstitucion());
             CargarTabla(Instituciones);
         }
 
         //Filtro por Contador
         public void FilterByTramitador(string valor)
         {
-            var filtro = Instituciones.Where(x => x.Contador == valor);
-            if (filtro != null)
+            try
             {
-                CargarTabla(filtro);
+                var filtro = Instituciones.Where(x => x.Contador == valor);
+                if (filtro != null)
+                {
+                    CargarTabla(filtro);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
@@ -52,7 +59,6 @@ namespace GestionCasos.Administrador
         {
             if (isDark == "false")
             {
-
                 this.panel1.BackColor = Colors.White;
                 this.panel1.ForeColor = Colors.Black;
                 tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.Blue;
@@ -71,56 +77,63 @@ namespace GestionCasos.Administrador
         }
 
 
-        public void CargarTabla(IEnumerable<t_Institucion> lista)
+        public void CargarTabla(IEnumerable<tInstitucion> lista)
         {
-            tabla.Rows.Clear();
-            foreach (var item in lista)
+            try
             {
-                int nRows = tabla.Rows.Add();
-                tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                tabla.Rows.Clear();
+                foreach (var item in lista)
+                {
+                    int nRows = tabla.Rows.Add();
+                    tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                tabla.Rows[nRows].Cells[0].Value = item.Codigo;
-                tabla.Rows[nRows].Cells[1].Value = item.Circuito;
-                tabla.Rows[nRows].Cells[2].Value = item.t_Tipo_Institucion.NombreTipo;
-                tabla.Rows[nRows].Cells[3].Value = item.Nombre;
-                tabla.Rows[nRows].Cells[4].Value = item.Cedula_Juridica;
-                tabla.Rows[nRows].Cells[5].Value = item.Cuenta_Danea;
-                tabla.Rows[nRows].Cells[6].Value = item.Cuenta_Ley;
-                tabla.Rows[nRows].Cells[7].Value = item.t_Persona.Nombre_Completo.ToUpper();
-                tabla.Rows[nRows].Cells[8].Value = item.Responsable.ToUpper();
-                tabla.Rows[nRows].Cells[9].Value = item.Contacto;
+                    tabla.Rows[nRows].Cells[0].Value = item.Codigo;
+                    tabla.Rows[nRows].Cells[1].Value = item.Circuito;
+                    tabla.Rows[nRows].Cells[2].Value = item.tTipoInstitucion.NombreTipo;
+                    tabla.Rows[nRows].Cells[3].Value = item.Nombre;
+                    tabla.Rows[nRows].Cells[4].Value = item.CedulaJuridica;
+                    tabla.Rows[nRows].Cells[5].Value = item.CuentaDanea;
+                    tabla.Rows[nRows].Cells[6].Value = item.CuentaLey;
+                    tabla.Rows[nRows].Cells[7].Value = item.tPersona.NombreCompleto.ToUpper();
+                    tabla.Rows[nRows].Cells[8].Value = item.Responsable.ToUpper();
+                    tabla.Rows[nRows].Cells[9].Value = item.Contacto;
 
-                tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[7].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[9].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[7].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[9].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
 
-                tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[5].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[6].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[7].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                tabla.Rows[nRows].Cells[9].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[5].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[6].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[7].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[9].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
@@ -133,7 +146,6 @@ namespace GestionCasos.Administrador
             while (!hilo.IsAlive) ;
 
             OpenChildForm(new fLoader(1, hilo));
-
             PedirDatos();
             CargarCombos();
         }
@@ -142,9 +154,9 @@ namespace GestionCasos.Administrador
         public void CargarCombos()
         {
             //Tramitador
-            cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
+            cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
             cbTramitador.ValueMember = "Cedula";
-            cbTramitador.DisplayMember = "Nombre_Completo";
+            cbTramitador.DisplayMember = "NombreCompleto";
         }
 
 
@@ -153,7 +165,11 @@ namespace GestionCasos.Administrador
             if (txtNombre.Text != string.Empty)
             {
                 var filtro = Instituciones.Where(x => x.Nombre.Trim().ToUpper().StartsWith(txtNombre.Text.Trim().ToUpper()));
-                CargarTabla(filtro);
+
+                if (filtro != null)
+                {
+                    CargarTabla(filtro);
+                }
             }
             else
             {
@@ -205,14 +221,21 @@ namespace GestionCasos.Administrador
 
         private void txtCedulaJuridica_TextChanged(object sender, EventArgs e)
         {
-            if (txtCedulaJuridica.Text.Length > 6)
+            try
             {
-                var filtro = Instituciones.Where(x => x.Cedula_Juridica.StartsWith(txtCedulaJuridica.Text));
-                CargarTabla(filtro);
+                if (txtCedulaJuridica.Text.Length > 6)
+                {
+                    var filtro = Instituciones.Where(x => x.CedulaJuridica.StartsWith(txtCedulaJuridica.Text));
+                    CargarTabla(filtro);
+                }
+                else
+                {
+                    PedirDatos();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                PedirDatos();
+                Console.WriteLine(ex);
             }
         }
 
@@ -236,6 +259,7 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex);
             }
         }
+
 
         private void OpenChildForm(Form childForm)
         {
@@ -261,12 +285,9 @@ namespace GestionCasos.Administrador
 
                     int codigo = (int)tabla.Rows[fila].Cells[0].Value;
 
-
-                    DatosTemp.t_Institucion = Instituciones.Where(x => x.Codigo == codigo).SingleOrDefault();
-
+                    DatosTemp.tInstitucion = Instituciones.Where(x => x.Codigo == codigo).SingleOrDefault();
 
                     OpenChildForm(new fInstituciones(Rol));
-
                 }
             }
             catch (Exception ex)

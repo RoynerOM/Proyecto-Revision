@@ -6,32 +6,32 @@ using Utilidades.Interfaces;
 
 namespace Negocios
 {
-    public class EstadoNegocio : ICrud<Estado>
+    public class EstadoNegocio : ICrud<tEstado>
     {
         EstadoDatos datos = new EstadoDatos();
-        public bool eliminar(Estado e)
+        public bool eliminar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(Estado e)
+        public bool guardar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public bool modificar(Estado e)
+        public bool modificar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public Estado obtenerPorId(Estado e)
+        public tEstado obtenerPorId(tEstado e)
         {
             return datos.obtenerPorId(e);
         }
 
-        public IEnumerable<Estado> obtenerTodo(Estado e)
+        public IEnumerable<tEstado> obtenerTodo(tEstado e)
         {
-            return datos.obtenerTodo(new Estado());
+            return datos.obtenerTodo(new tEstado());
         }
     }
 }
