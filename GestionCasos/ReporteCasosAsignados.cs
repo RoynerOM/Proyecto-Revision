@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos
 {
@@ -19,11 +21,22 @@ namespace GestionCasos
         {
             InitializeComponent();
         }
+        private void CargarCombos()
+        {
+            try
+            {
+                cbReception.DataSource = Enum.GetValues(typeof(Enums.MedioReceptivo));
+            }
+            catch (Exception ex)
+            {
 
+                Console.WriteLine(ex);
+            }
+        }
         private void ReporteCasosAsignados_Load(object sender, EventArgs e)
         {
             //txtConsecutivo.Text = "R-";
-
+            CargarCombos();
             // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet.CasosAsignados' Puede moverla o quitarla según sea necesario.
             this.CasosTableTableAdapter.Fill(this.dtsCasos.CasosTable);
             this.reportViewer1.RefreshReport();
@@ -33,7 +46,7 @@ namespace GestionCasos
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-               // this.CasosTableTableAdapter.FillBy(this.dtsCasos.CasosTable, txtConsecutivo.Text);
+                // this.CasosTableTableAdapter.FillBy(this.dtsCasos.CasosTable, txtConsecutivo.Text);
                 this.reportViewer1.RefreshReport();
 
             }

@@ -36,10 +36,7 @@ namespace GestionCasos
         {
             // TODO: This line of code loads data into the 'dtsEntregaCasos.EntregaTable' table. You can move, or remove it, as needed.
             this.EntregaTableTableAdapter.Fill(this.dtsEntregaCasos.EntregaTable);
-            // TODO: This line of code loads data into the 'dsEntregas.TableEntregas' table. You can move, or remove it, as needed.
-            //this.TableEntregasTableAdapter.Fill(this.dsEntregas.TableEntregas);
-            //CargarCombo();
-            // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet2.EntregaCasos' Puede moverla o quitarla según sea necesario.
+            
             this.reportViewer1.RefreshReport();
         }
 
