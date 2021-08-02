@@ -54,6 +54,17 @@ namespace GestionCasos.Administrador
             }
         }
 
+        private void LimpiarCampos()
+        {
+            txtCedula.ResetText();
+            txtNombre.ResetText();
+            txtApellido1.ResetText();
+            txtApellido2.ResetText();
+            txtCarne.ResetText();
+            txtCorreo.ResetText();
+            cbTipo.SelectedIndex = 0;
+            cbTipoPersona.SelectedIndex = 0;
+        }
 
         private void fContador_Load(object sender, EventArgs e)
         {
@@ -333,40 +344,22 @@ namespace GestionCasos.Administrador
         }
 
 
-        public void LimpiarCampos()
-        {
-            txtCedula.ResetText();
-            txtNombre.ResetText();
-            txtApellido1.ResetText();
-            txtApellido2.ResetText();
-            txtCarne.ResetText();
-            txtCorreo.ResetText();
-        }
-
-
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         //Actualizar
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
-
+                tPersona p = new tPersona();
                 if (ValidarCampos() == true)
                 {
-                    contador.Cedula = txtCedula.Text;
+                    
 
-                    var datos = negocio.obtenerPorId(contador);
-                    datos.Nombre = txtNombre.Text.ToUpper();
-                    datos.Apellido1 = txtApellido1.Text.ToUpper();
-                    datos.Apellido2 = txtApellido2.Text.ToUpper();
-
-                    if (negocio.modificar(datos) == true)
+                    p = negocio.obtenerPorId(txtCedula.Text.Trim());
+                    p.Nombre = txtNombre.Text.ToUpper();
+                    p.Apellido1 = txtApellido1.Text.ToUpper();
+                    p.Apellido2 = txtApellido2.Text.ToUpper();
+                    p.Correo = txtCorreo.Text;
+                    if (negocio.modificar(p) == true)
                     {
                         Message.Success(new Alertas.Alerta(), "El contador fue modificado con exito");
                         DatosTemp.tPersona = null;
@@ -424,15 +417,22 @@ namespace GestionCasos.Administrador
 
         private void CargarDatosForm()
         {
-            if (DatosTemp.tPersona != null)
+            try
             {
-                txtCedula.Text = DatosTemp.tPersona.Cedula;
-                txtNombre.Text = DatosTemp.tPersona.Nombre;
-                txtApellido1.Text = DatosTemp.tPersona.Apellido1;
-                txtApellido2.Text = DatosTemp.tPersona.Apellido2;
-                txtCarne.Text = DatosTemp.tPersona.Carnet;
-                txtCorreo.Text = DatosTemp.tPersona.Correo;
-                cbTipo.SelectedIndex = (int)DatosTemp.tPersona.TipoIdentificacion;
+                if (DatosTemp.tPersona != null)
+                {
+                    txtCedula.Text = DatosTemp.tPersona.Cedula;
+                    txtNombre.Text = DatosTemp.tPersona.Nombre;
+                    txtApellido1.Text = DatosTemp.tPersona.Apellido1;
+                    txtApellido2.Text = DatosTemp.tPersona.Apellido2;
+                    txtCarne.Text = DatosTemp.tPersona.Carnet;
+                    txtCorreo.Text = DatosTemp.tPersona.Correo;
+                    cbTipo.SelectedIndex = (int)DatosTemp.tPersona.TipoIdentificacion;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
@@ -477,6 +477,11 @@ namespace GestionCasos.Administrador
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

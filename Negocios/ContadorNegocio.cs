@@ -34,7 +34,10 @@ namespace Negocios
         {
             return contador.obtenerPorId(e);
         }
-
+        public tPersona obtenerPorId(string e)
+        {
+            return contador.obtenerPorId(e);
+        }
         public IEnumerable<tPersona> obtenerTodo(tPersona e)
         {
             return contador.obtenerTodo(e);

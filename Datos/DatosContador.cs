@@ -108,6 +108,29 @@ namespace Datos
         }
 
 
+        public tPersona obtenerPorId(string e)
+        {
+            try
+            {
+                using (var db = new BDJuntasEntities())
+                {
+                   var datos = db.tPersona.Where(x=> x.Cedula == e).SingleOrDefault();
+                    if (datos!= null)
+                    {
+                        return datos;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
 
         //Metodo que para obtener la lista de los contadores
         public IEnumerable<tPersona> obtenerTodo(tPersona e)

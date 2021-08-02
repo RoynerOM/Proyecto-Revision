@@ -518,15 +518,11 @@ namespace GestionCasos {
                 this.columnConsecutivo.MaxLength = 14;
                 this.columnCodigo.AllowDBNull = false;
                 this.columnCodigo.Unique = true;
-                this.columnCircuito.AllowDBNull = false;
-                this.columnInstitucion.AllowDBNull = false;
                 this.columnInstitucion.MaxLength = 2147483647;
                 this.columnAsignado.ReadOnly = true;
                 this.columnAsignado.MaxLength = 152;
                 this.columnFechaAsignada.ReadOnly = true;
                 this.columnFechaAsignada.MaxLength = 30;
-                this.columnFechaEntrega.AllowDBNull = false;
-                this.columnObservacion.AllowDBNull = false;
                 this.columnObservacion.MaxLength = 2147483647;
                 this.columnMensajero.ReadOnly = true;
                 this.columnMensajero.MaxLength = 152;
@@ -701,7 +697,12 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Circuito {
                 get {
-                    return ((int)(this[this.tableEntregaTable.CircuitoColumn]));
+                    try {
+                        return ((int)(this[this.tableEntregaTable.CircuitoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Circuito\' in table \'EntregaTable\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableEntregaTable.CircuitoColumn] = value;
@@ -712,7 +713,12 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Institucion {
                 get {
-                    return ((string)(this[this.tableEntregaTable.InstitucionColumn]));
+                    try {
+                        return ((string)(this[this.tableEntregaTable.InstitucionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Institucion\' in table \'EntregaTable\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableEntregaTable.InstitucionColumn] = value;
@@ -755,7 +761,12 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime FechaEntrega {
                 get {
-                    return ((global::System.DateTime)(this[this.tableEntregaTable.FechaEntregaColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableEntregaTable.FechaEntregaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FechaEntrega\' in table \'EntregaTable\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableEntregaTable.FechaEntregaColumn] = value;
@@ -766,7 +777,12 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Observacion {
                 get {
-                    return ((string)(this[this.tableEntregaTable.ObservacionColumn]));
+                    try {
+                        return ((string)(this[this.tableEntregaTable.ObservacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Observacion\' in table \'EntregaTable\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableEntregaTable.ObservacionColumn] = value;
@@ -803,6 +819,30 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCircuitoNull() {
+                return this.IsNull(this.tableEntregaTable.CircuitoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCircuitoNull() {
+                this[this.tableEntregaTable.CircuitoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsInstitucionNull() {
+                return this.IsNull(this.tableEntregaTable.InstitucionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetInstitucionNull() {
+                this[this.tableEntregaTable.InstitucionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAsignadoNull() {
                 return this.IsNull(this.tableEntregaTable.AsignadoColumn);
             }
@@ -823,6 +863,30 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFechaAsignadaNull() {
                 this[this.tableEntregaTable.FechaAsignadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFechaEntregaNull() {
+                return this.IsNull(this.tableEntregaTable.FechaEntregaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFechaEntregaNull() {
+                this[this.tableEntregaTable.FechaEntregaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsObservacionNull() {
+                return this.IsNull(this.tableEntregaTable.ObservacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetObservacionNull() {
+                this[this.tableEntregaTable.ObservacionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1024,10 +1088,10 @@ namespace GestionCasos.dtsEntregaCasosTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        tRevision.Consecutivo, tInstitucion.Codigo, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.FechaAsignada, tEntregaCasos.FechaEntrega, tEntregaCasos.Observacion, 
                          tMensajero.NombreCompleto AS Mensajero
-FROM            tEntregaCasos INNER JOIN
-                         tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero INNER JOIN
-                         tRevision ON tEntregaCasos.Caso = tRevision.IdCaso INNER JOIN
-                         tInstitucion ON tEntregaCasos.Junta = tInstitucion.Codigo INNER JOIN
+FROM            tEntregaCasos FULL OUTER JOIN
+                         tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero FULL OUTER JOIN
+                         tRevision ON tEntregaCasos.Caso = tRevision.IdCaso FULL OUTER JOIN
+                         tInstitucion ON tEntregaCasos.Junta = tInstitucion.Codigo FULL OUTER JOIN
                          tPersona ON tEntregaCasos.Asignado = tPersona.Cedula";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }

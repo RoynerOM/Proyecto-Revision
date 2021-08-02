@@ -31,7 +31,6 @@ namespace GestionCasos.Administrador
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fContador));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDetalles = new Guna.UI.WinForms.GunaButton();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -40,10 +39,6 @@ namespace GestionCasos.Administrador
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbTipo = new Guna.UI.WinForms.GunaComboBox();
-            this.btnBuscar = new Guna.UI.WinForms.GunaButton();
-            this.btnEliminar = new Guna.UI.WinForms.GunaButton();
-            this.btnModificar = new Guna.UI.WinForms.GunaButton();
-            this.btnGuardar = new Guna.UI.WinForms.GunaButton();
             this.txtApellido2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
@@ -52,12 +47,19 @@ namespace GestionCasos.Administrador
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
+            this.btnDetalles = new Guna.UI.WinForms.GunaButton();
+            this.btnBuscar = new Guna.UI.WinForms.GunaButton();
+            this.btnEliminar = new Guna.UI.WinForms.GunaButton();
+            this.btnModificar = new Guna.UI.WinForms.GunaButton();
+            this.btnGuardar = new Guna.UI.WinForms.GunaButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.panel1.Controls.Add(this.gunaButton1);
             this.panel1.Controls.Add(this.btnDetalles);
             this.panel1.Controls.Add(this.txtCorreo);
             this.panel1.Controls.Add(this.label8);
@@ -88,33 +90,6 @@ namespace GestionCasos.Administrador
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            // 
-            // btnDetalles
-            // 
-            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDetalles.AnimationHoverSpeed = 0.07F;
-            this.btnDetalles.AnimationSpeed = 0.03F;
-            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
-            this.btnDetalles.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
-            this.btnDetalles.BorderColor = System.Drawing.Color.Black;
-            this.btnDetalles.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnDetalles.FocusedColor = System.Drawing.Color.Empty;
-            this.btnDetalles.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalles.ForeColor = System.Drawing.Color.White;
-            this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
-            this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnDetalles.Location = new System.Drawing.Point(803, 418);
-            this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnDetalles.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnDetalles.OnHoverImage = null;
-            this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
-            this.btnDetalles.Radius = 5;
-            this.btnDetalles.Size = new System.Drawing.Size(127, 42);
-            this.btnDetalles.TabIndex = 22;
-            this.btnDetalles.Text = "Detalles";
-            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
             // 
             // txtCorreo
             // 
@@ -204,7 +179,6 @@ namespace GestionCasos.Administrador
             this.label5.Size = new System.Drawing.Size(131, 23);
             this.label5.TabIndex = 15;
             this.label5.Text = "Tipo de Cédula";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // cbTipo
             // 
@@ -229,114 +203,6 @@ namespace GestionCasos.Administrador
             this.cbTipo.Size = new System.Drawing.Size(267, 31);
             this.cbTipo.TabIndex = 14;
             this.cbTipo.SelectedIndexChanged += new System.EventHandler(this.gunaComboBox1_SelectedIndexChanged);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBuscar.AnimationHoverSpeed = 0.07F;
-            this.btnBuscar.AnimationSpeed = 0.03F;
-            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
-            this.btnBuscar.BorderColor = System.Drawing.Color.Black;
-            this.btnBuscar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscar.FocusedColor = System.Drawing.Color.Empty;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnBuscar.Location = new System.Drawing.Point(803, 342);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnBuscar.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnBuscar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnBuscar.OnHoverImage = null;
-            this.btnBuscar.OnPressedColor = System.Drawing.Color.Black;
-            this.btnBuscar.Radius = 5;
-            this.btnBuscar.Size = new System.Drawing.Size(127, 42);
-            this.btnBuscar.TabIndex = 13;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminar.AnimationHoverSpeed = 0.07F;
-            this.btnEliminar.AnimationSpeed = 0.03F;
-            this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
-            this.btnEliminar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(35)))), ((int)(((byte)(36)))));
-            this.btnEliminar.BorderColor = System.Drawing.Color.Black;
-            this.btnEliminar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnEliminar.FocusedColor = System.Drawing.Color.Empty;
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnEliminar.Location = new System.Drawing.Point(803, 263);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnEliminar.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnEliminar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnEliminar.OnHoverImage = null;
-            this.btnEliminar.OnPressedColor = System.Drawing.Color.Black;
-            this.btnEliminar.Radius = 5;
-            this.btnEliminar.Size = new System.Drawing.Size(127, 42);
-            this.btnEliminar.TabIndex = 12;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnModificar.AnimationHoverSpeed = 0.07F;
-            this.btnModificar.AnimationSpeed = 0.03F;
-            this.btnModificar.BackColor = System.Drawing.Color.Transparent;
-            this.btnModificar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(153)))), ((int)(((byte)(34)))));
-            this.btnModificar.BorderColor = System.Drawing.Color.Black;
-            this.btnModificar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnModificar.FocusedColor = System.Drawing.Color.Empty;
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
-            this.btnModificar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnModificar.Location = new System.Drawing.Point(803, 188);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnModificar.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnModificar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnModificar.OnHoverImage = null;
-            this.btnModificar.OnPressedColor = System.Drawing.Color.Black;
-            this.btnModificar.Radius = 5;
-            this.btnModificar.Size = new System.Drawing.Size(127, 42);
-            this.btnModificar.TabIndex = 11;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGuardar.AnimationHoverSpeed = 0.07F;
-            this.btnGuardar.AnimationSpeed = 0.03F;
-            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(160)))), ((int)(((byte)(67)))));
-            this.btnGuardar.BorderColor = System.Drawing.Color.Black;
-            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnGuardar.FocusedColor = System.Drawing.Color.Empty;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnGuardar.Location = new System.Drawing.Point(803, 116);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btnGuardar.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnGuardar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnGuardar.OnHoverImage = null;
-            this.btnGuardar.OnPressedColor = System.Drawing.Color.Black;
-            this.btnGuardar.Radius = 5;
-            this.btnGuardar.Size = new System.Drawing.Size(127, 42);
-            this.btnGuardar.TabIndex = 10;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtApellido2
             // 
@@ -424,6 +290,168 @@ namespace GestionCasos.Administrador
             this.label1.TabIndex = 0;
             this.label1.Text = "Cédula";
             // 
+            // gunaButton1
+            // 
+            this.gunaButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gunaButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaButton1.AnimationSpeed = 0.03F;
+            this.gunaButton1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gunaButton1.BorderColor = System.Drawing.Color.Black;
+            this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaButton1.Image = global::GestionCasos.Properties.Resources.broom_24px;
+            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton1.Location = new System.Drawing.Point(804, 449);
+            this.gunaButton1.Name = "gunaButton1";
+            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaButton1.OnHoverImage = null;
+            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaButton1.Radius = 5;
+            this.gunaButton1.Size = new System.Drawing.Size(127, 42);
+            this.gunaButton1.TabIndex = 23;
+            this.gunaButton1.Text = "Limpiar";
+            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
+            // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDetalles.AnimationHoverSpeed = 0.07F;
+            this.btnDetalles.AnimationSpeed = 0.03F;
+            this.btnDetalles.BackColor = System.Drawing.Color.Transparent;
+            this.btnDetalles.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
+            this.btnDetalles.BorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDetalles.FocusedColor = System.Drawing.Color.Empty;
+            this.btnDetalles.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.ForeColor = System.Drawing.Color.White;
+            this.btnDetalles.Image = global::GestionCasos.Properties.Resources.more_details_60px;
+            this.btnDetalles.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnDetalles.Location = new System.Drawing.Point(804, 382);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnDetalles.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnDetalles.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnDetalles.OnHoverImage = null;
+            this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
+            this.btnDetalles.Radius = 5;
+            this.btnDetalles.Size = new System.Drawing.Size(127, 42);
+            this.btnDetalles.TabIndex = 22;
+            this.btnDetalles.Text = "Detalles";
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBuscar.AnimationHoverSpeed = 0.07F;
+            this.btnBuscar.AnimationSpeed = 0.03F;
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(102)))), ((int)(((byte)(214)))));
+            this.btnBuscar.BorderColor = System.Drawing.Color.Black;
+            this.btnBuscar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnBuscar.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(804, 310);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnBuscar.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnBuscar.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnBuscar.OnHoverImage = null;
+            this.btnBuscar.OnPressedColor = System.Drawing.Color.Black;
+            this.btnBuscar.Radius = 5;
+            this.btnBuscar.Size = new System.Drawing.Size(127, 42);
+            this.btnBuscar.TabIndex = 13;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEliminar.AnimationHoverSpeed = 0.07F;
+            this.btnEliminar.AnimationSpeed = 0.03F;
+            this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(35)))), ((int)(((byte)(36)))));
+            this.btnEliminar.BorderColor = System.Drawing.Color.Black;
+            this.btnEliminar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnEliminar.FocusedColor = System.Drawing.Color.Empty;
+            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnEliminar.Location = new System.Drawing.Point(804, 242);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnEliminar.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnEliminar.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnEliminar.OnHoverImage = null;
+            this.btnEliminar.OnPressedColor = System.Drawing.Color.Black;
+            this.btnEliminar.Radius = 5;
+            this.btnEliminar.Size = new System.Drawing.Size(127, 42);
+            this.btnEliminar.TabIndex = 12;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnModificar.AnimationHoverSpeed = 0.07F;
+            this.btnModificar.AnimationSpeed = 0.03F;
+            this.btnModificar.BackColor = System.Drawing.Color.Transparent;
+            this.btnModificar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(153)))), ((int)(((byte)(34)))));
+            this.btnModificar.BorderColor = System.Drawing.Color.Black;
+            this.btnModificar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnModificar.FocusedColor = System.Drawing.Color.Empty;
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnModificar.Location = new System.Drawing.Point(804, 172);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnModificar.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnModificar.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnModificar.OnHoverImage = null;
+            this.btnModificar.OnPressedColor = System.Drawing.Color.Black;
+            this.btnModificar.Radius = 5;
+            this.btnModificar.Size = new System.Drawing.Size(127, 42);
+            this.btnModificar.TabIndex = 11;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGuardar.AnimationHoverSpeed = 0.07F;
+            this.btnGuardar.AnimationSpeed = 0.03F;
+            this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(160)))), ((int)(((byte)(67)))));
+            this.btnGuardar.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnGuardar.FocusedColor = System.Drawing.Color.Empty;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnGuardar.Location = new System.Drawing.Point(804, 101);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnGuardar.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnGuardar.OnHoverImage = null;
+            this.btnGuardar.OnPressedColor = System.Drawing.Color.Black;
+            this.btnGuardar.Radius = 5;
+            this.btnGuardar.Size = new System.Drawing.Size(127, 42);
+            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // fContador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,5 +495,6 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label8;
         private Guna.UI.WinForms.GunaButton btnDetalles;
+        private Guna.UI.WinForms.GunaButton gunaButton1;
     }
 }

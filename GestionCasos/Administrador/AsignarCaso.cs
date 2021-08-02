@@ -147,6 +147,7 @@ namespace GestionCasos
                 {
                     Alerta.Success(new Alertas.Alerta(), "Caso asignado");
                     MostrarConsecutivo();
+                    txtCodigo.ResetText();
                 }
                 else
                 {

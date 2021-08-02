@@ -33,9 +33,10 @@ namespace GestionCasos
         private void ReporteJuntas_Load(object sender, EventArgs e)
         {
             CargarCombo();
+            // TODO: This line of code loads data into the 'dtsJuntas.TableJuntas' table. You can move, or remove it, as needed.
+            this.TableJuntasTableAdapter.Fill(this.dtsJuntas.TableJuntas);
+            
 
-            // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet1.Juntas' Puede moverla o quitarla según sea necesario.
-            //this.JuntasTableAdapter.Fill(this.BD_JuntasDataSet1.Juntas);
 
             this.reportViewer1.RefreshReport();
         }

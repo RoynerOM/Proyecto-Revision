@@ -227,12 +227,12 @@ namespace GestionCasos.Administrador
                         institucion.Codigo = int.Parse(txtCodigo.Text);
                         institucion.Circuito = (int)cbCircuito.SelectedValue;
                         institucion.Tipo = (int)cbTipo.SelectedValue;
-                        institucion.Nombre = txtInstitucion.Text;
+                        institucion.Nombre = txtInstitucion.Text.ToUpper();
                         institucion.CedulaJuridica = txtCedulaJuridica.Text;
                         institucion.CuentaDanea = txtCuentaDanea.Text;
                         institucion.CuentaLey = txtCuentaLey.Text;
                         institucion.Contador = (string)cbContador.SelectedValue;
-                        institucion.Responsable = txtContacto.Text;
+                        institucion.Responsable = txtContacto.Text.ToUpper();
                         institucion.Contacto = txtTelefono.Text;
 
                         if (negocio.guardar(institucion) == true)
@@ -326,8 +326,10 @@ namespace GestionCasos.Administrador
             txtInstitucion.ResetText();
             txtCedulaJuridica.ResetText();
             cbTipo.ResetText();
-            cbContador.ResetText();
-            cbCircuito.ResetText();
+            txtContacto.ResetText();
+            txtTelefono.ResetText();
+            cbContador.SelectedIndex = 0;
+            cbCircuito.SelectedIndex = 0;
         }
 
 
@@ -340,8 +342,7 @@ namespace GestionCasos.Administrador
                 tInstitucion institucion = new tInstitucion();
                 if (ValidarCampos() == true)
                 {
-                    institucion.Codigo = int.Parse(txtCodigo.Text);
-                    institucion = negocio.obtenerPorId(institucion);
+                    institucion = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
                     institucion.CuentaLey = txtCuentaLey.Text;
                     institucion.Nombre = txtInstitucion.Text;
                     institucion.CuentaDanea = txtCuentaDanea.Text;
@@ -429,6 +430,11 @@ namespace GestionCasos.Administrador
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+
+        private void gunaButton1_Click_1(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

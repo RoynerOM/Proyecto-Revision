@@ -31,7 +31,6 @@ namespace GestionCasos
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.JuntasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
@@ -46,15 +45,20 @@ namespace GestionCasos
             this.label5 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtsJuntas = new GestionCasos.dtsJuntas();
+            this.TableJuntasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TableJuntasTableAdapter = new GestionCasos.dtsJuntasTableAdapters.TableJuntasTableAdapter();
             this.panel1.SuspendLayout();
             this.gunaLinePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsJuntas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableJuntasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "dsJuntas";
-            reportDataSource1.Value = this.JuntasBindingSource;
+            reportDataSource1.Name = "dtsJuntas";
+            reportDataSource1.Value = this.TableJuntasBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionCasos.Reportes.ReporteJuntas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 93);
@@ -222,9 +226,19 @@ namespace GestionCasos
             this.label1.TabIndex = 13;
             this.label1.Text = "Nombre";
             // 
-            // JuntasTableAdapter
+            // dtsJuntas
             // 
-            
+            this.dtsJuntas.DataSetName = "dtsJuntas";
+            this.dtsJuntas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // TableJuntasBindingSource
+            // 
+            this.TableJuntasBindingSource.DataMember = "TableJuntas";
+            this.TableJuntasBindingSource.DataSource = this.dtsJuntas;
+            // 
+            // TableJuntasTableAdapter
+            // 
+            this.TableJuntasTableAdapter.ClearBeforeFill = true;
             // 
             // ReporteJuntas
             // 
@@ -239,6 +253,8 @@ namespace GestionCasos
             this.panel1.ResumeLayout(false);
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsJuntas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TableJuntasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,7 +262,6 @@ namespace GestionCasos
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource JuntasBindingSource;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private System.Windows.Forms.Label label4;
@@ -260,5 +275,8 @@ namespace GestionCasos
         private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbCiruitos;
+        private System.Windows.Forms.BindingSource TableJuntasBindingSource;
+        private dtsJuntas dtsJuntas;
+        private dtsJuntasTableAdapters.TableJuntasTableAdapter TableJuntasTableAdapter;
     }
 }

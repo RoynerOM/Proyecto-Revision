@@ -216,7 +216,7 @@ namespace GestionCasos.Administrador
                 string cedula = tabla.Rows[fila].Cells[0].Value.ToString();
 
 
-                DatosTemp.tPersona = Personas.Where(x => x.Cedula == cedula).SingleOrDefault();
+                DatosTemp.tPersona = persona.obtenerPorId(cedula);
 
 
                 OpenChildForm(new fContador(Rol));
