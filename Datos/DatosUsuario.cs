@@ -1,8 +1,8 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Utilidades.Interfaces;
-
 namespace Datos
 {
     public class DatosUsuario : ICrud<tUsuario>
@@ -33,14 +33,51 @@ namespace Datos
 
         public bool modificar(tUsuario e)
         {
-            throw new NotImplementedException();
+            using (var context = new BDJuntasEntities())
+            {
+                try
+                {
+                    context.Entry<tUsuario>(e).State =  System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+
+            }
         }
 
         public tUsuario obtenerPorId(tUsuario e)
         {
             throw new NotImplementedException();
         }
+        public tUsuario obtenerPorId(string e)
+        {
+            using (var db = new BDJuntasEntities())
+            {
+                try
+                {
+                    var u = db.tUsuario.Include("tPersona").Where(x => x.Cedula == e && x.tPersona.Estado == true).SingleOrDefault();
+                    if (u != null)
+                    {
+                        return u;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    return null;
+                }
 
+            }
+        }
         public IEnumerable<tUsuario> obtenerTodo(tUsuario e)
         {
             throw new NotImplementedException();

@@ -71,7 +71,7 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.tInstitucion.Include("tPersona").Include("tTipoInstitucion").Where(x => x.Codigo == e).SingleOrDefault();
+                    var consulta = db.tInstitucion.Include("tPersona").Include("tTipoInstitucion").Where(x => x.Codigo == e && x.Estado == true).SingleOrDefault();
                     if (consulta != null)
                     {
                         return consulta;
@@ -101,7 +101,7 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.tInstitucion.Include("tPersona").Include("tTipoInstitucion").ToList();
+                    var consulta = db.tInstitucion.Include("tPersona").Include("tTipoInstitucion").Where(x => x.Estado == true).ToList();
                     if (consulta != null)
                     {
                         return consulta;

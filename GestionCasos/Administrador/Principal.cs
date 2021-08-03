@@ -15,7 +15,7 @@ namespace GestionCasos
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private Button currentButton;
-        private Form activeForm;
+        private Form activeForm = null;
         private int Rol = (int)Enums.Tipo.Tramitador;
         public Principal(int Rol)
         {
@@ -164,21 +164,6 @@ namespace GestionCasos
         }
 
 
-        private void OpenChildForm(Form childForm)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.DesktopPanel.Controls.Add(childForm);
-            this.DesktopPanel.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
-
-
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fDashBoard(Rol), sender);
@@ -218,11 +203,11 @@ namespace GestionCasos
         {
             if (Rol == (int)Enums.Tipo.Tramitador)
             {
-                OpenChildForm(new CasosAsignados(true),sender);
+                OpenChildForm(new CasosAsignados(true), sender);
             }
             else
             {
-                OpenChildForm(new fCasosAdmin(true),sender);
+                OpenChildForm(new fCasosAdmin(true), sender);
             }
         }
     }

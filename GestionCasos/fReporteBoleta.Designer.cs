@@ -31,13 +31,24 @@ namespace GestionCasos
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dtsBoleta = new GestionCasos.dtsBoleta();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReporteBoleta));
             this.BoletaTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtsBoleta = new GestionCasos.dtsBoleta();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.BoletaTableTableAdapter = new GestionCasos.dtsBoletaTableAdapters.BoletaTableTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dtsBoleta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BoletaTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsBoleta)).BeginInit();
             this.SuspendLayout();
+            // 
+            // BoletaTableBindingSource
+            // 
+            this.BoletaTableBindingSource.DataMember = "BoletaTable";
+            this.BoletaTableBindingSource.DataSource = this.dtsBoleta;
+            // 
+            // dtsBoleta
+            // 
+            this.dtsBoleta.DataSetName = "dtsBoleta";
+            this.dtsBoleta.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -52,16 +63,6 @@ namespace GestionCasos
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // dtsBoleta
-            // 
-            this.dtsBoleta.DataSetName = "dtsBoleta";
-            this.dtsBoleta.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // BoletaTableBindingSource
-            // 
-            this.BoletaTableBindingSource.DataMember = "BoletaTable";
-            this.BoletaTableBindingSource.DataSource = this.dtsBoleta;
-            // 
             // BoletaTableTableAdapter
             // 
             this.BoletaTableTableAdapter.ClearBeforeFill = true;
@@ -72,11 +73,12 @@ namespace GestionCasos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fReporteBoleta";
             this.Text = "fReporteBoleta";
             this.Load += new System.EventHandler(this.fReporteBoleta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtsBoleta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BoletaTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsBoleta)).EndInit();
             this.ResumeLayout(false);
 
         }

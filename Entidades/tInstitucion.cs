@@ -32,6 +32,7 @@ namespace Entidades
         public string Responsable { get; set; }
         public string Contacto { get; set; }
         public bool Estado { get; set; }
+        public int CodigoAux { get; set; }
     
         public virtual tDireccionRegional tDireccionRegional { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

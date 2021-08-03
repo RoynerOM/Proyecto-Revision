@@ -83,6 +83,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_user_male_20px {
+            get {
+                object obj = ResourceManager.GetObject("add_user_male_20px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
@@ -226,6 +236,16 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap edit_graph_report_100px2 {
             get {
                 object obj = ResourceManager.GetObject("edit_graph_report_100px2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enter_20px {
+            get {
+                object obj = ResourceManager.GetObject("enter_20px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -443,6 +463,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap name_20px {
+            get {
+                object obj = ResourceManager.GetObject("name_20px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap new_moon_60px {
             get {
                 object obj = ResourceManager.GetObject("new_moon_60px", resourceCulture);
@@ -636,6 +666,26 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap sun_60px {
             get {
                 object obj = ResourceManager.GetObject("sun_60px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sync_20px {
+            get {
+                object obj = ResourceManager.GetObject("sync_20px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sync_20px1 {
+            get {
+                object obj = ResourceManager.GetObject("sync_20px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

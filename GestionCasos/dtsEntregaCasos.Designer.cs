@@ -281,6 +281,8 @@ namespace GestionCasos {
             
             private global::System.Data.DataColumn columnConsecutivo;
             
+            private global::System.Data.DataColumn columnCodigo;
+            
             private global::System.Data.DataColumn columnCircuito;
             
             private global::System.Data.DataColumn columnInstitucion;
@@ -295,7 +297,7 @@ namespace GestionCasos {
             
             private global::System.Data.DataColumn columnMensajero;
             
-            private global::System.Data.DataColumn columnCodigoAux;
+            private global::System.Data.DataColumn columnPago;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -335,6 +337,14 @@ namespace GestionCasos {
             public global::System.Data.DataColumn ConsecutivoColumn {
                 get {
                     return this.columnConsecutivo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CodigoColumn {
+                get {
+                    return this.columnCodigo;
                 }
             }
             
@@ -396,9 +406,9 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CodigoAuxColumn {
+            public global::System.Data.DataColumn PagoColumn {
                 get {
-                    return this.columnCodigoAux;
+                    return this.columnPago;
                 }
             }
             
@@ -439,10 +449,11 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public EntregaTableRow AddEntregaTableRow(string Consecutivo, int Circuito, string Institucion, string Asignado, System.DateTime FechaAsignada, System.DateTime FechaEntrega, string Observacion, string Mensajero, int CodigoAux) {
+            public EntregaTableRow AddEntregaTableRow(string Consecutivo, int Codigo, int Circuito, string Institucion, string Asignado, System.DateTime FechaAsignada, System.DateTime FechaEntrega, string Observacion, string Mensajero, int Pago) {
                 EntregaTableRow rowEntregaTableRow = ((EntregaTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Consecutivo,
+                        Codigo,
                         Circuito,
                         Institucion,
                         Asignado,
@@ -450,7 +461,7 @@ namespace GestionCasos {
                         FechaEntrega,
                         Observacion,
                         Mensajero,
-                        CodigoAux};
+                        Pago};
                 rowEntregaTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEntregaTableRow);
                 return rowEntregaTableRow;
@@ -474,6 +485,7 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnConsecutivo = base.Columns["Consecutivo"];
+                this.columnCodigo = base.Columns["Codigo"];
                 this.columnCircuito = base.Columns["Circuito"];
                 this.columnInstitucion = base.Columns["Institucion"];
                 this.columnAsignado = base.Columns["Asignado"];
@@ -481,7 +493,7 @@ namespace GestionCasos {
                 this.columnFechaEntrega = base.Columns["FechaEntrega"];
                 this.columnObservacion = base.Columns["Observacion"];
                 this.columnMensajero = base.Columns["Mensajero"];
-                this.columnCodigoAux = base.Columns["CodigoAux"];
+                this.columnPago = base.Columns["Pago"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -489,6 +501,8 @@ namespace GestionCasos {
             private void InitClass() {
                 this.columnConsecutivo = new global::System.Data.DataColumn("Consecutivo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnConsecutivo);
+                this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigo);
                 this.columnCircuito = new global::System.Data.DataColumn("Circuito", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCircuito);
                 this.columnInstitucion = new global::System.Data.DataColumn("Institucion", typeof(string), null, global::System.Data.MappingType.Element);
@@ -503,10 +517,11 @@ namespace GestionCasos {
                 base.Columns.Add(this.columnObservacion);
                 this.columnMensajero = new global::System.Data.DataColumn("Mensajero", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMensajero);
-                this.columnCodigoAux = new global::System.Data.DataColumn("CodigoAux", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigoAux);
+                this.columnPago = new global::System.Data.DataColumn("Pago", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPago);
                 this.columnConsecutivo.ReadOnly = true;
                 this.columnConsecutivo.MaxLength = 14;
+                this.columnCodigo.ReadOnly = true;
                 this.columnCircuito.AllowDBNull = false;
                 this.columnInstitucion.AllowDBNull = false;
                 this.columnInstitucion.MaxLength = 2147483647;
@@ -518,7 +533,7 @@ namespace GestionCasos {
                 this.columnObservacion.MaxLength = 2147483647;
                 this.columnMensajero.ReadOnly = true;
                 this.columnMensajero.MaxLength = 152;
-                this.columnCodigoAux.ReadOnly = true;
+                this.columnPago.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -677,6 +692,22 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Codigo {
+                get {
+                    try {
+                        return ((int)(this[this.tableEntregaTable.CodigoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Codigo\' in table \'EntregaTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaTable.CodigoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int Circuito {
                 get {
                     return ((int)(this[this.tableEntregaTable.CircuitoColumn]));
@@ -764,17 +795,12 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int CodigoAux {
+            public int Pago {
                 get {
-                    try {
-                        return ((int)(this[this.tableEntregaTable.CodigoAuxColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CodigoAux\' in table \'EntregaTable\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableEntregaTable.PagoColumn]));
                 }
                 set {
-                    this[this.tableEntregaTable.CodigoAuxColumn] = value;
+                    this[this.tableEntregaTable.PagoColumn] = value;
                 }
             }
             
@@ -788,6 +814,18 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetConsecutivoNull() {
                 this[this.tableEntregaTable.ConsecutivoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCodigoNull() {
+                return this.IsNull(this.tableEntregaTable.CodigoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCodigoNull() {
+                this[this.tableEntregaTable.CodigoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -812,18 +850,6 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetMensajeroNull() {
                 this[this.tableEntregaTable.MensajeroColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCodigoAuxNull() {
-                return this.IsNull(this.tableEntregaTable.CodigoAuxColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCodigoAuxNull() {
-                this[this.tableEntregaTable.CodigoAuxColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -987,6 +1013,7 @@ namespace GestionCasos.dtsEntregaCasosTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "EntregaTable";
             tableMapping.ColumnMappings.Add("Consecutivo", "Consecutivo");
+            tableMapping.ColumnMappings.Add("Codigo", "Codigo");
             tableMapping.ColumnMappings.Add("Circuito", "Circuito");
             tableMapping.ColumnMappings.Add("Institucion", "Institucion");
             tableMapping.ColumnMappings.Add("Asignado", "Asignado");
@@ -994,7 +1021,7 @@ namespace GestionCasos.dtsEntregaCasosTableAdapters {
             tableMapping.ColumnMappings.Add("FechaEntrega", "FechaEntrega");
             tableMapping.ColumnMappings.Add("Observacion", "Observacion");
             tableMapping.ColumnMappings.Add("Mensajero", "Mensajero");
-            tableMapping.ColumnMappings.Add("CodigoAux", "CodigoAux");
+            tableMapping.ColumnMappings.Add("Pago", "Pago");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1011,8 +1038,8 @@ namespace GestionCasos.dtsEntregaCasosTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        tRevision.Consecutivo, tInstitucion.CodigoAux, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.Fecha AS FechaAsignada, tEntregaCasos.FechaEntrega, 
-                         tEntregaCasos.Observacion, tMensajero.NombreCompleto AS Mensajero
+            this._commandCollection[0].CommandText = @"SELECT        tRevision.Consecutivo, tInstitucion.CodigoAux AS Codigo, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.Fecha AS FechaAsignada, tEntregaCasos.FechaEntrega, 
+                         tEntregaCasos.Observacion, tMensajero.NombreCompleto AS Mensajero, tEntregaCasos.Pago
 FROM            tEntregaCasos INNER JOIN
                          tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero INNER JOIN
                          tRevision ON tEntregaCasos.Caso = tRevision.IdCaso INNER JOIN

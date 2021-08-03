@@ -1,4 +1,6 @@
 ﻿using Datos;
+using GestionCasos.Usuarios;
+using Negocios;
 using System;
 using System.IO;
 using System.Linq;
@@ -10,8 +12,7 @@ namespace GestionCasos
 {
     public partial class Login : Form
     {
-
-        Registrar llamarRegistrar = new Registrar();
+        UsuarioNegocio un = new UsuarioNegocio();
         showMessageDialog Message = new showMessageDialog();
         private Form activeForm = null;
 
@@ -20,9 +21,13 @@ namespace GestionCasos
             InitializeComponent();
         }
 
+
         private void Login_Load(object sender, EventArgs e)
         {
-            cbIdentificacion.SelectedIndex = 0;
+            txtNombreUsuario.Mask = "0-0000-0000";
+            Transition t = new Transition(new TransitionType_EaseInEaseOut(2000));
+            t.add(pnTop, "Top", 1);
+            t.run();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -33,10 +38,7 @@ namespace GestionCasos
 
         private void btnLLamar_Click(object sender, EventArgs e)
         {
-            btnLLamar.Visible = false;
-            Transition t = new Transition(new TransitionType_EaseInEaseOut(2000));
-            t.add(pnTop, "Top", 1);
-            t.run();
+            
         }
         private void OpenChildForm(Form childForm)
         {
@@ -56,81 +58,13 @@ namespace GestionCasos
         {
             try
             {
-                using (BDJuntasEntities contex = new BDJuntasEntities())
+                using (var contex = new BDJuntasEntities())
                 {
                     Principal principal;
-                    var user = contex.tUsuario.Where(u => u.Cedula == txtNombreUsuario.Text).SingleOrDefault();
-                    if (user != null)
+                    var user = contex.tUsuario.Include("tPersona").Where(u => u.Cedula == txtNombreUsuario.Text).SingleOrDefault();
+
+                    if (user.tPersona.Estado == true)
                     {
-                        if (user.Clave == txtContraseña.Text)
-                        {
-                            if (user.Rol == 0)
-                            {
-                                //Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
-                                principal = new Principal(0);
-                            }
-                            else
-                            {
-                                principal = new Principal(1);
-                            }
-                            File.WriteAllText("temp.txt", txtNombreUsuario.Text);
-                            this.Hide();
-                            principal.Show();
-
-                        }
-                        else
-                        {
-                            Message.Danger(new Alertas.Alerta(), "La contraseña es incorrecta");
-
-                        }
-                    }
-                    else
-                    {
-                        Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
-
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
-
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-
-            OpenChildForm(new Registrar());
-        }
-
-        private void cbIdentificacion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbIdentificacion.SelectedIndex == 0)
-            {
-                txtNombreUsuario.Mask = "0-0000-0000";
-            }
-            else
-            {
-                txtNombreUsuario.Mask = "000000000000";
-            }
-        }
-
-        private void btnIniciarSecion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                try
-                {
-                    using (BDJuntasEntities contex = new BDJuntasEntities())
-                    {
-                        Principal principal;
-                        var user = contex.tUsuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
                         if (user != null)
                         {
                             if (user.Clave == txtContraseña.Text)
@@ -159,6 +93,82 @@ namespace GestionCasos
                         {
                             Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
 
+                        }
+                    }
+                    else
+                    {
+                        Message.Danger(new Alertas.Alerta(), "No puede puede ingresar. Usuario bloquedo");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            fRecuperacion v = new fRecuperacion();
+            v.Show();
+            
+        }
+
+  
+
+        private void btnIniciarSecion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                try
+                {
+                    using (var contex = new BDJuntasEntities())
+                    {
+                        Principal principal;
+                        var user = contex.tUsuario.Include("tPersona").Where(u => u.Cedula == txtNombreUsuario.Text).SingleOrDefault();
+
+                        if (user.tPersona.Estado == true)
+                        {
+                            if (user != null)
+                            {
+                                if (user.Clave == txtContraseña.Text)
+                                {
+                                    if (user.Rol == 0)
+                                    {
+                                        //Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
+                                        principal = new Principal(0);
+                                    }
+                                    else
+                                    {
+                                        principal = new Principal(1);
+                                    }
+                                    File.WriteAllText("temp.txt", txtNombreUsuario.Text);
+
+                                    this.Hide();
+                                    principal.Show();
+
+                                }
+                                else
+                                {
+                                    Message.Danger(new Alertas.Alerta(), "La contraseña es incorrecta");
+
+                                }
+                            }
+                            else
+                            {
+                                Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
+
+                            }
+                        }
+                        else
+                        {
+                            Message.Danger(new Alertas.Alerta(), "No puede puede ingresar. Usuario bloquedo");
                         }
 
                     }
@@ -172,51 +182,7 @@ namespace GestionCasos
 
         private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                try
-                {
-                    using (BDJuntasEntities contex = new BDJuntasEntities())
-                    {
-                        Principal principal;
-                        var user = contex.tUsuario.FirstOrDefault(u => u.Cedula == txtNombreUsuario.Text);
-                        if (user != null)
-                        {
-                            if (user.Clave == txtContraseña.Text)
-                            {
-                                if (user.Rol == 0)
-                                {
-                                    //Message.Success(new Alertas.Alerta(), "Sesión Iniciada correctamente");
-                                    principal = new Principal(0);
-                                }
-                                else
-                                {
-                                    principal = new Principal(1);
-                                }
-                                File.WriteAllText("temp.txt", txtNombreUsuario.Text);
-                                this.Hide();
-                                principal.Show();
 
-                            }
-                            else
-                            {
-                                Message.Danger(new Alertas.Alerta(), "La contraseña es incorrecta");
-
-                            }
-                        }
-                        else
-                        {
-                            Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
-
-                        }
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            }
         }
 
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
@@ -231,6 +197,23 @@ namespace GestionCasos
                 txtContraseña.PasswordChar = '•';
                 gunaAdvenceTileButton1.Image = global::GestionCasos.Properties.Resources.eyeb;
             }
+        }
+
+        private void gunaAdvenceTileButton2_Click(object sender, EventArgs e)
+        {
+            if (txtNombreUsuario.Mask == "0-0000-0000")
+            {
+                txtNombreUsuario.Mask = "000000000000";
+            }
+            else
+            {
+                txtNombreUsuario.Mask = "0-0000-0000";
+            }
+        }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Registrar());
         }
     }
 }

@@ -29,7 +29,7 @@ namespace GestionCasos.Alertas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void gunaCircleButton1_Click(object sender, EventArgs e)

@@ -4,13 +4,18 @@
     {
         public enum MedioReceptivo
         {
-            Correo =1,
-            Whatsapp=2,
-            Oficina=3,
-            Mensajero=4,
-           
+            Correo = 1,
+            Whatsapp = 2,
+            Oficina = 3,
+            Mensajero = 4,
+
         }
 
+        public enum Recep
+        {
+            Oficina = 3,
+            Mensajero = 4,
+        }
         public enum Estado
         {
             activo,

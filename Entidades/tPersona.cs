@@ -31,6 +31,7 @@ namespace Entidades
         public string Apellido2 { get; set; }
         public string NombreCompleto { get; set; }
         public string Correo { get; set; }
+        public Nullable<bool> Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tEntregaCasos> tEntregaCasos { get; set; }

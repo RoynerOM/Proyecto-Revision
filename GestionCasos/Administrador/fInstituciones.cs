@@ -16,7 +16,7 @@ namespace GestionCasos.Administrador
     public partial class fInstituciones : Form
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-       
+
         ContadorNegocio persona = new ContadorNegocio();
         DireccionRegionalNegocio regional = new DireccionRegionalNegocio();
         InstitucionNegocio negocio = new InstitucionNegocio();
@@ -217,7 +217,7 @@ namespace GestionCasos.Administrador
         {
             try
             {
-               
+
                 if (ValidarCampos() == true)
                 {
                     tInstitucion institucion = new tInstitucion();

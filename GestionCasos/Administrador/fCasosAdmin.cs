@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
-using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using Utilidades;
@@ -329,20 +328,27 @@ namespace GestionCasos
 
         public void CargarCombos()
         {
-            //Tramitador
-            cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
-            cbTramitador.ValueMember = "Cedula";
-            cbTramitador.DisplayMember = "NombreCompleto";
+            try
+            {
+                //Tramitador
+                cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
+                cbTramitador.ValueMember = "Cedula";
+                cbTramitador.DisplayMember = "NombreCompleto";
 
-            //Estado
-            cbEstado.DataSource = estadoNegocio.obtenerTodo(new tEstado());
-            cbEstado.ValueMember = "IdEstado";
-            cbEstado.DisplayMember = "Estado".ToUpper();
+                //Estado
+                cbEstado.DataSource = estadoNegocio.obtenerTodo(new tEstado());
+                cbEstado.ValueMember = "IdEstado";
+                cbEstado.DisplayMember = "Estado".ToUpper();
 
-            //Recepcion
-            cbRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
-            cbRecepcion.ValueMember = "id";
-            cbRecepcion.DisplayMember = "Recepcion".ToUpper();
+                //Recepcion
+                cbRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
+                cbRecepcion.ValueMember = "id";
+                cbRecepcion.DisplayMember = "Recepcion".ToUpper();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
 
@@ -420,7 +426,7 @@ namespace GestionCasos
             {
                 PedirDatos();
             }
-                
+
         }
         #endregion
 

@@ -64,7 +64,7 @@ namespace GestionCasos
                     lblEntregados.Text = entregados.ToString();
                     label5.Text = "Casos Entregados";
 
-                    var instituciones = institucion.obtenerTodo(new tInstitucion()).Count();
+                    var instituciones = institucion.obtenerTodo(new tInstitucion()).Where(x=> x.Estado == true).Count();
                     lblTotalJuntas.Text = instituciones.ToString();
 
                     var tramitadores = negocio.obtenerTrabador(1).Count();
@@ -162,16 +162,23 @@ namespace GestionCasos
         //Formulario en uso
         private void OpenChildForm(Form childForm)
         {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.DesktopPanel.Controls.Add(childForm);
-            this.DesktopPanel.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            try
+            {
+                if (activeForm != null)
+                    activeForm.Close();
+                activeForm = childForm;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                this.DesktopPanel.Controls.Add(childForm);
+                this.DesktopPanel.Tag = childForm;
+                childForm.BringToFront();
+                childForm.Show();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
         }
 
         private void GunaTileButton2_Click(object sender, EventArgs e)

@@ -1,7 +1,6 @@
-﻿using GestionCasos.Usuarios;
-using System;
+﻿using System;
 using System.Windows.Forms;
-
+using GestionCasos.Usuarios;
 namespace GestionCasos
 {
     static class Program
@@ -15,7 +14,7 @@ namespace GestionCasos
             Application.EnableVisualStyles();
 
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ReporteEntregaDeCasos());
+            Application.Run(new ReporteJuntas());
         }
     }
 }

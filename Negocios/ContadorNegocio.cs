@@ -11,7 +11,7 @@ namespace Negocios
         readonly DatosContador contador = new DatosContador();
         public bool eliminar(tPersona e)
         {
-            //e.Estado == false;
+            e.Estado = false;
             return contador.eliminar(e);
         }
 

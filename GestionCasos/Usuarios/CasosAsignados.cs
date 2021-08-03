@@ -10,7 +10,6 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using Utilidades;
-using Utilidades.Enumerables;
 
 namespace GestionCasos.Usuarios
 {

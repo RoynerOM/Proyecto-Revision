@@ -31,14 +31,22 @@ namespace GestionCasos
         //Modificado
         private void CargarCombos()
         {
-            cbAsignados.DataSource = persona.obtenerTodo(new tPersona());
-            cbAsignados.DisplayMember = "NombreCompleto";
-            cbAsignados.ValueMember = "Cedula";
+            try
+            {
+                cbAsignados.DataSource = persona.obtenerTodo(new tPersona());
+                cbAsignados.DisplayMember = "NombreCompleto";
+                cbAsignados.ValueMember = "Cedula";
 
-            //Modificado
-            cbTipoRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
-            cbTipoRecepcion.ValueMember = "id";
-            cbTipoRecepcion.DisplayMember = "Nombre";
+                //Modificado
+                cbTipoRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
+                cbTipoRecepcion.ValueMember = "id";
+                cbTipoRecepcion.DisplayMember = "Nombre";
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
 
         //Modificado

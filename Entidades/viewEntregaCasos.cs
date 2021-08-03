@@ -12,15 +12,16 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class tUsuario
+    public partial class viewEntregaCasos
     {
-        public int IdUsuario { get; set; }
-        public string Cedula { get; set; }
-        public string Clave { get; set; }
-        public int Rol { get; set; }
-        public bool Estado { get; set; }
-        public Nullable<double> CodigoRes { get; set; }
-    
-        public virtual tPersona tPersona { get; set; }
+        public string Consecutivo { get; set; }
+        public int Codigo { get; set; }
+        public int Circuito { get; set; }
+        public string Institucion { get; set; }
+        public string Asignado { get; set; }
+        public System.DateTime FechaAsignada { get; set; }
+        public System.DateTime FechaEntrega { get; set; }
+        public string Observacion { get; set; }
+        public string Mensajero { get; set; }
     }
 }

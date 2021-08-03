@@ -38,7 +38,10 @@ namespace Datos
         public virtual DbSet<tTrabajador> tTrabajador { get; set; }
         public virtual DbSet<tUsuario> tUsuario { get; set; }
         public virtual DbSet<viewBoleta> viewBoleta { get; set; }
+        public virtual DbSet<viewCasosAsignados> viewCasosAsignados { get; set; }
         public virtual DbSet<viewContadores> viewContadores { get; set; }
+        public virtual DbSet<viewEntregaCasos> viewEntregaCasos { get; set; }
+        public virtual DbSet<viewJuntas> viewJuntas { get; set; }
         public virtual DbSet<viewTrabajador> viewTrabajador { get; set; }
     }
 }

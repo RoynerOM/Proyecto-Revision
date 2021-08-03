@@ -30,7 +30,10 @@ namespace GestionCasos.Usuarios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fBoleta));
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
+            this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txtComentario = new System.Windows.Forms.TextBox();
             this.btnEntrega = new Guna.UI.WinForms.GunaButton();
             this.dtpFechaActa = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtFolio = new Guna.UI.WinForms.GunaTextBox();
@@ -56,12 +59,10 @@ namespace GestionCasos.Usuarios
             this.label1 = new System.Windows.Forms.Label();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.txtComentario = new System.Windows.Forms.TextBox();
             this.gunaLinePanel1.SuspendLayout();
+            this.guna2GroupBox3.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
-            this.guna2GroupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaLinePanel1
@@ -94,6 +95,33 @@ namespace GestionCasos.Usuarios
             this.gunaLinePanel1.Size = new System.Drawing.Size(800, 700);
             this.gunaLinePanel1.TabIndex = 0;
             this.gunaLinePanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaLinePanel1_Paint);
+            // 
+            // guna2GroupBox3
+            // 
+            this.guna2GroupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.guna2GroupBox3.Controls.Add(this.txtComentario);
+            this.guna2GroupBox3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.guna2GroupBox3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2GroupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GroupBox3.ForeColor = System.Drawing.Color.White;
+            this.guna2GroupBox3.Location = new System.Drawing.Point(401, 449);
+            this.guna2GroupBox3.Name = "guna2GroupBox3";
+            this.guna2GroupBox3.ShadowDecoration.Parent = this.guna2GroupBox3;
+            this.guna2GroupBox3.Size = new System.Drawing.Size(384, 155);
+            this.guna2GroupBox3.TabIndex = 16;
+            this.guna2GroupBox3.Text = "Comentario";
+            // 
+            // txtComentario
+            // 
+            this.txtComentario.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtComentario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComentario.Location = new System.Drawing.Point(0, 40);
+            this.txtComentario.Multiline = true;
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtComentario.Size = new System.Drawing.Size(384, 115);
+            this.txtComentario.TabIndex = 0;
             // 
             // btnEntrega
             // 
@@ -535,33 +563,6 @@ namespace GestionCasos.Usuarios
             // 
             this.gunaDragControl1.TargetControl = this.gunaLinePanel1;
             // 
-            // guna2GroupBox3
-            // 
-            this.guna2GroupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.guna2GroupBox3.Controls.Add(this.txtComentario);
-            this.guna2GroupBox3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.guna2GroupBox3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox3.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox3.Location = new System.Drawing.Point(401, 449);
-            this.guna2GroupBox3.Name = "guna2GroupBox3";
-            this.guna2GroupBox3.ShadowDecoration.Parent = this.guna2GroupBox3;
-            this.guna2GroupBox3.Size = new System.Drawing.Size(384, 155);
-            this.guna2GroupBox3.TabIndex = 16;
-            this.guna2GroupBox3.Text = "Comentario";
-            // 
-            // txtComentario
-            // 
-            this.txtComentario.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtComentario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComentario.Location = new System.Drawing.Point(0, 40);
-            this.txtComentario.Multiline = true;
-            this.txtComentario.Name = "txtComentario";
-            this.txtComentario.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtComentario.Size = new System.Drawing.Size(384, 115);
-            this.txtComentario.TabIndex = 0;
-            // 
             // fBoleta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -569,6 +570,7 @@ namespace GestionCasos.Usuarios
             this.ClientSize = new System.Drawing.Size(800, 700);
             this.Controls.Add(this.gunaLinePanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 700);
             this.Name = "fBoleta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -576,12 +578,12 @@ namespace GestionCasos.Usuarios
             this.Load += new System.EventHandler(this.fBoleta_Load);
             this.gunaLinePanel1.ResumeLayout(false);
             this.gunaLinePanel1.PerformLayout();
+            this.guna2GroupBox3.ResumeLayout(false);
+            this.guna2GroupBox3.PerformLayout();
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
-            this.guna2GroupBox3.ResumeLayout(false);
-            this.guna2GroupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }

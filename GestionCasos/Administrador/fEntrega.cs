@@ -74,7 +74,7 @@ namespace GestionCasos.Administrador
                     txtNombre.Enabled = false;
                     txtApellido1.Enabled = false;
                     txtApellido2.Enabled = false;
-                    cbEntrega.Text = Enum.GetName(typeof(Enums.MedioReceptivo), entrega.Recepcion);
+                    cbEntrega.Text = entrega.Recepcion == 4 ? "OFICINA" : "MENSAJERO";
                     lblConsecutivo.Text = consecutivo;
 
 
@@ -156,6 +156,7 @@ namespace GestionCasos.Administrador
         private void fEntrega_Load(object sender, EventArgs e)
         {
             lblFecha.Visible = false;
+            txtCedula.Mask = "0-0000-0000";
             CargarCombos();
             CargarDatos();
         }
@@ -285,7 +286,7 @@ namespace GestionCasos.Administrador
                     //En caso de que exista se actualiza
                     ec = entregaNegocio.obtenerPorCaso(consecutivo);
 
-                    if (ec!= null)
+                    if (ec != null)
                     {
                         if (cbCheque.Checked == true)
                         {
@@ -362,20 +363,21 @@ namespace GestionCasos.Administrador
 
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
-            
 
-            if (state == false)
+
+            if (txtCedula.Mask == "0-0000-0000")
             {
-                state = true;
-                btnTipo.Image = global::GestionCasos.Properties.Resources.n_100px;
-                txtCedula.Mask = "0-0000-0000";
+                txtCedula.Mask = "000000000000";
             }
             else
             {
-                state = false;
-                btnTipo.Image = global::GestionCasos.Properties.Resources.d_100px;
-                txtCedula.Mask = "000000000000";
+                txtCedula.Mask = "0-0000-0000";
             }
+        }
+
+        private void cbEntrega_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

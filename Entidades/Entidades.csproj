@@ -96,7 +96,16 @@
     <Compile Include="viewBoleta.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="viewCasosAsignados.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="viewContadores.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="viewEntregaCasos.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="viewJuntas.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
     <Compile Include="viewTrabajador.cs">

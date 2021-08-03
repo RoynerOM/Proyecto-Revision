@@ -703,7 +703,7 @@
         <Top>0.44097cm</Top>
         <Left>0.35225cm</Left>
         <Height>1.835cm</Height>
-        <Width>34.90892cm</Width>
+        <Width>34.90889cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -745,27 +745,32 @@
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="Textbox20">
+        <Textbox Name="Textbox6">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Pagina" &amp; Globals!PageNumber &amp; " de " &amp; Globals!TotalPages</Value>
+                  <Value> 2470-1854</Value>
                   <Style>
-                    <FontSize>9pt</FontSize>
+                    <FontStyle>Normal</FontStyle>
+                    <FontFamily>Calibri</FontFamily>
+                    <FontSize>11pt</FontSize>
+                    <FontWeight>Normal</FontWeight>
+                    <TextDecoration>None</TextDecoration>
+                    <Color>#000000</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>1.09139cm</Top>
-          <Left>31.70682cm</Left>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>0.75423cm</Top>
+          <Left>32.3521cm</Left>
           <Height>0.6cm</Height>
-          <Width>3.21583cm</Width>
+          <Width>2.60583cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -776,6 +781,84 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox8">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>50 mts al este de la Municipalidad de Upala, Upala, Alajuela, Costa Rica</Value>
+                  <Style>
+                    <FontStyle>Normal</FontStyle>
+                    <FontFamily>Calibri</FontFamily>
+                    <FontSize>11pt</FontSize>
+                    <FontWeight>Normal</FontWeight>
+                    <TextDecoration>None</TextDecoration>
+                    <Color>#000000</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>0.75423cm</Top>
+          <Left>12.74677cm</Left>
+          <Height>0.6cm</Height>
+          <Width>11.78687cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>Imagen2</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.75423cm</Top>
+          <Left>31.70682cm</Left>
+          <Height>0.61cm</Height>
+          <Width>0.61cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="Image2">
+          <Source>Embedded</Source>
+          <Value>Imagen11</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.74423cm</Top>
+          <Left>12.06621cm</Left>
+          <Height>0.61cm</Height>
+          <Width>0.61cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Line Name="Line1">
+          <Top>0.07056cm</Top>
+          <Height>0cm</Height>
+          <Width>35.56cm</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
         <Textbox Name="Textbox4">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -820,150 +903,29 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.36556cm</Top>
-          <Left>1.41807cm</Left>
+          <Top>0.38556cm</Top>
+          <Left>1.68451cm</Left>
           <Height>0.6cm</Height>
           <Width>4.19876cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox6">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value> 2470-1854</Value>
-                  <Style>
-                    <FontStyle>Normal</FontStyle>
-                    <FontFamily>Calibri</FontFamily>
-                    <FontSize>11pt</FontSize>
-                    <FontWeight>Normal</FontWeight>
-                    <TextDecoration>None</TextDecoration>
-                    <Color>#000000</Color>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>0.37556cm</Top>
-          <Left>32.3521cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.60583cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox8">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>50 mts al este de la Municipalidad de Upala, Upala, Alajuela, Costa Rica</Value>
-                  <Style>
-                    <FontStyle>Normal</FontStyle>
-                    <FontFamily>Calibri</FontFamily>
-                    <FontSize>11pt</FontSize>
-                    <FontWeight>Normal</FontWeight>
-                    <TextDecoration>None</TextDecoration>
-                    <Color>#000000</Color>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>1.12465cm</Top>
-          <Left>12.74677cm</Left>
-          <Height>0.6cm</Height>
-          <Width>11.78687cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox18">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Globals!ExecutionTime</Value>
-                  <Style>
-                    <FontSize>9pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>1.11465cm</Top>
-          <Left>1.12557cm</Left>
-          <Height>0.6cm</Height>
-          <Width>4.22516cm</Width>
-          <ZIndex>4</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Image Name="Image1">
-          <Source>Embedded</Source>
-          <Value>Imagen2</Value>
-          <Sizing>FitProportional</Sizing>
-          <Top>0.37556cm</Top>
-          <Left>31.70682cm</Left>
-          <Height>0.61cm</Height>
-          <Width>0.61cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
           </Style>
-        </Image>
-        <Image Name="Image2">
+        </Textbox>
+        <Image Name="Image3">
           <Source>Embedded</Source>
-          <Value>Imagen11</Value>
+          <Value>Imagen3</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>1.11465cm</Top>
-          <Left>12.06621cm</Left>
-          <Height>0.61cm</Height>
-          <Width>0.61cm</Width>
+          <Top>0.38556cm</Top>
+          <Left>1.30458cm</Left>
+          <Height>0.6cm</Height>
+          <Width>0.66215cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -971,32 +933,58 @@
             </Border>
           </Style>
         </Image>
-        <Image Name="Image3">
+        <Textbox Name="Textbox9">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>amconsultoreslj@gmail.com</Value>
+                  <Style>
+                    <FontStyle>Normal</FontStyle>
+                    <FontFamily>Calibri</FontFamily>
+                    <FontSize>11pt</FontSize>
+                    <FontWeight>Normal</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
+                    <Color>Blue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>1.16195cm</Top>
+          <Left>2.14312cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.01897cm</Width>
+          <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="Image4">
           <Source>Embedded</Source>
           <Value>Imagen3</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.36556cm</Top>
-          <Left>1.12557cm</Left>
-          <Height>0.61cm</Height>
-          <Width>0.61cm</Width>
-          <ZIndex>7</ZIndex>
+          <Top>1.16195cm</Top>
+          <Left>1.30458cm</Left>
+          <Height>0.6cm</Height>
+          <Width>0.66215cm</Width>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
           </Style>
         </Image>
-        <Line Name="Line1">
-          <Top>0.07056cm</Top>
-          <Height>0cm</Height>
-          <Width>35.56cm</Width>
-          <ZIndex>8</ZIndex>
-          <Style>
-            <Border>
-              <Style>Solid</Style>
-            </Border>
-          </Style>
-        </Line>
       </ReportItems>
       <Style>
         <Border>

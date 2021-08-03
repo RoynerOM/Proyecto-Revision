@@ -32,7 +32,7 @@ namespace Negocios
 
             using (BDJuntasEntities context = new BDJuntasEntities())
             {
-                var cedula = context.tPersona.FirstOrDefault(x => x.Cedula == ced);
+                var cedula = context.tPersona.FirstOrDefault(x => x.Cedula == ced && x.Estado == true);
                 var v_cedula = context.tUsuario.FirstOrDefault(x => x.Cedula == ced);
 
                 if (cedula != null && v_cedula == null)
@@ -52,14 +52,17 @@ namespace Negocios
 
         public bool modificar(tUsuario e)
         {
-            throw new NotImplementedException();
+            return datosUsuario.modificar(e);
         }
 
         public tUsuario obtenerPorId(tUsuario e)
         {
             throw new NotImplementedException();
         }
-
+        public tUsuario obtenerPorId(string e)
+        {
+            return datosUsuario.obtenerPorId(e);
+        }
         public IEnumerable<tUsuario> obtenerTodo(tUsuario e)
         {
             throw new NotImplementedException();

@@ -340,6 +340,12 @@
     <Compile Include="Usuarios\fBoleta.Designer.cs">
       <DependentUpon>fBoleta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\fRecuperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\fRecuperacion.Designer.cs">
+      <DependentUpon>fRecuperacion.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administrador\AsignarCaso.resx">
       <DependentUpon>AsignarCaso.cs</DependentUpon>
     </EmbeddedResource>
@@ -424,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\fBoleta.resx">
       <DependentUpon>fBoleta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\fRecuperacion.resx">
+      <DependentUpon>fRecuperacion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dtsBoleta.xsc">
       <DependentUpon>dtsBoleta.xsd</DependentUpon>
@@ -547,6 +556,11 @@
     <None Include="Resources\search_26px.png" />
     <None Include="Resources\synchronize_20px.png" />
     <None Include="Resources\delete_52px1.png" />
+    <None Include="Resources\add_user_male_20px.png" />
+    <None Include="Resources\enter_20px.png" />
+    <None Include="Resources\name_20px.png" />
+    <None Include="Resources\sync_20px.png" />
+    <None Include="Resources\sync_20px1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

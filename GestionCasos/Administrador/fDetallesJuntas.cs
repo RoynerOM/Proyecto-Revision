@@ -153,10 +153,18 @@ namespace GestionCasos.Administrador
 
         public void CargarCombos()
         {
-            //Tramitador
-            cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
-            cbTramitador.ValueMember = "Cedula";
-            cbTramitador.DisplayMember = "NombreCompleto";
+            try
+            {
+                //Tramitador
+                cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
+                cbTramitador.ValueMember = "Cedula";
+                cbTramitador.DisplayMember = "NombreCompleto";
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
 
 

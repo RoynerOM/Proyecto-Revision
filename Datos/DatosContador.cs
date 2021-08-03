@@ -10,7 +10,6 @@ namespace Datos
     {
         public bool eliminar(tPersona e)
         {
-            //throw new NotImplementedException();
             try
             {
                 using (var db = new BDJuntasEntities())
@@ -97,7 +96,15 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    return (from query in db.tPersona where query.Cedula == e.Cedula select query).FirstOrDefault();
+                    var p = db.tPersona.Where(x => x.Cedula == e.Cedula && x.Estado == true).SingleOrDefault();
+                    if (p != null)
+                    {
+                        return p;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
             }
             catch (Exception ex)
@@ -114,8 +121,8 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                   var datos = db.tPersona.Where(x=> x.Cedula == e).SingleOrDefault();
-                    if (datos!= null)
+                    var datos = db.tPersona.Where(x => x.Cedula == e && x.Estado == true).SingleOrDefault();
+                    if (datos != null)
                     {
                         return datos;
                     }
@@ -140,7 +147,15 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    return (from query in db.tPersona select query).ToList();
+                    var p = db.tPersona.Where(x => x.Estado == true).ToList();
+                    if (p != null)
+                    {
+                        return p;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
             }
             catch (Exception ex)

@@ -12,15 +12,17 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class tUsuario
+    public partial class viewJuntas
     {
-        public int IdUsuario { get; set; }
-        public string Cedula { get; set; }
-        public string Clave { get; set; }
-        public int Rol { get; set; }
+        public int Codigo { get; set; }
+        public int Circuito { get; set; }
+        public string NombreTipo { get; set; }
+        public string Nombre { get; set; }
+        public string Regional { get; set; }
+        public string CedulaJuridica { get; set; }
+        public string CuentaDanea { get; set; }
+        public string CuentaLey { get; set; }
+        public string Contador { get; set; }
         public bool Estado { get; set; }
-        public Nullable<double> CodigoRes { get; set; }
-    
-        public virtual tPersona tPersona { get; set; }
     }
 }

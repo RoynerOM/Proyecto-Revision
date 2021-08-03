@@ -352,7 +352,7 @@ namespace GestionCasos.Administrador
                 tPersona p = new tPersona();
                 if (ValidarCampos() == true)
                 {
-                    
+
 
                     p = negocio.obtenerPorId(txtCedula.Text.Trim());
                     p.Nombre = txtNombre.Text.ToUpper();
@@ -384,9 +384,7 @@ namespace GestionCasos.Administrador
             {
                 if (ValidarCampos() == true)
                 {
-                    contador.Cedula = txtCedula.Text;
-
-                    var datos = negocio.obtenerPorId(contador);
+                    var datos = negocio.obtenerPorId(txtCedula.Text);
 
                     if (negocio.eliminar(datos) == true)
                     {

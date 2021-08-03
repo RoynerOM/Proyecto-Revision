@@ -6,20 +6,23 @@
     <edmx:Diagrams>
       <Diagram DiagramId="8d0a0a85a28144c4afe355b694d624e6" Name="Diagram1">
         <EntityTypeShape EntityType="BDJuntasModel.tBoleta" Width="1.5" PointX="10.5" PointY="5.75" />
-        <EntityTypeShape EntityType="BDJuntasModel.tDireccionRegional" Width="1.5" PointX="0.75" PointY="2.375" />
-        <EntityTypeShape EntityType="BDJuntasModel.tEntregaCasos" Width="1.5" PointX="5.25" PointY="5.75" />
-        <EntityTypeShape EntityType="BDJuntasModel.tEstado" Width="1.5" PointX="6" PointY="2.5" />
-        <EntityTypeShape EntityType="BDJuntasModel.tInstitucion" Width="1.5" PointX="3" PointY="5.375" />
-        <EntityTypeShape EntityType="BDJuntasModel.tMensajero" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="BDJuntasModel.tDireccionRegional" Width="1.5" PointX="3.75" PointY="10.875" />
+        <EntityTypeShape EntityType="BDJuntasModel.tEntregaCasos" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.tEstado" Width="1.5" PointX="6" PointY="2.625" />
+        <EntityTypeShape EntityType="BDJuntasModel.tInstitucion" Width="1.5" PointX="6" PointY="5.375" />
+        <EntityTypeShape EntityType="BDJuntasModel.tMensajero" Width="1.5" PointX="0.75" PointY="1.625" />
         <EntityTypeShape EntityType="BDJuntasModel.tPersona" Width="1.5" PointX="0.75" PointY="5.75" />
         <EntityTypeShape EntityType="BDJuntasModel.tRecepcion" Width="1.5" PointX="6" PointY="10.875" />
-        <EntityTypeShape EntityType="BDJuntasModel.tRevision" Width="1.5" PointX="8.25" PointY="5" />
-        <EntityTypeShape EntityType="BDJuntasModel.tTipoInstitucion" Width="1.5" PointX="0.75" PointY="9.875" />
+        <EntityTypeShape EntityType="BDJuntasModel.tRevision" Width="1.5" PointX="8.25" PointY="5.125" />
+        <EntityTypeShape EntityType="BDJuntasModel.tTipoInstitucion" Width="1.5" PointX="3.75" PointY="2.5" />
         <EntityTypeShape EntityType="BDJuntasModel.tTrabajador" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BDJuntasModel.tUsuario" Width="1.5" PointX="3" PointY="11.25" />
+        <EntityTypeShape EntityType="BDJuntasModel.tUsuario" Width="1.5" PointX="3" PointY="15.625" />
         <EntityTypeShape EntityType="BDJuntasModel.viewBoleta" Width="1.5" PointX="8.75" PointY="10.75" />
-        <EntityTypeShape EntityType="BDJuntasModel.viewContadores" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BDJuntasModel.viewTrabajador" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewCasosAsignados" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewContadores" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewEntregaCasos" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewJuntas" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewTrabajador" Width="1.5" PointX="12.75" PointY="4.75" />
         <AssociationConnector Association="BDJuntasModel.FK__tBoleta__IdCaso__66603565" />
         <AssociationConnector Association="BDJuntasModel.FK__tInstituc__Circu__534D60F1" />
         <AssociationConnector Association="BDJuntasModel.FK__tEntregaC__Asign__628FA481" />

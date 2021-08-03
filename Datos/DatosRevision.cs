@@ -227,7 +227,7 @@ namespace Datos
 
         //Extras
         //Filter by onsecutivo
-        public IEnumerable<tRevision> FilterBy(int recepcion,int opc = 0)
+        public IEnumerable<tRevision> FilterBy(int recepcion, int opc = 0)
         {
             try
             {
