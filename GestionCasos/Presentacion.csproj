@@ -281,11 +281,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dtsJuntas.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="fReporteBoleta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="fReporteBoleta.Designer.cs">
+      <DependentUpon>fReporteBoleta.cs</DependentUpon>
     </Compile>
     <Compile Include="Procesos.cs" />
     <Compile Include="Program.cs" />
@@ -296,12 +296,6 @@
     <Compile Include="Administrador\.Designer.cs">
       <DependentUpon>fCasosAdmin.cs</DependentUpon>
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteBoletaDevolucion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteBoletaDevolucion.Designer.cs">
-      <DependentUpon>ReporteBoletaDevolucion.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteCasosAsignados.cs">
       <SubType>Form</SubType>
@@ -332,12 +326,6 @@
     </Compile>
     <Compile Include="Reportes\fOpcionesReportes.Designer.cs">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\fReporteEntrega.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\fReporteEntrega.Designer.cs">
-      <DependentUpon>fReporteEntrega.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Usuarios\CasosAsignados.cs">
@@ -395,8 +383,8 @@
     <EmbeddedResource Include="Configuracion\fConfiguraciones.resx">
       <DependentUpon>fConfiguraciones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="fReporteBoleta.resx">
+      <DependentUpon>fReporteBoleta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -410,9 +398,6 @@
     </Compile>
     <EmbeddedResource Include="Administrador\fCasosAdmin.resx">
       <DependentUpon>fCasosAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteBoletaDevolucion.resx">
-      <DependentUpon>ReporteBoletaDevolucion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteCasosAsignados.resx">
       <DependentUpon>ReporteCasosAsignados.cs</DependentUpon>
@@ -429,13 +414,11 @@
     <EmbeddedResource Include="Reportes\fOpcionesReportes.resx">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\fReporteEntrega.resx">
-      <DependentUpon>fReporteEntrega.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteCasosAsignados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteContadores.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteEntregaDeCasos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteJuntas.rdlc" />
+    <EmbeddedResource Include="Reportes\rptBoleta.rdlc" />
     <EmbeddedResource Include="Usuarios\CasosAsignados.resx">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </EmbeddedResource>
@@ -563,6 +546,7 @@
     <None Include="Resources\broom_24px.png" />
     <None Include="Resources\search_26px.png" />
     <None Include="Resources\synchronize_20px.png" />
+    <None Include="Resources\delete_52px1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

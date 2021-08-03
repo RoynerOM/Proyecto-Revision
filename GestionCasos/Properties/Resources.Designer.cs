@@ -83,29 +83,9 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ajaxspinner {
-            get {
-                object obj = ResourceManager.GetObject("ajaxspinner", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap back_100px {
-            get {
-                object obj = ResourceManager.GetObject("back_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,49 +103,9 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bug_60px {
-            get {
-                object obj = ResourceManager.GetObject("bug_60px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bug_60px1 {
-            get {
-                object obj = ResourceManager.GetObject("bug_60px1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap camara {
-            get {
-                object obj = ResourceManager.GetObject("camara", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap check_all_100px {
             get {
                 object obj = ResourceManager.GetObject("check_all_100px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap close {
-            get {
-                object obj = ResourceManager.GetObject("close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,16 +156,6 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap data_pending_60px {
             get {
                 object obj = ResourceManager.GetObject("data_pending_60px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap delete_100px {
-            get {
-                object obj = ResourceManager.GetObject("delete_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,26 +363,6 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap light_dimming_off_48px1 {
-            get {
-                object obj = ResourceManager.GetObject("light_dimming_off_48px1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap loader_list {
-            get {
-                object obj = ResourceManager.GetObject("loader-list", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap loading__1_ {
             get {
                 object obj = ResourceManager.GetObject("loading (1)", resourceCulture);
@@ -583,16 +493,6 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Project_Name__1_ {
-            get {
-                object obj = ResourceManager.GetObject("Project Name (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap registration_60px {
             get {
                 object obj = ResourceManager.GetObject("registration_60px", resourceCulture);
@@ -636,16 +536,6 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap report_file_60px {
             get {
                 object obj = ResourceManager.GetObject("report_file_60px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap robot_2186155_1920 {
-            get {
-                object obj = ResourceManager.GetObject("robot-2186155_1920", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -733,16 +623,6 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sprite_strip {
-            get {
-                object obj = ResourceManager.GetObject("sprite_strip", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap squared_menu_60px {
             get {
                 object obj = ResourceManager.GetObject("squared_menu_60px", resourceCulture);
@@ -796,26 +676,6 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap task_planning_48px {
             get {
                 object obj = ResourceManager.GetObject("task_planning_48px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WhatsApp_Image_2021_06_05_at_2_33_30_PM {
-            get {
-                object obj = ResourceManager.GetObject("WhatsApp Image 2021-06-05 at 2.33.30 PM", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WhatsApp_Image_2021_06_05_at_2_44_05_PM {
-            get {
-                object obj = ResourceManager.GetObject("WhatsApp Image 2021-06-05 at 2.44.05 PM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace GestionCasos
 {
     /*
-     Reportes de completamente funcional
+     Reportes de completado
      */
     public partial class ReporteJuntas : Form
     {
@@ -35,27 +35,24 @@ namespace GestionCasos
             CargarCombo();
             // TODO: This line of code loads data into the 'dtsJuntas.TableJuntas' table. You can move, or remove it, as needed.
             this.TableJuntasTableAdapter.Fill(this.dtsJuntas.TableJuntas);
-            
-
-
             this.reportViewer1.RefreshReport();
         }
 
         private void cbContadores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //this.JuntasTableAdapter.FillBy(this.BD_JuntasDataSet1.Juntas, cbContadores.Text);
+            this.TableJuntasTableAdapter.FillBy2(this.dtsJuntas.TableJuntas, cbContadores.Text);
             this.reportViewer1.RefreshReport();
         }
 
         private void cbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //this.JuntasTableAdapter.FillBy1(this.BD_JuntasDataSet1.Juntas, cbTipo.Text);
+            this.TableJuntasTableAdapter.FillBy3(this.dtsJuntas.TableJuntas, cbTipo.Text);
             this.reportViewer1.RefreshReport();
         }
 
         private void cbCiruitos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //this.JuntasTableAdapter.FillBy2(this.BD_JuntasDataSet1.Juntas, int.Parse(cbCiruitos.Text));
+            this.TableJuntasTableAdapter.FillBy(this.dtsJuntas.TableJuntas, int.Parse(cbCiruitos.Text));
             this.reportViewer1.RefreshReport();
         }
 
@@ -66,7 +63,7 @@ namespace GestionCasos
             cbTipo.SelectedIndex = 0;
             cbContadores.SelectedIndex = 0;
 
-            //this.JuntasTableAdapter.Fill(this.BD_JuntasDataSet1.Juntas);
+            this.TableJuntasTableAdapter.Fill(this.dtsJuntas.TableJuntas);
 
             this.reportViewer1.RefreshReport();
         }
@@ -78,8 +75,11 @@ namespace GestionCasos
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            //this.JuntasTableAdapter.FillBy3(this.BD_JuntasDataSet1.Juntas, txtNombre.Text);
-            this.reportViewer1.RefreshReport();
+            if (txtNombre.Text != string.Empty)
+            {
+                this.TableJuntasTableAdapter.FillBy1(this.dtsJuntas.TableJuntas, txtNombre.Text.ToUpper());
+                this.reportViewer1.RefreshReport();
+            }
         }
     }
 }

@@ -316,7 +316,7 @@ namespace GestionCasos.Usuarios
 
         private void btnBoleta_Click(object sender, EventArgs e)
         {
-            ReporteBoletaDevolucion v = new ReporteBoletaDevolucion(consecutivo);
+            fReporteBoleta v = new fReporteBoleta(consecutivo);
             v.WindowState = FormWindowState.Maximized;
             v.ShowDialog();
         }

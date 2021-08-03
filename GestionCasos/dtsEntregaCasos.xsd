@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        tRevision.Consecutivo, tInstitucion.CodigoAux AS Codigo, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.FechaAsignada, tEntregaCasos.FechaEntrega, 
+                    <CommandText>SELECT        tRevision.Consecutivo, tInstitucion.CodigoAux, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.Fecha AS FechaAsignada, tEntregaCasos.FechaEntrega, 
                          tEntregaCasos.Observacion, tMensajero.NombreCompleto AS Mensajero
 FROM            tEntregaCasos INNER JOIN
                          tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero INNER JOIN
@@ -26,7 +26,6 @@ FROM            tEntregaCasos INNER JOIN
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
-              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
               <Mapping SourceColumn="Circuito" DataSetColumn="Circuito" />
               <Mapping SourceColumn="Institucion" DataSetColumn="Institucion" />
               <Mapping SourceColumn="Asignado" DataSetColumn="Asignado" />
@@ -34,6 +33,7 @@ FROM            tEntregaCasos INNER JOIN
               <Mapping SourceColumn="FechaEntrega" DataSetColumn="FechaEntrega" />
               <Mapping SourceColumn="Observacion" DataSetColumn="Observacion" />
               <Mapping SourceColumn="Mensajero" DataSetColumn="Mensajero" />
+              <Mapping SourceColumn="CodigoAux" DataSetColumn="CodigoAux" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -45,7 +45,7 @@ FROM            tEntregaCasos INNER JOIN
   <xs:element name="dtsEntregaCasos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsEntregaCasos" msprop:Generator_UserDSName="dtsEntregaCasos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="EntregaTable" msprop:Generator_TableClassName="EntregaTableDataTable" msprop:Generator_TableVarName="tableEntregaTable" msprop:Generator_TablePropName="EntregaTable" msprop:Generator_RowDeletingName="EntregaTableRowDeleting" msprop:Generator_RowChangingName="EntregaTableRowChanging" msprop:Generator_RowEvHandlerName="EntregaTableRowChangeEventHandler" msprop:Generator_RowDeletedName="EntregaTableRowDeleted" msprop:Generator_UserTableName="EntregaTable" msprop:Generator_RowChangedName="EntregaTableRowChanged" msprop:Generator_RowEvArgName="EntregaTableRowChangeEvent" msprop:Generator_RowClassName="EntregaTableRow">
+        <xs:element name="EntregaTable" msprop:Generator_TableClassName="EntregaTableDataTable" msprop:Generator_TableVarName="tableEntregaTable" msprop:Generator_RowChangedName="EntregaTableRowChanged" msprop:Generator_TablePropName="EntregaTable" msprop:Generator_RowDeletingName="EntregaTableRowDeleting" msprop:Generator_RowChangingName="EntregaTableRowChanging" msprop:Generator_RowEvHandlerName="EntregaTableRowChangeEventHandler" msprop:Generator_RowDeletedName="EntregaTableRowDeleted" msprop:Generator_RowClassName="EntregaTableRow" msprop:Generator_UserTableName="EntregaTable" msprop:Generator_RowEvArgName="EntregaTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" minOccurs="0">
@@ -55,7 +55,6 @@ FROM            tEntregaCasos INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Codigo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:int" minOccurs="0" />
               <xs:element name="Circuito" msprop:Generator_ColumnVarNameInTable="columnCircuito" msprop:Generator_ColumnPropNameInRow="Circuito" msprop:Generator_ColumnPropNameInTable="CircuitoColumn" msprop:Generator_UserColumnName="Circuito" type="xs:int" />
               <xs:element name="Institucion" msprop:Generator_ColumnVarNameInTable="columnInstitucion" msprop:Generator_ColumnPropNameInRow="Institucion" msprop:Generator_ColumnPropNameInTable="InstitucionColumn" msprop:Generator_UserColumnName="Institucion">
                 <xs:simpleType>
@@ -71,13 +70,7 @@ FROM            tEntregaCasos INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FechaAsignada" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFechaAsignada" msprop:Generator_ColumnPropNameInRow="FechaAsignada" msprop:Generator_ColumnPropNameInTable="FechaAsignadaColumn" msprop:Generator_UserColumnName="FechaAsignada" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="FechaAsignada" msprop:Generator_ColumnVarNameInTable="columnFechaAsignada" msprop:Generator_ColumnPropNameInRow="FechaAsignada" msprop:Generator_ColumnPropNameInTable="FechaAsignadaColumn" msprop:Generator_UserColumnName="FechaAsignada" type="xs:dateTime" />
               <xs:element name="FechaEntrega" msprop:Generator_ColumnVarNameInTable="columnFechaEntrega" msprop:Generator_ColumnPropNameInRow="FechaEntrega" msprop:Generator_ColumnPropNameInTable="FechaEntregaColumn" msprop:Generator_UserColumnName="FechaEntrega" type="xs:dateTime" />
               <xs:element name="Observacion" msprop:Generator_ColumnVarNameInTable="columnObservacion" msprop:Generator_ColumnPropNameInRow="Observacion" msprop:Generator_ColumnPropNameInTable="ObservacionColumn" msprop:Generator_UserColumnName="Observacion">
                 <xs:simpleType>
@@ -93,6 +86,7 @@ FROM            tEntregaCasos INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="CodigoAux" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCodigoAux" msprop:Generator_ColumnPropNameInRow="CodigoAux" msprop:Generator_ColumnPropNameInTable="CodigoAuxColumn" msprop:Generator_UserColumnName="CodigoAux" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
