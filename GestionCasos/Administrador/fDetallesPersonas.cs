@@ -131,10 +131,18 @@ namespace GestionCasos.Administrador
 
         public void CargarCombos()
         {
-            //Tramitador
-            cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
-            cbTramitador.ValueMember = "Cedula";
-            cbTramitador.DisplayMember = "NombreCompleto";
+            try
+            {
+                //Tramitador
+                cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
+                cbTramitador.ValueMember = "Cedula";
+                cbTramitador.DisplayMember = "NombreCompleto";
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
 
 
@@ -209,18 +217,26 @@ namespace GestionCasos.Administrador
 
         private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            try
             {
-                int fila = e.RowIndex;
+                if (e.RowIndex != -1)
+                {
+                    int fila = e.RowIndex;
 
-                string cedula = tabla.Rows[fila].Cells[0].Value.ToString();
+                    string cedula = tabla.Rows[fila].Cells[0].Value.ToString();
 
 
-                DatosTemp.tPersona = persona.obtenerPorId(cedula);
+                    DatosTemp.tPersona = persona.obtenerPorId(cedula);
 
 
-                OpenChildForm(new fContador(Rol));
+                    OpenChildForm(new fContador(Rol));
 
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
             }
         }
 

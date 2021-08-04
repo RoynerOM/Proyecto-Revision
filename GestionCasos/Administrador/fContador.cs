@@ -160,6 +160,7 @@ namespace GestionCasos.Administrador
                         contador.Apellido1 = txtApellido1.Text.ToUpper();
                         contador.Apellido2 = txtApellido2.Text.ToUpper();
                         contador.Correo = txtCorreo.Text;
+                        contador.Estado = true;
 
                         trabajador.Cedula = contador.Cedula;
                         trabajador.Tipo = (int)cbTipoPersona.SelectedValue;

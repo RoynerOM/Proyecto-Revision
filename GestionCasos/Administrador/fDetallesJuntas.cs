@@ -32,8 +32,16 @@ namespace GestionCasos.Administrador
 
         public void PedirDatos()
         {
-            Instituciones = institucionNegocio.obtenerTodo(new tInstitucion());
-            CargarTabla(Instituciones);
+            try
+            {
+                Instituciones = institucionNegocio.obtenerTodo(new tInstitucion());
+                CargarTabla(Instituciones);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
 
         //Filtro por Contador
@@ -170,18 +178,26 @@ namespace GestionCasos.Administrador
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            if (txtNombre.Text != string.Empty)
+            try
             {
-                var filtro = Instituciones.Where(x => x.Nombre.Trim().ToUpper().StartsWith(txtNombre.Text.Trim().ToUpper()));
-
-                if (filtro != null)
+                if (txtNombre.Text != string.Empty)
                 {
-                    CargarTabla(filtro);
+                    var filtro = Instituciones.Where(x => x.Nombre.Trim().ToUpper().StartsWith(txtNombre.Text.Trim().ToUpper()));
+
+                    if (filtro != null)
+                    {
+                        CargarTabla(filtro);
+                    }
+                }
+                else
+                {
+                    PedirDatos();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                PedirDatos();
+
+                Console.WriteLine(ex);
             }
         }
 

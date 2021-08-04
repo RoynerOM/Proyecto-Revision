@@ -43,31 +43,42 @@ namespace GestionCasos
 
         private void cbContadores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //this.EntregaTableTableAdapter.FillBy2(this.dtsEntregaCasos.EntregaTable, cbContadores.Text);
+            this.EntregaTableTableAdapter.FillBy3(this.dtsEntregaCasos.EntregaTable, cbContadores.Text);
             this.reportViewer1.RefreshReport();
         }
 
         private void cbCircuito_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //this.EntregaCasosTableAdapter.FillBy1(this.BD_JuntasDataSet2.EntregaCasos, int.Parse(cbCircuito.Text));
+            this.EntregaTableTableAdapter.FillBy(this.dtsEntregaCasos.EntregaTable, int.Parse(cbCircuito.Text));
             this.reportViewer1.RefreshReport();
         }
 
         private void txtConsecutivo_TextChanged(object sender, EventArgs e)
         {
-            //this.EntregaCasosTableAdapter.FillBy(this.BD_JuntasDataSet2.EntregaCasos, txtConsecutivo.Text);
+            this.EntregaTableTableAdapter.FillBy4(this.dtsEntregaCasos.EntregaTable, txtConsecutivo.Text.ToUpper());
             this.reportViewer1.RefreshReport();
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
-            //this.EntregaCasosTableAdapter.FillBy2(this.BD_JuntasDataSet2.EntregaCasos, int.Parse(txtCodigo.Text));
-            this.reportViewer1.RefreshReport();
+            try
+            {
+                if (txtCodigo.Text != string.Empty)
+                {
+                    this.EntregaTableTableAdapter.FillBy1(this.dtsEntregaCasos.EntregaTable, int.Parse(txtCodigo.Text));
+                    this.reportViewer1.RefreshReport();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
 
         private void txtInstitucion_TextChanged(object sender, EventArgs e)
         {
-            //this.EntregaCasosTableAdapter.FillBy3(this.BD_JuntasDataSet2.EntregaCasos, txtInstitucion.Text);
+            this.EntregaTableTableAdapter.FillBy2(this.dtsEntregaCasos.EntregaTable, txtInstitucion.Text.ToUpper());
             this.reportViewer1.RefreshReport();
         }
 

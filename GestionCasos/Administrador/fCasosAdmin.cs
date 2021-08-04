@@ -413,18 +413,26 @@ namespace GestionCasos
         //Filtro por consecutivo
         private void txtConsecutivo_TextChanged(object sender, EventArgs e)
         {
-            if (txtConsecutivo.Text != string.Empty)
+            try
             {
-                var i = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text);
-
-                if (i != null)
+                if (txtConsecutivo.Text != string.Empty)
                 {
-                    CargarTabla(i);
+                    var i = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text);
+
+                    if (i != null)
+                    {
+                        CargarTabla(i);
+                    }
+                }
+                else
+                {
+                    PedirDatos();
                 }
             }
-            else
+            catch (Exception ex)
             {
-                PedirDatos();
+
+                Console.WriteLine(ex);
             }
 
         }

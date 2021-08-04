@@ -14,7 +14,7 @@ namespace GestionCasos
             Application.EnableVisualStyles();
 
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ReporteJuntas());
+            Application.Run(new Login());
         }
     }
 }

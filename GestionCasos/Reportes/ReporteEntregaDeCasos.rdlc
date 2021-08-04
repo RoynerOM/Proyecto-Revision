@@ -420,6 +420,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1082,7 +1083,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsEntregaCasos</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\User\Desktop\Proyecto-Revision\GestionCasos\dtsEntregaCasos.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Desktop\Recursos\Proyecto-Revision\GestionCasos\dtsEntregaCasos.xsd</rd:SchemaPath>
         <rd:TableName>EntregaTable</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

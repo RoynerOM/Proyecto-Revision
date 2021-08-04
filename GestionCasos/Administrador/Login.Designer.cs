@@ -32,20 +32,20 @@ namespace GestionCasos
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pnTop = new System.Windows.Forms.Panel();
+            this.gunaAdvenceTileButton2 = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
+            this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.btnRegistrar = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtNombreUsuario = new System.Windows.Forms.MaskedTextBox();
             this.lbIniciarSecion = new System.Windows.Forms.Label();
+            this.btnIniciarSecion = new Guna.UI.WinForms.GunaButton();
             this.label2 = new System.Windows.Forms.Label();
             this.lbNombreUsuario = new System.Windows.Forms.Label();
             this.panelMain = new Guna.UI.WinForms.GunaLinePanel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
-            this.gunaAdvenceTileButton2 = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
-            this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.btnIniciarSecion = new Guna.UI.WinForms.GunaButton();
             this.pbLogo = new Guna.UI.WinForms.GunaPictureBox();
             this.pnTop.SuspendLayout();
             this.panelMain.SuspendLayout();
@@ -68,113 +68,6 @@ namespace GestionCasos
             this.pnTop.Name = "pnTop";
             this.pnTop.Size = new System.Drawing.Size(412, 394);
             this.pnTop.TabIndex = 12;
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.AutoSize = true;
-            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegistrar.Location = new System.Drawing.Point(125, 286);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(166, 20);
-            this.btnRegistrar.TabIndex = 18;
-            this.btnRegistrar.Text = "¿Olvidó su contraseña?";
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(58, 221);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.PasswordChar = '•';
-            this.txtContraseña.Size = new System.Drawing.Size(301, 33);
-            this.txtContraseña.TabIndex = 17;
-            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(58, 130);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(301, 33);
-            this.txtNombreUsuario.TabIndex = 16;
-            this.txtNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUsuario_KeyPress);
-            // 
-            // lbIniciarSecion
-            // 
-            this.lbIniciarSecion.AutoSize = true;
-            this.lbIniciarSecion.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIniciarSecion.ForeColor = System.Drawing.Color.White;
-            this.lbIniciarSecion.Location = new System.Drawing.Point(123, 28);
-            this.lbIniciarSecion.Name = "lbIniciarSecion";
-            this.lbIniciarSecion.Size = new System.Drawing.Size(168, 32);
-            this.lbIniciarSecion.TabIndex = 15;
-            this.lbIniciarSecion.Text = "Iniciar Sesion";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(53, 191);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 25);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Contraseña";
-            // 
-            // lbNombreUsuario
-            // 
-            this.lbNombreUsuario.AutoSize = true;
-            this.lbNombreUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.lbNombreUsuario.Location = new System.Drawing.Point(53, 102);
-            this.lbNombreUsuario.Name = "lbNombreUsuario";
-            this.lbNombreUsuario.Size = new System.Drawing.Size(71, 25);
-            this.lbNombreUsuario.TabIndex = 11;
-            this.lbNombreUsuario.Text = "Cédula";
-            // 
-            // panelMain
-            // 
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.panelMain.Controls.Add(this.pnTop);
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.LineColor = System.Drawing.Color.Black;
-            this.panelMain.LineStyle = System.Windows.Forms.BorderStyle.None;
-            this.panelMain.Location = new System.Drawing.Point(185, 0);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(415, 400);
-            this.panelMain.TabIndex = 15;
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.BorderRadius = 20;
-            this.guna2ControlBox1.CustomIconSize = 13F;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
-            this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
-            this.guna2ControlBox1.ShadowDecoration.Color = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.Size = new System.Drawing.Size(40, 40);
-            this.guna2ControlBox1.TabIndex = 16;
-            this.guna2ControlBox1.UseTransparentBackground = true;
-            // 
-            // gunaElipse1
-            // 
-            this.gunaElipse1.TargetControl = this;
-            // 
-            // gunaDragControl1
-            // 
-            this.gunaDragControl1.TargetControl = this.pbLogo;
             // 
             // gunaAdvenceTileButton2
             // 
@@ -269,6 +162,49 @@ namespace GestionCasos
             this.gunaAdvenceTileButton1.TabIndex = 21;
             this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.AutoSize = true;
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRegistrar.Location = new System.Drawing.Point(125, 286);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(166, 20);
+            this.btnRegistrar.TabIndex = 18;
+            this.btnRegistrar.Text = "¿Olvidó su contraseña?";
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseña.Location = new System.Drawing.Point(58, 221);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '•';
+            this.txtContraseña.Size = new System.Drawing.Size(301, 33);
+            this.txtContraseña.TabIndex = 17;
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
+            // 
+            // txtNombreUsuario
+            // 
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.Location = new System.Drawing.Point(58, 130);
+            this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.Size = new System.Drawing.Size(301, 33);
+            this.txtNombreUsuario.TabIndex = 16;
+            this.txtNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUsuario_KeyPress);
+            // 
+            // lbIniciarSecion
+            // 
+            this.lbIniciarSecion.AutoSize = true;
+            this.lbIniciarSecion.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIniciarSecion.ForeColor = System.Drawing.Color.White;
+            this.lbIniciarSecion.Location = new System.Drawing.Point(123, 28);
+            this.lbIniciarSecion.Name = "lbIniciarSecion";
+            this.lbIniciarSecion.Size = new System.Drawing.Size(168, 32);
+            this.lbIniciarSecion.TabIndex = 15;
+            this.lbIniciarSecion.Text = "Iniciar Sesión";
+            // 
             // btnIniciarSecion
             // 
             this.btnIniciarSecion.AnimationHoverSpeed = 0.07F;
@@ -298,6 +234,70 @@ namespace GestionCasos
             this.btnIniciarSecion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnIniciarSecion.Click += new System.EventHandler(this.btnIniciarSecion_Click);
             this.btnIniciarSecion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnIniciarSecion_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(53, 191);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 25);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Contraseña";
+            // 
+            // lbNombreUsuario
+            // 
+            this.lbNombreUsuario.AutoSize = true;
+            this.lbNombreUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombreUsuario.ForeColor = System.Drawing.Color.White;
+            this.lbNombreUsuario.Location = new System.Drawing.Point(53, 102);
+            this.lbNombreUsuario.Name = "lbNombreUsuario";
+            this.lbNombreUsuario.Size = new System.Drawing.Size(71, 25);
+            this.lbNombreUsuario.TabIndex = 11;
+            this.lbNombreUsuario.Text = "Cédula";
+            // 
+            // panelMain
+            // 
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.panelMain.Controls.Add(this.pnTop);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.LineColor = System.Drawing.Color.Black;
+            this.panelMain.LineStyle = System.Windows.Forms.BorderStyle.None;
+            this.panelMain.Location = new System.Drawing.Point(185, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(415, 400);
+            this.panelMain.TabIndex = 15;
+            // 
+            // guna2ControlBox1
+            // 
+            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.BorderRadius = 20;
+            this.guna2ControlBox1.CustomIconSize = 13F;
+            this.guna2ControlBox1.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.HoverState.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
+            this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2ControlBox1.Name = "guna2ControlBox1";
+            this.guna2ControlBox1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
+            this.guna2ControlBox1.ShadowDecoration.Color = System.Drawing.Color.Transparent;
+            this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
+            this.guna2ControlBox1.Size = new System.Drawing.Size(40, 40);
+            this.guna2ControlBox1.TabIndex = 16;
+            this.guna2ControlBox1.UseTransparentBackground = true;
+            // 
+            // gunaElipse1
+            // 
+            this.gunaElipse1.TargetControl = this;
+            // 
+            // gunaDragControl1
+            // 
+            this.gunaDragControl1.TargetControl = this.pbLogo;
             // 
             // pbLogo
             // 

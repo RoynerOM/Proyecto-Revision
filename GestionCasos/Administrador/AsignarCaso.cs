@@ -107,28 +107,36 @@ namespace GestionCasos
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                using (var context = new BDJuntasEntities())
+                try
                 {
-                    if (txtCodigo.Text != string.Empty)
+                    using (var context = new BDJuntasEntities())
                     {
-                        int cod = int.Parse(txtCodigo.Text);
-
-                        var codigo = context.tInstitucion.FirstOrDefault(x => x.Codigo == cod);
-
-                        if (codigo != null)
+                        if (txtCodigo.Text != string.Empty)
                         {
-                            txtJuntaAdm.Text = codigo.Nombre;
-                            txtCircuito.Text = codigo.Circuito.ToString();
+                            int cod = int.Parse(txtCodigo.Text);
+
+                            var codigo = context.tInstitucion.FirstOrDefault(x => x.Codigo == cod);
+
+                            if (codigo != null)
+                            {
+                                txtJuntaAdm.Text = codigo.Nombre;
+                                txtCircuito.Text = codigo.Circuito.ToString();
+                            }
+                            else
+                            {
+                                Alerta.Danger(new Alertas.Alerta(), $"El código {txtCodigo.Text} no existe");
+                            }
                         }
                         else
                         {
-                            Alerta.Danger(new Alertas.Alerta(), $"El código {txtCodigo.Text} no existe");
+                            Alerta.Danger(new Alertas.Alerta(), $"Falta llenar el código");
                         }
                     }
-                    else
-                    {
-                        Alerta.Danger(new Alertas.Alerta(), $"Falta llenar el código");
-                    }
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex);
                 }
             }
         }
