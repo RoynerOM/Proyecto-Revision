@@ -40,7 +40,7 @@ namespace GestionCasos
                 //Modificado
                 cbTipoRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
                 cbTipoRecepcion.ValueMember = "id";
-                cbTipoRecepcion.DisplayMember = "Nombre";
+                cbTipoRecepcion.DisplayMember = "Recepcion";
             }
             catch (Exception ex)
             {

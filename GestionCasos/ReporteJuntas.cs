@@ -45,7 +45,7 @@ namespace GestionCasos
 
         private void cbCiruitos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.TableJuntasTableAdapter.FillBy(this.dtsJuntas.TableJuntas, int.Parse(cbCiruitos.Text));
+            this.TableJuntasTableAdapter.FillBy(this.dtsJuntas.TableJuntas, cbCiruitos.SelectedIndex+1);
             this.reportViewer1.RefreshReport();
         }
 
