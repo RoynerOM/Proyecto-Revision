@@ -22,6 +22,7 @@ namespace Negocios
 
         public bool guardar(tMensajero e)
         {
+          
             return contador.guardar(e);
         }
 
@@ -52,6 +53,7 @@ namespace Negocios
 
         public bool GuardarTrabajador(tTrabajador e)
         {
+
             return contador.GuardarTrabajador(e);
         }
 
@@ -62,6 +64,10 @@ namespace Negocios
         public viewTrabajador obtenerTrabadorBy(string cedula)
         {
             return contador.obtenerTrabadorBy(cedula);
+        }
+        public tMensajero obtenerMBy(string cedula)
+        {
+            return contador.obtenerMBy(cedula);
         }
         public tTrabajador obtenerTrabador(string cedula)
         {

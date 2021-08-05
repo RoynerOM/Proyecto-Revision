@@ -288,6 +288,7 @@ namespace GestionCasos.Administrador
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(267, 30);
             this.txtCedula.TabIndex = 20;
+            this.txtCedula.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCedula_MaskInputRejected);
             this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
             // txtNombre

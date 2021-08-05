@@ -350,16 +350,16 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                tPersona p = new tPersona();
+                
                 if (ValidarCampos() == true)
                 {
-
-
-                    p = negocio.obtenerPorId(txtCedula.Text.Trim());
+                    tPersona p = new tPersona();
+                    p= negocio.obtenerPorId(txtCedula.Text);
                     p.Nombre = txtNombre.Text.ToUpper();
                     p.Apellido1 = txtApellido1.Text.ToUpper();
                     p.Apellido2 = txtApellido2.Text.ToUpper();
                     p.Correo = txtCorreo.Text;
+                    p.Estado = true;
                     if (negocio.modificar(p) == true)
                     {
                         Message.Success(new Alertas.Alerta(), "El contador fue modificado con exito");

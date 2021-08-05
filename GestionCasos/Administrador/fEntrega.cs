@@ -20,9 +20,10 @@ namespace GestionCasos.Administrador
         RevisionNegocio revisionNegocio = new RevisionNegocio();
         showMessageDialog Message = new showMessageDialog();
         tEntregaCasos entrega = new tEntregaCasos();
+        viewTrabajador persona = new viewTrabajador();
         private string consecutivo = null;
         bool state = false;
-
+        bool existePersona = false;
         public fEntrega(tEntregaCasos id, string consecutivo)
         {
             InitializeComponent();
@@ -65,7 +66,7 @@ namespace GestionCasos.Administrador
                 {
                     btnPdf.Visible = true;
                     lblFecha.Visible = true;
-
+                    existePersona = true;
                     txtCedula.Text = entrega.tMensajero.CedulaMensajero;
                     txtNombre.Text = entrega.tMensajero.Nombre;
                     txtApellido1.Text = entrega.tMensajero.Apellido1;
@@ -97,6 +98,7 @@ namespace GestionCasos.Administrador
                     btnPdf.Visible = false;
 
                     lblConsecutivo.Text = consecutivo;
+                    existePersona = false;
                 }
             }
             catch (Exception ex)
@@ -130,19 +132,16 @@ namespace GestionCasos.Administrador
         {
             try
             {
-
-                viewTrabajador persona = new viewTrabajador();
                 persona = personaNegocio.obtenerTrabadorBy(txtCedula.Text);
                 if (txtCedula.Text.Length > 6)
                 {
-
                     if (persona != null)
                     {
+                        existePersona = true;
                         txtNombre.Text = persona.Nombre.ToUpper();
                         txtApellido1.Text = persona.Apellido1.ToUpper();
                         txtApellido2.Text = persona.Apellido2.ToUpper();
                     }
-
                 }
 
             }
@@ -270,87 +269,103 @@ namespace GestionCasos.Administrador
                 tEntregaCasos entregaCasos = new tEntregaCasos();
                 tRevision revision = new tRevision();
                 tMensajero m = new tMensajero();
-                tEntregaCasos ec = new tEntregaCasos();
-
-                //Se inserta la persona en caso de que no exista
-                m.CedulaMensajero = txtCedula.Text;
-                m.Nombre = txtNombre.Text.ToUpper();
-                m.Apellido1 = txtApellido1.Text.ToUpper();
-                m.Apellido2 = txtApellido2.Text.ToUpper();
-
-                personaNegocio.guardar(m);
+                tEntregaCasos ec = entregaNegocio.obtenerPorCaso(consecutivo);
 
 
-                if (ValidarCampos() == true)
+                if (personaNegocio.obtenerPorId(txtCedula.Text) == null)
+                {
+                    tTrabajador t = new tTrabajador();
+                    tPersona p = new tPersona();
+                    //Se inserta la persona en caso de que no exista
+                    m.CedulaMensajero = txtCedula.Text;
+                    m.Nombre = txtNombre.Text.ToUpper();
+                    m.Apellido1 = txtApellido1.Text.ToUpper();
+                    m.Apellido2 = txtApellido2.Text.ToUpper();
+
+
+                    p.Cedula = txtCedula.Text;
+                    p.Nombre = txtNombre.Text.ToUpper();
+                    p.Apellido1 = txtApellido1.Text.ToUpper();
+                    p.Apellido2 = txtApellido2.Text.ToUpper();
+                    p.Carnet = "-";
+                    p.Correo = "-";
+                    p.Estado = true;
+
+                    t.Cedula = txtCedula.Text;
+                    t.Tipo = 1;
+                    t.Activo = true;
+                    personaNegocio.guardar(p);
+                    personaNegocio.GuardarTrabajador(t);
+                    personaNegocio.guardar(m);
+                }
+               
+                if (ValidarCampos() == true && ec != null)
                 {
                     //En caso de que exista se actualiza
-                    ec = entregaNegocio.obtenerPorCaso(consecutivo);
 
-                    if (ec != null)
+                    if (cbCheque.Checked == true)
                     {
-                        if (cbCheque.Checked == true)
-                        {
-                            //Por cheque
-                            ec.Pago = 0;
-                        }
-                        else
-                        {
-                            //Por Transferencia
-                            ec.Pago = 1;
-                        }
-                        ec.Observacion = txtObservacion.Text;
-
-                        if (entregaNegocio.modificar(ec) == true)
-                        {
-                            Message.Success(new Alertas.Alerta(), "La información de entrega fue modificada");
-                            btnPdf.Visible = true;
-                        }
-                        else
-                        {
-                            Message.Danger(new Alertas.Alerta(), "Error al modificar");
-                        }
+                        //Por cheque
+                        ec.Pago = 0;
                     }
-                    //En caso contrario se guarda
                     else
                     {
-                        //var r = recepcion.obtenerTodo(new tRecepcion()).Where(x => x.id == (int)cbEntrega.SelectedValue).SingleOrDefault();
+                        //Por Transferencia
+                        ec.Pago = 1;
+                    }
+                    ec.Observacion = txtObservacion.Text;
 
-                        entregaCasos.Mensajero = int.Parse(txtCedula.Text);
-                        entregaCasos.Recepcion = (int)cbEntrega.SelectedValue;
-                        //entregaCasos.tRecepcion = r;
+                    if (entregaNegocio.modificar(ec) == true)
+                    {
+                        Message.Success(new Alertas.Alerta(), "La información de entrega fue modificada");
+                        btnPdf.Visible = true;
+                    }
+                    else
+                    {
+                        Message.Danger(new Alertas.Alerta(), "Error al modificar");
+                    }
+                    //En caso contrario se guarda
+                }
+                if(ValidarCampos()== true)
+                {
+                    tEntregaCasos entregaC = new tEntregaCasos();
+                    tMensajero men = new tMensajero();
+                    men = personaNegocio.obtenerMBy(txtCedula.Text);
+                    entregaC.Mensajero = men.IdMensajero;
+                    entregaC.Recepcion = (int)cbEntrega.SelectedValue;
+                   
+                    if (cbCheque.Checked == true)
+                    {
+                        //Por cheque
+                        entregaC.Pago = 0;
+                    }
+                    else
+                    {
+                        //Por Transferencia
+                        entregaC.Pago = 1;
+                    }
 
-                        if (cbCheque.Checked == true)
-                        {
-                            //Por cheque
-                            entregaCasos.Pago = 0;
-                        }
-                        else
-                        {
-                            //Por Transferencia
-                            entregaCasos.Pago = 1;
-                        }
+                    tEstado estado = new tEstado();
+                    estado.IdEstado = 5;
+                    estado = estadoNegocio.obtenerPorId(estado);
+                    revision = revisionNegocio.ObtenerPorCaso(consecutivo);
+                    //Cambio el estado en entregado
+                    revision.Estado = estado.IdEstado;
+                    revision.tEstado = estado;
+                    entregaC.Junta = revision.tInstitucion.Codigo;
+                    entregaC.Asignado = revision.Tramitador;
+                    entregaC.Caso = revision.IdCaso;
+                    entregaC.FechaEntrega = DateTime.Now;
+                    entregaC.Observacion = txtObservacion.Text;
 
-                        tEstado estado = new tEstado();
-                        estado.IdEstado = 5;
-                        estado = estadoNegocio.obtenerPorId(estado);
-                        revision = revisionNegocio.ObtenerPorCaso(consecutivo);
-                        //Cambio el estado en entregado
-                        revision.Estado = estado.IdEstado;
-                        revision.tEstado = estado;
-
-                        entregaCasos.Caso = revision.IdCaso;
-                        entregaCasos.FechaEntrega = DateTime.Now;
-                        entregaCasos.Observacion = txtObservacion.Text;
-
-                        if (revisionNegocio.modificar(revision) == true && entregaNegocio.guardar(entregaCasos) == true)
-                        {
-                            Message.Success(new Alertas.Alerta(), "La informacion de entrega fue guardada");
-                            btnPdf.Visible = true;
-                        }
-                        else
-                        {
-                            Message.Danger(new Alertas.Alerta(), "No se pudo guardar la informacion de la entrega");
-                        }
+                    if (entregaNegocio.guardar(entregaC) == true && revisionNegocio.modificar(revision))
+                    {
+                        Message.Success(new Alertas.Alerta(), "La informacion de entrega fue guardada");
+                        btnPdf.Visible = true;
+                    }
+                    else
+                    {
+                        Message.Danger(new Alertas.Alerta(), "No se pudo guardar la informacion de la entrega");
                     }
 
                 }
@@ -376,6 +391,11 @@ namespace GestionCasos.Administrador
         }
 
         private void cbEntrega_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCedula_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

@@ -96,7 +96,7 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var p = db.tPersona.Where(x => x.Cedula == e.Cedula && x.Estado == true).SingleOrDefault();
+                    var p = db.tPersona.Where(x => x.Cedula == e.Cedula).SingleOrDefault();
                     if (p != null)
                     {
                         return p;
@@ -121,7 +121,7 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var datos = db.tPersona.Where(x => x.Cedula == e && x.Estado == true).SingleOrDefault();
+                    var datos = db.tPersona.Where(x => x.Cedula == e).SingleOrDefault();
                     if (datos != null)
                     {
                         return datos;
@@ -212,7 +212,29 @@ namespace Datos
                 return null;
             }
         }
-
+        public tMensajero obtenerMBy(string cedula)
+        {
+            try
+            {
+                using (var db = new BDJuntasEntities())
+                {
+                    var consulta = db.tMensajero.Where(x => x.CedulaMensajero == cedula).SingleOrDefault();
+                    if (consulta != null)
+                    {
+                        return consulta;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
         public IEnumerable<viewTrabajador> obtenerTrabador(int tipo)
         {
             try
