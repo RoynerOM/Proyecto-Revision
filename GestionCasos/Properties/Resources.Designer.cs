@@ -113,6 +113,16 @@ namespace GestionCasos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap buscar {
+            get {
+                object obj = ResourceManager.GetObject("buscar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_all_100px {
             get {
                 object obj = ResourceManager.GetObject("check_all_100px", resourceCulture);
@@ -566,6 +576,16 @@ namespace GestionCasos.Properties {
         internal static System.Drawing.Bitmap report_file_60px {
             get {
                 object obj = ResourceManager.GetObject("report_file_60px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap safety_collection_place_96px {
+            get {
+                object obj = ResourceManager.GetObject("safety_collection_place_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

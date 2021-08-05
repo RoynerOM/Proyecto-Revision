@@ -68,6 +68,7 @@ namespace GestionCasos
                 btnMenu.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnReportes.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+                btnAsignarCaso.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnEntregas.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
             }
             else
@@ -83,6 +84,7 @@ namespace GestionCasos
                 btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
                 btnReportes.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
                 btnEntregas.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
+                btnAsignarCaso.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
             }
         }
 
@@ -209,6 +211,11 @@ namespace GestionCasos
             {
                 OpenChildForm(new fCasosAdmin(true), sender);
             }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            OpenChildForm(new AsignarCaso(), sender);
         }
     }
 

@@ -202,5 +202,10 @@ namespace GestionCasos
         {
             OpenChildForm(new fDetallesJuntas(Rol));
         }
+
+        private void gunaTileButton4_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new fDetallesPersonas(Rol));
+        }
     }
 }

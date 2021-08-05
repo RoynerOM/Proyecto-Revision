@@ -21,7 +21,7 @@ namespace GestionCasos
         RecepcionNegocio recepcion = new RecepcionNegocio();
         showMessageDialog Alerta = new showMessageDialog();
         private Form activeForm = null;
-
+        tRevision casosReasignado = null;
         public AsignarCaso()
         {
             InitializeComponent();
@@ -69,6 +69,8 @@ namespace GestionCasos
 
         private void AsignarCaso_Load(object sender, EventArgs e)
         {
+            this.dtpFecha.Value = DateTime.Now;
+            this.btnReasignarCaso.Enabled = false;
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
@@ -95,10 +97,7 @@ namespace GestionCasos
                 lbJunta.ForeColor = Colors.DarkBack;
                 lbMedioReceptivo.ForeColor = Colors.DarkBack;
                 lbAsignado.ForeColor = Colors.DarkBack;
-            }
-            else
-            {
-
+                label1.ForeColor = Colors.Black;
             }
         }
 
@@ -167,7 +166,7 @@ namespace GestionCasos
                 }
                 else
                 {
-                    Alerta.Success(new Alertas.Alerta(), "Error al asignar");
+                    Alerta.Danger(new Alertas.Alerta(), "Error al asignar");
                 }
             }
             catch (Exception ex)
@@ -189,6 +188,69 @@ namespace GestionCasos
             this.panel1.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void gunaAdvenceTileButton2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtCaso.Text != string.Empty)
+                {
+                    this.casosReasignado = Rnegocio.ObtenerPorCaso(txtCaso.Text.ToUpper());
+                    if (this.casosReasignado != null)
+                    {
+                        txtCodigo.Text = casosReasignado.tInstitucion.Codigo.ToString();
+                        txtJuntaAdm.Text = casosReasignado.tInstitucion.Nombre;
+                        txtCircuito.Text = casosReasignado.tInstitucion.Circuito.ToString();
+                        cbTipoRecepcion.Text = casosReasignado.tRecepcion.Recepcion;
+                        cbAsignados.Text = casosReasignado.tPersona.NombreCompleto;
+                        this.btnReasignarCaso.Enabled = true;
+                    }
+                    else
+                    {
+                        Alerta.Danger(new Alertas.Alerta(), "El caso ingresado no existe. Favor ingrese uno váñido");
+                    }
+                }
+                else
+                {
+                    Alerta.Danger(new Alertas.Alerta(), "Debe ingresar un caso");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        private void btnReasignarCaso_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tRecepcion t = new tRecepcion();
+                tPersona tramitador = new tPersona();         
+                tramitador = persona.obtenerPorId(cbAsignados.SelectedValue.ToString());
+                casosReasignado.Fecha = dtpFecha.Value;
+                casosReasignado.Tramitador = tramitador.Cedula;
+                casosReasignado.tPersona = tramitador;
+
+
+                if (Rnegocio.modificar(casosReasignado) == true)
+                {
+                    Alerta.Success(new Alertas.Alerta(), "Caso reasignado a: " + cbAsignados.Text);
+                    MostrarConsecutivo();
+                    txtCodigo.ResetText();
+                    txtCaso.ResetText();
+                    btnReasignarCaso.Enabled = false;
+                }
+                else
+                {
+                    Alerta.Danger(new Alertas.Alerta(), "Error al reasignar caso");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

@@ -562,6 +562,8 @@
     <None Include="Resources\name_20px.png" />
     <None Include="Resources\sync_20px.png" />
     <None Include="Resources\sync_20px1.png" />
+    <None Include="Resources\buscar.png" />
+    <None Include="Resources\safety_collection_place_96px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

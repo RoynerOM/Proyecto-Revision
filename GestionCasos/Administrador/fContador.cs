@@ -155,7 +155,14 @@ namespace GestionCasos.Administrador
                         //Cargarmos el modelo con los datos del formulario
                         contador.TipoIdentificacion = cbTipo.SelectedIndex;
                         contador.Cedula = txtCedula.Text;
-                        contador.Carnet = txtCarne.Text;
+                        if (txtCarne.Text != string.Empty)
+                        {
+                            contador.Carnet = txtCarne.Text;
+                        }
+                        else
+                        {
+                            contador.Carnet = "-";
+                        }
                         contador.Nombre = txtNombre.Text.ToUpper();
                         contador.Apellido1 = txtApellido1.Text.ToUpper();
                         contador.Apellido2 = txtApellido2.Text.ToUpper();
@@ -278,10 +285,6 @@ namespace GestionCasos.Administrador
             {
                 label4.ForeColor = Colors.RedFont;
             }
-            if (txtCarne.Text == string.Empty)
-            {
-                label6.ForeColor = Colors.RedFont;
-            }
             if (validarEmail(txtCorreo.Text) == false)
             {
                 label8.ForeColor = Colors.RedFont;
@@ -311,11 +314,6 @@ namespace GestionCasos.Administrador
             else if (txtApellido2.Text == string.Empty)
             {
                 Message.Danger(new Alertas.Alerta(), "El campo de Segundo Apellido no puede ser vacío");
-                return false;
-            }
-            else if (txtCarne.Text == string.Empty)
-            {
-                Message.Danger(new Alertas.Alerta(), "El campo de Carnet no puede ser vacío");
                 return false;
             }
             else if (validarEmail(txtCorreo.Text) == false)
