@@ -36,6 +36,10 @@ namespace GestionCasos
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCasosAdmin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblActual = new System.Windows.Forms.Label();
+            this.lblPag = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.txtConsecutivo = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
@@ -62,6 +66,10 @@ namespace GestionCasos
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.panel1.Controls.Add(this.lblActual);
+            this.panel1.Controls.Add(this.lblPag);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnNext);
             this.panel1.Controls.Add(this.txtConsecutivo);
             this.panel1.Controls.Add(this.gunaAdvenceTileButton1);
             this.panel1.Controls.Add(this.gunaLabel4);
@@ -79,6 +87,62 @@ namespace GestionCasos
             this.panel1.Size = new System.Drawing.Size(938, 561);
             this.panel1.TabIndex = 0;
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
+            // 
+            // lblActual
+            // 
+            this.lblActual.BackColor = System.Drawing.Color.Transparent;
+            this.lblActual.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActual.ForeColor = System.Drawing.Color.White;
+            this.lblActual.Location = new System.Drawing.Point(273, 103);
+            this.lblActual.Name = "lblActual";
+            this.lblActual.Size = new System.Drawing.Size(264, 23);
+            this.lblActual.TabIndex = 30;
+            this.lblActual.Text = "label1";
+            this.lblActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPag
+            // 
+            this.lblPag.BackColor = System.Drawing.Color.Transparent;
+            this.lblPag.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPag.ForeColor = System.Drawing.Color.White;
+            this.lblPag.Location = new System.Drawing.Point(3, 103);
+            this.lblPag.Name = "lblPag";
+            this.lblPag.Size = new System.Drawing.Size(264, 23);
+            this.lblPag.TabIndex = 29;
+            this.lblPag.Text = "label1";
+            this.lblPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(757, 103);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Anterior";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(855, 103);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 27;
+            this.btnNext.Text = "Siguiente";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // txtConsecutivo
             // 
@@ -107,6 +171,7 @@ namespace GestionCasos
             this.txtConsecutivo.Size = new System.Drawing.Size(169, 26);
             this.txtConsecutivo.TabIndex = 12;
             this.txtConsecutivo.TextChanged += new System.EventHandler(this.txtConsecutivo_TextChanged);
+            this.txtConsecutivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsecutivo_KeyPress);
             // 
             // gunaAdvenceTileButton1
             // 
@@ -298,7 +363,7 @@ namespace GestionCasos
             this.Estado});
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.tabla.Location = new System.Drawing.Point(0, 114);
+            this.tabla.Location = new System.Drawing.Point(0, 166);
             this.tabla.Margin = new System.Windows.Forms.Padding(2);
             this.tabla.Name = "tabla";
             this.tabla.ReadOnly = true;
@@ -326,7 +391,7 @@ namespace GestionCasos
             this.tabla.RowTemplate.Height = 24;
             this.tabla.RowTemplate.ReadOnly = true;
             this.tabla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabla.Size = new System.Drawing.Size(938, 447);
+            this.tabla.Size = new System.Drawing.Size(938, 395);
             this.tabla.TabIndex = 0;
             this.tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellContentClick);
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
@@ -468,5 +533,9 @@ namespace GestionCasos
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private Guna.UI.WinForms.GunaAdvenceTileButton gunaAdvenceTileButton1;
         private Guna.UI2.WinForms.Guna2TextBox txtConsecutivo;
+        private System.Windows.Forms.Label lblActual;
+        private System.Windows.Forms.Label lblPag;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNext;
     }
 }

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using Utilidades;
@@ -29,7 +30,12 @@ namespace GestionCasos
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private bool entrega = false;
 
-
+        int cantidad = 5;
+        int TotalPaginas = 0;
+        int aux = 0;
+        string person = null;
+        int medio = 0;
+        int es = 0;
         public fCasosAdmin(bool entrega)
         {
             InitializeComponent();
@@ -66,21 +72,50 @@ namespace GestionCasos
         }
 
 
-        public void PedirDatos()
+        public void PedirDatos(int PaginaSeleccionada = 0, string tramitador = null, string caso = null, int estado = 0, int recepcion = 0)
         {
             try
             {
-                Casos = revisionNegocio.obtenerTodo(revision);
-
-                if (Casos != null)
+                if (tramitador != null)
                 {
-                    CargarTabla(Casos);
+                    Casos = revisionNegocio.obtenerTodo(new tRevision()).Where(x => x.Tramitador == tramitador).ToList();
                 }
+                else if (caso != null)
+                {
+                    Casos = revisionNegocio.obtenerTodo(new tRevision()).Where(x => x.Consecutivo == caso.ToUpper()).ToList();
+                }
+                else if (estado != 0)
+                {
+                    Casos = revisionNegocio.obtenerTodo(new tRevision()).Where(x => x.Estado == estado).ToList();
+                }
+                else if (recepcion != 0)
+                {
+                    Casos = revisionNegocio.obtenerTodo(new tRevision()).Where(x => x.Recepcion == recepcion).ToList();
+                }
+                else
+                {
+                    Casos = revisionNegocio.obtenerTodo(new tRevision());
+                }
+
+                int TotalRegistros = Casos.Count();
+                TotalPaginas = (int)
+                    Math.Ceiling(decimal.Parse(TotalRegistros.ToString()) /
+                                  decimal.Parse(cantidad.ToString()));
+
+                lblPag.Text = "Total de Páginas: " + TotalPaginas.ToString();
+                lblActual.Text = "Página Actual: " + (PaginaSeleccionada + 1).ToString();
+
+                //aux = TotalPaginas;
+                CargarTabla(Casos.OrderBy(d => d.Consecutivo)
+                     .Skip(PaginaSeleccionada * cantidad)
+                     .Take(cantidad).ToList());
             }
             catch (Exception ex)
             {
+
                 Console.WriteLine(ex);
             }
+
         }
 
 
@@ -276,6 +311,8 @@ namespace GestionCasos
                 gunaLabel2.ForeColor = Colors.Black;
                 gunaLabel3.ForeColor = Colors.Black;
                 gunaLabel4.ForeColor = Colors.Black;
+                lblPag.ForeColor = Colors.Black;
+                lblActual.ForeColor = Colors.Black;
             }
             else
             {
@@ -358,9 +395,8 @@ namespace GestionCasos
         {
             try
             {
-                var filtro = revisionNegocio.obtenerPorContador(cbTramitador.SelectedValue.ToString());
-                if (filtro != null)
-                    CargarTabla(filtro);
+                PedirDatos(aux, cbTramitador.SelectedValue.ToString(), null, 0);
+                person = cbTramitador.SelectedValue.ToString();
             }
             catch (Exception ex)
             {
@@ -373,13 +409,8 @@ namespace GestionCasos
         {
             try
             {
-                if (cbEstado.Text != string.Empty)
-                {
-                    if ((int)cbEstado.SelectedValue == 6)
-                        PedirDatos();
-                    else
-                        CargarTabla(revisionNegocio.FilterBy((int)cbEstado.SelectedValue));
-                }
+                PedirDatos(aux, null, null, (int)cbEstado.SelectedValue, 0);
+                es = (int)cbEstado.SelectedValue;
             }
             catch (Exception ex)
             {
@@ -393,14 +424,8 @@ namespace GestionCasos
         {
             try
             {
-                if (cbRecepcion.Text != string.Empty)
-                {
-                    var i = revisionNegocio.FilterBy((int)cbRecepcion.SelectedValue, 0);
-                    if (i != null)
-                    {
-                        CargarTabla(i);
-                    }
-                }
+                PedirDatos(aux, null, null, 0, (int)cbRecepcion.SelectedValue);
+                medio = (int)cbRecepcion.SelectedValue;
 
             }
             catch (Exception ex)
@@ -417,12 +442,7 @@ namespace GestionCasos
             {
                 if (txtConsecutivo.Text != string.Empty)
                 {
-                    var i = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text);
-
-                    if (i != null)
-                    {
-                        CargarTabla(i);
-                    }
+                    PedirDatos(aux, null, txtConsecutivo.Text.ToUpper(), 0, 0);
                 }
                 else
                 {
@@ -460,11 +480,104 @@ namespace GestionCasos
 
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
-            PedirDatos();
+            TotalPaginas = 0;
+            aux = 0;
+            person = null;
+            PedirDatos(aux,null,null,0,0);
+            
         }
 
         private void tabla_Paint(object sender, PaintEventArgs e)
         {
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            aux++;
+            if (aux >= TotalPaginas)
+            {
+                aux = TotalPaginas;
+            }
+            else
+            {
+                if (txtConsecutivo.Text != string.Empty)
+                {
+                    PedirDatos(aux, null, txtConsecutivo.Text.ToUpper(), 0, 0);
+                }
+                else if (medio != 0)
+                {
+                    PedirDatos(aux, null, null, 0, (int)cbRecepcion.SelectedValue);
+                }
+                else if (es != 0)
+                {
+                    PedirDatos(aux, null, null, (int)cbEstado.SelectedValue, 0);
+                }
+                else if (person != null)
+                {
+                    PedirDatos(aux, cbTramitador.SelectedValue.ToString().ToUpper());
+                }
+                else
+                {
+                    PedirDatos(aux);
+                }
+            }
+
+            Console.WriteLine("Next: " + aux);
+            Console.WriteLine(TotalPaginas);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            aux--;
+            if (aux < 0)
+            {
+                aux = 0;
+            }
+            else
+            {
+                if (txtConsecutivo.Text != string.Empty)
+                {
+                    PedirDatos(aux, null, txtConsecutivo.Text.ToUpper(), 0, 0);
+                }
+                else if (medio != 0)
+                {
+                    PedirDatos(aux, null, null, 0, (int)cbRecepcion.SelectedValue);
+                }
+                else if (es != 0)
+                {
+                    PedirDatos(aux, null, null, (int)cbEstado.SelectedValue, 0);
+                }
+                else if (person != null)
+                {
+                    PedirDatos(aux, cbTramitador.SelectedValue.ToString().ToUpper());
+                }
+                else
+                {
+                    PedirDatos(aux);
+                }
+            }
+            Console.WriteLine("Prev: " + aux);
+            Console.WriteLine(TotalPaginas);
+        }
+
+        private void txtConsecutivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    if (txtConsecutivo.Text != null)
+                    {
+                        PedirDatos(aux, null, txtConsecutivo.Text.ToUpper(), 0, 0);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
     }
 }

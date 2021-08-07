@@ -26,7 +26,6 @@ namespace Datos
         }
     
         public virtual DbSet<tBoleta> tBoleta { get; set; }
-        public virtual DbSet<tDireccionRegional> tDireccionRegional { get; set; }
         public virtual DbSet<tEntregaCasos> tEntregaCasos { get; set; }
         public virtual DbSet<tEstado> tEstado { get; set; }
         public virtual DbSet<tInstitucion> tInstitucion { get; set; }

@@ -21,7 +21,11 @@ namespace GestionCasos.Administrador
         ContadorNegocio persona = new ContadorNegocio();
         IEnumerable<tInstitucion> Instituciones = null;
         private int Rol = (int)Enums.Tipo.Tramitador;
-
+        int cantidad = 10;
+        int TotalPaginas = 0;
+        int aux = 0;
+        int refActual = 0;
+        string person = null;
         public fDetallesJuntas(int Rol)
         {
             InitializeComponent();
@@ -30,12 +34,40 @@ namespace GestionCasos.Administrador
         }
 
 
-        public void PedirDatos()
+        public void PedirDatos(int PaginaSeleccionada=0, string cedula = null,string nombre= null,int codigo = 0)
         {
             try
             {
-                Instituciones = institucionNegocio.obtenerTodo(new tInstitucion());
-                CargarTabla(Instituciones);
+                if (cedula != null)
+                {
+                    Instituciones = institucionNegocio.obtenerTodo(new tInstitucion()).Where(x=> x.Contador == cedula).ToList();
+                }
+                else if(nombre != null)
+                {
+                    Instituciones = institucionNegocio.obtenerTodo(new tInstitucion()).Where(x=> x.Nombre == nombre.ToUpper()).ToList();
+                }
+                else if(codigo != 0)
+                {
+                    Instituciones = institucionNegocio.obtenerTodo(new tInstitucion()).Where(x => x.Codigo == codigo).ToList();
+                }
+                else
+                {
+                    Instituciones = institucionNegocio.obtenerTodo(new tInstitucion());
+                }
+
+                int TotalRegistros = Instituciones.Count();
+                TotalPaginas = (int)
+                    Math.Ceiling(decimal.Parse(TotalRegistros.ToString()) /
+                                  decimal.Parse(cantidad.ToString()));
+
+                lblPag.Text = "Total de Páginas: " + TotalPaginas.ToString();
+                refActual = PaginaSeleccionada + 1;
+                lblActual.Text = "Página Actual: " + (PaginaSeleccionada+1).ToString();
+
+                //aux = TotalPaginas;
+                CargarTabla(Instituciones.OrderBy(d => d.Codigo)
+                     .Skip(PaginaSeleccionada * cantidad)
+                     .Take(cantidad).ToList());
             }
             catch (Exception ex)
             {
@@ -81,6 +113,8 @@ namespace GestionCasos.Administrador
                 gunaLabel1.ForeColor = Colors.Black;
                 gunaLabel3.ForeColor = Colors.Black;
                 gunaLabel4.ForeColor = Colors.Black;
+                lblPag.ForeColor = Colors.Black;
+                lblActual.ForeColor = Colors.Black;
             }
         }
 
@@ -145,7 +179,6 @@ namespace GestionCasos.Administrador
             }
         }
 
-
         private void fDetallesJuntas_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
@@ -175,23 +208,15 @@ namespace GestionCasos.Administrador
             }
         }
 
-
+        //txtNombre
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (txtNombre.Text != string.Empty)
+                
+                if (txtNombre.Text != null)
                 {
-                    var filtro = Instituciones.Where(x => x.Nombre.Trim().ToUpper().StartsWith(txtNombre.Text.Trim().ToUpper()));
-
-                    if (filtro != null)
-                    {
-                        CargarTabla(filtro);
-                    }
-                }
-                else
-                {
-                    PedirDatos();
+                    PedirDatos(aux, null, txtNombre.Text, 0);
                 }
             }
             catch (Exception ex)
@@ -247,9 +272,9 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                if (txtCedulaJuridica.Text.Length > 6)
+                if (txtCodigo.Text.Length > 6)
                 {
-                    var filtro = Instituciones.Where(x => x.CedulaJuridica.StartsWith(txtCedulaJuridica.Text));
+                    var filtro = Instituciones.Where(x => x.Codigo == int.Parse(txtCodigo.Text));
                     CargarTabla(filtro);
                 }
                 else
@@ -264,19 +289,13 @@ namespace GestionCasos.Administrador
         }
 
 
+        //cbTramitador
         private void cbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
-                var filtro = Instituciones.Where(x => x.Contador == cbTramitador.SelectedValue.ToString());
-                if (filtro != null)
-                {
-                    CargarTabla(filtro);
-                }
-                else
-                {
-                    Console.WriteLine("No hay datos a mostrar");
-                }
+                PedirDatos(aux,cbTramitador.SelectedValue.ToString(),null,0);
+                person = cbTramitador.SelectedValue.ToString();
             }
             catch (Exception ex)
             {
@@ -322,7 +341,83 @@ namespace GestionCasos.Administrador
 
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
-            PedirDatos();
+            TotalPaginas = 0;
+            aux = 0;
+            person = null;
+            PedirDatos(aux,null,null,0);
+            
+        }
+
+        //Boton de siguiente
+        private void btnNext_Click(object sender, EventArgs e) {
+
+            aux++;
+            if (aux >= TotalPaginas)
+            {
+                aux = TotalPaginas;
+            }
+            else
+            {
+                if (txtCodigo.Text != string.Empty)
+                {
+                    PedirDatos(aux, null, null, 0);
+                }
+                else if (txtNombre.Text != string.Empty)
+                {
+                    PedirDatos(aux, null, txtNombre.Text.ToUpper());
+                }
+                else if (person != null)
+                {
+                    PedirDatos(aux, cbTramitador.SelectedValue.ToString().ToUpper());
+                }
+                else
+                {
+                    PedirDatos(aux);
+                }
+            }
+            
+            Console.WriteLine("Next: " + aux);
+            Console.WriteLine(TotalPaginas);
+        }
+
+
+        //Boton de Anterior
+        private void button1_Click(object sender, EventArgs e)  
+        {
+            aux--;
+            if (aux < 0)
+            {
+                aux = 0;
+                
+            }
+            else
+            {
+                if (txtCodigo.Text != string.Empty)
+                {
+                    PedirDatos(aux, null,null,0);
+                }else if (txtNombre.Text != string.Empty)
+                {
+                    PedirDatos(aux,null,txtNombre.Text.ToUpper(),0);
+                }else if (person != null)
+                {
+                    PedirDatos(aux,cbTramitador.SelectedValue.ToString().ToUpper(),null,0);
+                }
+                else
+                {
+                    PedirDatos(aux);
+                }
+            }
+            Console.WriteLine("Prev: " + aux);
+            Console.WriteLine(TotalPaginas);
+        }
+
+        //Codigo
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text != string.Empty)
+            {
+                PedirDatos(0, null, null, int.Parse(txtCodigo.Text));
+            }
         }
     }
 }

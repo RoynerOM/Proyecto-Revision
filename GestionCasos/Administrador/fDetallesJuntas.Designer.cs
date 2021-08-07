@@ -34,7 +34,6 @@ namespace GestionCasos.Administrador
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.txtCedulaJuridica = new System.Windows.Forms.MaskedTextBox();
             this.txtNombre = new Guna.UI.WinForms.GunaTextBox();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
@@ -51,14 +50,23 @@ namespace GestionCasos.Administrador
             this.Contador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblPag = new System.Windows.Forms.Label();
+            this.txtCodigo = new Guna.UI.WinForms.GunaTextBox();
+            this.lblActual = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblActual);
+            this.panel1.Controls.Add(this.txtCodigo);
+            this.panel1.Controls.Add(this.lblPag);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnNext);
             this.panel1.Controls.Add(this.gunaAdvenceTileButton1);
-            this.panel1.Controls.Add(this.txtCedulaJuridica);
             this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.gunaLabel4);
             this.panel1.Controls.Add(this.gunaLabel3);
@@ -104,17 +112,6 @@ namespace GestionCasos.Administrador
             this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(40, 40);
             this.gunaAdvenceTileButton1.TabIndex = 21;
             this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
-            // 
-            // txtCedulaJuridica
-            // 
-            this.txtCedulaJuridica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCedulaJuridica.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaJuridica.Location = new System.Drawing.Point(779, 66);
-            this.txtCedulaJuridica.Mask = "0-000-000000";
-            this.txtCedulaJuridica.Name = "txtCedulaJuridica";
-            this.txtCedulaJuridica.Size = new System.Drawing.Size(185, 25);
-            this.txtCedulaJuridica.TabIndex = 20;
-            this.txtCedulaJuridica.TextChanged += new System.EventHandler(this.txtCedulaJuridica_TextChanged);
             // 
             // txtNombre
             // 
@@ -192,9 +189,9 @@ namespace GestionCasos.Administrador
             this.gunaLabel1.Location = new System.Drawing.Point(775, 32);
             this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(185, 20);
+            this.gunaLabel1.Size = new System.Drawing.Size(130, 20);
             this.gunaLabel1.TabIndex = 14;
-            this.gunaLabel1.Text = "Filtrar Por Cedula Jurídica";
+            this.gunaLabel1.Text = "Filtrar Por Código";
             // 
             // tabla
             // 
@@ -233,7 +230,7 @@ namespace GestionCasos.Administrador
             this.Telefono});
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.tabla.Location = new System.Drawing.Point(0, 147);
+            this.tabla.Location = new System.Drawing.Point(0, 174);
             this.tabla.Margin = new System.Windows.Forms.Padding(2);
             this.tabla.MultiSelect = false;
             this.tabla.Name = "tabla";
@@ -262,7 +259,7 @@ namespace GestionCasos.Administrador
             this.tabla.RowTemplate.Height = 24;
             this.tabla.RowTemplate.ReadOnly = true;
             this.tabla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabla.Size = new System.Drawing.Size(976, 413);
+            this.tabla.Size = new System.Drawing.Size(976, 386);
             this.tabla.TabIndex = 11;
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
             this.tabla.Resize += new System.EventHandler(this.tabla_Resize);
@@ -346,6 +343,80 @@ namespace GestionCasos.Administrador
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
             // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(889, 117);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 22;
+            this.btnNext.Text = "Siguiente";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(779, 117);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Anterior";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblPag
+            // 
+            this.lblPag.BackColor = System.Drawing.Color.Transparent;
+            this.lblPag.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPag.ForeColor = System.Drawing.Color.White;
+            this.lblPag.Location = new System.Drawing.Point(12, 117);
+            this.lblPag.Name = "lblPag";
+            this.lblPag.Size = new System.Drawing.Size(264, 23);
+            this.lblPag.TabIndex = 24;
+            this.lblPag.Text = "label1";
+            this.lblPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCodigo.BaseColor = System.Drawing.Color.White;
+            this.txtCodigo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.txtCodigo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodigo.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtCodigo.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtCodigo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(779, 63);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.PasswordChar = '\0';
+            this.txtCodigo.SelectedText = "";
+            this.txtCodigo.Size = new System.Drawing.Size(185, 28);
+            this.txtCodigo.TabIndex = 25;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            // 
+            // lblActual
+            // 
+            this.lblActual.BackColor = System.Drawing.Color.Transparent;
+            this.lblActual.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActual.ForeColor = System.Drawing.Color.White;
+            this.lblActual.Location = new System.Drawing.Point(282, 117);
+            this.lblActual.Name = "lblActual";
+            this.lblActual.Size = new System.Drawing.Size(264, 23);
+            this.lblActual.TabIndex = 26;
+            this.lblActual.Text = "label1";
+            this.lblActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // fDetallesJuntas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,7 +439,6 @@ namespace GestionCasos.Administrador
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView tabla;
-        private System.Windows.Forms.MaskedTextBox txtCedulaJuridica;
         private Guna.UI.WinForms.GunaComboBox cbTramitador;
         private Guna.UI.WinForms.GunaTextBox txtNombre;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
@@ -385,5 +455,10 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.DataGridViewTextBoxColumn Contacto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private Guna.UI.WinForms.GunaAdvenceTileButton gunaAdvenceTileButton1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblPag;
+        private Guna.UI.WinForms.GunaTextBox txtCodigo;
+        private System.Windows.Forms.Label lblActual;
     }
 }

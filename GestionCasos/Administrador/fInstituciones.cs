@@ -18,7 +18,6 @@ namespace GestionCasos.Administrador
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
 
         ContadorNegocio persona = new ContadorNegocio();
-        DireccionRegionalNegocio regional = new DireccionRegionalNegocio();
         InstitucionNegocio negocio = new InstitucionNegocio();
         showMessageDialog message = new showMessageDialog();
         private Form activeForm;
@@ -65,11 +64,6 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                //Combo box de circuito
-                cbCircuito.DataSource = regional.obtenerTodo(new tDireccionRegional());
-                cbCircuito.DisplayMember = "Circuito";
-                cbCircuito.ValueMember = "Circuito";
-
                 //Combo box de Contador
                 cbContador.DataSource = persona.obtenerTrabador((int)Enums.Tipo.Contador);
                 cbContador.ValueMember = "Cedula";
@@ -211,7 +205,20 @@ namespace GestionCasos.Administrador
             }
         }
 
+        private void LimpiarCampos()
+        {
+            txtCodigo.ResetText();
+            cbCircuito.ResetText();
+            txtInstitucion.ResetText();
+            txtCuentaDanea.ResetText();
+            txtCuentaLey.ResetText();
+            txtCedulaJuridica.ResetText();
+            cbContador.ResetText();
+            cbTipo.ResetText();
+            txtContacto.ResetText();
+            txtTelefono.ResetText();
 
+        }
         //Guardar
         private void gunaButton1_Click(object sender, EventArgs e)
         {
@@ -225,19 +232,28 @@ namespace GestionCasos.Administrador
                     if (i == null)
                     {
                         institucion.Codigo = int.Parse(txtCodigo.Text);
-                        institucion.Circuito = (int)cbCircuito.SelectedValue;
+                        institucion.Circuito= int.Parse(cbCircuito.Text);
                         institucion.Tipo = (int)cbTipo.SelectedValue;
                         institucion.Nombre = txtInstitucion.Text.ToUpper();
                         institucion.CedulaJuridica = txtCedulaJuridica.Text;
                         institucion.CuentaDanea = txtCuentaDanea.Text;
                         institucion.CuentaLey = txtCuentaLey.Text;
                         institucion.Contador = (string)cbContador.SelectedValue;
-                        institucion.Responsable = txtContacto.Text.ToUpper();
+                        if (txtContacto.Text != string.Empty)
+                        {
+                            institucion.Responsable = txtContacto.Text.ToUpper();
+                        }
+                        else
+                        {
+                            institucion.Responsable = "-";
+                        }
                         institucion.Contacto = txtTelefono.Text;
+                        institucion.Estado = true;
 
                         if (negocio.guardar(institucion) == true)
                         {
                             message.Success(new Alertas.Alerta(), "La Junta se guardo correctamente");
+                            LimpiarCampos();
                         }
                         else
                         {
@@ -318,19 +334,6 @@ namespace GestionCasos.Administrador
             }
         }
 
-
-        private void LimpiarCampos()
-        {
-            txtCuentaLey.ResetText();
-            txtCuentaDanea.ResetText();
-            txtInstitucion.ResetText();
-            txtCedulaJuridica.ResetText();
-            cbTipo.ResetText();
-            txtContacto.ResetText();
-            txtTelefono.ResetText();
-            cbContador.SelectedIndex = 0;
-            cbCircuito.SelectedIndex = 0;
-        }
 
 
         //Modificar

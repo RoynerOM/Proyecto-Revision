@@ -67,7 +67,6 @@
     <Compile Include="EntregaDatos.cs" />
     <Compile Include="EstadoDatos.cs" />
     <Compile Include="DatosContador.cs" />
-    <Compile Include="DatosDireccionRegional.cs" />
     <Compile Include="DatosInstitucion.cs" />
     <Compile Include="DatosRevision.cs" />
     <Compile Include="DatosTipoInstitucion.cs" />

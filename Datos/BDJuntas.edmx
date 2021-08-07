@@ -22,14 +22,6 @@
           <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
           <Property Name="FechaCreado" Type="date" Nullable="false" />
         </EntityType>
-        <EntityType Name="tDireccionRegional">
-          <Key>
-            <PropertyRef Name="Circuito" />
-          </Key>
-          <Property Name="Circuito" Type="int" Nullable="false" />
-          <Property Name="Regional" Type="varchar(max)" Nullable="false" />
-          <Property Name="Estado" Type="bit" Nullable="false" />
-        </EntityType>
         <EntityType Name="tEntregaCasos">
           <Key>
             <PropertyRef Name="Id" />
@@ -243,6 +235,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewEntregaCasos' does not have a pri
             <PropertyRef Name="FechaEntrega" />
             <PropertyRef Name="Observacion" />
             <PropertyRef Name="Mensajero" />
+            <PropertyRef Name="Pago" />
           </Key>
           <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="Codigo" Type="int" Nullable="false" />
@@ -253,6 +246,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewEntregaCasos' does not have a pri
           <Property Name="FechaEntrega" Type="date" Nullable="false" />
           <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
           <Property Name="Mensajero" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Pago" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDJuntas.dbo.viewJuntas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -344,18 +338,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             </Principal>
             <Dependent Role="tEntregaCasos">
               <PropertyRef Name="Mensajero" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tInstituc__Circu__534D60F1">
-          <End Role="tDireccionRegional" Type="Self.tDireccionRegional" Multiplicity="1" />
-          <End Role="tInstitucion" Type="Self.tInstitucion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tDireccionRegional">
-              <PropertyRef Name="Circuito" />
-            </Principal>
-            <Dependent Role="tInstitucion">
-              <PropertyRef Name="Circuito" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -457,7 +439,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
         </Association>
         <EntityContainer Name="BDJuntasModelStoreContainer">
           <EntitySet Name="tBoleta" EntityType="Self.tBoleta" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tDireccionRegional" EntityType="Self.tDireccionRegional" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tEntregaCasos" EntityType="Self.tEntregaCasos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tEstado" EntityType="Self.tEstado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tInstitucion" EntityType="Self.tInstitucion" Schema="dbo" store:Type="Tables" />
@@ -525,7 +506,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
     [viewEntregaCasos].[FechaAsignada] AS [FechaAsignada], 
     [viewEntregaCasos].[FechaEntrega] AS [FechaEntrega], 
     [viewEntregaCasos].[Observacion] AS [Observacion], 
-    [viewEntregaCasos].[Mensajero] AS [Mensajero]
+    [viewEntregaCasos].[Mensajero] AS [Mensajero], 
+    [viewEntregaCasos].[Pago] AS [Pago]
     FROM [dbo].[viewEntregaCasos] AS [viewEntregaCasos]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="viewJuntas" EntityType="Self.viewJuntas" store:Type="Views" store:Schema="dbo">
@@ -569,10 +551,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             <End Role="tMensajero" EntitySet="tMensajero" />
             <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
           </AssociationSet>
-          <AssociationSet Name="FK__tInstituc__Circu__534D60F1" Association="Self.FK__tInstituc__Circu__534D60F1">
-            <End Role="tDireccionRegional" EntitySet="tDireccionRegional" />
-            <End Role="tInstitucion" EntitySet="tInstitucion" />
-          </AssociationSet>
           <AssociationSet Name="FK__tInstituc__Conta__52593CB8" Association="Self.FK__tInstituc__Conta__52593CB8">
             <End Role="tPersona" EntitySet="tPersona" />
             <End Role="tInstitucion" EntitySet="tInstitucion" />
@@ -612,7 +590,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
       <Schema Namespace="BDJuntasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="BDJuntasEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tBoleta" EntityType="BDJuntasModel.tBoleta" />
-          <EntitySet Name="tDireccionRegional" EntityType="BDJuntasModel.tDireccionRegional" />
           <EntitySet Name="tEntregaCasos" EntityType="BDJuntasModel.tEntregaCasos" />
           <EntitySet Name="tEstado" EntityType="BDJuntasModel.tEstado" />
           <EntitySet Name="tInstitucion" EntityType="BDJuntasModel.tInstitucion" />
@@ -632,10 +609,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <AssociationSet Name="FK__tBoleta__IdCaso__66603565" Association="BDJuntasModel.FK__tBoleta__IdCaso__66603565">
             <End Role="tRevision" EntitySet="tRevision" />
             <End Role="tBoleta" EntitySet="tBoleta" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tInstituc__Circu__534D60F1" Association="BDJuntasModel.FK__tInstituc__Circu__534D60F1">
-            <End Role="tDireccionRegional" EntitySet="tDireccionRegional" />
-            <End Role="tInstitucion" EntitySet="tInstitucion" />
           </AssociationSet>
           <AssociationSet Name="FK__tEntregaC__Asign__628FA481" Association="BDJuntasModel.FK__tEntregaC__Asign__628FA481">
             <End Role="tPersona" EntitySet="tPersona" />
@@ -700,15 +673,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="tRevision" Relationship="BDJuntasModel.FK__tBoleta__IdCaso__66603565" FromRole="tBoleta" ToRole="tRevision" />
         </EntityType>
-        <EntityType Name="tDireccionRegional">
-          <Key>
-            <PropertyRef Name="Circuito" />
-          </Key>
-          <Property Name="Circuito" Type="Int32" Nullable="false" />
-          <Property Name="Regional" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Estado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="tInstitucion" Relationship="BDJuntasModel.FK__tInstituc__Circu__534D60F1" FromRole="tDireccionRegional" ToRole="tInstitucion" />
-        </EntityType>
         <EntityType Name="tEntregaCasos">
           <Key>
             <PropertyRef Name="Id" />
@@ -751,7 +715,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="Contacto" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" Nullable="false" />
           <Property Name="CodigoAux" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
-          <NavigationProperty Name="tDireccionRegional" Relationship="BDJuntasModel.FK__tInstituc__Circu__534D60F1" FromRole="tInstitucion" ToRole="tDireccionRegional" />
           <NavigationProperty Name="tEntregaCasos" Relationship="BDJuntasModel.FK__tEntregaC__Junta__6383C8BA" FromRole="tInstitucion" ToRole="tEntregaCasos" />
           <NavigationProperty Name="tPersona" Relationship="BDJuntasModel.FK__tInstituc__Conta__52593CB8" FromRole="tInstitucion" ToRole="tPersona" />
           <NavigationProperty Name="tTipoInstitucion" Relationship="BDJuntasModel.FK__tInstituci__Tipo__5441852A" FromRole="tInstitucion" ToRole="tTipoInstitucion" />
@@ -938,6 +901,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             <PropertyRef Name="FechaEntrega" />
             <PropertyRef Name="Observacion" />
             <PropertyRef Name="Mensajero" />
+            <PropertyRef Name="Pago" />
           </Key>
           <Property Name="Consecutivo" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="Codigo" Type="Int32" Nullable="false" />
@@ -948,6 +912,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="FechaEntrega" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Observacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Mensajero" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Pago" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="viewJuntas">
           <Key>
@@ -999,18 +964,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             </Principal>
             <Dependent Role="tBoleta">
               <PropertyRef Name="IdCaso" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tInstituc__Circu__534D60F1">
-          <End Type="BDJuntasModel.tDireccionRegional" Role="tDireccionRegional" Multiplicity="1" />
-          <End Type="BDJuntasModel.tInstitucion" Role="tInstitucion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tDireccionRegional">
-              <PropertyRef Name="Circuito" />
-            </Principal>
-            <Dependent Role="tInstitucion">
-              <PropertyRef Name="Circuito" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1167,15 +1120,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
                 <ScalarProperty Name="Motivo1" ColumnName="Motivo1" />
                 <ScalarProperty Name="IdCaso" ColumnName="IdCaso" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tDireccionRegional">
-            <EntityTypeMapping TypeName="BDJuntasModel.tDireccionRegional">
-              <MappingFragment StoreEntitySet="tDireccionRegional">
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Regional" ColumnName="Regional" />
-                <ScalarProperty Name="Circuito" ColumnName="Circuito" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1360,6 +1304,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <EntitySetMapping Name="viewEntregaCasos">
             <EntityTypeMapping TypeName="BDJuntasModel.viewEntregaCasos">
               <MappingFragment StoreEntitySet="viewEntregaCasos">
+                <ScalarProperty Name="Pago" ColumnName="Pago" />
                 <ScalarProperty Name="Mensajero" ColumnName="Mensajero" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />

@@ -287,8 +287,6 @@ namespace GestionCasos {
             
             private global::System.Data.DataColumn columnNombre;
             
-            private global::System.Data.DataColumn columnRegional;
-            
             private global::System.Data.DataColumn columnCedulaJuridica;
             
             private global::System.Data.DataColumn columnCuentaDanea;
@@ -361,14 +359,6 @@ namespace GestionCasos {
             public global::System.Data.DataColumn NombreColumn {
                 get {
                     return this.columnNombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn RegionalColumn {
-                get {
-                    return this.columnRegional;
                 }
             }
             
@@ -449,14 +439,13 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableJuntasRow AddTableJuntasRow(int Codigo, int Circuito, string NombreTipo, string Nombre, string Regional, string CedulaJuridica, string CuentaDanea, string CuentaLey, string Contador, bool Estado) {
+            public TableJuntasRow AddTableJuntasRow(int Codigo, int Circuito, string NombreTipo, string Nombre, string CedulaJuridica, string CuentaDanea, string CuentaLey, string Contador, bool Estado) {
                 TableJuntasRow rowTableJuntasRow = ((TableJuntasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Codigo,
                         Circuito,
                         NombreTipo,
                         Nombre,
-                        Regional,
                         CedulaJuridica,
                         CuentaDanea,
                         CuentaLey,
@@ -465,6 +454,13 @@ namespace GestionCasos {
                 rowTableJuntasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTableJuntasRow);
                 return rowTableJuntasRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TableJuntasRow FindByCodigo(int Codigo) {
+                return ((TableJuntasRow)(this.Rows.Find(new object[] {
+                            Codigo})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -488,7 +484,6 @@ namespace GestionCasos {
                 this.columnCircuito = base.Columns["Circuito"];
                 this.columnNombreTipo = base.Columns["NombreTipo"];
                 this.columnNombre = base.Columns["Nombre"];
-                this.columnRegional = base.Columns["Regional"];
                 this.columnCedulaJuridica = base.Columns["CedulaJuridica"];
                 this.columnCuentaDanea = base.Columns["CuentaDanea"];
                 this.columnCuentaLey = base.Columns["CuentaLey"];
@@ -507,8 +502,6 @@ namespace GestionCasos {
                 base.Columns.Add(this.columnNombreTipo);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnRegional = new global::System.Data.DataColumn("Regional", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRegional);
                 this.columnCedulaJuridica = new global::System.Data.DataColumn("CedulaJuridica", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCedulaJuridica);
                 this.columnCuentaDanea = new global::System.Data.DataColumn("CuentaDanea", typeof(string), null, global::System.Data.MappingType.Element);
@@ -519,14 +512,15 @@ namespace GestionCasos {
                 base.Columns.Add(this.columnContador);
                 this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCodigo}, true));
                 this.columnCodigo.AllowDBNull = false;
+                this.columnCodigo.Unique = true;
                 this.columnCircuito.AllowDBNull = false;
                 this.columnNombreTipo.AllowDBNull = false;
                 this.columnNombreTipo.MaxLength = 10;
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.MaxLength = 2147483647;
-                this.columnRegional.AllowDBNull = false;
-                this.columnRegional.MaxLength = 2147483647;
                 this.columnCedulaJuridica.AllowDBNull = false;
                 this.columnCedulaJuridica.MaxLength = 20;
                 this.columnCuentaDanea.AllowDBNull = false;
@@ -717,17 +711,6 @@ namespace GestionCasos {
                 }
                 set {
                     this[this.tableTableJuntas.NombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Regional {
-                get {
-                    return ((string)(this[this.tableTableJuntas.RegionalColumn]));
-                }
-                set {
-                    this[this.tableTableJuntas.RegionalColumn] = value;
                 }
             }
             
@@ -967,7 +950,6 @@ namespace GestionCasos.dtsJuntasTableAdapters {
             tableMapping.ColumnMappings.Add("Circuito", "Circuito");
             tableMapping.ColumnMappings.Add("NombreTipo", "NombreTipo");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
-            tableMapping.ColumnMappings.Add("Regional", "Regional");
             tableMapping.ColumnMappings.Add("CedulaJuridica", "CedulaJuridica");
             tableMapping.ColumnMappings.Add("CuentaDanea", "CuentaDanea");
             tableMapping.ColumnMappings.Add("CuentaLey", "CuentaLey");
@@ -989,11 +971,10 @@ namespace GestionCasos.dtsJuntasTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        tInstitucion.Codigo, tDireccionRegional.Circuito, tTipoInstitucion.NombreTipo, tInstitucion.Nombre, tDireccionRegional.Regional, tInstitucion.CedulaJuridica, tInstitucion.CuentaDanea, tInstitucion.CuentaLey, 
-                         tPersona.NombreCompleto AS Contador, tInstitucion.Estado
+            this._commandCollection[0].CommandText = @"SELECT        tInstitucion.Codigo, tInstitucion.Circuito, tTipoInstitucion.NombreTipo, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tInstitucion.CuentaDanea, tInstitucion.CuentaLey, tPersona.NombreCompleto AS Contador, 
+                         tInstitucion.Estado
 FROM            tInstitucion INNER JOIN
                          tTipoInstitucion ON tInstitucion.Tipo = tTipoInstitucion.IdTipo INNER JOIN
-                         tDireccionRegional ON tInstitucion.Circuito = tDireccionRegional.Circuito INNER JOIN
                          tPersona ON tInstitucion.Contador = tPersona.Cedula";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();

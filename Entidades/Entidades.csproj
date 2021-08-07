@@ -60,9 +60,6 @@
     <Compile Include="tBoleta.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="tDireccionRegional.cs">
-      <DependentUpon>EntidadesBD.tt</DependentUpon>
-    </Compile>
     <Compile Include="tEntregaCasos.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>

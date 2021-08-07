@@ -34,7 +34,6 @@ namespace Entidades
         public bool Estado { get; set; }
         public int CodigoAux { get; set; }
     
-        public virtual tDireccionRegional tDireccionRegional { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tEntregaCasos> tEntregaCasos { get; set; }
         public virtual tPersona tPersona { get; set; }

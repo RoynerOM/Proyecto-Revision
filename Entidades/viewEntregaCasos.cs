@@ -23,5 +23,6 @@ namespace Entidades
         public System.DateTime FechaEntrega { get; set; }
         public string Observacion { get; set; }
         public string Mensajero { get; set; }
+        public int Pago { get; set; }
     }
 }

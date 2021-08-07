@@ -987,10 +987,6 @@
           <DataField>Nombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Regional">
-          <DataField>Regional</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="CedulaJuridica">
           <DataField>CedulaJuridica</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1014,7 +1010,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsJuntas</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\User\Desktop\Proyecto-Revision\GestionCasos\dtsJuntas.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Desktop\Recursos\Proyecto-Revision\GestionCasos\dtsJuntas.xsd</rd:SchemaPath>
         <rd:TableName>TableJuntas</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

@@ -285,10 +285,6 @@ namespace GestionCasos.Administrador
             {
                 label4.ForeColor = Colors.RedFont;
             }
-            if (validarEmail(txtCorreo.Text) == false)
-            {
-                label8.ForeColor = Colors.RedFont;
-            }
         }
 
 
@@ -314,11 +310,6 @@ namespace GestionCasos.Administrador
             else if (txtApellido2.Text == string.Empty)
             {
                 Message.Danger(new Alertas.Alerta(), "El campo de Segundo Apellido no puede ser vacío");
-                return false;
-            }
-            else if (validarEmail(txtCorreo.Text) == false)
-            {
-                Message.Danger(new Alertas.Alerta(), "Debe ingresar un correo válido");
                 return false;
             }
             else

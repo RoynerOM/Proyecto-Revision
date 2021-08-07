@@ -332,7 +332,7 @@
     <Compile Include="Usuarios\CasosAsignados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuarios\CasosAsignados.Designer.cs">
+    <Compile Include="Usuarios\CasosAsignados.designer.cs">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\fBoleta.cs">

@@ -260,13 +260,13 @@ namespace GestionCasos.Usuarios
 
                 //Estado
                 cbEstado.DataSource = estadoNegocio.obtenerTodo(new tEstado());
-                cbEstado.ValueMember = "id";
-                cbEstado.DisplayMember = "TipoEstado";
+                cbEstado.ValueMember = "idEstado";
+                cbEstado.DisplayMember = "Estado";
 
                 //Recepcion
                 cbRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
                 cbRecepcion.ValueMember = "id";
-                cbRecepcion.DisplayMember = "Nombre";
+                cbRecepcion.DisplayMember = "Recepcion";
             }
             catch (Exception ex)
             {
