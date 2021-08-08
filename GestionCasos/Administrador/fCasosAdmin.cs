@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
 
@@ -18,13 +19,14 @@ namespace GestionCasos
     public partial class fCasosAdmin : Form
     {
 
-        tRevision revision = new tRevision();
-        EstadoNegocio estadoNegocio = new EstadoNegocio();
-        ContadorNegocio persona = new ContadorNegocio();
-        RevisionNegocio revisionNegocio = new RevisionNegocio();
-        RecepcionNegocio recepcion = new RecepcionNegocio();
-        EntregaNegocio entregaNegocio = new EntregaNegocio();
-        showMessageDialog Alerta = new showMessageDialog();
+        readonly tRevision revision = new tRevision();
+        readonly EstadoNegocio estadoNegocio = new EstadoNegocio();
+        readonly ContadorNegocio persona = new ContadorNegocio();
+        readonly RevisionNegocio revisionNegocio = new RevisionNegocio();
+        readonly RecepcionNegocio recepcion = new RecepcionNegocio();
+        readonly EntregaNegocio entregaNegocio = new EntregaNegocio();
+        readonly showMessageDialog Alerta = new showMessageDialog();
+
         IEnumerable<tRevision> Casos = null;
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
@@ -36,6 +38,8 @@ namespace GestionCasos
         string person = null;
         int medio = 0;
         int es = 0;
+
+
         public fCasosAdmin(bool entrega)
         {
             InitializeComponent();
@@ -52,9 +56,10 @@ namespace GestionCasos
             while (!hilo.IsAlive) ;
 
             OpenChildForm(new fLoader(1, hilo));
-            PedirDatos();
+            PedirDatos(aux);
             CargarCombos();
         }
+
 
 
         private void OpenChildForm(Form childForm)
@@ -72,29 +77,29 @@ namespace GestionCasos
         }
 
 
-        public void PedirDatos(int PaginaSeleccionada = 0, string tramitador = null, string caso = null, int estado = 0, int recepcion = 0)
+
+        public async void PedirDatos(int PaginaSeleccionada = 0, string tramitador = null, int estado = 0, int recepcion = 0)
         {
             try
             {
                 if (tramitador != null)
                 {
-                    Casos = revisionNegocio.obtenerTodo(new tRevision()).Where(x => x.Tramitador == tramitador).ToList();
-                }
-                else if (caso != null)
-                {
-                    Casos = revisionNegocio.obtenerTodo(new tRevision()).Where(x => x.Consecutivo == caso.ToUpper()).ToList();
+                    Casos = await revisionNegocio.obtenerTodo();
+                    Casos = Casos.Where(x => x.Tramitador == tramitador).ToList();
                 }
                 else if (estado != 0)
                 {
-                    Casos = revisionNegocio.obtenerTodo(new tRevision()).Where(x => x.Estado == estado).ToList();
+                    Casos = await revisionNegocio.obtenerTodo();
+                    Casos = Casos.Where(x => x.Estado == estado).ToList();
                 }
                 else if (recepcion != 0)
                 {
-                    Casos = revisionNegocio.obtenerTodo(new tRevision()).Where(x => x.Recepcion == recepcion).ToList();
+                    Casos = await revisionNegocio.obtenerTodo();
+                    Casos = Casos.Where(x => x.Recepcion == recepcion).ToList();
                 }
                 else
                 {
-                    Casos = revisionNegocio.obtenerTodo(new tRevision());
+                    Casos = await revisionNegocio.obtenerTodo();
                 }
 
                 int TotalRegistros = Casos.Count();
@@ -106,9 +111,7 @@ namespace GestionCasos
                 lblActual.Text = "Página Actual: " + (PaginaSeleccionada + 1).ToString();
 
                 //aux = TotalPaginas;
-                CargarTabla(Casos.OrderBy(d => d.Consecutivo)
-                     .Skip(PaginaSeleccionada * cantidad)
-                     .Take(cantidad).ToList());
+                CargarTabla(Casos.Skip(PaginaSeleccionada * cantidad).Take(cantidad).ToList());
             }
             catch (Exception ex)
             {
@@ -117,6 +120,7 @@ namespace GestionCasos
             }
 
         }
+
 
 
         public void CargarTabla(IEnumerable<tRevision> lista)
@@ -291,6 +295,7 @@ namespace GestionCasos
             }
         }
 
+
         //Cambio de color
         private void SetThemeColor()
         {
@@ -320,7 +325,8 @@ namespace GestionCasos
             }
         }
 
-        private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private async void tabla_CellContentClickAsync(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -343,8 +349,8 @@ namespace GestionCasos
                             tRevision r = revisionNegocio.ObtenerPorCaso(consecutivo);
                             if (r.Estado >= 3)
                             {
-                                tEntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
-                                fEntrega entrega = new fEntrega(entregaCasos, consecutivo);
+                                tEntregaCasos entregaCasos = await entregaNegocio.obtenerPorCasoAsync(consecutivo);
+                                fEntrega entrega = new fEntrega(consecutivo);
                                 entrega.ShowDialog();
                             }
                             else
@@ -363,22 +369,22 @@ namespace GestionCasos
         }
 
 
-        public void CargarCombos()
+        public async void CargarCombos()
         {
             try
             {
                 //Tramitador
-                cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
+                cbTramitador.DataSource = await persona.obtenerTodo();
                 cbTramitador.ValueMember = "Cedula";
                 cbTramitador.DisplayMember = "NombreCompleto";
 
                 //Estado
-                cbEstado.DataSource = estadoNegocio.obtenerTodo(new tEstado());
+                cbEstado.DataSource = await estadoNegocio.obtenerTodo();
                 cbEstado.ValueMember = "IdEstado";
                 cbEstado.DisplayMember = "Estado".ToUpper();
 
                 //Recepcion
-                cbRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
+                cbRecepcion.DataSource = await recepcion.obtenerTodo();
                 cbRecepcion.ValueMember = "id";
                 cbRecepcion.DisplayMember = "Recepcion".ToUpper();
             }
@@ -395,7 +401,7 @@ namespace GestionCasos
         {
             try
             {
-                PedirDatos(aux, cbTramitador.SelectedValue.ToString(), null, 0);
+                PedirDatos(aux, cbTramitador.SelectedValue.ToString(), 0, 0);
                 person = cbTramitador.SelectedValue.ToString();
             }
             catch (Exception ex)
@@ -409,8 +415,22 @@ namespace GestionCasos
         {
             try
             {
-                PedirDatos(aux, null, null, (int)cbEstado.SelectedValue, 0);
-                es = (int)cbEstado.SelectedValue;
+                if ((int)cbEstado.SelectedValue == 6)
+                {
+                    TotalPaginas = 0;
+                    aux = 0;
+                    person = null;
+                    txtConsecutivo.ResetText();
+                    cbEstado.ResetText();
+                    cbTramitador.ResetText();
+                    cbRecepcion.ResetText();
+                    PedirDatos(0, null, 0, 0);
+                }
+                else
+                {
+                    PedirDatos(aux, null, (int)cbEstado.SelectedValue, 0);
+                    es = (int)cbEstado.SelectedValue;
+                }
             }
             catch (Exception ex)
             {
@@ -424,7 +444,7 @@ namespace GestionCasos
         {
             try
             {
-                PedirDatos(aux, null, null, 0, (int)cbRecepcion.SelectedValue);
+                PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
                 medio = (int)cbRecepcion.SelectedValue;
 
             }
@@ -432,29 +452,6 @@ namespace GestionCasos
             {
                 Console.WriteLine(ex);
             }
-        }
-
-
-        //Filtro por consecutivo
-        private void txtConsecutivo_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtConsecutivo.Text != string.Empty)
-                {
-                    PedirDatos(aux, null, txtConsecutivo.Text.ToUpper(), 0, 0);
-                }
-                else
-                {
-                    PedirDatos();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex);
-            }
-
         }
         #endregion
 
@@ -478,18 +475,27 @@ namespace GestionCasos
         }
 
 
+
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
             TotalPaginas = 0;
             aux = 0;
             person = null;
-            PedirDatos(aux,null,null,0,0);
-            
+            txtConsecutivo.ResetText();
+            cbEstado.ResetText();
+            cbTramitador.ResetText();
+            cbRecepcion.ResetText();
+            PedirDatos(0, null, 0, 0);
+
         }
+
+
 
         private void tabla_Paint(object sender, PaintEventArgs e)
         {
         }
+
+
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -500,17 +506,13 @@ namespace GestionCasos
             }
             else
             {
-                if (txtConsecutivo.Text != string.Empty)
+                if (medio != 0)
                 {
-                    PedirDatos(aux, null, txtConsecutivo.Text.ToUpper(), 0, 0);
-                }
-                else if (medio != 0)
-                {
-                    PedirDatos(aux, null, null, 0, (int)cbRecepcion.SelectedValue);
+                    PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
                 }
                 else if (es != 0)
                 {
-                    PedirDatos(aux, null, null, (int)cbEstado.SelectedValue, 0);
+                    PedirDatos(aux, null, (int)cbEstado.SelectedValue, 0);
                 }
                 else if (person != null)
                 {
@@ -526,6 +528,8 @@ namespace GestionCasos
             Console.WriteLine(TotalPaginas);
         }
 
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             aux--;
@@ -535,17 +539,14 @@ namespace GestionCasos
             }
             else
             {
-                if (txtConsecutivo.Text != string.Empty)
+
+                if (medio != 0)
                 {
-                    PedirDatos(aux, null, txtConsecutivo.Text.ToUpper(), 0, 0);
-                }
-                else if (medio != 0)
-                {
-                    PedirDatos(aux, null, null, 0, (int)cbRecepcion.SelectedValue);
+                    PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
                 }
                 else if (es != 0)
                 {
-                    PedirDatos(aux, null, null, (int)cbEstado.SelectedValue, 0);
+                    PedirDatos(aux, null, (int)cbEstado.SelectedValue, 0);
                 }
                 else if (person != null)
                 {
@@ -560,7 +561,9 @@ namespace GestionCasos
             Console.WriteLine(TotalPaginas);
         }
 
-        private void txtConsecutivo_KeyPress(object sender, KeyPressEventArgs e)
+
+
+        private async void txtConsecutivo_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
@@ -568,7 +571,13 @@ namespace GestionCasos
                 {
                     if (txtConsecutivo.Text != null)
                     {
-                        PedirDatos(aux, null, txtConsecutivo.Text.ToUpper(), 0, 0);
+                        var casos = await revisionNegocio.obtenerTodo();
+                        if (casos != null)
+                        {
+                            aux = 0;
+                            TotalPaginas = 0;
+                            CargarTabla(casos.Where(x => x.Consecutivo == txtConsecutivo.Text.ToUpper()));
+                        }
                     }
                 }
 

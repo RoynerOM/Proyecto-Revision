@@ -261,7 +261,7 @@ namespace GestionCasos.Usuarios
             this.btnObservacion.Radius = 5;
             this.btnObservacion.Size = new System.Drawing.Size(223, 42);
             this.btnObservacion.TabIndex = 7;
-            this.btnObservacion.Text = "Guardar Observacion";
+            this.btnObservacion.Text = "Guardar Observación";
             this.btnObservacion.Click += new System.EventHandler(this.btnObservacion_Click);
             // 
             // btnBoleta
@@ -339,7 +339,7 @@ namespace GestionCasos.Usuarios
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
             this.guna2GroupBox1.Size = new System.Drawing.Size(776, 258);
             this.guna2GroupBox1.TabIndex = 4;
-            this.guna2GroupBox1.Text = "Documentacion Faltante";
+            this.guna2GroupBox1.Text = "Documentación Faltante";
             // 
             // txtOtros
             // 
@@ -429,7 +429,7 @@ namespace GestionCasos.Usuarios
             this.cbMotivo5.Name = "cbMotivo5";
             this.cbMotivo5.Size = new System.Drawing.Size(234, 21);
             this.cbMotivo5.TabIndex = 4;
-            this.cbMotivo5.Text = "FALTA INFORMACION EN ARTICULO";
+            this.cbMotivo5.Text = "FALTA INFORMACIÓN EN ARTÍCULO";
             this.cbMotivo5.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cbMotivo5.UncheckedState.BorderRadius = 2;
             this.cbMotivo5.UncheckedState.BorderThickness = 0;
@@ -490,9 +490,9 @@ namespace GestionCasos.Usuarios
             this.cbMotivo2.ForeColor = System.Drawing.Color.White;
             this.cbMotivo2.Location = new System.Drawing.Point(40, 100);
             this.cbMotivo2.Name = "cbMotivo2";
-            this.cbMotivo2.Size = new System.Drawing.Size(186, 21);
+            this.cbMotivo2.Size = new System.Drawing.Size(187, 21);
             this.cbMotivo2.TabIndex = 1;
-            this.cbMotivo2.Text = "FALTA HOJA DE ASISTENSIA";
+            this.cbMotivo2.Text = "FALTA HOJA DE ASISTENCIA";
             this.cbMotivo2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.cbMotivo2.UncheckedState.BorderRadius = 2;
             this.cbMotivo2.UncheckedState.BorderThickness = 0;

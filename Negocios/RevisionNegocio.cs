@@ -1,6 +1,7 @@
 ﻿using Datos;
 using Entidades;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Negocios
@@ -8,15 +9,15 @@ namespace Negocios
     //Plantilla
     public class RevisionNegocio : ICrud<tRevision>
     {
-        DatosRevision datosR = new DatosRevision();
+        readonly DatosRevision datosR = new DatosRevision();
         public bool eliminar(tRevision e)
         {
             return datosR.eliminar(e);
         }
 
-        public bool guardar(tRevision e)
+        public bool guardarAsync(tRevision e)
         {
-            return datosR.guardar(e);
+            return datosR.guardarAsync(e);
         }
 
         public bool modificar(tRevision e)
@@ -26,9 +27,9 @@ namespace Negocios
 
 
 
-        public IEnumerable<tRevision> obtenerTodo(tRevision e)
+        public async Task<List<tRevision>> obtenerTodo()
         {
-            return datosR.obtenerTodo(e);
+            return await datosR.obtenerTodo();
         }
 
         //Extras

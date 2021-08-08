@@ -1,22 +1,23 @@
 ﻿using Datos;
 using Entidades;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 namespace Negocios
 {
     //Plantilla
     public class InstitucionNegocio : ICrud<tInstitucion>
     {
-        DatosInstitucion datos = new DatosInstitucion();
+        readonly DatosInstitucion datos = new DatosInstitucion();
         public bool eliminar(tInstitucion e)
         {
             e.Estado = false;
             return datos.eliminar(e);
         }
 
-        public bool guardar(tInstitucion e)
+        public bool guardarAsync(tInstitucion e)
         {
-            return datos.guardar(e);
+            return datos.guardarAsync(e);
         }
 
         public bool modificar(tInstitucion e)
@@ -34,9 +35,9 @@ namespace Negocios
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<tInstitucion> obtenerTodo(tInstitucion e)
+        public async Task<List<tInstitucion>> obtenerTodo()
         {
-            return datos.obtenerTodo(e);
+            return await datos.obtenerTodo();
         }
     }
 }

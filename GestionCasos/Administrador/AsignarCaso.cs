@@ -33,12 +33,12 @@ namespace GestionCasos
         {
             try
             {
-                cbAsignados.DataSource = persona.obtenerTodo(new tPersona());
+                cbAsignados.DataSource = persona.obtenerTodo();
                 cbAsignados.DisplayMember = "NombreCompleto";
                 cbAsignados.ValueMember = "Cedula";
 
                 //Modificado
-                cbTipoRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
+                cbTipoRecepcion.DataSource = recepcion.obtenerTodo();
                 cbTipoRecepcion.ValueMember = "id";
                 cbTipoRecepcion.DisplayMember = "Recepcion";
             }
@@ -141,7 +141,7 @@ namespace GestionCasos
         }
 
         //Metodo de guardar
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -158,7 +158,7 @@ namespace GestionCasos
                 revision.numeroFolio = 0;
                 revision.fechaActa = null;
 
-                if (Rnegocio.guardar(revision) == true)
+                if (Rnegocio.guardarAsync(revision) == true)
                 {
                     Alerta.Success(new Alertas.Alerta(), "Caso asignado");
                     MostrarConsecutivo();
@@ -222,13 +222,13 @@ namespace GestionCasos
             }
         }
 
-        private void btnReasignarCaso_Click(object sender, EventArgs e)
+        private async void btnReasignarCaso_ClickAsync(object sender, EventArgs e)
         {
             try
             {
                 tRecepcion t = new tRecepcion();
                 tPersona tramitador = new tPersona();         
-                tramitador = persona.obtenerPorId(cbAsignados.SelectedValue.ToString());
+                tramitador = await persona.obtenerPorIdAsync(cbAsignados.SelectedValue.ToString());
                 casosReasignado.Fecha = dtpFecha.Value;
                 casosReasignado.Tramitador = tramitador.Cedula;
                 casosReasignado.tPersona = tramitador;

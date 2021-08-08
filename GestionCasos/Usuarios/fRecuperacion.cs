@@ -14,8 +14,8 @@ namespace GestionCasos.Usuarios
 {
     public partial class fRecuperacion : Form
     {
-        UsuarioNegocio negociosU = new UsuarioNegocio();
-        showMessageDialog Message = new showMessageDialog();
+        readonly UsuarioNegocio negociosU = new UsuarioNegocio();
+        readonly showMessageDialog Message = new showMessageDialog();
         tUsuario user;
         public fRecuperacion()
         {
@@ -36,6 +36,8 @@ namespace GestionCasos.Usuarios
             }
         }
 
+
+
         private void gunaAdvenceTileButton2_Click(object sender, EventArgs e)
         {
             if (txtCedula.Mask == "0-0000-0000")
@@ -48,12 +50,18 @@ namespace GestionCasos.Usuarios
                 txtCedula.Mask = "0-0000-0000";
             }
         }
+
+
+
         private void LimpiarCampos()
         {
             txtCedula.ResetText();
             txtCodigo.ResetText();
             txtContra.ResetText(); 
         }
+
+
+
         private void fRecuperacion_Load(object sender, EventArgs e)
         {
             txtCedula.Mask = "0-0000-0000";
@@ -61,6 +69,8 @@ namespace GestionCasos.Usuarios
             txtContra.Enabled = false;
             btnRegistrar.Enabled = false;
         }
+
+
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -94,10 +104,14 @@ namespace GestionCasos.Usuarios
             }
         }
 
+
+
         private void txtCedula_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
+
+
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
@@ -124,6 +138,8 @@ namespace GestionCasos.Usuarios
                 }
             }
         }
+
+
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {

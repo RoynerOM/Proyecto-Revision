@@ -17,9 +17,9 @@ namespace GestionCasos.Administrador
     {
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-        InstitucionNegocio institucionNegocio = new InstitucionNegocio();
-        ContadorNegocio persona = new ContadorNegocio();
-        IEnumerable<tInstitucion> Instituciones = null;
+        readonly InstitucionNegocio institucionNegocio = new InstitucionNegocio();
+        readonly ContadorNegocio persona = new ContadorNegocio();
+        List<tInstitucion> Instituciones = null;
         private int Rol = (int)Enums.Tipo.Tramitador;
         int cantidad = 10;
         int TotalPaginas = 0;
@@ -34,25 +34,28 @@ namespace GestionCasos.Administrador
         }
 
 
-        public void PedirDatos(int PaginaSeleccionada=0, string cedula = null,string nombre= null,int codigo = 0)
+        public async void PedirDatos(int PaginaSeleccionada=0, string cedula = null,string nombre= null,int codigo = 0)
         {
             try
             {
                 if (cedula != null)
                 {
-                    Instituciones = institucionNegocio.obtenerTodo(new tInstitucion()).Where(x=> x.Contador == cedula).ToList();
+                    Instituciones = await institucionNegocio.obtenerTodo();
+                    Instituciones = Instituciones.Where(x => x.Contador == cedula).ToList();
                 }
                 else if(nombre != null)
                 {
-                    Instituciones = institucionNegocio.obtenerTodo(new tInstitucion()).Where(x=> x.Nombre == nombre.ToUpper()).ToList();
+                    Instituciones = await institucionNegocio.obtenerTodo();
+                    Instituciones = Instituciones.Where(x => x.Nombre == nombre.ToUpper()).ToList();
                 }
                 else if(codigo != 0)
                 {
-                    Instituciones = institucionNegocio.obtenerTodo(new tInstitucion()).Where(x => x.Codigo == codigo).ToList();
+                    Instituciones = await institucionNegocio.obtenerTodo();
+                    Instituciones = Instituciones.Where(x => x.Codigo == codigo).ToList();
                 }
                 else
                 {
-                    Instituciones = institucionNegocio.obtenerTodo(new tInstitucion());
+                    Instituciones = await institucionNegocio.obtenerTodo();
                 }
 
                 int TotalRegistros = Instituciones.Count();
@@ -76,22 +79,22 @@ namespace GestionCasos.Administrador
             }
         }
 
-        //Filtro por Contador
-        public void FilterByTramitador(string valor)
-        {
-            try
-            {
-                var filtro = Instituciones.Where(x => x.Contador == valor);
-                if (filtro != null)
-                {
-                    CargarTabla(filtro);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
+        ////Filtro por Contador
+        //public void FilterByTramitador(string valor)
+        //{
+        //    try
+        //    {
+        //        var filtro = Instituciones.Where(x => x.Contador == valor);
+        //        if (filtro != null)
+        //        {
+        //            CargarTabla(filtro);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex);
+        //    }
+        //}
 
 
         //Cambio de color
@@ -119,7 +122,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        public void CargarTabla(IEnumerable<tInstitucion> lista)
+        public void CargarTabla(List<tInstitucion> lista)
         {
             try
             {
@@ -192,12 +195,12 @@ namespace GestionCasos.Administrador
         }
 
 
-        public void CargarCombos()
+        public async void CargarCombos()
         {
             try
             {
                 //Tramitador
-                cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
+                cbTramitador.DataSource = await persona.obtenerTodo();
                 cbTramitador.ValueMember = "Cedula";
                 cbTramitador.DisplayMember = "NombreCompleto";
             }
@@ -268,25 +271,25 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void txtCedulaJuridica_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtCodigo.Text.Length > 6)
-                {
-                    var filtro = Instituciones.Where(x => x.Codigo == int.Parse(txtCodigo.Text));
-                    CargarTabla(filtro);
-                }
-                else
-                {
-                    PedirDatos();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
+        //private void txtCedulaJuridica_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (txtCodigo.Text.Length > 6)
+        //        {
+        //            var filtro = Instituciones.Where(x => x.Codigo == int.Parse(txtCodigo.Text));
+        //            CargarTabla(filtro);
+        //        }
+        //        else
+        //        {
+        //            PedirDatos();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex);
+        //    }
+        //}
 
 
         //cbTramitador

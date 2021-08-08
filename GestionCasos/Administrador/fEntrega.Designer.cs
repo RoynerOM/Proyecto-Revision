@@ -247,7 +247,7 @@ namespace GestionCasos.Administrador
             this.btnGuardar.Size = new System.Drawing.Size(160, 42);
             this.btnGuardar.TabIndex = 26;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_ClickAsync);
             // 
             // txtApellido2
             // 

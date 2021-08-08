@@ -10,9 +10,9 @@ namespace GestionCasos
 
     public partial class Registrar : Form
     {
-        UsuarioNegocio negociosU = new UsuarioNegocio();
+        readonly UsuarioNegocio negociosU = new UsuarioNegocio();
         showMessageDialog Message = new showMessageDialog();
-        ContadorNegocio contadorNegocio = new ContadorNegocio();
+        readonly ContadorNegocio contadorNegocio = new ContadorNegocio();
 
         public Registrar()
         {
@@ -37,7 +37,7 @@ namespace GestionCasos
                         usuario.Rol = trabajador.Tipo;
                         usuario.Estado = (int)Enums.Estado.activo != 1;
 
-                        if (negociosU.guardar(usuario))
+                        if (negociosU.guardarAsync(usuario))
                         {
                             Message.Success(new Alertas.Alerta(), "El usuario se registró correctamente");
                             this.Close();
@@ -95,7 +95,7 @@ namespace GestionCasos
                             usuario.Rol = trabajador.Tipo;
                             usuario.Estado = (int)Enums.Estado.activo == 1 ? false : true;
 
-                            if (negociosU.guardar(usuario))
+                            if (negociosU.guardarAsync(usuario))
                             {
                                 Message.Success(new Alertas.Alerta(), "El usuario se registró correctamente");
                                 this.Close();

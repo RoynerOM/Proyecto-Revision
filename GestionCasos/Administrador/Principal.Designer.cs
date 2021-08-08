@@ -31,13 +31,13 @@ namespace GestionCasos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.pnLateralIzquierda = new System.Windows.Forms.Panel();
+            this.btnAsignarCaso = new System.Windows.Forms.Button();
             this.btnEntregas = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCerrarSecion = new System.Windows.Forms.Button();
             this.DesktopPanel = new System.Windows.Forms.Panel();
-            this.btnAsignarCaso = new System.Windows.Forms.Button();
             this.pnLateralIzquierda.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,25 @@ namespace GestionCasos
             this.pnLateralIzquierda.Name = "pnLateralIzquierda";
             this.pnLateralIzquierda.Size = new System.Drawing.Size(111, 661);
             this.pnLateralIzquierda.TabIndex = 0;
+            // 
+            // btnAsignarCaso
+            // 
+            this.btnAsignarCaso.BackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarCaso.FlatAppearance.BorderSize = 0;
+            this.btnAsignarCaso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarCaso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarCaso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.btnAsignarCaso.Image = global::GestionCasos.Properties.Resources.task_60px;
+            this.btnAsignarCaso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAsignarCaso.Location = new System.Drawing.Point(0, 182);
+            this.btnAsignarCaso.MinimumSize = new System.Drawing.Size(111, 90);
+            this.btnAsignarCaso.Name = "btnAsignarCaso";
+            this.btnAsignarCaso.Size = new System.Drawing.Size(111, 90);
+            this.btnAsignarCaso.TabIndex = 13;
+            this.btnAsignarCaso.Text = "Asignar Caso";
+            this.btnAsignarCaso.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAsignarCaso.UseVisualStyleBackColor = false;
+            this.btnAsignarCaso.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // btnEntregas
             // 
@@ -109,7 +128,7 @@ namespace GestionCasos
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(111, 90);
             this.btnMenu.TabIndex = 10;
-            this.btnMenu.Text = "Menu";
+            this.btnMenu.Text = "Menú";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.button1_Click);
@@ -147,7 +166,7 @@ namespace GestionCasos
             this.btnCerrarSecion.Name = "btnCerrarSecion";
             this.btnCerrarSecion.Size = new System.Drawing.Size(111, 87);
             this.btnCerrarSecion.TabIndex = 3;
-            this.btnCerrarSecion.Text = "Cerrar Seción";
+            this.btnCerrarSecion.Text = "Cerrar Sesión";
             this.btnCerrarSecion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCerrarSecion.UseVisualStyleBackColor = false;
             this.btnCerrarSecion.Click += new System.EventHandler(this.btnCerrarSecion_Click);
@@ -160,25 +179,6 @@ namespace GestionCasos
             this.DesktopPanel.Name = "DesktopPanel";
             this.DesktopPanel.Size = new System.Drawing.Size(1025, 661);
             this.DesktopPanel.TabIndex = 1;
-            // 
-            // btnAsignarCaso
-            // 
-            this.btnAsignarCaso.BackColor = System.Drawing.Color.Transparent;
-            this.btnAsignarCaso.FlatAppearance.BorderSize = 0;
-            this.btnAsignarCaso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAsignarCaso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignarCaso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.btnAsignarCaso.Image = global::GestionCasos.Properties.Resources.task_60px;
-            this.btnAsignarCaso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAsignarCaso.Location = new System.Drawing.Point(0, 182);
-            this.btnAsignarCaso.MinimumSize = new System.Drawing.Size(111, 90);
-            this.btnAsignarCaso.Name = "btnAsignarCaso";
-            this.btnAsignarCaso.Size = new System.Drawing.Size(111, 90);
-            this.btnAsignarCaso.TabIndex = 13;
-            this.btnAsignarCaso.Text = "Asignar Caso";
-            this.btnAsignarCaso.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAsignarCaso.UseVisualStyleBackColor = false;
-            this.btnAsignarCaso.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // Principal
             // 

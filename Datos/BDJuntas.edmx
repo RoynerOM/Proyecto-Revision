@@ -256,7 +256,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewJuntas' does not have a primary k
             <PropertyRef Name="Circuito" />
             <PropertyRef Name="NombreTipo" />
             <PropertyRef Name="Nombre" />
-            <PropertyRef Name="Regional" />
             <PropertyRef Name="CedulaJuridica" />
             <PropertyRef Name="CuentaDanea" />
             <PropertyRef Name="CuentaLey" />
@@ -267,7 +266,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewJuntas' does not have a primary k
           <Property Name="Circuito" Type="int" Nullable="false" />
           <Property Name="NombreTipo" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
-          <Property Name="Regional" Type="varchar(max)" Nullable="false" />
           <Property Name="CedulaJuridica" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="CuentaDanea" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="CuentaLey" Type="varchar" MaxLength="20" Nullable="false" />
@@ -516,7 +514,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
     [viewJuntas].[Circuito] AS [Circuito], 
     [viewJuntas].[NombreTipo] AS [NombreTipo], 
     [viewJuntas].[Nombre] AS [Nombre], 
-    [viewJuntas].[Regional] AS [Regional], 
     [viewJuntas].[CedulaJuridica] AS [CedulaJuridica], 
     [viewJuntas].[CuentaDanea] AS [CuentaDanea], 
     [viewJuntas].[CuentaLey] AS [CuentaLey], 
@@ -920,7 +917,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             <PropertyRef Name="Circuito" />
             <PropertyRef Name="NombreTipo" />
             <PropertyRef Name="Nombre" />
-            <PropertyRef Name="Regional" />
             <PropertyRef Name="CedulaJuridica" />
             <PropertyRef Name="CuentaDanea" />
             <PropertyRef Name="CuentaLey" />
@@ -931,7 +927,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="Circuito" Type="Int32" Nullable="false" />
           <Property Name="NombreTipo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Regional" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CedulaJuridica" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="CuentaDanea" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="CuentaLey" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -1325,7 +1320,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
                 <ScalarProperty Name="CuentaLey" ColumnName="CuentaLey" />
                 <ScalarProperty Name="CuentaDanea" ColumnName="CuentaDanea" />
                 <ScalarProperty Name="CedulaJuridica" ColumnName="CedulaJuridica" />
-                <ScalarProperty Name="Regional" ColumnName="Regional" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
                 <ScalarProperty Name="Circuito" ColumnName="Circuito" />

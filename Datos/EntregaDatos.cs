@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
+using System.Data.Entity;
 namespace Datos
 {
     public class EntregaDatos : ICrud<tEntregaCasos>
@@ -13,7 +15,7 @@ namespace Datos
         }
 
         //  Metodo de guardar la informacion de la entrega
-        public bool guardar(tEntregaCasos e)
+        public bool guardarAsync(tEntregaCasos e)
         {
             try
             {
@@ -79,22 +81,22 @@ namespace Datos
             }
         }
 
-        public IEnumerable<tEntregaCasos> obtenerTodo(tEntregaCasos e)
+        public Task<List<tEntregaCasos>> obtenerTodo()
         {
             throw new NotImplementedException();
         }
 
 
         //Funciones extras
-        public tEntregaCasos obtenerPorCaso(string consecutivo)
+        public async Task<tEntregaCasos> obtenerPorCasoAsync(string consecutivo)
         {
             try
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.tEntregaCasos.Include("tRevision")
+                    var consulta = await db.tEntregaCasos.Include("tRevision")
                                                     .Include("tMensajero")
-                                                    .Where(x => x.tRevision.Consecutivo == consecutivo).SingleOrDefault();
+                                                    .Where(x => x.tRevision.Consecutivo == consecutivo).SingleOrDefaultAsync();
                     if (consulta != null)
                     {
                         return consulta;

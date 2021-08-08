@@ -243,7 +243,7 @@ namespace GestionCasos.Usuarios
             this.tabla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabla.Size = new System.Drawing.Size(945, 445);
             this.tabla.TabIndex = 0;
-            this.tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellContentClick_1);
+            this.tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellContentClick_1Async);
             this.tabla.Resize += new System.EventHandler(this.tabla_Resize);
             // 
             // Caso

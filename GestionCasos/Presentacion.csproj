@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\User\Desktop\</PublishUrl>
+    <PublishUrl>C:\Users\User\Desktop\WebSite\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -247,12 +247,6 @@
     <Compile Include="Alertas\Alerta.Designer.cs">
       <DependentUpon>Alerta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuracion\fConfiguraciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuracion\fConfiguraciones.Designer.cs">
-      <DependentUpon>fConfiguraciones.cs</DependentUpon>
-    </Compile>
     <Compile Include="DatosTemp.cs" />
     <Compile Include="dtsBoleta.cs">
       <DependentUpon>dtsBoleta.xsd</DependentUpon>
@@ -386,9 +380,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alertas\Alerta.resx">
       <DependentUpon>Alerta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion\fConfiguraciones.resx">
-      <DependentUpon>fConfiguraciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fReporteBoleta.resx">
       <DependentUpon>fReporteBoleta.cs</DependentUpon>

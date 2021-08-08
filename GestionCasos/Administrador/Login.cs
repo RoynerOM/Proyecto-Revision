@@ -12,14 +12,15 @@ namespace GestionCasos
 {
     public partial class Login : Form
     {
-        UsuarioNegocio un = new UsuarioNegocio();
-        showMessageDialog Message = new showMessageDialog();
+        readonly UsuarioNegocio un = new UsuarioNegocio();
         private Form activeForm = null;
+        readonly showMessageDialog Message = new showMessageDialog();
 
         public Login()
         {
             InitializeComponent();
         }
+
 
 
         private void Login_Load(object sender, EventArgs e)
@@ -30,16 +31,8 @@ namespace GestionCasos
             t.run();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
 
-        private void btnLLamar_Click(object sender, EventArgs e)
-        {
-
-        }
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -54,6 +47,8 @@ namespace GestionCasos
             childForm.Show();
         }
 
+
+
         private void btnIniciarSecion_Click(object sender, EventArgs e)
         {
             try
@@ -63,9 +58,9 @@ namespace GestionCasos
                     Principal principal;
                     var user = contex.tUsuario.Include("tPersona").Where(u => u.Cedula == txtNombreUsuario.Text).SingleOrDefault();
 
-                    
-                        if (user != null)
-                        {
+
+                    if (user != null)
+                    {
                         if (user.tPersona.Estado == true)
                         {
                             if (user.Clave == txtContraseña.Text)
@@ -87,12 +82,11 @@ namespace GestionCasos
                             else
                             {
                                 Message.Danger(new Alertas.Alerta(), "La contraseña es incorrecta");
-
                             }
                         }
                         else
                         {
-                            
+
                             Message.Danger(new Alertas.Alerta(), "No puede puede ingresar. Usuario bloquedo");
                         }
                     }
@@ -100,7 +94,6 @@ namespace GestionCasos
                     {
                         Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
                     }
-
                 }
 
             }
@@ -109,6 +102,8 @@ namespace GestionCasos
                 Console.WriteLine(ex);
             }
         }
+
+
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -123,6 +118,8 @@ namespace GestionCasos
         {
 
         }
+
+
 
         private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -184,10 +181,14 @@ namespace GestionCasos
             }
         }
 
+
+
         private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }
+
+
 
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
@@ -203,6 +204,8 @@ namespace GestionCasos
             }
         }
 
+
+
         private void gunaAdvenceTileButton2_Click(object sender, EventArgs e)
         {
             if (txtNombreUsuario.Mask == "0-0000-0000")
@@ -214,6 +217,8 @@ namespace GestionCasos
                 txtNombreUsuario.Mask = "0-0000-0000";
             }
         }
+
+
 
         private void gunaButton1_Click(object sender, EventArgs e)
         {

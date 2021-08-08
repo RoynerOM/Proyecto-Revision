@@ -1,13 +1,14 @@
 ﻿using Datos;
 using Entidades;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 namespace Negocios
 {
     public class BoletaNegocio : ICrud<tBoleta>
     {
 
-        BoletaDatos datos = new BoletaDatos();
+       readonly BoletaDatos datos = new BoletaDatos();
 
         public bool eliminar(tBoleta e)
         {
@@ -16,9 +17,9 @@ namespace Negocios
         }
 
 
-        public bool guardar(tBoleta e)
+        public bool guardarAsync(tBoleta e)
         {
-            return datos.guardar(e);
+            return datos.guardarAsync(e);
         }
 
 
@@ -38,9 +39,9 @@ namespace Negocios
             return datos.obtenerPorId(e);
         }
 
-        public IEnumerable<tBoleta> obtenerTodo(tBoleta e)
+        public async Task<List<tBoleta>> obtenerTodo()
         {
-            return datos.obtenerTodo(e);
+            return await datos.obtenerTodo();
         }
 
         public tBoleta obtenerPorId(int caso)

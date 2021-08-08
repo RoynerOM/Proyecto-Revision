@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 namespace Datos
 {
@@ -12,7 +13,7 @@ namespace Datos
             throw new NotImplementedException();
         }
 
-        public bool guardar(tUsuario e)
+        public bool guardarAsync(tUsuario e)
         {
             using (var context = new BDJuntasEntities())
             {
@@ -78,7 +79,7 @@ namespace Datos
 
             }
         }
-        public IEnumerable<tUsuario> obtenerTodo(tUsuario e)
+        public Task<List<tUsuario>> obtenerTodo()
         {
             throw new NotImplementedException();
         }

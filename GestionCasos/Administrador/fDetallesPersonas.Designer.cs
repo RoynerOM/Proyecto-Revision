@@ -64,7 +64,7 @@ namespace GestionCasos.Administrador
             this.txtCedula.SelectedText = "";
             this.txtCedula.Size = new System.Drawing.Size(198, 28);
             this.txtCedula.TabIndex = 10;
-            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
+            this.txtCedula.TextChanged += new System.EventHandler(this.TxtCedula_TextChanged);
             // 
             // gunaLabel4
             // 
@@ -111,7 +111,7 @@ namespace GestionCasos.Administrador
             this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbTramitador.Size = new System.Drawing.Size(250, 26);
             this.cbTramitador.TabIndex = 6;
-            this.cbTramitador.SelectionChangeCommitted += new System.EventHandler(this.cbTramitador_SelectionChangeCommitted);
+            this.cbTramitador.SelectionChangeCommitted += new System.EventHandler(this.CbTramitador_SelectionChangeCommitted);
             // 
             // panel1
             // 
@@ -128,7 +128,7 @@ namespace GestionCasos.Administrador
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(884, 561);
             this.panel1.TabIndex = 1;
-            this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
+            this.panel1.Resize += new System.EventHandler(this.Panel1_Resize);
             // 
             // tabla
             // 
@@ -193,8 +193,8 @@ namespace GestionCasos.Administrador
             this.tabla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabla.Size = new System.Drawing.Size(882, 442);
             this.tabla.TabIndex = 0;
-            this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
-            this.tabla.Resize += new System.EventHandler(this.tabla_Resize);
+            this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tabla_CellDoubleClickAsync);
+            this.tabla.Resize += new System.EventHandler(this.Tabla_Resize);
             // 
             // Cedula
             // 
@@ -262,7 +262,7 @@ namespace GestionCasos.Administrador
             this.gunaAdvenceTileButton1.Radius = 18;
             this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(40, 40);
             this.gunaAdvenceTileButton1.TabIndex = 12;
-            this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
+            this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.GunaAdvenceTileButton1_Click);
             // 
             // fDetallesPersonas
             // 
@@ -273,7 +273,7 @@ namespace GestionCasos.Administrador
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "fDetallesPersonas";
             this.Text = "fDetallesPersonas";
-            this.Load += new System.EventHandler(this.fDetallesPersonas_Load);
+            this.Load += new System.EventHandler(this.FDetallesPersonas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).EndInit();

@@ -23,7 +23,7 @@ namespace GestionCasos
         {
             try
             {
-                cbContadores.DataSource = persona.obtenerTodo(new tPersona());
+                cbContadores.DataSource = persona.obtenerTodo();
                 cbContadores.DisplayMember = "NombreCompleto";
             }
             catch (Exception ex)

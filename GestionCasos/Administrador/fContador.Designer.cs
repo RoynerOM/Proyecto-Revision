@@ -342,7 +342,7 @@ namespace GestionCasos.Administrador
             this.btnDetalles.Size = new System.Drawing.Size(127, 42);
             this.btnDetalles.TabIndex = 22;
             this.btnDetalles.Text = "Detalles";
-            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
+            this.btnDetalles.Click += new System.EventHandler(this.BtnDetalles_Click);
             // 
             // btnBuscar
             // 
@@ -369,7 +369,7 @@ namespace GestionCasos.Administrador
             this.btnBuscar.Size = new System.Drawing.Size(127, 42);
             this.btnBuscar.TabIndex = 13;
             this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -396,7 +396,7 @@ namespace GestionCasos.Administrador
             this.btnEliminar.Size = new System.Drawing.Size(127, 42);
             this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_ClickAsync);
             // 
             // btnModificar
             // 
@@ -423,7 +423,7 @@ namespace GestionCasos.Administrador
             this.btnModificar.Size = new System.Drawing.Size(127, 42);
             this.btnModificar.TabIndex = 11;
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_ClickAsync);
             // 
             // btnGuardar
             // 
@@ -450,7 +450,7 @@ namespace GestionCasos.Administrador
             this.btnGuardar.Size = new System.Drawing.Size(127, 42);
             this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // fContador
             // 

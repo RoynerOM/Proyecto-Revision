@@ -18,7 +18,6 @@ namespace Entidades
         public int Circuito { get; set; }
         public string NombreTipo { get; set; }
         public string Nombre { get; set; }
-        public string Regional { get; set; }
         public string CedulaJuridica { get; set; }
         public string CuentaDanea { get; set; }
         public string CuentaLey { get; set; }

@@ -2,19 +2,20 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Negocios
 {
     public class RecepcionNegocio : ICrud<tRecepcion>
     {
-        RecepcionDatos datos = new RecepcionDatos();
+        readonly RecepcionDatos datos = new RecepcionDatos();
         public bool eliminar(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(tRecepcion e)
+        public bool guardarAsync(tRecepcion e)
         {
             throw new NotImplementedException();
         }
@@ -29,9 +30,9 @@ namespace Negocios
             throw new NotImplementedException();
         }
 
-        public IEnumerable<tRecepcion> obtenerTodo(tRecepcion e)
+        public async Task<List<tRecepcion>> obtenerTodo()
         {
-            return datos.obtenerTodo(e);
+            return await datos.obtenerTodo();
         }
     }
 }

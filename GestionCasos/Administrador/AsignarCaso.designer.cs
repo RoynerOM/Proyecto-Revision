@@ -87,7 +87,7 @@ namespace GestionCasos
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // panel1
             // 
@@ -471,7 +471,7 @@ namespace GestionCasos
             this.btnReasignarCaso.Text = "Reasignar caso";
             this.btnReasignarCaso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReasignarCaso.UseVisualStyleBackColor = false;
-            this.btnReasignarCaso.Click += new System.EventHandler(this.btnReasignarCaso_Click);
+            this.btnReasignarCaso.Click += new System.EventHandler(this.btnReasignarCaso_ClickAsync);
             // 
             // AsignarCaso
             // 

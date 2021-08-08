@@ -1,20 +1,21 @@
 ﻿using Datos;
 using Entidades;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 namespace Negocios
 {
     public class EntregaNegocio : ICrud<tEntregaCasos>
     {
-        EntregaDatos datos = new EntregaDatos();
+        readonly EntregaDatos datos = new EntregaDatos();
         public bool eliminar(tEntregaCasos e)
         {
             return datos.eliminar(e);
         }
 
-        public bool guardar(tEntregaCasos e)
+        public bool guardarAsync(tEntregaCasos e)
         {
-            return datos.guardar(e);
+            return datos.guardarAsync(e);
         }
 
         public bool modificar(tEntregaCasos e)
@@ -27,15 +28,15 @@ namespace Negocios
             return datos.obtenerPorId(e);
         }
 
-        public IEnumerable<tEntregaCasos> obtenerTodo(tEntregaCasos e)
+        public async Task<List<tEntregaCasos>> obtenerTodo()
         {
-            return datos.obtenerTodo(e);
+            return await datos.obtenerTodo();
         }
 
         //Funciones extras
-        public tEntregaCasos obtenerPorCaso(string consecutivo)
+        public async Task<tEntregaCasos> obtenerPorCasoAsync(string consecutivo)
         {
-            return datos.obtenerPorCaso(consecutivo);
+            return await datos.obtenerPorCasoAsync(consecutivo);
         }
     }
 }

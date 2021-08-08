@@ -19,7 +19,7 @@ namespace GestionCasos
 
         private void CargarCombo()
         {
-            cbContadores.DataSource = persona.obtenerTodo(new tPersona());
+            cbContadores.DataSource = persona.obtenerTodo();
             cbContadores.DisplayMember = "NombreCompleto";
         }
 

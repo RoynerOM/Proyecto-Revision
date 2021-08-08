@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
 
@@ -15,20 +16,22 @@ namespace GestionCasos.Usuarios
 {
     public partial class CasosAsignados : Form
     {
+        readonly tRevision revision = new tRevision();
+        readonly EstadoNegocio estadoNegocio = new EstadoNegocio();
+        readonly ContadorNegocio persona = new ContadorNegocio();
+        readonly RevisionNegocio revisionNegocio = new RevisionNegocio();
+        readonly RecepcionNegocio recepcion = new RecepcionNegocio();
+        readonly EntregaNegocio entregaNegocio = new EntregaNegocio();
+
         private string Cedula = null;
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private bool entrega = false;
-        tRevision revision = new tRevision();
-        EstadoNegocio estadoNegocio = new EstadoNegocio();
-        ContadorNegocio persona = new ContadorNegocio();
-        RevisionNegocio revisionNegocio = new RevisionNegocio();
-        RecepcionNegocio recepcion = new RecepcionNegocio();
-        EntregaNegocio entregaNegocio = new EntregaNegocio();
-        IEnumerable<tRevision> Casos = null;
+        List<tRevision> Casos = null;
         showMessageDialog Alerta = new showMessageDialog();
-        //Datos de prueba
 
+
+        //Datos de prueba
         public CasosAsignados(bool entrega)
         {
             InitializeComponent();
@@ -51,12 +54,13 @@ namespace GestionCasos.Usuarios
         }
 
 
-        public void PedirDatos()
+        public async void PedirDatos()
         {
             try
             {
                 //Cargarmos la tabla con los datos relacionado a la cedula de la persona actual
-                Casos = revisionNegocio.obtenerTodo(revision).Where(x => x.Tramitador == Cedula);
+                Casos = await revisionNegocio.obtenerTodo();
+                Casos = Casos.Where(x => x.Tramitador == Cedula).ToList();
                 DatosTemp.MultiUser = false;
                 CargarTabla(Casos);
             }
@@ -67,12 +71,12 @@ namespace GestionCasos.Usuarios
             }
         }
 
-        public void PedirDatos(int i = 0)
+        public async void PedirDatos(int i = 0)
         {
             try
             {
                 //Cargarmos la tabla con los datos relacionado a la cedula de la persona actual
-                CargarTabla(revisionNegocio.obtenerTodo(revision));
+                CargarTabla(await revisionNegocio.obtenerTodo());
             }
             catch (Exception ex)
             {
@@ -84,7 +88,7 @@ namespace GestionCasos.Usuarios
         #region Funciones usados en el datagrid
 
 
-        public void CargarTabla(IEnumerable<tRevision> lista)
+        public void CargarTabla(List<tRevision> lista)
         {
 
 
@@ -248,23 +252,23 @@ namespace GestionCasos.Usuarios
         #endregion
 
 
-        private void CargarCombos()
+        private async void CargarCombos()
         {
 
             try
             {
                 //Tramitador
-                cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
+                cbTramitador.DataSource = await persona.obtenerTodo();
                 cbTramitador.ValueMember = "Cedula";
                 cbTramitador.DisplayMember = "NombreCompleto";
 
                 //Estado
-                cbEstado.DataSource = estadoNegocio.obtenerTodo(new tEstado());
+                cbEstado.DataSource = await estadoNegocio.obtenerTodo();
                 cbEstado.ValueMember = "idEstado";
                 cbEstado.DisplayMember = "Estado";
 
                 //Recepcion
-                cbRecepcion.DataSource = recepcion.obtenerTodo(new tRecepcion());
+                cbRecepcion.DataSource = await recepcion.obtenerTodo();
                 cbRecepcion.ValueMember = "id";
                 cbRecepcion.DisplayMember = "Recepcion";
             }
@@ -327,7 +331,7 @@ namespace GestionCasos.Usuarios
                     }
                     else
                     {
-                        var filtro = revisionNegocio.FilterBy((int)cbEstado.SelectedValue).Where(x => x.Tramitador == Cedula);
+                        var filtro = revisionNegocio.FilterBy((int)cbEstado.SelectedValue).Where(x => x.Tramitador == Cedula).ToList();
                         if (filtro != null)
                             CargarTabla(filtro);
                     }
@@ -347,7 +351,7 @@ namespace GestionCasos.Usuarios
             {
                 if (cbRecepcion.Text != string.Empty)
                 {
-                    var filtro = revisionNegocio.FilterBy((int)cbRecepcion.SelectedValue, 0).Where(x => x.Tramitador == Cedula);
+                    var filtro = revisionNegocio.FilterBy((int)cbRecepcion.SelectedValue, 0).Where(x => x.Tramitador == Cedula).ToList();
                     if (filtro != null)
                         CargarTabla(filtro);
                 }
@@ -365,7 +369,7 @@ namespace GestionCasos.Usuarios
             {
                 if (txtConsecutivo.Text != string.Empty)
                 {
-                    var filtro = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text).Where(x => x.Tramitador == Cedula);
+                    var filtro = revisionNegocio.obtenerPorConsecutivo(txtConsecutivo.Text).Where(x => x.Tramitador == Cedula).ToList();
                     if (filtro != null)
                         CargarTabla(filtro);
                 }
@@ -383,7 +387,7 @@ namespace GestionCasos.Usuarios
         {
             try
             {
-                var filtro = revisionNegocio.obtenerPorContador(cbTramitador.SelectedValue.ToString());
+                var filtro = revisionNegocio.obtenerPorContador(cbTramitador.SelectedValue.ToString()).ToList();
                 if (filtro != null)
                     CargarTabla(filtro);
                 DatosTemp.MultiUser = true;
@@ -410,7 +414,7 @@ namespace GestionCasos.Usuarios
             childForm.Show();
         }
 
-        private void tabla_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private async void tabla_CellContentClick_1Async(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -433,8 +437,8 @@ namespace GestionCasos.Usuarios
                             tRevision r = revisionNegocio.ObtenerPorCaso(consecutivo);
                             if (r.Estado > 3)
                             {
-                                tEntregaCasos entregaCasos = entregaNegocio.obtenerPorCaso(consecutivo);
-                                fEntrega entrega = new fEntrega(entregaCasos, consecutivo);
+                                tEntregaCasos entregaCasos = await entregaNegocio.obtenerPorCasoAsync(consecutivo);
+                                fEntrega entrega = new fEntrega(consecutivo);
                                 entrega.ShowDialog();
                             }
                             else
@@ -449,8 +453,7 @@ namespace GestionCasos.Usuarios
             //Control de la excepcio
             catch (Exception ex)
             {
-                var error = ex.Data;
-                MessageBox.Show(error.ToString());
+                Console.WriteLine(ex);
             }
         }
 

@@ -35,9 +35,9 @@ namespace GestionCasos.Administrador
             this.btnJuntas = new Guna.UI.WinForms.GunaTileButton();
             this.btnCasos = new Guna.UI.WinForms.GunaTileButton();
             this.btnReportes = new Guna.UI.WinForms.GunaTileButton();
-            this.btnMode = new Guna.UI.WinForms.GunaTileButton();
             this.btnEntregas = new Guna.UI.WinForms.GunaTileButton();
             this.btnBackup = new Guna.UI.WinForms.GunaTileButton();
+            this.btnMode = new Guna.UI.WinForms.GunaTileButton();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -148,7 +148,7 @@ namespace GestionCasos.Administrador
             this.btnCasos.Radius = 10;
             this.btnCasos.Size = new System.Drawing.Size(241, 142);
             this.btnCasos.TabIndex = 9;
-            this.btnCasos.Text = "Asignacion de Casos";
+            this.btnCasos.Text = "Asignar Casos";
             this.btnCasos.Click += new System.EventHandler(this.gunaTileButton2_Click);
             // 
             // btnReportes
@@ -177,33 +177,6 @@ namespace GestionCasos.Administrador
             this.btnReportes.TabIndex = 12;
             this.btnReportes.Text = "Realizar Reportes";
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
-            // 
-            // btnMode
-            // 
-            this.btnMode.AnimationHoverSpeed = 0.07F;
-            this.btnMode.AnimationSpeed = 0.03F;
-            this.btnMode.BackColor = System.Drawing.Color.Transparent;
-            this.btnMode.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            this.btnMode.BorderColor = System.Drawing.Color.Black;
-            this.btnMode.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnMode.FocusedColor = System.Drawing.Color.Empty;
-            this.btnMode.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.btnMode.ForeColor = System.Drawing.Color.White;
-            this.btnMode.Image = global::GestionCasos.Properties.Resources.sun_60px;
-            this.btnMode.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnMode.Location = new System.Drawing.Point(40, 364);
-            this.btnMode.Margin = new System.Windows.Forms.Padding(10);
-            this.btnMode.Name = "btnMode";
-            this.btnMode.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
-            this.btnMode.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnMode.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnMode.OnHoverImage = null;
-            this.btnMode.OnPressedColor = System.Drawing.Color.Black;
-            this.btnMode.Radius = 10;
-            this.btnMode.Size = new System.Drawing.Size(241, 142);
-            this.btnMode.TabIndex = 11;
-            this.btnMode.Text = "Modo Oscuro";
-            this.btnMode.Click += new System.EventHandler(this.gunaTileButton4_Click);
             // 
             // btnEntregas
             // 
@@ -258,6 +231,33 @@ namespace GestionCasos.Administrador
             this.btnBackup.TabIndex = 13;
             this.btnBackup.Text = "Backup";
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            // 
+            // btnMode
+            // 
+            this.btnMode.AnimationHoverSpeed = 0.07F;
+            this.btnMode.AnimationSpeed = 0.03F;
+            this.btnMode.BackColor = System.Drawing.Color.Transparent;
+            this.btnMode.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.btnMode.BorderColor = System.Drawing.Color.Black;
+            this.btnMode.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMode.FocusedColor = System.Drawing.Color.Empty;
+            this.btnMode.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnMode.ForeColor = System.Drawing.Color.White;
+            this.btnMode.Image = global::GestionCasos.Properties.Resources.sun_60px;
+            this.btnMode.ImageSize = new System.Drawing.Size(60, 60);
+            this.btnMode.Location = new System.Drawing.Point(40, 364);
+            this.btnMode.Margin = new System.Windows.Forms.Padding(10);
+            this.btnMode.Name = "btnMode";
+            this.btnMode.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(120)))), ((int)(((byte)(235)))));
+            this.btnMode.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMode.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMode.OnHoverImage = null;
+            this.btnMode.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMode.Radius = 10;
+            this.btnMode.Size = new System.Drawing.Size(241, 142);
+            this.btnMode.TabIndex = 11;
+            this.btnMode.Text = "Modo Oscuro";
+            this.btnMode.Click += new System.EventHandler(this.gunaTileButton4_Click);
             // 
             // fMenu
             // 

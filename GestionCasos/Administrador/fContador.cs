@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
 using Utilidades.Enumerables;
@@ -16,7 +17,7 @@ namespace GestionCasos.Administrador
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         tPersona contador = new tPersona();
-        ContadorNegocio negocio = new ContadorNegocio();
+        readonly ContadorNegocio negocio = new ContadorNegocio();
 
         //Alertas
         showMessageDialog Message = new showMessageDialog();
@@ -140,7 +141,7 @@ namespace GestionCasos.Administrador
 
 
         //Funcion de guardar un contador
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -179,7 +180,7 @@ namespace GestionCasos.Administrador
                         m.Apellido2 = txtApellido2.Text.ToUpper();
 
                         //Ejecutamos el metodo de guardar y le mandamos el modelo contador ya cargado de datos
-                        if (negocio.guardar(contador) == true && negocio.guardar(m) == true)
+                        if (negocio.guardarAsync(contador) == true && negocio.guardar(m) == true)
                         {
                             if (negocio.GuardarTrabajador(trabajador) == true)
                             {
@@ -209,7 +210,7 @@ namespace GestionCasos.Administrador
 
 
         //Metodo de Buscar un contador
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -335,7 +336,7 @@ namespace GestionCasos.Administrador
 
 
         //Actualizar
-        private void btnModificar_Click(object sender, EventArgs e)
+        private async void btnModificar_ClickAsync(object sender, EventArgs e)
         {
             try
             {
@@ -343,12 +344,13 @@ namespace GestionCasos.Administrador
                 if (ValidarCampos() == true)
                 {
                     tPersona p = new tPersona();
-                    p= negocio.obtenerPorId(txtCedula.Text);
+                    p= await negocio.obtenerPorIdAsync(txtCedula.Text);
                     p.Nombre = txtNombre.Text.ToUpper();
                     p.Apellido1 = txtApellido1.Text.ToUpper();
                     p.Apellido2 = txtApellido2.Text.ToUpper();
                     p.Correo = txtCorreo.Text;
                     p.Estado = true;
+
                     if (negocio.modificar(p) == true)
                     {
                         Message.Success(new Alertas.Alerta(), "El contador fue modificado con exito");
@@ -368,13 +370,13 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void BtnEliminar_ClickAsync(object sender, EventArgs e)
         {
             try
             {
                 if (ValidarCampos() == true)
                 {
-                    var datos = negocio.obtenerPorId(txtCedula.Text);
+                    var datos = await negocio.obtenerPorIdAsync(txtCedula.Text);
 
                     if (negocio.eliminar(datos) == true)
                     {
@@ -425,7 +427,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void btnDetalles_Click(object sender, EventArgs e)
+        private void BtnDetalles_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fDetallesPersonas(Rol));
         }

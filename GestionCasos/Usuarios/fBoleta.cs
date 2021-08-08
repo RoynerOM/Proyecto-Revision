@@ -14,13 +14,13 @@ namespace GestionCasos.Usuarios
         private int isNew = 0;
         private string consecutivo = null;
 
-        tBoleta boleta = new tBoleta();
+        readonly tBoleta boleta = new tBoleta();
         tRevision revision = new tRevision();
-        BoletaNegocio boletaNegocio = new BoletaNegocio();
-        RevisionNegocio revisionNegocio = new RevisionNegocio();
-        EstadoNegocio estadoNegocio = new EstadoNegocio();
-        showMessageDialog Alert = new showMessageDialog();
-        EntregaNegocio entregaNegocio = new EntregaNegocio();
+        readonly BoletaNegocio boletaNegocio = new BoletaNegocio();
+        readonly RevisionNegocio revisionNegocio = new RevisionNegocio();
+        readonly EstadoNegocio estadoNegocio = new EstadoNegocio();
+        readonly showMessageDialog Alert = new showMessageDialog();
+        readonly EntregaNegocio entregaNegocio = new EntregaNegocio();
 
         public fBoleta(int tipo, string consecutivo)
         {
@@ -54,6 +54,8 @@ namespace GestionCasos.Usuarios
             }
         }
 
+
+
         private void fBoleta_Load(object sender, EventArgs e)
         {
             SetThemeColor();
@@ -62,10 +64,7 @@ namespace GestionCasos.Usuarios
             txtOtros.Visible = false;
             btnEntrega.Enabled = false;
             btnBoleta.Enabled = false;
-            if (DatosTemp.MultiUser == true)
-            {
-                btnObservacion.Enabled = false;
-            }
+
             if (TipoUsuario == 0)
             {
 
@@ -80,6 +79,8 @@ namespace GestionCasos.Usuarios
             CargarDatosForm();
         }
 
+
+
         private void cbMotivo8_CheckedChanged(object sender, EventArgs e)
         {
             if (cbMotivo8.Checked == true)
@@ -92,6 +93,8 @@ namespace GestionCasos.Usuarios
                 txtOtros.ResetText();
             }
         }
+
+
 
         private void LabelColorChange()
         {
@@ -108,6 +111,8 @@ namespace GestionCasos.Usuarios
                 label2.ForeColor = Colors.RedFont;
             }
         }
+
+
 
         private bool ValidarCampos()
         {
@@ -289,7 +294,7 @@ namespace GestionCasos.Usuarios
 
                             if (isNew == 0)
                             {
-                                if (boletaNegocio.guardar(newBoleta) == true)
+                                if (boletaNegocio.guardarAsync(newBoleta) == true)
                                 {
                                     Alert.Success(new Alertas.Alerta(), "Observacion Agregada con exito");
                                     btnBoleta.Enabled = true;
@@ -311,12 +316,16 @@ namespace GestionCasos.Usuarios
             }
         }
 
+
+
         private void btnBoleta_Click(object sender, EventArgs e)
         {
             fReporteBoleta v = new fReporteBoleta(consecutivo);
             v.WindowState = FormWindowState.Maximized;
             v.ShowDialog();
         }
+
+
 
         private void gunaButton1_Click(object sender, EventArgs e)
         {
@@ -345,6 +354,8 @@ namespace GestionCasos.Usuarios
                 Console.WriteLine(ex);
             }
         }
+
+
 
         private void gunaLinePanel1_Paint(object sender, PaintEventArgs e)
         {

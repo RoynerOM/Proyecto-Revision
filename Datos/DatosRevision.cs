@@ -1,7 +1,9 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Datos
@@ -28,7 +30,7 @@ namespace Datos
             }
         }
 
-        public bool guardar(tRevision e)
+        public bool guardarAsync(tRevision e)
         {
             try
             {
@@ -67,14 +69,14 @@ namespace Datos
             }
         }
 
-        public IEnumerable<tRevision> obtenerTodo(tRevision e)
+        public async Task<List<tRevision>> obtenerTodo()
         {
             try
             {
                 using (var context = new BDJuntasEntities())
                 {
 
-                    var datos = context.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").ToList();
+                    var datos = await context.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").ToListAsync();
 
                     if (datos != null)
                     {

@@ -4,6 +4,7 @@ using System;
 using System.Configuration;
 using System.Drawing;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
 using Utilidades.Enumerables;
@@ -17,11 +18,12 @@ namespace GestionCasos.Administrador
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
 
-        ContadorNegocio persona = new ContadorNegocio();
-        InstitucionNegocio negocio = new InstitucionNegocio();
-        showMessageDialog message = new showMessageDialog();
+        readonly ContadorNegocio persona = new ContadorNegocio();
+        readonly InstitucionNegocio negocio = new InstitucionNegocio();
+        readonly showMessageDialog message = new showMessageDialog();
         private Form activeForm;
         private int Rol;
+
         public fInstituciones(int Rol)
         {
             InitializeComponent();
@@ -54,18 +56,18 @@ namespace GestionCasos.Administrador
             while (!hilo.IsAlive) ;
             FuncionesPermitidas();
             OpenChildForm(new fLoader(1, hilo));
-            CargarCombos();
+            CargarCombosAsync();
             CargarDatosForm();
 
         }
 
 
-        private void CargarCombos()
+        private async void CargarCombosAsync()
         {
             try
             {
                 //Combo box de Contador
-                cbContador.DataSource = persona.obtenerTrabador((int)Enums.Tipo.Contador);
+                cbContador.DataSource = await persona.obtenerTrabador((int)Enums.Tipo.Contador);
                 cbContador.ValueMember = "Cedula";
                 cbContador.DisplayMember = "NombreCompleto";
 
@@ -121,6 +123,8 @@ namespace GestionCasos.Administrador
                 cbTipo.Text = institucion.tTipoInstitucion.NombreTipo;
             }
         }
+
+
 
         void labelColorChnage()
         {
@@ -205,6 +209,8 @@ namespace GestionCasos.Administrador
             }
         }
 
+
+
         private void LimpiarCampos()
         {
             txtCodigo.ResetText();
@@ -219,6 +225,8 @@ namespace GestionCasos.Administrador
             txtTelefono.ResetText();
 
         }
+
+
         //Guardar
         private void gunaButton1_Click(object sender, EventArgs e)
         {
@@ -250,7 +258,7 @@ namespace GestionCasos.Administrador
                         institucion.Contacto = txtTelefono.Text;
                         institucion.Estado = true;
 
-                        if (negocio.guardar(institucion) == true)
+                        if (negocio.guardarAsync(institucion) == true)
                         {
                             message.Success(new Alertas.Alerta(), "La Junta se guardo correctamente");
                             LimpiarCampos();
@@ -271,6 +279,7 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex.Message);
             }
         }
+
 
 
         //Buscar
@@ -309,6 +318,7 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex.Message);
             }
         }
+
 
 
         //Eliminar
@@ -376,6 +386,7 @@ namespace GestionCasos.Administrador
         }
 
 
+
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -391,10 +402,13 @@ namespace GestionCasos.Administrador
         }
 
 
+
         private void btnDetalles_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new fDetallesJuntas(Rol));
         }
+
+
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -434,6 +448,8 @@ namespace GestionCasos.Administrador
                 }
             }
         }
+
+
 
         private void gunaButton1_Click_1(object sender, EventArgs e)
         {

@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
 using Utilidades.Enumerables;
@@ -16,7 +17,7 @@ namespace GestionCasos.Administrador
     public partial class fDetallesPersonas : Form
     {
         private Form activeForm = null;
-        ContadorNegocio persona = new ContadorNegocio();
+        readonly ContadorNegocio persona = new ContadorNegocio();
         List<tPersona> Personas = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private int Rol = (int)Enums.Tipo.Tramitador;
@@ -44,7 +45,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void fDetallesPersonas_Load(object sender, EventArgs e)
+        private void FDetallesPersonas_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
@@ -56,11 +57,11 @@ namespace GestionCasos.Administrador
         }
 
 
-        public void PedirDatos()
+        public async void PedirDatos()
         {
             try
             {
-                Personas = (List<tPersona>)persona.obtenerTodo(new tPersona());
+                Personas = await persona.obtenerTodo();
                 CargarTabla(Personas);
             }
             catch (Exception ex)
@@ -129,12 +130,12 @@ namespace GestionCasos.Administrador
         }
 
 
-        public void CargarCombos()
+        public async void CargarCombos()
         {
             try
             {
                 //Tramitador
-                cbTramitador.DataSource = persona.obtenerTodo(new tPersona());
+                cbTramitador.DataSource = await persona.obtenerTodo();
                 cbTramitador.ValueMember = "Cedula";
                 cbTramitador.DisplayMember = "NombreCompleto";
             }
@@ -146,7 +147,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void txtCedula_TextChanged(object sender, EventArgs e)
+        private void TxtCedula_TextChanged(object sender, EventArgs e)
         {
             if (txtCedula.Text != null)
             {
@@ -167,7 +168,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void panel1_Resize(object sender, EventArgs e)
+        private void Panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
 
@@ -182,7 +183,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void tabla_Resize(object sender, EventArgs e)
+        private void Tabla_Resize(object sender, EventArgs e)
         {
             var Grid = (DataGridView)sender;
 
@@ -200,7 +201,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void cbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
+        private void CbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
@@ -215,7 +216,7 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void Tabla_CellDoubleClickAsync(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -226,7 +227,7 @@ namespace GestionCasos.Administrador
                     string cedula = tabla.Rows[fila].Cells[0].Value.ToString();
 
 
-                    DatosTemp.tPersona = persona.obtenerPorId(cedula);
+                    DatosTemp.tPersona = await persona.obtenerPorIdAsync(cedula);
 
 
                     OpenChildForm(new fContador(Rol));
@@ -240,7 +241,8 @@ namespace GestionCasos.Administrador
             }
         }
 
-        private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
+
+        private void GunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
             PedirDatos();
         }

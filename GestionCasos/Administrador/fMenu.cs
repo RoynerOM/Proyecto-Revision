@@ -14,7 +14,7 @@ namespace GestionCasos.Administrador
 {
     public partial class fMenu : Form
     {
-        SqlConnection conexion = new SqlConnection(@"data source=.\SQLEXPRESS;initial catalog=BDJuntas;user id=roy;password=6514;MultipleActiveResultSets=True;");
+        SqlConnection conexion = new SqlConnection(@"data source=SERVIDOR\SQLEXPRESS;initial catalog=BDJuntas;user id=admin;password=amconsultores;MultipleActiveResultSets=True;");
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private Form activeForm;
         private int Rol;
@@ -69,10 +69,12 @@ namespace GestionCasos.Administrador
         }
 
 
+
         private void gunaTileButton1_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fContador(Rol));
         }
+
 
 
         private void btnContadores_Click(object sender, EventArgs e)
@@ -81,10 +83,12 @@ namespace GestionCasos.Administrador
         }
 
 
+
         private void gunaTileButton2_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AsignarCaso());
         }
+
 
 
         private void SetThemeColor()
@@ -118,6 +122,7 @@ namespace GestionCasos.Administrador
                 btnMode.Text = "Modo Oscuro";
             }
         }
+
 
 
         private void gunaTileButton4_Click(object sender, EventArgs e)
@@ -164,6 +169,7 @@ namespace GestionCasos.Administrador
         }
 
 
+
         private void fMenu_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
@@ -175,10 +181,12 @@ namespace GestionCasos.Administrador
         }
 
 
+
         private void btnReportes_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fOpcionesReportes(Rol));
         }
+
 
 
         private void btnBackup_Click(object sender, EventArgs e)
@@ -206,6 +214,7 @@ namespace GestionCasos.Administrador
                 conexion.Dispose();
             }
         }
+
 
 
         private void btnEntregas_Click(object sender, EventArgs e)

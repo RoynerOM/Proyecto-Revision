@@ -4,6 +4,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
 using Utilidades.Enumerables;
@@ -13,24 +14,28 @@ namespace GestionCasos.Administrador
     public partial class fEntrega : Form
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-        ContadorNegocio personaNegocio = new ContadorNegocio();
-        RecepcionNegocio recepcion = new RecepcionNegocio();
-        EntregaNegocio entregaNegocio = new EntregaNegocio();
-        EstadoNegocio estadoNegocio = new EstadoNegocio();
-        RevisionNegocio revisionNegocio = new RevisionNegocio();
+        readonly ContadorNegocio personaNegocio = new ContadorNegocio();
+        readonly RecepcionNegocio recepcion = new RecepcionNegocio();
+        readonly EntregaNegocio entregaNegocio = new EntregaNegocio();
+        readonly EstadoNegocio estadoNegocio = new EstadoNegocio();
+        readonly RevisionNegocio revisionNegocio = new RevisionNegocio();
+
         showMessageDialog Message = new showMessageDialog();
         tEntregaCasos entrega = new tEntregaCasos();
         viewTrabajador persona = new viewTrabajador();
         private string consecutivo = null;
-        bool state = false;
-        bool existePersona = false;
-        public fEntrega(tEntregaCasos id, string consecutivo)
+        private bool state = false;
+        private bool existePersona = false;
+
+
+        public fEntrega(string consecutivo)
         {
             InitializeComponent();
             //entrega = id;
             this.consecutivo = consecutivo;
             SetThemeColor();
         }
+
 
         //Cambio de color
         private void SetThemeColor()
@@ -56,17 +61,18 @@ namespace GestionCasos.Administrador
             }
         }
 
-        private void CargarDatos()
+
+
+        private async Task CargarDatosAsync()
         {
             try
             {
-                entrega = entregaNegocio.obtenerPorCaso(consecutivo);
+                entrega = await entregaNegocio.obtenerPorCasoAsync(consecutivo);
 
                 if (entrega != null)
                 {
                     btnPdf.Visible = true;
                     lblFecha.Visible = true;
-                    existePersona = true;
                     txtCedula.Text = entrega.tMensajero.CedulaMensajero;
                     txtNombre.Text = entrega.tMensajero.Nombre;
                     txtApellido1.Text = entrega.tMensajero.Apellido1;
@@ -96,9 +102,7 @@ namespace GestionCasos.Administrador
                 else
                 {
                     btnPdf.Visible = false;
-
                     lblConsecutivo.Text = consecutivo;
-                    existePersona = false;
                 }
             }
             catch (Exception ex)
@@ -108,11 +112,12 @@ namespace GestionCasos.Administrador
         }
 
 
-        public void CargarCombos()
+
+        public async void CargarCombos()
         {
             try
             {
-                var data = recepcion.obtenerTodo(new tRecepcion());
+                var data = await recepcion.obtenerTodo();
                 if (data != null)
                 {
                     //Recepcion
@@ -128,6 +133,7 @@ namespace GestionCasos.Administrador
         }
 
 
+
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
             try
@@ -137,7 +143,6 @@ namespace GestionCasos.Administrador
                 {
                     if (persona != null)
                     {
-                        existePersona = true;
                         txtNombre.Text = persona.Nombre.ToUpper();
                         txtApellido1.Text = persona.Apellido1.ToUpper();
                         txtApellido2.Text = persona.Apellido2.ToUpper();
@@ -152,12 +157,13 @@ namespace GestionCasos.Administrador
         }
 
 
+
         private void fEntrega_Load(object sender, EventArgs e)
         {
             lblFecha.Visible = false;
             txtCedula.Mask = "0-0000-0000";
             CargarCombos();
-            CargarDatos();
+            CargarDatosAsync();
         }
 
 
@@ -190,9 +196,9 @@ namespace GestionCasos.Administrador
         }
 
 
+
         private void labelColorChange()
         {
-
             if (isDark == "false")
             {
                 label3.ForeColor = Colors.Black;
@@ -226,8 +232,8 @@ namespace GestionCasos.Administrador
             {
                 label4.ForeColor = Colors.RedFont;
             }
-
         }
+
 
 
         private bool ValidarCampos()
@@ -261,21 +267,24 @@ namespace GestionCasos.Administrador
         }
 
 
+
         //Guardar informacion de entrega
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private async void BtnGuardar_ClickAsync(object sender, EventArgs e)
         {
             try
             {
                 tEntregaCasos entregaCasos = new tEntregaCasos();
                 tRevision revision = new tRevision();
                 tMensajero m = new tMensajero();
-                tEntregaCasos ec = entregaNegocio.obtenerPorCaso(consecutivo);
 
 
-                if (personaNegocio.obtenerPorId(txtCedula.Text) == null)
+
+
+                if (await personaNegocio.obtenerPorIdAsync(txtCedula.Text) == null)
                 {
                     tTrabajador t = new tTrabajador();
                     tPersona p = new tPersona();
+
                     //Se inserta la persona en caso de que no exista
                     m.CedulaMensajero = txtCedula.Text;
                     m.Nombre = txtNombre.Text.ToUpper();
@@ -294,14 +303,15 @@ namespace GestionCasos.Administrador
                     t.Cedula = txtCedula.Text;
                     t.Tipo = 1;
                     t.Activo = true;
-                    personaNegocio.guardar(p);
+
+                    personaNegocio.guardarAsync(p);
                     personaNegocio.GuardarTrabajador(t);
                     personaNegocio.guardar(m);
                 }
-               
+
+                tEntregaCasos ec = await entregaNegocio.obtenerPorCasoAsync(consecutivo);
                 if (ValidarCampos() == true && ec != null)
                 {
-                    //En caso de que exista se actualiza
 
                     if (cbCheque.Checked == true)
                     {
@@ -313,6 +323,7 @@ namespace GestionCasos.Administrador
                         //Por Transferencia
                         ec.Pago = 1;
                     }
+
                     ec.Observacion = txtObservacion.Text;
 
                     if (entregaNegocio.modificar(ec) == true)
@@ -326,14 +337,16 @@ namespace GestionCasos.Administrador
                     }
                     //En caso contrario se guarda
                 }
-                if(ValidarCampos()== true)
+
+
+                if (ValidarCampos() == true)
                 {
                     tEntregaCasos entregaC = new tEntregaCasos();
                     tMensajero men = new tMensajero();
                     men = personaNegocio.obtenerMBy(txtCedula.Text);
                     entregaC.Mensajero = men.IdMensajero;
                     entregaC.Recepcion = (int)cbEntrega.SelectedValue;
-                   
+
                     if (cbCheque.Checked == true)
                     {
                         //Por cheque
@@ -358,7 +371,7 @@ namespace GestionCasos.Administrador
                     entregaC.FechaEntrega = DateTime.Now;
                     entregaC.Observacion = txtObservacion.Text;
 
-                    if (entregaNegocio.guardar(entregaC) == true && revisionNegocio.modificar(revision))
+                    if (entregaNegocio.guardarAsync(entregaC) == true && revisionNegocio.modificar(revision))
                     {
                         Message.Success(new Alertas.Alerta(), "La informacion de entrega fue guardada");
                         btnPdf.Visible = true;
@@ -376,6 +389,8 @@ namespace GestionCasos.Administrador
             }
         }
 
+
+
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
 
@@ -390,10 +405,14 @@ namespace GestionCasos.Administrador
             }
         }
 
+
+
         private void cbEntrega_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+
 
         private void txtCedula_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {

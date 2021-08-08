@@ -1,6 +1,7 @@
 ﻿using Datos;
 using Entidades;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Negocios
@@ -15,9 +16,9 @@ namespace Negocios
             return contador.eliminar(e);
         }
 
-        public bool guardar(tPersona e)
+        public bool guardarAsync(tPersona e)
         {
-            return contador.guardar(e);
+            return contador.guardarAsync(e);
         }
 
         public bool guardar(tMensajero e)
@@ -35,21 +36,16 @@ namespace Negocios
         {
             return contador.obtenerPorId(e);
         }
-        public tPersona obtenerPorId(string e)
+        public async Task<tPersona> obtenerPorIdAsync(string e)
         {
-            return contador.obtenerPorId(e);
+            return await contador.obtenerPorIdAsync(e);
         }
-        public IEnumerable<tPersona> obtenerTodo(tPersona e)
+        public async Task<List<tPersona>> obtenerTodo()
         {
-            return contador.obtenerTodo(e);
-        }
-
-        //Metodos fuera de la interfaz
-        public int CantidadContadores()
-        {
-            return contador.CantidadContadores();
+            return await contador.obtenerTodo();
         }
 
+      
 
         public bool GuardarTrabajador(tTrabajador e)
         {
@@ -57,9 +53,9 @@ namespace Negocios
             return contador.GuardarTrabajador(e);
         }
 
-        public IEnumerable<viewTrabajador> obtenerTrabador(int tipo)
+        public async Task<List<viewTrabajador>> obtenerTrabador(int tipo)
         {
-            return contador.obtenerTrabador(tipo);
+            return await contador.obtenerTrabador(tipo);
         }
         public viewTrabajador obtenerTrabadorBy(string cedula)
         {

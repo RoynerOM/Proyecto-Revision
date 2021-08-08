@@ -17,9 +17,10 @@ namespace GestionCasos
 {
     public partial class fDashBoard : Form
     {
-        ContadorNegocio negocio = new ContadorNegocio();
-        RevisionNegocio revision = new RevisionNegocio();
-        InstitucionNegocio institucion = new InstitucionNegocio();
+        readonly ContadorNegocio negocio = new ContadorNegocio();
+        readonly RevisionNegocio revision = new RevisionNegocio();
+        readonly InstitucionNegocio institucion = new InstitucionNegocio();
+
         private Form activeForm;
         private int Rol = (int)Enums.Tipo.Tramitador;
         private string cedula = null;
@@ -37,22 +38,22 @@ namespace GestionCasos
 
         }
 
-        private void CargarEstadisticas()
+        private async void CargarEstadisticas()
         {
             try
             {
                 if (Rol == (int)Enums.Tipo.Contador)
                 {
-                    var contadores = negocio.obtenerTrabador(0).Count();
-                    label1.Text = contadores.ToString();
+                    var contadores = await negocio.obtenerTrabador(0);
+                    label1.Text = contadores.Count().ToString();
 
 
-                    var casos = revision.obtenerTodo(new tRevision());
+                    var casos = await revision.obtenerTodo();
 
                     //En revisio
                     var pendientes = casos.Where(x => x.Estado == 2).Count();
                     lblTotaPendientes.Text = pendientes.ToString();
-                    lblPendientes.Text = "Casos en revision";
+                    lblPendientes.Text = "Casos en revisión";
 
                     //Tramitados
                     var revicion = casos.Where(x => x.Estado == 3).Count();
@@ -64,18 +65,18 @@ namespace GestionCasos
                     lblEntregados.Text = entregados.ToString();
                     label5.Text = "Casos Entregados";
 
-                    var instituciones = institucion.obtenerTodo(new tInstitucion()).Where(x=> x.Estado == true).Count();
-                    lblTotalJuntas.Text = instituciones.ToString();
+                    var instituciones = await institucion.obtenerTodo();
+                    lblTotalJuntas.Text = instituciones.Where(x => x.Estado == true).Count().ToString();
 
-                    var tramitadores = negocio.obtenerTrabador(1).Count();
-                    lblTramitadores.Text = tramitadores.ToString();
+                    var tramitadores = await negocio.obtenerTrabador(1);
+                    lblTramitadores.Text = tramitadores.Count().ToString();
                 }
                 else
                 {
-                    var contadores = negocio.obtenerTrabador(0).Count();
-                    label1.Text = contadores.ToString();
+                    var contadores = await negocio.obtenerTrabador(0);
+                    label1.Text = contadores.Count().ToString();
 
-                    var casos = revision.obtenerTodo(new tRevision());
+                    var casos = await revision.obtenerTodo();
 
                     var pendientes = casos.Where(x => x.Estado == 2 && x.Tramitador == cedula).Count();
                     lblTotaPendientes.Text = pendientes.ToString();
@@ -87,11 +88,11 @@ namespace GestionCasos
                     var entregados = casos.Where(x => x.Estado == 4 && x.Tramitador == cedula).Count();
                     lblEntregados.Text = entregados.ToString();
 
-                    var instituciones = institucion.obtenerTodo(new tInstitucion()).Count();
-                    lblTotalJuntas.Text = instituciones.ToString();
+                    var instituciones = await institucion.obtenerTodo();
+                    lblTotalJuntas.Text = instituciones.Count().ToString();
 
-                    var tramitadores = negocio.obtenerTrabador(1).Count();
-                    lblTramitadores.Text = tramitadores.ToString();
+                    var tramitadores = await negocio.obtenerTrabador(1);
+                    lblTramitadores.Text = tramitadores.Count().ToString();
                 }
             }
             catch (Exception ex)

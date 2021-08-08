@@ -1,7 +1,9 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Datos
@@ -27,7 +29,8 @@ namespace Datos
             }
         }
 
-        public bool guardar(tBoleta e)
+
+        public bool guardarAsync(tBoleta e)
         {
             try
             {
@@ -45,6 +48,7 @@ namespace Datos
                 return false;
             }
         }
+
 
         public bool modificar(tBoleta e)
         {
@@ -64,6 +68,7 @@ namespace Datos
                 return false;
             }
         }
+
 
         public tBoleta obtenerPorId(tBoleta e)
         {
@@ -90,6 +95,7 @@ namespace Datos
             }
         }
 
+
         public tBoleta obtenerPorId(int e)
         {
             try
@@ -114,6 +120,7 @@ namespace Datos
                 return null;
             }
         }
+
 
         public tBoleta obtenerPorId(string e)
         {
@@ -140,13 +147,14 @@ namespace Datos
             }
         }
 
-        public IEnumerable<tBoleta> obtenerTodo(tBoleta e)
+
+        public async Task<List<tBoleta>> obtenerTodo()
         {
             try
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var boleta = db.tBoleta.Include("tRevision").ToList();
+                    var boleta = await db.tBoleta.Include("tRevision").ToListAsync();
 
                     if (boleta != null)
                     {

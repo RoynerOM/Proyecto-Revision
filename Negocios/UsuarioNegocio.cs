@@ -3,6 +3,7 @@ using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
 using Utilidades.Interfaces;
@@ -13,19 +14,19 @@ namespace Negocios
     //Plantilla
     public class UsuarioNegocio : ICrud<tUsuario>
     {
-        DatosUsuario datosUsuario = new DatosUsuario();
-        showMessageDialog Message = new showMessageDialog();
-
+        readonly DatosUsuario datosUsuario = new DatosUsuario();
 
         public bool eliminar(tUsuario e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(tUsuario e)
+
+        public bool guardarAsync(tUsuario e)
         {
-            return datosUsuario.guardar(e);
+            return datosUsuario.guardarAsync(e);
         }
+
 
         public bool ComprobarCedula(string ced)
         {
@@ -50,20 +51,26 @@ namespace Negocios
             }
         }
 
+
         public bool modificar(tUsuario e)
         {
             return datosUsuario.modificar(e);
         }
 
+
         public tUsuario obtenerPorId(tUsuario e)
         {
             throw new NotImplementedException();
         }
+
+
         public tUsuario obtenerPorId(string e)
         {
             return datosUsuario.obtenerPorId(e);
         }
-        public IEnumerable<tUsuario> obtenerTodo(tUsuario e)
+
+
+        public Task<List<tUsuario>> obtenerTodo()
         {
             throw new NotImplementedException();
         }

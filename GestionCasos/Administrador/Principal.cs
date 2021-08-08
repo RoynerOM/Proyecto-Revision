@@ -1,5 +1,4 @@
 ﻿using GestionCasos.Administrador;
-using GestionCasos.Configuracion;
 using GestionCasos.Reportes;
 using GestionCasos.Usuarios;
 using System;
@@ -32,6 +31,7 @@ namespace GestionCasos
             SetPanelDefault();
 
         }
+
 
         private void SetPanelDefault()
         {
@@ -166,23 +166,12 @@ namespace GestionCasos
         }
 
 
+
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fDashBoard(Rol), sender);
         }
 
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Registrar(), sender);
-
-        }
-
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fConfiguraciones(), sender);
-        }
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -190,16 +179,22 @@ namespace GestionCasos
             OpenChildForm(new fMenu(Rol), sender);
         }
 
+
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new fOpcionesReportes(Rol), sender);
         }
+
+
 
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
         {
             GC.Collect();
             Application.ExitThread();
         }
+
+
 
         private void btnEntregas_Click(object sender, EventArgs e)
         {
@@ -212,6 +207,8 @@ namespace GestionCasos
                 OpenChildForm(new fCasosAdmin(true), sender);
             }
         }
+
+
 
         private void button1_Click_2(object sender, EventArgs e)
         {

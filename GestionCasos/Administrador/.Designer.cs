@@ -93,9 +93,9 @@ namespace GestionCasos
             this.lblActual.BackColor = System.Drawing.Color.Transparent;
             this.lblActual.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActual.ForeColor = System.Drawing.Color.White;
-            this.lblActual.Location = new System.Drawing.Point(273, 103);
+            this.lblActual.Location = new System.Drawing.Point(249, 103);
             this.lblActual.Name = "lblActual";
-            this.lblActual.Size = new System.Drawing.Size(264, 23);
+            this.lblActual.Size = new System.Drawing.Size(240, 23);
             this.lblActual.TabIndex = 30;
             this.lblActual.Text = "label1";
             this.lblActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -107,7 +107,7 @@ namespace GestionCasos
             this.lblPag.ForeColor = System.Drawing.Color.White;
             this.lblPag.Location = new System.Drawing.Point(3, 103);
             this.lblPag.Name = "lblPag";
-            this.lblPag.Size = new System.Drawing.Size(264, 23);
+            this.lblPag.Size = new System.Drawing.Size(240, 23);
             this.lblPag.TabIndex = 29;
             this.lblPag.Text = "label1";
             this.lblPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -170,7 +170,6 @@ namespace GestionCasos
             this.txtConsecutivo.ShadowDecoration.Parent = this.txtConsecutivo;
             this.txtConsecutivo.Size = new System.Drawing.Size(169, 26);
             this.txtConsecutivo.TabIndex = 12;
-            this.txtConsecutivo.TextChanged += new System.EventHandler(this.txtConsecutivo_TextChanged);
             this.txtConsecutivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsecutivo_KeyPress);
             // 
             // gunaAdvenceTileButton1
@@ -266,7 +265,7 @@ namespace GestionCasos
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(151, 20);
             this.gunaLabel2.TabIndex = 5;
-            this.gunaLabel2.Text = "Filtrar Por Recepcion";
+            this.gunaLabel2.Text = "Filtrar Por Recepción";
             // 
             // gunaLabel1
             // 
@@ -393,7 +392,7 @@ namespace GestionCasos
             this.tabla.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabla.Size = new System.Drawing.Size(938, 395);
             this.tabla.TabIndex = 0;
-            this.tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellContentClick);
+            this.tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellContentClickAsync);
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
             this.tabla.Paint += new System.Windows.Forms.PaintEventHandler(this.tabla_Paint);
             this.tabla.Resize += new System.EventHandler(this.tabla_Resize);

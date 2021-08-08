@@ -1,7 +1,9 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 namespace Datos
 {
@@ -31,7 +33,7 @@ namespace Datos
 
 
         //Metodo de Guardar un contador
-        public bool guardar(tPersona e)
+        public bool guardarAsync(tPersona e)
         {
             using (var db = new BDJuntasEntities())
             {
@@ -115,13 +117,13 @@ namespace Datos
         }
 
 
-        public tPersona obtenerPorId(string e)
+        public async Task<tPersona> obtenerPorIdAsync(string e)
         {
             try
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var datos = db.tPersona.Where(x => x.Cedula == e).SingleOrDefault();
+                    var datos = await db.tPersona.Where(x => x.Cedula == e).SingleOrDefaultAsync();
                     if (datos != null)
                     {
                         return datos;
@@ -140,14 +142,14 @@ namespace Datos
         }
 
         //Metodo que para obtener la lista de los contadores
-        public IEnumerable<tPersona> obtenerTodo(tPersona e)
+        public async Task<List<tPersona>> obtenerTodo()
         {
 
             try
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var p = db.tPersona.Where(x => x.Estado == true).ToList();
+                    var p = await db.tPersona.Where(x => x.Estado == true).ToListAsync();
                     if (p != null)
                     {
                         return p;
@@ -212,6 +214,8 @@ namespace Datos
                 return null;
             }
         }
+
+
         public tMensajero obtenerMBy(string cedula)
         {
             try
@@ -235,13 +239,15 @@ namespace Datos
                 return null;
             }
         }
-        public IEnumerable<viewTrabajador> obtenerTrabador(int tipo)
+
+
+        public async Task<List<viewTrabajador>> obtenerTrabador(int tipo)
         {
             try
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.viewTrabajador.Where(x => x.Tipo == tipo).ToList();
+                    var consulta = await db.viewTrabajador.Where(x => x.Tipo == tipo).ToListAsync();
                     if (consulta != null)
                     {
                         return consulta;
@@ -288,9 +294,9 @@ namespace Datos
             }
         }
 
-        public int CantidadContadores()
-        {
-            return obtenerTodo(new tPersona()).Count();
-        }
+        //public async Task<int> CantidadContadoresAsync()
+        //{
+        //    return await obtenerTodo();
+        //}
     }
 }

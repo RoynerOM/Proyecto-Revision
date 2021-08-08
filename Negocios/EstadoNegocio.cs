@@ -2,19 +2,20 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Negocios
 {
     public class EstadoNegocio : ICrud<tEstado>
     {
-        EstadoDatos datos = new EstadoDatos();
+        readonly EstadoDatos datos = new EstadoDatos();
         public bool eliminar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(tEstado e)
+        public bool guardarAsync(tEstado e)
         {
             throw new NotImplementedException();
         }
@@ -29,9 +30,9 @@ namespace Negocios
             return datos.obtenerPorId(e);
         }
 
-        public IEnumerable<tEstado> obtenerTodo(tEstado e)
+        public async Task<List<tEstado>> obtenerTodo()
         {
-            return datos.obtenerTodo(new tEstado());
+            return await datos.obtenerTodo();
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Datos
@@ -13,7 +15,7 @@ namespace Datos
             throw new NotImplementedException();
         }
 
-        public bool guardar(tEstado e)
+        public bool guardarAsync(tEstado e)
         {
             throw new NotImplementedException();
         }
@@ -40,13 +42,13 @@ namespace Datos
             }
         }
 
-        public IEnumerable<tEstado> obtenerTodo(tEstado e)
+        public async Task<List<tEstado>> obtenerTodo()
         {
             try
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var lista = db.tEstado.ToList();
+                    var lista = await db.tEstado.ToListAsync();
 
                     if (lista != null)
                     {
