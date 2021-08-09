@@ -182,17 +182,17 @@ namespace GestionCasos
 
 
 
-                    if (item.tEstado.Estado.ToUpper() == "TRAMITADO")
+                    if (item.tEstado.Estado.ToUpper() == "REVISADO")
                     {
                         if (isDark == "false")
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
                         }
                         else
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
                         }
                     }
                     else if (item.tEstado.Estado.ToUpper() == "ENTREGADO")
@@ -212,27 +212,27 @@ namespace GestionCasos
                     {
                         if (isDark == "false")
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleFore;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack;
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
                         }
                         else
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleBack;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack2;
+
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
                         }
                     }
                     else
                     {
                         if (isDark == "false")
                         {
-
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.RedBack;
                         }
                         else
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
                         }
                     }
                 }

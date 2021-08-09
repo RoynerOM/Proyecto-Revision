@@ -136,9 +136,8 @@ namespace GestionCasos.Usuarios
                 tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
 
 
-                if (item.tEstado.Estado.ToUpper() == "PENDIENTE" || item.tEstado.Estado.ToUpper() == "EN REVISIÓN")
+                if (item.tEstado.Estado.ToUpper() == "EN REVISIÓN")
                 {
-                    tabla.Rows[nRows].Cells[8].Value = "PENDIENTE";
                     if (isDark == "false")
                     {
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
@@ -150,7 +149,20 @@ namespace GestionCasos.Usuarios
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
                     }
                 }
-                else if (item.tEstado.Estado.ToUpper() == "TRAMITADO")
+                else if (item.tEstado.Estado.ToUpper() == "REVISADO")
+                {
+                    if (isDark == "false")
+                    {
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.RedBack;
+                    }
+                    else
+                    {
+                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
+                        tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
+                    }
+                }
+                else if (item.tEstado.Estado.ToUpper() == "POR ENTREGAR")
                 {
                     if (isDark == "false")
                     {
@@ -162,19 +174,6 @@ namespace GestionCasos.Usuarios
 
                         tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
                         tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
-                    }
-                }
-                else if (item.tEstado.Estado.ToUpper() == "POR ENTREGAR")
-                {
-                    if (isDark == "false")
-                    {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleFore;
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack;
-                    }
-                    else
-                    {
-                        tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleBack;
-                        tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack2;
                     }
                 }
                 else
