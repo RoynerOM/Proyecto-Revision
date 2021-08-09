@@ -125,7 +125,7 @@ namespace GestionCasos
             this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaButton1.Radius = 20;
             this.gunaButton1.Size = new System.Drawing.Size(140, 38);
-            this.gunaButton1.TabIndex = 22;
+            this.gunaButton1.TabIndex = 3;
             this.gunaButton1.Text = "Registrarse";
             this.gunaButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
@@ -171,7 +171,7 @@ namespace GestionCasos
             this.btnRegistrar.Location = new System.Drawing.Point(125, 286);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(166, 20);
-            this.btnRegistrar.TabIndex = 18;
+            this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "¿Olvidó su contraseña?";
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -182,7 +182,7 @@ namespace GestionCasos
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '•';
             this.txtContraseña.Size = new System.Drawing.Size(301, 33);
-            this.txtContraseña.TabIndex = 17;
+            this.txtContraseña.TabIndex = 1;
             this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // txtNombreUsuario
@@ -191,7 +191,7 @@ namespace GestionCasos
             this.txtNombreUsuario.Location = new System.Drawing.Point(58, 130);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(301, 33);
-            this.txtNombreUsuario.TabIndex = 16;
+            this.txtNombreUsuario.TabIndex = 0;
             this.txtNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUsuario_KeyPress);
             // 
             // lbIniciarSecion
@@ -229,7 +229,7 @@ namespace GestionCasos
             this.btnIniciarSecion.OnPressedColor = System.Drawing.Color.Black;
             this.btnIniciarSecion.Radius = 20;
             this.btnIniciarSecion.Size = new System.Drawing.Size(140, 38);
-            this.btnIniciarSecion.TabIndex = 10;
+            this.btnIniciarSecion.TabIndex = 2;
             this.btnIniciarSecion.Text = "Acceder";
             this.btnIniciarSecion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnIniciarSecion.Click += new System.EventHandler(this.btnIniciarSecion_Click);

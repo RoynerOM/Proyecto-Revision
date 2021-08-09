@@ -37,6 +37,10 @@ namespace GestionCasos.Usuarios
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CasosAsignados));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
+            this.cbTramitador = new Guna.UI.WinForms.GunaComboBox();
+            this.txtConsecutivo = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
@@ -52,10 +56,6 @@ namespace GestionCasos.Usuarios
             this.Tramitador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comentario = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtConsecutivo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.cbTramitador = new Guna.UI.WinForms.GunaComboBox();
-            this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
@@ -92,6 +92,103 @@ namespace GestionCasos.Usuarios
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(945, 561);
             this.panel2.TabIndex = 1;
+            // 
+            // gunaAdvenceTileButton1
+            // 
+            this.gunaAdvenceTileButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaAdvenceTileButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaAdvenceTileButton1.AnimationSpeed = 0.03F;
+            this.gunaAdvenceTileButton1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaAdvenceTileButton1.BorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton1.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.gunaAdvenceTileButton1.CheckedBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton1.CheckedForeColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton1.CheckedImage = global::GestionCasos.Properties.Resources.reload;
+            this.gunaAdvenceTileButton1.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.gunaAdvenceTileButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaAdvenceTileButton1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaAdvenceTileButton1.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.gunaAdvenceTileButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceTileButton1.Image = global::GestionCasos.Properties.Resources.reload;
+            this.gunaAdvenceTileButton1.ImageSize = new System.Drawing.Size(25, 25);
+            this.gunaAdvenceTileButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceTileButton1.Location = new System.Drawing.Point(21, 36);
+            this.gunaAdvenceTileButton1.Name = "gunaAdvenceTileButton1";
+            this.gunaAdvenceTileButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaAdvenceTileButton1.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton1.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceTileButton1.OnHoverImage = null;
+            this.gunaAdvenceTileButton1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceTileButton1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton1.Radius = 18;
+            this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(40, 40);
+            this.gunaAdvenceTileButton1.TabIndex = 0;
+            this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
+            // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.gunaLabel4.Location = new System.Drawing.Point(290, 21);
+            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(135, 20);
+            this.gunaLabel4.TabIndex = 10;
+            this.gunaLabel4.Text = "Filtrar Por Persona";
+            // 
+            // cbTramitador
+            // 
+            this.cbTramitador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTramitador.BackColor = System.Drawing.Color.Transparent;
+            this.cbTramitador.BaseColor = System.Drawing.Color.White;
+            this.cbTramitador.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.cbTramitador.BorderSize = 1;
+            this.cbTramitador.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbTramitador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTramitador.FocusedColor = System.Drawing.Color.Empty;
+            this.cbTramitador.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbTramitador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
+            this.cbTramitador.FormattingEnabled = true;
+            this.cbTramitador.Location = new System.Drawing.Point(294, 50);
+            this.cbTramitador.Margin = new System.Windows.Forms.Padding(2);
+            this.cbTramitador.Name = "cbTramitador";
+            this.cbTramitador.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cbTramitador.Radius = 2;
+            this.cbTramitador.Size = new System.Drawing.Size(255, 26);
+            this.cbTramitador.TabIndex = 2;
+            this.cbTramitador.SelectionChangeCommitted += new System.EventHandler(this.cbTramitador_SelectionChangeCommitted);
+            // 
+            // txtConsecutivo
+            // 
+            this.txtConsecutivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConsecutivo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.txtConsecutivo.BorderRadius = 2;
+            this.txtConsecutivo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtConsecutivo.DefaultText = "";
+            this.txtConsecutivo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtConsecutivo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtConsecutivo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtConsecutivo.DisabledState.Parent = this.txtConsecutivo;
+            this.txtConsecutivo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtConsecutivo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtConsecutivo.FocusedState.Parent = this.txtConsecutivo;
+            this.txtConsecutivo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsecutivo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtConsecutivo.HoverState.Parent = this.txtConsecutivo;
+            this.txtConsecutivo.Location = new System.Drawing.Point(90, 50);
+            this.txtConsecutivo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtConsecutivo.Name = "txtConsecutivo";
+            this.txtConsecutivo.PasswordChar = '\0';
+            this.txtConsecutivo.PlaceholderText = "";
+            this.txtConsecutivo.SelectedText = "";
+            this.txtConsecutivo.ShadowDecoration.Parent = this.txtConsecutivo;
+            this.txtConsecutivo.Size = new System.Drawing.Size(169, 26);
+            this.txtConsecutivo.TabIndex = 1;
+            this.txtConsecutivo.TextChanged += new System.EventHandler(this.txtConsecutivo_TextChanged_1);
             // 
             // gunaLabel3
             // 
@@ -152,7 +249,7 @@ namespace GestionCasos.Usuarios
             this.cbRecepcion.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbRecepcion.Radius = 2;
             this.cbRecepcion.Size = new System.Drawing.Size(173, 26);
-            this.cbRecepcion.TabIndex = 3;
+            this.cbRecepcion.TabIndex = 4;
             this.cbRecepcion.SelectionChangeCommitted += new System.EventHandler(this.cbRecepcion_SelectionChangeCommitted);
             // 
             // cbEstado
@@ -175,7 +272,7 @@ namespace GestionCasos.Usuarios
             this.cbEstado.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbEstado.Radius = 2;
             this.cbEstado.Size = new System.Drawing.Size(141, 26);
-            this.cbEstado.TabIndex = 2;
+            this.cbEstado.TabIndex = 3;
             this.cbEstado.SelectionChangeCommitted += new System.EventHandler(this.cbEstado_SelectionChangeCommitted);
             // 
             // tabla
@@ -336,103 +433,6 @@ namespace GestionCasos.Usuarios
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
             this.Estado.Width = 61;
-            // 
-            // txtConsecutivo
-            // 
-            this.txtConsecutivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtConsecutivo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.txtConsecutivo.BorderRadius = 2;
-            this.txtConsecutivo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtConsecutivo.DefaultText = "";
-            this.txtConsecutivo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtConsecutivo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtConsecutivo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtConsecutivo.DisabledState.Parent = this.txtConsecutivo;
-            this.txtConsecutivo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtConsecutivo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtConsecutivo.FocusedState.Parent = this.txtConsecutivo;
-            this.txtConsecutivo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsecutivo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtConsecutivo.HoverState.Parent = this.txtConsecutivo;
-            this.txtConsecutivo.Location = new System.Drawing.Point(90, 50);
-            this.txtConsecutivo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtConsecutivo.Name = "txtConsecutivo";
-            this.txtConsecutivo.PasswordChar = '\0';
-            this.txtConsecutivo.PlaceholderText = "";
-            this.txtConsecutivo.SelectedText = "";
-            this.txtConsecutivo.ShadowDecoration.Parent = this.txtConsecutivo;
-            this.txtConsecutivo.Size = new System.Drawing.Size(169, 26);
-            this.txtConsecutivo.TabIndex = 8;
-            this.txtConsecutivo.TextChanged += new System.EventHandler(this.txtConsecutivo_TextChanged_1);
-            // 
-            // gunaLabel4
-            // 
-            this.gunaLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaLabel4.AutoSize = true;
-            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel4.Location = new System.Drawing.Point(290, 21);
-            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(135, 20);
-            this.gunaLabel4.TabIndex = 10;
-            this.gunaLabel4.Text = "Filtrar Por Persona";
-            // 
-            // cbTramitador
-            // 
-            this.cbTramitador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTramitador.BackColor = System.Drawing.Color.Transparent;
-            this.cbTramitador.BaseColor = System.Drawing.Color.White;
-            this.cbTramitador.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.cbTramitador.BorderSize = 1;
-            this.cbTramitador.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbTramitador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTramitador.FocusedColor = System.Drawing.Color.Empty;
-            this.cbTramitador.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbTramitador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(16)))));
-            this.cbTramitador.FormattingEnabled = true;
-            this.cbTramitador.Location = new System.Drawing.Point(294, 50);
-            this.cbTramitador.Margin = new System.Windows.Forms.Padding(2);
-            this.cbTramitador.Name = "cbTramitador";
-            this.cbTramitador.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbTramitador.Radius = 2;
-            this.cbTramitador.Size = new System.Drawing.Size(255, 26);
-            this.cbTramitador.TabIndex = 9;
-            this.cbTramitador.SelectionChangeCommitted += new System.EventHandler(this.cbTramitador_SelectionChangeCommitted);
-            // 
-            // gunaAdvenceTileButton1
-            // 
-            this.gunaAdvenceTileButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaAdvenceTileButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaAdvenceTileButton1.AnimationSpeed = 0.03F;
-            this.gunaAdvenceTileButton1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaAdvenceTileButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceTileButton1.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.gunaAdvenceTileButton1.CheckedBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceTileButton1.CheckedForeColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton1.CheckedImage = global::GestionCasos.Properties.Resources.reload;
-            this.gunaAdvenceTileButton1.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.gunaAdvenceTileButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaAdvenceTileButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaAdvenceTileButton1.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.gunaAdvenceTileButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceTileButton1.Image = global::GestionCasos.Properties.Resources.reload;
-            this.gunaAdvenceTileButton1.ImageSize = new System.Drawing.Size(25, 25);
-            this.gunaAdvenceTileButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceTileButton1.Location = new System.Drawing.Point(21, 36);
-            this.gunaAdvenceTileButton1.Name = "gunaAdvenceTileButton1";
-            this.gunaAdvenceTileButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaAdvenceTileButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceTileButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceTileButton1.OnHoverImage = null;
-            this.gunaAdvenceTileButton1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceTileButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaAdvenceTileButton1.Radius = 18;
-            this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(40, 40);
-            this.gunaAdvenceTileButton1.TabIndex = 12;
-            this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
             // 
             // CasosAsignados
             // 

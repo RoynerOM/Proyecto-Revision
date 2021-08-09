@@ -93,7 +93,7 @@ namespace GestionCasos.Administrador
             this.btnContadores.OnPressedColor = System.Drawing.Color.Black;
             this.btnContadores.Radius = 10;
             this.btnContadores.Size = new System.Drawing.Size(241, 142);
-            this.btnContadores.TabIndex = 8;
+            this.btnContadores.TabIndex = 0;
             this.btnContadores.Text = "Usuarios";
             this.btnContadores.Click += new System.EventHandler(this.gunaTileButton1_Click);
             // 
@@ -120,7 +120,7 @@ namespace GestionCasos.Administrador
             this.btnJuntas.OnPressedColor = System.Drawing.Color.Black;
             this.btnJuntas.Radius = 10;
             this.btnJuntas.Size = new System.Drawing.Size(241, 142);
-            this.btnJuntas.TabIndex = 7;
+            this.btnJuntas.TabIndex = 1;
             this.btnJuntas.Text = "Juntas";
             this.btnJuntas.Click += new System.EventHandler(this.btnContadores_Click);
             // 
@@ -147,7 +147,7 @@ namespace GestionCasos.Administrador
             this.btnCasos.OnPressedColor = System.Drawing.Color.Black;
             this.btnCasos.Radius = 10;
             this.btnCasos.Size = new System.Drawing.Size(241, 142);
-            this.btnCasos.TabIndex = 9;
+            this.btnCasos.TabIndex = 2;
             this.btnCasos.Text = "Asignar Casos";
             this.btnCasos.Click += new System.EventHandler(this.gunaTileButton2_Click);
             // 
@@ -174,7 +174,7 @@ namespace GestionCasos.Administrador
             this.btnReportes.OnPressedColor = System.Drawing.Color.Black;
             this.btnReportes.Radius = 10;
             this.btnReportes.Size = new System.Drawing.Size(241, 142);
-            this.btnReportes.TabIndex = 12;
+            this.btnReportes.TabIndex = 3;
             this.btnReportes.Text = "Realizar Reportes";
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
@@ -201,7 +201,7 @@ namespace GestionCasos.Administrador
             this.btnEntregas.OnPressedColor = System.Drawing.Color.Black;
             this.btnEntregas.Radius = 10;
             this.btnEntregas.Size = new System.Drawing.Size(241, 142);
-            this.btnEntregas.TabIndex = 14;
+            this.btnEntregas.TabIndex = 4;
             this.btnEntregas.Text = "Entregas";
             this.btnEntregas.Click += new System.EventHandler(this.btnEntregas_Click);
             // 
@@ -228,7 +228,7 @@ namespace GestionCasos.Administrador
             this.btnBackup.OnPressedColor = System.Drawing.Color.Black;
             this.btnBackup.Radius = 10;
             this.btnBackup.Size = new System.Drawing.Size(241, 142);
-            this.btnBackup.TabIndex = 13;
+            this.btnBackup.TabIndex = 5;
             this.btnBackup.Text = "Backup";
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
@@ -255,7 +255,7 @@ namespace GestionCasos.Administrador
             this.btnMode.OnPressedColor = System.Drawing.Color.Black;
             this.btnMode.Radius = 10;
             this.btnMode.Size = new System.Drawing.Size(241, 142);
-            this.btnMode.TabIndex = 11;
+            this.btnMode.TabIndex = 6;
             this.btnMode.Text = "Modo Oscuro";
             this.btnMode.Click += new System.EventHandler(this.gunaTileButton4_Click);
             // 

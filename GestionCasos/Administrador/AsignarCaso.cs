@@ -152,7 +152,7 @@ namespace GestionCasos
                 revision.Tramitador = cbAsignados.SelectedValue.ToString();
                 revision.Recepcion = (int)cbTipoRecepcion.SelectedValue;
                 revision.Comentario = "No tiene comentario";
-                revision.Observacion = "No tiene observacion";
+                revision.Observacion = "No tiene observación";
                 revision.Estado = 2;
                 revision.numeroActa = 0;
                 revision.numeroFolio = 0;
@@ -192,6 +192,9 @@ namespace GestionCasos
 
         private void gunaAdvenceTileButton2_Click(object sender, EventArgs e)
         {
+
+            btnGuardar.Enabled = false;
+
             try
             {
                 if (txtCaso.Text != string.Empty)
@@ -199,6 +202,7 @@ namespace GestionCasos
                     this.casosReasignado = Rnegocio.ObtenerPorCaso(txtCaso.Text.ToUpper());
                     if (this.casosReasignado != null)
                     {
+                        btnReasignarCaso.Enabled = true;
                         txtCodigo.Text = casosReasignado.tInstitucion.Codigo.ToString();
                         txtJuntaAdm.Text = casosReasignado.tInstitucion.Nombre;
                         txtCircuito.Text = casosReasignado.tInstitucion.Circuito.ToString();
@@ -208,7 +212,7 @@ namespace GestionCasos
                     }
                     else
                     {
-                        Alerta.Danger(new Alertas.Alerta(), "El caso ingresado no existe. Favor ingrese uno váñido");
+                        Alerta.Danger(new Alertas.Alerta(), "El caso ingresado no existe. Favor ingrese uno válido");
                     }
                 }
                 else
@@ -224,6 +228,8 @@ namespace GestionCasos
 
         private async void btnReasignarCaso_ClickAsync(object sender, EventArgs e)
         {
+
+            btnGuardar.Enabled = true;
             try
             {
                 tRecepcion t = new tRecepcion();
@@ -246,6 +252,8 @@ namespace GestionCasos
                 {
                     Alerta.Danger(new Alertas.Alerta(), "Error al reasignar caso");
                 }
+
+                btnReasignarCaso.Enabled = false;
             }
             catch (Exception ex)
             {

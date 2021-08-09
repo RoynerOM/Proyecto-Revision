@@ -242,22 +242,22 @@ namespace GestionCasos.Administrador
 
             if (txtCedula.Text == string.Empty)
             {
-                Message.Danger(new Alertas.Alerta(), "El campo de cedula no puede ser vacio");
+                Message.Danger(new Alertas.Alerta(), "El campo de cédula no puede ser vacío");
                 return false;
             }
             else if (txtNombre.Text == string.Empty)
             {
-                Message.Danger(new Alertas.Alerta(), "El campo de Nombre no puede ser vacio");
+                Message.Danger(new Alertas.Alerta(), "El campo de Nombre no puede ser vacío");
                 return false;
             }
             else if (txtApellido1.Text == string.Empty)
             {
-                Message.Danger(new Alertas.Alerta(), "El campo de primer apellido no puede ser vacio");
+                Message.Danger(new Alertas.Alerta(), "El campo de primer apellido no puede ser vacío");
                 return false;
             }
             else if (txtApellido2.Text == string.Empty)
             {
-                Message.Danger(new Alertas.Alerta(), "El campo de segundo apellido no puede ser vacio");
+                Message.Danger(new Alertas.Alerta(), "El campo de segundo apellido no puede ser vacío");
                 return false;
             }
             else
@@ -373,12 +373,12 @@ namespace GestionCasos.Administrador
 
                     if (entregaNegocio.guardarAsync(entregaC) == true && revisionNegocio.modificar(revision))
                     {
-                        Message.Success(new Alertas.Alerta(), "La informacion de entrega fue guardada");
+                        Message.Success(new Alertas.Alerta(), "La información de entrega fue guardada");
                         btnPdf.Visible = true;
                     }
                     else
                     {
-                        Message.Danger(new Alertas.Alerta(), "No se pudo guardar la informacion de la entrega");
+                        Message.Danger(new Alertas.Alerta(), "No se pudo guardar la información de la entrega");
                     }
 
                 }

@@ -146,7 +146,7 @@ namespace GestionCasos.Usuarios
             this.btnEntrega.OnPressedColor = System.Drawing.Color.Black;
             this.btnEntrega.Radius = 5;
             this.btnEntrega.Size = new System.Drawing.Size(249, 42);
-            this.btnEntrega.TabIndex = 15;
+            this.btnEntrega.TabIndex = 4;
             this.btnEntrega.Text = "Marcar entrega pendiente";
             this.btnEntrega.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
@@ -166,7 +166,7 @@ namespace GestionCasos.Usuarios
             this.dtpFechaActa.Name = "dtpFechaActa";
             this.dtpFechaActa.ShadowDecoration.Parent = this.dtpFechaActa;
             this.dtpFechaActa.Size = new System.Drawing.Size(247, 32);
-            this.dtpFechaActa.TabIndex = 14;
+            this.dtpFechaActa.TabIndex = 2;
             this.dtpFechaActa.Value = new System.DateTime(2021, 7, 15, 13, 16, 42, 737);
             // 
             // txtFolio
@@ -183,7 +183,7 @@ namespace GestionCasos.Usuarios
             this.txtFolio.PasswordChar = '\0';
             this.txtFolio.SelectedText = "";
             this.txtFolio.Size = new System.Drawing.Size(181, 32);
-            this.txtFolio.TabIndex = 13;
+            this.txtFolio.TabIndex = 1;
             // 
             // txtNumeroActa
             // 
@@ -199,7 +199,7 @@ namespace GestionCasos.Usuarios
             this.txtNumeroActa.PasswordChar = '\0';
             this.txtNumeroActa.SelectedText = "";
             this.txtNumeroActa.Size = new System.Drawing.Size(177, 32);
-            this.txtNumeroActa.TabIndex = 12;
+            this.txtNumeroActa.TabIndex = 0;
             // 
             // label4
             // 
@@ -260,7 +260,7 @@ namespace GestionCasos.Usuarios
             this.btnObservacion.OnPressedColor = System.Drawing.Color.Black;
             this.btnObservacion.Radius = 5;
             this.btnObservacion.Size = new System.Drawing.Size(223, 42);
-            this.btnObservacion.TabIndex = 7;
+            this.btnObservacion.TabIndex = 5;
             this.btnObservacion.Text = "Guardar Observación";
             this.btnObservacion.Click += new System.EventHandler(this.btnObservacion_Click);
             // 
@@ -304,7 +304,7 @@ namespace GestionCasos.Usuarios
             this.guna2GroupBox2.Name = "guna2GroupBox2";
             this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
             this.guna2GroupBox2.Size = new System.Drawing.Size(384, 155);
-            this.guna2GroupBox2.TabIndex = 5;
+            this.guna2GroupBox2.TabIndex = 3;
             this.guna2GroupBox2.Text = "Observación";
             // 
             // txtObservacion

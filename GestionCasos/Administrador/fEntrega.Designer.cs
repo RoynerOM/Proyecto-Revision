@@ -134,7 +134,7 @@ namespace GestionCasos.Administrador
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtObservacion.Size = new System.Drawing.Size(571, 79);
-            this.txtObservacion.TabIndex = 33;
+            this.txtObservacion.TabIndex = 5;
             // 
             // label9
             // 
@@ -192,7 +192,7 @@ namespace GestionCasos.Administrador
             this.cbEntrega.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbEntrega.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbEntrega.Size = new System.Drawing.Size(267, 31);
-            this.cbEntrega.TabIndex = 28;
+            this.cbEntrega.TabIndex = 4;
             this.cbEntrega.SelectedIndexChanged += new System.EventHandler(this.cbEntrega_SelectedIndexChanged);
             // 
             // btnPdf
@@ -218,7 +218,7 @@ namespace GestionCasos.Administrador
             this.btnPdf.OnPressedColor = System.Drawing.Color.Black;
             this.btnPdf.Radius = 5;
             this.btnPdf.Size = new System.Drawing.Size(160, 42);
-            this.btnPdf.TabIndex = 27;
+            this.btnPdf.TabIndex = 7;
             this.btnPdf.Text = "Exportar";
             this.btnPdf.Click += new System.EventHandler(this.btn_Click);
             // 
@@ -245,7 +245,7 @@ namespace GestionCasos.Administrador
             this.btnGuardar.OnPressedColor = System.Drawing.Color.Black;
             this.btnGuardar.Radius = 5;
             this.btnGuardar.Size = new System.Drawing.Size(160, 42);
-            this.btnGuardar.TabIndex = 26;
+            this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_ClickAsync);
             // 
@@ -256,7 +256,7 @@ namespace GestionCasos.Administrador
             this.txtApellido2.Location = new System.Drawing.Point(324, 196);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(267, 30);
-            this.txtApellido2.TabIndex = 23;
+            this.txtApellido2.TabIndex = 3;
             // 
             // label4
             // 
@@ -277,7 +277,7 @@ namespace GestionCasos.Administrador
             this.txtApellido1.Location = new System.Drawing.Point(20, 195);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(267, 30);
-            this.txtApellido1.TabIndex = 21;
+            this.txtApellido1.TabIndex = 2;
             // 
             // txtCedula
             // 
@@ -287,7 +287,7 @@ namespace GestionCasos.Administrador
             this.txtCedula.Mask = "0-0000-0000";
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(267, 30);
-            this.txtCedula.TabIndex = 20;
+            this.txtCedula.TabIndex = 0;
             this.txtCedula.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCedula_MaskInputRejected);
             this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
@@ -298,7 +298,7 @@ namespace GestionCasos.Administrador
             this.txtNombre.Location = new System.Drawing.Point(325, 96);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(267, 30);
-            this.txtNombre.TabIndex = 19;
+            this.txtNombre.TabIndex = 1;
             // 
             // label3
             // 
@@ -428,7 +428,7 @@ namespace GestionCasos.Administrador
             this.gunaControlBox1.OnHoverIconColor = System.Drawing.Color.White;
             this.gunaControlBox1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.gunaControlBox1.TabIndex = 1;
+            this.gunaControlBox1.TabIndex = 8;
             // 
             // gunaDragControl1
             // 

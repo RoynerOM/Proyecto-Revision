@@ -31,6 +31,7 @@ namespace GestionCasos.Administrador
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInstituciones));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtContacto = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@ namespace GestionCasos.Administrador
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +96,33 @@ namespace GestionCasos.Administrador
             this.panel1.Size = new System.Drawing.Size(916, 602);
             this.panel1.TabIndex = 0;
             // 
+            // gunaButton1
+            // 
+            this.gunaButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gunaButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaButton1.AnimationSpeed = 0.03F;
+            this.gunaButton1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gunaButton1.BorderColor = System.Drawing.Color.Black;
+            this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaButton1.Image = global::GestionCasos.Properties.Resources.broom_24px;
+            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaButton1.Location = new System.Drawing.Point(748, 431);
+            this.gunaButton1.Name = "gunaButton1";
+            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaButton1.OnHoverImage = null;
+            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaButton1.Radius = 5;
+            this.gunaButton1.Size = new System.Drawing.Size(138, 42);
+            this.gunaButton1.TabIndex = 15;
+            this.gunaButton1.Text = "Limpiar";
+            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click_1);
+            // 
             // txtTelefono
             // 
             this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -104,7 +131,7 @@ namespace GestionCasos.Administrador
             this.txtTelefono.Mask = "000-0000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(432, 29);
-            this.txtTelefono.TabIndex = 27;
+            this.txtTelefono.TabIndex = 9;
             // 
             // label10
             // 
@@ -125,7 +152,7 @@ namespace GestionCasos.Administrador
             this.txtContacto.Location = new System.Drawing.Point(119, 479);
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(433, 29);
-            this.txtContacto.TabIndex = 25;
+            this.txtContacto.TabIndex = 8;
             // 
             // label9
             // 
@@ -162,7 +189,7 @@ namespace GestionCasos.Administrador
             this.btnDetalles.OnPressedColor = System.Drawing.Color.Black;
             this.btnDetalles.Radius = 5;
             this.btnDetalles.Size = new System.Drawing.Size(138, 42);
-            this.btnDetalles.TabIndex = 23;
+            this.btnDetalles.TabIndex = 14;
             this.btnDetalles.Text = "Detalles";
             this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click_1);
             // 
@@ -189,7 +216,7 @@ namespace GestionCasos.Administrador
             this.btnBuscar.OnPressedColor = System.Drawing.Color.Black;
             this.btnBuscar.Radius = 5;
             this.btnBuscar.Size = new System.Drawing.Size(138, 42);
-            this.btnBuscar.TabIndex = 21;
+            this.btnBuscar.TabIndex = 13;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.gunaButton4_Click);
             // 
@@ -216,7 +243,7 @@ namespace GestionCasos.Administrador
             this.btnEliminar.OnPressedColor = System.Drawing.Color.Black;
             this.btnEliminar.Radius = 5;
             this.btnEliminar.Size = new System.Drawing.Size(138, 42);
-            this.btnEliminar.TabIndex = 20;
+            this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.Click += new System.EventHandler(this.gunaButton3_Click);
             // 
@@ -243,7 +270,7 @@ namespace GestionCasos.Administrador
             this.btnModificar.OnPressedColor = System.Drawing.Color.Black;
             this.btnModificar.Radius = 5;
             this.btnModificar.Size = new System.Drawing.Size(138, 42);
-            this.btnModificar.TabIndex = 19;
+            this.btnModificar.TabIndex = 11;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.Click += new System.EventHandler(this.gunaButton2_Click);
             // 
@@ -270,7 +297,7 @@ namespace GestionCasos.Administrador
             this.btnGuardar.OnPressedColor = System.Drawing.Color.Black;
             this.btnGuardar.Radius = 5;
             this.btnGuardar.Size = new System.Drawing.Size(138, 42);
-            this.btnGuardar.TabIndex = 18;
+            this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
@@ -282,7 +309,7 @@ namespace GestionCasos.Administrador
             this.txtCuentaLey.Mask = "000-00-000-0000-0";
             this.txtCuentaLey.Name = "txtCuentaLey";
             this.txtCuentaLey.Size = new System.Drawing.Size(193, 29);
-            this.txtCuentaLey.TabIndex = 17;
+            this.txtCuentaLey.TabIndex = 7;
             // 
             // label8
             // 
@@ -304,7 +331,7 @@ namespace GestionCasos.Administrador
             this.txtCuentaDanea.Mask = "000-00-000-0000-0";
             this.txtCuentaDanea.Name = "txtCuentaDanea";
             this.txtCuentaDanea.Size = new System.Drawing.Size(193, 29);
-            this.txtCuentaDanea.TabIndex = 15;
+            this.txtCuentaDanea.TabIndex = 6;
             // 
             // label7
             // 
@@ -326,7 +353,7 @@ namespace GestionCasos.Administrador
             this.txtCedulaJuridica.Mask = "0-000-000000";
             this.txtCedulaJuridica.Name = "txtCedulaJuridica";
             this.txtCedulaJuridica.Size = new System.Drawing.Size(193, 29);
-            this.txtCedulaJuridica.TabIndex = 13;
+            this.txtCedulaJuridica.TabIndex = 3;
             // 
             // cbContador
             // 
@@ -338,7 +365,7 @@ namespace GestionCasos.Administrador
             this.cbContador.Location = new System.Drawing.Point(120, 298);
             this.cbContador.Name = "cbContador";
             this.cbContador.Size = new System.Drawing.Size(433, 29);
-            this.cbContador.TabIndex = 12;
+            this.cbContador.TabIndex = 5;
             // 
             // label6
             // 
@@ -371,7 +398,7 @@ namespace GestionCasos.Administrador
             this.txtInstitucion.Location = new System.Drawing.Point(119, 120);
             this.txtInstitucion.Name = "txtInstitucion";
             this.txtInstitucion.Size = new System.Drawing.Size(433, 29);
-            this.txtInstitucion.TabIndex = 7;
+            this.txtInstitucion.TabIndex = 2;
             // 
             // label4
             // 
@@ -397,7 +424,7 @@ namespace GestionCasos.Administrador
             this.cbTipo.Location = new System.Drawing.Point(364, 209);
             this.cbTipo.Name = "cbTipo";
             this.cbTipo.Size = new System.Drawing.Size(188, 29);
-            this.cbTipo.TabIndex = 5;
+            this.cbTipo.TabIndex = 4;
             // 
             // label3
             // 
@@ -429,7 +456,7 @@ namespace GestionCasos.Administrador
             this.cbCircuito.Location = new System.Drawing.Point(359, 38);
             this.cbCircuito.Name = "cbCircuito";
             this.cbCircuito.Size = new System.Drawing.Size(193, 29);
-            this.cbCircuito.TabIndex = 3;
+            this.cbCircuito.TabIndex = 1;
             // 
             // label2
             // 
@@ -450,7 +477,7 @@ namespace GestionCasos.Administrador
             this.txtCodigo.Location = new System.Drawing.Point(119, 38);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(193, 29);
-            this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.TabIndex = 0;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // label1
@@ -464,33 +491,6 @@ namespace GestionCasos.Administrador
             this.label1.Size = new System.Drawing.Size(68, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
-            // 
-            // gunaButton1
-            // 
-            this.gunaButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gunaButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaButton1.AnimationSpeed = 0.03F;
-            this.gunaButton1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaButton1.Image = global::GestionCasos.Properties.Resources.broom_24px;
-            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(748, 431);
-            this.gunaButton1.Name = "gunaButton1";
-            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton1.OnHoverImage = null;
-            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton1.Radius = 5;
-            this.gunaButton1.Size = new System.Drawing.Size(138, 42);
-            this.gunaButton1.TabIndex = 28;
-            this.gunaButton1.Text = "Limpiar";
-            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click_1);
             // 
             // fInstituciones
             // 
