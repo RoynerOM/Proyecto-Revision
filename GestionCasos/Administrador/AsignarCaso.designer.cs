@@ -231,9 +231,6 @@ namespace GestionCasos
             this.cbAsignados.FormattingEnabled = true;
             this.cbAsignados.HoverState.Parent = this.cbAsignados;
             this.cbAsignados.ItemHeight = 30;
-            this.cbAsignados.Items.AddRange(new object[] {
-            "Administrador",
-            "Normal"});
             this.cbAsignados.ItemsAppearance.Parent = this.cbAsignados;
             this.cbAsignados.Location = new System.Drawing.Point(186, 572);
             this.cbAsignados.Name = "cbAsignados";
@@ -445,7 +442,7 @@ namespace GestionCasos
             this.dtpFecha.ShadowDecoration.Parent = this.dtpFecha;
             this.dtpFecha.Size = new System.Drawing.Size(313, 36);
             this.dtpFecha.TabIndex = 1;
-            this.dtpFecha.Value = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
+            this.dtpFecha.Value = new System.DateTime(2021, 8, 8, 0, 0, 0, 0);
             // 
             // lbFecha
             // 

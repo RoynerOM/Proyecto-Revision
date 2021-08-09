@@ -29,16 +29,16 @@ namespace GestionCasos
         }
 
         //Modificado
-        private void CargarCombos()
+        private async void CargarCombos()
         {
             try
             {
-                cbAsignados.DataSource = persona.obtenerTodo();
+                cbAsignados.DataSource = await persona.obtenerTodo();
                 cbAsignados.DisplayMember = "NombreCompleto";
                 cbAsignados.ValueMember = "Cedula";
 
                 //Modificado
-                cbTipoRecepcion.DataSource = recepcion.obtenerTodo();
+                cbTipoRecepcion.DataSource = await recepcion.obtenerTodo();
                 cbTipoRecepcion.ValueMember = "id";
                 cbTipoRecepcion.DisplayMember = "Recepcion";
             }
@@ -77,7 +77,6 @@ namespace GestionCasos
             while (!hilo.IsAlive) ;
             OpenChildForm(new fLoader(1, hilo));
             //Actualizar();
-            CargarCombos();
             MostrarConsecutivo();
         }
 
@@ -108,6 +107,8 @@ namespace GestionCasos
             {
                 try
                 {
+                    CargarCombos();
+
                     using (var context = new BDJuntasEntities())
                     {
                         if (txtCodigo.Text != string.Empty)
