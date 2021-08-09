@@ -230,12 +230,12 @@ namespace GestionCasos.Administrador
                     }
                     else
                     {
-                        Message.Danger(new Alertas.Alerta(), "No se encontró el contador, por favor ingrese una cédula válida");
+                        Message.Danger(new Alertas.Alerta(), "No se encontro el contador, por favor ingrese una cedula valida");
                     }
                 }
                 else
                 {
-                    Message.Warning(new Alertas.Alerta(), "Debe de ingresar una cédula antes de buscar un contador");
+                    Message.Warning(new Alertas.Alerta(), "Debe de ingresar una cedula antes de buscar un contador");
                 }
             }
             catch (Exception ex)
@@ -353,7 +353,7 @@ namespace GestionCasos.Administrador
 
                     if (negocio.modificar(p) == true)
                     {
-                        Message.Success(new Alertas.Alerta(), "El contador fue modificado con éxito");
+                        Message.Success(new Alertas.Alerta(), "El contador fue modificado con exito");
                         DatosTemp.tPersona = null;
                         LimpiarCampos();
                     }
@@ -380,7 +380,7 @@ namespace GestionCasos.Administrador
 
                     if (negocio.eliminar(datos) == true)
                     {
-                        Message.Success(new Alertas.Alerta(), "El contador fue eliminado con éxito");
+                        Message.Success(new Alertas.Alerta(), "El contador fue eliminado con exito");
                         LimpiarCampos();
                     }
                 }
@@ -453,12 +453,12 @@ namespace GestionCasos.Administrador
                         }
                         else
                         {
-                            Message.Danger(new Alertas.Alerta(), "No se encontró el contador, por favor ingrese una cédula válida");
+                            Message.Danger(new Alertas.Alerta(), "No se encontro el contador, por favor ingrese una cedula valida");
                         }
                     }
                     else
                     {
-                        Message.Warning(new Alertas.Alerta(), "Debe de ingresar una cédula antes de buscar un contador");
+                        Message.Warning(new Alertas.Alerta(), "Debe de ingresar una cedula antes de buscar un contador");
                     }
                 }
                 catch (Exception ex)

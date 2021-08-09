@@ -30,7 +30,7 @@ namespace GestionCasos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.EntregaTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtsEntregaCasos = new GestionCasos.dtsEntregaCasos();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -127,7 +127,7 @@ namespace GestionCasos
             this.cbContadores.Location = new System.Drawing.Point(599, 57);
             this.cbContadores.Name = "cbContadores";
             this.cbContadores.Size = new System.Drawing.Size(231, 25);
-            this.cbContadores.TabIndex = 4;
+            this.cbContadores.TabIndex = 38;
             this.cbContadores.SelectedIndexChanged += new System.EventHandler(this.cbContadores_SelectedIndexChanged);
             // 
             // txtInstitucion
@@ -137,7 +137,7 @@ namespace GestionCasos
             this.txtInstitucion.Location = new System.Drawing.Point(422, 57);
             this.txtInstitucion.Name = "txtInstitucion";
             this.txtInstitucion.Size = new System.Drawing.Size(146, 25);
-            this.txtInstitucion.TabIndex = 3;
+            this.txtInstitucion.TabIndex = 37;
             this.txtInstitucion.TextChanged += new System.EventHandler(this.txtInstitucion_TextChanged);
             // 
             // txtCodigo
@@ -147,7 +147,7 @@ namespace GestionCasos
             this.txtCodigo.Location = new System.Drawing.Point(274, 57);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(117, 25);
-            this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.TabIndex = 36;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // cbCircuito
@@ -170,7 +170,7 @@ namespace GestionCasos
             this.cbCircuito.Location = new System.Drawing.Point(159, 57);
             this.cbCircuito.Name = "cbCircuito";
             this.cbCircuito.Size = new System.Drawing.Size(78, 25);
-            this.cbCircuito.TabIndex = 1;
+            this.cbCircuito.TabIndex = 35;
             this.cbCircuito.SelectedIndexChanged += new System.EventHandler(this.cbCircuito_SelectedIndexChanged);
             // 
             // txtConsecutivo
@@ -180,7 +180,7 @@ namespace GestionCasos
             this.txtConsecutivo.Location = new System.Drawing.Point(7, 58);
             this.txtConsecutivo.Name = "txtConsecutivo";
             this.txtConsecutivo.Size = new System.Drawing.Size(119, 25);
-            this.txtConsecutivo.TabIndex = 0;
+            this.txtConsecutivo.TabIndex = 34;
             this.txtConsecutivo.TextChanged += new System.EventHandler(this.txtConsecutivo_TextChanged);
             // 
             // label7
@@ -253,9 +253,9 @@ namespace GestionCasos
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.DocumentMapWidth = 66;
-            reportDataSource1.Name = "dtsEntregaCasos";
-            reportDataSource1.Value = this.EntregaTableBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource2.Name = "dtsEntregaCasos";
+            reportDataSource2.Value = this.EntregaTableBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionCasos.Reportes.ReporteEntregaDeCasos.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 93);
             this.reportViewer1.Name = "reportViewer1";

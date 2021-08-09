@@ -33,11 +33,6 @@ namespace GestionCasos.Administrador
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblActual = new System.Windows.Forms.Label();
-            this.txtCodigo = new Guna.UI.WinForms.GunaTextBox();
-            this.lblPag = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.txtNombre = new Guna.UI.WinForms.GunaTextBox();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
@@ -55,6 +50,11 @@ namespace GestionCasos.Administrador
             this.Contador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblPag = new System.Windows.Forms.Label();
+            this.txtCodigo = new Guna.UI.WinForms.GunaTextBox();
+            this.lblActual = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
@@ -79,80 +79,6 @@ namespace GestionCasos.Administrador
             this.panel1.Size = new System.Drawing.Size(976, 561);
             this.panel1.TabIndex = 0;
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
-            // 
-            // lblActual
-            // 
-            this.lblActual.BackColor = System.Drawing.Color.Transparent;
-            this.lblActual.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActual.ForeColor = System.Drawing.Color.White;
-            this.lblActual.Location = new System.Drawing.Point(282, 117);
-            this.lblActual.Name = "lblActual";
-            this.lblActual.Size = new System.Drawing.Size(264, 23);
-            this.lblActual.TabIndex = 26;
-            this.lblActual.Text = "label1";
-            this.lblActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCodigo.BaseColor = System.Drawing.Color.White;
-            this.txtCodigo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.txtCodigo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCodigo.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtCodigo.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtCodigo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(779, 63);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.PasswordChar = '\0';
-            this.txtCodigo.SelectedText = "";
-            this.txtCodigo.Size = new System.Drawing.Size(185, 28);
-            this.txtCodigo.TabIndex = 3;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
-            // 
-            // lblPag
-            // 
-            this.lblPag.BackColor = System.Drawing.Color.Transparent;
-            this.lblPag.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPag.ForeColor = System.Drawing.Color.White;
-            this.lblPag.Location = new System.Drawing.Point(12, 117);
-            this.lblPag.Name = "lblPag";
-            this.lblPag.Size = new System.Drawing.Size(264, 23);
-            this.lblPag.TabIndex = 24;
-            this.lblPag.Text = "label1";
-            this.lblPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(779, 117);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Anterior";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(889, 117);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 5;
-            this.btnNext.Text = "Siguiente";
-            this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // gunaAdvenceTileButton1
             // 
@@ -184,7 +110,7 @@ namespace GestionCasos.Administrador
             this.gunaAdvenceTileButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaAdvenceTileButton1.Radius = 18;
             this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(40, 40);
-            this.gunaAdvenceTileButton1.TabIndex = 0;
+            this.gunaAdvenceTileButton1.TabIndex = 21;
             this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
             // 
             // txtNombre
@@ -202,7 +128,7 @@ namespace GestionCasos.Administrador
             this.txtNombre.PasswordChar = '\0';
             this.txtNombre.SelectedText = "";
             this.txtNombre.Size = new System.Drawing.Size(281, 28);
-            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TabIndex = 19;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // gunaLabel4
@@ -251,7 +177,7 @@ namespace GestionCasos.Administrador
             this.cbTramitador.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbTramitador.Size = new System.Drawing.Size(271, 26);
-            this.cbTramitador.TabIndex = 2;
+            this.cbTramitador.TabIndex = 16;
             this.cbTramitador.SelectionChangeCommitted += new System.EventHandler(this.cbTramitador_SelectionChangeCommitted);
             // 
             // gunaLabel1
@@ -416,6 +342,80 @@ namespace GestionCasos.Administrador
             this.Telefono.HeaderText = "Teléfono";
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(889, 117);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 22;
+            this.btnNext.Text = "Siguiente";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(779, 117);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Anterior";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblPag
+            // 
+            this.lblPag.BackColor = System.Drawing.Color.Transparent;
+            this.lblPag.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPag.ForeColor = System.Drawing.Color.White;
+            this.lblPag.Location = new System.Drawing.Point(12, 117);
+            this.lblPag.Name = "lblPag";
+            this.lblPag.Size = new System.Drawing.Size(264, 23);
+            this.lblPag.TabIndex = 24;
+            this.lblPag.Text = "label1";
+            this.lblPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCodigo.BaseColor = System.Drawing.Color.White;
+            this.txtCodigo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
+            this.txtCodigo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodigo.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtCodigo.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtCodigo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(779, 63);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.PasswordChar = '\0';
+            this.txtCodigo.SelectedText = "";
+            this.txtCodigo.Size = new System.Drawing.Size(185, 28);
+            this.txtCodigo.TabIndex = 25;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            // 
+            // lblActual
+            // 
+            this.lblActual.BackColor = System.Drawing.Color.Transparent;
+            this.lblActual.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActual.ForeColor = System.Drawing.Color.White;
+            this.lblActual.Location = new System.Drawing.Point(282, 117);
+            this.lblActual.Name = "lblActual";
+            this.lblActual.Size = new System.Drawing.Size(264, 23);
+            this.lblActual.TabIndex = 26;
+            this.lblActual.Text = "label1";
+            this.lblActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // fDetallesJuntas
             // 

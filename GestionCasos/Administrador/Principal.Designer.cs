@@ -70,7 +70,7 @@ namespace GestionCasos
             this.btnAsignarCaso.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnAsignarCaso.Name = "btnAsignarCaso";
             this.btnAsignarCaso.Size = new System.Drawing.Size(111, 90);
-            this.btnAsignarCaso.TabIndex = 2;
+            this.btnAsignarCaso.TabIndex = 13;
             this.btnAsignarCaso.Text = "Asignar Caso";
             this.btnAsignarCaso.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAsignarCaso.UseVisualStyleBackColor = false;
@@ -89,7 +89,7 @@ namespace GestionCasos
             this.btnEntregas.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnEntregas.Name = "btnEntregas";
             this.btnEntregas.Size = new System.Drawing.Size(111, 90);
-            this.btnEntregas.TabIndex = 4;
+            this.btnEntregas.TabIndex = 12;
             this.btnEntregas.Text = "Entregas";
             this.btnEntregas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEntregas.UseVisualStyleBackColor = false;
@@ -108,7 +108,7 @@ namespace GestionCasos
             this.btnReportes.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(111, 90);
-            this.btnReportes.TabIndex = 3;
+            this.btnReportes.TabIndex = 11;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReportes.UseVisualStyleBackColor = false;
@@ -127,7 +127,7 @@ namespace GestionCasos
             this.btnMenu.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(111, 90);
-            this.btnMenu.TabIndex = 1;
+            this.btnMenu.TabIndex = 10;
             this.btnMenu.Text = "Menú";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMenu.UseVisualStyleBackColor = false;
@@ -146,7 +146,7 @@ namespace GestionCasos
             this.btnDashBoard.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnDashBoard.Name = "btnDashBoard";
             this.btnDashBoard.Size = new System.Drawing.Size(111, 90);
-            this.btnDashBoard.TabIndex = 0;
+            this.btnDashBoard.TabIndex = 8;
             this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDashBoard.UseVisualStyleBackColor = false;
@@ -165,7 +165,7 @@ namespace GestionCasos
             this.btnCerrarSecion.Location = new System.Drawing.Point(0, 573);
             this.btnCerrarSecion.Name = "btnCerrarSecion";
             this.btnCerrarSecion.Size = new System.Drawing.Size(111, 87);
-            this.btnCerrarSecion.TabIndex = 5;
+            this.btnCerrarSecion.TabIndex = 3;
             this.btnCerrarSecion.Text = "Cerrar Sesión";
             this.btnCerrarSecion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCerrarSecion.UseVisualStyleBackColor = false;

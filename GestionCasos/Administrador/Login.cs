@@ -87,7 +87,7 @@ namespace GestionCasos
                         else
                         {
 
-                            Message.Danger(new Alertas.Alerta(), "No puede ingresar. Usuario bloqueado");
+                            Message.Danger(new Alertas.Alerta(), "No puede puede ingresar. Usuario bloquedo");
                         }
                     }
                     else
@@ -163,7 +163,7 @@ namespace GestionCasos
                             else
                             {
 
-                                Message.Danger(new Alertas.Alerta(), "No puede ingresar. Usuario bloquedo");
+                                Message.Danger(new Alertas.Alerta(), "No puede puede ingresar. Usuario bloquedo");
                             }
                         }
                         else

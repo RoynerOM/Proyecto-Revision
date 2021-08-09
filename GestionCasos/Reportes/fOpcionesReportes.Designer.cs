@@ -86,7 +86,7 @@ namespace GestionCasos.Reportes
             this.btnContadores.OnPressedColor = System.Drawing.Color.Black;
             this.btnContadores.Radius = 10;
             this.btnContadores.Size = new System.Drawing.Size(212, 142);
-            this.btnContadores.TabIndex = 0;
+            this.btnContadores.TabIndex = 8;
             this.btnContadores.Text = "Contadores";
             this.btnContadores.Click += new System.EventHandler(this.btnContadores_Click);
             // 
@@ -113,7 +113,7 @@ namespace GestionCasos.Reportes
             this.btnCasos.OnPressedColor = System.Drawing.Color.Black;
             this.btnCasos.Radius = 10;
             this.btnCasos.Size = new System.Drawing.Size(212, 142);
-            this.btnCasos.TabIndex = 1;
+            this.btnCasos.TabIndex = 9;
             this.btnCasos.Text = "Casos";
             this.btnCasos.Click += new System.EventHandler(this.btnCasos_Click);
             // 
@@ -140,7 +140,7 @@ namespace GestionCasos.Reportes
             this.btnReportes.OnPressedColor = System.Drawing.Color.Black;
             this.btnReportes.Radius = 10;
             this.btnReportes.Size = new System.Drawing.Size(212, 142);
-            this.btnReportes.TabIndex = 2;
+            this.btnReportes.TabIndex = 12;
             this.btnReportes.Text = "Instituciones";
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
@@ -167,7 +167,7 @@ namespace GestionCasos.Reportes
             this.btnEntregas.OnPressedColor = System.Drawing.Color.Black;
             this.btnEntregas.Radius = 10;
             this.btnEntregas.Size = new System.Drawing.Size(212, 142);
-            this.btnEntregas.TabIndex = 3;
+            this.btnEntregas.TabIndex = 13;
             this.btnEntregas.Text = "Entregas";
             this.btnEntregas.Click += new System.EventHandler(this.btnEntregas_Click);
             // 

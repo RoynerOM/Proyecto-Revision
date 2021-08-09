@@ -30,7 +30,7 @@ namespace GestionCasos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.TableJuntasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtsJuntas = new GestionCasos.dtsJuntas();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -67,9 +67,9 @@ namespace GestionCasos
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "dtsJuntas";
-            reportDataSource1.Value = this.TableJuntasBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource4.Name = "dtsJuntas";
+            reportDataSource4.Value = this.TableJuntasBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionCasos.Reportes.ReporteJuntas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 93);
             this.reportViewer1.Name = "reportViewer1";
@@ -130,7 +130,7 @@ namespace GestionCasos
             this.cbCiruitos.Location = new System.Drawing.Point(189, 51);
             this.cbCiruitos.Name = "cbCiruitos";
             this.cbCiruitos.Size = new System.Drawing.Size(75, 25);
-            this.cbCiruitos.TabIndex = 1;
+            this.cbCiruitos.TabIndex = 33;
             this.cbCiruitos.SelectedIndexChanged += new System.EventHandler(this.cbCiruitos_SelectedIndexChanged);
             // 
             // label6
@@ -155,7 +155,7 @@ namespace GestionCasos
             this.cbTipo.Location = new System.Drawing.Point(302, 51);
             this.cbTipo.Name = "cbTipo";
             this.cbTipo.Size = new System.Drawing.Size(124, 25);
-            this.cbTipo.TabIndex = 2;
+            this.cbTipo.TabIndex = 31;
             this.cbTipo.SelectedIndexChanged += new System.EventHandler(this.cbTipo_SelectedIndexChanged);
             // 
             // cbContadores
@@ -168,7 +168,7 @@ namespace GestionCasos
             this.cbContadores.Location = new System.Drawing.Point(460, 51);
             this.cbContadores.Name = "cbContadores";
             this.cbContadores.Size = new System.Drawing.Size(231, 25);
-            this.cbContadores.TabIndex = 3;
+            this.cbContadores.TabIndex = 30;
             this.cbContadores.SelectedIndexChanged += new System.EventHandler(this.cbContadores_SelectedIndexChanged);
             // 
             // btnRefrescar
@@ -181,7 +181,7 @@ namespace GestionCasos
             this.btnRefrescar.Location = new System.Drawing.Point(716, 46);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(72, 30);
-            this.btnRefrescar.TabIndex = 4;
+            this.btnRefrescar.TabIndex = 28;
             this.btnRefrescar.UseVisualStyleBackColor = false;
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
@@ -231,7 +231,7 @@ namespace GestionCasos
             this.txtNombre.Location = new System.Drawing.Point(15, 51);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(141, 25);
-            this.txtNombre.TabIndex = 0;
+            this.txtNombre.TabIndex = 14;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // label1

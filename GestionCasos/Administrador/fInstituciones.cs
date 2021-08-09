@@ -260,7 +260,7 @@ namespace GestionCasos.Administrador
 
                         if (negocio.guardarAsync(institucion) == true)
                         {
-                            message.Success(new Alertas.Alerta(), "La Junta se guardó correctamente");
+                            message.Success(new Alertas.Alerta(), "La Junta se guardo correctamente");
                             LimpiarCampos();
                         }
                         else
@@ -270,7 +270,7 @@ namespace GestionCasos.Administrador
                     }
                     else
                     {
-                        message.Danger(new Alertas.Alerta(), "No se pudo guardar. Institución o junta ya existe");
+                        message.Danger(new Alertas.Alerta(), "No se pudo guardar. Institucion o junta ya existe");
                     }
                 }
             }
@@ -304,12 +304,12 @@ namespace GestionCasos.Administrador
                     }
                     else
                     {
-                        message.Danger(new Alertas.Alerta(), "No se encontró la institución o junta, por favor ingrese un codigo válido");
+                        message.Danger(new Alertas.Alerta(), "No se encontro la institucion o junta, por favor ingrese una codigo valido");
                     }
                 }
                 else
                 {
-                    message.Warning(new Alertas.Alerta(), "Debe de ingresar un código antes de buscar una institución");
+                    message.Warning(new Alertas.Alerta(), "Debe de ingresar un codigo antes de buscar una institucion");
                 }
             }
             catch (Exception ex)
@@ -333,7 +333,7 @@ namespace GestionCasos.Administrador
 
                     if (negocio.eliminar(institucion) == true)
                     {
-                        message.Success(new Alertas.Alerta(), "El contador fue eliminado con éxito");
+                        message.Success(new Alertas.Alerta(), "El contador fue eliminado con exito");
                         LimpiarCampos();
                     }
                 }
@@ -433,12 +433,12 @@ namespace GestionCasos.Administrador
                         }
                         else
                         {
-                            message.Danger(new Alertas.Alerta(), "No se encontró la institución o junta, por favor ingrese una código válido");
+                            message.Danger(new Alertas.Alerta(), "No se encontro la institucion o junta, por favor ingrese una codigo valido");
                         }
                     }
                     else
                     {
-                        message.Warning(new Alertas.Alerta(), "Debe de ingresar un código antes de buscar una institución");
+                        message.Warning(new Alertas.Alerta(), "Debe de ingresar un codigo antes de buscar una institucion");
                     }
                 }
                 catch (Exception ex)

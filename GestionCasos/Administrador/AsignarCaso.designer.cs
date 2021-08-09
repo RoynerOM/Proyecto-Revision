@@ -31,13 +31,8 @@ namespace GestionCasos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignarCaso));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnReasignarCaso = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gunaAdvenceTileButton2 = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.txtCaso = new Guna.UI.WinForms.GunaTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbAsignados = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbTipoRecepcion = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtCircuito = new Guna.UI.WinForms.GunaTextBox();
@@ -52,6 +47,11 @@ namespace GestionCasos
             this.dtpFecha = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lbFecha = new System.Windows.Forms.Label();
             this.lbConsecutivo = new System.Windows.Forms.Label();
+            this.txtCaso = new Guna.UI.WinForms.GunaTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gunaAdvenceTileButton2 = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnReasignarCaso = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,27 +68,6 @@ namespace GestionCasos
             this.panel2.Size = new System.Drawing.Size(160, 790);
             this.panel2.TabIndex = 57;
             // 
-            // btnReasignarCaso
-            // 
-            this.btnReasignarCaso.BackColor = System.Drawing.Color.Transparent;
-            this.btnReasignarCaso.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReasignarCaso.FlatAppearance.BorderSize = 0;
-            this.btnReasignarCaso.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnReasignarCaso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
-            this.btnReasignarCaso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
-            this.btnReasignarCaso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReasignarCaso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReasignarCaso.ForeColor = System.Drawing.Color.White;
-            this.btnReasignarCaso.Location = new System.Drawing.Point(0, 50);
-            this.btnReasignarCaso.Name = "btnReasignarCaso";
-            this.btnReasignarCaso.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnReasignarCaso.Size = new System.Drawing.Size(160, 50);
-            this.btnReasignarCaso.TabIndex = 1;
-            this.btnReasignarCaso.Text = "Reasignar caso";
-            this.btnReasignarCaso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReasignarCaso.UseVisualStyleBackColor = false;
-            this.btnReasignarCaso.Click += new System.EventHandler(this.btnReasignarCaso_ClickAsync);
-            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
@@ -104,7 +83,7 @@ namespace GestionCasos
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.btnGuardar.Size = new System.Drawing.Size(160, 50);
-            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -137,85 +116,6 @@ namespace GestionCasos
             this.panel1.Size = new System.Drawing.Size(582, 790);
             this.panel1.TabIndex = 58;
             // 
-            // gunaAdvenceTileButton2
-            // 
-            this.gunaAdvenceTileButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gunaAdvenceTileButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaAdvenceTileButton2.AnimationSpeed = 0.03F;
-            this.gunaAdvenceTileButton2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.gunaAdvenceTileButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.gunaAdvenceTileButton2.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.gunaAdvenceTileButton2.CheckedBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceTileButton2.CheckedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.gunaAdvenceTileButton2.CheckedImage = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceTileButton2.CheckedImage")));
-            this.gunaAdvenceTileButton2.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.gunaAdvenceTileButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaAdvenceTileButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaAdvenceTileButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaAdvenceTileButton2.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.gunaAdvenceTileButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceTileButton2.Image = global::GestionCasos.Properties.Resources.buscar;
-            this.gunaAdvenceTileButton2.ImageSize = new System.Drawing.Size(25, 25);
-            this.gunaAdvenceTileButton2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceTileButton2.Location = new System.Drawing.Point(463, 632);
-            this.gunaAdvenceTileButton2.Name = "gunaAdvenceTileButton2";
-            this.gunaAdvenceTileButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.gunaAdvenceTileButton2.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.OnHoverForeColor = System.Drawing.Color.YellowGreen;
-            this.gunaAdvenceTileButton2.OnHoverImage = null;
-            this.gunaAdvenceTileButton2.OnHoverLineColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.OnPressedColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.Radius = 5;
-            this.gunaAdvenceTileButton2.Size = new System.Drawing.Size(36, 36);
-            this.gunaAdvenceTileButton2.TabIndex = 8;
-            this.gunaAdvenceTileButton2.Click += new System.EventHandler(this.gunaAdvenceTileButton2_Click);
-            // 
-            // txtCaso
-            // 
-            this.txtCaso.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCaso.BackColor = System.Drawing.Color.Transparent;
-            this.txtCaso.BaseColor = System.Drawing.Color.White;
-            this.txtCaso.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.txtCaso.BorderSize = 1;
-            this.txtCaso.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCaso.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtCaso.FocusedBorderColor = System.Drawing.Color.YellowGreen;
-            this.txtCaso.FocusedForeColor = System.Drawing.Color.Black;
-            this.txtCaso.Font = new System.Drawing.Font("Arial", 9F);
-            this.txtCaso.ForeColor = System.Drawing.Color.Black;
-            this.txtCaso.Location = new System.Drawing.Point(186, 632);
-            this.txtCaso.Name = "txtCaso";
-            this.txtCaso.PasswordChar = '\0';
-            this.txtCaso.Radius = 5;
-            this.txtCaso.SelectedText = "";
-            this.txtCaso.Size = new System.Drawing.Size(313, 36);
-            this.txtCaso.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(67, 632);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 18);
-            this.label1.TabIndex = 95;
-            this.label1.Text = "Buscar Caso:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
-            this.pictureBox1.Location = new System.Drawing.Point(187, 48);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(313, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 94;
-            this.pictureBox1.TabStop = false;
-            // 
             // cbAsignados
             // 
             this.cbAsignados.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -235,11 +135,11 @@ namespace GestionCasos
             "Administrador",
             "Normal"});
             this.cbAsignados.ItemsAppearance.Parent = this.cbAsignados;
-            this.cbAsignados.Location = new System.Drawing.Point(186, 572);
+            this.cbAsignados.Location = new System.Drawing.Point(186, 651);
             this.cbAsignados.Name = "cbAsignados";
             this.cbAsignados.ShadowDecoration.Parent = this.cbAsignados;
             this.cbAsignados.Size = new System.Drawing.Size(313, 36);
-            this.cbAsignados.TabIndex = 6;
+            this.cbAsignados.TabIndex = 93;
             // 
             // cbTipoRecepcion
             // 
@@ -257,11 +157,11 @@ namespace GestionCasos
             this.cbTipoRecepcion.HoverState.Parent = this.cbTipoRecepcion;
             this.cbTipoRecepcion.ItemHeight = 30;
             this.cbTipoRecepcion.ItemsAppearance.Parent = this.cbTipoRecepcion;
-            this.cbTipoRecepcion.Location = new System.Drawing.Point(186, 512);
+            this.cbTipoRecepcion.Location = new System.Drawing.Point(186, 587);
             this.cbTipoRecepcion.Name = "cbTipoRecepcion";
             this.cbTipoRecepcion.ShadowDecoration.Parent = this.cbTipoRecepcion;
             this.cbTipoRecepcion.Size = new System.Drawing.Size(313, 36);
-            this.cbTipoRecepcion.TabIndex = 5;
+            this.cbTipoRecepcion.TabIndex = 92;
             // 
             // txtCircuito
             // 
@@ -277,13 +177,13 @@ namespace GestionCasos
             this.txtCircuito.FocusedForeColor = System.Drawing.Color.Yellow;
             this.txtCircuito.Font = new System.Drawing.Font("Arial", 9F);
             this.txtCircuito.ForeColor = System.Drawing.Color.Lime;
-            this.txtCircuito.Location = new System.Drawing.Point(186, 452);
+            this.txtCircuito.Location = new System.Drawing.Point(186, 520);
             this.txtCircuito.Name = "txtCircuito";
             this.txtCircuito.PasswordChar = '\0';
             this.txtCircuito.Radius = 5;
             this.txtCircuito.SelectedText = "";
             this.txtCircuito.Size = new System.Drawing.Size(313, 36);
-            this.txtCircuito.TabIndex = 4;
+            this.txtCircuito.TabIndex = 91;
             // 
             // txtJuntaAdm
             // 
@@ -299,13 +199,13 @@ namespace GestionCasos
             this.txtJuntaAdm.FocusedForeColor = System.Drawing.Color.Yellow;
             this.txtJuntaAdm.Font = new System.Drawing.Font("Arial", 9F);
             this.txtJuntaAdm.ForeColor = System.Drawing.Color.Lime;
-            this.txtJuntaAdm.Location = new System.Drawing.Point(186, 391);
+            this.txtJuntaAdm.Location = new System.Drawing.Point(186, 459);
             this.txtJuntaAdm.Name = "txtJuntaAdm";
             this.txtJuntaAdm.PasswordChar = '\0';
             this.txtJuntaAdm.Radius = 5;
             this.txtJuntaAdm.SelectedText = "";
             this.txtJuntaAdm.Size = new System.Drawing.Size(313, 36);
-            this.txtJuntaAdm.TabIndex = 3;
+            this.txtJuntaAdm.TabIndex = 90;
             // 
             // txtConsecutivo
             // 
@@ -327,7 +227,7 @@ namespace GestionCasos
             this.txtConsecutivo.Radius = 5;
             this.txtConsecutivo.SelectedText = "";
             this.txtConsecutivo.Size = new System.Drawing.Size(313, 36);
-            this.txtConsecutivo.TabIndex = 0;
+            this.txtConsecutivo.TabIndex = 89;
             // 
             // lbAsignado
             // 
@@ -336,7 +236,7 @@ namespace GestionCasos
             this.lbAsignado.BackColor = System.Drawing.Color.Transparent;
             this.lbAsignado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAsignado.ForeColor = System.Drawing.Color.White;
-            this.lbAsignado.Location = new System.Drawing.Point(84, 572);
+            this.lbAsignado.Location = new System.Drawing.Point(84, 651);
             this.lbAsignado.Name = "lbAsignado";
             this.lbAsignado.Size = new System.Drawing.Size(96, 18);
             this.lbAsignado.TabIndex = 87;
@@ -349,7 +249,7 @@ namespace GestionCasos
             this.lbMedioReceptivo.BackColor = System.Drawing.Color.Transparent;
             this.lbMedioReceptivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMedioReceptivo.ForeColor = System.Drawing.Color.White;
-            this.lbMedioReceptivo.Location = new System.Drawing.Point(41, 512);
+            this.lbMedioReceptivo.Location = new System.Drawing.Point(41, 578);
             this.lbMedioReceptivo.Name = "lbMedioReceptivo";
             this.lbMedioReceptivo.Size = new System.Drawing.Size(139, 18);
             this.lbMedioReceptivo.TabIndex = 86;
@@ -362,7 +262,7 @@ namespace GestionCasos
             this.lbCircuiton.BackColor = System.Drawing.Color.Transparent;
             this.lbCircuiton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCircuiton.ForeColor = System.Drawing.Color.White;
-            this.lbCircuiton.Location = new System.Drawing.Point(108, 452);
+            this.lbCircuiton.Location = new System.Drawing.Point(108, 520);
             this.lbCircuiton.Name = "lbCircuiton";
             this.lbCircuiton.Size = new System.Drawing.Size(72, 18);
             this.lbCircuiton.TabIndex = 85;
@@ -375,7 +275,7 @@ namespace GestionCasos
             this.lbJunta.BackColor = System.Drawing.Color.Transparent;
             this.lbJunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbJunta.ForeColor = System.Drawing.Color.White;
-            this.lbJunta.Location = new System.Drawing.Point(67, 391);
+            this.lbJunta.Location = new System.Drawing.Point(67, 459);
             this.lbJunta.Name = "lbJunta";
             this.lbJunta.Size = new System.Drawing.Size(117, 18);
             this.lbJunta.TabIndex = 84;
@@ -399,7 +299,7 @@ namespace GestionCasos
             this.txtCodigo.ForeColor = System.Drawing.Color.Black;
             this.txtCodigo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCodigo.HoverState.Parent = this.txtCodigo;
-            this.txtCodigo.Location = new System.Drawing.Point(186, 330);
+            this.txtCodigo.Location = new System.Drawing.Point(186, 394);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.PasswordChar = '\0';
@@ -408,7 +308,7 @@ namespace GestionCasos
             this.txtCodigo.SelectedText = "";
             this.txtCodigo.ShadowDecoration.Parent = this.txtCodigo;
             this.txtCodigo.Size = new System.Drawing.Size(313, 36);
-            this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.TabIndex = 83;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AsignarCaso_KeyPress);
             // 
             // lbCodigo
@@ -418,7 +318,7 @@ namespace GestionCasos
             this.lbCodigo.BackColor = System.Drawing.Color.Transparent;
             this.lbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCodigo.ForeColor = System.Drawing.Color.White;
-            this.lbCodigo.Location = new System.Drawing.Point(114, 330);
+            this.lbCodigo.Location = new System.Drawing.Point(114, 394);
             this.lbCodigo.Name = "lbCodigo";
             this.lbCodigo.Size = new System.Drawing.Size(67, 18);
             this.lbCodigo.TabIndex = 82;
@@ -438,13 +338,13 @@ namespace GestionCasos
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpFecha.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
             this.dtpFecha.HoverState.Parent = this.dtpFecha;
-            this.dtpFecha.Location = new System.Drawing.Point(186, 270);
+            this.dtpFecha.Location = new System.Drawing.Point(186, 337);
             this.dtpFecha.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpFecha.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.ShadowDecoration.Parent = this.dtpFecha;
             this.dtpFecha.Size = new System.Drawing.Size(313, 36);
-            this.dtpFecha.TabIndex = 1;
+            this.dtpFecha.TabIndex = 81;
             this.dtpFecha.Value = new System.DateTime(2021, 6, 19, 0, 0, 0, 0);
             // 
             // lbFecha
@@ -454,7 +354,7 @@ namespace GestionCasos
             this.lbFecha.BackColor = System.Drawing.Color.Transparent;
             this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFecha.ForeColor = System.Drawing.Color.White;
-            this.lbFecha.Location = new System.Drawing.Point(121, 270);
+            this.lbFecha.Location = new System.Drawing.Point(121, 337);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(59, 18);
             this.lbFecha.TabIndex = 80;
@@ -472,6 +372,106 @@ namespace GestionCasos
             this.lbConsecutivo.Size = new System.Drawing.Size(107, 18);
             this.lbConsecutivo.TabIndex = 79;
             this.lbConsecutivo.Text = "Consecutivo:";
+            // 
+            // txtCaso
+            // 
+            this.txtCaso.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCaso.BackColor = System.Drawing.Color.Transparent;
+            this.txtCaso.BaseColor = System.Drawing.Color.White;
+            this.txtCaso.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.txtCaso.BorderSize = 1;
+            this.txtCaso.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCaso.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtCaso.FocusedBorderColor = System.Drawing.Color.YellowGreen;
+            this.txtCaso.FocusedForeColor = System.Drawing.Color.Black;
+            this.txtCaso.Font = new System.Drawing.Font("Arial", 9F);
+            this.txtCaso.ForeColor = System.Drawing.Color.Black;
+            this.txtCaso.Location = new System.Drawing.Point(186, 275);
+            this.txtCaso.Name = "txtCaso";
+            this.txtCaso.PasswordChar = '\0';
+            this.txtCaso.Radius = 5;
+            this.txtCaso.SelectedText = "";
+            this.txtCaso.Size = new System.Drawing.Size(313, 36);
+            this.txtCaso.TabIndex = 96;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(67, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 18);
+            this.label1.TabIndex = 95;
+            this.label1.Text = "Buscar Caso:";
+            // 
+            // gunaAdvenceTileButton2
+            // 
+            this.gunaAdvenceTileButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gunaAdvenceTileButton2.AnimationHoverSpeed = 0.07F;
+            this.gunaAdvenceTileButton2.AnimationSpeed = 0.03F;
+            this.gunaAdvenceTileButton2.BackColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.gunaAdvenceTileButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.gunaAdvenceTileButton2.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.gunaAdvenceTileButton2.CheckedBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton2.CheckedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.gunaAdvenceTileButton2.CheckedImage = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceTileButton2.CheckedImage")));
+            this.gunaAdvenceTileButton2.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.gunaAdvenceTileButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaAdvenceTileButton2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaAdvenceTileButton2.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaAdvenceTileButton2.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.gunaAdvenceTileButton2.ForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceTileButton2.Image = global::GestionCasos.Properties.Resources.buscar;
+            this.gunaAdvenceTileButton2.ImageSize = new System.Drawing.Size(25, 25);
+            this.gunaAdvenceTileButton2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceTileButton2.Location = new System.Drawing.Point(463, 275);
+            this.gunaAdvenceTileButton2.Name = "gunaAdvenceTileButton2";
+            this.gunaAdvenceTileButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.gunaAdvenceTileButton2.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.OnHoverForeColor = System.Drawing.Color.YellowGreen;
+            this.gunaAdvenceTileButton2.OnHoverImage = null;
+            this.gunaAdvenceTileButton2.OnHoverLineColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.OnPressedColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.Radius = 5;
+            this.gunaAdvenceTileButton2.Size = new System.Drawing.Size(36, 36);
+            this.gunaAdvenceTileButton2.TabIndex = 97;
+            this.gunaAdvenceTileButton2.Click += new System.EventHandler(this.gunaAdvenceTileButton2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
+            this.pictureBox1.Location = new System.Drawing.Point(187, 48);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(313, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 94;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnReasignarCaso
+            // 
+            this.btnReasignarCaso.BackColor = System.Drawing.Color.Transparent;
+            this.btnReasignarCaso.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReasignarCaso.FlatAppearance.BorderSize = 0;
+            this.btnReasignarCaso.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnReasignarCaso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
+            this.btnReasignarCaso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btnReasignarCaso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReasignarCaso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReasignarCaso.ForeColor = System.Drawing.Color.White;
+            this.btnReasignarCaso.Location = new System.Drawing.Point(0, 50);
+            this.btnReasignarCaso.Name = "btnReasignarCaso";
+            this.btnReasignarCaso.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnReasignarCaso.Size = new System.Drawing.Size(160, 50);
+            this.btnReasignarCaso.TabIndex = 4;
+            this.btnReasignarCaso.Text = "Reasignar caso";
+            this.btnReasignarCaso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReasignarCaso.UseVisualStyleBackColor = false;
+            this.btnReasignarCaso.Click += new System.EventHandler(this.btnReasignarCaso_ClickAsync);
             // 
             // AsignarCaso
             // 

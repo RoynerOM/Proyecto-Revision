@@ -50,7 +50,7 @@ namespace GestionCasos
                 }
                 else
                 {
-                    Message.Danger(new Alertas.Alerta(), "Error al registrar, solo las personas inscritas pueden registrarse ");
+                    Message.Danger(new Alertas.Alerta(), "Error al registar, solo las personas inscritas pueden registrase ");
                 }
 
             }
@@ -108,7 +108,7 @@ namespace GestionCasos
                     }
                     else
                     {
-                        Message.Danger(new Alertas.Alerta(), "Error al registar, solo las personas inscritas pueden registrarse ");
+                        Message.Danger(new Alertas.Alerta(), "Error al registar, solo las personas inscritas pueden registrase ");
                     }
 
                 }
