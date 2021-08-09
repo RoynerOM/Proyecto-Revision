@@ -29,16 +29,16 @@ namespace GestionCasos
         }
 
         //Modificado
-        private void CargarCombos()
+        private async void CargarCombos()
         {
             try
             {
-                cbAsignados.DataSource = persona.obtenerTodo();
+                cbAsignados.DataSource = await persona.obtenerTodo();
                 cbAsignados.DisplayMember = "NombreCompleto";
                 cbAsignados.ValueMember = "Cedula";
 
                 //Modificado
-                cbTipoRecepcion.DataSource = recepcion.obtenerTodo();
+                cbTipoRecepcion.DataSource = await recepcion.obtenerTodo();
                 cbTipoRecepcion.ValueMember = "id";
                 cbTipoRecepcion.DisplayMember = "Recepcion";
             }

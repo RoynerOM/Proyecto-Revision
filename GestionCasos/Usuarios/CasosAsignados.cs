@@ -318,7 +318,7 @@ namespace GestionCasos.Usuarios
             {
                 if (cbEstado.Text != string.Empty)
                 {
-                    if ((int)cbEstado.SelectedValue == 6)
+                    if (cbEstado.Text == "TODOS")
                     {
                         if (DatosTemp.MultiUser == true)
                         {
