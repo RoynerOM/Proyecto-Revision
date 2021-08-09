@@ -111,6 +111,15 @@ namespace GestionCasos
             OpenChildForm(new fLoader(1, hilo));
             CargarEstadisticas();
 
+            if (Rol == 1)
+            {
+                gunaTileButton2.Enabled = false;
+            }
+            else
+            {
+                gunaTileButton2.Enabled = true;
+            }
+
         }
 
         private void SetThemeColor()

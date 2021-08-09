@@ -30,6 +30,16 @@ namespace GestionCasos
 
             SetPanelDefault();
 
+            if (Rol == 1)
+            {
+                btnAsignarCaso.Enabled = false;
+
+            }
+            else
+            {
+                btnAsignarCaso.Enabled = true;
+            }
+
         }
 
 

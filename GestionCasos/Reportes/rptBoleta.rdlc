@@ -2432,9 +2432,9 @@
             </Paragraphs>
             <rd:DefaultName>fechaActa</rd:DefaultName>
             <Top>13.88181cm</Top>
-            <Left>4.41946cm</Left>
+            <Left>4.44592cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
+            <Width>2.94979cm</Width>
             <ZIndex>38</ZIndex>
             <Style>
               <Border>
@@ -2467,7 +2467,7 @@
             <Top>13.17597cm</Top>
             <Left>4.44592cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
+            <Width>2.94979cm</Width>
             <ZIndex>39</ZIndex>
             <Style>
               <Border>
@@ -2496,15 +2496,80 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>numeroActa</rd:DefaultName>
-            <Top>12.54069cm</Top>
-            <Left>4.44592cm</Left>
+            <Top>12.50542cm</Top>
+            <Left>4.41064cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.5cm</Width>
+            <Width>2.94979cm</Width>
             <ZIndex>40</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox36">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Caso:</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox33</rd:DefaultName>
+            <Top>11.87014cm</Top>
+            <Left>3.17862cm</Left>
+            <Height>0.6cm</Height>
+            <Width>1.12416cm</Width>
+            <ZIndex>41</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Consecutivo">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Consecutivo.Value, "dtsBoleta")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Consecutivo</rd:DefaultName>
+            <Top>11.87014cm</Top>
+            <Left>4.40862cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.94979cm</Width>
+            <ZIndex>42</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
