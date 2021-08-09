@@ -101,8 +101,15 @@ namespace GestionCasos
             }
         }
 
-        private void FDashBoard_Load(object sender, EventArgs e)
+        private async void FDashBoard_Load(object sender, EventArgs e)
         {
+
+            string cedula = File.ReadAllText("temp.txt");
+
+            var usuario = await negocio.obtenerPorIdAsync(this.cedula);
+
+            lblNombreU.Text = "Usuario: " + usuario.NombreCompleto + ", " + File.ReadAllText("temp.txt");
+
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso

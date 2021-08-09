@@ -77,7 +77,6 @@ namespace GestionCasos
             while (!hilo.IsAlive) ;
             OpenChildForm(new fLoader(1, hilo));
             //Actualizar();
-            CargarCombos();
             MostrarConsecutivo();
         }
 
@@ -108,6 +107,8 @@ namespace GestionCasos
             {
                 try
                 {
+                    CargarCombos();
+
                     using (var context = new BDJuntasEntities())
                     {
                         if (txtCodigo.Text != string.Empty)
