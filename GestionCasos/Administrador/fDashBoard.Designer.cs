@@ -59,6 +59,7 @@ namespace GestionCasos
             this.lblPendientes = new System.Windows.Forms.Label();
             this.lblTotaPendientes = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblNombreU = new System.Windows.Forms.Label();
             this.DesktopPanel.SuspendLayout();
             this.gunaElipsePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -77,6 +78,7 @@ namespace GestionCasos
             // DesktopPanel
             // 
             this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.DesktopPanel.Controls.Add(this.lblNombreU);
             this.DesktopPanel.Controls.Add(this.gunaTileButton4);
             this.DesktopPanel.Controls.Add(this.label4);
             this.DesktopPanel.Controls.Add(this.gunaElipsePanel2);
@@ -532,6 +534,18 @@ namespace GestionCasos
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
+            // lblNombreU
+            // 
+            this.lblNombreU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblNombreU.AutoSize = true;
+            this.lblNombreU.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblNombreU.ForeColor = System.Drawing.Color.White;
+            this.lblNombreU.Location = new System.Drawing.Point(34, 555);
+            this.lblNombreU.Name = "lblNombreU";
+            this.lblNombreU.Size = new System.Drawing.Size(63, 19);
+            this.lblNombreU.TabIndex = 14;
+            this.lblNombreU.Text = "Usuario: ";
+            // 
             // fDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,5 +611,6 @@ namespace GestionCasos
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label4;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton4;
+        private System.Windows.Forms.Label lblNombreU;
     }
 }

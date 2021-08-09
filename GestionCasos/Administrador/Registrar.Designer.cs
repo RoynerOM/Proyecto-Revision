@@ -41,6 +41,7 @@ namespace GestionCasos
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegistrar = new Guna.UI.WinForms.GunaButton();
             this.txtContra = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarR)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +52,7 @@ namespace GestionCasos
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.gunaAdvenceTileButton2);
             this.panel3.Controls.Add(this.gunaAdvenceTileButton1);
             this.panel3.Controls.Add(this.txtCedula);
@@ -240,6 +242,15 @@ namespace GestionCasos
             this.txtContra.TabIndex = 1;
             this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 257);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 13);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Máximo 8 caracteres";
+            // 
             // Registrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,5 +282,6 @@ namespace GestionCasos
         private System.Windows.Forms.MaskedTextBox txtCedula;
         private Guna.UI.WinForms.GunaAdvenceTileButton gunaAdvenceTileButton1;
         private Guna.UI.WinForms.GunaAdvenceTileButton gunaAdvenceTileButton2;
+        private System.Windows.Forms.Label label1;
     }
 }
