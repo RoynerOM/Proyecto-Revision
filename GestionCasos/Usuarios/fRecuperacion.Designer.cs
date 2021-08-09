@@ -120,7 +120,7 @@ namespace GestionCasos.Usuarios
             this.txtContra.Name = "txtContra";
             this.txtContra.PasswordChar = '•';
             this.txtContra.Size = new System.Drawing.Size(301, 33);
-            this.txtContra.TabIndex = 39;
+            this.txtContra.TabIndex = 2;
             // 
             // lblCodigo
             // 
@@ -185,7 +185,7 @@ namespace GestionCasos.Usuarios
             this.txtCedula.Location = new System.Drawing.Point(81, 108);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(301, 33);
-            this.txtCedula.TabIndex = 33;
+            this.txtCedula.TabIndex = 0;
             this.txtCedula.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCedula_MaskInputRejected);
             this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
@@ -250,7 +250,7 @@ namespace GestionCasos.Usuarios
             this.btnRegistrar.OnPressedColor = System.Drawing.Color.Black;
             this.btnRegistrar.Radius = 20;
             this.btnRegistrar.Size = new System.Drawing.Size(301, 40);
-            this.btnRegistrar.TabIndex = 29;
+            this.btnRegistrar.TabIndex = 3;
             this.btnRegistrar.Text = "Actualizar Contraseña";
             this.btnRegistrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -263,7 +263,7 @@ namespace GestionCasos.Usuarios
             this.txtCodigo.Location = new System.Drawing.Point(81, 256);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(301, 33);
-            this.txtCodigo.TabIndex = 34;
+            this.txtCodigo.TabIndex = 1;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // fRecuperacion

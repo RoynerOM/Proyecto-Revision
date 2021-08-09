@@ -120,7 +120,7 @@ namespace GestionCasos
             this.btnRefrescar.Location = new System.Drawing.Point(381, 61);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(65, 31);
-            this.btnRefrescar.TabIndex = 23;
+            this.btnRefrescar.TabIndex = 3;
             this.btnRefrescar.UseVisualStyleBackColor = false;
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
@@ -144,8 +144,8 @@ namespace GestionCasos
             this.dtpFechaFinal.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dtpFechaFinal.OnPressedColor = System.Drawing.Color.Black;
             this.dtpFechaFinal.Size = new System.Drawing.Size(130, 30);
-            this.dtpFechaFinal.TabIndex = 22;
-            this.dtpFechaFinal.Text = "02/08/2021";
+            this.dtpFechaFinal.TabIndex = 1;
+            this.dtpFechaFinal.Text = "2/8/2021";
             this.dtpFechaFinal.Value = new System.DateTime(2021, 8, 2, 16, 18, 30, 574);
             // 
             // btnBuscar2
@@ -157,7 +157,7 @@ namespace GestionCasos
             this.btnBuscar2.Location = new System.Drawing.Point(292, 61);
             this.btnBuscar2.Name = "btnBuscar2";
             this.btnBuscar2.Size = new System.Drawing.Size(83, 31);
-            this.btnBuscar2.TabIndex = 21;
+            this.btnBuscar2.TabIndex = 2;
             this.btnBuscar2.Text = "Buscar";
             this.btnBuscar2.UseVisualStyleBackColor = false;
             this.btnBuscar2.Click += new System.EventHandler(this.btnBuscar2_Click);
@@ -182,8 +182,8 @@ namespace GestionCasos
             this.dtpFechaInicio.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.dtpFechaInicio.OnPressedColor = System.Drawing.Color.Black;
             this.dtpFechaInicio.Size = new System.Drawing.Size(130, 30);
-            this.dtpFechaInicio.TabIndex = 2;
-            this.dtpFechaInicio.Text = "02/08/2021";
+            this.dtpFechaInicio.TabIndex = 0;
+            this.dtpFechaInicio.Text = "2/8/2021";
             this.dtpFechaInicio.Value = new System.DateTime(2021, 8, 2, 16, 17, 47, 487);
             // 
             // label6
@@ -251,7 +251,7 @@ namespace GestionCasos
             this.cbReception.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbReception.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbReception.Size = new System.Drawing.Size(121, 30);
-            this.cbReception.TabIndex = 24;
+            this.cbReception.TabIndex = 1;
             // 
             // txtConsecutivo
             // 
@@ -268,7 +268,7 @@ namespace GestionCasos
             this.txtConsecutivo.PasswordChar = '\0';
             this.txtConsecutivo.SelectedText = "";
             this.txtConsecutivo.Size = new System.Drawing.Size(129, 30);
-            this.txtConsecutivo.TabIndex = 23;
+            this.txtConsecutivo.TabIndex = 0;
             // 
             // txtBuscar1
             // 
@@ -279,7 +279,7 @@ namespace GestionCasos
             this.txtBuscar1.Location = new System.Drawing.Point(273, 61);
             this.txtBuscar1.Name = "txtBuscar1";
             this.txtBuscar1.Size = new System.Drawing.Size(81, 31);
-            this.txtBuscar1.TabIndex = 22;
+            this.txtBuscar1.TabIndex = 2;
             this.txtBuscar1.Text = "Buscar";
             this.txtBuscar1.UseVisualStyleBackColor = false;
             this.txtBuscar1.Click += new System.EventHandler(this.txtBuscar1_Click);

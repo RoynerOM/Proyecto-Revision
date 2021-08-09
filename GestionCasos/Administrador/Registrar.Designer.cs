@@ -31,8 +31,8 @@ namespace GestionCasos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registrar));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.gunaAdvenceTileButton2 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
-            this.txtContra = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbNombreUsuario = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@ namespace GestionCasos
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegistrar = new Guna.UI.WinForms.GunaButton();
-            this.gunaAdvenceTileButton2 = new Guna.UI.WinForms.GunaAdvenceTileButton();
+            this.txtContra = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarR)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,38 @@ namespace GestionCasos
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(412, 394);
             this.panel3.TabIndex = 4;
+            // 
+            // gunaAdvenceTileButton2
+            // 
+            this.gunaAdvenceTileButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gunaAdvenceTileButton2.AnimationHoverSpeed = 0.07F;
+            this.gunaAdvenceTileButton2.AnimationSpeed = 0.03F;
+            this.gunaAdvenceTileButton2.BaseColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.BorderColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.CheckedBaseColor = System.Drawing.Color.Gray;
+            this.gunaAdvenceTileButton2.CheckedBorderColor = System.Drawing.Color.Black;
+            this.gunaAdvenceTileButton2.CheckedForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceTileButton2.CheckedImage = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceTileButton2.CheckedImage")));
+            this.gunaAdvenceTileButton2.CheckedLineColor = System.Drawing.Color.DimGray;
+            this.gunaAdvenceTileButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaAdvenceTileButton2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaAdvenceTileButton2.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaAdvenceTileButton2.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.gunaAdvenceTileButton2.ForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceTileButton2.Image = global::GestionCasos.Properties.Resources.name_20px;
+            this.gunaAdvenceTileButton2.ImageSize = new System.Drawing.Size(25, 25);
+            this.gunaAdvenceTileButton2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
+            this.gunaAdvenceTileButton2.Location = new System.Drawing.Point(324, 134);
+            this.gunaAdvenceTileButton2.Name = "gunaAdvenceTileButton2";
+            this.gunaAdvenceTileButton2.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaAdvenceTileButton2.OnHoverImage = null;
+            this.gunaAdvenceTileButton2.OnHoverLineColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.OnPressedColor = System.Drawing.Color.Transparent;
+            this.gunaAdvenceTileButton2.Size = new System.Drawing.Size(30, 25);
+            this.gunaAdvenceTileButton2.TabIndex = 28;
+            this.gunaAdvenceTileButton2.Click += new System.EventHandler(this.gunaAdvenceTileButton2_Click);
             // 
             // gunaAdvenceTileButton1
             // 
@@ -98,18 +130,6 @@ namespace GestionCasos
             this.gunaAdvenceTileButton1.TabIndex = 27;
             this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
             // 
-            // txtContra
-            // 
-            this.txtContra.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContra.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContra.ForeColor = System.Drawing.Color.Black;
-            this.txtContra.Location = new System.Drawing.Point(58, 221);
-            this.txtContra.Name = "txtContra";
-            this.txtContra.PasswordChar = '•';
-            this.txtContra.Size = new System.Drawing.Size(301, 33);
-            this.txtContra.TabIndex = 26;
-            this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
-            // 
             // txtCedula
             // 
             this.txtCedula.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -118,7 +138,7 @@ namespace GestionCasos
             this.txtCedula.Location = new System.Drawing.Point(58, 130);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(301, 33);
-            this.txtCedula.TabIndex = 25;
+            this.txtCedula.TabIndex = 0;
             // 
             // label2
             // 
@@ -203,42 +223,22 @@ namespace GestionCasos
             this.btnRegistrar.OnPressedColor = System.Drawing.Color.Black;
             this.btnRegistrar.Radius = 20;
             this.btnRegistrar.Size = new System.Drawing.Size(196, 40);
-            this.btnRegistrar.TabIndex = 16;
+            this.btnRegistrar.TabIndex = 2;
             this.btnRegistrar.Text = "Registrarse";
             this.btnRegistrar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // gunaAdvenceTileButton2
+            // txtContra
             // 
-            this.gunaAdvenceTileButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.gunaAdvenceTileButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaAdvenceTileButton2.AnimationSpeed = 0.03F;
-            this.gunaAdvenceTileButton2.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.BorderColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.CheckedBaseColor = System.Drawing.Color.Gray;
-            this.gunaAdvenceTileButton2.CheckedBorderColor = System.Drawing.Color.Black;
-            this.gunaAdvenceTileButton2.CheckedForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceTileButton2.CheckedImage = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceTileButton2.CheckedImage")));
-            this.gunaAdvenceTileButton2.CheckedLineColor = System.Drawing.Color.DimGray;
-            this.gunaAdvenceTileButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaAdvenceTileButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaAdvenceTileButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaAdvenceTileButton2.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.gunaAdvenceTileButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceTileButton2.Image = global::GestionCasos.Properties.Resources.name_20px;
-            this.gunaAdvenceTileButton2.ImageSize = new System.Drawing.Size(25, 25);
-            this.gunaAdvenceTileButton2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceTileButton2.Location = new System.Drawing.Point(324, 134);
-            this.gunaAdvenceTileButton2.Name = "gunaAdvenceTileButton2";
-            this.gunaAdvenceTileButton2.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaAdvenceTileButton2.OnHoverImage = null;
-            this.gunaAdvenceTileButton2.OnHoverLineColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.OnPressedColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.Size = new System.Drawing.Size(30, 25);
-            this.gunaAdvenceTileButton2.TabIndex = 28;
-            this.gunaAdvenceTileButton2.Click += new System.EventHandler(this.gunaAdvenceTileButton2_Click);
+            this.txtContra.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtContra.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContra.ForeColor = System.Drawing.Color.Black;
+            this.txtContra.Location = new System.Drawing.Point(58, 221);
+            this.txtContra.Name = "txtContra";
+            this.txtContra.PasswordChar = '•';
+            this.txtContra.Size = new System.Drawing.Size(301, 33);
+            this.txtContra.TabIndex = 1;
+            this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
             // 
             // Registrar
             // 

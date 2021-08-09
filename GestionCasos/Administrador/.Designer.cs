@@ -123,7 +123,7 @@ namespace GestionCasos
             this.button1.Location = new System.Drawing.Point(757, 103);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 28;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Anterior";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -139,7 +139,7 @@ namespace GestionCasos
             this.btnNext.Location = new System.Drawing.Point(855, 103);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 27;
+            this.btnNext.TabIndex = 6;
             this.btnNext.Text = "Siguiente";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -169,7 +169,7 @@ namespace GestionCasos
             this.txtConsecutivo.SelectedText = "";
             this.txtConsecutivo.ShadowDecoration.Parent = this.txtConsecutivo;
             this.txtConsecutivo.Size = new System.Drawing.Size(169, 26);
-            this.txtConsecutivo.TabIndex = 12;
+            this.txtConsecutivo.TabIndex = 1;
             this.txtConsecutivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsecutivo_KeyPress);
             // 
             // gunaAdvenceTileButton1
@@ -202,7 +202,7 @@ namespace GestionCasos
             this.gunaAdvenceTileButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaAdvenceTileButton1.Radius = 18;
             this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(40, 40);
-            this.gunaAdvenceTileButton1.TabIndex = 11;
+            this.gunaAdvenceTileButton1.TabIndex = 0;
             this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
             // 
             // gunaLabel4
@@ -251,7 +251,7 @@ namespace GestionCasos
             this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbTramitador.Radius = 2;
             this.cbTramitador.Size = new System.Drawing.Size(255, 26);
-            this.cbTramitador.TabIndex = 6;
+            this.cbTramitador.TabIndex = 2;
             this.cbTramitador.SelectionChangeCommitted += new System.EventHandler(this.cbTramitador_SelectionChangeCommitted);
             // 
             // gunaLabel2
@@ -300,7 +300,7 @@ namespace GestionCasos
             this.cbRecepcion.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbRecepcion.Radius = 2;
             this.cbRecepcion.Size = new System.Drawing.Size(173, 26);
-            this.cbRecepcion.TabIndex = 3;
+            this.cbRecepcion.TabIndex = 4;
             this.cbRecepcion.SelectionChangeCommitted += new System.EventHandler(this.cbRecepcion_SelectionChangeCommitted);
             // 
             // cbEstado
@@ -323,7 +323,7 @@ namespace GestionCasos
             this.cbEstado.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbEstado.Radius = 2;
             this.cbEstado.Size = new System.Drawing.Size(141, 26);
-            this.cbEstado.TabIndex = 2;
+            this.cbEstado.TabIndex = 3;
             this.cbEstado.SelectionChangeCommitted += new System.EventHandler(this.cbEstado_SelectionChangeCommitted);
             // 
             // tabla

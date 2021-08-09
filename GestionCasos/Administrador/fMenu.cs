@@ -201,11 +201,11 @@ namespace GestionCasos.Administrador
             {
                 conexion.Open();
                 cmd.ExecuteNonQuery();
-                Alerta.Success(new Alertas.Alerta(), "La copia de la base de datos due creada");
+                Alerta.Success(new Alertas.Alerta(), "La copia de la base de datos fue creada");
             }
             catch (Exception ex)
             {
-                Alerta.Danger(new Alertas.Alerta(), "No se creo la base de datos porque eres un inutil");
+                Alerta.Danger(new Alertas.Alerta(), "No se creo la base de datos");
                 Alerta.Danger(new Alertas.Alerta(), ex.Message);
             }
             finally
