@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GestionCasos")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Control de Casos")]
+[assembly: AssemblyDescription("Sistema para control de casos")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("GestionCasos")]
-[assembly: AssemblyCopyright("Copyright © HP Inc. 2021")]
+[assembly: AssemblyCompany("Anner Tejada D.,Royner Oporta M.")]
+[assembly: AssemblyProduct("Control de Casos")]
+[assembly: AssemblyCopyright("Copyright © Anner Tejada D.,Royner Oporta M. 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

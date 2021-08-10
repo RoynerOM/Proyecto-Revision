@@ -155,7 +155,8 @@ namespace GestionCasos
                 this.gunaElipsePanel1.BaseColor = Color.FromArgb(41, 79, 116);
                 this.gunaElipsePanel1.ForeColor = Color.White;
 
-                this.label4.ForeColor = Colors.Black;
+                this.label4.ForeColor = Colors.Black; 
+                this.lblNombreU.ForeColor = Colors.Black;
             }
         }
         private void PnContadores_Paint(object sender, PaintEventArgs e)

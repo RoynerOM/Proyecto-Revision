@@ -32,7 +32,7 @@ namespace GestionCasos
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private bool entrega = false;
 
-        int cantidad = 5;
+        int cantidad = 10;
         int TotalPaginas = 0;
         int aux = 0;
         string person = null;

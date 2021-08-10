@@ -13,19 +13,18 @@ namespace Datos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using Entidades;
-
     public partial class BDJuntasEntities : DbContext
     {
         public BDJuntasEntities()
             : base("name=BDJuntasEntities")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<tBoleta> tBoleta { get; set; }
         public virtual DbSet<tEntregaCasos> tEntregaCasos { get; set; }
         public virtual DbSet<tEstado> tEstado { get; set; }

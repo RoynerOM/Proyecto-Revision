@@ -8,7 +8,7 @@
     <ProjectGuid>{9A74815F-F1F1-4BF2-9CCE-ABC0CECD886E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GestionCasos</RootNamespace>
-    <AssemblyName>GestionCasos</AssemblyName>
+    <AssemblyName>Sistema Control Casos</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\User\Desktop\WebSite\</PublishUrl>
+    <PublishUrl>C:\Users\User\Desktop\App-Gestion-Casos\C3\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

@@ -65,17 +65,17 @@ namespace GestionCasos.Usuarios
             btnEntrega.Enabled = false;
             btnBoleta.Enabled = false;
 
-            if (TipoUsuario == 0)
-            {
+            //if (TipoUsuario == 0)
+            //{
 
-                txtObservacion.Enabled = false;
-                txtComentario.Enabled = true;
-            }
-            else
-            {
-                txtObservacion.Enabled = true;
-                txtComentario.Enabled = false;
-            }
+            //    txtObservacion.Enabled = false;
+            //    txtComentario.Enabled = true;
+            //}
+            //else
+            //{
+            //    txtObservacion.Enabled = true;
+            //    txtComentario.Enabled = false;
+            //}
             CargarDatosForm();
         }
 

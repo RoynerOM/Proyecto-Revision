@@ -30,6 +30,7 @@ namespace GestionCasos
         private void InitializeComponent()
         {
             this.DesktopPanel = new System.Windows.Forms.Panel();
+            this.lblNombreU = new System.Windows.Forms.Label();
             this.gunaTileButton4 = new Guna.UI.WinForms.GunaTileButton();
             this.label4 = new System.Windows.Forms.Label();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
@@ -59,7 +60,6 @@ namespace GestionCasos
             this.lblPendientes = new System.Windows.Forms.Label();
             this.lblTotaPendientes = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.lblNombreU = new System.Windows.Forms.Label();
             this.DesktopPanel.SuspendLayout();
             this.gunaElipsePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -92,10 +92,24 @@ namespace GestionCasos
             this.DesktopPanel.Controls.Add(this.pnPendientes);
             this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DesktopPanel.Location = new System.Drawing.Point(0, 0);
+            this.DesktopPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(812, 583);
+            this.DesktopPanel.Size = new System.Drawing.Size(1083, 718);
             this.DesktopPanel.TabIndex = 2;
             this.DesktopPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DesktopPanel_Paint);
+            // 
+            // lblNombreU
+            // 
+            this.lblNombreU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblNombreU.AutoSize = true;
+            this.lblNombreU.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblNombreU.ForeColor = System.Drawing.Color.White;
+            this.lblNombreU.Location = new System.Drawing.Point(44, 690);
+            this.lblNombreU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombreU.Name = "lblNombreU";
+            this.lblNombreU.Size = new System.Drawing.Size(63, 19);
+            this.lblNombreU.TabIndex = 14;
+            this.lblNombreU.Text = "Usuario: ";
             // 
             // gunaTileButton4
             // 
@@ -112,7 +126,8 @@ namespace GestionCasos
             this.gunaTileButton4.ForeColor = System.Drawing.Color.White;
             this.gunaTileButton4.Image = global::GestionCasos.Properties.Resources.safety_collection_place_96px;
             this.gunaTileButton4.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton4.Location = new System.Drawing.Point(640, 456);
+            this.gunaTileButton4.Location = new System.Drawing.Point(853, 561);
+            this.gunaTileButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaTileButton4.Name = "gunaTileButton4";
             this.gunaTileButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton4.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -120,7 +135,7 @@ namespace GestionCasos
             this.gunaTileButton4.OnHoverImage = null;
             this.gunaTileButton4.OnPressedColor = System.Drawing.Color.Black;
             this.gunaTileButton4.Radius = 5;
-            this.gunaTileButton4.Size = new System.Drawing.Size(160, 93);
+            this.gunaTileButton4.Size = new System.Drawing.Size(213, 114);
             this.gunaTileButton4.TabIndex = 3;
             this.gunaTileButton4.Text = "Detalles Personas";
             this.gunaTileButton4.Click += new System.EventHandler(this.gunaTileButton4_Click_1);
@@ -131,9 +146,10 @@ namespace GestionCasos
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("JetBrains Mono", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(562, 572);
+            this.label4.Location = new System.Drawing.Point(815, 698);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(250, 10);
+            this.label4.Size = new System.Drawing.Size(250, 11);
             this.label4.TabIndex = 13;
             this.label4.Text = "Copyright © 2021 Anner Tejada D.,Royner Oporta M.";
             // 
@@ -146,11 +162,12 @@ namespace GestionCasos
             this.gunaElipsePanel2.Controls.Add(this.label5);
             this.gunaElipsePanel2.Controls.Add(this.lblEntregados);
             this.gunaElipsePanel2.Controls.Add(this.pictureBox6);
-            this.gunaElipsePanel2.Location = new System.Drawing.Point(456, 157);
-            this.gunaElipsePanel2.MinimumSize = new System.Drawing.Size(343, 114);
+            this.gunaElipsePanel2.Location = new System.Drawing.Point(608, 193);
+            this.gunaElipsePanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaElipsePanel2.MinimumSize = new System.Drawing.Size(457, 140);
             this.gunaElipsePanel2.Name = "gunaElipsePanel2";
             this.gunaElipsePanel2.Radius = 20;
-            this.gunaElipsePanel2.Size = new System.Drawing.Size(343, 114);
+            this.gunaElipsePanel2.Size = new System.Drawing.Size(457, 140);
             this.gunaElipsePanel2.TabIndex = 12;
             // 
             // label5
@@ -159,7 +176,8 @@ namespace GestionCasos
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(20, 63);
+            this.label5.Location = new System.Drawing.Point(27, 78);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 30);
             this.label5.TabIndex = 7;
@@ -171,7 +189,8 @@ namespace GestionCasos
             this.lblEntregados.AutoSize = true;
             this.lblEntregados.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEntregados.ForeColor = System.Drawing.Color.White;
-            this.lblEntregados.Location = new System.Drawing.Point(16, 10);
+            this.lblEntregados.Location = new System.Drawing.Point(21, 12);
+            this.lblEntregados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEntregados.Name = "lblEntregados";
             this.lblEntregados.Size = new System.Drawing.Size(43, 50);
             this.lblEntregados.TabIndex = 6;
@@ -181,10 +200,11 @@ namespace GestionCasos
             // 
             this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox6.Image = global::GestionCasos.Properties.Resources.okpx;
-            this.pictureBox6.Location = new System.Drawing.Point(251, 28);
-            this.pictureBox6.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox6.Location = new System.Drawing.Point(335, 34);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox6.Size = new System.Drawing.Size(80, 74);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 5;
             this.pictureBox6.TabStop = false;
@@ -198,11 +218,12 @@ namespace GestionCasos
             this.gunaElipsePanel1.Controls.Add(this.label3);
             this.gunaElipsePanel1.Controls.Add(this.lblTramitadores);
             this.gunaElipsePanel1.Controls.Add(this.pictureBox5);
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(31, 297);
-            this.gunaElipsePanel1.MinimumSize = new System.Drawing.Size(343, 114);
+            this.gunaElipsePanel1.Location = new System.Drawing.Point(41, 366);
+            this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaElipsePanel1.MinimumSize = new System.Drawing.Size(457, 140);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Radius = 20;
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(343, 114);
+            this.gunaElipsePanel1.Size = new System.Drawing.Size(457, 140);
             this.gunaElipsePanel1.TabIndex = 11;
             // 
             // label3
@@ -211,7 +232,8 @@ namespace GestionCasos
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(20, 63);
+            this.label3.Location = new System.Drawing.Point(27, 78);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 30);
             this.label3.TabIndex = 7;
@@ -223,7 +245,8 @@ namespace GestionCasos
             this.lblTramitadores.AutoSize = true;
             this.lblTramitadores.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTramitadores.ForeColor = System.Drawing.Color.White;
-            this.lblTramitadores.Location = new System.Drawing.Point(16, 10);
+            this.lblTramitadores.Location = new System.Drawing.Point(21, 12);
+            this.lblTramitadores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTramitadores.Name = "lblTramitadores";
             this.lblTramitadores.Size = new System.Drawing.Size(43, 50);
             this.lblTramitadores.TabIndex = 6;
@@ -233,10 +256,11 @@ namespace GestionCasos
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox5.Image = global::GestionCasos.Properties.Resources.group_60px1;
-            this.pictureBox5.Location = new System.Drawing.Point(251, 28);
-            this.pictureBox5.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox5.Location = new System.Drawing.Point(335, 34);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox5.Size = new System.Drawing.Size(80, 74);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 5;
             this.pictureBox5.TabStop = false;
@@ -256,7 +280,8 @@ namespace GestionCasos
             this.gunaTileButton3.ForeColor = System.Drawing.Color.White;
             this.gunaTileButton3.Image = global::GestionCasos.Properties.Resources.organization_60px;
             this.gunaTileButton3.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton3.Location = new System.Drawing.Point(214, 456);
+            this.gunaTileButton3.Location = new System.Drawing.Point(285, 561);
+            this.gunaTileButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaTileButton3.Name = "gunaTileButton3";
             this.gunaTileButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton3.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -264,7 +289,7 @@ namespace GestionCasos
             this.gunaTileButton3.OnHoverImage = null;
             this.gunaTileButton3.OnPressedColor = System.Drawing.Color.Black;
             this.gunaTileButton3.Radius = 5;
-            this.gunaTileButton3.Size = new System.Drawing.Size(160, 93);
+            this.gunaTileButton3.Size = new System.Drawing.Size(213, 114);
             this.gunaTileButton3.TabIndex = 1;
             this.gunaTileButton3.Text = "Detalles Juntas";
             this.gunaTileButton3.Click += new System.EventHandler(this.GunaTileButton3_Click);
@@ -278,11 +303,12 @@ namespace GestionCasos
             this.gunaElipsePanel4.Controls.Add(this.lblJuntas);
             this.gunaElipsePanel4.Controls.Add(this.lblTotalJuntas);
             this.gunaElipsePanel4.Controls.Add(this.pictureBox4);
-            this.gunaElipsePanel4.Location = new System.Drawing.Point(457, 297);
-            this.gunaElipsePanel4.MinimumSize = new System.Drawing.Size(343, 114);
+            this.gunaElipsePanel4.Location = new System.Drawing.Point(609, 366);
+            this.gunaElipsePanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaElipsePanel4.MinimumSize = new System.Drawing.Size(457, 140);
             this.gunaElipsePanel4.Name = "gunaElipsePanel4";
             this.gunaElipsePanel4.Radius = 20;
-            this.gunaElipsePanel4.Size = new System.Drawing.Size(343, 114);
+            this.gunaElipsePanel4.Size = new System.Drawing.Size(457, 140);
             this.gunaElipsePanel4.TabIndex = 10;
             // 
             // lblJuntas
@@ -291,7 +317,8 @@ namespace GestionCasos
             this.lblJuntas.AutoSize = true;
             this.lblJuntas.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJuntas.ForeColor = System.Drawing.Color.White;
-            this.lblJuntas.Location = new System.Drawing.Point(19, 63);
+            this.lblJuntas.Location = new System.Drawing.Point(25, 78);
+            this.lblJuntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJuntas.Name = "lblJuntas";
             this.lblJuntas.Size = new System.Drawing.Size(129, 30);
             this.lblJuntas.TabIndex = 10;
@@ -303,7 +330,8 @@ namespace GestionCasos
             this.lblTotalJuntas.AutoSize = true;
             this.lblTotalJuntas.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalJuntas.ForeColor = System.Drawing.Color.White;
-            this.lblTotalJuntas.Location = new System.Drawing.Point(15, 13);
+            this.lblTotalJuntas.Location = new System.Drawing.Point(20, 16);
+            this.lblTotalJuntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalJuntas.Name = "lblTotalJuntas";
             this.lblTotalJuntas.Size = new System.Drawing.Size(43, 50);
             this.lblTotalJuntas.TabIndex = 9;
@@ -313,10 +341,11 @@ namespace GestionCasos
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.Image = global::GestionCasos.Properties.Resources.organization_60px1;
-            this.pictureBox4.Location = new System.Drawing.Point(250, 28);
-            this.pictureBox4.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox4.Location = new System.Drawing.Point(333, 34);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox4.Size = new System.Drawing.Size(80, 74);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
@@ -336,7 +365,8 @@ namespace GestionCasos
             this.gunaTileButton2.ForeColor = System.Drawing.Color.White;
             this.gunaTileButton2.Image = global::GestionCasos.Properties.Resources.task_60px;
             this.gunaTileButton2.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton2.Location = new System.Drawing.Point(457, 456);
+            this.gunaTileButton2.Location = new System.Drawing.Point(609, 561);
+            this.gunaTileButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaTileButton2.Name = "gunaTileButton2";
             this.gunaTileButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton2.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -344,7 +374,7 @@ namespace GestionCasos
             this.gunaTileButton2.OnHoverImage = null;
             this.gunaTileButton2.OnPressedColor = System.Drawing.Color.Black;
             this.gunaTileButton2.Radius = 5;
-            this.gunaTileButton2.Size = new System.Drawing.Size(160, 93);
+            this.gunaTileButton2.Size = new System.Drawing.Size(213, 114);
             this.gunaTileButton2.TabIndex = 2;
             this.gunaTileButton2.Text = "Asignar Casos";
             this.gunaTileButton2.Click += new System.EventHandler(this.GunaTileButton2_Click);
@@ -358,11 +388,12 @@ namespace GestionCasos
             this.pnRevisados.Controls.Add(this.lblRevisados);
             this.pnRevisados.Controls.Add(this.lblTotalRevisados);
             this.pnRevisados.Controls.Add(this.pictureBox3);
-            this.pnRevisados.Location = new System.Drawing.Point(31, 157);
-            this.pnRevisados.MinimumSize = new System.Drawing.Size(343, 114);
+            this.pnRevisados.Location = new System.Drawing.Point(41, 193);
+            this.pnRevisados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnRevisados.MinimumSize = new System.Drawing.Size(457, 140);
             this.pnRevisados.Name = "pnRevisados";
             this.pnRevisados.Radius = 20;
-            this.pnRevisados.Size = new System.Drawing.Size(343, 114);
+            this.pnRevisados.Size = new System.Drawing.Size(457, 140);
             this.pnRevisados.TabIndex = 9;
             // 
             // lblRevisados
@@ -371,7 +402,8 @@ namespace GestionCasos
             this.lblRevisados.AutoSize = true;
             this.lblRevisados.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRevisados.ForeColor = System.Drawing.Color.White;
-            this.lblRevisados.Location = new System.Drawing.Point(20, 63);
+            this.lblRevisados.Location = new System.Drawing.Point(27, 78);
+            this.lblRevisados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRevisados.Name = "lblRevisados";
             this.lblRevisados.Size = new System.Drawing.Size(172, 30);
             this.lblRevisados.TabIndex = 7;
@@ -383,7 +415,8 @@ namespace GestionCasos
             this.lblTotalRevisados.AutoSize = true;
             this.lblTotalRevisados.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalRevisados.ForeColor = System.Drawing.Color.White;
-            this.lblTotalRevisados.Location = new System.Drawing.Point(16, 10);
+            this.lblTotalRevisados.Location = new System.Drawing.Point(21, 12);
+            this.lblTotalRevisados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalRevisados.Name = "lblTotalRevisados";
             this.lblTotalRevisados.Size = new System.Drawing.Size(43, 50);
             this.lblTotalRevisados.TabIndex = 6;
@@ -393,10 +426,11 @@ namespace GestionCasos
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.Image = global::GestionCasos.Properties.Resources.task_60px;
-            this.pictureBox3.Location = new System.Drawing.Point(251, 28);
-            this.pictureBox3.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox3.Location = new System.Drawing.Point(335, 34);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox3.Size = new System.Drawing.Size(80, 74);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
@@ -416,7 +450,8 @@ namespace GestionCasos
             this.gunaTileButton1.ForeColor = System.Drawing.Color.White;
             this.gunaTileButton1.Image = global::GestionCasos.Properties.Resources.more_details_60px;
             this.gunaTileButton1.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton1.Location = new System.Drawing.Point(31, 456);
+            this.gunaTileButton1.Location = new System.Drawing.Point(41, 561);
+            this.gunaTileButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaTileButton1.Name = "gunaTileButton1";
             this.gunaTileButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -424,7 +459,7 @@ namespace GestionCasos
             this.gunaTileButton1.OnHoverImage = null;
             this.gunaTileButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaTileButton1.Radius = 5;
-            this.gunaTileButton1.Size = new System.Drawing.Size(160, 93);
+            this.gunaTileButton1.Size = new System.Drawing.Size(213, 114);
             this.gunaTileButton1.TabIndex = 0;
             this.gunaTileButton1.Text = "Detalles de Casos";
             this.gunaTileButton1.Click += new System.EventHandler(this.GunaTileButton1_Click);
@@ -438,11 +473,12 @@ namespace GestionCasos
             this.pnContadores.Controls.Add(this.label2);
             this.pnContadores.Controls.Add(this.label1);
             this.pnContadores.Controls.Add(this.pictureBox1);
-            this.pnContadores.Location = new System.Drawing.Point(31, 15);
-            this.pnContadores.MinimumSize = new System.Drawing.Size(343, 114);
+            this.pnContadores.Location = new System.Drawing.Point(41, 18);
+            this.pnContadores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnContadores.MinimumSize = new System.Drawing.Size(457, 140);
             this.pnContadores.Name = "pnContadores";
             this.pnContadores.Radius = 20;
-            this.pnContadores.Size = new System.Drawing.Size(343, 114);
+            this.pnContadores.Size = new System.Drawing.Size(457, 140);
             this.pnContadores.TabIndex = 8;
             this.pnContadores.Paint += new System.Windows.Forms.PaintEventHandler(this.PnContadores_Paint);
             // 
@@ -452,7 +488,8 @@ namespace GestionCasos
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(20, 61);
+            this.label2.Location = new System.Drawing.Point(27, 75);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 30);
             this.label2.TabIndex = 3;
@@ -464,7 +501,8 @@ namespace GestionCasos
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(17, 10);
+            this.label1.Location = new System.Drawing.Point(23, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 50);
             this.label1.TabIndex = 2;
@@ -474,10 +512,11 @@ namespace GestionCasos
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::GestionCasos.Properties.Resources.group_60px;
-            this.pictureBox1.Location = new System.Drawing.Point(251, 31);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox1.Location = new System.Drawing.Point(335, 38);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.Size = new System.Drawing.Size(80, 74);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -491,11 +530,12 @@ namespace GestionCasos
             this.pnPendientes.Controls.Add(this.lblPendientes);
             this.pnPendientes.Controls.Add(this.lblTotaPendientes);
             this.pnPendientes.Controls.Add(this.pictureBox2);
-            this.pnPendientes.Location = new System.Drawing.Point(456, 15);
-            this.pnPendientes.MinimumSize = new System.Drawing.Size(343, 114);
+            this.pnPendientes.Location = new System.Drawing.Point(608, 18);
+            this.pnPendientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnPendientes.MinimumSize = new System.Drawing.Size(457, 140);
             this.pnPendientes.Name = "pnPendientes";
             this.pnPendientes.Radius = 20;
-            this.pnPendientes.Size = new System.Drawing.Size(343, 114);
+            this.pnPendientes.Size = new System.Drawing.Size(457, 140);
             this.pnPendientes.TabIndex = 7;
             // 
             // lblPendientes
@@ -504,7 +544,8 @@ namespace GestionCasos
             this.lblPendientes.AutoSize = true;
             this.lblPendientes.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPendientes.ForeColor = System.Drawing.Color.White;
-            this.lblPendientes.Location = new System.Drawing.Point(19, 61);
+            this.lblPendientes.Location = new System.Drawing.Point(25, 75);
+            this.lblPendientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPendientes.Name = "lblPendientes";
             this.lblPendientes.Size = new System.Drawing.Size(174, 30);
             this.lblPendientes.TabIndex = 7;
@@ -516,7 +557,8 @@ namespace GestionCasos
             this.lblTotaPendientes.AutoSize = true;
             this.lblTotaPendientes.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotaPendientes.ForeColor = System.Drawing.Color.White;
-            this.lblTotaPendientes.Location = new System.Drawing.Point(16, 10);
+            this.lblTotaPendientes.Location = new System.Drawing.Point(21, 12);
+            this.lblTotaPendientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotaPendientes.Name = "lblTotaPendientes";
             this.lblTotaPendientes.Size = new System.Drawing.Size(43, 50);
             this.lblTotaPendientes.TabIndex = 6;
@@ -526,32 +568,22 @@ namespace GestionCasos
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = global::GestionCasos.Properties.Resources.data_pending_60px;
-            this.pictureBox2.Location = new System.Drawing.Point(250, 31);
-            this.pictureBox2.MinimumSize = new System.Drawing.Size(60, 60);
+            this.pictureBox2.Location = new System.Drawing.Point(333, 38);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox2.Size = new System.Drawing.Size(80, 74);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
-            // lblNombreU
-            // 
-            this.lblNombreU.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblNombreU.AutoSize = true;
-            this.lblNombreU.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblNombreU.ForeColor = System.Drawing.Color.White;
-            this.lblNombreU.Location = new System.Drawing.Point(34, 555);
-            this.lblNombreU.Name = "lblNombreU";
-            this.lblNombreU.Size = new System.Drawing.Size(63, 19);
-            this.lblNombreU.TabIndex = 14;
-            this.lblNombreU.Text = "Usuario: ";
-            // 
             // fDashBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 583);
+            this.ClientSize = new System.Drawing.Size(1083, 718);
             this.Controls.Add(this.DesktopPanel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "fDashBoard";
             this.Text = "fDashBoard";
             this.Load += new System.EventHandler(this.FDashBoard_Load);

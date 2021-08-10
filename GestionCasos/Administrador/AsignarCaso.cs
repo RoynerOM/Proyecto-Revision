@@ -26,6 +26,7 @@ namespace GestionCasos
         {
             InitializeComponent();
             SetThemeColor();
+            CargarCombos();
         }
 
         //Modificado

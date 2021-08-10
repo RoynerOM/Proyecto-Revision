@@ -15,6 +15,7 @@ namespace Entidades
     public partial class viewBoleta
     {
         public int Id { get; set; }
+        public int IdCaso { get; set; }
         public int Codigo { get; set; }
         public string Consecutivo { get; set; }
         public int Circuito { get; set; }

@@ -31,6 +31,7 @@ namespace GestionCasos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registrar));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.gunaAdvenceTileButton2 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.gunaAdvenceTileButton1 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.txtCedula = new System.Windows.Forms.MaskedTextBox();
@@ -41,7 +42,6 @@ namespace GestionCasos
             this.label3 = new System.Windows.Forms.Label();
             this.btnRegistrar = new Guna.UI.WinForms.GunaButton();
             this.txtContra = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarR)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,17 @@ namespace GestionCasos
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(412, 394);
             this.panel3.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(56, 257);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 13);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Máximo 8 caracteres";
             // 
             // gunaAdvenceTileButton2
             // 
@@ -241,15 +252,6 @@ namespace GestionCasos
             this.txtContra.Size = new System.Drawing.Size(301, 33);
             this.txtContra.TabIndex = 1;
             this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 257);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 13);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Máximo 8 caracteres";
             // 
             // Registrar
             // 
