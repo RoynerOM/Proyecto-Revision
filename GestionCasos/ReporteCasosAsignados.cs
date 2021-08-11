@@ -13,22 +13,9 @@ namespace GestionCasos
         {
             InitializeComponent();
         }
-        private void CargarCombos()
-        {
-            try
-            {
-                cbReception.DataSource = Enum.GetValues(typeof(Enums.MedioReceptivo));
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex);
-            }
-        }
+    
         private void ReporteCasosAsignados_Load(object sender, EventArgs e)
         {
-            txtConsecutivo.Text = "R-";
-            CargarCombos();
             // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet.CasosAsignados' Puede moverla o quitarla según sea necesario.
             this.CasosTableTableAdapter.Fill(this.dtsCasos.CasosTable);
             this.reportViewer1.RefreshReport();
@@ -52,17 +39,17 @@ namespace GestionCasos
                 this.reportViewer1.RefreshReport();
 
             }
-            if (cbReception.Text != string.Empty)
-            {
-                this.CasosTableTableAdapter.FillBy3(this.dtsCasos.CasosTable, cbReception.Text);
-                this.reportViewer1.RefreshReport();
-            }
-            if (txtConsecutivo.Text != string.Empty && cbReception.Text != string.Empty)
-            {
-                this.CasosTableTableAdapter.FillBy1(this.dtsCasos.CasosTable, txtConsecutivo.Text);
-                this.reportViewer1.RefreshReport();
+            //if (cbReception.Text != string.Empty)
+            //{
+            //    this.CasosTableTableAdapter.FillBy3(this.dtsCasos.CasosTable, cbReception.Text);
+            //    this.reportViewer1.RefreshReport();
+            //}
+            //if (txtConsecutivo.Text != string.Empty && cbReception.Text != string.Empty)
+            //{
+            //    this.CasosTableTableAdapter.FillBy1(this.dtsCasos.CasosTable, txtConsecutivo.Text);
+            //    this.reportViewer1.RefreshReport();
 
-            }
+            //}
         }
 
         private void btnRefrescar_Click(object sender, EventArgs e)
@@ -71,12 +58,12 @@ namespace GestionCasos
             this.reportViewer1.RefreshReport();
 
             txtConsecutivo.Clear();
-            cbReception.SelectedIndex = 0;
+            //cbReception.SelectedIndex = 0;
         }
 
         private void btnBuscar2_Click(object sender, EventArgs e)
         {
-            this.CasosTableTableAdapter.FillBy2(this.dtsCasos.CasosTable, dtpFechaInicio.Value, dtpFechaFinal.Value);
+            this.CasosTableTableAdapter.FillBy2(this.dtsCasos.CasosTable, dtpFechaInicio.Value, dtpFechaFinal.Value,int.Parse(textBox1.Text));
             this.reportViewer1.RefreshReport();
 
         }

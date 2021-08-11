@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using Negocios;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.Threading;
@@ -14,6 +15,7 @@ namespace GestionCasos.Administrador
     /*
      Falta revisar el edit and delete
      */
+
     public partial class fInstituciones : Form
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
@@ -34,6 +36,7 @@ namespace GestionCasos.Administrador
 
         private void FuncionesPermitidas()
         {
+
             //Usuario Tramitador
             if (Rol == (int)Enums.Tipo.Tramitador)
             {
@@ -114,7 +117,7 @@ namespace GestionCasos.Administrador
                 txtCodigo.Text = institucion.Codigo.ToString();
                 txtInstitucion.Text = institucion.Nombre;
                 txtCedulaJuridica.Text = institucion.CedulaJuridica;
-                txtCuentaDanea.Text = institucion.CuentaDanea;
+                cbDiaRuta.Text = institucion.DiaRuta;
                 txtCuentaLey.Text = institucion.CuentaLey;
                 txtContacto.Text = institucion.Responsable;
                 txtTelefono.Text = institucion.Contacto;
@@ -168,10 +171,6 @@ namespace GestionCasos.Administrador
             {
                 label4.ForeColor = Colors.RedFont;
             }
-            if (txtCuentaDanea.Text.Length < 17)
-            {
-                label7.ForeColor = Colors.RedFont;
-            }
             if (txtCedulaJuridica.Text.Length < 7)
             {
                 label6.ForeColor = Colors.RedFont;
@@ -195,10 +194,6 @@ namespace GestionCasos.Administrador
             {
                 return false;
             }
-            else if (txtCuentaDanea.Text == string.Empty)
-            {
-                return false;
-            }
             else if (txtCedulaJuridica.Text == string.Empty)
             {
                 return false;
@@ -216,7 +211,7 @@ namespace GestionCasos.Administrador
             txtCodigo.ResetText();
             cbCircuito.ResetText();
             txtInstitucion.ResetText();
-            txtCuentaDanea.ResetText();
+            cbDiaRuta.ResetText();
             txtCuentaLey.ResetText();
             txtCedulaJuridica.ResetText();
             cbContador.ResetText();
@@ -244,7 +239,7 @@ namespace GestionCasos.Administrador
                         institucion.Tipo = (int)cbTipo.SelectedValue;
                         institucion.Nombre = txtInstitucion.Text.ToUpper();
                         institucion.CedulaJuridica = txtCedulaJuridica.Text;
-                        institucion.CuentaDanea = txtCuentaDanea.Text;
+                        institucion.DiaRuta = cbDiaRuta.Text;
                         institucion.CuentaLey = txtCuentaLey.Text;
                         institucion.Contador = (string)cbContador.SelectedValue;
                         if (txtContacto.Text != string.Empty)
@@ -293,7 +288,7 @@ namespace GestionCasos.Administrador
                     if (datosEncotrados != null)
                     {
                         txtCuentaLey.Text = datosEncotrados.CuentaLey;
-                        txtCuentaDanea.Text = datosEncotrados.CuentaDanea;
+                        cbDiaRuta.Text = datosEncotrados.DiaRuta;
                         txtInstitucion.Text = datosEncotrados.Nombre;
                         txtCedulaJuridica.Text = datosEncotrados.CedulaJuridica;
                         cbTipo.Text = Enum.GetName(typeof(Enums.TipoEscuela), datosEncotrados.Tipo);
@@ -358,7 +353,7 @@ namespace GestionCasos.Administrador
                     institucion = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
                     institucion.CuentaLey = txtCuentaLey.Text;
                     institucion.Nombre = txtInstitucion.Text;
-                    institucion.CuentaDanea = txtCuentaDanea.Text;
+                    institucion.DiaRuta = cbDiaRuta.Text;
                     institucion.CedulaJuridica = txtCedulaJuridica.Text;
                     //institucion.Circuito = (int)cbCircuito.SelectedValue;
                     //institucion.Tipo = (int)cbTipo.SelectedValue;
@@ -422,7 +417,7 @@ namespace GestionCasos.Administrador
                         if (datosEncotrados != null)
                         {
                             txtCuentaLey.Text = datosEncotrados.CuentaLey;
-                            txtCuentaDanea.Text = datosEncotrados.CuentaDanea;
+                            cbDiaRuta.Text = datosEncotrados.DiaRuta;
                             txtInstitucion.Text = datosEncotrados.Nombre;
                             txtCedulaJuridica.Text = datosEncotrados.CedulaJuridica;
                             cbTipo.Text = Enum.GetName(typeof(Enums.TipoEscuela), datosEncotrados.Tipo);

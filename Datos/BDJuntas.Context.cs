@@ -19,12 +19,12 @@ namespace Datos
             : base("name=BDJuntasEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<tBoleta> tBoleta { get; set; }
         public virtual DbSet<tEntregaCasos> tEntregaCasos { get; set; }
         public virtual DbSet<tEstado> tEstado { get; set; }

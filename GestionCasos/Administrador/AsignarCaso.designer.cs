@@ -191,6 +191,7 @@ namespace GestionCasos
             this.txtCaso.SelectedText = "";
             this.txtCaso.Size = new System.Drawing.Size(313, 36);
             this.txtCaso.TabIndex = 7;
+            this.txtCaso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCaso_KeyPress);
             // 
             // label1
             // 

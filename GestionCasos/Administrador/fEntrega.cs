@@ -63,7 +63,7 @@ namespace GestionCasos.Administrador
 
 
 
-        private async Task CargarDatosAsync()
+        private async void CargarDatosAsync()
         {
             try
             {
@@ -359,7 +359,7 @@ namespace GestionCasos.Administrador
                     }
 
                     tEstado estado = new tEstado();
-                    estado.IdEstado = 5;
+                    estado.IdEstado = 4;
                     estado = estadoNegocio.obtenerPorId(estado);
                     revision = revisionNegocio.ObtenerPorCaso(consecutivo);
                     //Cambio el estado en entregado

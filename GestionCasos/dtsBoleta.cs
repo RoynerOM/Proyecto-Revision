@@ -6,3 +6,10 @@
     {
     }
 }
+
+namespace GestionCasos.dtsBoletaTableAdapters {
+    
+    
+    public partial class BoletaTableTableAdapter {
+    }
+}

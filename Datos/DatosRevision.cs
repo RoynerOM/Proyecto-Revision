@@ -102,7 +102,7 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Consecutivo.StartsWith(consecutivo.ToUpper())).SingleOrDefault();
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
 
                     if (caso != null)
                     {

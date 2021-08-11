@@ -51,25 +51,27 @@ namespace GestionCasos
                     var casos = await revision.obtenerTodo();
 
                     //En revisio
-                    var pendientes = casos.Where(x => x.Estado == 2).Count();
-                    lblTotaPendientes.Text = pendientes.ToString();
-                    lblPendientes.Text = "Casos en revisión";
+                    var pendientes = casos.Where(x => x.Estado == 1).Count();
+                    lblTotaRevision.Text = pendientes.ToString();
+
+
+                    var tramitadores = casos.Where(x => x.Estado == 2).Count();
+                    lblCasosRevisados.Text = tramitadores.ToString();
 
                     //Tramitados
                     var revicion = casos.Where(x => x.Estado == 3).Count();
-                    lblTotalRevisados.Text = revicion.ToString();
-                    lblRevisados.Text = "Casos tramitados";
+                    lblTotalPorEntrega.Text = revicion.ToString();
 
                     //Entrgados
-                    var entregados = casos.Where(x => x.Estado == 5).Count();
+                    var entregados = casos.Where(x => x.Estado == 4).Count();
                     lblEntregados.Text = entregados.ToString();
-                    label5.Text = "Casos Entregados";
+
+                   
 
                     var instituciones = await institucion.obtenerTodo();
                     lblTotalJuntas.Text = instituciones.Where(x => x.Estado == true).Count().ToString();
 
-                    var tramitadores = await negocio.obtenerTrabador(1);
-                    lblTramitadores.Text = tramitadores.Count().ToString();
+                   
                 }
                 else
                 {
@@ -79,11 +81,11 @@ namespace GestionCasos
                     var casos = await revision.obtenerTodo();
 
                     var pendientes = casos.Where(x => x.Estado == 2 && x.Tramitador == cedula).Count();
-                    lblTotaPendientes.Text = pendientes.ToString();
+                    lblTotaRevision.Text = pendientes.ToString();
 
 
                     var tramitado = casos.Where(x => x.Estado == 3 && x.Tramitador == cedula).Count();
-                    lblTotalRevisados.Text = tramitado.ToString();
+                    lblTotalPorEntrega.Text = tramitado.ToString();
 
                     var entregados = casos.Where(x => x.Estado == 4 && x.Tramitador == cedula).Count();
                     lblEntregados.Text = entregados.ToString();
@@ -92,7 +94,7 @@ namespace GestionCasos
                     lblTotalJuntas.Text = instituciones.Count().ToString();
 
                     var tramitadores = await negocio.obtenerTrabador(1);
-                    lblTramitadores.Text = tramitadores.Count().ToString();
+                    lblCasosRevisados.Text = tramitadores.Count().ToString();
                 }
             }
             catch (Exception ex)

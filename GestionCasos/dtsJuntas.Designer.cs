@@ -283,19 +283,23 @@ namespace GestionCasos {
             
             private global::System.Data.DataColumn columnCircuito;
             
-            private global::System.Data.DataColumn columnNombreTipo;
-            
             private global::System.Data.DataColumn columnNombre;
             
             private global::System.Data.DataColumn columnCedulaJuridica;
             
-            private global::System.Data.DataColumn columnCuentaDanea;
+            private global::System.Data.DataColumn columnNombreTipo;
+            
+            private global::System.Data.DataColumn columnDiaRuta;
             
             private global::System.Data.DataColumn columnCuentaLey;
             
             private global::System.Data.DataColumn columnContador;
             
             private global::System.Data.DataColumn columnEstado;
+            
+            private global::System.Data.DataColumn columnResponsable;
+            
+            private global::System.Data.DataColumn columnContacto;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -348,14 +352,6 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NombreTipoColumn {
-                get {
-                    return this.columnNombreTipo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn NombreColumn {
                 get {
                     return this.columnNombre;
@@ -372,9 +368,17 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CuentaDaneaColumn {
+            public global::System.Data.DataColumn NombreTipoColumn {
                 get {
-                    return this.columnCuentaDanea;
+                    return this.columnNombreTipo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DiaRutaColumn {
+                get {
+                    return this.columnDiaRuta;
                 }
             }
             
@@ -399,6 +403,22 @@ namespace GestionCasos {
             public global::System.Data.DataColumn EstadoColumn {
                 get {
                     return this.columnEstado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ResponsableColumn {
+                get {
+                    return this.columnResponsable;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ContactoColumn {
+                get {
+                    return this.columnContacto;
                 }
             }
             
@@ -439,18 +459,20 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableJuntasRow AddTableJuntasRow(int Codigo, int Circuito, string NombreTipo, string Nombre, string CedulaJuridica, string CuentaDanea, string CuentaLey, string Contador, bool Estado) {
+            public TableJuntasRow AddTableJuntasRow(int Codigo, int Circuito, string Nombre, string CedulaJuridica, string NombreTipo, string DiaRuta, string CuentaLey, string Contador, bool Estado, string Responsable, string Contacto) {
                 TableJuntasRow rowTableJuntasRow = ((TableJuntasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Codigo,
                         Circuito,
-                        NombreTipo,
                         Nombre,
                         CedulaJuridica,
-                        CuentaDanea,
+                        NombreTipo,
+                        DiaRuta,
                         CuentaLey,
                         Contador,
-                        Estado};
+                        Estado,
+                        Responsable,
+                        Contacto};
                 rowTableJuntasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTableJuntasRow);
                 return rowTableJuntasRow;
@@ -482,13 +504,15 @@ namespace GestionCasos {
             internal void InitVars() {
                 this.columnCodigo = base.Columns["Codigo"];
                 this.columnCircuito = base.Columns["Circuito"];
-                this.columnNombreTipo = base.Columns["NombreTipo"];
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnCedulaJuridica = base.Columns["CedulaJuridica"];
-                this.columnCuentaDanea = base.Columns["CuentaDanea"];
+                this.columnNombreTipo = base.Columns["NombreTipo"];
+                this.columnDiaRuta = base.Columns["DiaRuta"];
                 this.columnCuentaLey = base.Columns["CuentaLey"];
                 this.columnContador = base.Columns["Contador"];
                 this.columnEstado = base.Columns["Estado"];
+                this.columnResponsable = base.Columns["Responsable"];
+                this.columnContacto = base.Columns["Contacto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -498,38 +522,45 @@ namespace GestionCasos {
                 base.Columns.Add(this.columnCodigo);
                 this.columnCircuito = new global::System.Data.DataColumn("Circuito", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCircuito);
-                this.columnNombreTipo = new global::System.Data.DataColumn("NombreTipo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombreTipo);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
                 this.columnCedulaJuridica = new global::System.Data.DataColumn("CedulaJuridica", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCedulaJuridica);
-                this.columnCuentaDanea = new global::System.Data.DataColumn("CuentaDanea", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCuentaDanea);
+                this.columnNombreTipo = new global::System.Data.DataColumn("NombreTipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombreTipo);
+                this.columnDiaRuta = new global::System.Data.DataColumn("DiaRuta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDiaRuta);
                 this.columnCuentaLey = new global::System.Data.DataColumn("CuentaLey", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCuentaLey);
                 this.columnContador = new global::System.Data.DataColumn("Contador", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContador);
                 this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado);
+                this.columnResponsable = new global::System.Data.DataColumn("Responsable", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnResponsable);
+                this.columnContacto = new global::System.Data.DataColumn("Contacto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContacto);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCodigo}, true));
                 this.columnCodigo.AllowDBNull = false;
                 this.columnCodigo.Unique = true;
                 this.columnCircuito.AllowDBNull = false;
-                this.columnNombreTipo.AllowDBNull = false;
-                this.columnNombreTipo.MaxLength = 10;
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.MaxLength = 2147483647;
                 this.columnCedulaJuridica.AllowDBNull = false;
                 this.columnCedulaJuridica.MaxLength = 20;
-                this.columnCuentaDanea.AllowDBNull = false;
-                this.columnCuentaDanea.MaxLength = 20;
+                this.columnNombreTipo.AllowDBNull = false;
+                this.columnNombreTipo.MaxLength = 10;
+                this.columnDiaRuta.MaxLength = 20;
                 this.columnCuentaLey.AllowDBNull = false;
                 this.columnCuentaLey.MaxLength = 20;
                 this.columnContador.ReadOnly = true;
                 this.columnContador.MaxLength = 152;
                 this.columnEstado.AllowDBNull = false;
+                this.columnResponsable.AllowDBNull = false;
+                this.columnResponsable.MaxLength = 13;
+                this.columnContacto.AllowDBNull = false;
+                this.columnContacto.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -694,17 +725,6 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string NombreTipo {
-                get {
-                    return ((string)(this[this.tableTableJuntas.NombreTipoColumn]));
-                }
-                set {
-                    this[this.tableTableJuntas.NombreTipoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Nombre {
                 get {
                     return ((string)(this[this.tableTableJuntas.NombreColumn]));
@@ -727,12 +747,28 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CuentaDanea {
+            public string NombreTipo {
                 get {
-                    return ((string)(this[this.tableTableJuntas.CuentaDaneaColumn]));
+                    return ((string)(this[this.tableTableJuntas.NombreTipoColumn]));
                 }
                 set {
-                    this[this.tableTableJuntas.CuentaDaneaColumn] = value;
+                    this[this.tableTableJuntas.NombreTipoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DiaRuta {
+                get {
+                    try {
+                        return ((string)(this[this.tableTableJuntas.DiaRutaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DiaRuta\' in table \'TableJuntas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTableJuntas.DiaRutaColumn] = value;
                 }
             }
             
@@ -772,6 +808,40 @@ namespace GestionCasos {
                 set {
                     this[this.tableTableJuntas.EstadoColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Responsable {
+                get {
+                    return ((string)(this[this.tableTableJuntas.ResponsableColumn]));
+                }
+                set {
+                    this[this.tableTableJuntas.ResponsableColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Contacto {
+                get {
+                    return ((string)(this[this.tableTableJuntas.ContactoColumn]));
+                }
+                set {
+                    this[this.tableTableJuntas.ContactoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDiaRutaNull() {
+                return this.IsNull(this.tableTableJuntas.DiaRutaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDiaRutaNull() {
+                this[this.tableTableJuntas.DiaRutaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -948,13 +1018,15 @@ namespace GestionCasos.dtsJuntasTableAdapters {
             tableMapping.DataSetTable = "TableJuntas";
             tableMapping.ColumnMappings.Add("Codigo", "Codigo");
             tableMapping.ColumnMappings.Add("Circuito", "Circuito");
-            tableMapping.ColumnMappings.Add("NombreTipo", "NombreTipo");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("CedulaJuridica", "CedulaJuridica");
-            tableMapping.ColumnMappings.Add("CuentaDanea", "CuentaDanea");
+            tableMapping.ColumnMappings.Add("NombreTipo", "NombreTipo");
+            tableMapping.ColumnMappings.Add("DiaRuta", "DiaRuta");
             tableMapping.ColumnMappings.Add("CuentaLey", "CuentaLey");
             tableMapping.ColumnMappings.Add("Contador", "Contador");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
+            tableMapping.ColumnMappings.Add("Responsable", "Responsable");
+            tableMapping.ColumnMappings.Add("Contacto", "Contacto");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -971,11 +1043,11 @@ namespace GestionCasos.dtsJuntasTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        tInstitucion.Codigo, tInstitucion.Circuito, tTipoInstitucion.NombreTipo, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tInstitucion.CuentaDanea, tInstitucion.CuentaLey, tPersona.NombreCompleto AS Contador, 
-                         tInstitucion.Estado
-FROM            tInstitucion INNER JOIN
-                         tTipoInstitucion ON tInstitucion.Tipo = tTipoInstitucion.IdTipo INNER JOIN
-                         tPersona ON tInstitucion.Contador = tPersona.Cedula";
+            this._commandCollection[0].CommandText = @"SELECT tInstitucion.Codigo, tInstitucion.Circuito, tTipoInstitucion.NombreTipo, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tInstitucion.DiaRuta, tInstitucion.CuentaLey, tInstitucion.Responsable, tInstitucion.Contacto, 
+                  tPersona.NombreCompleto AS Contador, tInstitucion.Estado
+FROM     tInstitucion INNER JOIN
+                  tTipoInstitucion ON tInstitucion.Tipo = tTipoInstitucion.IdTipo INNER JOIN
+                  tPersona ON tInstitucion.Contador = tPersona.Cedula";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

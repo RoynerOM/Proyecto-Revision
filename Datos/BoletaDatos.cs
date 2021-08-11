@@ -102,7 +102,7 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var boleta = db.tBoleta.Include("tRevision").Where(x => x.tRevision.IdCaso == e).SingleOrDefault();
+                    tBoleta boleta = (from c in db.tBoleta where c.IdCaso == e select c).SingleOrDefault();
 
                     if (boleta != null)
                     {
@@ -128,7 +128,7 @@ namespace Datos
             {
                 using (var db = new BDJuntasEntities())
                 {
-                    var boleta = db.tBoleta.Include("tRevision").Where(x => x.tRevision.Consecutivo == e).SingleOrDefault();
+                    var boleta = db.tBoleta.Where(x => x.tRevision.Consecutivo == e).SingleOrDefault();
 
                     if (boleta != null)
                     {

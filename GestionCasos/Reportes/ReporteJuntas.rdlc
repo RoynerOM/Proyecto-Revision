@@ -38,28 +38,34 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.80704cm</Width>
+              <Width>2.13394cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.06329cm</Width>
+              <Width>2.39019cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.71204cm</Width>
+              <Width>4.03894cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.71204cm</Width>
+              <Width>4.03894cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.71204cm</Width>
+              <Width>4.03894cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.71204cm</Width>
+              <Width>4.03894cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.71204cm</Width>
+              <Width>4.03894cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.13537cm</Width>
+              <Width>4.46227cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.78998cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.78998cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -255,7 +261,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CTA. CTE. DANEA</Value>
+                              <Value>DÍA DE RUTA</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -340,6 +346,78 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>5pt</PaddingTop>
+                        <PaddingBottom>5pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>CONTACTO</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>5pt</PaddingTop>
+                        <PaddingBottom>5pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox12">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>TEL CONTACTO</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -526,14 +604,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="CuentaDanea">
+                    <Textbox Name="DiaRuta">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!CuentaDanea.Value</Value>
+                              <Value>=Fields!DiaRuta.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -542,7 +620,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>CuentaDanea</rd:DefaultName>
+                      <rd:DefaultName>DiaRuta</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -623,12 +701,80 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Responsable">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Responsable.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Responsable</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>5pt</PaddingTop>
+                        <PaddingBottom>5pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Contacto">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Contacto.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Contacto</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>5pt</PaddingTop>
+                        <PaddingBottom>5pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -653,7 +799,7 @@
         <Top>2.14948cm</Top>
         <Left>0.49012cm</Left>
         <Height>1.49104cm</Height>
-        <Width>34.5659cm</Width>
+        <Width>34.76107cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -979,10 +1125,6 @@
           <DataField>Circuito</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="NombreTipo">
-          <DataField>NombreTipo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Nombre">
           <DataField>Nombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -991,8 +1133,12 @@
           <DataField>CedulaJuridica</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CuentaDanea">
-          <DataField>CuentaDanea</DataField>
+        <Field Name="NombreTipo">
+          <DataField>NombreTipo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DiaRuta">
+          <DataField>DiaRuta</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CuentaLey">
@@ -1007,10 +1153,18 @@
           <DataField>Estado</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="Responsable">
+          <DataField>Responsable</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Contacto">
+          <DataField>Contacto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsJuntas</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\User\Desktop\Recursos\Proyecto-Revision\GestionCasos\dtsJuntas.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Desktop\App\GestionCasos\dtsJuntas.xsd</rd:SchemaPath>
         <rd:TableName>TableJuntas</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

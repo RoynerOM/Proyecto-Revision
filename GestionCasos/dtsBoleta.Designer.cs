@@ -566,8 +566,8 @@ namespace GestionCasos {
                         string Observacion, 
                         System.DateTime FechaCreado, 
                         string NombreCompleto, 
-                        int numeroActa, 
-                        int numeroFolio, 
+                        string numeroActa, 
+                        string numeroFolio, 
                         System.DateTime fechaActa) {
                 BoletaTableRow rowBoletaTableRow = ((BoletaTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -672,9 +672,9 @@ namespace GestionCasos {
                 base.Columns.Add(this.columnFechaCreado);
                 this.columnNombreCompleto = new global::System.Data.DataColumn("NombreCompleto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombreCompleto);
-                this.columnnumeroActa = new global::System.Data.DataColumn("numeroActa", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnnumeroActa = new global::System.Data.DataColumn("numeroActa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumeroActa);
-                this.columnnumeroFolio = new global::System.Data.DataColumn("numeroFolio", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnnumeroFolio = new global::System.Data.DataColumn("numeroFolio", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumeroFolio);
                 this.columnfechaActa = new global::System.Data.DataColumn("fechaActa", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaActa);
@@ -705,6 +705,8 @@ namespace GestionCasos {
                 this.columnFechaCreado.AllowDBNull = false;
                 this.columnNombreCompleto.ReadOnly = true;
                 this.columnNombreCompleto.MaxLength = 152;
+                this.columnnumeroActa.MaxLength = 20;
+                this.columnnumeroFolio.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1044,10 +1046,10 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int numeroActa {
+            public string numeroActa {
                 get {
                     try {
-                        return ((int)(this[this.tableBoletaTable.numeroActaColumn]));
+                        return ((string)(this[this.tableBoletaTable.numeroActaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'numeroActa\' in table \'BoletaTable\' is DBNull.", e);
@@ -1060,10 +1062,10 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int numeroFolio {
+            public string numeroFolio {
                 get {
                     try {
-                        return ((int)(this[this.tableBoletaTable.numeroFolioColumn]));
+                        return ((string)(this[this.tableBoletaTable.numeroFolioColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'numeroFolio\' in table \'BoletaTable\' is DBNull.", e);
@@ -1346,12 +1348,12 @@ namespace GestionCasos.dtsBoletaTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        tBoleta.Id, tInstitucion.Codigo, tRevision.Consecutivo, tInstitucion.Circuito, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tBoleta.Motivo1, tBoleta.Motivo2, tBoleta.Motivo3, tBoleta.Motivo4, tBoleta.Motivo5, tBoleta.Motivo6, 
-                         tBoleta.Motivo7, tBoleta.Motivo8, tBoleta.Observacion, tBoleta.FechaCreado, tPersona.NombreCompleto, tRevision.numeroActa, tRevision.numeroFolio, tRevision.fechaActa
-FROM            tBoleta INNER JOIN
-                         tRevision ON tBoleta.Id = tRevision.IdCaso INNER JOIN
-                         tInstitucion ON tRevision.Codigo = tInstitucion.Codigo INNER JOIN
-                         tPersona ON tRevision.Tramitador = tPersona.Cedula";
+            this._commandCollection[0].CommandText = @"SELECT tBoleta.Id, tInstitucion.Codigo, tRevision.Consecutivo, tInstitucion.Circuito, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tBoleta.Motivo1, tBoleta.Motivo2, tBoleta.Motivo3, tBoleta.Motivo4, tBoleta.Motivo5, tBoleta.Motivo6, 
+                  tBoleta.Motivo7, tBoleta.Motivo8, tBoleta.Observacion, tBoleta.FechaCreado, tPersona.NombreCompleto, tRevision.numeroActa, tRevision.numeroFolio, tRevision.fechaActa
+FROM     tBoleta INNER JOIN
+                  tRevision ON tBoleta.Id = tRevision.IdCaso INNER JOIN
+                  tInstitucion ON tRevision.Codigo = tInstitucion.Codigo INNER JOIN
+                  tPersona ON tRevision.Tramitador = tPersona.Cedula";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

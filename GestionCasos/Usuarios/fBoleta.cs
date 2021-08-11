@@ -4,7 +4,7 @@ using System;
 using System.Configuration;
 using System.Windows.Forms;
 using Utilidades;
-
+using Datos;
 namespace GestionCasos.Usuarios
 {
     public partial class fBoleta : Form
@@ -25,7 +25,7 @@ namespace GestionCasos.Usuarios
         public fBoleta(int tipo, string consecutivo)
         {
             InitializeComponent();
-            TipoUsuario = tipo;
+            this.TipoUsuario = tipo;
             this.consecutivo = consecutivo;
         }
 
@@ -144,9 +144,11 @@ namespace GestionCasos.Usuarios
         {
             try
             {
+
+
                 //Obtengo el caso
                 revision = revisionNegocio.ObtenerPorCaso(consecutivo);
-                var filtro = boletaNegocio.obtenerPorId(revision.IdCaso);
+                tBoleta filtro = boletaNegocio.obtenerPorId(revision.IdCaso);
 
                 if (filtro != null)
                 {
@@ -172,7 +174,6 @@ namespace GestionCasos.Usuarios
                         txtOtros.Visible = true;
                         txtOtros.Text = filtro.Motivo8;
                     }
-                    txtObservacion.Text = filtro.Observacion;
                     txtComentario.Text = revision.Comentario;
 
 
@@ -204,6 +205,7 @@ namespace GestionCasos.Usuarios
                 tBoleta boleta = new tBoleta();
                 boleta = boletaNegocio.obtenerPorId(consecutivo);
                 var caso = revisionNegocio.ObtenerPorCaso(consecutivo);
+
                 if (boleta != null)
                 {
                     boleta.IdCaso = caso.IdCaso;
@@ -219,11 +221,8 @@ namespace GestionCasos.Usuarios
                     {
                         boleta.Motivo8 = txtOtros.Text;
                     }
-
-
-                    boleta.Observacion = txtObservacion.Text;
+                    boleta.Observacion = caso.Comentario;
                     caso.Comentario = txtComentario.Text;
-                    caso.Observacion = txtObservacion.Text;
 
                     if (revisionNegocio.modificar(caso) == true)
                     {
@@ -263,14 +262,13 @@ namespace GestionCasos.Usuarios
                         }
 
                         //Observacion
-                        newBoleta.Observacion = txtObservacion.Text;
-
+                        newBoleta.Observacion = txtComentario.Text;
                         newBoleta.FechaCreado = DateTime.Now;
                         //Fin de informacion de boleta
 
                         //Cambio de estado de boleta
                         tEstado state = new tEstado();
-                        state.IdEstado = 3;
+                        state.IdEstado = 2;
                         //Informacion del caso
                         //tRevision filtroCasos = revisionNegocio.ObtenerPorCaso(consecutivo);
                         state = estadoNegocio.obtenerPorId(state);
@@ -279,12 +277,11 @@ namespace GestionCasos.Usuarios
                         revision.FechaRevisada = DateTime.Now.ToShortDateString();
                         revision.Estado = state.IdEstado;
                         revision.tEstado = state;
-                        revision.numeroActa = int.Parse(txtNumeroActa.Text);
-                        revision.numeroFolio = int.Parse(txtFolio.Text);
+                        revision.numeroActa = txtNumeroActa.Text;
+                        revision.numeroFolio = txtFolio.Text;
                         revision.fechaActa = dtpFechaActa.Value;
 
                         revision.Comentario = txtComentario.Text;
-                        revision.Observacion = txtObservacion.Text;
 
 
                         //Se actualiza la informacion del caso pasa hacer tramitador
@@ -332,7 +329,7 @@ namespace GestionCasos.Usuarios
             try
             {
                 tEstado state = new tEstado();
-                state.IdEstado = 4;
+                state.IdEstado = 3;
 
                 state = estadoNegocio.obtenerPorId(state);
                 revision.Estado = state.IdEstado;
@@ -345,7 +342,7 @@ namespace GestionCasos.Usuarios
                 }
                 else
                 {
-                    Alert.Danger(new Alertas.Alerta(), "No se pudo modifcada la observación");
+                    Alert.Danger(new Alertas.Alerta(), "No se pudo modifcar la observación");
                 }
             }
             catch (Exception ex)

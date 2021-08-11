@@ -9,15 +9,15 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BoletaTableTableAdapter" GeneratorDataComponentClassName="BoletaTableTableAdapter" Name="BoletaTable" UserDataComponentName="BoletaTableTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        tBoleta.Id, tInstitucion.Codigo, tRevision.Consecutivo, tInstitucion.Circuito, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tBoleta.Motivo1, tBoleta.Motivo2, tBoleta.Motivo3, tBoleta.Motivo4, tBoleta.Motivo5, tBoleta.Motivo6, 
-                         tBoleta.Motivo7, tBoleta.Motivo8, tBoleta.Observacion, tBoleta.FechaCreado, tPersona.NombreCompleto, tRevision.numeroActa, tRevision.numeroFolio, tRevision.fechaActa
-FROM            tBoleta INNER JOIN
-                         tRevision ON tBoleta.Id = tRevision.IdCaso INNER JOIN
-                         tInstitucion ON tRevision.Codigo = tInstitucion.Codigo INNER JOIN
-                         tPersona ON tRevision.Tramitador = tPersona.Cedula</CommandText>
+                    <CommandText>SELECT tBoleta.Id, tInstitucion.Codigo, tRevision.Consecutivo, tInstitucion.Circuito, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tBoleta.Motivo1, tBoleta.Motivo2, tBoleta.Motivo3, tBoleta.Motivo4, tBoleta.Motivo5, tBoleta.Motivo6, 
+                  tBoleta.Motivo7, tBoleta.Motivo8, tBoleta.Observacion, tBoleta.FechaCreado, tPersona.NombreCompleto, tRevision.numeroActa, tRevision.numeroFolio, tRevision.fechaActa
+FROM     tBoleta INNER JOIN
+                  tRevision ON tBoleta.Id = tRevision.IdCaso INNER JOIN
+                  tInstitucion ON tRevision.Codigo = tInstitucion.Codigo INNER JOIN
+                  tPersona ON tRevision.Tramitador = tPersona.Cedula</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -123,8 +123,20 @@ FROM            tBoleta INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="numeroActa" msprop:Generator_ColumnVarNameInTable="columnnumeroActa" msprop:Generator_ColumnPropNameInRow="numeroActa" msprop:Generator_ColumnPropNameInTable="numeroActaColumn" msprop:Generator_UserColumnName="numeroActa" type="xs:int" minOccurs="0" />
-              <xs:element name="numeroFolio" msprop:Generator_ColumnVarNameInTable="columnnumeroFolio" msprop:Generator_ColumnPropNameInRow="numeroFolio" msprop:Generator_ColumnPropNameInTable="numeroFolioColumn" msprop:Generator_UserColumnName="numeroFolio" type="xs:int" minOccurs="0" />
+              <xs:element name="numeroActa" msprop:Generator_ColumnVarNameInTable="columnnumeroActa" msprop:Generator_ColumnPropNameInRow="numeroActa" msprop:Generator_ColumnPropNameInTable="numeroActaColumn" msprop:Generator_UserColumnName="numeroActa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="numeroFolio" msprop:Generator_ColumnVarNameInTable="columnnumeroFolio" msprop:Generator_ColumnPropNameInRow="numeroFolio" msprop:Generator_ColumnPropNameInTable="numeroFolioColumn" msprop:Generator_UserColumnName="numeroFolio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="fechaActa" msprop:Generator_ColumnVarNameInTable="columnfechaActa" msprop:Generator_ColumnPropNameInRow="fechaActa" msprop:Generator_ColumnPropNameInTable="fechaActaColumn" msprop:Generator_UserColumnName="fechaActa" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>

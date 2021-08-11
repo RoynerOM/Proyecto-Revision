@@ -43,8 +43,6 @@ namespace GestionCasos.Usuarios
             this.label2 = new System.Windows.Forms.Label();
             this.btnObservacion = new Guna.UI.WinForms.GunaButton();
             this.btnBoleta = new Guna.UI.WinForms.GunaButton();
-            this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.txtObservacion = new System.Windows.Forms.TextBox();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.txtOtros = new System.Windows.Forms.TextBox();
             this.cbMotivo8 = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -61,7 +59,6 @@ namespace GestionCasos.Usuarios
             this.gunaDragControl1 = new Guna.UI.WinForms.GunaDragControl(this.components);
             this.gunaLinePanel1.SuspendLayout();
             this.guna2GroupBox3.SuspendLayout();
-            this.guna2GroupBox2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +75,6 @@ namespace GestionCasos.Usuarios
             this.gunaLinePanel1.Controls.Add(this.label2);
             this.gunaLinePanel1.Controls.Add(this.btnObservacion);
             this.gunaLinePanel1.Controls.Add(this.btnBoleta);
-            this.gunaLinePanel1.Controls.Add(this.guna2GroupBox2);
             this.gunaLinePanel1.Controls.Add(this.guna2GroupBox1);
             this.gunaLinePanel1.Controls.Add(this.lblConsecutivo);
             this.gunaLinePanel1.Controls.Add(this.label1);
@@ -91,8 +87,9 @@ namespace GestionCasos.Usuarios
             this.gunaLinePanel1.LineStyle = System.Windows.Forms.BorderStyle.None;
             this.gunaLinePanel1.LineTop = 2;
             this.gunaLinePanel1.Location = new System.Drawing.Point(0, 0);
+            this.gunaLinePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaLinePanel1.Name = "gunaLinePanel1";
-            this.gunaLinePanel1.Size = new System.Drawing.Size(800, 700);
+            this.gunaLinePanel1.Size = new System.Drawing.Size(1067, 862);
             this.gunaLinePanel1.TabIndex = 0;
             this.gunaLinePanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaLinePanel1_Paint);
             // 
@@ -105,10 +102,11 @@ namespace GestionCasos.Usuarios
             this.guna2GroupBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2GroupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox3.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox3.Location = new System.Drawing.Point(401, 449);
+            this.guna2GroupBox3.Location = new System.Drawing.Point(21, 553);
+            this.guna2GroupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2GroupBox3.Name = "guna2GroupBox3";
             this.guna2GroupBox3.ShadowDecoration.Parent = this.guna2GroupBox3;
-            this.guna2GroupBox3.Size = new System.Drawing.Size(384, 155);
+            this.guna2GroupBox3.Size = new System.Drawing.Size(1026, 191);
             this.guna2GroupBox3.TabIndex = 16;
             this.guna2GroupBox3.Text = "Comentario";
             // 
@@ -116,11 +114,12 @@ namespace GestionCasos.Usuarios
             // 
             this.txtComentario.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtComentario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComentario.Location = new System.Drawing.Point(0, 40);
+            this.txtComentario.Location = new System.Drawing.Point(0, 38);
+            this.txtComentario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtComentario.Size = new System.Drawing.Size(384, 115);
+            this.txtComentario.Size = new System.Drawing.Size(1026, 153);
             this.txtComentario.TabIndex = 0;
             // 
             // btnEntrega
@@ -137,7 +136,8 @@ namespace GestionCasos.Usuarios
             this.btnEntrega.ForeColor = System.Drawing.Color.White;
             this.btnEntrega.Image = global::GestionCasos.Properties.Resources.task_planning_48px;
             this.btnEntrega.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEntrega.Location = new System.Drawing.Point(16, 632);
+            this.btnEntrega.Location = new System.Drawing.Point(21, 778);
+            this.btnEntrega.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEntrega.Name = "btnEntrega";
             this.btnEntrega.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnEntrega.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -145,7 +145,7 @@ namespace GestionCasos.Usuarios
             this.btnEntrega.OnHoverImage = null;
             this.btnEntrega.OnPressedColor = System.Drawing.Color.Black;
             this.btnEntrega.Radius = 5;
-            this.btnEntrega.Size = new System.Drawing.Size(249, 42);
+            this.btnEntrega.Size = new System.Drawing.Size(332, 52);
             this.btnEntrega.TabIndex = 4;
             this.btnEntrega.Text = "Marcar entrega pendiente";
             this.btnEntrega.Click += new System.EventHandler(this.gunaButton1_Click);
@@ -160,12 +160,13 @@ namespace GestionCasos.Usuarios
             this.dtpFechaActa.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpFechaActa.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
             this.dtpFechaActa.HoverState.Parent = this.dtpFechaActa;
-            this.dtpFechaActa.Location = new System.Drawing.Point(503, 99);
+            this.dtpFechaActa.Location = new System.Drawing.Point(671, 122);
+            this.dtpFechaActa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFechaActa.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpFechaActa.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpFechaActa.Name = "dtpFechaActa";
             this.dtpFechaActa.ShadowDecoration.Parent = this.dtpFechaActa;
-            this.dtpFechaActa.Size = new System.Drawing.Size(247, 32);
+            this.dtpFechaActa.Size = new System.Drawing.Size(329, 39);
             this.dtpFechaActa.TabIndex = 2;
             this.dtpFechaActa.Value = new System.DateTime(2021, 7, 15, 13, 16, 42, 737);
             // 
@@ -178,11 +179,12 @@ namespace GestionCasos.Usuarios
             this.txtFolio.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtFolio.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtFolio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFolio.Location = new System.Drawing.Point(273, 99);
+            this.txtFolio.Location = new System.Drawing.Point(364, 122);
+            this.txtFolio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFolio.Name = "txtFolio";
             this.txtFolio.PasswordChar = '\0';
             this.txtFolio.SelectedText = "";
-            this.txtFolio.Size = new System.Drawing.Size(181, 32);
+            this.txtFolio.Size = new System.Drawing.Size(241, 46);
             this.txtFolio.TabIndex = 1;
             // 
             // txtNumeroActa
@@ -194,11 +196,12 @@ namespace GestionCasos.Usuarios
             this.txtNumeroActa.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtNumeroActa.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNumeroActa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroActa.Location = new System.Drawing.Point(49, 99);
+            this.txtNumeroActa.Location = new System.Drawing.Point(65, 122);
+            this.txtNumeroActa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumeroActa.Name = "txtNumeroActa";
             this.txtNumeroActa.PasswordChar = '\0';
             this.txtNumeroActa.SelectedText = "";
-            this.txtNumeroActa.Size = new System.Drawing.Size(177, 32);
+            this.txtNumeroActa.Size = new System.Drawing.Size(236, 46);
             this.txtNumeroActa.TabIndex = 0;
             // 
             // label4
@@ -207,9 +210,10 @@ namespace GestionCasos.Usuarios
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(499, 66);
+            this.label4.Location = new System.Drawing.Point(665, 81);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 21);
+            this.label4.Size = new System.Drawing.Size(135, 28);
             this.label4.TabIndex = 11;
             this.label4.Text = "Fecha de acta";
             // 
@@ -219,9 +223,10 @@ namespace GestionCasos.Usuarios
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(269, 66);
+            this.label3.Location = new System.Drawing.Point(359, 81);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 21);
+            this.label3.Size = new System.Drawing.Size(163, 28);
             this.label3.TabIndex = 10;
             this.label3.Text = "Número de fólio";
             // 
@@ -231,9 +236,10 @@ namespace GestionCasos.Usuarios
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(45, 66);
+            this.label2.Location = new System.Drawing.Point(60, 81);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 21);
+            this.label2.Size = new System.Drawing.Size(158, 28);
             this.label2.TabIndex = 9;
             this.label2.Text = "Número de acta";
             // 
@@ -251,7 +257,8 @@ namespace GestionCasos.Usuarios
             this.btnObservacion.ForeColor = System.Drawing.Color.White;
             this.btnObservacion.Image = global::GestionCasos.Properties.Resources.add_40px;
             this.btnObservacion.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnObservacion.Location = new System.Drawing.Point(322, 632);
+            this.btnObservacion.Location = new System.Drawing.Point(429, 778);
+            this.btnObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnObservacion.Name = "btnObservacion";
             this.btnObservacion.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnObservacion.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -259,7 +266,7 @@ namespace GestionCasos.Usuarios
             this.btnObservacion.OnHoverImage = null;
             this.btnObservacion.OnPressedColor = System.Drawing.Color.Black;
             this.btnObservacion.Radius = 5;
-            this.btnObservacion.Size = new System.Drawing.Size(223, 42);
+            this.btnObservacion.Size = new System.Drawing.Size(297, 52);
             this.btnObservacion.TabIndex = 5;
             this.btnObservacion.Text = "Guardar Observación";
             this.btnObservacion.Click += new System.EventHandler(this.btnObservacion_Click);
@@ -278,7 +285,8 @@ namespace GestionCasos.Usuarios
             this.btnBoleta.ForeColor = System.Drawing.Color.White;
             this.btnBoleta.Image = global::GestionCasos.Properties.Resources.pdf_40px;
             this.btnBoleta.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnBoleta.Location = new System.Drawing.Point(608, 632);
+            this.btnBoleta.Location = new System.Drawing.Point(811, 778);
+            this.btnBoleta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBoleta.Name = "btnBoleta";
             this.btnBoleta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btnBoleta.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -286,37 +294,10 @@ namespace GestionCasos.Usuarios
             this.btnBoleta.OnHoverImage = null;
             this.btnBoleta.OnPressedColor = System.Drawing.Color.Black;
             this.btnBoleta.Radius = 5;
-            this.btnBoleta.Size = new System.Drawing.Size(177, 42);
+            this.btnBoleta.Size = new System.Drawing.Size(236, 52);
             this.btnBoleta.TabIndex = 6;
             this.btnBoleta.Text = "Generar Boleta";
             this.btnBoleta.Click += new System.EventHandler(this.btnBoleta_Click);
-            // 
-            // guna2GroupBox2
-            // 
-            this.guna2GroupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.guna2GroupBox2.Controls.Add(this.txtObservacion);
-            this.guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(100)))), ((int)(((byte)(128)))));
-            this.guna2GroupBox2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GroupBox2.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox2.Location = new System.Drawing.Point(16, 449);
-            this.guna2GroupBox2.Name = "guna2GroupBox2";
-            this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
-            this.guna2GroupBox2.Size = new System.Drawing.Size(384, 155);
-            this.guna2GroupBox2.TabIndex = 3;
-            this.guna2GroupBox2.Text = "Observación";
-            // 
-            // txtObservacion
-            // 
-            this.txtObservacion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtObservacion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservacion.Location = new System.Drawing.Point(0, 40);
-            this.txtObservacion.Multiline = true;
-            this.txtObservacion.Name = "txtObservacion";
-            this.txtObservacion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtObservacion.Size = new System.Drawing.Size(384, 115);
-            this.txtObservacion.TabIndex = 0;
             // 
             // guna2GroupBox1
             // 
@@ -334,21 +315,23 @@ namespace GestionCasos.Usuarios
             this.guna2GroupBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.White;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(16, 163);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(21, 201);
+            this.guna2GroupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-            this.guna2GroupBox1.Size = new System.Drawing.Size(776, 258);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(1035, 318);
             this.guna2GroupBox1.TabIndex = 4;
             this.guna2GroupBox1.Text = "Documentación Faltante";
             // 
             // txtOtros
             // 
             this.txtOtros.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOtros.Location = new System.Drawing.Point(388, 140);
+            this.txtOtros.Location = new System.Drawing.Point(517, 172);
+            this.txtOtros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtOtros.Multiline = true;
             this.txtOtros.Name = "txtOtros";
             this.txtOtros.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOtros.Size = new System.Drawing.Size(385, 115);
+            this.txtOtros.Size = new System.Drawing.Size(512, 141);
             this.txtOtros.TabIndex = 8;
             // 
             // cbMotivo8
@@ -361,9 +344,10 @@ namespace GestionCasos.Usuarios
             this.cbMotivo8.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMotivo8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMotivo8.ForeColor = System.Drawing.Color.White;
-            this.cbMotivo8.Location = new System.Drawing.Point(608, 60);
+            this.cbMotivo8.Location = new System.Drawing.Point(811, 74);
+            this.cbMotivo8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMotivo8.Name = "cbMotivo8";
-            this.cbMotivo8.Size = new System.Drawing.Size(68, 21);
+            this.cbMotivo8.Size = new System.Drawing.Size(85, 27);
             this.cbMotivo8.TabIndex = 7;
             this.cbMotivo8.Text = "OTROS";
             this.cbMotivo8.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -383,9 +367,10 @@ namespace GestionCasos.Usuarios
             this.cbMotivo7.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMotivo7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMotivo7.ForeColor = System.Drawing.Color.White;
-            this.cbMotivo7.Location = new System.Drawing.Point(388, 100);
+            this.cbMotivo7.Location = new System.Drawing.Point(517, 123);
+            this.cbMotivo7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMotivo7.Name = "cbMotivo7";
-            this.cbMotivo7.Size = new System.Drawing.Size(126, 21);
+            this.cbMotivo7.Size = new System.Drawing.Size(161, 27);
             this.cbMotivo7.TabIndex = 6;
             this.cbMotivo7.Text = "MALO # CÉDULA";
             this.cbMotivo7.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -404,9 +389,10 @@ namespace GestionCasos.Usuarios
             this.cbMotivo6.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMotivo6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMotivo6.ForeColor = System.Drawing.Color.White;
-            this.cbMotivo6.Location = new System.Drawing.Point(388, 60);
+            this.cbMotivo6.Location = new System.Drawing.Point(517, 74);
+            this.cbMotivo6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMotivo6.Name = "cbMotivo6";
-            this.cbMotivo6.Size = new System.Drawing.Size(193, 21);
+            this.cbMotivo6.Size = new System.Drawing.Size(252, 27);
             this.cbMotivo6.TabIndex = 5;
             this.cbMotivo6.Text = "NO INDICA EL MONTO FACT";
             this.cbMotivo6.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -425,9 +411,10 @@ namespace GestionCasos.Usuarios
             this.cbMotivo5.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMotivo5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMotivo5.ForeColor = System.Drawing.Color.White;
-            this.cbMotivo5.Location = new System.Drawing.Point(40, 220);
+            this.cbMotivo5.Location = new System.Drawing.Point(53, 271);
+            this.cbMotivo5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMotivo5.Name = "cbMotivo5";
-            this.cbMotivo5.Size = new System.Drawing.Size(234, 21);
+            this.cbMotivo5.Size = new System.Drawing.Size(307, 27);
             this.cbMotivo5.TabIndex = 4;
             this.cbMotivo5.Text = "FALTA INFORMACIÓN EN ARTÍCULO";
             this.cbMotivo5.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -446,9 +433,10 @@ namespace GestionCasos.Usuarios
             this.cbMotivo4.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMotivo4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMotivo4.ForeColor = System.Drawing.Color.White;
-            this.cbMotivo4.Location = new System.Drawing.Point(40, 180);
+            this.cbMotivo4.Location = new System.Drawing.Point(53, 222);
+            this.cbMotivo4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMotivo4.Name = "cbMotivo4";
-            this.cbMotivo4.Size = new System.Drawing.Size(132, 21);
+            this.cbMotivo4.Size = new System.Drawing.Size(169, 27);
             this.cbMotivo4.TabIndex = 3;
             this.cbMotivo4.Text = "MALO # FACTURA";
             this.cbMotivo4.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -467,9 +455,10 @@ namespace GestionCasos.Usuarios
             this.cbMotivo3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMotivo3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMotivo3.ForeColor = System.Drawing.Color.White;
-            this.cbMotivo3.Location = new System.Drawing.Point(40, 140);
+            this.cbMotivo3.Location = new System.Drawing.Point(53, 172);
+            this.cbMotivo3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMotivo3.Name = "cbMotivo3";
-            this.cbMotivo3.Size = new System.Drawing.Size(250, 21);
+            this.cbMotivo3.Size = new System.Drawing.Size(326, 27);
             this.cbMotivo3.TabIndex = 2;
             this.cbMotivo3.Text = "FALTA # SESIÓN ORDIN/EXTRA ORDIN";
             this.cbMotivo3.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -488,9 +477,10 @@ namespace GestionCasos.Usuarios
             this.cbMotivo2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMotivo2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMotivo2.ForeColor = System.Drawing.Color.White;
-            this.cbMotivo2.Location = new System.Drawing.Point(40, 100);
+            this.cbMotivo2.Location = new System.Drawing.Point(53, 123);
+            this.cbMotivo2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMotivo2.Name = "cbMotivo2";
-            this.cbMotivo2.Size = new System.Drawing.Size(187, 21);
+            this.cbMotivo2.Size = new System.Drawing.Size(246, 27);
             this.cbMotivo2.TabIndex = 1;
             this.cbMotivo2.Text = "FALTA HOJA DE ASISTENCIA";
             this.cbMotivo2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -508,9 +498,10 @@ namespace GestionCasos.Usuarios
             this.cbMotivo1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbMotivo1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMotivo1.ForeColor = System.Drawing.Color.White;
-            this.cbMotivo1.Location = new System.Drawing.Point(40, 60);
+            this.cbMotivo1.Location = new System.Drawing.Point(53, 74);
+            this.cbMotivo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbMotivo1.Name = "cbMotivo1";
-            this.cbMotivo1.Size = new System.Drawing.Size(185, 21);
+            this.cbMotivo1.Size = new System.Drawing.Size(241, 27);
             this.cbMotivo1.TabIndex = 0;
             this.cbMotivo1.Text = "FALTA DE FIRMA DE CIERRE";
             this.cbMotivo1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -525,9 +516,10 @@ namespace GestionCasos.Usuarios
             this.lblConsecutivo.BackColor = System.Drawing.Color.Transparent;
             this.lblConsecutivo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsecutivo.ForeColor = System.Drawing.Color.White;
-            this.lblConsecutivo.Location = new System.Drawing.Point(126, 10);
+            this.lblConsecutivo.Location = new System.Drawing.Point(168, 12);
+            this.lblConsecutivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblConsecutivo.Name = "lblConsecutivo";
-            this.lblConsecutivo.Size = new System.Drawing.Size(32, 21);
+            this.lblConsecutivo.Size = new System.Drawing.Size(40, 28);
             this.lblConsecutivo.TabIndex = 2;
             this.lblConsecutivo.Text = "R-1";
             // 
@@ -537,9 +529,10 @@ namespace GestionCasos.Usuarios
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Location = new System.Drawing.Point(16, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 21);
+            this.label1.Size = new System.Drawing.Size(134, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Consecutivo: ";
             // 
@@ -551,12 +544,13 @@ namespace GestionCasos.Usuarios
             this.gunaControlBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(81)))), ((int)(((byte)(73)))));
             this.gunaControlBox1.IconColor = System.Drawing.Color.White;
             this.gunaControlBox1.IconSize = 15F;
-            this.gunaControlBox1.Location = new System.Drawing.Point(753, 2);
+            this.gunaControlBox1.Location = new System.Drawing.Point(1004, 2);
+            this.gunaControlBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaControlBox1.Name = "gunaControlBox1";
             this.gunaControlBox1.OnHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
             this.gunaControlBox1.OnHoverIconColor = System.Drawing.Color.White;
             this.gunaControlBox1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.gunaControlBox1.Size = new System.Drawing.Size(60, 36);
             this.gunaControlBox1.TabIndex = 0;
             // 
             // gunaDragControl1
@@ -565,13 +559,14 @@ namespace GestionCasos.Usuarios
             // 
             // fBoleta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 700);
+            this.ClientSize = new System.Drawing.Size(1067, 862);
             this.Controls.Add(this.gunaLinePanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(800, 700);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1067, 862);
             this.Name = "fBoleta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fBoleta";
@@ -580,8 +575,6 @@ namespace GestionCasos.Usuarios
             this.gunaLinePanel1.PerformLayout();
             this.guna2GroupBox3.ResumeLayout(false);
             this.guna2GroupBox3.PerformLayout();
-            this.guna2GroupBox2.ResumeLayout(false);
-            this.guna2GroupBox2.PerformLayout();
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -605,8 +598,6 @@ namespace GestionCasos.Usuarios
         private Guna.UI2.WinForms.Guna2CheckBox cbMotivo3;
         private Guna.UI2.WinForms.Guna2CheckBox cbMotivo2;
         private Guna.UI2.WinForms.Guna2CheckBox cbMotivo1;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
-        private System.Windows.Forms.TextBox txtObservacion;
         private Guna.UI.WinForms.GunaButton btnObservacion;
         private Guna.UI.WinForms.GunaButton btnBoleta;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpFechaActa;

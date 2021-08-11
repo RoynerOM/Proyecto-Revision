@@ -14,7 +14,7 @@ namespace GestionCasos.Administrador
 {
     public partial class fMenu : Form
     {
-        SqlConnection conexion = new SqlConnection(@"data source=SERVIDOR\SQLEXPRESS;initial catalog=BDJuntas;user id=admin;password=amconsultores;MultipleActiveResultSets=True;");
+        SqlConnection conexion = new SqlConnection(@"data source=192.168.100.76;initial catalog=BDJuntas;user id=sa;password=123456;MultipleActiveResultSets=True;");
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private Form activeForm;
         private int Rol;
@@ -191,9 +191,9 @@ namespace GestionCasos.Administrador
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            string nombre_copia = (System.DateTime.Today.Day.ToString() + "-" + System.DateTime.Today.Month.ToString() + "-" + System.DateTime.Today.Year.ToString() + "-" + System.DateTime.Now.Hour.ToString() + "-" + System.DateTime.Now.Minute.ToString() + "-" + System.DateTime.Now.Second.ToString() + "DBJuntas");
+            string nombre_copia = (System.DateTime.Today.Day.ToString() + "-" + System.DateTime.Today.Month.ToString() + "-" + System.DateTime.Today.Year.ToString() + "-" + System.DateTime.Now.Hour.ToString() + "-" + System.DateTime.Now.Minute.ToString() + "-" + System.DateTime.Now.Second.ToString() + "DBJuntas.bak");
 
-            string comando_consulta = "BACKUP DATABASE [BD_Juntas] TO  DISK = N'C:\\Program Files\\Microsoft SQL Server\\MSSQL15.SQLEXPRESS\\MSSQL\\Backup\\" + nombre_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'BD_Juntas-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+            string comando_consulta = "BACKUP DATABASE [BDJuntas] TO  DISK = N'C:\\Program Files\\Microsoft SQL Server\\MSSQL15.SQLEXPRESS\\MSSQL\\Backup\\" + nombre_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'BDJuntas-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
 
             SqlCommand cmd = new SqlCommand(comando_consulta, conexion);
 

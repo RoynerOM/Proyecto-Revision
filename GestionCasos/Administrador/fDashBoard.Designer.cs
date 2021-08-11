@@ -39,7 +39,7 @@ namespace GestionCasos
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblTramitadores = new System.Windows.Forms.Label();
+            this.lblCasosRevisados = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.gunaTileButton3 = new Guna.UI.WinForms.GunaTileButton();
             this.gunaElipsePanel4 = new Guna.UI.WinForms.GunaElipsePanel();
@@ -49,7 +49,7 @@ namespace GestionCasos
             this.gunaTileButton2 = new Guna.UI.WinForms.GunaTileButton();
             this.pnRevisados = new Guna.UI.WinForms.GunaElipsePanel();
             this.lblRevisados = new System.Windows.Forms.Label();
-            this.lblTotalRevisados = new System.Windows.Forms.Label();
+            this.lblTotalPorEntrega = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.gunaTileButton1 = new Guna.UI.WinForms.GunaTileButton();
             this.pnContadores = new Guna.UI.WinForms.GunaElipsePanel();
@@ -58,7 +58,7 @@ namespace GestionCasos
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnPendientes = new Guna.UI.WinForms.GunaElipsePanel();
             this.lblPendientes = new System.Windows.Forms.Label();
-            this.lblTotaPendientes = new System.Windows.Forms.Label();
+            this.lblTotaRevision = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.DesktopPanel.SuspendLayout();
             this.gunaElipsePanel2.SuspendLayout();
@@ -81,8 +81,8 @@ namespace GestionCasos
             this.DesktopPanel.Controls.Add(this.lblNombreU);
             this.DesktopPanel.Controls.Add(this.gunaTileButton4);
             this.DesktopPanel.Controls.Add(this.label4);
-            this.DesktopPanel.Controls.Add(this.gunaElipsePanel2);
             this.DesktopPanel.Controls.Add(this.gunaElipsePanel1);
+            this.DesktopPanel.Controls.Add(this.gunaElipsePanel2);
             this.DesktopPanel.Controls.Add(this.gunaTileButton3);
             this.DesktopPanel.Controls.Add(this.gunaElipsePanel4);
             this.DesktopPanel.Controls.Add(this.gunaTileButton2);
@@ -92,7 +92,7 @@ namespace GestionCasos
             this.DesktopPanel.Controls.Add(this.pnPendientes);
             this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DesktopPanel.Location = new System.Drawing.Point(0, 0);
-            this.DesktopPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DesktopPanel.Margin = new System.Windows.Forms.Padding(4);
             this.DesktopPanel.Name = "DesktopPanel";
             this.DesktopPanel.Size = new System.Drawing.Size(1083, 718);
             this.DesktopPanel.TabIndex = 2;
@@ -107,7 +107,7 @@ namespace GestionCasos
             this.lblNombreU.Location = new System.Drawing.Point(44, 690);
             this.lblNombreU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreU.Name = "lblNombreU";
-            this.lblNombreU.Size = new System.Drawing.Size(63, 19);
+            this.lblNombreU.Size = new System.Drawing.Size(77, 23);
             this.lblNombreU.TabIndex = 14;
             this.lblNombreU.Text = "Usuario: ";
             // 
@@ -127,7 +127,7 @@ namespace GestionCasos
             this.gunaTileButton4.Image = global::GestionCasos.Properties.Resources.safety_collection_place_96px;
             this.gunaTileButton4.ImageSize = new System.Drawing.Size(52, 52);
             this.gunaTileButton4.Location = new System.Drawing.Point(853, 561);
-            this.gunaTileButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaTileButton4.Margin = new System.Windows.Forms.Padding(4);
             this.gunaTileButton4.Name = "gunaTileButton4";
             this.gunaTileButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton4.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -146,10 +146,10 @@ namespace GestionCasos
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("JetBrains Mono", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(815, 698);
+            this.label4.Location = new System.Drawing.Point(769, 699);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(250, 11);
+            this.label4.Size = new System.Drawing.Size(301, 14);
             this.label4.TabIndex = 13;
             this.label4.Text = "Copyright © 2021 Anner Tejada D.,Royner Oporta M.";
             // 
@@ -163,7 +163,7 @@ namespace GestionCasos
             this.gunaElipsePanel2.Controls.Add(this.lblEntregados);
             this.gunaElipsePanel2.Controls.Add(this.pictureBox6);
             this.gunaElipsePanel2.Location = new System.Drawing.Point(608, 193);
-            this.gunaElipsePanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaElipsePanel2.Margin = new System.Windows.Forms.Padding(4);
             this.gunaElipsePanel2.MinimumSize = new System.Drawing.Size(457, 140);
             this.gunaElipsePanel2.Name = "gunaElipsePanel2";
             this.gunaElipsePanel2.Radius = 20;
@@ -179,7 +179,7 @@ namespace GestionCasos
             this.label5.Location = new System.Drawing.Point(27, 78);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(177, 30);
+            this.label5.Size = new System.Drawing.Size(225, 37);
             this.label5.TabIndex = 7;
             this.label5.Text = "Casos Entregados";
             // 
@@ -192,7 +192,7 @@ namespace GestionCasos
             this.lblEntregados.Location = new System.Drawing.Point(21, 12);
             this.lblEntregados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEntregados.Name = "lblEntregados";
-            this.lblEntregados.Size = new System.Drawing.Size(43, 50);
+            this.lblEntregados.Size = new System.Drawing.Size(54, 62);
             this.lblEntregados.TabIndex = 6;
             this.lblEntregados.Text = "0";
             // 
@@ -201,7 +201,7 @@ namespace GestionCasos
             this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox6.Image = global::GestionCasos.Properties.Resources.okpx;
             this.pictureBox6.Location = new System.Drawing.Point(335, 34);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(80, 74);
@@ -216,10 +216,10 @@ namespace GestionCasos
             this.gunaElipsePanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.gunaElipsePanel1.Controls.Add(this.label3);
-            this.gunaElipsePanel1.Controls.Add(this.lblTramitadores);
+            this.gunaElipsePanel1.Controls.Add(this.lblCasosRevisados);
             this.gunaElipsePanel1.Controls.Add(this.pictureBox5);
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(41, 366);
-            this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaElipsePanel1.Location = new System.Drawing.Point(608, 18);
+            this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaElipsePanel1.MinimumSize = new System.Drawing.Size(457, 140);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Radius = 20;
@@ -235,29 +235,29 @@ namespace GestionCasos
             this.label3.Location = new System.Drawing.Point(27, 78);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 30);
+            this.label3.Size = new System.Drawing.Size(207, 37);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Tramitadores";
+            this.label3.Text = "Casos Revisados";
             // 
-            // lblTramitadores
+            // lblCasosRevisados
             // 
-            this.lblTramitadores.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTramitadores.AutoSize = true;
-            this.lblTramitadores.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTramitadores.ForeColor = System.Drawing.Color.White;
-            this.lblTramitadores.Location = new System.Drawing.Point(21, 12);
-            this.lblTramitadores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTramitadores.Name = "lblTramitadores";
-            this.lblTramitadores.Size = new System.Drawing.Size(43, 50);
-            this.lblTramitadores.TabIndex = 6;
-            this.lblTramitadores.Text = "0";
+            this.lblCasosRevisados.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCasosRevisados.AutoSize = true;
+            this.lblCasosRevisados.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCasosRevisados.ForeColor = System.Drawing.Color.White;
+            this.lblCasosRevisados.Location = new System.Drawing.Point(21, 12);
+            this.lblCasosRevisados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCasosRevisados.Name = "lblCasosRevisados";
+            this.lblCasosRevisados.Size = new System.Drawing.Size(54, 62);
+            this.lblCasosRevisados.TabIndex = 6;
+            this.lblCasosRevisados.Text = "0";
             // 
             // pictureBox5
             // 
             this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox5.Image = global::GestionCasos.Properties.Resources.group_60px1;
             this.pictureBox5.Location = new System.Drawing.Point(335, 34);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(80, 74);
@@ -281,7 +281,7 @@ namespace GestionCasos
             this.gunaTileButton3.Image = global::GestionCasos.Properties.Resources.organization_60px;
             this.gunaTileButton3.ImageSize = new System.Drawing.Size(52, 52);
             this.gunaTileButton3.Location = new System.Drawing.Point(285, 561);
-            this.gunaTileButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaTileButton3.Margin = new System.Windows.Forms.Padding(4);
             this.gunaTileButton3.Name = "gunaTileButton3";
             this.gunaTileButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton3.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -304,7 +304,7 @@ namespace GestionCasos
             this.gunaElipsePanel4.Controls.Add(this.lblTotalJuntas);
             this.gunaElipsePanel4.Controls.Add(this.pictureBox4);
             this.gunaElipsePanel4.Location = new System.Drawing.Point(609, 366);
-            this.gunaElipsePanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaElipsePanel4.Margin = new System.Windows.Forms.Padding(4);
             this.gunaElipsePanel4.MinimumSize = new System.Drawing.Size(457, 140);
             this.gunaElipsePanel4.Name = "gunaElipsePanel4";
             this.gunaElipsePanel4.Radius = 20;
@@ -320,7 +320,7 @@ namespace GestionCasos
             this.lblJuntas.Location = new System.Drawing.Point(25, 78);
             this.lblJuntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJuntas.Name = "lblJuntas";
-            this.lblJuntas.Size = new System.Drawing.Size(129, 30);
+            this.lblJuntas.Size = new System.Drawing.Size(162, 37);
             this.lblJuntas.TabIndex = 10;
             this.lblJuntas.Text = "Instituciones";
             // 
@@ -333,7 +333,7 @@ namespace GestionCasos
             this.lblTotalJuntas.Location = new System.Drawing.Point(20, 16);
             this.lblTotalJuntas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalJuntas.Name = "lblTotalJuntas";
-            this.lblTotalJuntas.Size = new System.Drawing.Size(43, 50);
+            this.lblTotalJuntas.Size = new System.Drawing.Size(54, 62);
             this.lblTotalJuntas.TabIndex = 9;
             this.lblTotalJuntas.Text = "0";
             // 
@@ -342,7 +342,7 @@ namespace GestionCasos
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.Image = global::GestionCasos.Properties.Resources.organization_60px1;
             this.pictureBox4.Location = new System.Drawing.Point(333, 34);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(80, 74);
@@ -366,7 +366,7 @@ namespace GestionCasos
             this.gunaTileButton2.Image = global::GestionCasos.Properties.Resources.task_60px;
             this.gunaTileButton2.ImageSize = new System.Drawing.Size(52, 52);
             this.gunaTileButton2.Location = new System.Drawing.Point(609, 561);
-            this.gunaTileButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaTileButton2.Margin = new System.Windows.Forms.Padding(4);
             this.gunaTileButton2.Name = "gunaTileButton2";
             this.gunaTileButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton2.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -386,10 +386,10 @@ namespace GestionCasos
             this.pnRevisados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnRevisados.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.pnRevisados.Controls.Add(this.lblRevisados);
-            this.pnRevisados.Controls.Add(this.lblTotalRevisados);
+            this.pnRevisados.Controls.Add(this.lblTotalPorEntrega);
             this.pnRevisados.Controls.Add(this.pictureBox3);
             this.pnRevisados.Location = new System.Drawing.Point(41, 193);
-            this.pnRevisados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnRevisados.Margin = new System.Windows.Forms.Padding(4);
             this.pnRevisados.MinimumSize = new System.Drawing.Size(457, 140);
             this.pnRevisados.Name = "pnRevisados";
             this.pnRevisados.Radius = 20;
@@ -405,29 +405,29 @@ namespace GestionCasos
             this.lblRevisados.Location = new System.Drawing.Point(27, 78);
             this.lblRevisados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRevisados.Name = "lblRevisados";
-            this.lblRevisados.Size = new System.Drawing.Size(172, 30);
+            this.lblRevisados.Size = new System.Drawing.Size(237, 37);
             this.lblRevisados.TabIndex = 7;
-            this.lblRevisados.Text = "Casos tramitados";
+            this.lblRevisados.Text = "Casos Por Entregar";
             // 
-            // lblTotalRevisados
+            // lblTotalPorEntrega
             // 
-            this.lblTotalRevisados.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTotalRevisados.AutoSize = true;
-            this.lblTotalRevisados.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalRevisados.ForeColor = System.Drawing.Color.White;
-            this.lblTotalRevisados.Location = new System.Drawing.Point(21, 12);
-            this.lblTotalRevisados.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalRevisados.Name = "lblTotalRevisados";
-            this.lblTotalRevisados.Size = new System.Drawing.Size(43, 50);
-            this.lblTotalRevisados.TabIndex = 6;
-            this.lblTotalRevisados.Text = "0";
+            this.lblTotalPorEntrega.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalPorEntrega.AutoSize = true;
+            this.lblTotalPorEntrega.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPorEntrega.ForeColor = System.Drawing.Color.White;
+            this.lblTotalPorEntrega.Location = new System.Drawing.Point(21, 12);
+            this.lblTotalPorEntrega.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalPorEntrega.Name = "lblTotalPorEntrega";
+            this.lblTotalPorEntrega.Size = new System.Drawing.Size(54, 62);
+            this.lblTotalPorEntrega.TabIndex = 6;
+            this.lblTotalPorEntrega.Text = "0";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.Image = global::GestionCasos.Properties.Resources.task_60px;
             this.pictureBox3.Location = new System.Drawing.Point(335, 34);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(80, 74);
@@ -451,7 +451,7 @@ namespace GestionCasos
             this.gunaTileButton1.Image = global::GestionCasos.Properties.Resources.more_details_60px;
             this.gunaTileButton1.ImageSize = new System.Drawing.Size(52, 52);
             this.gunaTileButton1.Location = new System.Drawing.Point(41, 561);
-            this.gunaTileButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaTileButton1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaTileButton1.Name = "gunaTileButton1";
             this.gunaTileButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.gunaTileButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -473,8 +473,8 @@ namespace GestionCasos
             this.pnContadores.Controls.Add(this.label2);
             this.pnContadores.Controls.Add(this.label1);
             this.pnContadores.Controls.Add(this.pictureBox1);
-            this.pnContadores.Location = new System.Drawing.Point(41, 18);
-            this.pnContadores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnContadores.Location = new System.Drawing.Point(41, 366);
+            this.pnContadores.Margin = new System.Windows.Forms.Padding(4);
             this.pnContadores.MinimumSize = new System.Drawing.Size(457, 140);
             this.pnContadores.Name = "pnContadores";
             this.pnContadores.Radius = 20;
@@ -491,7 +491,7 @@ namespace GestionCasos
             this.label2.Location = new System.Drawing.Point(27, 75);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 30);
+            this.label2.Size = new System.Drawing.Size(152, 37);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contadores";
             // 
@@ -504,7 +504,7 @@ namespace GestionCasos
             this.label1.Location = new System.Drawing.Point(23, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 50);
+            this.label1.Size = new System.Drawing.Size(54, 62);
             this.label1.TabIndex = 2;
             this.label1.Text = "0";
             // 
@@ -513,7 +513,7 @@ namespace GestionCasos
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::GestionCasos.Properties.Resources.group_60px;
             this.pictureBox1.Location = new System.Drawing.Point(335, 38);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(80, 74);
@@ -528,10 +528,10 @@ namespace GestionCasos
             this.pnPendientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnPendientes.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.pnPendientes.Controls.Add(this.lblPendientes);
-            this.pnPendientes.Controls.Add(this.lblTotaPendientes);
+            this.pnPendientes.Controls.Add(this.lblTotaRevision);
             this.pnPendientes.Controls.Add(this.pictureBox2);
-            this.pnPendientes.Location = new System.Drawing.Point(608, 18);
-            this.pnPendientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnPendientes.Location = new System.Drawing.Point(41, 18);
+            this.pnPendientes.Margin = new System.Windows.Forms.Padding(4);
             this.pnPendientes.MinimumSize = new System.Drawing.Size(457, 140);
             this.pnPendientes.Name = "pnPendientes";
             this.pnPendientes.Radius = 20;
@@ -547,29 +547,29 @@ namespace GestionCasos
             this.lblPendientes.Location = new System.Drawing.Point(25, 75);
             this.lblPendientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPendientes.Name = "lblPendientes";
-            this.lblPendientes.Size = new System.Drawing.Size(174, 30);
+            this.lblPendientes.Size = new System.Drawing.Size(223, 37);
             this.lblPendientes.TabIndex = 7;
-            this.lblPendientes.Text = "Casos Pendientes";
+            this.lblPendientes.Text = "Casos En Revisión";
             // 
-            // lblTotaPendientes
+            // lblTotaRevision
             // 
-            this.lblTotaPendientes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTotaPendientes.AutoSize = true;
-            this.lblTotaPendientes.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotaPendientes.ForeColor = System.Drawing.Color.White;
-            this.lblTotaPendientes.Location = new System.Drawing.Point(21, 12);
-            this.lblTotaPendientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotaPendientes.Name = "lblTotaPendientes";
-            this.lblTotaPendientes.Size = new System.Drawing.Size(43, 50);
-            this.lblTotaPendientes.TabIndex = 6;
-            this.lblTotaPendientes.Text = "0";
+            this.lblTotaRevision.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotaRevision.AutoSize = true;
+            this.lblTotaRevision.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotaRevision.ForeColor = System.Drawing.Color.White;
+            this.lblTotaRevision.Location = new System.Drawing.Point(21, 12);
+            this.lblTotaRevision.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotaRevision.Name = "lblTotaRevision";
+            this.lblTotaRevision.Size = new System.Drawing.Size(54, 62);
+            this.lblTotaRevision.TabIndex = 6;
+            this.lblTotaRevision.Text = "0";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = global::GestionCasos.Properties.Resources.data_pending_60px;
             this.pictureBox2.Location = new System.Drawing.Point(333, 38);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.MinimumSize = new System.Drawing.Size(80, 74);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(80, 74);
@@ -583,7 +583,7 @@ namespace GestionCasos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1083, 718);
             this.Controls.Add(this.DesktopPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fDashBoard";
             this.Text = "fDashBoard";
             this.Load += new System.EventHandler(this.FDashBoard_Load);
@@ -617,7 +617,7 @@ namespace GestionCasos
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel4;
         private Guna.UI.WinForms.GunaElipsePanel pnRevisados;
         private System.Windows.Forms.Label lblRevisados;
-        private System.Windows.Forms.Label lblTotalRevisados;
+        private System.Windows.Forms.Label lblTotalPorEntrega;
         private System.Windows.Forms.PictureBox pictureBox3;
         private Guna.UI.WinForms.GunaElipsePanel pnContadores;
         private System.Windows.Forms.Label label2;
@@ -625,7 +625,7 @@ namespace GestionCasos
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI.WinForms.GunaElipsePanel pnPendientes;
         private System.Windows.Forms.Label lblPendientes;
-        private System.Windows.Forms.Label lblTotaPendientes;
+        private System.Windows.Forms.Label lblTotaRevision;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblJuntas;
         private System.Windows.Forms.Label lblTotalJuntas;
@@ -639,7 +639,7 @@ namespace GestionCasos
         private System.Windows.Forms.PictureBox pictureBox6;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblTramitadores;
+        private System.Windows.Forms.Label lblCasosRevisados;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label4;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton4;

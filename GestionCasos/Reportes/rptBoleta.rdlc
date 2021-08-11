@@ -87,11 +87,11 @@
         </Field>
         <Field Name="numeroActa">
           <DataField>numeroActa</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="numeroFolio">
           <DataField>numeroFolio</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="fechaActa">
           <DataField>fechaActa</DataField>
@@ -100,7 +100,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsBoleta</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\User\Desktop\Proyecto-Revision\GestionCasos\dtsBoleta.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Desktop\App\GestionCasos\dtsBoleta.xsd</rd:SchemaPath>
         <rd:TableName>BoletaTable</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -2447,70 +2447,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="numeroFolio">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!numeroFolio.Value, "dtsBoleta")</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>numeroFolio</rd:DefaultName>
-            <Top>13.17597cm</Top>
-            <Left>4.44592cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.94979cm</Width>
-            <ZIndex>39</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="numeroActa">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!numeroActa.Value, "dtsBoleta")</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>numeroActa</rd:DefaultName>
-            <Top>12.50542cm</Top>
-            <Left>4.41064cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.94979cm</Width>
-            <ZIndex>40</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox36">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -2532,7 +2468,7 @@
             <Left>3.17862cm</Left>
             <Height>0.6cm</Height>
             <Width>1.12416cm</Width>
-            <ZIndex>41</ZIndex>
+            <ZIndex>39</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2564,12 +2500,76 @@
             <Left>4.40862cm</Left>
             <Height>0.6cm</Height>
             <Width>2.94979cm</Width>
-            <ZIndex>42</ZIndex>
+            <ZIndex>40</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="numeroFolio1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!numeroFolio.Value, "dtsBoleta")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>numeroFolio1</rd:DefaultName>
+            <Top>13.21125cm</Top>
+            <Left>4.44592cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.94979cm</Width>
+            <ZIndex>41</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="numeroActa1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!numeroActa.Value, "dtsBoleta")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>numeroActa1</rd:DefaultName>
+            <Top>12.57597cm</Top>
+            <Left>4.40862cm</Left>
+            <Height>0.6cm</Height>
+            <Width>2.94979cm</Width>
+            <ZIndex>42</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>

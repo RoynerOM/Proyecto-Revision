@@ -295,8 +295,6 @@ namespace GestionCasos {
             
             private global::System.Data.DataColumn columnComentario;
             
-            private global::System.Data.DataColumn columnObservacion;
-            
             private global::System.Data.DataColumn columnEstado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -398,14 +396,6 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ObservacionColumn {
-                get {
-                    return this.columnObservacion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn EstadoColumn {
                 get {
                     return this.columnEstado;
@@ -449,7 +439,7 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CasosTableRow AddCasosTableRow(string Consecutivo, System.DateTime Fecha, int Codigo, string Nombre, string Recepción, string Cedula, string NombreCompleto, string Comentario, string Observacion, string Estado) {
+            public CasosTableRow AddCasosTableRow(string Consecutivo, System.DateTime Fecha, int Codigo, string Nombre, string Recepción, string Cedula, string NombreCompleto, string Comentario, string Estado) {
                 CasosTableRow rowCasosTableRow = ((CasosTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Consecutivo,
@@ -460,7 +450,6 @@ namespace GestionCasos {
                         Cedula,
                         NombreCompleto,
                         Comentario,
-                        Observacion,
                         Estado};
                 rowCasosTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCasosTableRow);
@@ -492,7 +481,6 @@ namespace GestionCasos {
                 this.columnCedula = base.Columns["Cedula"];
                 this.columnNombreCompleto = base.Columns["NombreCompleto"];
                 this.columnComentario = base.Columns["Comentario"];
-                this.columnObservacion = base.Columns["Observacion"];
                 this.columnEstado = base.Columns["Estado"];
             }
             
@@ -515,8 +503,6 @@ namespace GestionCasos {
                 base.Columns.Add(this.columnNombreCompleto);
                 this.columnComentario = new global::System.Data.DataColumn("Comentario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnComentario);
-                this.columnObservacion = new global::System.Data.DataColumn("Observacion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnObservacion);
                 this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado);
                 this.columnConsecutivo.ReadOnly = true;
@@ -533,8 +519,6 @@ namespace GestionCasos {
                 this.columnNombreCompleto.MaxLength = 152;
                 this.columnComentario.AllowDBNull = false;
                 this.columnComentario.MaxLength = 2147483647;
-                this.columnObservacion.AllowDBNull = false;
-                this.columnObservacion.MaxLength = 2147483647;
                 this.columnEstado.AllowDBNull = false;
                 this.columnEstado.MaxLength = 50;
             }
@@ -777,17 +761,6 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Observacion {
-                get {
-                    return ((string)(this[this.tableCasosTable.ObservacionColumn]));
-                }
-                set {
-                    this[this.tableCasosTable.ObservacionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Estado {
                 get {
                     return ((string)(this[this.tableCasosTable.EstadoColumn]));
@@ -989,7 +962,6 @@ namespace GestionCasos.dtsCasosTableAdapters {
             tableMapping.ColumnMappings.Add("Cedula", "Cedula");
             tableMapping.ColumnMappings.Add("NombreCompleto", "NombreCompleto");
             tableMapping.ColumnMappings.Add("Comentario", "Comentario");
-            tableMapping.ColumnMappings.Add("Observacion", "Observacion");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -1007,13 +979,12 @@ namespace GestionCasos.dtsCasosTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        tRevision.Consecutivo, tRevision.Fecha, tInstitucion.Codigo, tInstitucion.Nombre, tRecepcion.Recepcion AS Recepción, tPersona.Cedula, tPersona.NombreCompleto, tRevision.Comentario, tRevision.Observacion, 
-                         tEstado.Estado
-FROM            tRevision INNER JOIN
-                         tRecepcion ON tRevision.Recepcion = tRecepcion.id INNER JOIN
-                         tEstado ON tRevision.Estado = tEstado.IdEstado INNER JOIN
-                         tPersona ON tRevision.Tramitador = tPersona.Cedula INNER JOIN
-                         tInstitucion ON tRevision.Codigo = tInstitucion.Codigo";
+            this._commandCollection[0].CommandText = @"SELECT tRevision.Consecutivo, tRevision.Fecha, tInstitucion.Codigo, tInstitucion.Nombre, tRecepcion.Recepcion AS Recepción, tPersona.Cedula, tPersona.NombreCompleto, tRevision.Comentario, tEstado.Estado
+FROM     tRevision INNER JOIN
+                  tRecepcion ON tRevision.Recepcion = tRecepcion.id INNER JOIN
+                  tEstado ON tRevision.Estado = tEstado.IdEstado INNER JOIN
+                  tPersona ON tRevision.Tramitador = tPersona.Cedula INNER JOIN
+                  tInstitucion ON tRevision.Codigo = tInstitucion.Codigo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -1035,6 +1006,7 @@ FROM            tRevision INNER JOIN
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaInicio", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFinal", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "dbo.spFiltrarRecepcionCasos";
@@ -1155,7 +1127,7 @@ FROM            tRevision INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy2(dtsCasos.CasosTableDataTable dataTable, global::System.Nullable<global::System.DateTime> fechaInicio, global::System.Nullable<global::System.DateTime> fechaFinal) {
+        public virtual int FillBy2(dtsCasos.CasosTableDataTable dataTable, global::System.Nullable<global::System.DateTime> fechaInicio, global::System.Nullable<global::System.DateTime> fechaFinal, global::System.Nullable<int> Codigo) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((fechaInicio.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(fechaInicio.Value));
@@ -1168,6 +1140,12 @@ FROM            tRevision INNER JOIN
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Codigo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Codigo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1180,7 +1158,7 @@ FROM            tRevision INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual dtsCasos.CasosTableDataTable GetDataBy2(global::System.Nullable<global::System.DateTime> fechaInicio, global::System.Nullable<global::System.DateTime> fechaFinal) {
+        public virtual dtsCasos.CasosTableDataTable GetDataBy2(global::System.Nullable<global::System.DateTime> fechaInicio, global::System.Nullable<global::System.DateTime> fechaFinal, global::System.Nullable<int> Codigo) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((fechaInicio.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(fechaInicio.Value));
@@ -1193,6 +1171,12 @@ FROM            tRevision INNER JOIN
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Codigo.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Codigo.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             dtsCasos.CasosTableDataTable dataTable = new dtsCasos.CasosTableDataTable();
             this.Adapter.Fill(dataTable);

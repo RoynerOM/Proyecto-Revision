@@ -12,11 +12,11 @@
               <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        tInstitucion.Codigo, tInstitucion.Circuito, tTipoInstitucion.NombreTipo, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tInstitucion.CuentaDanea, tInstitucion.CuentaLey, tPersona.NombreCompleto AS Contador, 
-                         tInstitucion.Estado
-FROM            tInstitucion INNER JOIN
-                         tTipoInstitucion ON tInstitucion.Tipo = tTipoInstitucion.IdTipo INNER JOIN
-                         tPersona ON tInstitucion.Contador = tPersona.Cedula</CommandText>
+                    <CommandText>SELECT tInstitucion.Codigo, tInstitucion.Circuito, tTipoInstitucion.NombreTipo, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tInstitucion.DiaRuta, tInstitucion.CuentaLey, tInstitucion.Responsable, tInstitucion.Contacto, 
+                  tPersona.NombreCompleto AS Contador, tInstitucion.Estado
+FROM     tInstitucion INNER JOIN
+                  tTipoInstitucion ON tInstitucion.Tipo = tTipoInstitucion.IdTipo INNER JOIN
+                  tPersona ON tInstitucion.Contador = tPersona.Cedula</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -25,13 +25,15 @@ FROM            tInstitucion INNER JOIN
             <Mappings>
               <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
               <Mapping SourceColumn="Circuito" DataSetColumn="Circuito" />
-              <Mapping SourceColumn="NombreTipo" DataSetColumn="NombreTipo" />
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
               <Mapping SourceColumn="CedulaJuridica" DataSetColumn="CedulaJuridica" />
-              <Mapping SourceColumn="CuentaDanea" DataSetColumn="CuentaDanea" />
+              <Mapping SourceColumn="NombreTipo" DataSetColumn="NombreTipo" />
+              <Mapping SourceColumn="DiaRuta" DataSetColumn="DiaRuta" />
               <Mapping SourceColumn="CuentaLey" DataSetColumn="CuentaLey" />
               <Mapping SourceColumn="Contador" DataSetColumn="Contador" />
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
+              <Mapping SourceColumn="Responsable" DataSetColumn="Responsable" />
+              <Mapping SourceColumn="Contacto" DataSetColumn="Contacto" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectName="BDJuntas.dbo.spFiltrarCircuitoJunta" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -93,13 +95,6 @@ FROM            tInstitucion INNER JOIN
             <xs:sequence>
               <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:int" />
               <xs:element name="Circuito" msprop:Generator_ColumnVarNameInTable="columnCircuito" msprop:Generator_ColumnPropNameInRow="Circuito" msprop:Generator_ColumnPropNameInTable="CircuitoColumn" msprop:Generator_UserColumnName="Circuito" type="xs:int" />
-              <xs:element name="NombreTipo" msprop:Generator_ColumnVarNameInTable="columnNombreTipo" msprop:Generator_ColumnPropNameInRow="NombreTipo" msprop:Generator_ColumnPropNameInTable="NombreTipoColumn" msprop:Generator_UserColumnName="NombreTipo">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -114,7 +109,14 @@ FROM            tInstitucion INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CuentaDanea" msprop:Generator_ColumnVarNameInTable="columnCuentaDanea" msprop:Generator_ColumnPropNameInRow="CuentaDanea" msprop:Generator_ColumnPropNameInTable="CuentaDaneaColumn" msprop:Generator_UserColumnName="CuentaDanea">
+              <xs:element name="NombreTipo" msprop:Generator_ColumnVarNameInTable="columnNombreTipo" msprop:Generator_ColumnPropNameInRow="NombreTipo" msprop:Generator_ColumnPropNameInTable="NombreTipoColumn" msprop:Generator_UserColumnName="NombreTipo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DiaRuta" msprop:Generator_ColumnVarNameInTable="columnDiaRuta" msprop:Generator_ColumnPropNameInRow="DiaRuta" msprop:Generator_ColumnPropNameInTable="DiaRutaColumn" msprop:Generator_UserColumnName="DiaRuta" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
@@ -136,6 +138,20 @@ FROM            tInstitucion INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado" type="xs:boolean" />
+              <xs:element name="Responsable" msprop:Generator_ColumnVarNameInTable="columnResponsable" msprop:Generator_ColumnPropNameInRow="Responsable" msprop:Generator_ColumnPropNameInTable="ResponsableColumn" msprop:Generator_UserColumnName="Responsable">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contacto" msprop:Generator_ColumnVarNameInTable="columnContacto" msprop:Generator_ColumnPropNameInRow="Contacto" msprop:Generator_ColumnPropNameInTable="ContactoColumn" msprop:Generator_UserColumnName="Contacto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

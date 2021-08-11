@@ -146,7 +146,7 @@ namespace GestionCasos.Administrador
                     tabla.Rows[nRows].Cells[2].Value = item.tTipoInstitucion.NombreTipo;
                     tabla.Rows[nRows].Cells[3].Value = item.Nombre;
                     tabla.Rows[nRows].Cells[4].Value = item.CedulaJuridica;
-                    tabla.Rows[nRows].Cells[5].Value = item.CuentaDanea;
+                    tabla.Rows[nRows].Cells[5].Value = item.DiaRuta;
                     tabla.Rows[nRows].Cells[6].Value = item.CuentaLey;
                     tabla.Rows[nRows].Cells[7].Value = item.tPersona.NombreCompleto.ToUpper();
                     tabla.Rows[nRows].Cells[8].Value = item.Responsable.ToUpper();

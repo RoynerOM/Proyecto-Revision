@@ -19,8 +19,10 @@ namespace Entidades
         public string NombreTipo { get; set; }
         public string Nombre { get; set; }
         public string CedulaJuridica { get; set; }
-        public string CuentaDanea { get; set; }
+        public string DiaRuta { get; set; }
         public string CuentaLey { get; set; }
+        public string Responsable { get; set; }
+        public string Contacto { get; set; }
         public string Contador { get; set; }
         public bool Estado { get; set; }
     }

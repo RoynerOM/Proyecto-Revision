@@ -32,7 +32,7 @@ namespace GestionCasos
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private bool entrega = false;
 
-        int cantidad = 10;
+        int cantidad = 5;
         int TotalPaginas = 0;
         int aux = 0;
         string person = null;
@@ -182,17 +182,17 @@ namespace GestionCasos
 
 
 
-                    if (item.tEstado.Estado.ToUpper() == "REVISADO")
+                    if (item.tEstado.Estado.ToUpper() == "TRAMITADO")
                     {
                         if (isDark == "false")
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
                         }
                         else
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
                         }
                     }
                     else if (item.tEstado.Estado.ToUpper() == "ENTREGADO")
@@ -212,27 +212,27 @@ namespace GestionCasos
                     {
                         if (isDark == "false")
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.GreenFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.GreenBack;
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleFore;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack;
                         }
                         else
                         {
-
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(46, 160, 67);
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(11, 38, 40);
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleBack;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack2;
                         }
                     }
                     else
                     {
                         if (isDark == "false")
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.RedBack;
+
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.OrangeFont;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.OrangeBack;
                         }
                         else
                         {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(227, 179, 65);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(66, 56, 34);
                         }
                     }
                 }
@@ -247,7 +247,7 @@ namespace GestionCasos
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-            if (screenWidth <= 1200)
+            if (screenWidth <= 1349)
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                 tabla.Columns[0].Width = 90;
@@ -258,9 +258,9 @@ namespace GestionCasos
                 tabla.Columns[5].Width = 100;
                 tabla.Columns[6].Width = 220;
                 tabla.Columns[7].Width = 120;
-                tabla.Columns[8].Width = 100;
+                tabla.Columns[8].Width = 120;
             }
-            else if (screenWidth > 200 && screenWidth <= 1250)
+            else if (screenWidth > 200 && screenWidth <= 1350)
             {
                 tabla.Columns[0].Width = 95;
                 tabla.Columns[1].Width = 105;
@@ -270,7 +270,7 @@ namespace GestionCasos
                 tabla.Columns[5].Width = 105;
                 tabla.Columns[6].Width = 240;
                 tabla.Columns[7].Width = 120;
-                tabla.Columns[8].Width = 105;
+                tabla.Columns[8].Width = 120;
             }
             else
             {
@@ -378,11 +378,6 @@ namespace GestionCasos
                 cbTramitador.ValueMember = "Cedula";
                 cbTramitador.DisplayMember = "NombreCompleto";
 
-                //Estado
-                cbEstado.DataSource = await estadoNegocio.obtenerTodo();
-                cbEstado.ValueMember = "IdEstado";
-                cbEstado.DisplayMember = "Estado".ToUpper();
-
                 //Recepcion
                 cbRecepcion.DataSource = await recepcion.obtenerTodo();
                 cbRecepcion.ValueMember = "id";
@@ -403,34 +398,6 @@ namespace GestionCasos
             {
                 PedirDatos(aux, cbTramitador.SelectedValue.ToString(), 0, 0);
                 person = cbTramitador.SelectedValue.ToString();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
-
-        //Combo de Estado
-        private void cbEstado_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            try
-            {
-                if ((int)cbEstado.SelectedValue == 6)
-                {
-                    TotalPaginas = 0;
-                    aux = 0;
-                    person = null;
-                    txtConsecutivo.ResetText();
-                    cbEstado.ResetText();
-                    cbTramitador.ResetText();
-                    cbRecepcion.ResetText();
-                    PedirDatos(0, null, 0, 0);
-                }
-                else
-                {
-                    PedirDatos(aux, null, (int)cbEstado.SelectedValue, 0);
-                    es = (int)cbEstado.SelectedValue;
-                }
             }
             catch (Exception ex)
             {
@@ -482,7 +449,6 @@ namespace GestionCasos
             aux = 0;
             person = null;
             txtConsecutivo.ResetText();
-            cbEstado.ResetText();
             cbTramitador.ResetText();
             cbRecepcion.ResetText();
             PedirDatos(0, null, 0, 0);
@@ -509,10 +475,6 @@ namespace GestionCasos
                 if (medio != 0)
                 {
                     PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
-                }
-                else if (es != 0)
-                {
-                    PedirDatos(aux, null, (int)cbEstado.SelectedValue, 0);
                 }
                 else if (person != null)
                 {
@@ -543,10 +505,6 @@ namespace GestionCasos
                 if (medio != 0)
                 {
                     PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
-                }
-                else if (es != 0)
-                {
-                    PedirDatos(aux, null, (int)cbEstado.SelectedValue, 0);
                 }
                 else if (person != null)
                 {
@@ -587,6 +545,33 @@ namespace GestionCasos
 
                 Console.WriteLine(ex);
             }
+        }
+
+        private async void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    if (txtCodigo.Text != null)
+                    {
+                        var casos = await revisionNegocio.obtenerTodo();
+                        if (casos != null)
+                        {
+                            aux = 0;
+                            TotalPaginas = 0;
+                            CargarTabla(casos.Where(x => x.Codigo == int.Parse(txtCodigo.Text)));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+
+
         }
     }
 }

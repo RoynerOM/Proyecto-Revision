@@ -27,12 +27,11 @@ namespace Entidades
         public string FechaAsignada { get; set; }
         public string FechaRevisada { get; set; }
         public string Comentario { get; set; }
-        public string Observacion { get; set; }
         public string Tramitador { get; set; }
         public int Codigo { get; set; }
         public int Recepcion { get; set; }
-        public Nullable<int> numeroActa { get; set; }
-        public Nullable<int> numeroFolio { get; set; }
+        public string numeroActa { get; set; }
+        public string numeroFolio { get; set; }
         public Nullable<System.DateTime> fechaActa { get; set; }
         public int Estado { get; set; }
     

@@ -22,7 +22,6 @@ namespace Entidades
         public string Cedula { get; set; }
         public string NombreCompleto { get; set; }
         public string Comentario { get; set; }
-        public string Observacion { get; set; }
         public string Estado { get; set; }
     }
 }

@@ -17,9 +17,9 @@ namespace GestionCasos
             InitializeComponent();
         }
 
-        private void CargarCombo()
+        private async void CargarCombo()
         {
-            cbContadores.DataSource = persona.obtenerTodo();
+            cbContadores.DataSource = await persona.obtenerTodo();
             cbContadores.DisplayMember = "NombreCompleto";
         }
 

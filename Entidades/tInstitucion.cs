@@ -26,13 +26,13 @@ namespace Entidades
         public int Tipo { get; set; }
         public string Nombre { get; set; }
         public string CedulaJuridica { get; set; }
-        public string CuentaDanea { get; set; }
         public string CuentaLey { get; set; }
         public string Contador { get; set; }
         public string Responsable { get; set; }
         public string Contacto { get; set; }
         public bool Estado { get; set; }
         public int CodigoAux { get; set; }
+        public string DiaRuta { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tEntregaCasos> tEntregaCasos { get; set; }
