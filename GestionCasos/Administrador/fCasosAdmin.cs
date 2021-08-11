@@ -378,11 +378,6 @@ namespace GestionCasos
                 cbTramitador.ValueMember = "Cedula";
                 cbTramitador.DisplayMember = "NombreCompleto";
 
-                //Estado
-                cbEstado.DataSource = await estadoNegocio.obtenerTodo();
-                cbEstado.ValueMember = "IdEstado";
-                cbEstado.DisplayMember = "Estado".ToUpper();
-
                 //Recepcion
                 cbRecepcion.DataSource = await recepcion.obtenerTodo();
                 cbRecepcion.ValueMember = "id";
@@ -403,34 +398,6 @@ namespace GestionCasos
             {
                 PedirDatos(aux, cbTramitador.SelectedValue.ToString(), 0, 0);
                 person = cbTramitador.SelectedValue.ToString();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
-
-        //Combo de Estado
-        private void cbEstado_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            try
-            {
-                if ((int)cbEstado.SelectedValue == 6)
-                {
-                    TotalPaginas = 0;
-                    aux = 0;
-                    person = null;
-                    txtConsecutivo.ResetText();
-                    cbEstado.ResetText();
-                    cbTramitador.ResetText();
-                    cbRecepcion.ResetText();
-                    PedirDatos(0, null, 0, 0);
-                }
-                else
-                {
-                    PedirDatos(aux, null, (int)cbEstado.SelectedValue, 0);
-                    es = (int)cbEstado.SelectedValue;
-                }
             }
             catch (Exception ex)
             {
@@ -482,7 +449,6 @@ namespace GestionCasos
             aux = 0;
             person = null;
             txtConsecutivo.ResetText();
-            cbEstado.ResetText();
             cbTramitador.ResetText();
             cbRecepcion.ResetText();
             PedirDatos(0, null, 0, 0);
@@ -509,10 +475,6 @@ namespace GestionCasos
                 if (medio != 0)
                 {
                     PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
-                }
-                else if (es != 0)
-                {
-                    PedirDatos(aux, null, (int)cbEstado.SelectedValue, 0);
                 }
                 else if (person != null)
                 {
@@ -543,10 +505,6 @@ namespace GestionCasos
                 if (medio != 0)
                 {
                     PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
-                }
-                else if (es != 0)
-                {
-                    PedirDatos(aux, null, (int)cbEstado.SelectedValue, 0);
                 }
                 else if (person != null)
                 {
@@ -587,6 +545,33 @@ namespace GestionCasos
 
                 Console.WriteLine(ex);
             }
+        }
+
+        private async void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    if (txtCodigo.Text != null)
+                    {
+                        var casos = await revisionNegocio.obtenerTodo();
+                        if (casos != null)
+                        {
+                            aux = 0;
+                            TotalPaginas = 0;
+                            CargarTabla(casos.Where(x => x.Codigo == int.Parse(txtCodigo.Text)));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+
+
         }
     }
 }
