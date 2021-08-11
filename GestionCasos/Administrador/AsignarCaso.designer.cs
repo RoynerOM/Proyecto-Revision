@@ -148,7 +148,7 @@ namespace GestionCasos
             this.gunaAdvenceTileButton2.CheckedBaseColor = System.Drawing.Color.Gray;
             this.gunaAdvenceTileButton2.CheckedBorderColor = System.Drawing.Color.Black;
             this.gunaAdvenceTileButton2.CheckedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
-            this.gunaAdvenceTileButton2.CheckedImage = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceTileButton2.CheckedImage")));
+            //this.gunaAdvenceTileButton2.CheckedImage = ((System.Drawing.Image)(resources.GetObject("gunaAdvenceTileButton2.CheckedImage")));
             this.gunaAdvenceTileButton2.CheckedLineColor = System.Drawing.Color.DimGray;
             this.gunaAdvenceTileButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gunaAdvenceTileButton2.DialogResult = System.Windows.Forms.DialogResult.None;

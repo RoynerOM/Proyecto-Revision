@@ -3,6 +3,7 @@ using Entidades;
 using GestionCasos.Administrador;
 using Negocios;
 using System;
+using System.Collections.Generic;
 //using Utilidades.Enumerables;
 using System.Configuration;
 using System.Linq;
@@ -13,6 +14,15 @@ using Utilidades;
 namespace GestionCasos
 
 {
+
+    public class ListaAux
+    {
+        public int id { get; set; }
+
+        public string nombre { get; set; }
+
+    }
+
     public partial class AsignarCaso : Form
     {
 
@@ -49,6 +59,26 @@ namespace GestionCasos
             }
         }
 
+        private void CargarCombosAux()
+        {
+            List<ListaAux> lista = new List<ListaAux>
+            {
+                new ListaAux{id = 1, nombre = "-"}
+
+            };
+
+            cbTipoRecepcion.DataSource = lista;
+            cbTipoRecepcion.ValueMember = "id";
+            cbTipoRecepcion.DisplayMember = "nombre";
+
+
+            cbAsignados.DataSource = lista;
+            cbAsignados.ValueMember = "id";
+            cbAsignados.DisplayMember = "nombre";
+
+
+        }
+
         //Modificado
         private void MostrarConsecutivo()
         {
@@ -78,6 +108,8 @@ namespace GestionCasos
             OpenChildForm(new fLoader(1, hilo));
             //Actualizar();
             MostrarConsecutivo();
+            CargarCombosAux();
+
         }
 
         //Cambio de colores
@@ -107,7 +139,6 @@ namespace GestionCasos
             {
                 try
                 {
-                    CargarCombos();
 
                     using (var context = new BDJuntasEntities())
                     {
@@ -121,6 +152,8 @@ namespace GestionCasos
                             {
                                 txtJuntaAdm.Text = codigo.Nombre;
                                 txtCircuito.Text = codigo.Circuito.ToString();
+                                CargarCombos();
+                                
                             }
                             else
                             {
@@ -163,7 +196,8 @@ namespace GestionCasos
                 {
                     Alerta.Success(new Alertas.Alerta(), "Caso asignado");
                     MostrarConsecutivo();
-                    txtCodigo.ResetText();
+                    limpiarCampos();
+                    CargarCombosAux();
                 }
                 else
                 {
@@ -176,6 +210,13 @@ namespace GestionCasos
             }
         }
 
+        private void limpiarCampos()
+        {
+            txtCodigo.ResetText();
+            txtCircuito.Clear();
+            txtJuntaAdm.Clear();
+            txtCaso.Clear();
+        }
 
         private void OpenChildForm(Form childForm)
         {
@@ -195,6 +236,9 @@ namespace GestionCasos
         {
 
             btnGuardar.Enabled = false;
+            txtConsecutivo.Visible = false;
+            lbConsecutivo.Visible = false;
+            CargarCombos();
 
             try
             {
@@ -245,13 +289,19 @@ namespace GestionCasos
                 {
                     Alerta.Success(new Alertas.Alerta(), "Caso reasignado a: " + cbAsignados.Text);
                     MostrarConsecutivo();
-                    txtCodigo.ResetText();
-                    txtCaso.ResetText();
+                    limpiarCampos();
+                    CargarCombosAux();
+                    txtConsecutivo.Visible = true;
+                    lbConsecutivo.Visible = true;
                     btnReasignarCaso.Enabled = false;
                 }
                 else
                 {
                     Alerta.Danger(new Alertas.Alerta(), "Error al reasignar caso");
+                    txtConsecutivo.Visible = true;
+                    lbConsecutivo.Visible = true;
+                    limpiarCampos();
+                    CargarCombosAux();
                 }
 
                 btnReasignarCaso.Enabled = false;
