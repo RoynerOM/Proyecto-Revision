@@ -32,7 +32,7 @@ namespace GestionCasos
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private bool entrega = false;
 
-        int cantidad = 5;
+        int cantidad = 10;
         int TotalPaginas = 0;
         int aux = 0;
         string person = null;
@@ -177,12 +177,24 @@ namespace GestionCasos
                     tabla.Rows[nRows].Cells[5].Style.Font = new Font((string)"Segoe UI Semibold", 9);
                     tabla.Rows[nRows].Cells[6].Style.Font = new Font((string)"Segoe UI Semibold", 9);
                     tabla.Rows[nRows].Cells[7].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 8);
                     #endregion
 
 
-
-                    if (item.tEstado.Estado.ToUpper() == "TRAMITADO")
+                    if (item.tEstado.Estado.ToUpper() == "EN REVISIÓN")
+                    {
+                        if (isDark == "false")
+                        {
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.RedFont;
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.RedBack;
+                        }
+                        else
+                        {
+                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(248, 81, 73);
+                            tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
+                        }
+                    }
+                   else if (item.tEstado.Estado.ToUpper() == "POR ENTREGAR")
                     {
                         if (isDark == "false")
                         {
@@ -206,19 +218,6 @@ namespace GestionCasos
                         {
                             tabla.Rows[nRows].Cells[8].Style.ForeColor = Color.FromArgb(0, 120, 255);
                             tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(0, 45, 96);
-                        }
-                    }
-                    else if (item.tEstado.Estado.ToUpper() == "POR ENTREGAR")
-                    {
-                        if (isDark == "false")
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleFore;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack;
-                        }
-                        else
-                        {
-                            tabla.Rows[nRows].Cells[8].Style.ForeColor = Colors.PurpleBack;
-                            tabla.Rows[nRows].Cells[8].Style.BackColor = Colors.PurpleBack2;
                         }
                     }
                     else
@@ -247,30 +246,30 @@ namespace GestionCasos
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-            if (screenWidth <= 1349)
+            if (screenWidth <= 1280)
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                 tabla.Columns[0].Width = 90;
                 tabla.Columns[1].Width = 100;
                 tabla.Columns[2].Width = 80;
-                tabla.Columns[3].Width = 200;
+                tabla.Columns[3].Width = 320;
                 tabla.Columns[4].Width = 70;
                 tabla.Columns[5].Width = 100;
                 tabla.Columns[6].Width = 220;
                 tabla.Columns[7].Width = 120;
                 tabla.Columns[8].Width = 120;
             }
-            else if (screenWidth > 200 && screenWidth <= 1350)
+            else if (screenWidth > 1280 && screenWidth <= 1400)
             {
                 tabla.Columns[0].Width = 95;
                 tabla.Columns[1].Width = 105;
                 tabla.Columns[2].Width = 80;
-                tabla.Columns[3].Width = 230;
+                tabla.Columns[3].Width = 320;
                 tabla.Columns[4].Width = 70;
                 tabla.Columns[5].Width = 105;
-                tabla.Columns[6].Width = 240;
+                tabla.Columns[6].Width = 300;
                 tabla.Columns[7].Width = 120;
-                tabla.Columns[8].Width = 120;
+                tabla.Columns[8].Width = 130;
             }
             else
             {
@@ -287,7 +286,7 @@ namespace GestionCasos
 
             if (width <= 1300)
             {
-                Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
+                Grid.RowsDefaultCellStyle.Font = new Font(Name, 8);
             }
             else
             {
@@ -546,6 +545,8 @@ namespace GestionCasos
                 Console.WriteLine(ex);
             }
         }
+
+
 
         private async void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {

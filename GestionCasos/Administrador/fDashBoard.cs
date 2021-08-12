@@ -169,14 +169,16 @@ namespace GestionCasos
         private void GunaTileButton1_Click(object sender, EventArgs e)
         {
 
-            if (Rol == (int)Enums.Tipo.Contador)
-            {
-                OpenChildForm(new fCasosAdmin(false));
-            }
-            else
-            {
-                OpenChildForm(new CasosAsignados(false));
-            }
+            //if (Rol == (int)Enums.Tipo.Contador)
+            //{
+            //    OpenChildForm(new fCasosAdmin(false));
+            //}
+            //else
+            //{
+            //    OpenChildForm(new CasosAsignados(false));
+            //}
+
+            OpenChildForm(new fCasosAdmin(false));
         }
         //Pintar formulario hijo
         //Formulario en uso

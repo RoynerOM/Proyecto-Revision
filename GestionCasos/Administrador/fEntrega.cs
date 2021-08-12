@@ -84,7 +84,7 @@ namespace GestionCasos.Administrador
                     cbEntrega.Text = entrega.Recepcion == 4 ? "OFICINA" : "MENSAJERO";
                     lblConsecutivo.Text = consecutivo;
 
-
+                    btnGuardar.Enabled = false;
                     if (entrega.Pago == 0)
                     {
                         cbCheque.Checked = true;
@@ -279,7 +279,7 @@ namespace GestionCasos.Administrador
 
 
 
-
+                #region Mensajero en caso de que no exista
                 if (await personaNegocio.obtenerPorIdAsync(txtCedula.Text) == null)
                 {
                     tTrabajador t = new tTrabajador();
@@ -308,6 +308,8 @@ namespace GestionCasos.Administrador
                     personaNegocio.GuardarTrabajador(t);
                     personaNegocio.guardar(m);
                 }
+                #endregion
+
 
                 tEntregaCasos ec = await entregaNegocio.obtenerPorCasoAsync(consecutivo);
                 if (ValidarCampos() == true && ec != null)

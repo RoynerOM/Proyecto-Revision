@@ -439,14 +439,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Codigo">
+                    <Textbox Name="CodigoAux">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Codigo.Value</Value>
+                              <Value>=Fields!CodigoAux.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -455,7 +455,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Codigo</rd:DefaultName>
+                      <rd:DefaultName>CodigoAux</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -468,6 +468,7 @@
                         <PaddingBottom>5pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -799,7 +800,7 @@
         <Top>2.14948cm</Top>
         <Left>0.49012cm</Left>
         <Height>1.49104cm</Height>
-        <Width>34.76107cm</Width>
+        <Width>34.76106cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1117,10 +1118,6 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Codigo">
-          <DataField>Codigo</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="Circuito">
           <DataField>Circuito</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -1152,6 +1149,10 @@
         <Field Name="Estado">
           <DataField>Estado</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="CodigoAux">
+          <DataField>CodigoAux</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Responsable">
           <DataField>Responsable</DataField>

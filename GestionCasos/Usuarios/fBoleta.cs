@@ -281,7 +281,14 @@ namespace GestionCasos.Usuarios
                         revision.numeroFolio = txtFolio.Text;
                         revision.fechaActa = dtpFechaActa.Value;
 
-                        revision.Comentario = txtComentario.Text;
+                        if (txtComentario.Text != string.Empty)
+                        {
+                            revision.Comentario = "-";
+                        }
+                        else
+                        {
+                            revision.Comentario = txtComentario.Text;
+                        }
 
 
                         //Se actualiza la informacion del caso pasa hacer tramitador

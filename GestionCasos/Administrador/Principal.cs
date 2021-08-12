@@ -208,14 +208,15 @@ namespace GestionCasos
 
         private void btnEntregas_Click(object sender, EventArgs e)
         {
-            if (Rol == (int)Enums.Tipo.Tramitador)
-            {
-                OpenChildForm(new CasosAsignados(true), sender);
-            }
-            else
-            {
-                OpenChildForm(new fCasosAdmin(true), sender);
-            }
+            //if (Rol == (int)Enums.Tipo.Tramitador)
+            //{
+            //    OpenChildForm(new CasosAsignados(true), sender);
+            //}
+            //else
+            //{
+            //    OpenChildForm(new fCasosAdmin(true), sender);
+            //}
+            OpenChildForm(new fCasosAdmin(true), sender);
         }
 
 
