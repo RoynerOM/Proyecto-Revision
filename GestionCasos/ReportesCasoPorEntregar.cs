@@ -13,10 +13,22 @@ namespace GestionCasos
 {
     public partial class ReportesCasoPorEntregar : Form
     {
-
+        EstadoNegocio estado = new EstadoNegocio();
         public ReportesCasoPorEntregar()
         {
             InitializeComponent();
+        }
+
+        public async void CargarCombos()
+        {
+            try
+            {
+                var lista = await estado.obtenerTodo();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private void ReportesCasoPorEntregar_Load(object sender, EventArgs e)
