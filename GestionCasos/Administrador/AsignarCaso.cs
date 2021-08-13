@@ -26,6 +26,10 @@ namespace GestionCasos
         showMessageDialog Alerta = new showMessageDialog();
         private Form activeForm = null;
         tRevision casosReasignado = null;
+        int codigoAux = 0;//validar si el codigo se reasignara
+        string contadorAux = null;
+
+
         public AsignarCaso()
         {
             InitializeComponent();
@@ -240,6 +244,8 @@ namespace GestionCasos
                     this.casosReasignado = Rnegocio.ObtenerPorCaso(txtCaso.Text.ToUpper());
                     if (this.casosReasignado != null)
                     {
+                        codigoAux = casosReasignado.Codigo;
+                        contadorAux = casosReasignado.Tramitador;
                         btnReasignarCaso.Enabled = true;
                         txtCodigo.Text = casosReasignado.tInstitucion.Codigo.ToString();
                         txtJuntaAdm.Text = casosReasignado.tInstitucion.Nombre;
@@ -271,7 +277,7 @@ namespace GestionCasos
             try
             {
                 int flag = 0;
-                string reasignar = "Update tRevision set Tramitador = '" + cbAsignados.SelectedValue.ToString() +"' where Consecutivo = '"+ txtCaso.Text.ToUpper() + "'";
+                string reasignar = "Update tRevision set Tramitador = '" + cbAsignados.SelectedValue.ToString() +"', Codigo = "+ int.Parse(txtCodigo.Text) + "  where Consecutivo = '"+ txtCaso.Text.ToUpper() + "'";
                 SqlCommand cmd = new SqlCommand(reasignar ,conexion);
                 conexion.Open();
                 flag = cmd.ExecuteNonQuery();
@@ -279,17 +285,40 @@ namespace GestionCasos
                 if (flag == 1)
                 {
                     conexion.Close();
-                    Alerta.Success(new Alertas.Alerta(), "Caso reasignado a: " + cbAsignados.Text);
+                    if (codigoAux == int.Parse(txtCodigo.Text))
+                    {
+                        Alerta.Success(new Alertas.Alerta(), "Caso reasignado a: " + cbAsignados.Text);
+
+
+                    }
+                    else if (codigoAux != int.Parse(txtCodigo.Text))
+                    {
+                        Alerta.Success(new Alertas.Alerta(), "Caso reasignado a la institución: " + txtCodigo.Text);
+                        if (contadorAux == cbAsignados.SelectedValue.ToString())
+                        {
+                            Alerta.Success(new Alertas.Alerta(), "Caso reasignado a: " + cbAsignados.Text);
+                        }
+                    }
+                    else
+                    {
+                        Alerta.Success(new Alertas.Alerta(), "Caso reasignado");
+                    }
+
                     MostrarConsecutivo();
                     limpiarCampos();
                     txtConsecutivo.Visible = true;
                     lbConsecutivo.Visible = true;
                     btnReasignarCaso.Enabled = false;
                 }
-                else
+                else if (flag == 0)
                 {
                     Alerta.Danger(new Alertas.Alerta(), "Error al reasignar caso");
                     conexion.Close();
+
+                }
+                else
+                {
+                    btnReasignarCaso.Enabled = false;
                 }
 
                 #region CodigoEntyty
@@ -345,6 +374,8 @@ namespace GestionCasos
                         this.casosReasignado = Rnegocio.ObtenerPorCaso(txtCaso.Text.ToUpper());
                         if (this.casosReasignado != null)
                         {
+                            codigoAux = casosReasignado.Codigo;
+                            contadorAux = casosReasignado.Tramitador;
                             btnReasignarCaso.Enabled = true;
                             txtCodigo.Text = casosReasignado.tInstitucion.Codigo.ToString();
                             txtJuntaAdm.Text = casosReasignado.tInstitucion.Nombre;
@@ -369,6 +400,11 @@ namespace GestionCasos
                     Console.WriteLine(ex);
                 }
             }
+        }
+        
+        private void cbAsignados_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            contadorAux = cbAsignados.SelectedValue.ToString();
         }
     }
 }

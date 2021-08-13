@@ -12,13 +12,13 @@
               <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT tRevision.Consecutivo, tInstitucion.CodigoAux AS Codigo, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.Fecha AS FechaAsignada, tEntregaCasos.Observacion, 
-                  tMensajero.NombreCompleto AS Mensajero, tEntregaCasos.Pago
-FROM     tEntregaCasos INNER JOIN
-                  tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero INNER JOIN
-                  tRevision ON tEntregaCasos.Caso = tRevision.IdCaso INNER JOIN
-                  tInstitucion ON tEntregaCasos.Junta = tInstitucion.Codigo INNER JOIN
-                  tPersona ON tEntregaCasos.Asignado = tPersona.Cedula</CommandText>
+                    <CommandText>SELECT        tRevision.Consecutivo, tInstitucion.CodigoAux AS Codigo, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.Fecha AS FechaAsignada, tEntregaCasos.FechaEntrega, 
+                         tEntregaCasos.Observacion, tMensajero.NombreCompleto AS Mensajero, tEntregaCasos.Pago AS Cheque, tEntregaCasos.Transferencia
+FROM            tEntregaCasos INNER JOIN
+                         tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero INNER JOIN
+                         tRevision ON tEntregaCasos.Caso = tRevision.IdCaso INNER JOIN
+                         tInstitucion ON tEntregaCasos.Junta = tInstitucion.Codigo INNER JOIN
+                         tPersona ON tEntregaCasos.Asignado = tPersona.Cedula</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -33,7 +33,9 @@ FROM     tEntregaCasos INNER JOIN
               <Mapping SourceColumn="FechaAsignada" DataSetColumn="FechaAsignada" />
               <Mapping SourceColumn="Observacion" DataSetColumn="Observacion" />
               <Mapping SourceColumn="Mensajero" DataSetColumn="Mensajero" />
-              <Mapping SourceColumn="Pago" DataSetColumn="Pago" />
+              <Mapping SourceColumn="FechaEntrega" DataSetColumn="FechaEntrega" />
+              <Mapping SourceColumn="Cheque" DataSetColumn="Cheque" />
+              <Mapping SourceColumn="Transferencia" DataSetColumn="Transferencia" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectName="BDJuntas.dbo.spFiltrarCircuitoEntrega" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -142,7 +144,9 @@ FROM     tEntregaCasos INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Pago" msprop:Generator_ColumnVarNameInTable="columnPago" msprop:Generator_ColumnPropNameInRow="Pago" msprop:Generator_ColumnPropNameInTable="PagoColumn" msprop:Generator_UserColumnName="Pago" type="xs:int" />
+              <xs:element name="FechaEntrega" msprop:Generator_ColumnVarNameInTable="columnFechaEntrega" msprop:Generator_ColumnPropNameInRow="FechaEntrega" msprop:Generator_ColumnPropNameInTable="FechaEntregaColumn" msprop:Generator_UserColumnName="FechaEntrega" type="xs:dateTime" />
+              <xs:element name="Cheque" msprop:Generator_ColumnVarNameInTable="columnCheque" msprop:Generator_ColumnPropNameInRow="Cheque" msprop:Generator_ColumnPropNameInTable="ChequeColumn" msprop:Generator_UserColumnName="Cheque" type="xs:int" />
+              <xs:element name="Transferencia" msprop:Generator_ColumnVarNameInTable="columnTransferencia" msprop:Generator_ColumnPropNameInRow="Transferencia" msprop:Generator_ColumnPropNameInTable="TransferenciaColumn" msprop:Generator_UserColumnName="Transferencia" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

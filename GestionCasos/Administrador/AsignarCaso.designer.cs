@@ -238,6 +238,7 @@ namespace GestionCasos
             this.cbAsignados.ShadowDecoration.Parent = this.cbAsignados;
             this.cbAsignados.Size = new System.Drawing.Size(313, 36);
             this.cbAsignados.TabIndex = 6;
+            this.cbAsignados.SelectionChangeCommitted += new System.EventHandler(this.cbAsignados_SelectionChangeCommitted);
             // 
             // cbTipoRecepcion
             // 

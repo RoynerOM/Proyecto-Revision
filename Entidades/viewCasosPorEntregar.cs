@@ -12,18 +12,16 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class tEstado
+    public partial class viewCasosPorEntregar
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tEstado()
-        {
-            this.tRevision = new HashSet<tRevision>();
-        }
-    
-        public int IdEstado { get; set; }
+        public string Consecutivo { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public int CodigoAux { get; set; }
+        public string Nombre { get; set; }
+        public string DiaRuta { get; set; }
+        public string Recepción { get; set; }
+        public string NombreCompleto { get; set; }
+        public string Comentario { get; set; }
         public string Estado { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tRevision> tRevision { get; set; }
     }
 }
