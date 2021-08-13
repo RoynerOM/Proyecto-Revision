@@ -20,10 +20,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.28307cm</Top>
-        <Left>12.4587cm</Left>
+        <Top>0.10583cm</Top>
+        <Left>14.33211cm</Left>
         <Height>0.97042cm</Height>
-        <Width>10.12206cm</Width>
+        <Width>10.14852cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -38,31 +38,34 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.31056cm</Width>
+              <Width>4.38464cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.0974cm</Width>
+              <Width>3.17148cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.38445cm</Width>
+              <Width>2.45853cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.31056cm</Width>
+              <Width>4.38464cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.7614cm</Width>
+              <Width>3.83548cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.97221cm</Width>
+              <Width>4.04629cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.6489cm</Width>
+              <Width>4.72298cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.86618cm</Width>
+              <Width>4.94026cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.57303cm</Width>
+              <Width>3.64711cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.57408cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -358,7 +361,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Tipo Pago</Value>
+                              <Value>Cheque</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -370,6 +373,41 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox10">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Transferencia</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -659,14 +697,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Pago">
+                    <Textbox Name="Cheque">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIF(Fields!Pago.Value=0,"CHEQUE","TRANSFERENCIA")</Value>
+                              <Value>=IIF(Fields!Cheque.Value=0,"Si","No")</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                               </Style>
@@ -677,7 +715,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Pago</rd:DefaultName>
+                      <rd:DefaultName>Cheque</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -692,12 +730,49 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Transferencia">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=IIF(Fields!Transferencia.Value=0,"Si","No")</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Transferencia</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <rd:Selected>true</rd:Selected>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -720,10 +795,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dtsEntregaCasos</DataSetName>
-        <Top>1.87057cm</Top>
+        <Top>1.55307cm</Top>
         <Left>0.25031cm</Left>
         <Height>1.2cm</Height>
-        <Width>34.92469cm</Width>
+        <Width>38.16549cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -732,10 +807,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.36021cm</Height>
+    <Height>2.96334cm</Height>
     <Style />
   </Body>
-  <Width>35.56cm</Width>
+  <Width>39cm</Width>
   <Page>
     <PageHeader>
       <Height>4.55563cm</Height>
@@ -747,7 +822,7 @@
           <Value>Imagen1</Value>
           <Sizing>Fit</Sizing>
           <Height>4.41452cm</Height>
-          <Width>35.56cm</Width>
+          <Width>39cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -847,7 +922,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
           <Top>0.71437cm</Top>
-          <Left>33.15125cm</Left>
+          <Left>36.39208cm</Left>
           <Height>0.6cm</Height>
           <Width>2.02375cm</Width>
           <ZIndex>1</ZIndex>
@@ -884,7 +959,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox8</rd:DefaultName>
           <Top>0.71437cm</Top>
-          <Left>13.26196cm</Left>
+          <Left>14.06753cm</Left>
           <Height>0.6cm</Height>
           <Width>11.65458cm</Width>
           <ZIndex>2</ZIndex>
@@ -903,7 +978,7 @@
           <Value>Imagen2</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.71437cm</Top>
-          <Left>32.57728cm</Left>
+          <Left>35.81811cm</Left>
           <Height>0.6cm</Height>
           <Width>0.57396cm</Width>
           <ZIndex>3</ZIndex>
@@ -918,7 +993,7 @@
           <Value>Imagen11</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.71437cm</Top>
-          <Left>12.4587cm</Left>
+          <Left>13.26427cm</Left>
           <Height>0.6cm</Height>
           <Width>0.73271cm</Width>
           <ZIndex>4</ZIndex>
@@ -946,7 +1021,7 @@
         <Line Name="Line1">
           <Top>0.07056cm</Top>
           <Height>0cm</Height>
-          <Width>35.56cm</Width>
+          <Width>38.41583cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -1014,7 +1089,7 @@
       </Style>
     </PageFooter>
     <PageHeight>21.59cm</PageHeight>
-    <PageWidth>35.56cm</PageWidth>
+    <PageWidth>39cm</PageWidth>
     <LeftMargin>0cm</LeftMargin>
     <RightMargin>0cm</RightMargin>
     <TopMargin>0cm</TopMargin>
@@ -1071,13 +1146,17 @@
           <DataField>Mensajero</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Pago">
-          <DataField>Pago</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="FechaEntrega">
           <DataField>FechaEntrega</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Cheque">
+          <DataField>Cheque</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Transferencia">
+          <DataField>Transferencia</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

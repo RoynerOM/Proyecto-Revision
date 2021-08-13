@@ -34,10 +34,10 @@ namespace GestionCasos
 
         private void ReporteEntregaDeCasos_Load(object sender, EventArgs e)
         {
-            CargarCombo();
             // TODO: This line of code loads data into the 'dtsEntregaCasos.EntregaTable' table. You can move, or remove it, as needed.
             this.EntregaTableTableAdapter.Fill(this.dtsEntregaCasos.EntregaTable);
             this.reportViewer1.RefreshReport();
+            CargarCombo();
         }
 
         private void cbContadores_SelectedIndexChanged(object sender, EventArgs e)

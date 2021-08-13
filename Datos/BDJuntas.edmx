@@ -35,6 +35,7 @@
           <Property Name="Pago" Type="int" Nullable="false" />
           <Property Name="FechaEntrega" Type="date" Nullable="false" />
           <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Transferencia" Type="int" />
         </EntityType>
         <EntityType Name="tEstado">
           <Key>
@@ -136,8 +137,8 @@
           <Property Name="Estado" Type="bit" Nullable="false" />
           <Property Name="CodigoRes" Type="float" StoreGeneratedPattern="Computed" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewBoleta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewBoleta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewBoleta">
           <Key>
             <PropertyRef Name="Id" />
@@ -175,12 +176,12 @@ warning 6002: The table/view 'BDJuntas.dbo.viewBoleta' does not have a primary k
           <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
           <Property Name="FechaCreado" Type="date" Nullable="false" />
           <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
-          <Property Name="numeroActa" Type="int" />
-          <Property Name="numeroFolio" Type="int" />
+          <Property Name="numeroActa" Type="varchar" MaxLength="20" />
+          <Property Name="numeroFolio" Type="varchar" MaxLength="20" />
           <Property Name="fechaActa" Type="date" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewCasosAsignados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewCasosAsignados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewCasosAsignados">
           <Key>
             <PropertyRef Name="Consecutivo" />
@@ -203,8 +204,31 @@ warning 6002: The table/view 'BDJuntas.dbo.viewCasosAsignados' does not have a p
           <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewContadores' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewCasosPorEntregar' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewCasosPorEntregar">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="CodigoAux" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Recepción" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Comentario" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="CodigoAux" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="DiaRuta" Type="varchar" MaxLength="20" />
+          <Property Name="Recepción" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewContadores' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewContadores">
           <Key>
             <PropertyRef Name="Cedula" />
@@ -219,8 +243,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewContadores' does not have a prima
           <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
           <Property Name="Correo" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewEntregaCasos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewEntregaCasos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewEntregaCasos">
           <Key>
             <PropertyRef Name="Consecutivo" />
@@ -232,7 +256,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewEntregaCasos' does not have a pri
             <PropertyRef Name="FechaEntrega" />
             <PropertyRef Name="Observacion" />
             <PropertyRef Name="Mensajero" />
-            <PropertyRef Name="Pago" />
+            <PropertyRef Name="Cheque" />
           </Key>
           <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="Codigo" Type="int" Nullable="false" />
@@ -243,10 +267,11 @@ warning 6002: The table/view 'BDJuntas.dbo.viewEntregaCasos' does not have a pri
           <Property Name="FechaEntrega" Type="date" Nullable="false" />
           <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
           <Property Name="Mensajero" Type="varchar" MaxLength="152" Nullable="false" />
-          <Property Name="Pago" Type="int" Nullable="false" />
+          <Property Name="Cheque" Type="int" Nullable="false" />
+          <Property Name="Transferencia" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewJuntas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewJuntas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewJuntas">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -272,8 +297,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewJuntas' does not have a primary k
           <Property Name="Contador" Type="varchar" MaxLength="152" Nullable="false" />
           <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewTrabajador' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewTrabajador">
           <Key>
             <PropertyRef Name="Cedula" />
@@ -484,6 +509,19 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
     [viewCasosAsignados].[Estado] AS [Estado]
     FROM [dbo].[viewCasosAsignados] AS [viewCasosAsignados]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="viewCasosPorEntregar" EntityType="Self.viewCasosPorEntregar" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewCasosPorEntregar].[Consecutivo] AS [Consecutivo], 
+    [viewCasosPorEntregar].[Fecha] AS [Fecha], 
+    [viewCasosPorEntregar].[CodigoAux] AS [CodigoAux], 
+    [viewCasosPorEntregar].[Nombre] AS [Nombre], 
+    [viewCasosPorEntregar].[DiaRuta] AS [DiaRuta], 
+    [viewCasosPorEntregar].[Recepción] AS [Recepción], 
+    [viewCasosPorEntregar].[NombreCompleto] AS [NombreCompleto], 
+    [viewCasosPorEntregar].[Comentario] AS [Comentario], 
+    [viewCasosPorEntregar].[Estado] AS [Estado]
+    FROM [dbo].[viewCasosPorEntregar] AS [viewCasosPorEntregar]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="viewContadores" EntityType="Self.viewContadores" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [viewContadores].[Cedula] AS [Cedula], 
@@ -504,7 +542,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
     [viewEntregaCasos].[FechaEntrega] AS [FechaEntrega], 
     [viewEntregaCasos].[Observacion] AS [Observacion], 
     [viewEntregaCasos].[Mensajero] AS [Mensajero], 
-    [viewEntregaCasos].[Pago] AS [Pago]
+    [viewEntregaCasos].[Cheque] AS [Cheque], 
+    [viewEntregaCasos].[Transferencia] AS [Transferencia]
     FROM [dbo].[viewEntregaCasos] AS [viewEntregaCasos]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="viewJuntas" EntityType="Self.viewJuntas" store:Type="Views" store:Schema="dbo">
@@ -600,6 +639,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <EntitySet Name="tUsuario" EntityType="BDJuntasModel.tUsuario" />
           <EntitySet Name="viewBoleta" EntityType="BDJuntasModel.viewBoleta" />
           <EntitySet Name="viewCasosAsignados" EntityType="BDJuntasModel.viewCasosAsignados" />
+          <EntitySet Name="viewCasosPorEntregar" EntityType="BDJuntasModel.viewCasosPorEntregar" />
           <EntitySet Name="viewContadores" EntityType="BDJuntasModel.viewContadores" />
           <EntitySet Name="viewEntregaCasos" EntityType="BDJuntasModel.viewEntregaCasos" />
           <EntitySet Name="viewJuntas" EntityType="BDJuntasModel.viewJuntas" />
@@ -684,6 +724,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="Pago" Type="Int32" Nullable="false" />
           <Property Name="FechaEntrega" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Observacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Transferencia" Type="Int32" />
           <NavigationProperty Name="tPersona" Relationship="BDJuntasModel.FK__tEntregaC__Asign__46B27FE2" FromRole="tEntregaCasos" ToRole="tPersona" />
           <NavigationProperty Name="tInstitucion" Relationship="BDJuntasModel.FK__tEntregaC__Junta__47A6A41B" FromRole="tEntregaCasos" ToRole="tInstitucion" />
           <NavigationProperty Name="tMensajero" Relationship="BDJuntasModel.FK__tEntregaC__Mensa__45BE5BA9" FromRole="tEntregaCasos" ToRole="tMensajero" />
@@ -845,8 +886,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="Observacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
-          <Property Name="numeroActa" Type="Int32" />
-          <Property Name="numeroFolio" Type="Int32" />
+          <Property Name="numeroActa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="numeroFolio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fechaActa" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="viewCasosAsignados">
@@ -867,6 +908,27 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Recepción" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="viewCasosPorEntregar">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="CodigoAux" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Recepción" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Comentario" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Consecutivo" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CodigoAux" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DiaRuta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Recepción" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
           <Property Name="Comentario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -896,7 +958,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             <PropertyRef Name="FechaEntrega" />
             <PropertyRef Name="Observacion" />
             <PropertyRef Name="Mensajero" />
-            <PropertyRef Name="Pago" />
+            <PropertyRef Name="Cheque" />
           </Key>
           <Property Name="Consecutivo" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="Codigo" Type="Int32" Nullable="false" />
@@ -907,7 +969,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="FechaEntrega" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Observacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Mensajero" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
-          <Property Name="Pago" Type="Int32" Nullable="false" />
+          <Property Name="Cheque" Type="Int32" Nullable="false" />
+          <Property Name="Transferencia" Type="Int32" />
         </EntityType>
         <EntityType Name="viewJuntas">
           <Key>
@@ -1122,6 +1185,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <EntitySetMapping Name="tEntregaCasos">
             <EntityTypeMapping TypeName="BDJuntasModel.tEntregaCasos">
               <MappingFragment StoreEntitySet="tEntregaCasos">
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
                 <ScalarProperty Name="Pago" ColumnName="Pago" />
@@ -1284,6 +1348,21 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="viewCasosPorEntregar">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewCasosPorEntregar">
+              <MappingFragment StoreEntitySet="viewCasosPorEntregar">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Recepción" ColumnName="Recepción" />
+                <ScalarProperty Name="DiaRuta" ColumnName="DiaRuta" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CodigoAux" ColumnName="CodigoAux" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="viewContadores">
             <EntityTypeMapping TypeName="BDJuntasModel.viewContadores">
               <MappingFragment StoreEntitySet="viewContadores">
@@ -1298,7 +1377,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <EntitySetMapping Name="viewEntregaCasos">
             <EntityTypeMapping TypeName="BDJuntasModel.viewEntregaCasos">
               <MappingFragment StoreEntitySet="viewEntregaCasos">
-                <ScalarProperty Name="Pago" ColumnName="Pago" />
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
                 <ScalarProperty Name="Mensajero" ColumnName="Mensajero" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
@@ -1358,7 +1438,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

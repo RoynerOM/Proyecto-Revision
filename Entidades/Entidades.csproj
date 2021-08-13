@@ -96,6 +96,9 @@
     <Compile Include="viewCasosAsignados.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="viewCasosPorEntregar.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="viewContadores.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>

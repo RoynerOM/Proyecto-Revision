@@ -88,12 +88,19 @@ namespace GestionCasos.Administrador
                     if (entrega.Pago == 0)
                     {
                         cbCheque.Checked = true;
-                        cbTranferencia.Checked = false;
                     }
                     else
                     {
                         cbCheque.Checked = false;
+                    }
+
+                    if (entrega.Transferencia == 0)
+                    {
                         cbTranferencia.Checked = true;
+                    }
+                    else
+                    {
+                        cbTranferencia.Checked = false;
                     }
 
                     lblFecha.Text = "Entregado " + entrega.FechaEntrega.ToLongDateString();
@@ -170,20 +177,27 @@ namespace GestionCasos.Administrador
 
         private void cbCheque_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbCheque.Checked == true)
-            {
-                cbTranferencia.Checked = false;
-            }
+            //if (cbCheque.Checked == true)
+            //{
+            //    cbTranferencia.Checked = false;
+            //}
+
+
+
+
         }
 
 
 
         private void cbTranferencia_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbTranferencia.Checked == true)
-            {
-                cbCheque.Checked = false;
-            }
+            //if (cbTranferencia.Checked == true)
+            //{
+            //    cbCheque.Checked = false;
+            //}
+
+
+
         }
 
 
@@ -326,6 +340,18 @@ namespace GestionCasos.Administrador
                         ec.Pago = 1;
                     }
 
+
+                    if (cbTranferencia.Checked == true)
+                    {
+                        //Por cheque
+                        ec.Transferencia = 0;
+                    }
+                    else
+                    {
+                        //Por Transferencia
+                        ec.Transferencia = 1;
+                    }
+
                     ec.Observacion = txtObservacion.Text;
 
                     if (entregaNegocio.modificar(ec) == true)
@@ -359,6 +385,16 @@ namespace GestionCasos.Administrador
                         //Por Transferencia
                         entregaC.Pago = 1;
                     }
+                    if (cbTranferencia.Checked == true)
+                    {
+                        //Por cheque
+                        entregaC.Transferencia = 0;
+                    }
+                    else
+                    {
+                        //Por Transferencia
+                        entregaC.Transferencia = 1;
+                    }
 
                     tEstado estado = new tEstado();
                     estado.IdEstado = 4;
@@ -373,10 +409,13 @@ namespace GestionCasos.Administrador
                     entregaC.FechaEntrega = DateTime.Now;
                     entregaC.Observacion = txtObservacion.Text;
 
+
+
                     if (entregaNegocio.guardarAsync(entregaC) == true && revisionNegocio.modificar(revision))
                     {
                         Message.Success(new Alertas.Alerta(), "La información de entrega fue guardada");
                         btnPdf.Visible = true;
+                        btnGuardar.Enabled = false;
                     }
                     else
                     {

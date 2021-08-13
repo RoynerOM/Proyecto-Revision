@@ -295,9 +295,11 @@ namespace GestionCasos {
             
             private global::System.Data.DataColumn columnMensajero;
             
-            private global::System.Data.DataColumn columnPago;
-            
             private global::System.Data.DataColumn columnFechaEntrega;
+            
+            private global::System.Data.DataColumn columnCheque;
+            
+            private global::System.Data.DataColumn columnTransferencia;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -398,17 +400,25 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PagoColumn {
+            public global::System.Data.DataColumn FechaEntregaColumn {
                 get {
-                    return this.columnPago;
+                    return this.columnFechaEntrega;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn FechaEntregaColumn {
+            public global::System.Data.DataColumn ChequeColumn {
                 get {
-                    return this.columnFechaEntrega;
+                    return this.columnCheque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TransferenciaColumn {
+                get {
+                    return this.columnTransferencia;
                 }
             }
             
@@ -449,7 +459,7 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public EntregaTableRow AddEntregaTableRow(string Consecutivo, int Codigo, int Circuito, string Institucion, string Asignado, System.DateTime FechaAsignada, string Observacion, string Mensajero, int Pago, System.DateTime FechaEntrega) {
+            public EntregaTableRow AddEntregaTableRow(string Consecutivo, int Codigo, int Circuito, string Institucion, string Asignado, System.DateTime FechaAsignada, string Observacion, string Mensajero, System.DateTime FechaEntrega, int Cheque, int Transferencia) {
                 EntregaTableRow rowEntregaTableRow = ((EntregaTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Consecutivo,
@@ -460,8 +470,9 @@ namespace GestionCasos {
                         FechaAsignada,
                         Observacion,
                         Mensajero,
-                        Pago,
-                        FechaEntrega};
+                        FechaEntrega,
+                        Cheque,
+                        Transferencia};
                 rowEntregaTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEntregaTableRow);
                 return rowEntregaTableRow;
@@ -492,8 +503,9 @@ namespace GestionCasos {
                 this.columnFechaAsignada = base.Columns["FechaAsignada"];
                 this.columnObservacion = base.Columns["Observacion"];
                 this.columnMensajero = base.Columns["Mensajero"];
-                this.columnPago = base.Columns["Pago"];
                 this.columnFechaEntrega = base.Columns["FechaEntrega"];
+                this.columnCheque = base.Columns["Cheque"];
+                this.columnTransferencia = base.Columns["Transferencia"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -515,10 +527,12 @@ namespace GestionCasos {
                 base.Columns.Add(this.columnObservacion);
                 this.columnMensajero = new global::System.Data.DataColumn("Mensajero", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMensajero);
-                this.columnPago = new global::System.Data.DataColumn("Pago", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPago);
                 this.columnFechaEntrega = new global::System.Data.DataColumn("FechaEntrega", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaEntrega);
+                this.columnCheque = new global::System.Data.DataColumn("Cheque", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCheque);
+                this.columnTransferencia = new global::System.Data.DataColumn("Transferencia", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransferencia);
                 this.columnConsecutivo.ReadOnly = true;
                 this.columnConsecutivo.MaxLength = 14;
                 this.columnCodigo.ReadOnly = true;
@@ -532,8 +546,8 @@ namespace GestionCasos {
                 this.columnObservacion.MaxLength = 2147483647;
                 this.columnMensajero.ReadOnly = true;
                 this.columnMensajero.MaxLength = 152;
-                this.columnPago.AllowDBNull = false;
                 this.columnFechaEntrega.AllowDBNull = false;
+                this.columnCheque.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -784,23 +798,39 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Pago {
-                get {
-                    return ((int)(this[this.tableEntregaTable.PagoColumn]));
-                }
-                set {
-                    this[this.tableEntregaTable.PagoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime FechaEntrega {
                 get {
                     return ((global::System.DateTime)(this[this.tableEntregaTable.FechaEntregaColumn]));
                 }
                 set {
                     this[this.tableEntregaTable.FechaEntregaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Cheque {
+                get {
+                    return ((int)(this[this.tableEntregaTable.ChequeColumn]));
+                }
+                set {
+                    this[this.tableEntregaTable.ChequeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Transferencia {
+                get {
+                    try {
+                        return ((int)(this[this.tableEntregaTable.TransferenciaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Transferencia\' de la tabla \'EntregaTable\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregaTable.TransferenciaColumn] = value;
                 }
             }
             
@@ -850,6 +880,18 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetMensajeroNull() {
                 this[this.tableEntregaTable.MensajeroColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTransferenciaNull() {
+                return this.IsNull(this.tableEntregaTable.TransferenciaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTransferenciaNull() {
+                this[this.tableEntregaTable.TransferenciaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1020,8 +1062,9 @@ namespace GestionCasos.dtsEntregaCasosTableAdapters {
             tableMapping.ColumnMappings.Add("FechaAsignada", "FechaAsignada");
             tableMapping.ColumnMappings.Add("Observacion", "Observacion");
             tableMapping.ColumnMappings.Add("Mensajero", "Mensajero");
-            tableMapping.ColumnMappings.Add("Pago", "Pago");
             tableMapping.ColumnMappings.Add("FechaEntrega", "FechaEntrega");
+            tableMapping.ColumnMappings.Add("Cheque", "Cheque");
+            tableMapping.ColumnMappings.Add("Transferencia", "Transferencia");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1038,22 +1081,13 @@ namespace GestionCasos.dtsEntregaCasosTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT 
-tRevision.Consecutivo,
-tInstitucion.CodigoAux as Codigo,
-tInstitucion.Circuito,
-tInstitucion.Nombre as Institucion,
-tPersona.NombreCompleto as Asignado,
-tRevision.Fecha as FechaAsignada,
-tEntregaCasos.FechaEntrega,
-tEntregaCasos.Observacion,
-tMensajero.NombreCompleto as Mensajero,
-tEntregaCasos.Pago
-FROM  tEntregaCasos 
- JOIN tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero 
- join tRevision on tEntregaCasos.Caso = tRevision.IdCaso
- join tInstitucion on  tEntregaCasos.Junta = tInstitucion.Codigo
- join tPersona  on  tEntregaCasos.Asignado = tPersona.Cedula";
+            this._commandCollection[0].CommandText = @"SELECT        tRevision.Consecutivo, tInstitucion.CodigoAux AS Codigo, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.Fecha AS FechaAsignada, tEntregaCasos.FechaEntrega, 
+                         tEntregaCasos.Observacion, tMensajero.NombreCompleto AS Mensajero, tEntregaCasos.Pago AS Cheque, tEntregaCasos.Transferencia
+FROM            tEntregaCasos INNER JOIN
+                         tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero INNER JOIN
+                         tRevision ON tEntregaCasos.Caso = tRevision.IdCaso INNER JOIN
+                         tInstitucion ON tEntregaCasos.Junta = tInstitucion.Codigo INNER JOIN
+                         tPersona ON tEntregaCasos.Asignado = tPersona.Cedula";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
