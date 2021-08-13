@@ -224,5 +224,11 @@ namespace GestionCasos
         {
             OpenChildForm(new Registrar());
         }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GC.Collect();
+            Application.ExitThread();
+        }
     }
 }

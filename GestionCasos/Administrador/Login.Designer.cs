@@ -64,9 +64,10 @@ namespace GestionCasos
             this.pnTop.Controls.Add(this.btnIniciarSecion);
             this.pnTop.Controls.Add(this.label2);
             this.pnTop.Controls.Add(this.lbNombreUsuario);
-            this.pnTop.Location = new System.Drawing.Point(0, 372);
+            this.pnTop.Location = new System.Drawing.Point(0, 458);
+            this.pnTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(412, 394);
+            this.pnTop.Size = new System.Drawing.Size(549, 485);
             this.pnTop.TabIndex = 12;
             // 
             // gunaAdvenceTileButton2
@@ -89,7 +90,8 @@ namespace GestionCasos
             this.gunaAdvenceTileButton2.Image = global::GestionCasos.Properties.Resources.name_20px;
             this.gunaAdvenceTileButton2.ImageSize = new System.Drawing.Size(25, 25);
             this.gunaAdvenceTileButton2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceTileButton2.Location = new System.Drawing.Point(316, 134);
+            this.gunaAdvenceTileButton2.Location = new System.Drawing.Point(421, 165);
+            this.gunaAdvenceTileButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaAdvenceTileButton2.Name = "gunaAdvenceTileButton2";
             this.gunaAdvenceTileButton2.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.gunaAdvenceTileButton2.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -97,7 +99,7 @@ namespace GestionCasos
             this.gunaAdvenceTileButton2.OnHoverImage = null;
             this.gunaAdvenceTileButton2.OnHoverLineColor = System.Drawing.Color.Transparent;
             this.gunaAdvenceTileButton2.OnPressedColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton2.Size = new System.Drawing.Size(39, 25);
+            this.gunaAdvenceTileButton2.Size = new System.Drawing.Size(52, 31);
             this.gunaAdvenceTileButton2.TabIndex = 23;
             this.gunaAdvenceTileButton2.Click += new System.EventHandler(this.gunaAdvenceTileButton2_Click);
             // 
@@ -116,7 +118,8 @@ namespace GestionCasos
             this.gunaButton1.Image = global::GestionCasos.Properties.Resources.add_user_male_20px;
             this.gunaButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(58, 336);
+            this.gunaButton1.Location = new System.Drawing.Point(77, 414);
+            this.gunaButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaButton1.Name = "gunaButton1";
             this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -124,7 +127,7 @@ namespace GestionCasos
             this.gunaButton1.OnHoverImage = null;
             this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaButton1.Radius = 20;
-            this.gunaButton1.Size = new System.Drawing.Size(140, 38);
+            this.gunaButton1.Size = new System.Drawing.Size(187, 47);
             this.gunaButton1.TabIndex = 3;
             this.gunaButton1.Text = "Registrarse";
             this.gunaButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -150,7 +153,8 @@ namespace GestionCasos
             this.gunaAdvenceTileButton1.Image = global::GestionCasos.Properties.Resources.eyeb;
             this.gunaAdvenceTileButton1.ImageSize = new System.Drawing.Size(25, 25);
             this.gunaAdvenceTileButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceTileButton1.Location = new System.Drawing.Point(316, 224);
+            this.gunaAdvenceTileButton1.Location = new System.Drawing.Point(421, 276);
+            this.gunaAdvenceTileButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaAdvenceTileButton1.Name = "gunaAdvenceTileButton1";
             this.gunaAdvenceTileButton1.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.gunaAdvenceTileButton1.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -158,7 +162,7 @@ namespace GestionCasos
             this.gunaAdvenceTileButton1.OnHoverImage = null;
             this.gunaAdvenceTileButton1.OnHoverLineColor = System.Drawing.Color.Transparent;
             this.gunaAdvenceTileButton1.OnPressedColor = System.Drawing.Color.Transparent;
-            this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(39, 25);
+            this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(52, 31);
             this.gunaAdvenceTileButton1.TabIndex = 21;
             this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
             // 
@@ -166,31 +170,36 @@ namespace GestionCasos
             // 
             this.btnRegistrar.AutoSize = true;
             this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.Enabled = false;
             this.btnRegistrar.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegistrar.Location = new System.Drawing.Point(125, 286);
+            this.btnRegistrar.Location = new System.Drawing.Point(167, 352);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(166, 20);
+            this.btnRegistrar.Size = new System.Drawing.Size(207, 25);
             this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "¿Olvidó su contraseña?";
+            this.btnRegistrar.Visible = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // txtContraseña
             // 
             this.txtContraseña.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(58, 221);
+            this.txtContraseña.Location = new System.Drawing.Point(77, 272);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '•';
-            this.txtContraseña.Size = new System.Drawing.Size(301, 33);
+            this.txtContraseña.Size = new System.Drawing.Size(400, 39);
             this.txtContraseña.TabIndex = 1;
             this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(58, 130);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(77, 160);
+            this.txtNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(301, 33);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(400, 39);
             this.txtNombreUsuario.TabIndex = 0;
             this.txtNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUsuario_KeyPress);
             // 
@@ -199,9 +208,10 @@ namespace GestionCasos
             this.lbIniciarSecion.AutoSize = true;
             this.lbIniciarSecion.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIniciarSecion.ForeColor = System.Drawing.Color.White;
-            this.lbIniciarSecion.Location = new System.Drawing.Point(123, 28);
+            this.lbIniciarSecion.Location = new System.Drawing.Point(164, 34);
+            this.lbIniciarSecion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbIniciarSecion.Name = "lbIniciarSecion";
-            this.lbIniciarSecion.Size = new System.Drawing.Size(168, 32);
+            this.lbIniciarSecion.Size = new System.Drawing.Size(205, 41);
             this.lbIniciarSecion.TabIndex = 15;
             this.lbIniciarSecion.Text = "Iniciar Sesión";
             // 
@@ -220,7 +230,8 @@ namespace GestionCasos
             this.btnIniciarSecion.Image = global::GestionCasos.Properties.Resources.enter_20px;
             this.btnIniciarSecion.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnIniciarSecion.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnIniciarSecion.Location = new System.Drawing.Point(219, 336);
+            this.btnIniciarSecion.Location = new System.Drawing.Point(292, 414);
+            this.btnIniciarSecion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIniciarSecion.Name = "btnIniciarSecion";
             this.btnIniciarSecion.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
             this.btnIniciarSecion.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -228,7 +239,7 @@ namespace GestionCasos
             this.btnIniciarSecion.OnHoverImage = null;
             this.btnIniciarSecion.OnPressedColor = System.Drawing.Color.Black;
             this.btnIniciarSecion.Radius = 20;
-            this.btnIniciarSecion.Size = new System.Drawing.Size(140, 38);
+            this.btnIniciarSecion.Size = new System.Drawing.Size(187, 47);
             this.btnIniciarSecion.TabIndex = 2;
             this.btnIniciarSecion.Text = "Acceder";
             this.btnIniciarSecion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -240,9 +251,10 @@ namespace GestionCasos
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(53, 191);
+            this.label2.Location = new System.Drawing.Point(71, 235);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 25);
+            this.label2.Size = new System.Drawing.Size(139, 32);
             this.label2.TabIndex = 12;
             this.label2.Text = "Contraseña";
             // 
@@ -251,9 +263,10 @@ namespace GestionCasos
             this.lbNombreUsuario.AutoSize = true;
             this.lbNombreUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.lbNombreUsuario.Location = new System.Drawing.Point(53, 102);
+            this.lbNombreUsuario.Location = new System.Drawing.Point(71, 126);
+            this.lbNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNombreUsuario.Name = "lbNombreUsuario";
-            this.lbNombreUsuario.Size = new System.Drawing.Size(71, 25);
+            this.lbNombreUsuario.Size = new System.Drawing.Size(90, 32);
             this.lbNombreUsuario.TabIndex = 11;
             this.lbNombreUsuario.Text = "Cédula";
             // 
@@ -264,9 +277,10 @@ namespace GestionCasos
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.LineColor = System.Drawing.Color.Black;
             this.panelMain.LineStyle = System.Windows.Forms.BorderStyle.None;
-            this.panelMain.Location = new System.Drawing.Point(185, 0);
+            this.panelMain.Location = new System.Drawing.Point(247, 0);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(415, 400);
+            this.panelMain.Size = new System.Drawing.Size(553, 492);
             this.panelMain.TabIndex = 15;
             // 
             // guna2ControlBox1
@@ -283,11 +297,12 @@ namespace GestionCasos
             this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
             this.guna2ControlBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
             this.guna2ControlBox1.ShadowDecoration.Color = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.Size = new System.Drawing.Size(40, 40);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(53, 49);
             this.guna2ControlBox1.TabIndex = 16;
             this.guna2ControlBox1.UseTransparentBackground = true;
             // 
@@ -306,26 +321,29 @@ namespace GestionCasos
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.pbLogo.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(185, 400);
+            this.pbLogo.Size = new System.Drawing.Size(247, 492);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 14;
             this.pbLogo.TabStop = false;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
-            this.ClientSize = new System.Drawing.Size(600, 400);
+            this.ClientSize = new System.Drawing.Size(800, 492);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.pbLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(600, 400);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(800, 492);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
             this.pnTop.ResumeLayout(false);
             this.pnTop.PerformLayout();

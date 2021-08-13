@@ -57,12 +57,13 @@ namespace GestionCasos.Reportes
                 btnCasos.BaseColor = Colors.Blue;
                 btnReportes.BaseColor = Colors.Blue;
                 btnEntregas.BaseColor = Colors.Blue;
-
+                btnPorEntregar.BaseColor = Colors.Blue;
 
                 btnContadores.OnHoverBaseColor = Colors.BlueHover;
                 btnCasos.OnHoverBaseColor = Colors.BlueHover;
                 btnReportes.OnHoverBaseColor = Colors.BlueHover;
                 btnEntregas.OnHoverBaseColor = Colors.BlueHover;
+                btnPorEntregar.OnHoverBaseColor = Colors.BlueHover;
 
             }
         }
@@ -111,6 +112,11 @@ namespace GestionCasos.Reportes
         private void btnEntregas_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ReporteEntregaDeCasos());
+        }
+
+        private void gunaTileButton1_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ReportesCasoPorEntregar());
         }
     }
 }

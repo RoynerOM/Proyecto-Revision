@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\User\Desktop\C4\</PublishUrl>
+    <PublishUrl>C:\Users\User\Desktop\C6\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -276,6 +276,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dtsCasos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dtsCasosPorEntregar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsCasosPorEntregar.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dtsContador.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -326,6 +331,12 @@
     </Compile>
     <Compile Include="ReporteJuntas.designer.cs">
       <DependentUpon>ReporteJuntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesCasoPorEntregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportesCasoPorEntregar.Designer.cs">
+      <DependentUpon>ReportesCasoPorEntregar.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\fOpcionesReportes.cs">
       <SubType>Form</SubType>
@@ -423,6 +434,9 @@
     <EmbeddedResource Include="ReporteJuntas.resx">
       <DependentUpon>ReporteJuntas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportesCasoPorEntregar.resx">
+      <DependentUpon>ReportesCasoPorEntregar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\fOpcionesReportes.resx">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -431,6 +445,7 @@
     <EmbeddedResource Include="Reportes\ReporteEntregaDeCasos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteJuntas.rdlc" />
     <EmbeddedResource Include="Reportes\rptBoleta.rdlc" />
+    <EmbeddedResource Include="Reportes\rptCasosPorEntregar.rdlc" />
     <EmbeddedResource Include="Usuarios\CasosAsignados.resx">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </EmbeddedResource>
@@ -461,6 +476,17 @@
     </None>
     <None Include="dtsCasos.xss">
       <DependentUpon>dtsCasos.xsd</DependentUpon>
+    </None>
+    <None Include="dtsCasosPorEntregar.xsc">
+      <DependentUpon>dtsCasosPorEntregar.xsd</DependentUpon>
+    </None>
+    <None Include="dtsCasosPorEntregar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsCasosPorEntregar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsCasosPorEntregar.xss">
+      <DependentUpon>dtsCasosPorEntregar.xsd</DependentUpon>
     </None>
     <None Include="dtsContador.xsc">
       <DependentUpon>dtsContador.xsd</DependentUpon>
@@ -571,6 +597,7 @@
     <None Include="Resources\safety_collection_place_96px.png" />
     <None Include="Resources\users_settings_64px.png" />
     <None Include="Resources\password_reset_64px.png" />
+    <None Include="Resources\send_mail_48px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
