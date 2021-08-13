@@ -41,10 +41,11 @@ namespace GestionCasos
         {
             if (cbDia.Text != string.Empty)
             {
-                this.DataTable1TableAdapter.FillBy(this.dtsCasosPorEntregar.DataTable1,cbEstado.Text,dtDesde.Value,dtHasta.Value,cbDia.Text);
+                this.DataTable1TableAdapter.FillBy(this.dtsCasosPorEntregar.DataTable1, cbEstado.Text, dtDesde.Value, dtHasta.Value, cbDia.Text);
 
                 this.reportViewer1.RefreshReport();
             }
         }
+
     }
 }
