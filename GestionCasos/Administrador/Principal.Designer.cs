@@ -38,12 +38,14 @@ namespace GestionCasos
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnCerrarSecion = new System.Windows.Forms.Button();
             this.DesktopPanel = new System.Windows.Forms.Panel();
+            this.btnCasos = new System.Windows.Forms.Button();
             this.pnLateralIzquierda.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnLateralIzquierda
             // 
             this.pnLateralIzquierda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.pnLateralIzquierda.Controls.Add(this.btnCasos);
             this.pnLateralIzquierda.Controls.Add(this.btnAsignarCaso);
             this.pnLateralIzquierda.Controls.Add(this.btnEntregas);
             this.pnLateralIzquierda.Controls.Add(this.btnReportes);
@@ -54,11 +56,12 @@ namespace GestionCasos
             this.pnLateralIzquierda.ForeColor = System.Drawing.Color.Black;
             this.pnLateralIzquierda.Location = new System.Drawing.Point(0, 0);
             this.pnLateralIzquierda.Name = "pnLateralIzquierda";
-            this.pnLateralIzquierda.Size = new System.Drawing.Size(111, 661);
+            this.pnLateralIzquierda.Size = new System.Drawing.Size(128, 661);
             this.pnLateralIzquierda.TabIndex = 0;
             // 
             // btnAsignarCaso
             // 
+            this.btnAsignarCaso.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnAsignarCaso.BackColor = System.Drawing.Color.Transparent;
             this.btnAsignarCaso.FlatAppearance.BorderSize = 0;
             this.btnAsignarCaso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -69,7 +72,7 @@ namespace GestionCasos
             this.btnAsignarCaso.Location = new System.Drawing.Point(0, 182);
             this.btnAsignarCaso.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnAsignarCaso.Name = "btnAsignarCaso";
-            this.btnAsignarCaso.Size = new System.Drawing.Size(111, 90);
+            this.btnAsignarCaso.Size = new System.Drawing.Size(128, 90);
             this.btnAsignarCaso.TabIndex = 2;
             this.btnAsignarCaso.Text = "Asignar Caso";
             this.btnAsignarCaso.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -78,6 +81,7 @@ namespace GestionCasos
             // 
             // btnEntregas
             // 
+            this.btnEntregas.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnEntregas.BackColor = System.Drawing.Color.Transparent;
             this.btnEntregas.FlatAppearance.BorderSize = 0;
             this.btnEntregas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -88,7 +92,7 @@ namespace GestionCasos
             this.btnEntregas.Location = new System.Drawing.Point(0, 364);
             this.btnEntregas.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnEntregas.Name = "btnEntregas";
-            this.btnEntregas.Size = new System.Drawing.Size(111, 90);
+            this.btnEntregas.Size = new System.Drawing.Size(128, 90);
             this.btnEntregas.TabIndex = 4;
             this.btnEntregas.Text = "Entregas";
             this.btnEntregas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -97,6 +101,7 @@ namespace GestionCasos
             // 
             // btnReportes
             // 
+            this.btnReportes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnReportes.BackColor = System.Drawing.Color.Transparent;
             this.btnReportes.FlatAppearance.BorderSize = 0;
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -107,7 +112,7 @@ namespace GestionCasos
             this.btnReportes.Location = new System.Drawing.Point(0, 273);
             this.btnReportes.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(111, 90);
+            this.btnReportes.Size = new System.Drawing.Size(128, 90);
             this.btnReportes.TabIndex = 3;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -116,6 +121,7 @@ namespace GestionCasos
             // 
             // btnMenu
             // 
+            this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnMenu.BackColor = System.Drawing.Color.Transparent;
             this.btnMenu.FlatAppearance.BorderSize = 0;
             this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -126,7 +132,7 @@ namespace GestionCasos
             this.btnMenu.Location = new System.Drawing.Point(0, 91);
             this.btnMenu.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(111, 90);
+            this.btnMenu.Size = new System.Drawing.Size(128, 90);
             this.btnMenu.TabIndex = 1;
             this.btnMenu.Text = "Menú";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -135,6 +141,7 @@ namespace GestionCasos
             // 
             // btnDashBoard
             // 
+            this.btnDashBoard.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnDashBoard.BackColor = System.Drawing.Color.Transparent;
             this.btnDashBoard.FlatAppearance.BorderSize = 0;
             this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -145,7 +152,7 @@ namespace GestionCasos
             this.btnDashBoard.Location = new System.Drawing.Point(0, 1);
             this.btnDashBoard.MinimumSize = new System.Drawing.Size(111, 90);
             this.btnDashBoard.Name = "btnDashBoard";
-            this.btnDashBoard.Size = new System.Drawing.Size(111, 90);
+            this.btnDashBoard.Size = new System.Drawing.Size(128, 90);
             this.btnDashBoard.TabIndex = 0;
             this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -162,7 +169,7 @@ namespace GestionCasos
             this.btnCerrarSecion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.btnCerrarSecion.Image = global::GestionCasos.Properties.Resources.sign_out_60px1;
             this.btnCerrarSecion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCerrarSecion.Location = new System.Drawing.Point(0, 573);
+            this.btnCerrarSecion.Location = new System.Drawing.Point(9, 573);
             this.btnCerrarSecion.Name = "btnCerrarSecion";
             this.btnCerrarSecion.Size = new System.Drawing.Size(111, 87);
             this.btnCerrarSecion.TabIndex = 5;
@@ -175,10 +182,30 @@ namespace GestionCasos
             // 
             this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DesktopPanel.Location = new System.Drawing.Point(111, 0);
+            this.DesktopPanel.Location = new System.Drawing.Point(128, 0);
             this.DesktopPanel.Name = "DesktopPanel";
-            this.DesktopPanel.Size = new System.Drawing.Size(1025, 661);
+            this.DesktopPanel.Size = new System.Drawing.Size(1008, 661);
             this.DesktopPanel.TabIndex = 1;
+            // 
+            // btnCasos
+            // 
+            this.btnCasos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCasos.BackColor = System.Drawing.Color.Transparent;
+            this.btnCasos.FlatAppearance.BorderSize = 0;
+            this.btnCasos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCasos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCasos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
+            this.btnCasos.Image = global::GestionCasos.Properties.Resources.more_details_60px;
+            this.btnCasos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCasos.Location = new System.Drawing.Point(0, 455);
+            this.btnCasos.MinimumSize = new System.Drawing.Size(111, 90);
+            this.btnCasos.Name = "btnCasos";
+            this.btnCasos.Size = new System.Drawing.Size(128, 90);
+            this.btnCasos.TabIndex = 6;
+            this.btnCasos.Text = "Detalles De Casos";
+            this.btnCasos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCasos.UseVisualStyleBackColor = false;
+            this.btnCasos.Click += new System.EventHandler(this.btnCasos_Click);
             // 
             // Principal
             // 
@@ -210,5 +237,6 @@ namespace GestionCasos
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnEntregas;
         private System.Windows.Forms.Button btnAsignarCaso;
+        private System.Windows.Forms.Button btnCasos;
     }
 }

@@ -54,6 +54,12 @@ namespace GestionCasos.Administrador
             OpenChildForm(new fLoader(1, hilo));
             CargarCombos();
             PedirDatos();
+
+            if (Rol == 1)
+            {
+                btnClaves.Enabled = false;
+                btnClaves.Visible = false;
+            }
         }
 
 
@@ -245,6 +251,12 @@ namespace GestionCasos.Administrador
         private void GunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
             PedirDatos();
+        }
+
+        private void btnClaves_Click(object sender, EventArgs e)
+        {
+            fUsers u = new fUsers();
+            u.ShowDialog();
         }
     }
 }

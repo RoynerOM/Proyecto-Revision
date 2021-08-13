@@ -21,8 +21,8 @@
           <DataField>Id</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Codigo">
-          <DataField>Codigo</DataField>
+        <Field Name="CodigoAux">
+          <DataField>CodigoAux</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Consecutivo">
@@ -279,7 +279,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!Codigo.Value, "dtsBoleta")</Value>
+                    <Value>=Sum(Fields!CodigoAux.Value, "dtsBoleta")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>

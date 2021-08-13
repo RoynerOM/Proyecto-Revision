@@ -281,7 +281,7 @@ namespace GestionCasos {
             
             private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnCodigo;
+            private global::System.Data.DataColumn columnCodigoAux;
             
             private global::System.Data.DataColumn columnConsecutivo;
             
@@ -362,9 +362,9 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CodigoColumn {
+            public global::System.Data.DataColumn CodigoAuxColumn {
                 get {
-                    return this.columnCodigo;
+                    return this.columnCodigoAux;
                 }
             }
             
@@ -550,7 +550,7 @@ namespace GestionCasos {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public BoletaTableRow AddBoletaTableRow(
-                        int Codigo, 
+                        int CodigoAux, 
                         string Consecutivo, 
                         int Circuito, 
                         string Nombre, 
@@ -572,7 +572,7 @@ namespace GestionCasos {
                 BoletaTableRow rowBoletaTableRow = ((BoletaTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Codigo,
+                        CodigoAux,
                         Consecutivo,
                         Circuito,
                         Nombre,
@@ -598,6 +598,13 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BoletaTableRow FindById(int Id) {
+                return ((BoletaTableRow)(this.Rows.Find(new object[] {
+                            Id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 BoletaTableDataTable cln = ((BoletaTableDataTable)(base.Clone()));
                 cln.InitVars();
@@ -614,7 +621,7 @@ namespace GestionCasos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnCodigo = base.Columns["Codigo"];
+                this.columnCodigoAux = base.Columns["CodigoAux"];
                 this.columnConsecutivo = base.Columns["Consecutivo"];
                 this.columnCircuito = base.Columns["Circuito"];
                 this.columnNombre = base.Columns["Nombre"];
@@ -640,8 +647,8 @@ namespace GestionCasos {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCodigo);
+                this.columnCodigoAux = new global::System.Data.DataColumn("CodigoAux", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigoAux);
                 this.columnConsecutivo = new global::System.Data.DataColumn("Consecutivo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnConsecutivo);
                 this.columnCircuito = new global::System.Data.DataColumn("Circuito", typeof(int), null, global::System.Data.MappingType.Element);
@@ -678,12 +685,15 @@ namespace GestionCasos {
                 base.Columns.Add(this.columnnumeroFolio);
                 this.columnfechaActa = new global::System.Data.DataColumn("fechaActa", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaActa);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
-                this.columnCodigo.AllowDBNull = false;
+                this.columnId.Unique = true;
+                this.columnCodigoAux.ReadOnly = true;
                 this.columnConsecutivo.ReadOnly = true;
                 this.columnConsecutivo.MaxLength = 14;
                 this.columnCircuito.AllowDBNull = false;
@@ -860,12 +870,17 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Codigo {
+            public int CodigoAux {
                 get {
-                    return ((int)(this[this.tableBoletaTable.CodigoColumn]));
+                    try {
+                        return ((int)(this[this.tableBoletaTable.CodigoAuxColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodigoAux\' in table \'BoletaTable\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableBoletaTable.CodigoColumn] = value;
+                    this[this.tableBoletaTable.CodigoAuxColumn] = value;
                 }
             }
             
@@ -1094,6 +1109,18 @@ namespace GestionCasos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCodigoAuxNull() {
+                return this.IsNull(this.tableBoletaTable.CodigoAuxColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCodigoAuxNull() {
+                this[this.tableBoletaTable.CodigoAuxColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsConsecutivoNull() {
                 return this.IsNull(this.tableBoletaTable.ConsecutivoColumn);
             }
@@ -1313,7 +1340,7 @@ namespace GestionCasos.dtsBoletaTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "BoletaTable";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("Codigo", "Codigo");
+            tableMapping.ColumnMappings.Add("CodigoAux", "CodigoAux");
             tableMapping.ColumnMappings.Add("Consecutivo", "Consecutivo");
             tableMapping.ColumnMappings.Add("Circuito", "Circuito");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
@@ -1348,12 +1375,12 @@ namespace GestionCasos.dtsBoletaTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT tBoleta.Id, tInstitucion.Codigo, tRevision.Consecutivo, tInstitucion.Circuito, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tBoleta.Motivo1, tBoleta.Motivo2, tBoleta.Motivo3, tBoleta.Motivo4, tBoleta.Motivo5, tBoleta.Motivo6, 
-                  tBoleta.Motivo7, tBoleta.Motivo8, tBoleta.Observacion, tBoleta.FechaCreado, tPersona.NombreCompleto, tRevision.numeroActa, tRevision.numeroFolio, tRevision.fechaActa
-FROM     tBoleta INNER JOIN
-                  tRevision ON tBoleta.Id = tRevision.IdCaso INNER JOIN
-                  tInstitucion ON tRevision.Codigo = tInstitucion.Codigo INNER JOIN
-                  tPersona ON tRevision.Tramitador = tPersona.Cedula";
+            this._commandCollection[0].CommandText = @"SELECT        tBoleta.Id, tInstitucion.CodigoAux, tRevision.Consecutivo, tInstitucion.Circuito, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tBoleta.Motivo1, tBoleta.Motivo2, tBoleta.Motivo3, tBoleta.Motivo4, tBoleta.Motivo5, 
+                         tBoleta.Motivo6, tBoleta.Motivo7, tBoleta.Motivo8, tBoleta.Observacion, tBoleta.FechaCreado, tPersona.NombreCompleto, tRevision.numeroActa, tRevision.numeroFolio, tRevision.fechaActa
+FROM            tBoleta INNER JOIN
+                         tRevision ON tBoleta.IdCaso = tRevision.IdCaso INNER JOIN
+                         tInstitucion ON tRevision.Codigo = tInstitucion.Codigo INNER JOIN
+                         tPersona ON tRevision.Tramitador = tPersona.Cedula";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

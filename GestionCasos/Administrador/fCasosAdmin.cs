@@ -37,8 +37,8 @@ namespace GestionCasos
         int aux = 0;
         string person = null;
         int medio = 0;
-        int es = 0;
-
+        int fecha = 0;
+        int CodJunta = 0;
 
         public fCasosAdmin(bool entrega)
         {
@@ -78,7 +78,7 @@ namespace GestionCasos
 
 
 
-        public async void PedirDatos(int PaginaSeleccionada = 0, string tramitador = null, int estado = 0, int recepcion = 0)
+        public async void PedirDatos(int PaginaSeleccionada = 0, string tramitador = null, int estado = 0, int recepcion = 0, int codigo = 0)
         {
             try
             {
@@ -96,6 +96,11 @@ namespace GestionCasos
                 {
                     Casos = await revisionNegocio.obtenerTodo();
                     Casos = Casos.Where(x => x.Recepcion == recepcion).ToList();
+                }
+                else if (txtCodigo.Text != string.Empty)
+                {
+                    Casos = await revisionNegocio.obtenerTodo();
+                    Casos = Casos.Where(x => x.tInstitucion.Codigo == int.Parse(txtCodigo.Text)).ToList();
                 }
                 else
                 {
@@ -121,7 +126,41 @@ namespace GestionCasos
 
         }
 
+        public async void PedirDatosPorFechas(int PaginaSeleccionada = 0, string start = null, string end = null)
+        {
+            try
+            {
+                DateTime START = DateTime.Parse(start);
+                DateTime END = DateTime.Parse(end);
 
+                if (start != null && end != null)
+                {
+                    Casos = await revisionNegocio.obtenerTodo();
+                    Casos = Casos.Where(x => ((x.Fecha >= START) && (x.Fecha <= END))).ToList();
+                }
+                else
+                {
+                    Casos = await revisionNegocio.obtenerTodo();
+                }
+
+                int TotalRegistros = Casos.Count();
+                TotalPaginas = (int)
+                    Math.Ceiling(decimal.Parse(TotalRegistros.ToString()) /
+                                  decimal.Parse(cantidad.ToString()));
+
+                lblPag.Text = "Total de Páginas: " + TotalPaginas.ToString();
+                lblActual.Text = "Página Actual: " + (PaginaSeleccionada + 1).ToString();
+
+                //aux = TotalPaginas;
+                CargarTabla(Casos.Skip(PaginaSeleccionada * cantidad).Take(cantidad).ToList());
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
+
+        }
 
         public void CargarTabla(IEnumerable<tRevision> lista)
         {
@@ -194,7 +233,7 @@ namespace GestionCasos
                             tabla.Rows[nRows].Cells[8].Style.BackColor = Color.FromArgb(50, 24, 32);
                         }
                     }
-                   else if (item.tEstado.Estado.ToUpper() == "POR ENTREGAR")
+                    else if (item.tEstado.Estado.ToUpper() == "POR ENTREGAR")
                     {
                         if (isDark == "false")
                         {
@@ -312,9 +351,11 @@ namespace GestionCasos
                 tabla.RowsDefaultCellStyle.SelectionBackColor = Colors.Gray;
                 tabla.BackgroundColor = Color.White;
                 gunaLabel1.ForeColor = Colors.Black;
-                gunaLabel2.ForeColor = Colors.Black;
+                // gunaLabel2.ForeColor = Colors.Black;
                 gunaLabel3.ForeColor = Colors.Black;
                 gunaLabel4.ForeColor = Colors.Black;
+                gunaLabel5.ForeColor = Colors.Black;
+                gunaLabel6.ForeColor = Colors.Black;
                 lblPag.ForeColor = Colors.Black;
                 lblActual.ForeColor = Colors.Black;
             }
@@ -340,7 +381,7 @@ namespace GestionCasos
                         string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
                         if (entrega == false)
                         {
-                            fBoleta comentario = new fBoleta(1, consecutivo);
+                            fBoleta comentario = new fBoleta(consecutivo);
                             comentario.ShowDialog();
                         }
                         else
@@ -377,10 +418,10 @@ namespace GestionCasos
                 cbTramitador.ValueMember = "Cedula";
                 cbTramitador.DisplayMember = "NombreCompleto";
 
-                //Recepcion
-                cbRecepcion.DataSource = await recepcion.obtenerTodo();
-                cbRecepcion.ValueMember = "id";
-                cbRecepcion.DisplayMember = "Recepcion".ToUpper();
+                ////Recepcion
+                //cbRecepcion.DataSource = await recepcion.obtenerTodo();
+                //cbRecepcion.ValueMember = "id";
+                //cbRecepcion.DisplayMember = "Recepcion".ToUpper();
             }
             catch (Exception ex)
             {
@@ -405,20 +446,20 @@ namespace GestionCasos
         }
 
 
-        //Filtro de recepcion
-        private void cbRecepcion_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            try
-            {
-                PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
-                medio = (int)cbRecepcion.SelectedValue;
+        ////Filtro de recepcion
+        //private void cbRecepcion_SelectionChangeCommitted(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
+        //        medio = (int)cbRecepcion.SelectedValue;
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex);
+        //    }
+        //}
         #endregion
 
 
@@ -449,7 +490,10 @@ namespace GestionCasos
             person = null;
             txtConsecutivo.ResetText();
             cbTramitador.ResetText();
-            cbRecepcion.ResetText();
+            fecha = 0;
+            CodJunta = 0;
+            txtCodigo.ResetText();
+            //cbRecepcion.ResetText();
             PedirDatos(0, null, 0, 0);
 
         }
@@ -461,7 +505,7 @@ namespace GestionCasos
         }
 
 
-
+        //Pagina siguiente
         private void btnNext_Click(object sender, EventArgs e)
         {
             aux++;
@@ -473,11 +517,21 @@ namespace GestionCasos
             {
                 if (medio != 0)
                 {
-                    PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
+                    PedirDatos(aux, null, 0);
                 }
                 else if (person != null)
                 {
                     PedirDatos(aux, cbTramitador.SelectedValue.ToString().ToUpper());
+                }
+                else if (CodJunta != 0)
+                {
+                    PedirDatos(aux, null, 0, 0, 0);
+                }
+                else if (fecha == 1)
+                {
+                    DateTime START = dtDesde.Value;
+                    DateTime END = dtHasta.Value;
+                    PedirDatosPorFechas(aux, START.ToShortDateString(), END.ToShortDateString());
                 }
                 else
                 {
@@ -490,7 +544,7 @@ namespace GestionCasos
         }
 
 
-
+        //Pagina anterior
         private void button1_Click(object sender, EventArgs e)
         {
             aux--;
@@ -503,11 +557,21 @@ namespace GestionCasos
 
                 if (medio != 0)
                 {
-                    PedirDatos(aux, null, 0, (int)cbRecepcion.SelectedValue);
+                    PedirDatos(aux, null, 0);
                 }
                 else if (person != null)
                 {
                     PedirDatos(aux, cbTramitador.SelectedValue.ToString().ToUpper());
+                }
+                else if (CodJunta != 0)
+                {
+                    PedirDatos(aux, null, 0, 0, 0);
+                }
+                else if (fecha == 1)
+                {
+                    DateTime START = dtDesde.Value;
+                    DateTime END = dtHasta.Value;
+                    PedirDatosPorFechas(aux, START.ToShortDateString(), END.ToShortDateString());
                 }
                 else
                 {
@@ -531,7 +595,6 @@ namespace GestionCasos
                         var casos = await revisionNegocio.obtenerTodo();
                         if (casos != null)
                         {
-                            aux = 0;
                             TotalPaginas = 0;
                             CargarTabla(casos.Where(x => x.Consecutivo == txtConsecutivo.Text.ToUpper()));
                         }
@@ -548,22 +611,14 @@ namespace GestionCasos
 
 
 
-        private async void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
                 if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 {
-                    if (txtCodigo.Text != null)
-                    {
-                        var casos = await revisionNegocio.obtenerTodo();
-                        if (casos != null)
-                        {
-                            aux = 0;
-                            TotalPaginas = 0;
-                            CargarTabla(casos.Where(x => x.Codigo == int.Parse(txtCodigo.Text)));
-                        }
-                    }
+                    CodJunta = 1;
+                    PedirDatos(0, null, 0, 0, 0);
                 }
             }
             catch (Exception ex)
@@ -572,6 +627,18 @@ namespace GestionCasos
             }
 
 
+
+        }
+
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            fecha = 1;
+            DateTime START = dtDesde.Value;
+            DateTime END = dtHasta.Value;
+
+            PedirDatosPorFechas(aux, START.ToShortDateString(), END.ToShortDateString());
 
         }
     }

@@ -12,12 +12,12 @@
               <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT tBoleta.Id, tInstitucion.Codigo, tRevision.Consecutivo, tInstitucion.Circuito, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tBoleta.Motivo1, tBoleta.Motivo2, tBoleta.Motivo3, tBoleta.Motivo4, tBoleta.Motivo5, tBoleta.Motivo6, 
-                  tBoleta.Motivo7, tBoleta.Motivo8, tBoleta.Observacion, tBoleta.FechaCreado, tPersona.NombreCompleto, tRevision.numeroActa, tRevision.numeroFolio, tRevision.fechaActa
-FROM     tBoleta INNER JOIN
-                  tRevision ON tBoleta.Id = tRevision.IdCaso INNER JOIN
-                  tInstitucion ON tRevision.Codigo = tInstitucion.Codigo INNER JOIN
-                  tPersona ON tRevision.Tramitador = tPersona.Cedula</CommandText>
+                    <CommandText>SELECT        tBoleta.Id, tInstitucion.CodigoAux, tRevision.Consecutivo, tInstitucion.Circuito, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tBoleta.Motivo1, tBoleta.Motivo2, tBoleta.Motivo3, tBoleta.Motivo4, tBoleta.Motivo5, 
+                         tBoleta.Motivo6, tBoleta.Motivo7, tBoleta.Motivo8, tBoleta.Observacion, tBoleta.FechaCreado, tPersona.NombreCompleto, tRevision.numeroActa, tRevision.numeroFolio, tRevision.fechaActa
+FROM            tBoleta INNER JOIN
+                         tRevision ON tBoleta.IdCaso = tRevision.IdCaso INNER JOIN
+                         tInstitucion ON tRevision.Codigo = tInstitucion.Codigo INNER JOIN
+                         tPersona ON tRevision.Tramitador = tPersona.Cedula</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -25,7 +25,7 @@ FROM     tBoleta INNER JOIN
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="Id" DataSetColumn="Id" />
-              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+              <Mapping SourceColumn="CodigoAux" DataSetColumn="CodigoAux" />
               <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
               <Mapping SourceColumn="Circuito" DataSetColumn="Circuito" />
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
@@ -67,11 +67,11 @@ FROM     tBoleta INNER JOIN
   <xs:element name="dtsBoleta" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsBoleta" msprop:Generator_UserDSName="dtsBoleta">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="BoletaTable" msprop:Generator_TableClassName="BoletaTableDataTable" msprop:Generator_TableVarName="tableBoletaTable" msprop:Generator_RowChangedName="BoletaTableRowChanged" msprop:Generator_TablePropName="BoletaTable" msprop:Generator_RowDeletingName="BoletaTableRowDeleting" msprop:Generator_RowChangingName="BoletaTableRowChanging" msprop:Generator_RowEvHandlerName="BoletaTableRowChangeEventHandler" msprop:Generator_RowDeletedName="BoletaTableRowDeleted" msprop:Generator_RowClassName="BoletaTableRow" msprop:Generator_UserTableName="BoletaTable" msprop:Generator_RowEvArgName="BoletaTableRowChangeEvent">
+        <xs:element name="BoletaTable" msprop:Generator_TableClassName="BoletaTableDataTable" msprop:Generator_TableVarName="tableBoletaTable" msprop:Generator_TablePropName="BoletaTable" msprop:Generator_RowDeletingName="BoletaTableRowDeleting" msprop:Generator_RowChangingName="BoletaTableRowChanging" msprop:Generator_RowEvHandlerName="BoletaTableRowChangeEventHandler" msprop:Generator_RowDeletedName="BoletaTableRowDeleted" msprop:Generator_UserTableName="BoletaTable" msprop:Generator_RowChangedName="BoletaTableRowChanged" msprop:Generator_RowEvArgName="BoletaTableRowChangeEvent" msprop:Generator_RowClassName="BoletaTableRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
-              <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:int" />
+              <xs:element name="CodigoAux" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCodigoAux" msprop:Generator_ColumnPropNameInRow="CodigoAux" msprop:Generator_ColumnPropNameInTable="CodigoAuxColumn" msprop:Generator_UserColumnName="CodigoAux" type="xs:int" minOccurs="0" />
               <xs:element name="Consecutivo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -143,5 +143,9 @@ FROM     tBoleta INNER JOIN
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BoletaTable" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

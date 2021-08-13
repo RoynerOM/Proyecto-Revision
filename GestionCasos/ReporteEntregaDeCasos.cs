@@ -37,7 +37,6 @@ namespace GestionCasos
             CargarCombo();
             // TODO: This line of code loads data into the 'dtsEntregaCasos.EntregaTable' table. You can move, or remove it, as needed.
             this.EntregaTableTableAdapter.Fill(this.dtsEntregaCasos.EntregaTable);
-
             this.reportViewer1.RefreshReport();
         }
 

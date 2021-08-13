@@ -133,8 +133,8 @@
   <data name="edit_graph_report_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_graph_report_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="squared_menu_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\squared_menu_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_graph_report_100px2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_graph_report_100px2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,6 +202,9 @@
   <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="safety_collection_place_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\safety_collection_place_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="edit_file" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -219,6 +222,9 @@
   </data>
   <data name="image001" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="users_settings_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\users_settings_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="data_pending_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\data_pending_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -292,9 +298,6 @@
   <data name="n_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\n_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buscar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="report_file_240px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_file_240px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -322,7 +325,10 @@
   <data name="eye_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="safety_collection_place_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\safety_collection_place_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="squared_menu_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\squared_menu_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="password_reset_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\password_reset_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

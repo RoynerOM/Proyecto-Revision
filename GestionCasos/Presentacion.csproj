@@ -16,7 +16,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\User\Desktop\C3\</PublishUrl>
+    <PublishUrl>C:\Users\User\Desktop\C4\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -229,6 +229,12 @@
     <Compile Include="Administrador\fMenu.designer.cs">
       <DependentUpon>fMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\fUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\fUsers.Designer.cs">
+      <DependentUpon>fUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fMenu.resx">
       <DependentUpon>fMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\fUsers.resx">
+      <DependentUpon>fUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -560,6 +569,8 @@
     <None Include="Resources\sync_20px1.png" />
     <None Include="Resources\buscar.png" />
     <None Include="Resources\safety_collection_place_96px.png" />
+    <None Include="Resources\users_settings_64px.png" />
+    <None Include="Resources\password_reset_64px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

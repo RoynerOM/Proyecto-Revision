@@ -428,7 +428,7 @@ namespace GestionCasos.Usuarios
                         string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
                         if (entrega == false)
                         {
-                            fBoleta comentario = new fBoleta(0, consecutivo);
+                            fBoleta comentario = new fBoleta( consecutivo);
                             comentario.ShowDialog();
                         }
                         else

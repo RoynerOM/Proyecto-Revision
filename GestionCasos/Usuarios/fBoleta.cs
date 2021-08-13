@@ -10,7 +10,6 @@ namespace GestionCasos.Usuarios
     public partial class fBoleta : Form
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-        private int TipoUsuario = 0;
         private int isNew = 0;
         private string consecutivo = null;
 
@@ -22,10 +21,9 @@ namespace GestionCasos.Usuarios
         readonly showMessageDialog Alert = new showMessageDialog();
         readonly EntregaNegocio entregaNegocio = new EntregaNegocio();
 
-        public fBoleta(int tipo, string consecutivo)
+        public fBoleta(string consecutivo)
         {
             InitializeComponent();
-            this.TipoUsuario = tipo;
             this.consecutivo = consecutivo;
         }
 
@@ -168,13 +166,14 @@ namespace GestionCasos.Usuarios
                     cbMotivo7.Checked = (bool)filtro.Motivo7;
 
                     //Carga de otros
-                    if (filtro.Motivo8 != "")
+                    if (filtro.Motivo8 != " ")
                     {
                         cbMotivo8.Checked = true;
                         txtOtros.Visible = true;
                         txtOtros.Text = filtro.Motivo8;
                     }
-                    txtComentario.Text = revision.Comentario;
+
+                    txtComentario.Text = filtro.Observacion;
 
 
                     if (revision.Estado == 4)
@@ -221,8 +220,8 @@ namespace GestionCasos.Usuarios
                     {
                         boleta.Motivo8 = txtOtros.Text;
                     }
-                    boleta.Observacion = caso.Comentario;
-                    caso.Comentario = txtComentario.Text;
+
+                    boleta.Observacion = txtComentario.Text;
 
                     if (revisionNegocio.modificar(caso) == true)
                     {
@@ -258,11 +257,11 @@ namespace GestionCasos.Usuarios
                         }
                         else
                         {
-                            newBoleta.Motivo8 = "";
+                            newBoleta.Motivo8 = " ";
                         }
+                        newBoleta.Observacion = txtComentario.Text;
 
                         //Observacion
-                        newBoleta.Observacion = txtComentario.Text;
                         newBoleta.FechaCreado = DateTime.Now;
                         //Fin de informacion de boleta
 
@@ -280,16 +279,8 @@ namespace GestionCasos.Usuarios
                         revision.numeroActa = txtNumeroActa.Text;
                         revision.numeroFolio = txtFolio.Text;
                         revision.fechaActa = dtpFechaActa.Value;
-
-                        if (txtComentario.Text != string.Empty)
-                        {
-                            revision.Comentario = "-";
-                        }
-                        else
-                        {
-                            revision.Comentario = txtComentario.Text;
-                        }
-
+                        revision.Comentario = txtComentario.Text;
+                      
 
                         //Se actualiza la informacion del caso pasa hacer tramitador
                         if (revisionNegocio.modificar(revision) == true)
