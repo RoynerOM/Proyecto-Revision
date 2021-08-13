@@ -291,13 +291,13 @@ namespace GestionCasos.Usuarios
                             {
                                 if (boletaNegocio.guardarAsync(newBoleta) == true)
                                 {
-                                    Alert.Success(new Alertas.Alerta(), "Observacion Agregada con exito");
+                                    Alert.Success(new Alertas.Alerta(), "Observación Agregada con éxito");
                                     btnBoleta.Enabled = true;
                                     btnEntrega.Enabled = true;
                                 }
                                 else
                                 {
-                                    Alert.Danger(new Alertas.Alerta(), "No se pudo guardar la observacion");
+                                    Alert.Danger(new Alertas.Alerta(), "No se pudo guardar la observación");
                                 }
                             }
                         }
