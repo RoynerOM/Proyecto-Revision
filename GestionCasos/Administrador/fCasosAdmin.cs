@@ -290,25 +290,25 @@ namespace GestionCasos
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
                 tabla.Columns[0].Width = 90;
                 tabla.Columns[1].Width = 100;
-                tabla.Columns[2].Width = 80;
+                tabla.Columns[2].Width = 55;
                 tabla.Columns[3].Width = 320;
                 tabla.Columns[4].Width = 70;
                 tabla.Columns[5].Width = 100;
                 tabla.Columns[6].Width = 220;
                 tabla.Columns[7].Width = 120;
-                tabla.Columns[8].Width = 120;
+                tabla.Columns[8].Width = 115;
             }
             else if (screenWidth > 1280 && screenWidth <= 1400)
             {
                 tabla.Columns[0].Width = 95;
                 tabla.Columns[1].Width = 105;
-                tabla.Columns[2].Width = 80;
+                tabla.Columns[2].Width = 70;
                 tabla.Columns[3].Width = 320;
-                tabla.Columns[4].Width = 70;
-                tabla.Columns[5].Width = 105;
+                tabla.Columns[4].Width = 55;
+                tabla.Columns[5].Width = 100;
                 tabla.Columns[6].Width = 300;
                 tabla.Columns[7].Width = 120;
-                tabla.Columns[8].Width = 130;
+                tabla.Columns[8].Width = 115;
             }
             else
             {

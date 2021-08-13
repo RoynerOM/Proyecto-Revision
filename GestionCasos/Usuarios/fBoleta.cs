@@ -222,6 +222,7 @@ namespace GestionCasos.Usuarios
                     }
 
                     boleta.Observacion = txtComentario.Text;
+                    caso.Comentario = boleta.Observacion;
 
                     if (revisionNegocio.modificar(caso) == true)
                     {

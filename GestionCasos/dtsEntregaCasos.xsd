@@ -12,13 +12,22 @@
               <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT tRevision.Consecutivo, tInstitucion.CodigoAux AS Codigo, tInstitucion.Circuito, tInstitucion.Nombre AS Institucion, tPersona.NombreCompleto AS Asignado, tRevision.Fecha AS FechaAsignada, tEntregaCasos.Observacion, 
-                  tMensajero.NombreCompleto AS Mensajero, tEntregaCasos.Pago
-FROM     tEntregaCasos INNER JOIN
-                  tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero INNER JOIN
-                  tRevision ON tEntregaCasos.Caso = tRevision.IdCaso INNER JOIN
-                  tInstitucion ON tEntregaCasos.Junta = tInstitucion.Codigo INNER JOIN
-                  tPersona ON tEntregaCasos.Asignado = tPersona.Cedula</CommandText>
+                    <CommandText>SELECT 
+tRevision.Consecutivo,
+tInstitucion.CodigoAux as Codigo,
+tInstitucion.Circuito,
+tInstitucion.Nombre as Institucion,
+tPersona.NombreCompleto as Asignado,
+tRevision.Fecha as FechaAsignada,
+tEntregaCasos.FechaEntrega,
+tEntregaCasos.Observacion,
+tMensajero.NombreCompleto as Mensajero,
+tEntregaCasos.Pago
+FROM  tEntregaCasos 
+ JOIN tMensajero ON tMensajero.IdMensajero = tEntregaCasos.Mensajero 
+ join tRevision on tEntregaCasos.Caso = tRevision.IdCaso
+ join tInstitucion on  tEntregaCasos.Junta = tInstitucion.Codigo
+ join tPersona  on  tEntregaCasos.Asignado = tPersona.Cedula</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -34,6 +43,7 @@ FROM     tEntregaCasos INNER JOIN
               <Mapping SourceColumn="Observacion" DataSetColumn="Observacion" />
               <Mapping SourceColumn="Mensajero" DataSetColumn="Mensajero" />
               <Mapping SourceColumn="Pago" DataSetColumn="Pago" />
+              <Mapping SourceColumn="FechaEntrega" DataSetColumn="FechaEntrega" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectName="BDJuntas.dbo.spFiltrarCircuitoEntrega" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -101,7 +111,7 @@ FROM     tEntregaCasos INNER JOIN
   <xs:element name="dtsEntregaCasos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsEntregaCasos" msprop:Generator_UserDSName="dtsEntregaCasos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="EntregaTable" msprop:Generator_TableClassName="EntregaTableDataTable" msprop:Generator_TableVarName="tableEntregaTable" msprop:Generator_TablePropName="EntregaTable" msprop:Generator_RowDeletingName="EntregaTableRowDeleting" msprop:Generator_RowChangingName="EntregaTableRowChanging" msprop:Generator_RowEvHandlerName="EntregaTableRowChangeEventHandler" msprop:Generator_RowDeletedName="EntregaTableRowDeleted" msprop:Generator_UserTableName="EntregaTable" msprop:Generator_RowChangedName="EntregaTableRowChanged" msprop:Generator_RowEvArgName="EntregaTableRowChangeEvent" msprop:Generator_RowClassName="EntregaTableRow">
+        <xs:element name="EntregaTable" msprop:Generator_TableClassName="EntregaTableDataTable" msprop:Generator_TableVarName="tableEntregaTable" msprop:Generator_RowChangedName="EntregaTableRowChanged" msprop:Generator_TablePropName="EntregaTable" msprop:Generator_RowDeletingName="EntregaTableRowDeleting" msprop:Generator_RowChangingName="EntregaTableRowChanging" msprop:Generator_RowEvHandlerName="EntregaTableRowChangeEventHandler" msprop:Generator_RowDeletedName="EntregaTableRowDeleted" msprop:Generator_RowClassName="EntregaTableRow" msprop:Generator_UserTableName="EntregaTable" msprop:Generator_RowEvArgName="EntregaTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" minOccurs="0">
@@ -143,6 +153,7 @@ FROM     tEntregaCasos INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Pago" msprop:Generator_ColumnVarNameInTable="columnPago" msprop:Generator_ColumnPropNameInRow="Pago" msprop:Generator_ColumnPropNameInTable="PagoColumn" msprop:Generator_UserColumnName="Pago" type="xs:int" />
+              <xs:element name="FechaEntrega" msprop:Generator_ColumnVarNameInTable="columnFechaEntrega" msprop:Generator_ColumnPropNameInRow="FechaEntrega" msprop:Generator_ColumnPropNameInTable="FechaEntregaColumn" msprop:Generator_UserColumnName="FechaEntrega" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
