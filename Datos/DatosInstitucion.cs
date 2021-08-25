@@ -1,20 +1,22 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
-using Utilidades.Interfaces;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
+using Utilidades.Interfaces;
 namespace Datos
 {
-    public class DatosInstitucion : ICrud<t_Institucion>
+    public class DatosInstitucion : ICrud<tInstitucion>
     {
-        public bool eliminar(t_Institucion e)
+        public bool eliminar(tInstitucion e)
         {
             //throw new NotImplementedException();
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Institucion>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tInstitucion>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;
@@ -27,13 +29,13 @@ namespace Datos
             }
         }
 
-        public bool guardar(t_Institucion e)
+        public bool guardarAsync(tInstitucion e)
         {
-            using (var db = new BD_JuntasEntities())
+            using (var db = new BDJuntasEntities())
             {
                 try
                 {
-                    db.t_Institucion.Add(e);
+                    db.tInstitucion.Add(e);
                     db.SaveChanges();
                     return true;
                 }
@@ -45,14 +47,14 @@ namespace Datos
             }
         }
 
-        public bool modificar(t_Institucion e)
+        public bool modificar(tInstitucion e)
         {
             //throw new NotImplementedException();
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    db.Entry<t_Institucion>(e).State = System.Data.Entity.EntityState.Modified;
+                    db.Entry<tInstitucion>(e).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;
@@ -65,13 +67,13 @@ namespace Datos
             }
         }
 
-        public t_Institucion obtenerPorId(t_Institucion e)
+        public tInstitucion obtenerPorId(int e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.t_Institucion.Include("t_Persona").FirstOrDefault(x => x.Codigo == e.Codigo);
+                    var consulta = db.tInstitucion.Include("tPersona").Include("tTipoInstitucion").Where(x => x.Codigo == e && x.Estado == true).SingleOrDefault();
                     if (consulta != null)
                     {
                         return consulta;
@@ -90,13 +92,18 @@ namespace Datos
             }
         }
 
-        public IEnumerable<t_Institucion> obtenerTodo(t_Institucion e)
+        public tInstitucion obtenerPorId(tInstitucion e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<tInstitucion>> obtenerTodo()
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var consulta = db.t_Institucion.Include("t_Persona").Include("t_Tipo_Institucion").ToList();
+                    var consulta = await db.tInstitucion.Include("tPersona").Include("tTipoInstitucion").Where(x => x.Estado == true).ToListAsync();
                     if (consulta != null)
                     {
                         return consulta;
@@ -114,9 +121,5 @@ namespace Datos
                 return null;
             }
         }
-
-
-
-
     }
 }

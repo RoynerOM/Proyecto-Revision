@@ -32,18 +32,18 @@ namespace GestionCasos
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.BD_JuntasDataSet1 = new GestionCasos.BD_JuntasDataSet1();
-            this.ContadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ContadoresTableAdapter = new GestionCasos.BD_JuntasDataSet1TableAdapters.ContadoresTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ContadoresBindingSource)).BeginInit();
+            this.dtsContador = new GestionCasos.dtsContador();
+            this.tPersonaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tPersonaTableAdapter = new GestionCasos.dtsContadorTableAdapters.tPersonaTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsContador)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tPersonaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "dsContadores";
-            reportDataSource1.Value = this.ContadoresBindingSource;
+            reportDataSource1.Name = "dtsContador";
+            reportDataSource1.Value = this.tPersonaBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "GestionCasos.Reportes.ReporteContadores.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -52,19 +52,19 @@ namespace GestionCasos
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // BD_JuntasDataSet1
+            // dtsContador
             // 
-            this.BD_JuntasDataSet1.DataSetName = "BD_JuntasDataSet1";
-            this.BD_JuntasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dtsContador.DataSetName = "dtsContador";
+            this.dtsContador.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // ContadoresBindingSource
+            // tPersonaBindingSource
             // 
-            this.ContadoresBindingSource.DataMember = "Contadores";
-            this.ContadoresBindingSource.DataSource = this.BD_JuntasDataSet1;
+            this.tPersonaBindingSource.DataMember = "tPersona";
+            this.tPersonaBindingSource.DataSource = this.dtsContador;
             // 
-            // ContadoresTableAdapter
+            // tPersonaTableAdapter
             // 
-            this.ContadoresTableAdapter.ClearBeforeFill = true;
+            this.tPersonaTableAdapter.ClearBeforeFill = true;
             // 
             // ReporteContadores
             // 
@@ -75,8 +75,8 @@ namespace GestionCasos
             this.Name = "ReporteContadores";
             this.Text = "ReporteContadores";
             this.Load += new System.EventHandler(this.ReporteContadores_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.BD_JuntasDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ContadoresBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtsContador)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tPersonaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -84,8 +84,8 @@ namespace GestionCasos
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource ContadoresBindingSource;
-        private BD_JuntasDataSet1 BD_JuntasDataSet1;
-        private BD_JuntasDataSet1TableAdapters.ContadoresTableAdapter ContadoresTableAdapter;
+        private System.Windows.Forms.BindingSource tPersonaBindingSource;
+        private dtsContador dtsContador;
+        private dtsContadorTableAdapters.tPersonaTableAdapter tPersonaTableAdapter;
     }
 }

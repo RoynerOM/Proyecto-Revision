@@ -1,24 +1,25 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
-
 namespace Datos
 {
-    public class DatosUsuario : ICrud<t_Usuario>
+    public class DatosUsuario : ICrud<tUsuario>
     {
-        public bool eliminar(t_Usuario e)
+        public bool eliminar(tUsuario e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(t_Usuario e)
+        public bool guardarAsync(tUsuario e)
         {
-            using (var context = new BD_JuntasEntities())
+            using (var context = new BDJuntasEntities())
             {
                 try
                 {
-                    context.t_Usuario.Add(e);
+                    context.tUsuario.Add(e);
                     context.SaveChanges();
 
                     return true;
@@ -27,21 +28,58 @@ namespace Datos
                 {
                     return false;
                 }
-                
+
             }
         }
 
-        public bool modificar(t_Usuario e)
+        public bool modificar(tUsuario e)
+        {
+            using (var context = new BDJuntasEntities())
+            {
+                try
+                {
+                    context.Entry<tUsuario>(e).State =  System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+
+            }
+        }
+
+        public tUsuario obtenerPorId(tUsuario e)
         {
             throw new NotImplementedException();
         }
-
-        public t_Usuario obtenerPorId(t_Usuario e)
+        public tUsuario obtenerPorId(string e)
         {
-            throw new NotImplementedException();
-        }
+            using (var db = new BDJuntasEntities())
+            {
+                try
+                {
+                    var u = db.tUsuario.Include("tPersona").Where(x => x.Cedula == e && x.tPersona.Estado == true).SingleOrDefault();
+                    if (u != null)
+                    {
+                        return u;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    return null;
+                }
 
-        public IEnumerable<t_Usuario> obtenerTodo(t_Usuario e)
+            }
+        }
+        public Task<List<tUsuario>> obtenerTodo()
         {
             throw new NotImplementedException();
         }

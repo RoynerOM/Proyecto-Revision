@@ -1,30 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Entidades;
+using GestionCasos.Administrador;
+using GestionCasos.Usuarios;
+using Negocios;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
-using GestionCasos.Administrador;
-using Negocios;
+using Utilidades;
+using Utilidades.Enumerables;
+
 namespace GestionCasos
 {
     public partial class fDashBoard : Form
     {
-        ContadorNegocio negocio = new ContadorNegocio();
-        RevisionNegocio revision = new RevisionNegocio();
-        InstitucionNegocio institucion = new InstitucionNegocio();
-        private Form activeForm;
+        readonly ContadorNegocio negocio = new ContadorNegocio();
+        readonly RevisionNegocio revision = new RevisionNegocio();
+        readonly InstitucionNegocio institucion = new InstitucionNegocio();
 
-        public fDashBoard()
+        private Form activeForm;
+        private int Rol = (int)Enums.Tipo.Tramitador;
+        private string cedula = null;
+        public fDashBoard(int Rol)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            this.Rol = Rol;
+            cedula = File.ReadAllText("temp.txt");
+            SetThemeColor();
         }
 
         private void DesktopPanel_Paint(object sender, PaintEventArgs e)
@@ -32,27 +38,64 @@ namespace GestionCasos
 
         }
 
-        private void CargarEstadisticas()
+        private async void CargarEstadisticas()
         {
             try
             {
-                var cantidad = negocio.CantidadContadores();
-                label1.Text = cantidad.ToString();
-
-                var casos = revision.obtenerTodo(new t_Revision());
-
-                var pendientes = casos.Where(x => x.Estado == 1).Count();
-                lblTotaPendientes.Text = pendientes.ToString();
+                if (Rol == (int)Enums.Tipo.Contador)
+                {
+                    var contadores = await negocio.obtenerTrabador(0);
+                    label1.Text = contadores.Count().ToString();
 
 
-                var revicion = casos.Where(x => x.Estado == 2).Count();
-                lblTotalRevisados.Text = revicion.ToString();
+                    var casos = await revision.obtenerTodo();
 
-                var tramitado = casos.Where(x => x.Estado == 3).Count();
-                var todos = casos.Count();
+                    //En revisio
+                    var pendientes = casos.Where(x => x.Estado == 1).Count();
+                    lblTotaRevision.Text = pendientes.ToString();
 
-                var instituciones = institucion.obtenerTodo(new t_Institucion()).Count();
-                lblTotalJuntas.Text = instituciones.ToString();
+
+                    var tramitadores = casos.Where(x => x.Estado == 2).Count();
+                    lblCasosRevisados.Text = tramitadores.ToString();
+
+                    //Tramitados
+                    var revicion = casos.Where(x => x.Estado == 3).Count();
+                    lblTotalPorEntrega.Text = revicion.ToString();
+
+                    //Entrgados
+                    var entregados = casos.Where(x => x.Estado == 4).Count();
+                    lblEntregados.Text = entregados.ToString();
+
+                   
+
+                    var instituciones = await institucion.obtenerTodo();
+                    lblTotalJuntas.Text = instituciones.Where(x => x.Estado == true).Count().ToString();
+
+                   
+                }
+                else
+                {
+                    var contadores = await negocio.obtenerTrabador(0);
+                    label1.Text = contadores.Count().ToString();
+
+                    var casos = await revision.obtenerTodo();
+
+                    var pendientes = casos.Where(x => x.Estado == 2 && x.Tramitador == cedula).Count();
+                    lblTotaRevision.Text = pendientes.ToString();
+
+
+                    var tramitado = casos.Where(x => x.Estado == 3 && x.Tramitador == cedula).Count();
+                    lblTotalPorEntrega.Text = tramitado.ToString();
+
+                    var entregados = casos.Where(x => x.Estado == 4 && x.Tramitador == cedula).Count();
+                    lblEntregados.Text = entregados.ToString();
+
+                    var instituciones = await institucion.obtenerTodo();
+                    lblTotalJuntas.Text = instituciones.Count().ToString();
+
+                    var tramitadores = await negocio.obtenerTrabador(1);
+                    lblCasosRevisados.Text = tramitadores.Count().ToString();
+                }
             }
             catch (Exception ex)
             {
@@ -60,8 +103,15 @@ namespace GestionCasos
             }
         }
 
-        private void fDashBoard_Load(object sender, EventArgs e)
+        private async void FDashBoard_Load(object sender, EventArgs e)
         {
+
+            string cedula = File.ReadAllText("temp.txt");
+
+            var usuario = await negocio.obtenerPorIdAsync(this.cedula);
+
+            lblNombreU.Text = "Usuario: " + usuario.NombreCompleto + ", " + File.ReadAllText("temp.txt");
+
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
@@ -69,7 +119,16 @@ namespace GestionCasos
 
             OpenChildForm(new fLoader(1, hilo));
             CargarEstadisticas();
-            SetThemeColor();
+
+            if (Rol == 1)
+            {
+                gunaTileButton2.Enabled = false;
+            }
+            else
+            {
+                gunaTileButton2.Enabled = true;
+            }
+
         }
 
         private void SetThemeColor()
@@ -77,7 +136,7 @@ namespace GestionCasos
             if (ConfigurationManager.AppSettings["DarkMode"] == "false")
             {
 
-                this.DesktopPanel.BackColor = Color.White; 
+                this.DesktopPanel.BackColor = Color.White;
                 this.DesktopPanel.ForeColor = Color.FromArgb(41, 79, 116);
 
                 this.pnContadores.BaseColor = Color.FromArgb(41, 79, 116);
@@ -92,52 +151,83 @@ namespace GestionCasos
                 this.gunaElipsePanel4.BaseColor = Color.FromArgb(41, 79, 116);
                 this.gunaElipsePanel4.ForeColor = Color.White;
 
-                this.gunaElipsePanel5.BaseColor = Color.FromArgb(41, 79, 116);
-                this.gunaElipsePanel5.ForeColor = Color.White;
-            }
-            else
-            {
+                this.gunaElipsePanel2.BaseColor = Color.FromArgb(41, 79, 116);
+                this.gunaElipsePanel2.ForeColor = Color.White;
 
+                this.gunaElipsePanel1.BaseColor = Color.FromArgb(41, 79, 116);
+                this.gunaElipsePanel1.ForeColor = Color.White;
+
+                this.label4.ForeColor = Colors.Black; 
+                this.lblNombreU.ForeColor = Colors.Black;
             }
         }
-        private void pnContadores_Paint(object sender, PaintEventArgs e)
+        private void PnContadores_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void gunaTileButton1_Click(object sender, EventArgs e)
+        private void GunaTileButton1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fCasosAdmin());
+
+            //if (Rol == (int)Enums.Tipo.Contador)
+            //{
+            //    OpenChildForm(new fCasosAdmin(false));
+            //}
+            //else
+            //{
+            //    OpenChildForm(new CasosAsignados(false));
+            //}
+
+            OpenChildForm(new fCasosAdmin(false));
         }
         //Pintar formulario hijo
         //Formulario en uso
         private void OpenChildForm(Form childForm)
         {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.DesktopPanel.Controls.Add(childForm);
-            this.DesktopPanel.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            try
+            {
+                if (activeForm != null)
+                    activeForm.Close();
+                activeForm = childForm;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                this.DesktopPanel.Controls.Add(childForm);
+                this.DesktopPanel.Tag = childForm;
+                childForm.BringToFront();
+                childForm.Show();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
         }
 
-        private void gunaTileButton2_Click(object sender, EventArgs e)
+        private void GunaTileButton2_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new AsignarCaso());
         }
 
-        private void gunaTileButton4_Click(object sender, EventArgs e)
+        private void GunaTileButton4_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new )
+            if (Rol == (int)Enums.Tipo.Contador)
+            {
+                OpenChildForm(new fCasosAdmin(true));
+            }
+            else
+            {
+                OpenChildForm(new CasosAsignados(true));
+            }
         }
 
-        private void gunaTileButton3_Click(object sender, EventArgs e)
+        private void GunaTileButton3_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fDetallesJuntas());
+            OpenChildForm(new fDetallesJuntas(Rol));
+        }
+
+        private void gunaTileButton4_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new fDetallesPersonas(Rol));
         }
     }
 }

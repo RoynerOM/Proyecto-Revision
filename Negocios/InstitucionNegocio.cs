@@ -1,38 +1,43 @@
-﻿using Entidades;
-using System;
+﻿using Datos;
+using Entidades;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
-using Datos;
 namespace Negocios
 {
     //Plantilla
-    public class InstitucionNegocio : ICrud<t_Institucion>
+    public class InstitucionNegocio : ICrud<tInstitucion>
     {
-        DatosInstitucion datos = new DatosInstitucion();
-        public bool eliminar(t_Institucion e)
+        readonly DatosInstitucion datos = new DatosInstitucion();
+        public bool eliminar(tInstitucion e)
         {
             e.Estado = false;
             return datos.eliminar(e);
         }
 
-        public bool guardar(t_Institucion e)
+        public bool guardarAsync(tInstitucion e)
         {
-            return datos.guardar(e);
+            return datos.guardarAsync(e);
         }
 
-        public bool modificar(t_Institucion e)
+        public bool modificar(tInstitucion e)
         {
             return datos.modificar(e);
         }
 
-        public t_Institucion obtenerPorId(t_Institucion e)
+        public tInstitucion obtenerPorId(int e)
         {
             return datos.obtenerPorId(e);
         }
 
-        public IEnumerable<t_Institucion> obtenerTodo(t_Institucion e)
+        public tInstitucion obtenerPorId(tInstitucion e)
         {
-            return datos.obtenerTodo(e);
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<List<tInstitucion>> obtenerTodo()
+        {
+            return await datos.obtenerTodo();
         }
     }
 }

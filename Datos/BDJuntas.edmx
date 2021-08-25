@@ -1,0 +1,1447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BDJuntasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tBoleta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCaso" Type="int" Nullable="false" />
+          <Property Name="Motivo1" Type="bit" Nullable="false" />
+          <Property Name="Motivo2" Type="bit" Nullable="false" />
+          <Property Name="Motivo3" Type="bit" Nullable="false" />
+          <Property Name="Motivo4" Type="bit" Nullable="false" />
+          <Property Name="Motivo5" Type="bit" Nullable="false" />
+          <Property Name="Motivo6" Type="bit" Nullable="false" />
+          <Property Name="Motivo7" Type="bit" Nullable="false" />
+          <Property Name="Motivo8" Type="varchar(max)" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaCreado" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tEntregaCasos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Caso" Type="int" Nullable="false" />
+          <Property Name="Mensajero" Type="int" Nullable="false" />
+          <Property Name="Junta" Type="int" Nullable="false" />
+          <Property Name="Asignado" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Recepcion" Type="int" Nullable="false" />
+          <Property Name="Pago" Type="int" Nullable="false" />
+          <Property Name="FechaEntrega" Type="date" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Transferencia" Type="int" />
+        </EntityType>
+        <EntityType Name="tEstado">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tInstitucion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Circuito" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="CedulaJuridica" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CuentaLey" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contador" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Responsable" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Contacto" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="CodigoAux" Type="int" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="DiaRuta" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tMensajero">
+          <Key>
+            <PropertyRef Name="IdMensajero" />
+          </Key>
+          <Property Name="IdMensajero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CedulaMensajero" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tPersona">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="TipoIdentificacion" Type="int" Nullable="false" />
+          <Property Name="Carnet" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="tRecepcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Recepcion" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tRevision">
+          <Key>
+            <PropertyRef Name="IdCaso" />
+          </Key>
+          <Property Name="IdCaso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Consecutivo" Type="varchar" MaxLength="14" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="FechaAsignada" Type="nvarchar" MaxLength="30" StoreGeneratedPattern="Computed" />
+          <Property Name="FechaRevisada" Type="nvarchar" MaxLength="30" StoreGeneratedPattern="Computed" />
+          <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
+          <Property Name="Tramitador" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Recepcion" Type="int" Nullable="false" />
+          <Property Name="numeroActa" Type="varchar" MaxLength="20" />
+          <Property Name="numeroFolio" Type="varchar" MaxLength="20" />
+          <Property Name="fechaActa" Type="date" />
+          <Property Name="Estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tTipoInstitucion">
+          <Key>
+            <PropertyRef Name="IdTipo" />
+          </Key>
+          <Property Name="IdTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipo" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tTrabajador">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="tUsuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Clave" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Rol" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="CodigoRes" Type="float" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewBoleta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewBoleta">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Circuito" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="CedulaJuridica" />
+            <PropertyRef Name="Motivo1" />
+            <PropertyRef Name="Motivo2" />
+            <PropertyRef Name="Motivo3" />
+            <PropertyRef Name="Motivo4" />
+            <PropertyRef Name="Motivo5" />
+            <PropertyRef Name="Motivo6" />
+            <PropertyRef Name="Motivo7" />
+            <PropertyRef Name="Motivo8" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="FechaCreado" />
+            <PropertyRef Name="NombreCompleto" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Circuito" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="CedulaJuridica" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Motivo1" Type="bit" Nullable="false" />
+          <Property Name="Motivo2" Type="bit" Nullable="false" />
+          <Property Name="Motivo3" Type="bit" Nullable="false" />
+          <Property Name="Motivo4" Type="bit" Nullable="false" />
+          <Property Name="Motivo5" Type="bit" Nullable="false" />
+          <Property Name="Motivo6" Type="bit" Nullable="false" />
+          <Property Name="Motivo7" Type="bit" Nullable="false" />
+          <Property Name="Motivo8" Type="varchar(max)" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaCreado" Type="date" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="numeroActa" Type="varchar" MaxLength="20" />
+          <Property Name="numeroFolio" Type="varchar" MaxLength="20" />
+          <Property Name="fechaActa" Type="date" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewCasosAsignados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewCasosAsignados">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Recepción" />
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Comentario" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="Recepción" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewCasosPorEntregar' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewCasosPorEntregar">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="CodigoAux" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Recepción" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Comentario" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="CodigoAux" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="DiaRuta" Type="varchar" MaxLength="20" />
+          <Property Name="Recepción" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewContadores' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewContadores">
+          <Key>
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="TipoIdentificacion" />
+            <PropertyRef Name="Carnet" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Correo" />
+          </Key>
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="TipoIdentificacion" Type="int" Nullable="false" />
+          <Property Name="Carnet" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewEntregaCasos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewEntregaCasos">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Circuito" />
+            <PropertyRef Name="Institucion" />
+            <PropertyRef Name="Asignado" />
+            <PropertyRef Name="FechaAsignada" />
+            <PropertyRef Name="FechaEntrega" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Mensajero" />
+            <PropertyRef Name="Cheque" />
+          </Key>
+          <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Circuito" Type="int" Nullable="false" />
+          <Property Name="Institucion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Asignado" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="FechaAsignada" Type="date" Nullable="false" />
+          <Property Name="FechaEntrega" Type="date" Nullable="false" />
+          <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Mensajero" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Cheque" Type="int" Nullable="false" />
+          <Property Name="Transferencia" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewJuntas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewJuntas">
+          <Key>
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Circuito" />
+            <PropertyRef Name="NombreTipo" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="CedulaJuridica" />
+            <PropertyRef Name="CuentaLey" />
+            <PropertyRef Name="Responsable" />
+            <PropertyRef Name="Contacto" />
+            <PropertyRef Name="Contador" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Circuito" Type="int" Nullable="false" />
+          <Property Name="NombreTipo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="CedulaJuridica" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DiaRuta" Type="varchar" MaxLength="20" />
+          <Property Name="CuentaLey" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Responsable" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Contacto" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Contador" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewTrabajador' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewTrabajador">
+          <Key>
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Apellido1" />
+            <PropertyRef Name="Apellido2" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Tipo" />
+          </Key>
+          <Property Name="Cedula" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <Association Name="FK__tBoleta__IdCaso__4A8310C6">
+          <End Role="tRevision" Type="Self.tRevision" Multiplicity="1" />
+          <End Role="tBoleta" Type="Self.tBoleta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tRevision">
+              <PropertyRef Name="IdCaso" />
+            </Principal>
+            <Dependent Role="tBoleta">
+              <PropertyRef Name="IdCaso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tEntregaC__Asign__46B27FE2">
+          <End Role="tPersona" Type="Self.tPersona" Multiplicity="1" />
+          <End Role="tEntregaCasos" Type="Self.tEntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPersona">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="tEntregaCasos">
+              <PropertyRef Name="Asignado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tEntregaC__Junta__47A6A41B">
+          <End Role="tInstitucion" Type="Self.tInstitucion" Multiplicity="1" />
+          <End Role="tEntregaCasos" Type="Self.tEntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tInstitucion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="tEntregaCasos">
+              <PropertyRef Name="Junta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tEntregaC__Mensa__45BE5BA9">
+          <End Role="tMensajero" Type="Self.tMensajero" Multiplicity="1" />
+          <End Role="tEntregaCasos" Type="Self.tEntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tMensajero">
+              <PropertyRef Name="IdMensajero" />
+            </Principal>
+            <Dependent Role="tEntregaCasos">
+              <PropertyRef Name="Mensajero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tInstituc__Conta__52593CB8">
+          <End Role="tPersona" Type="Self.tPersona" Multiplicity="1" />
+          <End Role="tInstitucion" Type="Self.tInstitucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPersona">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="tInstitucion">
+              <PropertyRef Name="Contador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tInstituci__Tipo__5441852A">
+          <End Role="tTipoInstitucion" Type="Self.tTipoInstitucion" Multiplicity="1" />
+          <End Role="tInstitucion" Type="Self.tInstitucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tTipoInstitucion">
+              <PropertyRef Name="IdTipo" />
+            </Principal>
+            <Dependent Role="tInstitucion">
+              <PropertyRef Name="Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tRevision__Codig__3F115E1A">
+          <End Role="tInstitucion" Type="Self.tInstitucion" Multiplicity="1" />
+          <End Role="tRevision" Type="Self.tRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tInstitucion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="tRevision">
+              <PropertyRef Name="Codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tRevision__Estad__41EDCAC5">
+          <End Role="tEstado" Type="Self.tEstado" Multiplicity="1" />
+          <End Role="tRevision" Type="Self.tRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tEstado">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="tRevision">
+              <PropertyRef Name="Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tRevision__Recep__40F9A68C">
+          <End Role="tRecepcion" Type="Self.tRecepcion" Multiplicity="1" />
+          <End Role="tRevision" Type="Self.tRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tRecepcion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tRevision">
+              <PropertyRef Name="Recepcion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tRevision__Trami__40058253">
+          <End Role="tPersona" Type="Self.tPersona" Multiplicity="1" />
+          <End Role="tRevision" Type="Self.tRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPersona">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="tRevision">
+              <PropertyRef Name="Tramitador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tUsuario__Cedula__47DBAE45">
+          <End Role="tPersona" Type="Self.tPersona" Multiplicity="1" />
+          <End Role="tUsuario" Type="Self.tUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPersona">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="tUsuario">
+              <PropertyRef Name="Cedula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Caso_Rev">
+          <End Role="tRevision" Type="Self.tRevision" Multiplicity="1" />
+          <End Role="tEntregaCasos" Type="Self.tEntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tRevision">
+              <PropertyRef Name="IdCaso" />
+            </Principal>
+            <Dependent Role="tEntregaCasos">
+              <PropertyRef Name="Caso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BDJuntasModelStoreContainer">
+          <EntitySet Name="tBoleta" EntityType="Self.tBoleta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tEntregaCasos" EntityType="Self.tEntregaCasos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tEstado" EntityType="Self.tEstado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tInstitucion" EntityType="Self.tInstitucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tMensajero" EntityType="Self.tMensajero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tPersona" EntityType="Self.tPersona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tRecepcion" EntityType="Self.tRecepcion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tRevision" EntityType="Self.tRevision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tTipoInstitucion" EntityType="Self.tTipoInstitucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tTrabajador" EntityType="Self.tTrabajador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tUsuario" EntityType="Self.tUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="viewBoleta" EntityType="Self.viewBoleta" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewBoleta].[Id] AS [Id], 
+    [viewBoleta].[Codigo] AS [Codigo], 
+    [viewBoleta].[Consecutivo] AS [Consecutivo], 
+    [viewBoleta].[Circuito] AS [Circuito], 
+    [viewBoleta].[Nombre] AS [Nombre], 
+    [viewBoleta].[CedulaJuridica] AS [CedulaJuridica], 
+    [viewBoleta].[Motivo1] AS [Motivo1], 
+    [viewBoleta].[Motivo2] AS [Motivo2], 
+    [viewBoleta].[Motivo3] AS [Motivo3], 
+    [viewBoleta].[Motivo4] AS [Motivo4], 
+    [viewBoleta].[Motivo5] AS [Motivo5], 
+    [viewBoleta].[Motivo6] AS [Motivo6], 
+    [viewBoleta].[Motivo7] AS [Motivo7], 
+    [viewBoleta].[Motivo8] AS [Motivo8], 
+    [viewBoleta].[Observacion] AS [Observacion], 
+    [viewBoleta].[FechaCreado] AS [FechaCreado], 
+    [viewBoleta].[NombreCompleto] AS [NombreCompleto], 
+    [viewBoleta].[numeroActa] AS [numeroActa], 
+    [viewBoleta].[numeroFolio] AS [numeroFolio], 
+    [viewBoleta].[fechaActa] AS [fechaActa]
+    FROM [dbo].[viewBoleta] AS [viewBoleta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewCasosAsignados" EntityType="Self.viewCasosAsignados" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewCasosAsignados].[Consecutivo] AS [Consecutivo], 
+    [viewCasosAsignados].[Fecha] AS [Fecha], 
+    [viewCasosAsignados].[Codigo] AS [Codigo], 
+    [viewCasosAsignados].[Nombre] AS [Nombre], 
+    [viewCasosAsignados].[Recepción] AS [Recepción], 
+    [viewCasosAsignados].[Cedula] AS [Cedula], 
+    [viewCasosAsignados].[NombreCompleto] AS [NombreCompleto], 
+    [viewCasosAsignados].[Comentario] AS [Comentario], 
+    [viewCasosAsignados].[Estado] AS [Estado]
+    FROM [dbo].[viewCasosAsignados] AS [viewCasosAsignados]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewCasosPorEntregar" EntityType="Self.viewCasosPorEntregar" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewCasosPorEntregar].[Consecutivo] AS [Consecutivo], 
+    [viewCasosPorEntregar].[Fecha] AS [Fecha], 
+    [viewCasosPorEntregar].[CodigoAux] AS [CodigoAux], 
+    [viewCasosPorEntregar].[Nombre] AS [Nombre], 
+    [viewCasosPorEntregar].[DiaRuta] AS [DiaRuta], 
+    [viewCasosPorEntregar].[Recepción] AS [Recepción], 
+    [viewCasosPorEntregar].[NombreCompleto] AS [NombreCompleto], 
+    [viewCasosPorEntregar].[Comentario] AS [Comentario], 
+    [viewCasosPorEntregar].[Estado] AS [Estado]
+    FROM [dbo].[viewCasosPorEntregar] AS [viewCasosPorEntregar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewContadores" EntityType="Self.viewContadores" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewContadores].[Cedula] AS [Cedula], 
+    [viewContadores].[TipoIdentificacion] AS [TipoIdentificacion], 
+    [viewContadores].[Carnet] AS [Carnet], 
+    [viewContadores].[NombreCompleto] AS [NombreCompleto], 
+    [viewContadores].[Correo] AS [Correo]
+    FROM [dbo].[viewContadores] AS [viewContadores]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewEntregaCasos" EntityType="Self.viewEntregaCasos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewEntregaCasos].[Consecutivo] AS [Consecutivo], 
+    [viewEntregaCasos].[Codigo] AS [Codigo], 
+    [viewEntregaCasos].[Circuito] AS [Circuito], 
+    [viewEntregaCasos].[Institucion] AS [Institucion], 
+    [viewEntregaCasos].[Asignado] AS [Asignado], 
+    [viewEntregaCasos].[FechaAsignada] AS [FechaAsignada], 
+    [viewEntregaCasos].[FechaEntrega] AS [FechaEntrega], 
+    [viewEntregaCasos].[Observacion] AS [Observacion], 
+    [viewEntregaCasos].[Mensajero] AS [Mensajero], 
+    [viewEntregaCasos].[Cheque] AS [Cheque], 
+    [viewEntregaCasos].[Transferencia] AS [Transferencia]
+    FROM [dbo].[viewEntregaCasos] AS [viewEntregaCasos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewJuntas" EntityType="Self.viewJuntas" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewJuntas].[Codigo] AS [Codigo], 
+    [viewJuntas].[Circuito] AS [Circuito], 
+    [viewJuntas].[NombreTipo] AS [NombreTipo], 
+    [viewJuntas].[Nombre] AS [Nombre], 
+    [viewJuntas].[CedulaJuridica] AS [CedulaJuridica], 
+    [viewJuntas].[DiaRuta] AS [DiaRuta], 
+    [viewJuntas].[CuentaLey] AS [CuentaLey], 
+    [viewJuntas].[Responsable] AS [Responsable], 
+    [viewJuntas].[Contacto] AS [Contacto], 
+    [viewJuntas].[Contador] AS [Contador], 
+    [viewJuntas].[Estado] AS [Estado]
+    FROM [dbo].[viewJuntas] AS [viewJuntas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewTrabajador" EntityType="Self.viewTrabajador" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewTrabajador].[Cedula] AS [Cedula], 
+    [viewTrabajador].[Nombre] AS [Nombre], 
+    [viewTrabajador].[Apellido1] AS [Apellido1], 
+    [viewTrabajador].[Apellido2] AS [Apellido2], 
+    [viewTrabajador].[NombreCompleto] AS [NombreCompleto], 
+    [viewTrabajador].[Tipo] AS [Tipo], 
+    [viewTrabajador].[Activo] AS [Activo]
+    FROM [dbo].[viewTrabajador] AS [viewTrabajador]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__tBoleta__IdCaso__4A8310C6" Association="Self.FK__tBoleta__IdCaso__4A8310C6">
+            <End Role="tRevision" EntitySet="tRevision" />
+            <End Role="tBoleta" EntitySet="tBoleta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tEntregaC__Asign__46B27FE2" Association="Self.FK__tEntregaC__Asign__46B27FE2">
+            <End Role="tPersona" EntitySet="tPersona" />
+            <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tEntregaC__Junta__47A6A41B" Association="Self.FK__tEntregaC__Junta__47A6A41B">
+            <End Role="tInstitucion" EntitySet="tInstitucion" />
+            <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tEntregaC__Mensa__45BE5BA9" Association="Self.FK__tEntregaC__Mensa__45BE5BA9">
+            <End Role="tMensajero" EntitySet="tMensajero" />
+            <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tInstituc__Conta__52593CB8" Association="Self.FK__tInstituc__Conta__52593CB8">
+            <End Role="tPersona" EntitySet="tPersona" />
+            <End Role="tInstitucion" EntitySet="tInstitucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tInstituci__Tipo__5441852A" Association="Self.FK__tInstituci__Tipo__5441852A">
+            <End Role="tTipoInstitucion" EntitySet="tTipoInstitucion" />
+            <End Role="tInstitucion" EntitySet="tInstitucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tRevision__Codig__3F115E1A" Association="Self.FK__tRevision__Codig__3F115E1A">
+            <End Role="tInstitucion" EntitySet="tInstitucion" />
+            <End Role="tRevision" EntitySet="tRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tRevision__Estad__41EDCAC5" Association="Self.FK__tRevision__Estad__41EDCAC5">
+            <End Role="tEstado" EntitySet="tEstado" />
+            <End Role="tRevision" EntitySet="tRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tRevision__Recep__40F9A68C" Association="Self.FK__tRevision__Recep__40F9A68C">
+            <End Role="tRecepcion" EntitySet="tRecepcion" />
+            <End Role="tRevision" EntitySet="tRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tRevision__Trami__40058253" Association="Self.FK__tRevision__Trami__40058253">
+            <End Role="tPersona" EntitySet="tPersona" />
+            <End Role="tRevision" EntitySet="tRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tUsuario__Cedula__47DBAE45" Association="Self.FK__tUsuario__Cedula__47DBAE45">
+            <End Role="tPersona" EntitySet="tPersona" />
+            <End Role="tUsuario" EntitySet="tUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Caso_Rev" Association="Self.fk_Caso_Rev">
+            <End Role="tRevision" EntitySet="tRevision" />
+            <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDJuntasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BDJuntasEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tBoleta" EntityType="BDJuntasModel.tBoleta" />
+          <EntitySet Name="tEntregaCasos" EntityType="BDJuntasModel.tEntregaCasos" />
+          <EntitySet Name="tEstado" EntityType="BDJuntasModel.tEstado" />
+          <EntitySet Name="tInstitucion" EntityType="BDJuntasModel.tInstitucion" />
+          <EntitySet Name="tMensajero" EntityType="BDJuntasModel.tMensajero" />
+          <EntitySet Name="tPersona" EntityType="BDJuntasModel.tPersona" />
+          <EntitySet Name="tRecepcion" EntityType="BDJuntasModel.tRecepcion" />
+          <EntitySet Name="tRevision" EntityType="BDJuntasModel.tRevision" />
+          <EntitySet Name="tTipoInstitucion" EntityType="BDJuntasModel.tTipoInstitucion" />
+          <EntitySet Name="tTrabajador" EntityType="BDJuntasModel.tTrabajador" />
+          <EntitySet Name="tUsuario" EntityType="BDJuntasModel.tUsuario" />
+          <EntitySet Name="viewBoleta" EntityType="BDJuntasModel.viewBoleta" />
+          <EntitySet Name="viewCasosAsignados" EntityType="BDJuntasModel.viewCasosAsignados" />
+          <EntitySet Name="viewCasosPorEntregar" EntityType="BDJuntasModel.viewCasosPorEntregar" />
+          <EntitySet Name="viewContadores" EntityType="BDJuntasModel.viewContadores" />
+          <EntitySet Name="viewEntregaCasos" EntityType="BDJuntasModel.viewEntregaCasos" />
+          <EntitySet Name="viewJuntas" EntityType="BDJuntasModel.viewJuntas" />
+          <EntitySet Name="viewTrabajador" EntityType="BDJuntasModel.viewTrabajador" />
+          <AssociationSet Name="FK__tBoleta__IdCaso__4A8310C6" Association="BDJuntasModel.FK__tBoleta__IdCaso__4A8310C6">
+            <End Role="tRevision" EntitySet="tRevision" />
+            <End Role="tBoleta" EntitySet="tBoleta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tEntregaC__Asign__46B27FE2" Association="BDJuntasModel.FK__tEntregaC__Asign__46B27FE2">
+            <End Role="tPersona" EntitySet="tPersona" />
+            <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tEntregaC__Junta__47A6A41B" Association="BDJuntasModel.FK__tEntregaC__Junta__47A6A41B">
+            <End Role="tInstitucion" EntitySet="tInstitucion" />
+            <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tEntregaC__Mensa__45BE5BA9" Association="BDJuntasModel.FK__tEntregaC__Mensa__45BE5BA9">
+            <End Role="tMensajero" EntitySet="tMensajero" />
+            <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Caso_Rev" Association="BDJuntasModel.fk_Caso_Rev">
+            <End Role="tRevision" EntitySet="tRevision" />
+            <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tRevision__Estad__41EDCAC5" Association="BDJuntasModel.FK__tRevision__Estad__41EDCAC5">
+            <End Role="tEstado" EntitySet="tEstado" />
+            <End Role="tRevision" EntitySet="tRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tInstituc__Conta__52593CB8" Association="BDJuntasModel.FK__tInstituc__Conta__52593CB8">
+            <End Role="tPersona" EntitySet="tPersona" />
+            <End Role="tInstitucion" EntitySet="tInstitucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tInstituci__Tipo__5441852A" Association="BDJuntasModel.FK__tInstituci__Tipo__5441852A">
+            <End Role="tTipoInstitucion" EntitySet="tTipoInstitucion" />
+            <End Role="tInstitucion" EntitySet="tInstitucion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tRevision__Codig__3F115E1A" Association="BDJuntasModel.FK__tRevision__Codig__3F115E1A">
+            <End Role="tInstitucion" EntitySet="tInstitucion" />
+            <End Role="tRevision" EntitySet="tRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tRevision__Trami__40058253" Association="BDJuntasModel.FK__tRevision__Trami__40058253">
+            <End Role="tPersona" EntitySet="tPersona" />
+            <End Role="tRevision" EntitySet="tRevision" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tUsuario__Cedula__47DBAE45" Association="BDJuntasModel.FK__tUsuario__Cedula__47DBAE45">
+            <End Role="tPersona" EntitySet="tPersona" />
+            <End Role="tUsuario" EntitySet="tUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tRevision__Recep__40F9A68C" Association="BDJuntasModel.FK__tRevision__Recep__40F9A68C">
+            <End Role="tRecepcion" EntitySet="tRecepcion" />
+            <End Role="tRevision" EntitySet="tRevision" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tBoleta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCaso" Type="Int32" Nullable="false" />
+          <Property Name="Motivo1" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo2" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo3" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo4" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo5" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo6" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo7" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo8" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tRevision" Relationship="BDJuntasModel.FK__tBoleta__IdCaso__4A8310C6" FromRole="tBoleta" ToRole="tRevision" />
+        </EntityType>
+        <EntityType Name="tEntregaCasos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Caso" Type="Int32" Nullable="false" />
+          <Property Name="Mensajero" Type="Int32" Nullable="false" />
+          <Property Name="Junta" Type="Int32" Nullable="false" />
+          <Property Name="Asignado" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Recepcion" Type="Int32" Nullable="false" />
+          <Property Name="Pago" Type="Int32" Nullable="false" />
+          <Property Name="FechaEntrega" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Transferencia" Type="Int32" />
+          <NavigationProperty Name="tPersona" Relationship="BDJuntasModel.FK__tEntregaC__Asign__46B27FE2" FromRole="tEntregaCasos" ToRole="tPersona" />
+          <NavigationProperty Name="tInstitucion" Relationship="BDJuntasModel.FK__tEntregaC__Junta__47A6A41B" FromRole="tEntregaCasos" ToRole="tInstitucion" />
+          <NavigationProperty Name="tMensajero" Relationship="BDJuntasModel.FK__tEntregaC__Mensa__45BE5BA9" FromRole="tEntregaCasos" ToRole="tMensajero" />
+          <NavigationProperty Name="tRevision" Relationship="BDJuntasModel.fk_Caso_Rev" FromRole="tEntregaCasos" ToRole="tRevision" />
+        </EntityType>
+        <EntityType Name="tEstado">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tRevision" Relationship="BDJuntasModel.FK__tRevision__Estad__41EDCAC5" FromRole="tEstado" ToRole="tRevision" />
+        </EntityType>
+        <EntityType Name="tInstitucion">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Circuito" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CedulaJuridica" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CuentaLey" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contador" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Responsable" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Contacto" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="CodigoAux" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="DiaRuta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tEntregaCasos" Relationship="BDJuntasModel.FK__tEntregaC__Junta__47A6A41B" FromRole="tInstitucion" ToRole="tEntregaCasos" />
+          <NavigationProperty Name="tPersona" Relationship="BDJuntasModel.FK__tInstituc__Conta__52593CB8" FromRole="tInstitucion" ToRole="tPersona" />
+          <NavigationProperty Name="tTipoInstitucion" Relationship="BDJuntasModel.FK__tInstituci__Tipo__5441852A" FromRole="tInstitucion" ToRole="tTipoInstitucion" />
+          <NavigationProperty Name="tRevision" Relationship="BDJuntasModel.FK__tRevision__Codig__3F115E1A" FromRole="tInstitucion" ToRole="tRevision" />
+        </EntityType>
+        <EntityType Name="tMensajero">
+          <Key>
+            <PropertyRef Name="IdMensajero" />
+          </Key>
+          <Property Name="IdMensajero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CedulaMensajero" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="tEntregaCasos" Relationship="BDJuntasModel.FK__tEntregaC__Mensa__45BE5BA9" FromRole="tMensajero" ToRole="tEntregaCasos" />
+        </EntityType>
+        <EntityType Name="tPersona">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="TipoIdentificacion" Type="Int32" Nullable="false" />
+          <Property Name="Carnet" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="tEntregaCasos" Relationship="BDJuntasModel.FK__tEntregaC__Asign__46B27FE2" FromRole="tPersona" ToRole="tEntregaCasos" />
+          <NavigationProperty Name="tInstitucion" Relationship="BDJuntasModel.FK__tInstituc__Conta__52593CB8" FromRole="tPersona" ToRole="tInstitucion" />
+          <NavigationProperty Name="tRevision" Relationship="BDJuntasModel.FK__tRevision__Trami__40058253" FromRole="tPersona" ToRole="tRevision" />
+          <NavigationProperty Name="tUsuario" Relationship="BDJuntasModel.FK__tUsuario__Cedula__47DBAE45" FromRole="tPersona" ToRole="tUsuario" />
+        </EntityType>
+        <EntityType Name="tRecepcion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Recepcion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tRevision" Relationship="BDJuntasModel.FK__tRevision__Recep__40F9A68C" FromRole="tRecepcion" ToRole="tRevision" />
+        </EntityType>
+        <EntityType Name="tRevision">
+          <Key>
+            <PropertyRef Name="IdCaso" />
+          </Key>
+          <Property Name="IdCaso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Consecutivo" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaAsignada" Type="String" MaxLength="30" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FechaRevisada" Type="String" MaxLength="30" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Comentario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tramitador" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Recepcion" Type="Int32" Nullable="false" />
+          <Property Name="numeroActa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="numeroFolio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fechaActa" Type="DateTime" Precision="0" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tBoleta" Relationship="BDJuntasModel.FK__tBoleta__IdCaso__4A8310C6" FromRole="tRevision" ToRole="tBoleta" />
+          <NavigationProperty Name="tEntregaCasos" Relationship="BDJuntasModel.fk_Caso_Rev" FromRole="tRevision" ToRole="tEntregaCasos" />
+          <NavigationProperty Name="tEstado" Relationship="BDJuntasModel.FK__tRevision__Estad__41EDCAC5" FromRole="tRevision" ToRole="tEstado" />
+          <NavigationProperty Name="tInstitucion" Relationship="BDJuntasModel.FK__tRevision__Codig__3F115E1A" FromRole="tRevision" ToRole="tInstitucion" />
+          <NavigationProperty Name="tPersona" Relationship="BDJuntasModel.FK__tRevision__Trami__40058253" FromRole="tRevision" ToRole="tPersona" />
+          <NavigationProperty Name="tRecepcion" Relationship="BDJuntasModel.FK__tRevision__Recep__40F9A68C" FromRole="tRevision" ToRole="tRecepcion" />
+        </EntityType>
+        <EntityType Name="tTipoInstitucion">
+          <Key>
+            <PropertyRef Name="IdTipo" />
+          </Key>
+          <Property Name="IdTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tInstitucion" Relationship="BDJuntasModel.FK__tInstituci__Tipo__5441852A" FromRole="tTipoInstitucion" ToRole="tInstitucion" />
+        </EntityType>
+        <EntityType Name="tTrabajador">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tUsuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <Property Name="CodigoRes" Type="Double" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="tPersona" Relationship="BDJuntasModel.FK__tUsuario__Cedula__47DBAE45" FromRole="tUsuario" ToRole="tPersona" />
+        </EntityType>
+        <EntityType Name="viewBoleta">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Circuito" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="CedulaJuridica" />
+            <PropertyRef Name="Motivo1" />
+            <PropertyRef Name="Motivo2" />
+            <PropertyRef Name="Motivo3" />
+            <PropertyRef Name="Motivo4" />
+            <PropertyRef Name="Motivo5" />
+            <PropertyRef Name="Motivo6" />
+            <PropertyRef Name="Motivo7" />
+            <PropertyRef Name="Motivo8" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="FechaCreado" />
+            <PropertyRef Name="NombreCompleto" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Consecutivo" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Circuito" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CedulaJuridica" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Motivo1" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo2" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo3" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo4" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo5" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo6" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo7" Type="Boolean" Nullable="false" />
+          <Property Name="Motivo8" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="numeroActa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="numeroFolio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fechaActa" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="viewCasosAsignados">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Recepción" />
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Comentario" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Consecutivo" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Recepción" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="viewCasosPorEntregar">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="CodigoAux" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Recepción" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Comentario" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Consecutivo" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CodigoAux" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DiaRuta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Recepción" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="viewContadores">
+          <Key>
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="TipoIdentificacion" />
+            <PropertyRef Name="Carnet" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Correo" />
+          </Key>
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="TipoIdentificacion" Type="Int32" Nullable="false" />
+          <Property Name="Carnet" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="viewEntregaCasos">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Circuito" />
+            <PropertyRef Name="Institucion" />
+            <PropertyRef Name="Asignado" />
+            <PropertyRef Name="FechaAsignada" />
+            <PropertyRef Name="FechaEntrega" />
+            <PropertyRef Name="Observacion" />
+            <PropertyRef Name="Mensajero" />
+            <PropertyRef Name="Cheque" />
+          </Key>
+          <Property Name="Consecutivo" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Circuito" Type="Int32" Nullable="false" />
+          <Property Name="Institucion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Asignado" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="FechaAsignada" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaEntrega" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Observacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Mensajero" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Cheque" Type="Int32" Nullable="false" />
+          <Property Name="Transferencia" Type="Int32" />
+        </EntityType>
+        <EntityType Name="viewJuntas">
+          <Key>
+            <PropertyRef Name="Codigo" />
+            <PropertyRef Name="Circuito" />
+            <PropertyRef Name="NombreTipo" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="CedulaJuridica" />
+            <PropertyRef Name="CuentaLey" />
+            <PropertyRef Name="Responsable" />
+            <PropertyRef Name="Contacto" />
+            <PropertyRef Name="Contador" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Circuito" Type="Int32" Nullable="false" />
+          <Property Name="NombreTipo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CedulaJuridica" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DiaRuta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CuentaLey" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Responsable" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Contacto" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Contador" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="viewTrabajador">
+          <Key>
+            <PropertyRef Name="Cedula" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Apellido1" />
+            <PropertyRef Name="Apellido2" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Tipo" />
+          </Key>
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK__tBoleta__IdCaso__4A8310C6">
+          <End Type="BDJuntasModel.tRevision" Role="tRevision" Multiplicity="1" />
+          <End Type="BDJuntasModel.tBoleta" Role="tBoleta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tRevision">
+              <PropertyRef Name="IdCaso" />
+            </Principal>
+            <Dependent Role="tBoleta">
+              <PropertyRef Name="IdCaso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tEntregaC__Asign__46B27FE2">
+          <End Type="BDJuntasModel.tPersona" Role="tPersona" Multiplicity="1" />
+          <End Type="BDJuntasModel.tEntregaCasos" Role="tEntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPersona">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="tEntregaCasos">
+              <PropertyRef Name="Asignado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tEntregaC__Junta__47A6A41B">
+          <End Type="BDJuntasModel.tInstitucion" Role="tInstitucion" Multiplicity="1" />
+          <End Type="BDJuntasModel.tEntregaCasos" Role="tEntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tInstitucion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="tEntregaCasos">
+              <PropertyRef Name="Junta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tEntregaC__Mensa__45BE5BA9">
+          <End Type="BDJuntasModel.tMensajero" Role="tMensajero" Multiplicity="1" />
+          <End Type="BDJuntasModel.tEntregaCasos" Role="tEntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tMensajero">
+              <PropertyRef Name="IdMensajero" />
+            </Principal>
+            <Dependent Role="tEntregaCasos">
+              <PropertyRef Name="Mensajero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Caso_Rev">
+          <End Type="BDJuntasModel.tRevision" Role="tRevision" Multiplicity="1" />
+          <End Type="BDJuntasModel.tEntregaCasos" Role="tEntregaCasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tRevision">
+              <PropertyRef Name="IdCaso" />
+            </Principal>
+            <Dependent Role="tEntregaCasos">
+              <PropertyRef Name="Caso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tRevision__Estad__41EDCAC5">
+          <End Type="BDJuntasModel.tEstado" Role="tEstado" Multiplicity="1" />
+          <End Type="BDJuntasModel.tRevision" Role="tRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tEstado">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="tRevision">
+              <PropertyRef Name="Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tInstituc__Conta__52593CB8">
+          <End Type="BDJuntasModel.tPersona" Role="tPersona" Multiplicity="1" />
+          <End Type="BDJuntasModel.tInstitucion" Role="tInstitucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPersona">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="tInstitucion">
+              <PropertyRef Name="Contador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tInstituci__Tipo__5441852A">
+          <End Type="BDJuntasModel.tTipoInstitucion" Role="tTipoInstitucion" Multiplicity="1" />
+          <End Type="BDJuntasModel.tInstitucion" Role="tInstitucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tTipoInstitucion">
+              <PropertyRef Name="IdTipo" />
+            </Principal>
+            <Dependent Role="tInstitucion">
+              <PropertyRef Name="Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tRevision__Codig__3F115E1A">
+          <End Type="BDJuntasModel.tInstitucion" Role="tInstitucion" Multiplicity="1" />
+          <End Type="BDJuntasModel.tRevision" Role="tRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tInstitucion">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="tRevision">
+              <PropertyRef Name="Codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tRevision__Trami__40058253">
+          <End Type="BDJuntasModel.tPersona" Role="tPersona" Multiplicity="1" />
+          <End Type="BDJuntasModel.tRevision" Role="tRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPersona">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="tRevision">
+              <PropertyRef Name="Tramitador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tUsuario__Cedula__47DBAE45">
+          <End Type="BDJuntasModel.tPersona" Role="tPersona" Multiplicity="1" />
+          <End Type="BDJuntasModel.tUsuario" Role="tUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPersona">
+              <PropertyRef Name="Cedula" />
+            </Principal>
+            <Dependent Role="tUsuario">
+              <PropertyRef Name="Cedula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tRevision__Recep__40F9A68C">
+          <End Type="BDJuntasModel.tRecepcion" Role="tRecepcion" Multiplicity="1" />
+          <End Type="BDJuntasModel.tRevision" Role="tRevision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tRecepcion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tRevision">
+              <PropertyRef Name="Recepcion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDJuntasModelStoreContainer" CdmEntityContainer="BDJuntasEntities1">
+          <EntitySetMapping Name="tBoleta">
+            <EntityTypeMapping TypeName="BDJuntasModel.tBoleta">
+              <MappingFragment StoreEntitySet="tBoleta">
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Motivo8" ColumnName="Motivo8" />
+                <ScalarProperty Name="Motivo7" ColumnName="Motivo7" />
+                <ScalarProperty Name="Motivo6" ColumnName="Motivo6" />
+                <ScalarProperty Name="Motivo5" ColumnName="Motivo5" />
+                <ScalarProperty Name="Motivo4" ColumnName="Motivo4" />
+                <ScalarProperty Name="Motivo3" ColumnName="Motivo3" />
+                <ScalarProperty Name="Motivo2" ColumnName="Motivo2" />
+                <ScalarProperty Name="Motivo1" ColumnName="Motivo1" />
+                <ScalarProperty Name="IdCaso" ColumnName="IdCaso" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tEntregaCasos">
+            <EntityTypeMapping TypeName="BDJuntasModel.tEntregaCasos">
+              <MappingFragment StoreEntitySet="tEntregaCasos">
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+                <ScalarProperty Name="Pago" ColumnName="Pago" />
+                <ScalarProperty Name="Recepcion" ColumnName="Recepcion" />
+                <ScalarProperty Name="Asignado" ColumnName="Asignado" />
+                <ScalarProperty Name="Junta" ColumnName="Junta" />
+                <ScalarProperty Name="Mensajero" ColumnName="Mensajero" />
+                <ScalarProperty Name="Caso" ColumnName="Caso" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tEstado">
+            <EntityTypeMapping TypeName="BDJuntasModel.tEstado">
+              <MappingFragment StoreEntitySet="tEstado">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tInstitucion">
+            <EntityTypeMapping TypeName="BDJuntasModel.tInstitucion">
+              <MappingFragment StoreEntitySet="tInstitucion">
+                <ScalarProperty Name="DiaRuta" ColumnName="DiaRuta" />
+                <ScalarProperty Name="CodigoAux" ColumnName="CodigoAux" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="Contador" ColumnName="Contador" />
+                <ScalarProperty Name="CuentaLey" ColumnName="CuentaLey" />
+                <ScalarProperty Name="CedulaJuridica" ColumnName="CedulaJuridica" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Circuito" ColumnName="Circuito" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tMensajero">
+            <EntityTypeMapping TypeName="BDJuntasModel.tMensajero">
+              <MappingFragment StoreEntitySet="tMensajero">
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CedulaMensajero" ColumnName="CedulaMensajero" />
+                <ScalarProperty Name="IdMensajero" ColumnName="IdMensajero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tPersona">
+            <EntityTypeMapping TypeName="BDJuntasModel.tPersona">
+              <MappingFragment StoreEntitySet="tPersona">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+                <ScalarProperty Name="TipoIdentificacion" ColumnName="TipoIdentificacion" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tRecepcion">
+            <EntityTypeMapping TypeName="BDJuntasModel.tRecepcion">
+              <MappingFragment StoreEntitySet="tRecepcion">
+                <ScalarProperty Name="Recepcion" ColumnName="Recepcion" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tRevision">
+            <EntityTypeMapping TypeName="BDJuntasModel.tRevision">
+              <MappingFragment StoreEntitySet="tRevision">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="fechaActa" ColumnName="fechaActa" />
+                <ScalarProperty Name="numeroFolio" ColumnName="numeroFolio" />
+                <ScalarProperty Name="numeroActa" ColumnName="numeroActa" />
+                <ScalarProperty Name="Recepcion" ColumnName="Recepcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Tramitador" ColumnName="Tramitador" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="FechaRevisada" ColumnName="FechaRevisada" />
+                <ScalarProperty Name="FechaAsignada" ColumnName="FechaAsignada" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+                <ScalarProperty Name="IdCaso" ColumnName="IdCaso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tTipoInstitucion">
+            <EntityTypeMapping TypeName="BDJuntasModel.tTipoInstitucion">
+              <MappingFragment StoreEntitySet="tTipoInstitucion">
+                <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+                <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tTrabajador">
+            <EntityTypeMapping TypeName="BDJuntasModel.tTrabajador">
+              <MappingFragment StoreEntitySet="tTrabajador">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tUsuario">
+            <EntityTypeMapping TypeName="BDJuntasModel.tUsuario">
+              <MappingFragment StoreEntitySet="tUsuario">
+                <ScalarProperty Name="CodigoRes" ColumnName="CodigoRes" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewBoleta">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewBoleta">
+              <MappingFragment StoreEntitySet="viewBoleta">
+                <ScalarProperty Name="fechaActa" ColumnName="fechaActa" />
+                <ScalarProperty Name="numeroFolio" ColumnName="numeroFolio" />
+                <ScalarProperty Name="numeroActa" ColumnName="numeroActa" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Motivo8" ColumnName="Motivo8" />
+                <ScalarProperty Name="Motivo7" ColumnName="Motivo7" />
+                <ScalarProperty Name="Motivo6" ColumnName="Motivo6" />
+                <ScalarProperty Name="Motivo5" ColumnName="Motivo5" />
+                <ScalarProperty Name="Motivo4" ColumnName="Motivo4" />
+                <ScalarProperty Name="Motivo3" ColumnName="Motivo3" />
+                <ScalarProperty Name="Motivo2" ColumnName="Motivo2" />
+                <ScalarProperty Name="Motivo1" ColumnName="Motivo1" />
+                <ScalarProperty Name="CedulaJuridica" ColumnName="CedulaJuridica" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Circuito" ColumnName="Circuito" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewCasosAsignados">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewCasosAsignados">
+              <MappingFragment StoreEntitySet="viewCasosAsignados">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Recepción" ColumnName="Recepción" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewCasosPorEntregar">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewCasosPorEntregar">
+              <MappingFragment StoreEntitySet="viewCasosPorEntregar">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Recepción" ColumnName="Recepción" />
+                <ScalarProperty Name="DiaRuta" ColumnName="DiaRuta" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CodigoAux" ColumnName="CodigoAux" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewContadores">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewContadores">
+              <MappingFragment StoreEntitySet="viewContadores">
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Carnet" ColumnName="Carnet" />
+                <ScalarProperty Name="TipoIdentificacion" ColumnName="TipoIdentificacion" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewEntregaCasos">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewEntregaCasos">
+              <MappingFragment StoreEntitySet="viewEntregaCasos">
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="Mensajero" ColumnName="Mensajero" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+                <ScalarProperty Name="FechaAsignada" ColumnName="FechaAsignada" />
+                <ScalarProperty Name="Asignado" ColumnName="Asignado" />
+                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+                <ScalarProperty Name="Circuito" ColumnName="Circuito" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewJuntas">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewJuntas">
+              <MappingFragment StoreEntitySet="viewJuntas">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Contador" ColumnName="Contador" />
+                <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="CuentaLey" ColumnName="CuentaLey" />
+                <ScalarProperty Name="DiaRuta" ColumnName="DiaRuta" />
+                <ScalarProperty Name="CedulaJuridica" ColumnName="CedulaJuridica" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+                <ScalarProperty Name="Circuito" ColumnName="Circuito" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewTrabajador">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewTrabajador">
+              <MappingFragment StoreEntitySet="viewTrabajador">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

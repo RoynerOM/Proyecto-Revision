@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtsBoleta" targetNamespace="http://tempuri.org/dtsBoleta.xsd" xmlns:mstns="http://tempuri.org/dtsBoleta.xsd" xmlns="http://tempuri.org/dtsBoleta.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BDJuntasConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDJuntasConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionCasos.Properties.Settings.GlobalReference.Default.BDJuntasConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BoletaTableTableAdapter" GeneratorDataComponentClassName="BoletaTableTableAdapter" Name="BoletaTable" UserDataComponentName="BoletaTableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tBoleta.Id, tInstitucion.CodigoAux AS Codigo, tRevision.Consecutivo, tInstitucion.Circuito, tInstitucion.Nombre, tInstitucion.CedulaJuridica, tBoleta.Motivo1, tBoleta.Motivo2, tBoleta.Motivo3, tBoleta.Motivo4, tBoleta.Motivo5, 
+                         tBoleta.Motivo6, tBoleta.Motivo7, tBoleta.Motivo8, tBoleta.Observacion, tBoleta.FechaCreado, tPersona.NombreCompleto, tRevision.numeroActa, tRevision.numeroFolio, tRevision.fechaActa
+FROM            tBoleta INNER JOIN
+                         tRevision ON tBoleta.IdCaso = tRevision.IdCaso INNER JOIN
+                         tInstitucion ON tRevision.Codigo = tInstitucion.Codigo INNER JOIN
+                         tPersona ON tRevision.Tramitador = tPersona.Cedula</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
+              <Mapping SourceColumn="Circuito" DataSetColumn="Circuito" />
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="CedulaJuridica" DataSetColumn="CedulaJuridica" />
+              <Mapping SourceColumn="Motivo1" DataSetColumn="Motivo1" />
+              <Mapping SourceColumn="Motivo2" DataSetColumn="Motivo2" />
+              <Mapping SourceColumn="Motivo3" DataSetColumn="Motivo3" />
+              <Mapping SourceColumn="Motivo4" DataSetColumn="Motivo4" />
+              <Mapping SourceColumn="Motivo5" DataSetColumn="Motivo5" />
+              <Mapping SourceColumn="Motivo6" DataSetColumn="Motivo6" />
+              <Mapping SourceColumn="Motivo7" DataSetColumn="Motivo7" />
+              <Mapping SourceColumn="Motivo8" DataSetColumn="Motivo8" />
+              <Mapping SourceColumn="Observacion" DataSetColumn="Observacion" />
+              <Mapping SourceColumn="FechaCreado" DataSetColumn="FechaCreado" />
+              <Mapping SourceColumn="NombreCompleto" DataSetColumn="NombreCompleto" />
+              <Mapping SourceColumn="numeroActa" DataSetColumn="numeroActa" />
+              <Mapping SourceColumn="numeroFolio" DataSetColumn="numeroFolio" />
+              <Mapping SourceColumn="fechaActa" DataSetColumn="fechaActa" />
+              <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="BDJuntasConnectionString (Settings)" DbObjectName="BDJuntas.dbo.spFiltroBoleta" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.spFiltroBoleta</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@Caso" Precision="0" ProviderType="VarChar" Scale="0" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtsBoleta" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsBoleta" msprop:Generator_UserDSName="dtsBoleta">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BoletaTable" msprop:Generator_TableClassName="BoletaTableDataTable" msprop:Generator_TableVarName="tableBoletaTable" msprop:Generator_RowChangedName="BoletaTableRowChanged" msprop:Generator_TablePropName="BoletaTable" msprop:Generator_RowDeletingName="BoletaTableRowDeleting" msprop:Generator_RowChangingName="BoletaTableRowChanging" msprop:Generator_RowEvHandlerName="BoletaTableRowChangeEventHandler" msprop:Generator_RowDeletedName="BoletaTableRowDeleted" msprop:Generator_RowClassName="BoletaTableRow" msprop:Generator_UserTableName="BoletaTable" msprop:Generator_RowEvArgName="BoletaTableRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Consecutivo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Circuito" msprop:Generator_ColumnVarNameInTable="columnCircuito" msprop:Generator_ColumnPropNameInRow="Circuito" msprop:Generator_ColumnPropNameInTable="CircuitoColumn" msprop:Generator_UserColumnName="Circuito" type="xs:int" />
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CedulaJuridica" msprop:Generator_ColumnVarNameInTable="columnCedulaJuridica" msprop:Generator_ColumnPropNameInRow="CedulaJuridica" msprop:Generator_ColumnPropNameInTable="CedulaJuridicaColumn" msprop:Generator_UserColumnName="CedulaJuridica">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Motivo1" msprop:Generator_ColumnVarNameInTable="columnMotivo1" msprop:Generator_ColumnPropNameInRow="Motivo1" msprop:Generator_ColumnPropNameInTable="Motivo1Column" msprop:Generator_UserColumnName="Motivo1" type="xs:boolean" />
+              <xs:element name="Motivo2" msprop:Generator_ColumnVarNameInTable="columnMotivo2" msprop:Generator_ColumnPropNameInRow="Motivo2" msprop:Generator_ColumnPropNameInTable="Motivo2Column" msprop:Generator_UserColumnName="Motivo2" type="xs:boolean" />
+              <xs:element name="Motivo3" msprop:Generator_ColumnVarNameInTable="columnMotivo3" msprop:Generator_ColumnPropNameInRow="Motivo3" msprop:Generator_ColumnPropNameInTable="Motivo3Column" msprop:Generator_UserColumnName="Motivo3" type="xs:boolean" />
+              <xs:element name="Motivo4" msprop:Generator_ColumnVarNameInTable="columnMotivo4" msprop:Generator_ColumnPropNameInRow="Motivo4" msprop:Generator_ColumnPropNameInTable="Motivo4Column" msprop:Generator_UserColumnName="Motivo4" type="xs:boolean" />
+              <xs:element name="Motivo5" msprop:Generator_ColumnVarNameInTable="columnMotivo5" msprop:Generator_ColumnPropNameInRow="Motivo5" msprop:Generator_ColumnPropNameInTable="Motivo5Column" msprop:Generator_UserColumnName="Motivo5" type="xs:boolean" />
+              <xs:element name="Motivo6" msprop:Generator_ColumnVarNameInTable="columnMotivo6" msprop:Generator_ColumnPropNameInRow="Motivo6" msprop:Generator_ColumnPropNameInTable="Motivo6Column" msprop:Generator_UserColumnName="Motivo6" type="xs:boolean" />
+              <xs:element name="Motivo7" msprop:Generator_ColumnVarNameInTable="columnMotivo7" msprop:Generator_ColumnPropNameInRow="Motivo7" msprop:Generator_ColumnPropNameInTable="Motivo7Column" msprop:Generator_UserColumnName="Motivo7" type="xs:boolean" />
+              <xs:element name="Motivo8" msprop:Generator_ColumnVarNameInTable="columnMotivo8" msprop:Generator_ColumnPropNameInRow="Motivo8" msprop:Generator_ColumnPropNameInTable="Motivo8Column" msprop:Generator_UserColumnName="Motivo8">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Observacion" msprop:Generator_ColumnVarNameInTable="columnObservacion" msprop:Generator_ColumnPropNameInRow="Observacion" msprop:Generator_ColumnPropNameInTable="ObservacionColumn" msprop:Generator_UserColumnName="Observacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaCreado" msprop:Generator_ColumnVarNameInTable="columnFechaCreado" msprop:Generator_ColumnPropNameInRow="FechaCreado" msprop:Generator_ColumnPropNameInTable="FechaCreadoColumn" msprop:Generator_UserColumnName="FechaCreado" type="xs:dateTime" />
+              <xs:element name="NombreCompleto" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNombreCompleto" msprop:Generator_ColumnPropNameInRow="NombreCompleto" msprop:Generator_ColumnPropNameInTable="NombreCompletoColumn" msprop:Generator_UserColumnName="NombreCompleto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="numeroActa" msprop:Generator_ColumnVarNameInTable="columnnumeroActa" msprop:Generator_ColumnPropNameInRow="numeroActa" msprop:Generator_ColumnPropNameInTable="numeroActaColumn" msprop:Generator_UserColumnName="numeroActa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="numeroFolio" msprop:Generator_ColumnVarNameInTable="columnnumeroFolio" msprop:Generator_ColumnPropNameInRow="numeroFolio" msprop:Generator_ColumnPropNameInTable="numeroFolioColumn" msprop:Generator_UserColumnName="numeroFolio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaActa" msprop:Generator_ColumnVarNameInTable="columnfechaActa" msprop:Generator_ColumnPropNameInRow="fechaActa" msprop:Generator_ColumnPropNameInTable="fechaActaColumn" msprop:Generator_UserColumnName="fechaActa" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Codigo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BoletaTable" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

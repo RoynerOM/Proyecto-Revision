@@ -17,7 +17,7 @@ namespace Utilidades
         public void Danger(Form form, string mensaje)
         {
             form.BackColor = RED;
-            Params.Properties(2,mensaje);
+            Params.Properties(2, mensaje);
             Slide(form);
             form.ShowDialog();
         }
@@ -53,9 +53,9 @@ namespace Utilidades
         //Animation for alls alerts
         private void Slide(Form form)
         {
-            Transition t = new Transition(new TransitionType_EaseInEaseOut(500));
-            t.add(form, "Top", 5);
-            t.add(form, "Left", 150);
+            Transition t = new Transition(new TransitionType_EaseInEaseOut(400));
+            t.add(form, "Top", 20);
+            t.add(form, "Left", 160);
             t.run();
         }
     }

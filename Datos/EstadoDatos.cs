@@ -1,42 +1,54 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Datos
 {
-    public class EstadoDatos : ICrud<Estado>
+    public class EstadoDatos : ICrud<tEstado>
     {
-        public bool eliminar(Estado e)
+        public bool eliminar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(Estado e)
+        public bool guardarAsync(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public bool modificar(Estado e)
+        public bool modificar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public Estado obtenerPorId(Estado e)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Estado> obtenerTodo(Estado e)
+        public tEstado obtenerPorId(tEstado e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var lista = db.Estado.ToList();
+                    var filtro = db.tEstado.Where(x => x.IdEstado == e.IdEstado).SingleOrDefault();
+                    return filtro;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public async Task<List<tEstado>> obtenerTodo()
+        {
+            try
+            {
+                using (var db = new BDJuntasEntities())
+                {
+                    var lista = await db.tEstado.ToListAsync();
 
                     if (lista != null)
                     {

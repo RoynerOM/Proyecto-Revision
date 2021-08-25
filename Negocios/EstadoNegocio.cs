@@ -2,39 +2,37 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Negocios
 {
-    public class EstadoNegocio : ICrud<Estado>
+    public class EstadoNegocio : ICrud<tEstado>
     {
-        EstadoDatos datos = new EstadoDatos();
-        public bool eliminar(Estado e)
+        readonly EstadoDatos datos = new EstadoDatos();
+        public bool eliminar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(Estado e)
+        public bool guardarAsync(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public bool modificar(Estado e)
+        public bool modificar(tEstado e)
         {
             throw new NotImplementedException();
         }
 
-        public Estado obtenerPorId(Estado e)
+        public tEstado obtenerPorId(tEstado e)
         {
-            throw new NotImplementedException();
+            return datos.obtenerPorId(e);
         }
 
-        public IEnumerable<Estado> obtenerTodo(Estado e)
+        public async Task<List<tEstado>> obtenerTodo()
         {
-            return datos.obtenerTodo(new Estado());
+            return await datos.obtenerTodo();
         }
     }
 }

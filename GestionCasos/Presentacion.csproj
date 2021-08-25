@@ -8,14 +8,15 @@
     <ProjectGuid>{9A74815F-F1F1-4BF2-9CCE-ABC0CECD886E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GestionCasos</RootNamespace>
-    <AssemblyName>GestionCasos</AssemblyName>
+    <AssemblyName>Sistema Control Casos</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\anner\Desktop\C6\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,10 +26,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>23</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -57,6 +58,58 @@
     <Win32Resource>
     </Win32Resource>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>BE085E00065517909A6B22B348E685BE701F207F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Presentacion_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -74,26 +127,19 @@
       <HintPath>..\..\..\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1449.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
@@ -106,6 +152,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -128,11 +175,23 @@
     <Compile Include="Administrador\AsignarCaso.designer.cs">
       <DependentUpon>AsignarCaso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\fCasosAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\fCasosAdmin.designer.cs">
+      <DependentUpon>fCasosAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\fContador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administrador\fContador.Designer.cs">
       <DependentUpon>fContador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\fDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\fDashBoard.designer.cs">
+      <DependentUpon>fDashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\fDetallesJuntas.cs">
       <SubType>Form</SubType>
@@ -145,6 +204,12 @@
     </Compile>
     <Compile Include="Administrador\fDetallesPersonas.Designer.cs">
       <DependentUpon>fDetallesPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\fEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\fEntrega.Designer.cs">
+      <DependentUpon>fEntrega.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\fInstituciones.cs">
       <SubType>Form</SubType>
@@ -161,14 +226,26 @@
     <Compile Include="Administrador\fMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador\fMenu.Designer.cs">
+    <Compile Include="Administrador\fMenu.designer.cs">
       <DependentUpon>fMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\fUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\fUsers.Designer.cs">
+      <DependentUpon>fUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador\Login.designer.cs">
+    <Compile Include="Administrador\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\Principal.designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Registrar.cs">
       <SubType>Form</SubType>
@@ -182,63 +259,84 @@
     <Compile Include="Alertas\Alerta.Designer.cs">
       <DependentUpon>Alerta.cs</DependentUpon>
     </Compile>
-    <Compile Include="BD_JuntasDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BD_JuntasDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CasosFalsos.cs" />
-    <Compile Include="Administrador\fDashBoard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador\fDashBoard.Designer.cs">
-      <DependentUpon>fDashBoard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Configuracion\fConfiguraciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Configuracion\fConfiguraciones.Designer.cs">
-      <DependentUpon>fConfiguraciones.cs</DependentUpon>
-    </Compile>
     <Compile Include="DatosTemp.cs" />
-    <Compile Include="Administrador\Principal.cs">
+    <Compile Include="dtsBoleta.cs">
+      <DependentUpon>dtsBoleta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsBoleta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsBoleta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsCasos.cs">
+      <DependentUpon>dtsCasos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsCasos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsCasos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsCasosPorEntregar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsCasosPorEntregar.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsContador.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsContador.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsEntregaCasos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsEntregaCasos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsJuntas.cs">
+      <DependentUpon>dtsJuntas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dtsJuntas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtsJuntas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="fReporteBoleta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador\Principal.Designer.cs">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <Compile Include="fReporteBoleta.Designer.cs">
+      <DependentUpon>fReporteBoleta.cs</DependentUpon>
     </Compile>
     <Compile Include="Procesos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Administrador\fCasosAdmin.cs">
+    <Compile Include="ReporteCasosAsignados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador\.Designer.cs">
-      <DependentUpon>fCasosAdmin.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteAsignarCasos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReporteAsignarCasos.Designer.cs">
-      <DependentUpon>ReporteAsignarCasos.cs</DependentUpon>
+    <Compile Include="ReporteCasosAsignados.designer.cs">
+      <DependentUpon>ReporteCasosAsignados.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteContadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteContadores.Designer.cs">
+    <Compile Include="ReporteContadores.designer.cs">
       <DependentUpon>ReporteContadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteEntregaDeCasos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteEntregaDeCasos.designer.cs">
+      <DependentUpon>ReporteEntregaDeCasos.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteJuntas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteJuntas.Designer.cs">
+    <Compile Include="ReporteJuntas.designer.cs">
       <DependentUpon>ReporteJuntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesCasoPorEntregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportesCasoPorEntregar.Designer.cs">
+      <DependentUpon>ReportesCasoPorEntregar.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\fOpcionesReportes.cs">
       <SubType>Form</SubType>
@@ -247,16 +345,10 @@
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Usuarios\AgregarComentario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuarios\AgregarComentario.Designer.cs">
-      <DependentUpon>AgregarComentario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Usuarios\CasosAsignados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuarios\CasosAsignados.Designer.cs">
+    <Compile Include="Usuarios\CasosAsignados.designer.cs">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\fBoleta.cs">
@@ -265,17 +357,33 @@
     <Compile Include="Usuarios\fBoleta.Designer.cs">
       <DependentUpon>fBoleta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\fRecuperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\fRecuperacion.Designer.cs">
+      <DependentUpon>fRecuperacion.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administrador\AsignarCaso.resx">
       <DependentUpon>AsignarCaso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\fCasosAdmin.resx">
+      <DependentUpon>fCasosAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fContador.resx">
       <DependentUpon>fContador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\fDashBoard.resx">
+      <DependentUpon>fDashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fDetallesJuntas.resx">
       <DependentUpon>fDetallesJuntas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fDetallesPersonas.resx">
       <DependentUpon>fDetallesPersonas.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\fEntrega.resx">
+      <DependentUpon>fEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\fInstituciones.resx">
       <DependentUpon>fInstituciones.cs</DependentUpon>
@@ -286,8 +394,14 @@
     <EmbeddedResource Include="Administrador\fMenu.resx">
       <DependentUpon>fMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\fUsers.resx">
+      <DependentUpon>fUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Registrar.resx">
       <DependentUpon>Registrar.cs</DependentUpon>
@@ -295,14 +409,8 @@
     <EmbeddedResource Include="Alertas\Alerta.resx">
       <DependentUpon>Alerta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\fDashBoard.resx">
-      <DependentUpon>fDashBoard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion\fConfiguraciones.resx">
-      <DependentUpon>fConfiguraciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\Principal.resx">
-      <DependentUpon>Principal.cs</DependentUpon>
+    <EmbeddedResource Include="fReporteBoleta.resx">
+      <DependentUpon>fReporteBoleta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -314,56 +422,107 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Administrador\fCasosAdmin.resx">
-      <DependentUpon>fCasosAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ReporteAsignarCasos.resx">
-      <DependentUpon>ReporteAsignarCasos.cs</DependentUpon>
+    <EmbeddedResource Include="ReporteCasosAsignados.resx">
+      <DependentUpon>ReporteCasosAsignados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteContadores.resx">
       <DependentUpon>ReporteContadores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteEntregaDeCasos.resx">
+      <DependentUpon>ReporteEntregaDeCasos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteJuntas.resx">
       <DependentUpon>ReporteJuntas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesCasoPorEntregar.resx">
+      <DependentUpon>ReportesCasoPorEntregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\fOpcionesReportes.resx">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteCasosAsignados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteContadores.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteEntregaDeCasos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteJuntas.rdlc" />
-    <EmbeddedResource Include="Usuarios\AgregarComentario.resx">
-      <DependentUpon>AgregarComentario.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptBoleta.rdlc" />
+    <EmbeddedResource Include="Reportes\rptCasosPorEntregar.rdlc" />
     <EmbeddedResource Include="Usuarios\CasosAsignados.resx">
       <DependentUpon>CasosAsignados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\fBoleta.resx">
       <DependentUpon>fBoleta.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="BD_JuntasDataSet.xsc">
-      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
+    <EmbeddedResource Include="Usuarios\fRecuperacion.resx">
+      <DependentUpon>fRecuperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dtsBoleta.xsc">
+      <DependentUpon>dtsBoleta.xsd</DependentUpon>
     </None>
-    <None Include="BD_JuntasDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet.Designer.cs</LastGenOutput>
+    <None Include="dtsBoleta.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="BD_JuntasDataSet.xss">
-      <DependentUpon>BD_JuntasDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BD_JuntasDataSet1.xsc">
-      <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BD_JuntasDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_JuntasDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+      <LastGenOutput>dtsBoleta.Designer.cs</LastGenOutput>
     </None>
-    <None Include="BD_JuntasDataSet1.xss">
-      <DependentUpon>BD_JuntasDataSet1.xsd</DependentUpon>
+    <None Include="dtsBoleta.xss">
+      <DependentUpon>dtsBoleta.xsd</DependentUpon>
+    </None>
+    <None Include="dtsCasos.xsc">
+      <DependentUpon>dtsCasos.xsd</DependentUpon>
+    </None>
+    <None Include="dtsCasos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsCasos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsCasos.xss">
+      <DependentUpon>dtsCasos.xsd</DependentUpon>
+    </None>
+    <None Include="dtsCasosPorEntregar.xsc">
+      <DependentUpon>dtsCasosPorEntregar.xsd</DependentUpon>
+    </None>
+    <None Include="dtsCasosPorEntregar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsCasosPorEntregar.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsCasosPorEntregar.xss">
+      <DependentUpon>dtsCasosPorEntregar.xsd</DependentUpon>
+    </None>
+    <None Include="dtsContador.xsc">
+      <DependentUpon>dtsContador.xsd</DependentUpon>
+    </None>
+    <None Include="dtsContador.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsContador.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsContador.xss">
+      <DependentUpon>dtsContador.xsd</DependentUpon>
+    </None>
+    <None Include="dtsEntregaCasos.xsc">
+      <DependentUpon>dtsEntregaCasos.xsd</DependentUpon>
+    </None>
+    <None Include="dtsEntregaCasos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsEntregaCasos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsEntregaCasos.xss">
+      <DependentUpon>dtsEntregaCasos.xsd</DependentUpon>
+    </None>
+    <None Include="dtsJuntas.xsc">
+      <DependentUpon>dtsJuntas.xsd</DependentUpon>
+    </None>
+    <None Include="dtsJuntas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtsJuntas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dtsJuntas.xss">
+      <DependentUpon>dtsJuntas.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Presentacion_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -408,6 +567,37 @@
     <None Include="Resources\loader-list.gif" />
     <None Include="Resources\ajaxspinner.gif" />
     <None Include="Resources\loading %281%29.gif" />
+    <None Include="Resources\send_email_100px.png" />
+    <None Include="Resources\back_100px.png" />
+    <None Include="Resources\more_than_100px.png" />
+    <None Include="Resources\less_than_100px.png" />
+    <None Include="Resources\data_backup_60px.png" />
+    <None Include="Resources\left_60px.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\delete_100px.png" />
+    <None Include="Resources\eye.png" />
+    <None Include="Resources\eye_48px.png" />
+    <None Include="Resources\eyea.png" />
+    <None Include="Resources\eyeb.png" />
+    <None Include="Resources\reload.png" />
+    <None Include="Resources\task_planning_48px.png" />
+    <None Include="Resources\send_60px.png" />
+    <None Include="Resources\d_100px.png" />
+    <None Include="Resources\n_100px.png" />
+    <None Include="Resources\broom_24px.png" />
+    <None Include="Resources\search_26px.png" />
+    <None Include="Resources\synchronize_20px.png" />
+    <None Include="Resources\delete_52px1.png" />
+    <None Include="Resources\add_user_male_20px.png" />
+    <None Include="Resources\enter_20px.png" />
+    <None Include="Resources\name_20px.png" />
+    <None Include="Resources\sync_20px.png" />
+    <None Include="Resources\sync_20px1.png" />
+    <None Include="Resources\buscar.png" />
+    <None Include="Resources\safety_collection_place_96px.png" />
+    <None Include="Resources\users_settings_64px.png" />
+    <None Include="Resources\password_reset_64px.png" />
+    <None Include="Resources\send_mail_48px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -469,7 +659,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

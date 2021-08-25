@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Utilidades
 {
-   public static class Colors
+    public static class Colors
     {
         //Colores para fondo oscuro
         public static Color Black = Color.FromArgb(9, 12, 16);
@@ -21,22 +16,28 @@ namespace Utilidades
 
 
         //Tramited or send
-        public static Color GreenBack = Color.FromArgb(211,234,221);
-        public static Color GreenFont = Color.FromArgb(33,150,83);
+        public static Color GreenBack = Color.FromArgb(211, 234, 221);
+        public static Color GreenFont = Color.FromArgb(33, 150, 83);
 
         //Pending
-        public static Color RedBack = Color.FromArgb(252,204,209);
-        public static Color RedFont = Color.FromArgb(235,87,87);
+        public static Color RedBack = Color.FromArgb(252, 204, 209);
+        public static Color RedFont = Color.FromArgb(235, 87, 87);
 
         //In progress
         //Pending
-        public static Color OrangeBack = Color.FromArgb(252,244, 219);
+        public static Color OrangeBack = Color.FromArgb(252, 244, 219);
         public static Color OrangeFont = Color.FromArgb(242, 201, 76);
 
 
         //Purple
         public static Color DarkBack = Color.FromArgb(20, 22, 37);
         public static Color DarkPanel = Color.FromArgb(31, 33, 58);
+
+        //estado por entregar
+        public static Color PurpleFore = Color.FromArgb(155, 81, 224);
+        public static Color PurpleBack = Color.FromArgb(225, 220, 249);
+
+        public static Color PurpleBack2 = Color.FromArgb(59, 30, 85);
 
     }
 }

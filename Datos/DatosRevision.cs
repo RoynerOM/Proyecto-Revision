@@ -1,21 +1,23 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
 namespace Datos
 {
-    public class DatosRevision : ICrud<t_Revision>
+    public class DatosRevision : ICrud<tRevision>
     {
-        public bool eliminar(t_Revision e)
+        public bool eliminar(tRevision e)
         {
             try
             {
-                using (var context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
 
-                    context.Entry<t_Revision>(e).State = System.Data.Entity.EntityState.Modified;
+                    context.Entry<tRevision>(e).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                     return true;
 
@@ -28,55 +30,53 @@ namespace Datos
             }
         }
 
-        public bool guardar(t_Revision e)
+        public bool guardarAsync(tRevision e)
         {
             try
             {
-                using (var context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
-
-                    context.t_Revision.Add(e);
+                    context.tRevision.Add(e);
                     context.SaveChanges();
-
                     return true;
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 return false;
             }
         }
 
-        public bool modificar(t_Revision e)
+        public bool modificar(tRevision e)
         {
             try
             {
-                using (var context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
 
-                    context.Entry<t_Revision>(e).State = System.Data.Entity.EntityState.Modified;
+                    context.Entry<tRevision>(e).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                     return true;
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Console.WriteLine(ex);
                 return false;
             }
         }
 
-        public IEnumerable<t_Revision> obtenerTodo(t_Revision e)
+        public async Task<List<tRevision>> obtenerTodo()
         {
             try
             {
-                using (var context = new BD_JuntasEntities())
+                using (var context = new BDJuntasEntities())
                 {
 
-                    var datos = context.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").ToList();
+                    var datos = await context.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").ToListAsync();
 
                     if (datos != null)
                     {
@@ -96,15 +96,13 @@ namespace Datos
             }
         }
 
-        //Extras
-
-        public IEnumerable<t_Revision> obtenerPorConsecutivo(string consecutivo)
+        public tRevision ObtenerPorCaso(string consecutivo)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Where(x=> x.Consecutivo == consecutivo).ToList();
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Consecutivo == consecutivo).SingleOrDefault();
 
                     if (caso != null)
                     {
@@ -123,13 +121,41 @@ namespace Datos
             }
         }
 
-        public IEnumerable<t_Revision> obtenerPorContador(string persona)
+        //Extras
+        //Filter by onsecutivo
+        public IEnumerable<tRevision> obtenerPorConsecutivo(string consecutivo)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var casos = db.t_Revision.Include("t_Persona").Include("Estado1").Include("t_Institucion").Where(x=> x.Tramitador == persona).ToList();
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Consecutivo.StartsWith(consecutivo.ToUpper())).ToList();
+
+                    if (caso != null)
+                    {
+                        return caso;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        //Filter by Persona
+        public IEnumerable<tRevision> obtenerPorContador(string persona)
+        {
+            try
+            {
+                using (var db = new BDJuntasEntities())
+                {
+                    var casos = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Tramitador == persona).ToList();
 
                     if (casos != null)
                     {
@@ -148,13 +174,14 @@ namespace Datos
             }
         }
 
-        public t_Revision obtenerPorId(t_Revision e)
+        //Filter by id caso
+        public tRevision obtenerPorId(tRevision e)
         {
             try
             {
-                using (var db = new BD_JuntasEntities())
+                using (var db = new BDJuntasEntities())
                 {
-                    var caso = db.t_Revision.Include("t_Persona").FirstOrDefault(x=> x.Id_Caso== e.Id_Caso);
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").FirstOrDefault(x => x.IdCaso == e.IdCaso);
 
                     if (caso != null)
                     {
@@ -172,5 +199,61 @@ namespace Datos
                 return null;
             }
         }
+
+
+        //Filter by tEstado
+        public IEnumerable<tRevision> FilterBy(int estado)
+        {
+            try
+            {
+                using (var db = new BDJuntasEntities())
+                {
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Estado == estado).ToList();
+
+                    if (caso != null)
+                    {
+                        return caso;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        //Extras
+        //Filter by onsecutivo
+        public IEnumerable<tRevision> FilterBy(int recepcion, int opc = 0)
+        {
+            try
+            {
+                using (var db = new BDJuntasEntities())
+                {
+                    var caso = db.tRevision.Include("tPersona").Include("tEstado").Include("tInstitucion").Include("tRecepcion").Where(x => x.Recepcion == recepcion).ToList();
+
+                    if (caso != null)
+                    {
+                        return caso;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+
     }
 }

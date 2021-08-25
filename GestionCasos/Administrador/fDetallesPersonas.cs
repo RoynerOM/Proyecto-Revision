@@ -2,29 +2,31 @@
 using Negocios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos.Administrador
 {
     public partial class fDetallesPersonas : Form
     {
         private Form activeForm = null;
-        ContadorNegocio persona = new ContadorNegocio();
-        List<t_Persona> Personas = null;
+        readonly ContadorNegocio persona = new ContadorNegocio();
+        List<tPersona> Personas = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
+        private int Rol = (int)Enums.Tipo.Tramitador;
 
-        public fDetallesPersonas()
+        public fDetallesPersonas(int Rol)
         {
             InitializeComponent();
+            this.Rol = Rol;
+            SetThemeColor();
         }
 
 
@@ -43,24 +45,35 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void fDetallesPersonas_Load(object sender, EventArgs e)
+        private void FDetallesPersonas_Load(object sender, EventArgs e)
         {
             Procesos proceso = new Procesos();
             Thread hilo = new Thread(new ThreadStart(proceso.ProcesoInicial));   // Creamos el subproceso
             hilo.Start();                           // Ejecutamos el subproceso
             while (!hilo.IsAlive) ;
-
             OpenChildForm(new fLoader(1, hilo));
             CargarCombos();
-            SetThemeColor();
             PedirDatos();
+
+            if (Rol == 1)
+            {
+                btnClaves.Enabled = false;
+                btnClaves.Visible = false;
+            }
         }
 
 
-        public void PedirDatos()
+        public async void PedirDatos()
         {
-            Personas = (List<t_Persona>)persona.obtenerTodo(new t_Persona());
-            CargarTabla(Personas);
+            try
+            {
+                Personas = await persona.obtenerTodo();
+                CargarTabla(Personas);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         //Cambio de color
@@ -68,7 +81,6 @@ namespace GestionCasos.Administrador
         {
             if (isDark == "false")
             {
-
                 this.panel1.BackColor = Colors.White;
                 this.panel1.ForeColor = Colors.Black;
                 tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.Blue;
@@ -83,48 +95,77 @@ namespace GestionCasos.Administrador
                 gunaLabel3.ForeColor = Colors.Black;
                 gunaLabel4.ForeColor = Colors.Black;
             }
-            else
-            {
+        }
 
+        public void CargarTabla(IEnumerable<tPersona> lista)
+        {
+            try
+            {
+                tabla.Rows.Clear();
+                foreach (var item in lista)
+                {
+                    int nRows = tabla.Rows.Add();
+                    tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[0].Value = item.Cedula;
+                    tabla.Rows[nRows].Cells[1].Value = item.TipoIdentificacion == 0 ? "NACIONAL" : "DIMEX";
+                    tabla.Rows[nRows].Cells[2].Value = item.Carnet;
+                    tabla.Rows[nRows].Cells[3].Value = item.NombreCompleto;
+                    tabla.Rows[nRows].Cells[4].Value = item.Correo;
+
+                    tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
 
-        public void CargarTabla(IEnumerable<t_Persona> lista)
+        public async void CargarCombos()
         {
-            tabla.Rows.Clear();
-            foreach (var item in lista)
+            try
             {
-                int nRows = tabla.Rows.Add();
-                tabla.Rows[nRows].Cells[0].Value = item.Cedula;
-                tabla.Rows[nRows].Cells[1].Value = item.TipoId == 0 ? "NACIONAL" : "DIMEX";
-                tabla.Rows[nRows].Cells[2].Value = item.Carnet;
-                tabla.Rows[nRows].Cells[3].Value = item.Nombre_Completo;
+                //Tramitador
+                cbTramitador.DataSource = await persona.obtenerTodo();
+                cbTramitador.ValueMember = "Cedula";
+                cbTramitador.DisplayMember = "NombreCompleto";
+            }
+            catch (Exception ex)
+            {
 
-
-                tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                Console.WriteLine(ex);
             }
         }
 
 
-        public void CargarCombos()
-        {
-            //Tramitador
-            cbTramitador.DataSource = persona.obtenerTodo(new t_Persona());
-            cbTramitador.ValueMember = "Cedula";
-            cbTramitador.DisplayMember = "Nombre_Completo";
-        }
-
-
-        private void txtCedula_TextChanged(object sender, EventArgs e)
+        private void TxtCedula_TextChanged(object sender, EventArgs e)
         {
             if (txtCedula.Text != null)
             {
-                var filtro = Personas.Where(x => x.Cedula.StartsWith(txtCedula.Text));
-                CargarTabla(filtro);
+                try
+                {
+                    var filtro = Personas.Where(x => x.Cedula.StartsWith(txtCedula.Text));
+                    CargarTabla(filtro);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
             }
             else
             {
@@ -133,28 +174,22 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void panel1_Resize(object sender, EventArgs e)
+        private void Panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
 
-            if (screenWidth >= 1200)
+            if (screenWidth >= 1000)
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             else
             {
-                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
 
 
-        private void tabla_RegionChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void tabla_Resize(object sender, EventArgs e)
+        private void Tabla_Resize(object sender, EventArgs e)
         {
             var Grid = (DataGridView)sender;
 
@@ -172,27 +207,56 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void cbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
+        private void CbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            var filtro = Personas.Where(x => x.Cedula == cbTramitador.SelectedValue.ToString());
-            CargarTabla(filtro);
+            try
+            {
+                var filtro = Personas.Where(x => x.Cedula == cbTramitador.SelectedValue.ToString());
+                CargarTabla(filtro);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
         }
 
-        private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private async void Tabla_CellDoubleClickAsync(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            try
             {
-                int fila = e.RowIndex;
+                if (e.RowIndex != -1)
+                {
+                    int fila = e.RowIndex;
 
-                string cedula = tabla.Rows[fila].Cells[0].Value.ToString();
+                    string cedula = tabla.Rows[fila].Cells[0].Value.ToString();
 
 
-                DatosTemp.t_Persona = Personas.Where(x => x.Cedula == cedula).SingleOrDefault();
+                    DatosTemp.tPersona = await persona.obtenerPorIdAsync(cedula);
 
 
-                OpenChildForm(new fContador());
+                    OpenChildForm(new fContador(Rol));
 
+                }
             }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
+        }
+
+
+        private void GunaAdvenceTileButton1_Click(object sender, EventArgs e)
+        {
+            PedirDatos();
+        }
+
+        private void btnClaves_Click(object sender, EventArgs e)
+        {
+            fUsers u = new fUsers();
+            u.ShowDialog();
         }
     }
 }

@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entidades;
+﻿using Entidades;
 namespace GestionCasos
 {
     public static class DatosTemp
     {
-        public static t_Revision t_Revision { get; set; }
-        public static t_Persona t_Persona { get; set; }
-        public static t_Institucion t_Institucion { get; set; }
+        public static tRevision tRevision { get; set; }
+        public static tPersona tPersona { get; set; }
+        public static tInstitucion tInstitucion { get; set; }
+        public static tBoleta tBoleta { get; set; }
+        public static bool MultiUser = false;
+
     }
 }

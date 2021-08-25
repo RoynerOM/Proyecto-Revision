@@ -15,11 +15,12 @@ namespace GestionCasos.Alertas
 
             if (Params.Icon == 1)
             {
-                pictureBox1.Image = global::GestionCasos.Properties.Resources.okpx;
+                btnOK.Image = global::GestionCasos.Properties.Resources.okpx;
             }
             else
             {
-                pictureBox1.Image = global::GestionCasos.Properties.Resources.error_60px;
+                btnOK.Image = global::GestionCasos.Properties.Resources.error_60px;
+                btnOK.ImageSize = new System.Drawing.Size(35, 35);
             }
             label1.Text = Params.Message;
             timer1.Enabled = true;
@@ -28,17 +29,17 @@ namespace GestionCasos.Alertas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (timer1.Interval >= 5500)
-            {
-                timer1.Stop();
-                timer1.Enabled = false;
-                this.Close();
-            }
+
         }
 
         private void gunaCircleButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void gunaCircleButton2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

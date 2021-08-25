@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="94cf60804c3c4309b10dad980c2a27d2" Name="Diagram1" ZoomLevel="114">
+        <EntityTypeShape EntityType="BDJuntasModel.tBoleta" Width="1.5" PointX="10.5" PointY="5.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.tEntregaCasos" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.tEstado" Width="1.5" PointX="6" PointY="2.625" />
+        <EntityTypeShape EntityType="BDJuntasModel.tInstitucion" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="BDJuntasModel.tMensajero" Width="1.5" PointX="3" PointY="2.375" />
+        <EntityTypeShape EntityType="BDJuntasModel.tPersona" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.tRecepcion" Width="1.5" PointX="6" PointY="10.875" />
+        <EntityTypeShape EntityType="BDJuntasModel.tRevision" Width="1.5" PointX="8.25" PointY="5.25" />
+        <EntityTypeShape EntityType="BDJuntasModel.tTipoInstitucion" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.tTrabajador" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.tUsuario" Width="1.5" PointX="3" PointY="11.25" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewBoleta" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewCasosAsignados" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewCasosPorEntregar" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewContadores" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewEntregaCasos" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewJuntas" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BDJuntasModel.viewTrabajador" Width="1.5" PointX="12.75" PointY="11.75" />
+        <AssociationConnector Association="BDJuntasModel.FK__tBoleta__IdCaso__4A8310C6" />
+        <AssociationConnector Association="BDJuntasModel.FK__tEntregaC__Asign__46B27FE2" />
+        <AssociationConnector Association="BDJuntasModel.FK__tEntregaC__Junta__47A6A41B" />
+        <AssociationConnector Association="BDJuntasModel.FK__tEntregaC__Mensa__45BE5BA9" />
+        <AssociationConnector Association="BDJuntasModel.fk_Caso_Rev" />
+        <AssociationConnector Association="BDJuntasModel.FK__tRevision__Estad__41EDCAC5" />
+        <AssociationConnector Association="BDJuntasModel.FK__tInstituc__Conta__52593CB8" />
+        <AssociationConnector Association="BDJuntasModel.FK__tInstituci__Tipo__5441852A" />
+        <AssociationConnector Association="BDJuntasModel.FK__tRevision__Codig__3F115E1A" />
+        <AssociationConnector Association="BDJuntasModel.FK__tRevision__Trami__40058253" />
+        <AssociationConnector Association="BDJuntasModel.FK__tUsuario__Cedula__47DBAE45" />
+        <AssociationConnector Association="BDJuntasModel.FK__tRevision__Recep__40F9A68C" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

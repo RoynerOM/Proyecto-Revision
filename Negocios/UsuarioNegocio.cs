@@ -3,37 +3,38 @@ using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using Utilidades;
 using Utilidades.Interfaces;
-using System.Windows.Forms;
 
 
 namespace Negocios
 {
     //Plantilla
-    public class UsuarioNegocio : ICrud<t_Usuario>
+    public class UsuarioNegocio : ICrud<tUsuario>
     {
-        DatosUsuario datosUsuario = new DatosUsuario();
-        showMessageDialog Message = new showMessageDialog();
+        readonly DatosUsuario datosUsuario = new DatosUsuario();
 
-
-        public bool eliminar(t_Usuario e)
+        public bool eliminar(tUsuario e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(t_Usuario e)
+
+        public bool guardarAsync(tUsuario e)
         {
-            return datosUsuario.guardar(e);
+            return datosUsuario.guardarAsync(e);
         }
+
 
         public bool ComprobarCedula(string ced)
         {
 
-            using (BD_JuntasEntities context = new BD_JuntasEntities())
+            using (BDJuntasEntities context = new BDJuntasEntities())
             {
-                var cedula = context.t_Persona.FirstOrDefault(x => x.Cedula == ced);
-                var v_cedula = context.t_Usuario.FirstOrDefault(x => x.Cedula == ced);
+                var cedula = context.tPersona.FirstOrDefault(x => x.Cedula == ced && x.Estado == true);
+                var v_cedula = context.tUsuario.FirstOrDefault(x => x.Cedula == ced);
 
                 if (cedula != null && v_cedula == null)
                 {
@@ -50,17 +51,26 @@ namespace Negocios
             }
         }
 
-        public bool modificar(t_Usuario e)
+
+        public bool modificar(tUsuario e)
+        {
+            return datosUsuario.modificar(e);
+        }
+
+
+        public tUsuario obtenerPorId(tUsuario e)
         {
             throw new NotImplementedException();
         }
 
-        public t_Usuario obtenerPorId(t_Usuario e)
+
+        public tUsuario obtenerPorId(string e)
         {
-            throw new NotImplementedException();
+            return datosUsuario.obtenerPorId(e);
         }
 
-        public IEnumerable<t_Usuario> obtenerTodo(t_Usuario e)
+
+        public Task<List<tUsuario>> obtenerTodo()
         {
             throw new NotImplementedException();
         }

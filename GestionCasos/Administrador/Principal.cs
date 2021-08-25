@@ -1,47 +1,57 @@
 ﻿using GestionCasos.Administrador;
-using GestionCasos.Configuracion;
+using GestionCasos.Reportes;
+using GestionCasos.Usuarios;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
+using Utilidades.Enumerables;
 
 namespace GestionCasos
 {
     public partial class Principal : Form
     {
+        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private Button currentButton;
-        private Form activeForm;
-
-        public Principal()
+        private Form activeForm = null;
+        private int Rol = (int)Enums.Tipo.Tramitador;
+        public Principal(int Rol)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            this.Rol = Rol;
+            SetThemeColor();
         }
 
 
         private void Principal_Load(object sender, EventArgs e)
         {
+
             SetPanelDefault();
-            SetThemeColor();
+
+            if (Rol == 1)
+            {
+                btnAsignarCaso.Enabled = false;
+
+            }
+            else
+            {
+                btnAsignarCaso.Enabled = true;
+            }
+
         }
+
 
         private void SetPanelDefault()
         {
             Color color;
-            fDashBoard dashBoard = new fDashBoard();
+            fDashBoard dashBoard = new fDashBoard(Rol);
             dashBoard.TopLevel = false;
             dashBoard.FormBorderStyle = FormBorderStyle.None;
             dashBoard.Dock = DockStyle.Fill;
             this.DesktopPanel.Controls.Add(dashBoard);
-            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+            if (isDark == "false")
             {
                 color = Colors.BlueHover;
             }
@@ -57,7 +67,7 @@ namespace GestionCasos
 
         private void SetThemeColor()
         {
-            if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+            if (isDark == "false")
             {
                 BackColor = Colors.White;
                 DesktopPanel.BackColor = Colors.White;
@@ -66,6 +76,12 @@ namespace GestionCasos
                 pnLateralIzquierda.ForeColor = Color.White;
                 btnDashBoard.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnMenu.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+                btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+                btnReportes.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+                btnEntregas.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+                btnAsignarCaso.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+                btnCasos.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
+
             }
             else
             {
@@ -77,6 +93,11 @@ namespace GestionCasos
 
                 btnDashBoard.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
                 btnMenu.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
+                btnCerrarSecion.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
+                btnReportes.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
+                btnEntregas.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
+                btnAsignarCaso.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
+                btnCasos.FlatAppearance.MouseOverBackColor = Colors.DarkHover;
             }
         }
 
@@ -84,7 +105,7 @@ namespace GestionCasos
         private void btnCerrarSecion_Click(object sender, EventArgs e)
         {
             Login login = new Login();
-            
+
             this.Hide();
 
             login.Show();
@@ -100,7 +121,7 @@ namespace GestionCasos
                 {
                     DisableButton();
                     Color color;
-                    if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+                    if (isDark == "false")
                     {
                         color = Colors.BlueHover;
 
@@ -124,7 +145,7 @@ namespace GestionCasos
                 if (previousBtn.GetType() == typeof(Button))
                 {
                     Color color;
-                    if (ConfigurationManager.AppSettings["DarkMode"] == "false")
+                    if (isDark == "false")
                     {
                         color = Colors.Blue;
                     }
@@ -132,10 +153,10 @@ namespace GestionCasos
                     {
                         color = Colors.DarkPanel;
                     }
-                    
+
                     previousBtn.BackColor = color;
 
-                    
+
                 }
             }
         }
@@ -158,45 +179,60 @@ namespace GestionCasos
         }
 
 
-        private void OpenChildForm(Form childForm)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.DesktopPanel.Controls.Add(childForm);
-            this.DesktopPanel.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
-
 
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fDashBoard(), sender);
+            OpenChildForm(new fDashBoard(Rol), sender);
         }
 
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Registrar(), sender);
-
-        }
-
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fConfiguraciones(), sender);
-        }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fMenu(), sender);
+            OpenChildForm(new fMenu(Rol), sender);
         }
 
+
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new fOpcionesReportes(Rol), sender);
+        }
+
+
+
+        private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GC.Collect();
+            Application.ExitThread();
+        }
+
+
+
+        private void btnEntregas_Click(object sender, EventArgs e)
+        {
+            //if (Rol == (int)Enums.Tipo.Tramitador)
+            //{
+            //    OpenChildForm(new CasosAsignados(true), sender);
+            //}
+            //else
+            //{
+            //    OpenChildForm(new fCasosAdmin(true), sender);
+            //}
+            OpenChildForm(new fCasosAdmin(true), sender);
+        }
+
+
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            OpenChildForm(new AsignarCaso(), sender);
+        }
+
+        private void btnCasos_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new fCasosAdmin(false), sender);
+        }
     }
 
 }

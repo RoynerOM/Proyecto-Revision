@@ -34,9 +34,8 @@ namespace GestionCasos.Alertas
             this.label1 = new System.Windows.Forms.Label();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnNo = new Guna.UI.WinForms.GunaCircleButton();
+            this.btnOK = new Guna.UI.WinForms.GunaCircleButton();
             this.SuspendLayout();
             // 
             // gunaDragControl1
@@ -69,45 +68,58 @@ namespace GestionCasos.Alertas
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 5500;
+            this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // gunaCircleButton1
+            // btnNo
             // 
-            this.gunaCircleButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.gunaCircleButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton1.AnimationSpeed = 0.03F;
-            this.gunaCircleButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(58)))), ((int)(((byte)(73)))));
-            this.gunaCircleButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaCircleButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.Image = global::GestionCasos.Properties.Resources.delete_52px;
-            this.gunaCircleButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.gunaCircleButton1.Location = new System.Drawing.Point(544, 18);
-            this.gunaCircleButton1.MinimumSize = new System.Drawing.Size(30, 30);
-            this.gunaCircleButton1.Name = "gunaCircleButton1";
-            this.gunaCircleButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaCircleButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.OnHoverImage = null;
-            this.gunaCircleButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.Size = new System.Drawing.Size(38, 39);
-            this.gunaCircleButton1.TabIndex = 4;
-            this.gunaCircleButton1.Click += new System.EventHandler(this.gunaCircleButton1_Click);
+            this.btnNo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnNo.AnimationHoverSpeed = 0.07F;
+            this.btnNo.AnimationSpeed = 0.03F;
+            this.btnNo.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(58)))), ((int)(((byte)(73)))));
+            this.btnNo.BorderColor = System.Drawing.Color.Black;
+            this.btnNo.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnNo.FocusedColor = System.Drawing.Color.Empty;
+            this.btnNo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNo.ForeColor = System.Drawing.Color.White;
+            this.btnNo.Image = global::GestionCasos.Properties.Resources.delete_52px;
+            this.btnNo.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnNo.Location = new System.Drawing.Point(544, 18);
+            this.btnNo.MinimumSize = new System.Drawing.Size(30, 30);
+            this.btnNo.Name = "btnNo";
+            this.btnNo.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btnNo.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnNo.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnNo.OnHoverImage = null;
+            this.btnNo.OnPressedColor = System.Drawing.Color.Black;
+            this.btnNo.Size = new System.Drawing.Size(38, 39);
+            this.btnNo.TabIndex = 4;
+            this.btnNo.Click += new System.EventHandler(this.gunaCircleButton1_Click);
             // 
-            // pictureBox1
+            // btnOK
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.okpx;
-            this.pictureBox1.Location = new System.Drawing.Point(458, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(86, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnOK.AnimationHoverSpeed = 0.07F;
+            this.btnOK.AnimationSpeed = 0.03F;
+            this.btnOK.BaseColor = System.Drawing.Color.Transparent;
+            this.btnOK.BorderColor = System.Drawing.Color.Black;
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnOK.FocusedColor = System.Drawing.Color.Empty;
+            this.btnOK.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.ForeColor = System.Drawing.Color.White;
+            this.btnOK.Image = global::GestionCasos.Properties.Resources.okpx;
+            this.btnOK.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnOK.Location = new System.Drawing.Point(490, 18);
+            this.btnOK.MinimumSize = new System.Drawing.Size(30, 30);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btnOK.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnOK.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnOK.OnHoverImage = null;
+            this.btnOK.OnPressedColor = System.Drawing.Color.Black;
+            this.btnOK.Size = new System.Drawing.Size(38, 39);
+            this.btnOK.TabIndex = 5;
+            this.btnOK.Click += new System.EventHandler(this.gunaCircleButton2_Click);
             // 
             // Alerta
             // 
@@ -115,16 +127,15 @@ namespace GestionCasos.Alertas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(211)))), ((int)(((byte)(83)))));
             this.ClientSize = new System.Drawing.Size(600, 80);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.gunaCircleButton1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnNo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(600, 80);
             this.Name = "Alerta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Alerta";
             this.Load += new System.EventHandler(this.Alerta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -133,8 +144,8 @@ namespace GestionCasos.Alertas
         private Guna.UI.WinForms.GunaDragControl gunaDragControl1;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton1;
+        private Guna.UI.WinForms.GunaCircleButton btnNo;
+        private Guna.UI.WinForms.GunaCircleButton btnOK;
     }
 }

@@ -1,46 +1,52 @@
-﻿using Entidades;
-using System;
+﻿using Datos;
+using Entidades;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Utilidades.Interfaces;
-using Datos;
 namespace Negocios
 {
-    public class BoletaNegocio : ICrud<t_Boleta>
+    public class BoletaNegocio : ICrud<tBoleta>
     {
 
-        BoletaDatos datos = new BoletaDatos();
+       readonly BoletaDatos datos = new BoletaDatos();
 
-        public bool eliminar(t_Boleta e)
+        public bool eliminar(tBoleta e)
         {
-           // e.estado = false;
+            // e.estado = false;
             return datos.eliminar(e);
         }
 
 
-        public bool guardar(t_Boleta e)
+        public bool guardarAsync(tBoleta e)
         {
-            return datos.guardar(e);
+            return datos.guardarAsync(e);
         }
 
 
-        public bool modificar(t_Boleta e)
+        public bool modificar(tBoleta e)
         {
             return datos.modificar(e);
         }
 
 
-        public t_Boleta obtenerPorId(t_Boleta e)
+        public tBoleta obtenerPorId(tBoleta e)
         {
             return datos.obtenerPorId(e);
         }
 
-
-        public IEnumerable<t_Boleta> obtenerTodo(t_Boleta e)
+        public tBoleta obtenerPorId(string e)
         {
-            return datos.obtenerTodo(e);
+            return datos.obtenerPorId(e);
+        }
+
+        public async Task<List<tBoleta>> obtenerTodo()
+        {
+            return await datos.obtenerTodo();
+        }
+
+        public tBoleta obtenerPorId(int caso)
+        {
+            return datos.obtenerPorId(caso);
         }
     }
 }

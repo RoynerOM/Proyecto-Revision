@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Entidades;
+﻿using Entidades;
 using Negocios;
+using System;
+using System.Configuration;
+using System.Windows.Forms;
 using Utilidades;
-
+using Datos;
 namespace GestionCasos.Usuarios
 {
     public partial class fBoleta : Form
     {
-        string isDark = ConfigurationManager.AppSettings["DarkMode"];
-        private int TipoUsuario = 0;
-        t_Boleta boleta = new t_Boleta();
-        t_Revision revision = new t_Revision();
-        BoletaNegocio boletaNegocio = new BoletaNegocio();
-        RevisionNegocio revisionNegocio = new RevisionNegocio();
+        private string isDark = ConfigurationManager.AppSettings["DarkMode"];
+        private int isNew = 0;
+        private string consecutivo = null;
 
-        showMessageDialog Alert = new showMessageDialog();
-        public fBoleta(int tipo)
+        readonly tBoleta boleta = new tBoleta();
+        tRevision revision = new tRevision();
+        readonly BoletaNegocio boletaNegocio = new BoletaNegocio();
+        readonly RevisionNegocio revisionNegocio = new RevisionNegocio();
+        readonly EstadoNegocio estadoNegocio = new EstadoNegocio();
+        readonly showMessageDialog Alert = new showMessageDialog();
+        readonly EntregaNegocio entregaNegocio = new EntregaNegocio();
+
+        public fBoleta(string consecutivo)
         {
             InitializeComponent();
-            TipoUsuario = tipo;
+            this.consecutivo = consecutivo;
         }
 
         //Cambio de color
@@ -49,22 +46,38 @@ namespace GestionCasos.Usuarios
                 cbMotivo8.ForeColor = Colors.Black;
                 lblConsecutivo.ForeColor = Colors.Black;
                 label1.ForeColor = Colors.Black;
-            }
-            else
-            {
-
+                label2.ForeColor = Colors.Black;
+                label3.ForeColor = Colors.Black;
+                label4.ForeColor = Colors.Black;
             }
         }
+
+
 
         private void fBoleta_Load(object sender, EventArgs e)
         {
             SetThemeColor();
-
+            dtpFechaActa.Value = DateTime.Now;
+            lblConsecutivo.Text = consecutivo;
             txtOtros.Visible = false;
+            btnEntrega.Enabled = false;
+            btnBoleta.Enabled = false;
 
-            revision = DatosTemp.t_Revision;
+            //if (TipoUsuario == 0)
+            //{
+
+            //    txtObservacion.Enabled = false;
+            //    txtComentario.Enabled = true;
+            //}
+            //else
+            //{
+            //    txtObservacion.Enabled = true;
+            //    txtComentario.Enabled = false;
+            //}
             CargarDatosForm();
         }
+
+
 
         private void cbMotivo8_CheckedChanged(object sender, EventArgs e)
         {
@@ -79,16 +92,42 @@ namespace GestionCasos.Usuarios
             }
         }
 
-        bool ValidarCampos()
+
+
+        private void LabelColorChange()
         {
+            if (txtOtros.Visible == true && txtOtros.Text == string.Empty)
+            {
+                cbMotivo8.ForeColor = Colors.RedFont;
+            }
+            if (txtFolio.Text == string.Empty)
+            {
+                label3.ForeColor = Colors.RedFont;
+            }
+            if (txtNumeroActa.Text == string.Empty)
+            {
+                label2.ForeColor = Colors.RedFont;
+            }
+        }
+
+
+
+        private bool ValidarCampos()
+        {
+            LabelColorChange();
             if (txtOtros.Visible == true && txtOtros.Text == string.Empty)
             {
                 cbMotivo8.ForeColor = Colors.RedFont;
                 return false;
             }
-            else if (txtObservacion.Text == string.Empty)
+            else if (txtFolio.Text == string.Empty)
             {
-                guna2GroupBox2.ForeColor = Colors.RedFont;
+                label3.ForeColor = Colors.RedFont;
+                return false;
+            }
+            else if (txtNumeroActa.Text == string.Empty)
+            {
+                label2.ForeColor = Colors.RedFont;
                 return false;
             }
             else
@@ -101,35 +140,58 @@ namespace GestionCasos.Usuarios
 
         private void CargarDatosForm()
         {
-            lblConsecutivo.Text = revision.Consecutivo;
-            var caso = revisionNegocio.obtenerPorConsecutivo(revision.Consecutivo).Where(x => x.Consecutivo == revision.Consecutivo).SingleOrDefault();
-
-            var boletas = boletaNegocio.obtenerTodo(new t_Boleta());
-
-            var filtro = boletas.Where(x => x.Nu_caso == caso.Id_Caso).SingleOrDefault();
-
-
-            cbMotivo1.Checked = (bool)filtro.Motivo1;
-            cbMotivo2.Checked = (bool)filtro.Motivo2;
-            cbMotivo3.Checked = (bool)filtro.Motivo3;
-            cbMotivo4.Checked = (bool)filtro.Motivo4;
-            cbMotivo5.Checked = (bool)filtro.Motivo5;
-            cbMotivo6.Checked = (bool)filtro.Motivo6;
-            cbMotivo7.Checked = (bool)filtro.Motivo7;
-
-            if (filtro.Motivo8 != null)
+            try
             {
-                cbMotivo8.Checked = true;
-                txtOtros.Visible = true;
-                txtOtros.Text = filtro.Motivo8;
+
+
+                //Obtengo el caso
+                revision = revisionNegocio.ObtenerPorCaso(consecutivo);
+                tBoleta filtro = boletaNegocio.obtenerPorId(revision.IdCaso);
+
+                if (filtro != null)
+                {
+                    btnBoleta.Enabled = true;
+
+                    //Informacion del caso folio...
+                    txtNumeroActa.Text = revision.numeroActa.ToString();
+                    txtFolio.Text = revision.numeroFolio.ToString();
+                    dtpFechaActa.Value = (DateTime)revision.fechaActa;
+
+                    cbMotivo1.Checked = (bool)filtro.Motivo1;
+                    cbMotivo2.Checked = (bool)filtro.Motivo2;
+                    cbMotivo3.Checked = (bool)filtro.Motivo3;
+                    cbMotivo4.Checked = (bool)filtro.Motivo4;
+                    cbMotivo5.Checked = (bool)filtro.Motivo5;
+                    cbMotivo6.Checked = (bool)filtro.Motivo6;
+                    cbMotivo7.Checked = (bool)filtro.Motivo7;
+
+                    //Carga de otros
+                    if (filtro.Motivo8 != " ")
+                    {
+                        cbMotivo8.Checked = true;
+                        txtOtros.Visible = true;
+                        txtOtros.Text = filtro.Motivo8;
+                    }
+
+                    txtComentario.Text = filtro.Observacion;
+
+
+                    if (revision.Estado == 4)
+                    {
+                        btnEntrega.Enabled = false;
+                    }
+                    else
+                    {
+                        btnEntrega.Enabled = true;
+                    }
+
+                }
+
             }
-            if (TipoUsuario == 0)
+            catch (Exception ex)
             {
-                txtObservacion.Text = revision.Comentario;
-            }
-            else
-            {
-                txtObservacion.Text = revision.Observacion;
+
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -139,13 +201,13 @@ namespace GestionCasos.Usuarios
         {
             try
             {
+                tBoleta boleta = new tBoleta();
+                boleta = boletaNegocio.obtenerPorId(consecutivo);
+                var caso = revisionNegocio.ObtenerPorCaso(consecutivo);
 
-                if (ValidarCampos() == true)
+                if (boleta != null)
                 {
-                    //Buscar el caso por consecutivo
-
-
-                    boleta.Nu_caso = revision.Id_Caso;
+                    boleta.IdCaso = caso.IdCaso;
                     boleta.Motivo1 = cbMotivo1.Checked;
                     boleta.Motivo2 = cbMotivo2.Checked;
                     boleta.Motivo3 = cbMotivo3.Checked;
@@ -153,27 +215,133 @@ namespace GestionCasos.Usuarios
                     boleta.Motivo5 = cbMotivo5.Checked;
                     boleta.Motivo6 = cbMotivo6.Checked;
                     boleta.Motivo7 = cbMotivo7.Checked;
-                    boleta.Motivo8 = txtOtros.Text;
-                    boleta.Observacion = txtObservacion.Text;
 
-                    if (TipoUsuario == 0 && txtObservacion.Text != string.Empty)
+                    if (cbMotivo8.Checked == true)
                     {
-                        revision.Comentario = txtObservacion.Text;
-                    }
-                    else
-                    {
-                        revision.Observacion = txtObservacion.Text;
+                        boleta.Motivo8 = txtOtros.Text;
                     }
 
-                    if (boletaNegocio.guardar(boleta) == true && revisionNegocio.modificar(revision) == true)
-                    {
+                    boleta.Observacion = txtComentario.Text;
+                    caso.Comentario = boleta.Observacion;
 
-                        Alert.Success(new Alertas.Alerta(), "Observacion Agregada con exito");
-                    }
-                    else
+                    if (revisionNegocio.modificar(caso) == true)
                     {
-                        Alert.Danger(new Alertas.Alerta(), "No se pudo guardar la observacion");
+                        if (boletaNegocio.modificar(boleta) == true)
+                        {
+                            Alert.Success(new Alertas.Alerta(), "Observación Modificada con exito");
+                        }
+                        else
+                        {
+                            Alert.Danger(new Alertas.Alerta(), "No se pudo modificar la observación");
+                        }
                     }
+                }
+                else
+                {
+                    if (ValidarCampos() == true)
+                    {
+                        //Buscar el caso por consecutivo
+                        tBoleta newBoleta = new tBoleta();
+
+                        newBoleta.IdCaso = revision.IdCaso;
+                        newBoleta.Motivo1 = cbMotivo1.Checked;
+                        newBoleta.Motivo2 = cbMotivo2.Checked;
+                        newBoleta.Motivo3 = cbMotivo3.Checked;
+                        newBoleta.Motivo4 = cbMotivo4.Checked;
+                        newBoleta.Motivo5 = cbMotivo5.Checked;
+                        newBoleta.Motivo6 = cbMotivo6.Checked;
+                        newBoleta.Motivo7 = cbMotivo7.Checked;
+
+                        if (cbMotivo8.Checked == true)
+                        {
+                            newBoleta.Motivo8 = txtOtros.Text;
+                        }
+                        else
+                        {
+                            newBoleta.Motivo8 = " ";
+                        }
+                        newBoleta.Observacion = txtComentario.Text;
+
+                        //Observacion
+                        newBoleta.FechaCreado = DateTime.Now;
+                        //Fin de informacion de boleta
+
+                        //Cambio de estado de boleta
+                        tEstado state = new tEstado();
+                        state.IdEstado = 2;
+                        //Informacion del caso
+                        //tRevision filtroCasos = revisionNegocio.ObtenerPorCaso(consecutivo);
+                        state = estadoNegocio.obtenerPorId(state);
+                        //Fin de obtener la informacion del estado
+
+                        revision.FechaRevisada = DateTime.Now.ToShortDateString();
+                        revision.Estado = state.IdEstado;
+                        revision.tEstado = state;
+                        revision.numeroActa = txtNumeroActa.Text;
+                        revision.numeroFolio = txtFolio.Text;
+                        revision.fechaActa = dtpFechaActa.Value;
+                        revision.Comentario = txtComentario.Text;
+                      
+
+                        //Se actualiza la informacion del caso pasa hacer tramitador
+                        if (revisionNegocio.modificar(revision) == true)
+                        {
+                            //Alert.Success(new Alertas.Alerta(), "Revision Modificada con exito");
+
+                            if (isNew == 0)
+                            {
+                                if (boletaNegocio.guardarAsync(newBoleta) == true)
+                                {
+                                    Alert.Success(new Alertas.Alerta(), "Observación Agregada con éxito");
+                                    btnBoleta.Enabled = true;
+                                    btnEntrega.Enabled = true;
+                                }
+                                else
+                                {
+                                    Alert.Danger(new Alertas.Alerta(), "No se pudo guardar la observación");
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+
+
+        private void btnBoleta_Click(object sender, EventArgs e)
+        {
+            fReporteBoleta v = new fReporteBoleta(consecutivo);
+            v.WindowState = FormWindowState.Maximized;
+            v.ShowDialog();
+        }
+
+
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tEstado state = new tEstado();
+                state.IdEstado = 3;
+
+                state = estadoNegocio.obtenerPorId(state);
+                revision.Estado = state.IdEstado;
+                revision.tEstado = state;
+
+                if (revisionNegocio.modificar(revision) == true)
+                {
+                    Alert.Success(new Alertas.Alerta(), "Observación fue modificada");
+                    btnEntrega.Enabled = false;
+                }
+                else
+                {
+                    Alert.Danger(new Alertas.Alerta(), "No se pudo modifcar la observación");
                 }
             }
             catch (Exception ex)
@@ -181,6 +349,13 @@ namespace GestionCasos.Usuarios
 
                 Console.WriteLine(ex);
             }
+        }
+
+
+
+        private void gunaLinePanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

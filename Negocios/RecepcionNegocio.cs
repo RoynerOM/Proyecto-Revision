@@ -1,40 +1,38 @@
-﻿using Entidades;
+﻿using Datos;
+using Entidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Utilidades.Interfaces;
-using Datos;
 
 namespace Negocios
 {
-   public class RecepcionNegocio : ICrud<t_Recepcion>
+    public class RecepcionNegocio : ICrud<tRecepcion>
     {
-        RecepcionDatos datos = new RecepcionDatos();
-        public bool eliminar(t_Recepcion e)
+        readonly RecepcionDatos datos = new RecepcionDatos();
+        public bool eliminar(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public bool guardar(t_Recepcion e)
+        public bool guardarAsync(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public bool modificar(t_Recepcion e)
+        public bool modificar(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public t_Recepcion obtenerPorId(t_Recepcion e)
+        public tRecepcion obtenerPorId(tRecepcion e)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<t_Recepcion> obtenerTodo(t_Recepcion e)
+        public async Task<List<tRecepcion>> obtenerTodo()
         {
-            return datos.obtenerTodo(e);
+            return await datos.obtenerTodo();
         }
     }
 }

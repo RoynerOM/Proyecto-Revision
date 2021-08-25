@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GestionCasos
 {
+    /*
+     Reporte completado
+     */
     public partial class ReporteContadores : Form
     {
         public ReporteContadores()
@@ -19,9 +15,8 @@ namespace GestionCasos
 
         private void ReporteContadores_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet1.Contadores' Puede moverla o quitarla según sea necesario.
-            this.ContadoresTableAdapter.Fill(this.BD_JuntasDataSet1.Contadores);
-
+            // TODO: This line of code loads data into the 'dtsContador.tPersona' table. You can move, or remove it, as needed.
+            this.tPersonaTableAdapter.Fill(this.dtsContador.tPersona);
             this.reportViewer1.RefreshReport();
         }
     }
