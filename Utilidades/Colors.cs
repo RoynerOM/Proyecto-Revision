@@ -14,7 +14,6 @@ namespace Utilidades
         public static Color BlueHover = Color.FromArgb(66, 100, 128);
         public static Color DarkHover = Color.FromArgb(40, 40, 60);
 
-
         //Tramited or send
         public static Color GreenBack = Color.FromArgb(211, 234, 221);
         public static Color GreenFont = Color.FromArgb(33, 150, 83);
@@ -23,11 +22,16 @@ namespace Utilidades
         public static Color RedBack = Color.FromArgb(252, 204, 209);
         public static Color RedFont = Color.FromArgb(235, 87, 87);
 
+        public static Color RedBackDark = Color.FromArgb(50, 24, 32);
+        public static Color RedFontDark = Color.FromArgb(248, 81, 73);
+
         //In progress
         //Pending
         public static Color OrangeBack = Color.FromArgb(252, 244, 219);
         public static Color OrangeFont = Color.FromArgb(242, 201, 76);
 
+        public static Color OrangeBackDark = Color.FromArgb(66, 56, 34);
+        public static Color OrangeFontDark = Color.FromArgb(227, 179, 65);
 
         //Purple
         public static Color DarkBack = Color.FromArgb(20, 22, 37);

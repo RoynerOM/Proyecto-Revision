@@ -53,17 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BDJuntas.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BDJuntas.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BDJuntas.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BDJuntas.edmx</DependentUpon>
-    </Compile>
     <Compile Include="BoletaDatos.cs" />
+    <Compile Include="DB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="EntregaDatos.cs" />
     <Compile Include="EstadoDatos.cs" />
     <Compile Include="DatosContador.cs" />
@@ -85,12 +85,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="BDJuntas.edmx">
+    <EntityDeploy Include="DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BDJuntas.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BDJuntas.edmx.diagram">
-      <DependentUpon>BDJuntas.edmx</DependentUpon>
+    <None Include="DB.edmx.diagram">
+      <DependentUpon>DB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -98,10 +98,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BDJuntas.Context.tt">
+    <Content Include="DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BDJuntas.edmx</DependentUpon>
-      <LastGenOutput>BDJuntas.Context.cs</LastGenOutput>
+      <DependentUpon>DB.edmx</DependentUpon>
+      <LastGenOutput>DB.Context.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -121,10 +121,10 @@
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
-      <HintPath>..\..\..\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI WinForms\.net 2.0\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\Downloads\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -305,6 +305,8 @@
     <Compile Include="fReporteBoleta.Designer.cs">
       <DependentUpon>fReporteBoleta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Paginadores\PaginadorCasos.cs" />
+    <Compile Include="Paginadores\PaginadorJuntas.cs" />
     <Compile Include="Procesos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -344,6 +346,7 @@
     <Compile Include="Reportes\fOpcionesReportes.Designer.cs">
       <DependentUpon>fOpcionesReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Singleton\ControllerService.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Usuarios\CasosAsignados.cs">
       <SubType>Form</SubType>

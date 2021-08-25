@@ -94,14 +94,14 @@ namespace GestionCasos.Administrador
                         cbCheque.Checked = false;
                     }
 
-                    if (entrega.Transferencia == 0)
-                    {
-                        cbTranferencia.Checked = true;
-                    }
-                    else
-                    {
-                        cbTranferencia.Checked = false;
-                    }
+                    //if (entrega.Transferencia == 0)
+                    //{
+                    //    cbTranferencia.Checked = true;
+                    //}
+                    //else
+                    //{
+                    //    cbTranferencia.Checked = false;
+                    //}
 
                     lblFecha.Text = "Entregado " + entrega.FechaEntrega.ToLongDateString();
                     txtObservacion.Text = entrega.Observacion;
@@ -341,16 +341,16 @@ namespace GestionCasos.Administrador
                     }
 
 
-                    if (cbTranferencia.Checked == true)
-                    {
-                        //Por cheque
-                        ec.Transferencia = 0;
-                    }
-                    else
-                    {
-                        //Por Transferencia
-                        ec.Transferencia = 1;
-                    }
+                    //if (cbTranferencia.Checked == true)
+                    //{
+                    //    //Por cheque
+                    //    ec.Transferencia = 0;
+                    //}
+                    //else
+                    //{
+                    //    //Por Transferencia
+                    //    ec.Transferencia = 1;
+                    //}
 
                     ec.Observacion = txtObservacion.Text;
 
@@ -385,16 +385,16 @@ namespace GestionCasos.Administrador
                         //Por Transferencia
                         entregaC.Pago = 1;
                     }
-                    if (cbTranferencia.Checked == true)
-                    {
-                        //Por cheque
-                        entregaC.Transferencia = 0;
-                    }
-                    else
-                    {
-                        //Por Transferencia
-                        entregaC.Transferencia = 1;
-                    }
+                    //if (cbTranferencia.Checked == true)
+                    //{
+                    //    //Por cheque
+                    //    entregaC.Transferencia = 0;
+                    //}
+                    //else
+                    //{
+                    //    //Por Transferencia
+                    //    entregaC.Transferencia = 1;
+                    //}
 
                     tEstado estado = new tEstado();
                     estado.IdEstado = 4;
