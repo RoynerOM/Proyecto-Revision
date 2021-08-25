@@ -142,8 +142,6 @@ namespace GestionCasos.Usuarios
         {
             try
             {
-
-
                 //Obtengo el caso
                 revision = revisionNegocio.ObtenerPorCaso(consecutivo);
                 tBoleta filtro = boletaNegocio.obtenerPorId(revision.IdCaso);
@@ -184,13 +182,10 @@ namespace GestionCasos.Usuarios
                     {
                         btnEntrega.Enabled = true;
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
         }
@@ -346,16 +341,8 @@ namespace GestionCasos.Usuarios
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
-        }
-
-
-
-        private void gunaLinePanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

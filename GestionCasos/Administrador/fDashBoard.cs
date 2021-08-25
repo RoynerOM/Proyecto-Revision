@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using GestionCasos.Administrador;
+using GestionCasos.Singleton;
 using GestionCasos.Usuarios;
 using Negocios;
 using System;
@@ -17,10 +18,7 @@ namespace GestionCasos
 {
     public partial class fDashBoard : Form
     {
-        readonly ContadorNegocio negocio = new ContadorNegocio();
-        readonly RevisionNegocio revision = new RevisionNegocio();
-        readonly InstitucionNegocio institucion = new InstitucionNegocio();
-
+        readonly ControllerService controller = new ControllerService();
         private Form activeForm;
         private int Rol = (int)Enums.Tipo.Tramitador;
         private string cedula = null;
@@ -33,10 +31,6 @@ namespace GestionCasos
             SetThemeColor();
         }
 
-        private void DesktopPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private async void CargarEstadisticas()
         {
@@ -44,45 +38,41 @@ namespace GestionCasos
             {
                 if (Rol == (int)Enums.Tipo.Contador)
                 {
-                    var contadores = await negocio.obtenerTrabador(0);
+                    var contadores = await controller.CrudContador().obtenerTrabador(0);
                     label1.Text = contadores.Count().ToString();
 
-
-                    var casos = await revision.obtenerTodo();
+                    var casos = await controller.CrudCaso().obtenerTodo();
 
                     //En revisio
                     var pendientes = casos.Where(x => x.Estado == 1).Count();
                     lblTotaRevision.Text = pendientes.ToString();
 
+                    var revisados = casos.Where(x => x.Estado == 2).Count();
+                    lblCasosRevisados.Text = revisados.ToString();
 
-                    var tramitadores = casos.Where(x => x.Estado == 2).Count();
-                    lblCasosRevisados.Text = tramitadores.ToString();
-
-                    //Tramitados
-                    var revicion = casos.Where(x => x.Estado == 3).Count();
-                    lblTotalPorEntrega.Text = revicion.ToString();
+                    //por Entrega
+                    var porEntrega = casos.Where(x => x.Estado == 3).Count();
+                    lblTotalPorEntrega.Text = porEntrega.ToString();
 
                     //Entrgados
                     var entregados = casos.Where(x => x.Estado == 4).Count();
                     lblEntregados.Text = entregados.ToString();
 
-                   
-
-                    var instituciones = await institucion.obtenerTodo();
+                    var instituciones = await controller.CrudJuntas().obtenerTodo();
                     lblTotalJuntas.Text = instituciones.Where(x => x.Estado == true).Count().ToString();
-
-                   
                 }
                 else
                 {
-                    var contadores = await negocio.obtenerTrabador(0);
+                    var contadores = await controller.CrudContador().obtenerTrabador(0);
                     label1.Text = contadores.Count().ToString();
 
-                    var casos = await revision.obtenerTodo();
+                    var casos = await controller.CrudCaso().obtenerTodo();
 
-                    var pendientes = casos.Where(x => x.Estado == 2 && x.Tramitador == cedula).Count();
+                    var pendientes = casos.Where(x => x.Estado == 1 && x.Tramitador == cedula).Count();
                     lblTotaRevision.Text = pendientes.ToString();
 
+                    var Revisados = casos.Where(x => x.Estado == 2 && x.Tramitador == cedula).Count();
+                    lblCasosRevisados.Text = Revisados.ToString();
 
                     var tramitado = casos.Where(x => x.Estado == 3 && x.Tramitador == cedula).Count();
                     lblTotalPorEntrega.Text = tramitado.ToString();
@@ -90,11 +80,8 @@ namespace GestionCasos
                     var entregados = casos.Where(x => x.Estado == 4 && x.Tramitador == cedula).Count();
                     lblEntregados.Text = entregados.ToString();
 
-                    var instituciones = await institucion.obtenerTodo();
+                    var instituciones = await controller.CrudJuntas().obtenerTodo();
                     lblTotalJuntas.Text = instituciones.Count().ToString();
-
-                    var tramitadores = await negocio.obtenerTrabador(1);
-                    lblCasosRevisados.Text = tramitadores.Count().ToString();
                 }
             }
             catch (Exception ex)
@@ -103,12 +90,13 @@ namespace GestionCasos
             }
         }
 
+
+
         private async void FDashBoard_Load(object sender, EventArgs e)
         {
-
             string cedula = File.ReadAllText("temp.txt");
 
-            var usuario = await negocio.obtenerPorIdAsync(this.cedula);
+            var usuario = await controller.CrudContador().obtenerPorIdAsync(this.cedula);
 
             lblNombreU.Text = "Usuario: " + usuario.NombreCompleto + ", " + File.ReadAllText("temp.txt");
 
@@ -130,6 +118,8 @@ namespace GestionCasos
             }
 
         }
+
+
 
         private void SetThemeColor()
         {
@@ -157,29 +147,17 @@ namespace GestionCasos
                 this.gunaElipsePanel1.BaseColor = Color.FromArgb(41, 79, 116);
                 this.gunaElipsePanel1.ForeColor = Color.White;
 
-                this.label4.ForeColor = Colors.Black; 
+                this.label4.ForeColor = Colors.Black;
                 this.lblNombreU.ForeColor = Colors.Black;
             }
         }
-        private void PnContadores_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
         private void GunaTileButton1_Click(object sender, EventArgs e)
         {
-
-            //if (Rol == (int)Enums.Tipo.Contador)
-            //{
-            //    OpenChildForm(new fCasosAdmin(false));
-            //}
-            //else
-            //{
-            //    OpenChildForm(new CasosAsignados(false));
-            //}
-
             OpenChildForm(new fCasosAdmin(false));
         }
+
         //Pintar formulario hijo
         //Formulario en uso
         private void OpenChildForm(Form childForm)
@@ -203,27 +181,21 @@ namespace GestionCasos
             }
         }
 
+
+
         private void GunaTileButton2_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AsignarCaso());
         }
 
-        private void GunaTileButton4_Click(object sender, EventArgs e)
-        {
-            if (Rol == (int)Enums.Tipo.Contador)
-            {
-                OpenChildForm(new fCasosAdmin(true));
-            }
-            else
-            {
-                OpenChildForm(new CasosAsignados(true));
-            }
-        }
+
 
         private void GunaTileButton3_Click(object sender, EventArgs e)
         {
             OpenChildForm(new fDetallesJuntas(Rol));
         }
+
+
 
         private void gunaTileButton4_Click_1(object sender, EventArgs e)
         {

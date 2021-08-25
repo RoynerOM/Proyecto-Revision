@@ -216,14 +216,14 @@ namespace GestionCasos
             // lblPag
             // 
             this.lblPag.BackColor = System.Drawing.Color.Transparent;
-            this.lblPag.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPag.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPag.ForeColor = System.Drawing.Color.White;
-            this.lblPag.Location = new System.Drawing.Point(3, 163);
+            this.lblPag.Location = new System.Drawing.Point(12, 163);
             this.lblPag.Name = "lblPag";
-            this.lblPag.Size = new System.Drawing.Size(240, 23);
+            this.lblPag.Size = new System.Drawing.Size(339, 23);
             this.lblPag.TabIndex = 29;
             this.lblPag.Text = "label1";
-            this.lblPag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button1
             // 
@@ -430,7 +430,6 @@ namespace GestionCasos
             this.tabla.Size = new System.Drawing.Size(1020, 355);
             this.tabla.TabIndex = 0;
             this.tabla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellContentClickAsync);
-            this.tabla.Paint += new System.Windows.Forms.PaintEventHandler(this.tabla_Paint);
             this.tabla.Resize += new System.EventHandler(this.tabla_Resize);
             // 
             // Caso

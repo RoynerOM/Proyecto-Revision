@@ -476,12 +476,6 @@ namespace GestionCasos
         }
 
 
-
-        private void tabla_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-
         //Pagina siguiente
         private void btnNext_Click(object sender, EventArgs e)
         {

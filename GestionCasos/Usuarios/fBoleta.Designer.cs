@@ -91,7 +91,6 @@ namespace GestionCasos.Usuarios
             this.gunaLinePanel1.Name = "gunaLinePanel1";
             this.gunaLinePanel1.Size = new System.Drawing.Size(800, 700);
             this.gunaLinePanel1.TabIndex = 0;
-            this.gunaLinePanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaLinePanel1_Paint);
             // 
             // guna2GroupBox3
             // 

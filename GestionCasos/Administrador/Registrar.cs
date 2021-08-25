@@ -61,20 +61,18 @@ namespace GestionCasos
             }
         }
 
+
         private void Registrar_Load(object sender, EventArgs e)
         {
             txtCedula.Mask = "0-0000-0000";
         }
+
 
         private void btnCerrarR_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void cbIdentificacion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
 
         private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -120,6 +118,7 @@ namespace GestionCasos
             }
         }
 
+
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
             if (txtContra.PasswordChar == '•')
@@ -133,6 +132,7 @@ namespace GestionCasos
                 gunaAdvenceTileButton1.Image = global::GestionCasos.Properties.Resources.eyeb;
             }
         }
+
 
         private void gunaAdvenceTileButton2_Click(object sender, EventArgs e)
         {

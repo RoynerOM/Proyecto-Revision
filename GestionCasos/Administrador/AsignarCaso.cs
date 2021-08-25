@@ -1,6 +1,7 @@
 ﻿using Datos;
 using Entidades;
 using GestionCasos.Administrador;
+using GestionCasos.Singleton;
 using Negocios;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,8 @@ namespace GestionCasos
 
     public partial class AsignarCaso : Form
     {
-        SqlConnection conexion = new SqlConnection(@"Data Source=192.168.100.76;Initial Catalog=BDJuntas;User ID=sa;Password=123456;");
-        RevisionNegocio Rnegocio = new RevisionNegocio();
-        ContadorNegocio persona = new ContadorNegocio();
-        RecepcionNegocio recepcion = new RecepcionNegocio();
+        SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BDJuntas;Integrated Security=True");
+        readonly ControllerService controller = new ControllerService();
         showMessageDialog Alerta = new showMessageDialog();
         private Form activeForm = null;
         tRevision casosReasignado = null;
@@ -36,46 +35,28 @@ namespace GestionCasos
             SetThemeColor();
         }
 
+
         //Modificado
         private async void CargarCombos()
         {
             try
             {
-                cbAsignados.DataSource = await persona.obtenerTodo();
+                cbAsignados.DataSource = await controller.CrudContador().obtenerTodo();
                 cbAsignados.DisplayMember = "NombreCompleto";
                 cbAsignados.ValueMember = "Cedula";
 
                 //Modificado
-                cbTipoRecepcion.DataSource = await recepcion.obtenerTodo();
+                cbTipoRecepcion.DataSource = await controller.CrudRecepcion().obtenerTodo();
                 cbTipoRecepcion.ValueMember = "id";
                 cbTipoRecepcion.DisplayMember = "Recepcion";
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
         }
 
-        //private void CargarCombosAux()
-        //{
-        //    List<ListaAux> lista = new List<ListaAux>
-        //    {
-        //        new ListaAux{id = 1, nombre = "-"}
 
-        //    };
-
-        //    cbTipoRecepcion.DataSource = lista;
-        //    cbTipoRecepcion.ValueMember = "id";
-        //    cbTipoRecepcion.DisplayMember = "nombre";
-
-
-        //    cbAsignados.DataSource = lista;
-        //    cbAsignados.ValueMember = "id";
-        //    cbAsignados.DisplayMember = "nombre";
-
-
-        //}
 
         //Modificado
         private void MostrarConsecutivo()
@@ -95,6 +76,7 @@ namespace GestionCasos
             }
         }
 
+
         private void AsignarCaso_Load(object sender, EventArgs e)
         {
             this.dtpFecha.Value = DateTime.Now;
@@ -109,6 +91,8 @@ namespace GestionCasos
             CargarCombos();
 
         }
+
+
 
         //Cambio de colores
         private void SetThemeColor()
@@ -131,13 +115,13 @@ namespace GestionCasos
         }
 
 
+
         private void AsignarCaso_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 try
                 {
-
                     using (var context = new BDJuntasEntities())
                     {
                         if (txtCodigo.Text != string.Empty)
@@ -166,11 +150,12 @@ namespace GestionCasos
                 }
                 catch (Exception ex)
                 {
-
                     Console.WriteLine(ex);
                 }
             }
         }
+
+
 
         //Metodo de guardar
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -189,12 +174,11 @@ namespace GestionCasos
                 revision.numeroFolio = "";
                 revision.fechaActa = null;
 
-                if (Rnegocio.guardarAsync(revision) == true)
+                if (controller.CrudCaso().guardarAsync(revision) == true)
                 {
                     Alerta.Success(new Alertas.Alerta(), "Caso asignado");
                     MostrarConsecutivo();
                     limpiarCampos();
-                    //CargarCombosAux();
                 }
                 else
                 {
@@ -207,6 +191,8 @@ namespace GestionCasos
             }
         }
 
+
+
         private void limpiarCampos()
         {
             txtCodigo.ResetText();
@@ -214,6 +200,8 @@ namespace GestionCasos
             txtJuntaAdm.Clear();
             txtCaso.Clear();
         }
+
+
 
         private void OpenChildForm(Form childForm)
         {
@@ -229,19 +217,19 @@ namespace GestionCasos
             childForm.Show();
         }
 
+
+
         private void gunaAdvenceTileButton2_Click(object sender, EventArgs e)
         {
-
             btnGuardar.Enabled = false;
             txtConsecutivo.Visible = false;
             lbConsecutivo.Visible = false;
-            //CargarCombos();
 
             try
             {
                 if (txtCaso.Text != string.Empty)
                 {
-                    this.casosReasignado = Rnegocio.ObtenerPorCaso(txtCaso.Text.ToUpper());
+                    this.casosReasignado = controller.CrudCaso().ObtenerPorCaso(txtCaso.Text.ToUpper());
                     if (this.casosReasignado != null)
                     {
                         codigoAux = casosReasignado.Codigo;
@@ -270,6 +258,8 @@ namespace GestionCasos
             }
         }
 
+
+
         private void btnReasignarCaso_ClickAsync(object sender, EventArgs e)
         {
 
@@ -278,8 +268,9 @@ namespace GestionCasos
             {
                 int flag = 0;
                 string reasignar = "Update tRevision set Tramitador = '" + cbAsignados.SelectedValue.ToString() +"', Codigo = "+ int.Parse(txtCodigo.Text) + "  where Consecutivo = '"+ txtCaso.Text.ToUpper() + "'";
+                
                 SqlCommand cmd = new SqlCommand(reasignar ,conexion);
-                conexion.Open();
+               conexion.Open();
                 flag = cmd.ExecuteNonQuery();
 
                 if (flag == 1)
@@ -288,8 +279,6 @@ namespace GestionCasos
                     if (codigoAux == int.Parse(txtCodigo.Text))
                     {
                         Alerta.Success(new Alertas.Alerta(), "Caso reasignado a: " + cbAsignados.Text);
-
-
                     }
                     else if (codigoAux != int.Parse(txtCodigo.Text))
                     {
@@ -314,43 +303,11 @@ namespace GestionCasos
                 {
                     Alerta.Danger(new Alertas.Alerta(), "Error al reasignar caso");
                     conexion.Close();
-
                 }
                 else
                 {
                     btnReasignarCaso.Enabled = false;
                 }
-
-                #region CodigoEntyty
-
-                //tRecepcion t = new tRecepcion();
-                //tPersona tramitador = new tPersona();         
-                //tramitador = await persona.obtenerPorIdAsync(cbAsignados.SelectedValue.ToString());
-                //casosReasignado.Fecha = dtpFecha.Value;
-                //casosReasignado.Tramitador = tramitador.Cedula;
-                //casosReasignado.tPersona = tramitador;
-
-
-                //if (Rnegocio.modificar(casosReasignado) == true)
-                //{
-                //    Alerta.Success(new Alertas.Alerta(), "Caso reasignado a: " + cbAsignados.Text);
-                //    MostrarConsecutivo();
-                //    limpiarCampos();
-                //    CargarCombosAux();
-                //    txtConsecutivo.Visible = true;
-                //    lbConsecutivo.Visible = true;
-                //    btnReasignarCaso.Enabled = false;
-                //}
-                //else
-                //{
-                //    Alerta.Danger(new Alertas.Alerta(), "Error al reasignar caso");
-                //    txtConsecutivo.Visible = true;
-                //    lbConsecutivo.Visible = true;
-                //    limpiarCampos();
-                //    CargarCombosAux();
-                //}
-
-                # endregion
 
                 btnReasignarCaso.Enabled = false;
             }
@@ -359,6 +316,8 @@ namespace GestionCasos
                 Console.WriteLine(ex);
             }
         }
+
+
 
         private void txtCaso_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -371,7 +330,7 @@ namespace GestionCasos
                 {
                     if (txtCaso.Text != string.Empty)
                     {
-                        this.casosReasignado = Rnegocio.ObtenerPorCaso(txtCaso.Text.ToUpper());
+                        this.casosReasignado = controller.CrudCaso().ObtenerPorCaso(txtCaso.Text.ToUpper());
                         if (this.casosReasignado != null)
                         {
                             codigoAux = casosReasignado.Codigo;
@@ -393,7 +352,6 @@ namespace GestionCasos
                     {
                         Alerta.Danger(new Alertas.Alerta(), "Debe ingresar un caso");
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -402,6 +360,8 @@ namespace GestionCasos
             }
         }
         
+
+
         private void cbAsignados_SelectionChangeCommitted(object sender, EventArgs e)
         {
             contadorAux = cbAsignados.SelectedValue.ToString();

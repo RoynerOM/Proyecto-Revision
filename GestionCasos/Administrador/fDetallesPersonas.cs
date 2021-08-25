@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using GestionCasos.Singleton;
 using Negocios;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace GestionCasos.Administrador
     public partial class fDetallesPersonas : Form
     {
         private Form activeForm = null;
-        readonly ContadorNegocio persona = new ContadorNegocio();
+        readonly ControllerService controller = new ControllerService();
         List<tPersona> Personas = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         private int Rol = (int)Enums.Tipo.Tramitador;
@@ -67,7 +68,7 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                Personas = await persona.obtenerTodo();
+                Personas = await controller.CrudContador().obtenerTodo();
                 CargarTabla(Personas);
             }
             catch (Exception ex)
@@ -75,6 +76,7 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex);
             }
         }
+
 
         //Cambio de color
         private void SetThemeColor()
@@ -96,6 +98,7 @@ namespace GestionCasos.Administrador
                 gunaLabel4.ForeColor = Colors.Black;
             }
         }
+
 
         public void CargarTabla(IEnumerable<tPersona> lista)
         {
@@ -126,7 +129,6 @@ namespace GestionCasos.Administrador
                     tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
                     tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
                     tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-
                 }
             }
             catch (Exception ex)
@@ -141,13 +143,12 @@ namespace GestionCasos.Administrador
             try
             {
                 //Tramitador
-                cbTramitador.DataSource = await persona.obtenerTodo();
+                cbTramitador.DataSource = await controller.CrudContador().obtenerTodo();
                 cbTramitador.ValueMember = "Cedula";
                 cbTramitador.DisplayMember = "NombreCompleto";
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
         }
@@ -193,7 +194,6 @@ namespace GestionCasos.Administrador
         {
             var Grid = (DataGridView)sender;
 
-
             var width = tabla.Width;
 
             if (width <= 1300)
@@ -216,7 +216,6 @@ namespace GestionCasos.Administrador
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
         }
@@ -233,16 +232,14 @@ namespace GestionCasos.Administrador
                     string cedula = tabla.Rows[fila].Cells[0].Value.ToString();
 
 
-                    DatosTemp.tPersona = await persona.obtenerPorIdAsync(cedula);
+                    DatosTemp.tPersona = await controller.CrudContador().obtenerPorIdAsync(cedula);
 
 
                     OpenChildForm(new fContador(Rol));
-
                 }
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
         }
@@ -252,6 +249,7 @@ namespace GestionCasos.Administrador
         {
             PedirDatos();
         }
+
 
         private void btnClaves_Click(object sender, EventArgs e)
         {

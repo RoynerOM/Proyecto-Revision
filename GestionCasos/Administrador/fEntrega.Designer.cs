@@ -193,7 +193,6 @@ namespace GestionCasos.Administrador
             this.cbEntrega.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cbEntrega.Size = new System.Drawing.Size(267, 31);
             this.cbEntrega.TabIndex = 4;
-            this.cbEntrega.SelectedIndexChanged += new System.EventHandler(this.cbEntrega_SelectedIndexChanged);
             // 
             // btnPdf
             // 
@@ -288,7 +287,6 @@ namespace GestionCasos.Administrador
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(267, 30);
             this.txtCedula.TabIndex = 0;
-            this.txtCedula.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtCedula_MaskInputRejected);
             this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
             // txtNombre
