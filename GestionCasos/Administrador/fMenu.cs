@@ -55,7 +55,6 @@ namespace GestionCasos.Administrador
                 btnReportes.Enabled = false;
                 btnContadores.Enabled = false;
                 btnContadores.Visible = false;
-
             }
             else
             {

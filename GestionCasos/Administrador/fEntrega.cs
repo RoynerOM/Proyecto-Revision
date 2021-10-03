@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using GestionCasos.Singleton;
 using Negocios;
 using System;
 using System.Configuration;
@@ -14,12 +15,7 @@ namespace GestionCasos.Administrador
     public partial class fEntrega : Form
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-        readonly ContadorNegocio personaNegocio = new ContadorNegocio();
-        readonly RecepcionNegocio recepcion = new RecepcionNegocio();
-        readonly EntregaNegocio entregaNegocio = new EntregaNegocio();
-        readonly EstadoNegocio estadoNegocio = new EstadoNegocio();
-        readonly RevisionNegocio revisionNegocio = new RevisionNegocio();
-
+        readonly ControllerService controller = new ControllerService();
         showMessageDialog Message = new showMessageDialog();
         tEntregaCasos entrega = new tEntregaCasos();
         viewTrabajador persona = new viewTrabajador();
@@ -67,7 +63,7 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                entrega = await entregaNegocio.obtenerPorCasoAsync(consecutivo);
+                entrega = await controller.CrudEntrega().obtenerPorCasoAsync(consecutivo);
 
                 if (entrega != null)
                 {
@@ -81,7 +77,7 @@ namespace GestionCasos.Administrador
                     txtNombre.Enabled = false;
                     txtApellido1.Enabled = false;
                     txtApellido2.Enabled = false;
-                    cbEntrega.Text = entrega.Recepcion == 4 ? "OFICINA" : "MENSAJERO";
+                    cbEntrega.Text = entrega.Recepcion == 3 ? "OFICINA" : "MENSAJERO";
                     lblConsecutivo.Text = consecutivo;
 
                     btnGuardar.Enabled = false;
@@ -94,14 +90,14 @@ namespace GestionCasos.Administrador
                         cbCheque.Checked = false;
                     }
 
-                    if (entrega.Transferencia == 0)
-                    {
-                        cbTranferencia.Checked = true;
-                    }
-                    else
-                    {
-                        cbTranferencia.Checked = false;
-                    }
+                    //if (entrega.Transferencia == 0)
+                    //{
+                    //    cbTranferencia.Checked = true;
+                    //}
+                    //else
+                    //{
+                    //    cbTranferencia.Checked = false;
+                    //}
 
                     lblFecha.Text = "Entregado " + entrega.FechaEntrega.ToLongDateString();
                     txtObservacion.Text = entrega.Observacion;
@@ -124,7 +120,7 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                var data = await recepcion.obtenerTodo();
+                var data = await controller.CrudRecepcion().obtenerTodo();
                 if (data != null)
                 {
                     //Recepcion
@@ -145,7 +141,7 @@ namespace GestionCasos.Administrador
         {
             try
             {
-                persona = personaNegocio.obtenerTrabadorBy(txtCedula.Text);
+                persona = controller.CrudContador().obtenerTrabadorBy(txtCedula.Text);
                 if (txtCedula.Text.Length > 6)
                 {
                     if (persona != null)
@@ -181,10 +177,6 @@ namespace GestionCasos.Administrador
             //{
             //    cbTranferencia.Checked = false;
             //}
-
-
-
-
         }
 
 
@@ -195,9 +187,6 @@ namespace GestionCasos.Administrador
             //{
             //    cbCheque.Checked = false;
             //}
-
-
-
         }
 
 
@@ -292,9 +281,8 @@ namespace GestionCasos.Administrador
                 tMensajero m = new tMensajero();
 
 
-
                 #region Mensajero en caso de que no exista
-                if (await personaNegocio.obtenerPorIdAsync(txtCedula.Text) == null)
+                if (await controller.CrudContador().obtenerPorIdAsync(txtCedula.Text) == null)
                 {
                     tTrabajador t = new tTrabajador();
                     tPersona p = new tPersona();
@@ -304,7 +292,6 @@ namespace GestionCasos.Administrador
                     m.Nombre = txtNombre.Text.ToUpper();
                     m.Apellido1 = txtApellido1.Text.ToUpper();
                     m.Apellido2 = txtApellido2.Text.ToUpper();
-
 
                     p.Cedula = txtCedula.Text;
                     p.Nombre = txtNombre.Text.ToUpper();
@@ -318,60 +305,60 @@ namespace GestionCasos.Administrador
                     t.Tipo = 1;
                     t.Activo = true;
 
-                    personaNegocio.guardarAsync(p);
-                    personaNegocio.GuardarTrabajador(t);
-                    personaNegocio.guardar(m);
+                    controller.CrudContador().guardarAsync(p);
+                    controller.CrudContador().GuardarTrabajador(t);
+                    controller.CrudContador().guardar(m);
                 }
                 #endregion
 
 
-                tEntregaCasos ec = await entregaNegocio.obtenerPorCasoAsync(consecutivo);
-                if (ValidarCampos() == true && ec != null)
-                {
+                //tEntregaCasos ec = await controller.CrudEntrega().obtenerPorCasoAsync(consecutivo);
+                //if (ValidarCampos() == true && ec != null)
+                //{
 
-                    if (cbCheque.Checked == true)
-                    {
-                        //Por cheque
-                        ec.Pago = 0;
-                    }
-                    else
-                    {
-                        //Por Transferencia
-                        ec.Pago = 1;
-                    }
+                //    if (cbCheque.Checked == true)
+                //    {
+                //        //Por cheque
+                //        ec.Pago = 0;
+                //    }
+                //    else
+                //    {
+                //        //Por Transferencia
+                //        ec.Pago = 1;
+                //    }
 
 
-                    if (cbTranferencia.Checked == true)
-                    {
-                        //Por cheque
-                        ec.Transferencia = 0;
-                    }
-                    else
-                    {
-                        //Por Transferencia
-                        ec.Transferencia = 1;
-                    }
+                //    //if (cbTranferencia.Checked == true)
+                //    //{
+                //    //    //Por cheque
+                //    //    ec.Transferencia = 0;
+                //    //}
+                //    //else
+                //    //{
+                //    //    //Por Transferencia
+                //    //    ec.Transferencia = 1;
+                //    //}
 
-                    ec.Observacion = txtObservacion.Text;
+                //    ec.Observacion = txtObservacion.Text;
 
-                    if (entregaNegocio.modificar(ec) == true)
-                    {
-                        Message.Success(new Alertas.Alerta(), "La información de entrega fue modificada");
-                        btnPdf.Visible = true;
-                    }
-                    else
-                    {
-                        Message.Danger(new Alertas.Alerta(), "Error al modificar");
-                    }
-                    //En caso contrario se guarda
-                }
+                //    if (controller.CrudEntrega().modificar(ec) == true)
+                //    {
+                //        Message.Success(new Alertas.Alerta(), "La información de entrega fue modificada");
+                //        btnPdf.Visible = true;
+                //    }
+                //    else
+                //    {
+                //        Message.Danger(new Alertas.Alerta(), "Error al modificar");
+                //    }
+                //    //En caso contrario se guarda
+                //}
 
 
                 if (ValidarCampos() == true)
                 {
                     tEntregaCasos entregaC = new tEntregaCasos();
                     tMensajero men = new tMensajero();
-                    men = personaNegocio.obtenerMBy(txtCedula.Text);
+                    men = controller.CrudContador().obtenerMBy(txtCedula.Text);
                     entregaC.Mensajero = men.IdMensajero;
                     entregaC.Recepcion = (int)cbEntrega.SelectedValue;
 
@@ -385,21 +372,21 @@ namespace GestionCasos.Administrador
                         //Por Transferencia
                         entregaC.Pago = 1;
                     }
-                    if (cbTranferencia.Checked == true)
-                    {
-                        //Por cheque
-                        entregaC.Transferencia = 0;
-                    }
-                    else
-                    {
-                        //Por Transferencia
-                        entregaC.Transferencia = 1;
-                    }
+                    //if (cbTranferencia.Checked == true)
+                    //{
+                    //    //Por cheque
+                    //    entregaC.Transferencia = 0;
+                    //}
+                    //else
+                    //{
+                    //    //Por Transferencia
+                    //    entregaC.Transferencia = 1;
+                    //}
 
                     tEstado estado = new tEstado();
                     estado.IdEstado = 4;
-                    estado = estadoNegocio.obtenerPorId(estado);
-                    revision = revisionNegocio.ObtenerPorCaso(consecutivo);
+                    estado = controller.CrudEstado().obtenerPorId(estado);
+                    revision = controller.CrudCaso().ObtenerPorCaso(consecutivo);
                     //Cambio el estado en entregado
                     revision.Estado = estado.IdEstado;
                     revision.tEstado = estado;
@@ -409,9 +396,7 @@ namespace GestionCasos.Administrador
                     entregaC.FechaEntrega = DateTime.Now;
                     entregaC.Observacion = txtObservacion.Text;
 
-
-
-                    if (entregaNegocio.guardarAsync(entregaC) == true && revisionNegocio.modificar(revision))
+                    if (controller.CrudEntrega().guardarAsync(entregaC) == true && controller.CrudCaso().modificar(revision))
                     {
                         Message.Success(new Alertas.Alerta(), "La información de entrega fue guardada");
                         btnPdf.Visible = true;
@@ -421,7 +406,6 @@ namespace GestionCasos.Administrador
                     {
                         Message.Danger(new Alertas.Alerta(), "No se pudo guardar la información de la entrega");
                     }
-
                 }
             }
             catch (Exception ex)
@@ -434,8 +418,6 @@ namespace GestionCasos.Administrador
 
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
-
-
             if (txtCedula.Mask == "0-0000-0000")
             {
                 txtCedula.Mask = "000000000000";
@@ -446,18 +428,135 @@ namespace GestionCasos.Administrador
             }
         }
 
+        private void gunaLinePanel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void txtObservacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void cbEntrega_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
+        private void txtApellido2_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void txtCedula_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2GroupBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tRevision revision = new tRevision();
+                tMensajero m = new tMensajero();
+
+                tEntregaCasos ec = await controller.CrudEntrega().obtenerPorCasoAsync(consecutivo);
+                if (ValidarCampos() == true && ec != null)
+                {
+                    tMensajero men = new tMensajero();
+                    men = controller.CrudContador().obtenerMBy(txtCedula.Text);
+                    ec.Mensajero = men.IdMensajero;
+                    ec.Recepcion = (int)cbEntrega.SelectedValue;
+                   
+
+                    if (cbCheque.Checked == true)
+                    {
+                        //Por cheque
+                        ec.Pago = 0;
+                    }
+                    else
+                    {
+                        //Por Transferencia
+                        ec.Pago = 1;
+                    }
+                    //if (cbTranferencia.Checked == true)
+                    //{
+                    //    //Por cheque
+                    //    entregaC.Transferencia = 0;
+                    //}
+                    //else
+                    //{
+                    //    //Por Transferencia
+                    //    entregaC.Transferencia = 1;
+                    //}
+
+                    ec.Observacion = txtObservacion.Text;
+                    if (controller.CrudEntrega().modificar(ec))
+                    {
+                        Message.Success(new Alertas.Alerta(), "Informacion editada");
+                        btnPdf.Visible = true;
+                        btnGuardar.Enabled = false;
+                    }
+                    else
+                    {
+                        Message.Danger(new Alertas.Alerta(), "No se pudo guardar la información de la entrega");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

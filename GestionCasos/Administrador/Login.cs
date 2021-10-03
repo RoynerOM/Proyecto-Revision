@@ -58,7 +58,6 @@ namespace GestionCasos
                     Principal principal;
                     var user = contex.tUsuario.Include("tPersona").Where(u => u.Cedula == txtNombreUsuario.Text).SingleOrDefault();
 
-
                     if (user != null)
                     {
                         if (user.tPersona.Estado == true)
@@ -95,7 +94,6 @@ namespace GestionCasos
                         Message.Danger(new Alertas.Alerta(), $"El usuario {txtNombreUsuario.Text} no esta registrado");
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -109,16 +107,7 @@ namespace GestionCasos
         {
             fRecuperacion v = new fRecuperacion();
             v.Show();
-
         }
-
-
-
-        private void btnIniciarSecion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
 
 
         private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
@@ -183,13 +172,6 @@ namespace GestionCasos
 
 
 
-        private void txtNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-
-
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
             if (txtContraseña.PasswordChar == '•')
@@ -224,6 +206,8 @@ namespace GestionCasos
         {
             OpenChildForm(new Registrar());
         }
+
+
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {

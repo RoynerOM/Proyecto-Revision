@@ -9,7 +9,7 @@ namespace Negocios
     //Plantilla
     public class ContadorNegocio : ICrud<tPersona>
     {
-        readonly DatosContador contador = new DatosContador();
+       readonly DatosContador contador = new DatosContador();
         public bool eliminar(tPersona e)
         {
             e.Estado = false;
@@ -23,7 +23,7 @@ namespace Negocios
 
         public bool guardar(tMensajero e)
         {
-          
+
             return contador.guardar(e);
         }
 

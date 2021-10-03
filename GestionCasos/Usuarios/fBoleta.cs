@@ -62,7 +62,8 @@ namespace GestionCasos.Usuarios
             txtOtros.Visible = false;
             btnEntrega.Enabled = false;
             btnBoleta.Enabled = false;
-
+            this.gunaLinePanel1.Height = this.Height;
+            this.gunaLinePanel1.Width = this.Width;
             //if (TipoUsuario == 0)
             //{
 
@@ -142,8 +143,6 @@ namespace GestionCasos.Usuarios
         {
             try
             {
-
-
                 //Obtengo el caso
                 revision = revisionNegocio.ObtenerPorCaso(consecutivo);
                 tBoleta filtro = boletaNegocio.obtenerPorId(revision.IdCaso);
@@ -184,13 +183,10 @@ namespace GestionCasos.Usuarios
                     {
                         btnEntrega.Enabled = true;
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
         }
@@ -281,7 +277,7 @@ namespace GestionCasos.Usuarios
                         revision.numeroFolio = txtFolio.Text;
                         revision.fechaActa = dtpFechaActa.Value;
                         revision.Comentario = txtComentario.Text;
-                      
+
 
                         //Se actualiza la informacion del caso pasa hacer tramitador
                         if (revisionNegocio.modificar(revision) == true)
@@ -346,16 +342,39 @@ namespace GestionCasos.Usuarios
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
         }
 
-
-
-        private void gunaLinePanel1_Paint(object sender, PaintEventArgs e)
+        private void gunaLinePanel1_Resize(object sender, EventArgs e)
         {
 
+        }
+
+        private void gunaLinePanel1_Resize_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fBoleta_Resize(object sender, EventArgs e)
+        {
+            if (this.Height > 720)
+            {
+                this.gunaLinePanel1.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                this.gunaLinePanel1.Dock = DockStyle.None;
+                this.gunaLinePanel1.Height = this.Height;
+                this.gunaLinePanel1.Width = this.Width;
+                if (this.Width <= 1008 && this.Height== 700)
+                {
+                    this.gunaLinePanel1.Width = this.Width - 128;
+                }
+
+            }
+
+            Console.WriteLine(this.Width);
         }
     }
 }

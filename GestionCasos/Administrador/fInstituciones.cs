@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using GestionCasos.Singleton;
 using Negocios;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,7 @@ namespace GestionCasos.Administrador
     public partial class fInstituciones : Form
     {
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-
-        readonly ContadorNegocio persona = new ContadorNegocio();
-        readonly InstitucionNegocio negocio = new InstitucionNegocio();
+        readonly ControllerService controller = new ControllerService();
         readonly showMessageDialog message = new showMessageDialog();
         private Form activeForm;
         private int Rol;
@@ -36,7 +35,6 @@ namespace GestionCasos.Administrador
 
         private void FuncionesPermitidas()
         {
-
             //Usuario Tramitador
             if (Rol == (int)Enums.Tipo.Tramitador)
             {
@@ -70,16 +68,14 @@ namespace GestionCasos.Administrador
             try
             {
                 //Combo box de Contador
-                cbContador.DataSource = await persona.obtenerTrabador((int)Enums.Tipo.Contador);
+                cbContador.DataSource = await controller.CrudContador().obtenerTrabador((int)Enums.Tipo.Contador);
                 cbContador.ValueMember = "Cedula";
                 cbContador.DisplayMember = "NombreCompleto";
-
 
                 cbTipo.DataSource = Enum.GetValues(typeof(Enums.TipoEscuela));
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
         }
@@ -90,7 +86,6 @@ namespace GestionCasos.Administrador
         {
             if (isDark == "false")
             {
-
                 this.panel1.BackColor = Color.White;
                 this.panel1.ForeColor = Colors.Black;
 
@@ -104,7 +99,6 @@ namespace GestionCasos.Administrador
                 label8.ForeColor = Colors.Black;
                 label9.ForeColor = Colors.Black;
                 label10.ForeColor = Colors.Black;
-
             }
         }
 
@@ -157,7 +151,6 @@ namespace GestionCasos.Administrador
                 label9.ForeColor = Colors.White;
                 label10.ForeColor = Colors.White;
             }
-
 
             if (txtCodigo.Text == string.Empty)
             {
@@ -227,11 +220,10 @@ namespace GestionCasos.Administrador
         {
             try
             {
-
                 if (ValidarCampos() == true)
                 {
                     tInstitucion institucion = new tInstitucion();
-                    var i = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
+                    var i = controller.CrudJuntas().obtenerPorId(int.Parse(txtCodigo.Text));
                     if (i == null)
                     {
                         institucion.Codigo = int.Parse(txtCodigo.Text);
@@ -253,7 +245,7 @@ namespace GestionCasos.Administrador
                         institucion.Contacto = txtTelefono.Text;
                         institucion.Estado = true;
 
-                        if (negocio.guardarAsync(institucion) == true)
+                        if (controller.CrudJuntas().guardarAsync(institucion) == true)
                         {
                             message.Success(new Alertas.Alerta(), "La Junta se guardó correctamente");
                             LimpiarCampos();
@@ -284,7 +276,7 @@ namespace GestionCasos.Administrador
             {
                 if (txtCodigo.Text != string.Empty)
                 {
-                    var datosEncotrados = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
+                    var datosEncotrados = controller.CrudJuntas().obtenerPorId(int.Parse(txtCodigo.Text));
                     if (datosEncotrados != null)
                     {
                         txtCuentaLey.Text = datosEncotrados.CuentaLey;
@@ -324,9 +316,9 @@ namespace GestionCasos.Administrador
                 tInstitucion institucion = new tInstitucion();
                 if (txtCodigo.Text != string.Empty)
                 {
-                    institucion = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
+                    institucion = controller.CrudJuntas().obtenerPorId(int.Parse(txtCodigo.Text));
 
-                    if (negocio.eliminar(institucion) == true)
+                    if (controller.CrudJuntas().eliminar(institucion) == true)
                     {
                         message.Success(new Alertas.Alerta(), "El contador fue eliminado con éxito");
                         LimpiarCampos();
@@ -350,19 +342,20 @@ namespace GestionCasos.Administrador
                 tInstitucion institucion = new tInstitucion();
                 if (ValidarCampos() == true)
                 {
-                    institucion = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
+                    institucion = controller.CrudJuntas().obtenerPorId(int.Parse(txtCodigo.Text));
                     institucion.CuentaLey = txtCuentaLey.Text;
                     institucion.Nombre = txtInstitucion.Text;
                     institucion.DiaRuta = cbDiaRuta.Text;
                     institucion.CedulaJuridica = txtCedulaJuridica.Text;
-                    //institucion.Circuito = (int)cbCircuito.SelectedValue;
-                    //institucion.Tipo = (int)cbTipo.SelectedValue;
+                    institucion.Responsable = txtContacto.Text.ToUpper();
+                    institucion.Contacto = txtTelefono.Text;
 
                     p.Cedula = cbContador.SelectedValue.ToString();
-                    p = persona.obtenerPorId(p);
+                    p = controller.CrudContador().obtenerPorId(p);
                     institucion.Contador = p.Cedula;
                     institucion.tPersona = p;
-                    if (negocio.modificar(institucion) == true)
+
+                    if (controller.CrudJuntas().modificar(institucion) == true)
                     {
                         message.Success(new Alertas.Alerta(), "La Junta modificada correctamente");
                         LimpiarCampos();
@@ -413,7 +406,7 @@ namespace GestionCasos.Administrador
                 {
                     if (txtCodigo.Text != string.Empty)
                     {
-                        var datosEncotrados = negocio.obtenerPorId(int.Parse(txtCodigo.Text));
+                        var datosEncotrados = controller.CrudJuntas().obtenerPorId(int.Parse(txtCodigo.Text));
                         if (datosEncotrados != null)
                         {
                             txtCuentaLey.Text = datosEncotrados.CuentaLey;

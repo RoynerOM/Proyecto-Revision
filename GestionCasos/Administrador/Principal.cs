@@ -27,7 +27,6 @@ namespace GestionCasos
 
         private void Principal_Load(object sender, EventArgs e)
         {
-
             SetPanelDefault();
 
             if (Rol == 1)
@@ -81,7 +80,6 @@ namespace GestionCasos
                 btnEntregas.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnAsignarCaso.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
                 btnCasos.FlatAppearance.MouseOverBackColor = Colors.BlueHover;
-
             }
             else
             {
@@ -155,8 +153,6 @@ namespace GestionCasos
                     }
 
                     previousBtn.BackColor = color;
-
-
                 }
             }
         }

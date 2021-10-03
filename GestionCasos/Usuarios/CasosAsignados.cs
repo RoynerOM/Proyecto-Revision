@@ -437,8 +437,7 @@ namespace GestionCasos.Usuarios
                             if (r.Estado > 3)
                             {
                                 tEntregaCasos entregaCasos = await entregaNegocio.obtenerPorCasoAsync(consecutivo);
-                                fEntrega entrega = new fEntrega(consecutivo);
-                                entrega.ShowDialog();
+                                OpenChildForm(new fEntrega(consecutivo));
                             }
                             else
                             {

@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using GestionCasos.Singleton;
 using Negocios;
 using System;
 using System.Configuration;
@@ -17,7 +18,7 @@ namespace GestionCasos.Administrador
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
         tPersona contador = new tPersona();
-        readonly ContadorNegocio negocio = new ContadorNegocio();
+        readonly ControllerService controller = new ControllerService();
 
         //Alertas
         showMessageDialog Message = new showMessageDialog();
@@ -55,6 +56,7 @@ namespace GestionCasos.Administrador
             }
         }
 
+
         private void LimpiarCampos()
         {
             txtCedula.ResetText();
@@ -66,6 +68,7 @@ namespace GestionCasos.Administrador
             cbTipo.SelectedIndex = 0;
             cbTipoPersona.SelectedIndex = 0;
         }
+
 
         private void fContador_Load(object sender, EventArgs e)
         {
@@ -99,47 +102,6 @@ namespace GestionCasos.Administrador
         }
 
 
-        private void fContador_Resize(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-
-
-        }
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-        private bool validarEmail(string email)
-        {
-            string expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(email, expresion))
-            {
-                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-
-
         //Funcion de guardar un contador
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
@@ -151,7 +113,7 @@ namespace GestionCasos.Administrador
                     tTrabajador trabajador = new tTrabajador();
                     tMensajero m = new tMensajero();
                     contador.Cedula = txtCedula.Text;
-                    if (negocio.obtenerPorId(contador) == null)
+                    if (controller.CrudContador().obtenerPorId(contador) == null)
                     {
                         //Cargarmos el modelo con los datos del formulario
                         contador.TipoIdentificacion = cbTipo.SelectedIndex;
@@ -180,9 +142,9 @@ namespace GestionCasos.Administrador
                         m.Apellido2 = txtApellido2.Text.ToUpper();
 
                         //Ejecutamos el metodo de guardar y le mandamos el modelo contador ya cargado de datos
-                        if (negocio.guardarAsync(contador) == true && negocio.guardar(m) == true)
+                        if (controller.CrudContador().guardarAsync(contador) == true && controller.CrudContador().guardar(m) == true)
                         {
-                            if (negocio.GuardarTrabajador(trabajador) == true)
+                            if (controller.CrudContador().GuardarTrabajador(trabajador) == true)
                             {
                                 //En caso de que se ejecute correctamente
                                 Message.Success(new Alertas.Alerta(), "El contador se guardo correctamente");
@@ -218,7 +180,7 @@ namespace GestionCasos.Administrador
                 if (txtCedula.Text != string.Empty)
                 {
                     contador.Cedula = txtCedula.Text.Trim();
-                    var datosEncotrados = negocio.obtenerPorId(contador);
+                    var datosEncotrados = controller.CrudContador().obtenerPorId(contador);
                     if (datosEncotrados != null)
                     {
                         txtNombre.Text = datosEncotrados.Nombre;
@@ -344,14 +306,14 @@ namespace GestionCasos.Administrador
                 if (ValidarCampos() == true)
                 {
                     tPersona p = new tPersona();
-                    p= await negocio.obtenerPorIdAsync(txtCedula.Text);
+                    p= await controller.CrudContador().obtenerPorIdAsync(txtCedula.Text);
                     p.Nombre = txtNombre.Text.ToUpper();
                     p.Apellido1 = txtApellido1.Text.ToUpper();
                     p.Apellido2 = txtApellido2.Text.ToUpper();
                     p.Correo = txtCorreo.Text;
                     p.Estado = true;
 
-                    if (negocio.modificar(p) == true)
+                    if (controller.CrudContador().modificar(p) == true)
                     {
                         Message.Success(new Alertas.Alerta(), "El contador fue modificado con éxito");
                         DatosTemp.tPersona = null;
@@ -376,9 +338,9 @@ namespace GestionCasos.Administrador
             {
                 if (ValidarCampos() == true)
                 {
-                    var datos = await negocio.obtenerPorIdAsync(txtCedula.Text);
+                    var datos = await controller.CrudContador().obtenerPorIdAsync(txtCedula.Text);
 
-                    if (negocio.eliminar(datos) == true)
+                    if (controller.CrudContador().eliminar(datos) == true)
                     {
                         Message.Success(new Alertas.Alerta(), "El contador fue eliminado con éxito");
                         LimpiarCampos();
@@ -432,6 +394,7 @@ namespace GestionCasos.Administrador
             OpenChildForm(new fDetallesPersonas(Rol));
         }
 
+
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -442,7 +405,7 @@ namespace GestionCasos.Administrador
                     if (txtCedula.Text != string.Empty)
                     {
                         contador.Cedula = txtCedula.Text.Trim();
-                        var datosEncotrados = negocio.obtenerPorId(contador);
+                        var datosEncotrados = controller.CrudContador().obtenerPorId(contador);
                         if (datosEncotrados != null)
                         {
                             txtNombre.Text = datosEncotrados.Nombre;
@@ -468,6 +431,7 @@ namespace GestionCasos.Administrador
                 }
             }
         }
+
 
         private void gunaButton1_Click(object sender, EventArgs e)
         {

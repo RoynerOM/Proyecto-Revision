@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using GestionCasos.Paginadores;
 using Negocios;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Utilidades;
 using Utilidades.Enumerables;
+using GestionCasos.Singleton;
 
 namespace GestionCasos.Administrador
 {
@@ -17,84 +19,48 @@ namespace GestionCasos.Administrador
     {
         private Form activeForm = null;
         private string isDark = ConfigurationManager.AppSettings["DarkMode"];
-        readonly InstitucionNegocio institucionNegocio = new InstitucionNegocio();
-        readonly ContadorNegocio persona = new ContadorNegocio();
-        List<tInstitucion> Instituciones = null;
+        readonly ControllerService controller = new ControllerService();
         private int Rol = (int)Enums.Tipo.Tramitador;
-        int cantidad = 10;
-        int TotalPaginas = 0;
-        int aux = 0;
-        int refActual = 0;
-        string person = null;
+        Paginador<tInstitucion> lista;
+        PaginadorJuntas paginador = new PaginadorJuntas();
+        int buscarPersona = 0;
+        string personaJunta = null;
+        int buscarCodigo = 0;
+
         public fDetallesJuntas(int Rol)
         {
             InitializeComponent();
             this.Rol = Rol;
             SetThemeColor();
+            tabla.EnableHeadersVisualStyles = false;
         }
 
 
-        public async void PedirDatos(int PaginaSeleccionada=0, string cedula = null,string nombre= null,int codigo = 0)
+        public async void PedirDatos(int PaginaSeleccionada = 1, string buscar = null, int codigo = 0)
         {
             try
             {
-                if (cedula != null)
+                if (!string.IsNullOrEmpty(buscar))
                 {
-                    Instituciones = await institucionNegocio.obtenerTodo();
-                    Instituciones = Instituciones.Where(x => x.Contador == cedula).ToList();
+                    lista = await paginador.PaginadorInst(PaginaSeleccionada, buscar, 0);
                 }
-                else if(nombre != null)
+                else if (codigo > 0)
                 {
-                    Instituciones = await institucionNegocio.obtenerTodo();
-                    Instituciones = Instituciones.Where(x => x.Nombre == nombre.ToUpper()).ToList();
-                }
-                else if(codigo != 0)
-                {
-                    Instituciones = await institucionNegocio.obtenerTodo();
-                    Instituciones = Instituciones.Where(x => x.Codigo == codigo).ToList();
+                    lista = await paginador.PaginadorInst(PaginaSeleccionada, null, codigo);
                 }
                 else
                 {
-                    Instituciones = await institucionNegocio.obtenerTodo();
+                    lista = await paginador.PaginadorInst(PaginaSeleccionada, null, 0);
                 }
 
-                int TotalRegistros = Instituciones.Count();
-                TotalPaginas = (int)
-                    Math.Ceiling(decimal.Parse(TotalRegistros.ToString()) /
-                                  decimal.Parse(cantidad.ToString()));
-
-                lblPag.Text = "Total de Páginas: " + TotalPaginas.ToString();
-                refActual = PaginaSeleccionada + 1;
-                lblActual.Text = "Página Actual: " + (PaginaSeleccionada+1).ToString();
-
-                //aux = TotalPaginas;
-                CargarTabla(Instituciones.OrderBy(d => d.Codigo)
-                     .Skip(PaginaSeleccionada * cantidad)
-                     .Take(cantidad).ToList());
+                lblPag.Text = "Registros:   " + lista.TotalRegistros + "    Página  " + lista.PaginaActual + "  de  " + lista.TotalPaginas;
+                CargarTabla(lista);
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
         }
-
-        ////Filtro por Contador
-        //public void FilterByTramitador(string valor)
-        //{
-        //    try
-        //    {
-        //        var filtro = Instituciones.Where(x => x.Contador == valor);
-        //        if (filtro != null)
-        //        {
-        //            CargarTabla(filtro);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex);
-        //    }
-        //}
 
 
         //Cambio de color
@@ -104,76 +70,119 @@ namespace GestionCasos.Administrador
             {
                 this.panel1.BackColor = Colors.White;
                 this.panel1.ForeColor = Colors.Black;
-                tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.Blue;
-                tabla.ColumnHeadersDefaultCellStyle.ForeColor = Colors.White;
-                tabla.RowHeadersDefaultCellStyle.BackColor = Colors.White;
-                tabla.RowHeadersDefaultCellStyle.ForeColor = Colors.Black;
-                tabla.RowsDefaultCellStyle.BackColor = Colors.White;
-                tabla.RowsDefaultCellStyle.ForeColor = Colors.Black;
-                tabla.RowHeadersDefaultCellStyle.SelectionBackColor = Colors.Gray;
-                tabla.RowsDefaultCellStyle.SelectionBackColor = Colors.Gray;
-                tabla.BackgroundColor = Color.White;
+
                 gunaLabel1.ForeColor = Colors.Black;
                 gunaLabel3.ForeColor = Colors.Black;
                 gunaLabel4.ForeColor = Colors.Black;
                 lblPag.ForeColor = Colors.Black;
-                lblActual.ForeColor = Colors.Black;
+                lblPag.BackColor = Color.Transparent;
             }
+            TableStyle();
         }
 
 
-        public void CargarTabla(List<tInstitucion> lista)
+        //Estilos de la tabla
+        public void TableStyle()
+        {
+
+            if (isDark == "false")
+            {
+                tabla.BackgroundColor = Color.White;
+
+                tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.Blue;
+                tabla.ColumnHeadersDefaultCellStyle.ForeColor = Colors.White;
+
+                tabla.RowHeadersDefaultCellStyle.BackColor = Colors.White;
+                tabla.RowHeadersDefaultCellStyle.ForeColor = Colors.Black;
+
+                tabla.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+                
+                tabla.RowsDefaultCellStyle.BackColor = Colors.White;
+                tabla.RowsDefaultCellStyle.ForeColor = Colors.Black;
+
+                tabla.RowHeadersDefaultCellStyle.SelectionBackColor = Colors.Gray;
+                tabla.RowHeadersDefaultCellStyle.SelectionForeColor = Colors.Black;
+
+                tabla.RowsDefaultCellStyle.SelectionBackColor = Colors.Gray;
+                tabla.RowsDefaultCellStyle.SelectionForeColor = Colors.Black;
+            }
+            else
+            {
+                tabla.BackgroundColor = Colors.DarkBack;
+                tabla.ColumnHeadersDefaultCellStyle.SelectionBackColor = Colors.DarkPanel;
+                tabla.ColumnHeadersDefaultCellStyle.SelectionForeColor = Colors.White;
+
+                tabla.ColumnHeadersDefaultCellStyle.BackColor = Colors.DarkPanel;
+                tabla.ColumnHeadersDefaultCellStyle.ForeColor = Colors.White;
+
+                tabla.RowHeadersDefaultCellStyle.BackColor = Colors.DarkBack;
+                tabla.RowHeadersDefaultCellStyle.ForeColor = Colors.White;
+
+                tabla.RowsDefaultCellStyle.BackColor = Colors.DarkBack;
+                tabla.RowsDefaultCellStyle.ForeColor = Colors.White;
+
+                tabla.RowHeadersDefaultCellStyle.SelectionBackColor = Colors.DarkHover;
+                tabla.RowHeadersDefaultCellStyle.SelectionForeColor = Colors.White;
+
+                tabla.RowsDefaultCellStyle.SelectionBackColor = Colors.DarkHover;
+                tabla.RowsDefaultCellStyle.SelectionForeColor = Colors.White;
+            }
+
+            //Informacion de cabecera
+            tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            tabla.ColumnHeadersDefaultCellStyle.Font = new Font((string)"Segoe UI Semibold", 10);
+            tabla.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            tabla.ColumnHeadersHeight = 40;
+            //end
+
+            //Estilos de filas
+            tabla.DefaultCellStyle.Font = new Font((string)"Segoe UI Semibold", 9);
+            tabla.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            tabla.BorderStyle = BorderStyle.None;
+
+
+            tabla.AllowUserToAddRows = false;
+            tabla.AllowUserToDeleteRows = false;
+            tabla.AllowUserToOrderColumns = true;
+            tabla.ReadOnly = true;
+            tabla.MultiSelect = false;
+            tabla.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            tabla.AllowUserToResizeColumns = false;
+            tabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tabla.AllowUserToResizeRows = false;
+            tabla.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            //Row header estilos
+            tabla.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            tabla.RowHeadersVisible = false;
+            tabla.RowsDefaultCellStyle.Padding = new Padding(5, 5, 5, 5);
+            tabla.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+        }
+
+
+        //Cargar la tabla de los datos de instituciones
+        public void CargarTabla(Paginador<tInstitucion> lista)
         {
             try
             {
                 tabla.Rows.Clear();
-                foreach (var item in lista)
+                foreach (var item in lista.Resultado)
                 {
                     int nRows = tabla.Rows.Add();
-                    tabla.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                     tabla.Rows[nRows].Cells[0].Value = item.Codigo;
                     tabla.Rows[nRows].Cells[1].Value = item.Circuito;
                     tabla.Rows[nRows].Cells[2].Value = item.tTipoInstitucion.NombreTipo;
                     tabla.Rows[nRows].Cells[3].Value = item.Nombre;
                     tabla.Rows[nRows].Cells[4].Value = item.CedulaJuridica;
-                    tabla.Rows[nRows].Cells[5].Value = item.DiaRuta;
+                    tabla.Rows[nRows].Cells[5].Value = item.DiaRuta.ToUpper();
                     tabla.Rows[nRows].Cells[6].Value = item.CuentaLey;
                     tabla.Rows[nRows].Cells[7].Value = item.tPersona.NombreCompleto.ToUpper();
                     tabla.Rows[nRows].Cells[8].Value = item.Responsable.ToUpper();
                     tabla.Rows[nRows].Cells[9].Value = item.Contacto;
 
-                    tabla.Rows[nRows].Cells[0].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[1].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[2].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[4].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[5].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[6].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[7].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[8].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    tabla.Rows[nRows].Cells[9].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-
-                    tabla.Rows[nRows].Cells[0].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[1].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[2].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[3].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[4].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[5].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[6].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[7].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[8].Style.Font = new Font((string)"Segoe UI Semibold", 9);
-                    tabla.Rows[nRows].Cells[9].Style.Font = new Font((string)"Segoe UI Semibold", 9);
+                    tabla.Rows[nRows].Height = 40;
                 }
             }
             catch (Exception ex)
@@ -181,6 +190,8 @@ namespace GestionCasos.Administrador
                 Console.WriteLine(ex);
             }
         }
+
+
 
         private void fDetallesJuntas_Load(object sender, EventArgs e)
         {
@@ -195,110 +206,81 @@ namespace GestionCasos.Administrador
         }
 
 
+        //Cargar la lista de contadores
         public async void CargarCombos()
         {
             try
             {
-                //Tramitador
-                cbTramitador.DataSource = await persona.obtenerTodo();
+                //Obtener solo los contadores
+                cbTramitador.DataSource = await controller.CrudContador().obtenerTrabador(0);
                 cbTramitador.ValueMember = "Cedula";
                 cbTramitador.DisplayMember = "NombreCompleto";
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
         }
 
-        //txtNombre
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                
-                if (txtNombre.Text != null)
-                {
-                    PedirDatos(aux, null, txtNombre.Text, 0);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex);
-            }
-        }
-
-
-        private void tabla_Resize(object sender, EventArgs e)
-        {
-            var Grid = (DataGridView)sender;
-            var width = tabla.Width;
-
-            if (width <= 1300)
-            {
-                Grid.RowsDefaultCellStyle.Font = new Font(Name, 9);
-            }
-            else
-            {
-                Grid.RowsDefaultCellStyle.Font = new Font(Name, 10);
-            }
-        }
 
 
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-            tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            if (screenWidth < 1440)
+            if (screenWidth <= 1280)
             {
-                tabla.Columns[0].Width = 90;
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                tabla.Columns[0].Width = 80;
                 tabla.Columns[1].Width = 60;
                 tabla.Columns[2].Width = 90;
-                tabla.Columns[3].Width = 300;
+                tabla.Columns[3].Width = 360;
                 tabla.Columns[4].Width = 120;
-                tabla.Columns[5].Width = 140;
-                tabla.Columns[6].Width = 140;
+                tabla.Columns[5].Width = 100;
+                tabla.Columns[6].Width = 120;
                 tabla.Columns[7].Width = 300;
                 tabla.Columns[8].Width = 300;
                 tabla.Columns[9].Width = 100;
-
+            }
+            else if (screenWidth > 1280 && screenWidth <= 1720)
+            {
+                tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                tabla.Columns[0].Width = 80;
+                tabla.Columns[1].Width = 60;
+                tabla.Columns[2].Width = 85;
+                tabla.Columns[3].Width = 380;
+                tabla.Columns[4].Width = 140;
+                tabla.Columns[5].Width = 120;
+                tabla.Columns[6].Width = 125;
+                tabla.Columns[7].Width = 300;
+                tabla.Columns[8].Width = 300;
+                tabla.Columns[9].Width = 115;
             }
             else
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                tabla.Columns[0].FillWeight = 80;
+                tabla.Columns[1].FillWeight = 60;
+                tabla.Columns[2].FillWeight = 90;
+                tabla.Columns[3].FillWeight = 360;
+                tabla.Columns[4].FillWeight = 120;
+                tabla.Columns[5].FillWeight = 100;
+                tabla.Columns[6].FillWeight = 120;
+                tabla.Columns[7].FillWeight = 300;
+                tabla.Columns[8].FillWeight = 300;
+                tabla.Columns[9].FillWeight = 100;
             }
         }
 
 
-        //private void txtCedulaJuridica_TextChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (txtCodigo.Text.Length > 6)
-        //        {
-        //            var filtro = Instituciones.Where(x => x.Codigo == int.Parse(txtCodigo.Text));
-        //            CargarTabla(filtro);
-        //        }
-        //        else
-        //        {
-        //            PedirDatos();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex);
-        //    }
-        //}
 
-
-        //cbTramitador
+        //Al seleccionar un trabajador busca las juntas relacionadas a el
         private void cbTramitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
-                PedirDatos(aux,cbTramitador.SelectedValue.ToString(),null,0);
-                person = cbTramitador.SelectedValue.ToString();
+                buscarPersona = 1;
+                personaJunta = cbTramitador.SelectedValue.ToString();
+                PedirDatos(1, cbTramitador.SelectedValue.ToString());
             }
             catch (Exception ex)
             {
@@ -307,6 +289,8 @@ namespace GestionCasos.Administrador
         }
 
 
+
+        //Agregar un formulario a un control
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -321,6 +305,9 @@ namespace GestionCasos.Administrador
             childForm.Show();
         }
 
+
+
+        //Abrir los datos seleccionados al formulario de instituciones
         private void tabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -331,7 +318,7 @@ namespace GestionCasos.Administrador
 
                     int codigo = (int)tabla.Rows[fila].Cells[0].Value;
 
-                    DatosTemp.tInstitucion = Instituciones.Where(x => x.Codigo == codigo).SingleOrDefault();
+                    DatosTemp.tInstitucion = lista.Resultado.Where(x => x.Codigo == codigo).SingleOrDefault();
 
                     OpenChildForm(new fInstituciones(Rol));
                 }
@@ -342,85 +329,114 @@ namespace GestionCasos.Administrador
             }
         }
 
+
+
+        //Boton de reestablecer informacion de la tabla
         private void gunaAdvenceTileButton1_Click(object sender, EventArgs e)
         {
-            TotalPaginas = 0;
-            aux = 0;
-            person = null;
-            PedirDatos(aux,null,null,0);
-            
+            txtNombre.ResetText();
+            buscarPersona = 0;
+            buscarCodigo = 0;
+            btnNext.Enabled = true;
+            button1.Enabled = true;
+            txtCodigo.ResetText();
+            PedirDatos(1, null);
         }
 
-        //Boton de siguiente
-        private void btnNext_Click(object sender, EventArgs e) {
 
-            aux++;
-            if (aux >= TotalPaginas)
+
+        //Boton de siguiente
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (lista.PaginaActual < lista.TotalPaginas)
             {
-                aux = TotalPaginas;
-            }
-            else
-            {
-                if (txtCodigo.Text != string.Empty)
+                if (buscarPersona == 1)
                 {
-                    PedirDatos(aux, null, null, 0);
-                }
-                else if (txtNombre.Text != string.Empty)
-                {
-                    PedirDatos(aux, null, txtNombre.Text.ToUpper());
-                }
-                else if (person != null)
-                {
-                    PedirDatos(aux, cbTramitador.SelectedValue.ToString().ToUpper());
+                    PedirDatos(lista.PaginaActual + 1, personaJunta);
                 }
                 else
                 {
-                    PedirDatos(aux);
+                    PedirDatos(lista.PaginaActual + 1);
                 }
+                button1.Enabled = true;
             }
-            
-            Console.WriteLine("Next: " + aux);
-            Console.WriteLine(TotalPaginas);
+            else
+            {
+                btnNext.Enabled = false;
+            }
         }
+
 
 
         //Boton de Anterior
-        private void button1_Click(object sender, EventArgs e)  
+        private void button1_Click(object sender, EventArgs e)
         {
-            aux--;
-            if (aux < 0)
+            if (lista.PaginaActual > 1)
             {
-                aux = 0;
-                
-            }
-            else
-            {
-                if (txtCodigo.Text != string.Empty)
+                if (buscarPersona == 1)
                 {
-                    PedirDatos(aux, null,null,0);
-                }else if (txtNombre.Text != string.Empty)
-                {
-                    PedirDatos(aux,null,txtNombre.Text.ToUpper(),0);
-                }else if (person != null)
-                {
-                    PedirDatos(aux,cbTramitador.SelectedValue.ToString().ToUpper(),null,0);
+                    PedirDatos(lista.PaginaActual - 1, personaJunta);
                 }
                 else
                 {
-                    PedirDatos(aux);
+                    PedirDatos(lista.PaginaActual - 1);
                 }
+                btnNext.Enabled = true;
             }
-            Console.WriteLine("Prev: " + aux);
-            Console.WriteLine(TotalPaginas);
+            else
+            {
+                button1.Enabled = false;
+            }
         }
 
-        //Codigo
-        private void txtCodigo_TextChanged(object sender, EventArgs e)
+
+
+        //Al presionar una tecla buscar por codigo
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtCodigo.Text != string.Empty)
+            try
             {
-                PedirDatos(0, null, null, int.Parse(txtCodigo.Text));
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    if (txtCodigo.Text != string.Empty)
+                    {
+                        buscarCodigo = int.Parse(txtCodigo.Text);
+                        btnNext.Enabled = false;
+                        button1.Enabled = false;
+                        PedirDatos(1, null, buscarCodigo);
+                    }
+                }
+
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+
+
+        //Al presionar una tecla busca por el nombre de la junta
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    if (txtNombre.Text != string.Empty)
+                    {
+                        buscarPersona = 1;
+                        personaJunta = txtNombre.Text.ToUpper();
+                        PedirDatos(1, txtNombre.Text.ToUpper());
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
         }
     }
 }
