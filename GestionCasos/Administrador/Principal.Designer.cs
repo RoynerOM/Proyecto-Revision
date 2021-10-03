@@ -200,6 +200,8 @@ namespace GestionCasos
             // 
             // DesktopPanel
             // 
+            this.DesktopPanel.AutoScroll = true;
+            this.DesktopPanel.AutoScrollMinSize = new System.Drawing.Size(1008, 661);
             this.DesktopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             this.DesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DesktopPanel.Location = new System.Drawing.Point(128, 0);
@@ -211,13 +213,14 @@ namespace GestionCasos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1136, 661);
             this.Controls.Add(this.DesktopPanel);
             this.Controls.Add(this.pnLateralIzquierda);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1152, 699);
+            this.MinimumSize = new System.Drawing.Size(1152, 700);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";

@@ -95,6 +95,8 @@ namespace GestionCasos.Administrador
                 tabla.RowHeadersDefaultCellStyle.BackColor = Colors.White;
                 tabla.RowHeadersDefaultCellStyle.ForeColor = Colors.Black;
 
+                tabla.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+                
                 tabla.RowsDefaultCellStyle.BackColor = Colors.White;
                 tabla.RowsDefaultCellStyle.ForeColor = Colors.Black;
 
@@ -153,6 +155,7 @@ namespace GestionCasos.Administrador
 
             //Row header estilos
             tabla.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            tabla.RowHeadersVisible = false;
             tabla.RowsDefaultCellStyle.Padding = new Padding(5, 5, 5, 5);
             tabla.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         }
@@ -244,13 +247,13 @@ namespace GestionCasos.Administrador
                 tabla.Columns[0].Width = 80;
                 tabla.Columns[1].Width = 60;
                 tabla.Columns[2].Width = 85;
-                tabla.Columns[3].Width = 360;
-                tabla.Columns[4].Width = 120;
-                tabla.Columns[5].Width = 100;
+                tabla.Columns[3].Width = 380;
+                tabla.Columns[4].Width = 140;
+                tabla.Columns[5].Width = 120;
                 tabla.Columns[6].Width = 125;
                 tabla.Columns[7].Width = 300;
                 tabla.Columns[8].Width = 300;
-                tabla.Columns[9].Width = 100;
+                tabla.Columns[9].Width = 115;
             }
             else
             {

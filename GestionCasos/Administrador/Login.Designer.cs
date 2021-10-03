@@ -266,7 +266,7 @@ namespace GestionCasos
             this.panelMain.LineStyle = System.Windows.Forms.BorderStyle.None;
             this.panelMain.Location = new System.Drawing.Point(185, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(415, 726);
+            this.panelMain.Size = new System.Drawing.Size(415, 400);
             this.panelMain.TabIndex = 15;
             // 
             // guna2ControlBox1
@@ -307,7 +307,7 @@ namespace GestionCasos
             this.pbLogo.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(185, 726);
+            this.pbLogo.Size = new System.Drawing.Size(185, 400);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 14;
             this.pbLogo.TabStop = false;
@@ -317,7 +317,7 @@ namespace GestionCasos
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(79)))), ((int)(((byte)(116)))));
-            this.ClientSize = new System.Drawing.Size(600, 726);
+            this.ClientSize = new System.Drawing.Size(600, 400);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.pbLogo);

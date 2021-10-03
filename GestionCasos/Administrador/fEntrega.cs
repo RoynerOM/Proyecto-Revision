@@ -77,7 +77,7 @@ namespace GestionCasos.Administrador
                     txtNombre.Enabled = false;
                     txtApellido1.Enabled = false;
                     txtApellido2.Enabled = false;
-                    cbEntrega.Text = entrega.Recepcion == 4 ? "OFICINA" : "MENSAJERO";
+                    cbEntrega.Text = entrega.Recepcion == 3 ? "OFICINA" : "MENSAJERO";
                     lblConsecutivo.Text = consecutivo;
 
                     btnGuardar.Enabled = false;
@@ -312,46 +312,46 @@ namespace GestionCasos.Administrador
                 #endregion
 
 
-                tEntregaCasos ec = await controller.CrudEntrega().obtenerPorCasoAsync(consecutivo);
-                if (ValidarCampos() == true && ec != null)
-                {
+                //tEntregaCasos ec = await controller.CrudEntrega().obtenerPorCasoAsync(consecutivo);
+                //if (ValidarCampos() == true && ec != null)
+                //{
 
-                    if (cbCheque.Checked == true)
-                    {
-                        //Por cheque
-                        ec.Pago = 0;
-                    }
-                    else
-                    {
-                        //Por Transferencia
-                        ec.Pago = 1;
-                    }
+                //    if (cbCheque.Checked == true)
+                //    {
+                //        //Por cheque
+                //        ec.Pago = 0;
+                //    }
+                //    else
+                //    {
+                //        //Por Transferencia
+                //        ec.Pago = 1;
+                //    }
 
 
-                    //if (cbTranferencia.Checked == true)
-                    //{
-                    //    //Por cheque
-                    //    ec.Transferencia = 0;
-                    //}
-                    //else
-                    //{
-                    //    //Por Transferencia
-                    //    ec.Transferencia = 1;
-                    //}
+                //    //if (cbTranferencia.Checked == true)
+                //    //{
+                //    //    //Por cheque
+                //    //    ec.Transferencia = 0;
+                //    //}
+                //    //else
+                //    //{
+                //    //    //Por Transferencia
+                //    //    ec.Transferencia = 1;
+                //    //}
 
-                    ec.Observacion = txtObservacion.Text;
+                //    ec.Observacion = txtObservacion.Text;
 
-                    if (controller.CrudEntrega().modificar(ec) == true)
-                    {
-                        Message.Success(new Alertas.Alerta(), "La información de entrega fue modificada");
-                        btnPdf.Visible = true;
-                    }
-                    else
-                    {
-                        Message.Danger(new Alertas.Alerta(), "Error al modificar");
-                    }
-                    //En caso contrario se guarda
-                }
+                //    if (controller.CrudEntrega().modificar(ec) == true)
+                //    {
+                //        Message.Success(new Alertas.Alerta(), "La información de entrega fue modificada");
+                //        btnPdf.Visible = true;
+                //    }
+                //    else
+                //    {
+                //        Message.Danger(new Alertas.Alerta(), "Error al modificar");
+                //    }
+                //    //En caso contrario se guarda
+                //}
 
 
                 if (ValidarCampos() == true)
@@ -425,6 +425,137 @@ namespace GestionCasos.Administrador
             else
             {
                 txtCedula.Mask = "0-0000-0000";
+            }
+        }
+
+        private void gunaLinePanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtObservacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbEntrega_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCedula_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2GroupBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tRevision revision = new tRevision();
+                tMensajero m = new tMensajero();
+
+                tEntregaCasos ec = await controller.CrudEntrega().obtenerPorCasoAsync(consecutivo);
+                if (ValidarCampos() == true && ec != null)
+                {
+                    tMensajero men = new tMensajero();
+                    men = controller.CrudContador().obtenerMBy(txtCedula.Text);
+                    ec.Mensajero = men.IdMensajero;
+                    ec.Recepcion = (int)cbEntrega.SelectedValue;
+                   
+
+                    if (cbCheque.Checked == true)
+                    {
+                        //Por cheque
+                        ec.Pago = 0;
+                    }
+                    else
+                    {
+                        //Por Transferencia
+                        ec.Pago = 1;
+                    }
+                    //if (cbTranferencia.Checked == true)
+                    //{
+                    //    //Por cheque
+                    //    entregaC.Transferencia = 0;
+                    //}
+                    //else
+                    //{
+                    //    //Por Transferencia
+                    //    entregaC.Transferencia = 1;
+                    //}
+
+                    ec.Observacion = txtObservacion.Text;
+                    if (controller.CrudEntrega().modificar(ec))
+                    {
+                        Message.Success(new Alertas.Alerta(), "Informacion editada");
+                        btnPdf.Visible = true;
+                        btnGuardar.Enabled = false;
+                    }
+                    else
+                    {
+                        Message.Danger(new Alertas.Alerta(), "No se pudo guardar la información de la entrega");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
     }

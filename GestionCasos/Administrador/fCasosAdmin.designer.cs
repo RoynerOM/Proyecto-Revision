@@ -67,7 +67,9 @@ namespace GestionCasos
             // 
             // panel1
             // 
-            this.panel1.AutoScroll = true;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.gunaLabel6);
@@ -85,7 +87,6 @@ namespace GestionCasos
             this.panel1.Controls.Add(this.cbTramitador);
             this.panel1.Controls.Add(this.gunaLabel1);
             this.panel1.Controls.Add(this.tabla);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
@@ -527,6 +528,7 @@ namespace GestionCasos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1020, 561);

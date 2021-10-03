@@ -300,6 +300,7 @@ namespace GestionCasos
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
+            Console.WriteLine(panel1.Width + " x " + panel1.Height);
             if (screenWidth <= 1280)
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -392,8 +393,7 @@ namespace GestionCasos
                         string consecutivo = tabla.Rows[e.RowIndex].Cells[0].Value.ToString();
                         if (entrega == false)
                         {
-                            fBoleta comentario = new fBoleta(consecutivo);
-                            comentario.ShowDialog();
+                            OpenChildForm(new fBoleta(consecutivo));
                         }
                         else
                         {
@@ -401,8 +401,8 @@ namespace GestionCasos
                             if (r.Estado >= 3)
                             {
                                 //tEntregaCasos entregaCasos = await controller.CrudEntrega().obtenerPorCasoAsync(consecutivo);
-                                fEntrega entrega = new fEntrega(consecutivo);
-                                entrega.ShowDialog();
+                                
+                                OpenChildForm(new fEntrega(consecutivo));
                             }
                             else
                             {
