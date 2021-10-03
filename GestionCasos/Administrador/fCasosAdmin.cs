@@ -300,7 +300,7 @@ namespace GestionCasos
         private void panel1_Resize(object sender, EventArgs e)
         {
             var screenWidth = panel1.Width;
-            Console.WriteLine(panel1.Width + " x " + panel1.Height);
+            
             if (screenWidth <= 1280)
             {
                 tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -590,6 +590,16 @@ namespace GestionCasos
             DateTime END = dtHasta.Value;
 
             PedirDatos(1, null, 0, START.ToShortDateString(), END.ToShortDateString());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PedirDatos(1);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PedirDatos(lista.TotalPaginas);
         }
     }
 }

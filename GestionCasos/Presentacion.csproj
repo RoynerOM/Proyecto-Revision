@@ -601,6 +601,8 @@
     <None Include="Resources\users_settings_64px.png" />
     <None Include="Resources\password_reset_64px.png" />
     <None Include="Resources\send_mail_48px.png" />
+    <None Include="Resources\first_20px.png" />
+    <None Include="Resources\last_20px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

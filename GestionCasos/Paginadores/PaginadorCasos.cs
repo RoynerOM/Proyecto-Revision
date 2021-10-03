@@ -10,7 +10,7 @@ namespace GestionCasos.Paginadores
 {
     public class PaginadorCasos
     {
-        int RegistrosPorPagina = 20;
+        int RegistrosPorPagina = 5;
         IEnumerable<tRevision> listaJuntas;
         Paginador<tRevision> paginador;
         readonly ControllerService controller = new ControllerService();

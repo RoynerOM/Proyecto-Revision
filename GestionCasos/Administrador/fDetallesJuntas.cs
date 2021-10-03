@@ -438,5 +438,15 @@ namespace GestionCasos.Administrador
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PedirDatos(1);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PedirDatos(lista.TotalPaginas);
+        }
     }
 }
