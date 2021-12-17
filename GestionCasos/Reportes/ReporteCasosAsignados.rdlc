@@ -983,7 +983,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsCasos</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\User\Desktop\App\GestionCasos\dtsCasos.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Documents\Sistema-Control-Casos\Proyecto-Revision\GestionCasos\dtsCasos.xsd</rd:SchemaPath>
         <rd:TableName>CasosTable</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

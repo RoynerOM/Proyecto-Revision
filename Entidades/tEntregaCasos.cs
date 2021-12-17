@@ -23,6 +23,7 @@ namespace Entidades
         public int Pago { get; set; }
         public System.DateTime FechaEntrega { get; set; }
         public string Observacion { get; set; }
+        public Nullable<int> Transferencia { get; set; }
     
         public virtual tPersona tPersona { get; set; }
         public virtual tInstitucion tInstitucion { get; set; }

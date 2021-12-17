@@ -468,7 +468,6 @@
                         <PaddingBottom>5pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1165,7 +1164,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsJuntas</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\User\Desktop\App\GestionCasos\dtsJuntas.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Documents\Sistema-Control-Casos\Proyecto-Revision\GestionCasos\dtsJuntas.xsd</rd:SchemaPath>
         <rd:TableName>TableJuntas</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

@@ -725,7 +725,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsContador</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\User\Desktop\Proyecto-Revision\GestionCasos\dtsContador.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Documents\Sistema-Control-Casos\Proyecto-Revision\GestionCasos\dtsContador.xsd</rd:SchemaPath>
         <rd:TableName>tPersona</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

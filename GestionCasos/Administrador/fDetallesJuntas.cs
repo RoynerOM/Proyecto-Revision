@@ -74,6 +74,7 @@ namespace GestionCasos.Administrador
                 gunaLabel1.ForeColor = Colors.Black;
                 gunaLabel3.ForeColor = Colors.Black;
                 gunaLabel4.ForeColor = Colors.Black;
+                
                 lblPag.ForeColor = Colors.Black;
                 lblPag.BackColor = Color.Transparent;
             }
@@ -176,11 +177,12 @@ namespace GestionCasos.Administrador
                     tabla.Rows[nRows].Cells[2].Value = item.tTipoInstitucion.NombreTipo;
                     tabla.Rows[nRows].Cells[3].Value = item.Nombre;
                     tabla.Rows[nRows].Cells[4].Value = item.CedulaJuridica;
-                    tabla.Rows[nRows].Cells[5].Value = item.DiaRuta.ToUpper();
+                    tabla.Rows[nRows].Cells[5].Value = item.DiaRuta == null? "-": item.DiaRuta.ToUpper();
                     tabla.Rows[nRows].Cells[6].Value = item.CuentaLey;
                     tabla.Rows[nRows].Cells[7].Value = item.tPersona.NombreCompleto.ToUpper();
                     tabla.Rows[nRows].Cells[8].Value = item.Responsable.ToUpper();
                     tabla.Rows[nRows].Cells[9].Value = item.Contacto;
+                    tabla.Rows[nRows].Cells[10].Value = item.TipoCuenta != null? item.TipoCuenta : "-";
 
                     tabla.Rows[nRows].Height = 40;
                 }

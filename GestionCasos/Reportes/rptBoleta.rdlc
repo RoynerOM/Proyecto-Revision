@@ -100,7 +100,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsBoleta</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\anner\Desktop\Proyecto Juntas\GestionCasos\dtsBoleta.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Documents\Sistema-Control-Casos\Proyecto-Revision\GestionCasos\dtsBoleta.xsd</rd:SchemaPath>
         <rd:TableName>BoletaTable</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

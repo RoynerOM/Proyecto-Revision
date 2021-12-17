@@ -763,7 +763,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1161,7 +1160,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsEntregaCasos</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\anner\Desktop\Proyecto Juntas\GestionCasos\dtsEntregaCasos.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Documents\Sistema-Control-Casos\Proyecto-Revision\GestionCasos\dtsEntregaCasos.xsd</rd:SchemaPath>
         <rd:TableName>EntregaTable</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

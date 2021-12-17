@@ -58,6 +58,9 @@
     </Compile>
     <Compile Include="Paginador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>EntidadesBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="tBoleta.cs">
       <DependentUpon>EntidadesBD.tt</DependentUpon>
     </Compile>

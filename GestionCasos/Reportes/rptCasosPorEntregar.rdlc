@@ -1037,7 +1037,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dtsCasosPorEntregar</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\User\Desktop\App\GestionCasos\dtsCasosPorEntregar.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\User\Documents\Sistema-Control-Casos\Proyecto-Revision\GestionCasos\dtsCasosPorEntregar.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
