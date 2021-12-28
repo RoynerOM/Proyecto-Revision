@@ -26,7 +26,7 @@ namespace GestionCasos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=BDJuntas;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.100.76;Initial Catalog=BDJuntas;User ID=sa;Password=123456;")]
         public string BDJuntasConnectionString {
             get {
                 return ((string)(this["BDJuntasConnectionString"]));

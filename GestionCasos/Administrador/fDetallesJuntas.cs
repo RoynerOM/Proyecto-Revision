@@ -182,7 +182,7 @@ namespace GestionCasos.Administrador
                     tabla.Rows[nRows].Cells[7].Value = item.tPersona.NombreCompleto.ToUpper();
                     tabla.Rows[nRows].Cells[8].Value = item.Responsable.ToUpper();
                     tabla.Rows[nRows].Cells[9].Value = item.Contacto;
-                    tabla.Rows[nRows].Cells[10].Value = item.TipoCuenta != null? item.TipoCuenta : "-";
+                    tabla.Rows[nRows].Cells[10].Value = item.TipoBanco != null? item.TipoBanco : "-";
 
                     tabla.Rows[nRows].Height = 40;
                 }

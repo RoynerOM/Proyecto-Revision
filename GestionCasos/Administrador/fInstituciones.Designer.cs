@@ -31,6 +31,7 @@ namespace GestionCasos.Administrador
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInstituciones));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.cbDiaRuta = new System.Windows.Forms.ComboBox();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
@@ -57,16 +58,15 @@ namespace GestionCasos.Administrador
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCuenta = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.cbBanco = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.panel1.Controls.Add(this.cbBanco);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.txtCuenta);
             this.panel1.Controls.Add(this.cbDiaRuta);
             this.panel1.Controls.Add(this.gunaButton1);
             this.panel1.Controls.Add(this.txtTelefono);
@@ -99,6 +99,19 @@ namespace GestionCasos.Administrador
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(916, 602);
             this.panel1.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.label11.Location = new System.Drawing.Point(360, 531);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 23);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "Tipo Cuenta";
             // 
             // cbDiaRuta
             // 
@@ -504,27 +517,18 @@ namespace GestionCasos.Administrador
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
-            // txtCuenta
+            // cbBanco
             // 
-            this.txtCuenta.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCuenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuenta.Location = new System.Drawing.Point(358, 561);
-            this.txtCuenta.Name = "txtCuenta";
-            this.txtCuenta.Size = new System.Drawing.Size(195, 29);
-            this.txtCuenta.TabIndex = 28;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.label11.Location = new System.Drawing.Point(360, 531);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 23);
-            this.label11.TabIndex = 29;
-            this.label11.Text = "Tipo Cuenta";
+            this.cbBanco.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbBanco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBanco.FormattingEnabled = true;
+            this.cbBanco.Items.AddRange(new object[] {
+            "Banco Nacional",
+            "Caja Unica"});
+            this.cbBanco.Location = new System.Drawing.Point(358, 561);
+            this.cbBanco.Name = "cbBanco";
+            this.cbBanco.Size = new System.Drawing.Size(188, 29);
+            this.cbBanco.TabIndex = 30;
             // 
             // fInstituciones
             // 
@@ -571,7 +575,7 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.Label label10;
         private Guna.UI.WinForms.GunaButton gunaButton1;
         private System.Windows.Forms.ComboBox cbDiaRuta;
-        private System.Windows.Forms.TextBox txtCuenta;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbBanco;
     }
 }

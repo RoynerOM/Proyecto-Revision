@@ -70,7 +70,7 @@
           <Property Name="Estado" Type="bit" Nullable="false" />
           <Property Name="CodigoAux" Type="int" StoreGeneratedPattern="Computed" Nullable="false" />
           <Property Name="DiaRuta" Type="varchar" MaxLength="20" />
-          <Property Name="TipoCuenta" Type="varchar" MaxLength="20" />
+          <Property Name="TipoBanco" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="tMensajero">
           <Key>
@@ -777,7 +777,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="Estado" Type="Boolean" Nullable="false" />
           <Property Name="CodigoAux" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="DiaRuta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="TipoCuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TipoBanco" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tEntregaCasos" Relationship="BDJuntasModel.FK__tEntregaC__Junta__47A6A41B" FromRole="tInstitucion" ToRole="tEntregaCasos" />
           <NavigationProperty Name="tPersona" Relationship="BDJuntasModel.FK__tInstituc__Conta__52593CB8" FromRole="tInstitucion" ToRole="tPersona" />
           <NavigationProperty Name="tTipoInstitucion" Relationship="BDJuntasModel.FK__tInstituci__Tipo__5441852A" FromRole="tInstitucion" ToRole="tTipoInstitucion" />
@@ -1182,7 +1182,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1244,7 +1244,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <EntitySetMapping Name="tInstitucion">
             <EntityTypeMapping TypeName="BDJuntasModel.tInstitucion">
               <MappingFragment StoreEntitySet="tInstitucion">
-                <ScalarProperty Name="TipoCuenta" ColumnName="TipoCuenta" />
+                <ScalarProperty Name="TipoBanco" ColumnName="TipoBanco" />
                 <ScalarProperty Name="DiaRuta" ColumnName="DiaRuta" />
                 <ScalarProperty Name="CodigoAux" ColumnName="CodigoAux" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />

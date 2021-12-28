@@ -35,16 +35,6 @@ namespace GestionCasos.Administrador
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.tabla = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Circuito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CedulaJuridica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaRuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CuentaLey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Responsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCodigo = new Guna.UI.WinForms.GunaTextBox();
             this.lblPag = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,7 +45,17 @@ namespace GestionCasos.Administrador
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.cbTramitador = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.TipoCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Circuito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CedulaJuridica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaRuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CuentaLey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Responsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoBanco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabla)).BeginInit();
             this.SuspendLayout();
@@ -146,7 +146,7 @@ namespace GestionCasos.Administrador
             this.NombreCompleto,
             this.Responsable,
             this.Contacto,
-            this.TipoCuenta});
+            this.TipoBanco});
             this.tabla.EnableHeadersVisualStyles = false;
             this.tabla.Location = new System.Drawing.Point(0, 160);
             this.tabla.Name = "tabla";
@@ -162,66 +162,6 @@ namespace GestionCasos.Administrador
             this.tabla.Size = new System.Drawing.Size(1131, 401);
             this.tabla.TabIndex = 25;
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Circuito
-            // 
-            this.Circuito.HeaderText = "Circuito";
-            this.Circuito.Name = "Circuito";
-            this.Circuito.ReadOnly = true;
-            // 
-            // NombreTipo
-            // 
-            this.NombreTipo.HeaderText = "Tipo";
-            this.NombreTipo.Name = "NombreTipo";
-            this.NombreTipo.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Junta";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // CedulaJuridica
-            // 
-            this.CedulaJuridica.HeaderText = "Cédula Jurídica";
-            this.CedulaJuridica.Name = "CedulaJuridica";
-            this.CedulaJuridica.ReadOnly = true;
-            // 
-            // DiaRuta
-            // 
-            this.DiaRuta.HeaderText = "Dia de ruta";
-            this.DiaRuta.Name = "DiaRuta";
-            this.DiaRuta.ReadOnly = true;
-            // 
-            // CuentaLey
-            // 
-            this.CuentaLey.HeaderText = "Cta. ley 6746";
-            this.CuentaLey.Name = "CuentaLey";
-            this.CuentaLey.ReadOnly = true;
-            // 
-            // NombreCompleto
-            // 
-            this.NombreCompleto.HeaderText = "Contador";
-            this.NombreCompleto.Name = "NombreCompleto";
-            this.NombreCompleto.ReadOnly = true;
-            // 
-            // Responsable
-            // 
-            this.Responsable.HeaderText = "Contacto";
-            this.Responsable.Name = "Responsable";
-            this.Responsable.ReadOnly = true;
-            // 
-            // Contacto
-            // 
-            this.Contacto.HeaderText = "Tel. Contacto";
-            this.Contacto.Name = "Contacto";
-            this.Contacto.ReadOnly = true;
             // 
             // txtCodigo
             // 
@@ -398,11 +338,71 @@ namespace GestionCasos.Administrador
             this.gunaLabel1.TabIndex = 14;
             this.gunaLabel1.Text = "Filtrar Por Código";
             // 
-            // TipoCuenta
+            // Codigo
             // 
-            this.TipoCuenta.HeaderText = "Cuenta";
-            this.TipoCuenta.Name = "TipoCuenta";
-            this.TipoCuenta.ReadOnly = true;
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // Circuito
+            // 
+            this.Circuito.HeaderText = "Circuito";
+            this.Circuito.Name = "Circuito";
+            this.Circuito.ReadOnly = true;
+            // 
+            // NombreTipo
+            // 
+            this.NombreTipo.HeaderText = "Tipo";
+            this.NombreTipo.Name = "NombreTipo";
+            this.NombreTipo.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Junta";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // CedulaJuridica
+            // 
+            this.CedulaJuridica.HeaderText = "Cédula Jurídica";
+            this.CedulaJuridica.Name = "CedulaJuridica";
+            this.CedulaJuridica.ReadOnly = true;
+            // 
+            // DiaRuta
+            // 
+            this.DiaRuta.HeaderText = "Dia de ruta";
+            this.DiaRuta.Name = "DiaRuta";
+            this.DiaRuta.ReadOnly = true;
+            // 
+            // CuentaLey
+            // 
+            this.CuentaLey.HeaderText = "Cta. ley 6746";
+            this.CuentaLey.Name = "CuentaLey";
+            this.CuentaLey.ReadOnly = true;
+            // 
+            // NombreCompleto
+            // 
+            this.NombreCompleto.HeaderText = "Contador";
+            this.NombreCompleto.Name = "NombreCompleto";
+            this.NombreCompleto.ReadOnly = true;
+            // 
+            // Responsable
+            // 
+            this.Responsable.HeaderText = "Contacto";
+            this.Responsable.Name = "Responsable";
+            this.Responsable.ReadOnly = true;
+            // 
+            // Contacto
+            // 
+            this.Contacto.HeaderText = "Tel. Contacto";
+            this.Contacto.Name = "Contacto";
+            this.Contacto.ReadOnly = true;
+            // 
+            // TipoBanco
+            // 
+            this.TipoBanco.HeaderText = "Banco";
+            this.TipoBanco.Name = "TipoBanco";
+            this.TipoBanco.ReadOnly = true;
             // 
             // fDetallesJuntas
             // 
@@ -436,6 +436,8 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.Label lblPag;
         private Guna.UI.WinForms.GunaTextBox txtCodigo;
         private System.Windows.Forms.DataGridView tabla;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Circuito;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreTipo;
@@ -446,8 +448,6 @@ namespace GestionCasos.Administrador
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Responsable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contacto;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoCuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoBanco;
     }
 }

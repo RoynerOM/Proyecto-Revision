@@ -119,7 +119,7 @@ namespace GestionCasos.Administrador
                 cbCircuito.Text = institucion.Circuito.ToString();
                 cbContador.Text = institucion.tPersona.NombreCompleto;
                 cbTipo.Text = institucion.tTipoInstitucion.NombreTipo;
-                txtCuenta.Text = institucion.TipoCuenta;
+                cbBanco.Text = institucion.TipoBanco == null? "No asignado" : institucion.TipoBanco;
             }
         }
 
@@ -213,7 +213,7 @@ namespace GestionCasos.Administrador
             cbTipo.ResetText();
             txtContacto.ResetText();
             txtTelefono.ResetText();
-            txtCuenta.ResetText();
+            cbBanco.ResetText();
         }
 
 
@@ -236,7 +236,7 @@ namespace GestionCasos.Administrador
                         institucion.DiaRuta = cbDiaRuta.Text;
                         institucion.CuentaLey = txtCuentaLey.Text;
                         institucion.Contador = (string)cbContador.SelectedValue;
-                        institucion.TipoCuenta=txtCuenta.Text.ToUpper();
+                        institucion.TipoBanco=cbBanco.Text.ToUpper();
                         if (txtContacto.Text != string.Empty)
                         {
                             institucion.Responsable = txtContacto.Text.ToUpper();
@@ -352,7 +352,7 @@ namespace GestionCasos.Administrador
                     institucion.CedulaJuridica = txtCedulaJuridica.Text;
                     institucion.Responsable = txtContacto.Text.ToUpper();
                     institucion.Contacto = txtTelefono.Text;
-                    institucion.TipoCuenta = txtCuenta.Text.ToUpper();
+                    institucion.TipoBanco = cbBanco.Text.ToUpper();
                     p.Cedula = cbContador.SelectedValue.ToString();
                     p = controller.CrudContador().obtenerPorId(p);
                     institucion.Contador = p.Cedula;
