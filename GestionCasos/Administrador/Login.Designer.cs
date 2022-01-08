@@ -304,7 +304,7 @@ namespace GestionCasos
             this.pbLogo.BackColor = System.Drawing.Color.White;
             this.pbLogo.BaseColor = System.Drawing.Color.White;
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLogo.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
+            this.pbLogo.Image = global::GestionCasos.Properties.Resources.Imagen1;
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(185, 400);

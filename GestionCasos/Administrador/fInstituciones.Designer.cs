@@ -31,6 +31,7 @@ namespace GestionCasos.Administrador
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fInstituciones));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbBanco = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cbDiaRuta = new System.Windows.Forms.ComboBox();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
@@ -58,7 +59,6 @@ namespace GestionCasos.Administrador
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbBanco = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,19 @@ namespace GestionCasos.Administrador
             this.panel1.Size = new System.Drawing.Size(916, 602);
             this.panel1.TabIndex = 0;
             // 
+            // cbBanco
+            // 
+            this.cbBanco.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbBanco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBanco.FormattingEnabled = true;
+            this.cbBanco.Items.AddRange(new object[] {
+            "Banco Nacional",
+            "Caja Unica"});
+            this.cbBanco.Location = new System.Drawing.Point(358, 561);
+            this.cbBanco.Name = "cbBanco";
+            this.cbBanco.Size = new System.Drawing.Size(188, 29);
+            this.cbBanco.TabIndex = 30;
+            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -109,9 +122,9 @@ namespace GestionCasos.Administrador
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.label11.Location = new System.Drawing.Point(360, 531);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 23);
+            this.label11.Size = new System.Drawing.Size(99, 23);
             this.label11.TabIndex = 29;
-            this.label11.Text = "Tipo Cuenta";
+            this.label11.Text = "Tipo Banco";
             // 
             // cbDiaRuta
             // 
@@ -517,25 +530,13 @@ namespace GestionCasos.Administrador
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
-            // cbBanco
-            // 
-            this.cbBanco.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbBanco.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBanco.FormattingEnabled = true;
-            this.cbBanco.Items.AddRange(new object[] {
-            "Banco Nacional",
-            "Caja Unica"});
-            this.cbBanco.Location = new System.Drawing.Point(358, 561);
-            this.cbBanco.Name = "cbBanco";
-            this.cbBanco.Size = new System.Drawing.Size(188, 29);
-            this.cbBanco.TabIndex = 30;
-            // 
             // fInstituciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 602);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(753, 574);
             this.Name = "fInstituciones";
             this.Text = "fInstituciones";
