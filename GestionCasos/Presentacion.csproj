@@ -286,6 +286,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dtsContador.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dtsEntregaCasos.cs">
+      <DependentUpon>dtsEntregaCasos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dtsEntregaCasos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
