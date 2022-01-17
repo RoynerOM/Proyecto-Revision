@@ -29,6 +29,7 @@ namespace GestionCasos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDashBoard));
             this.DesktopPanel = new System.Windows.Forms.Panel();
             this.lblNombreU = new System.Windows.Forms.Label();
             this.gunaTileButton4 = new Guna.UI.WinForms.GunaTileButton();
@@ -550,6 +551,7 @@ namespace GestionCasos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 621);
             this.Controls.Add(this.DesktopPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1000, 660);
             this.Name = "fDashBoard";
             this.Text = "fDashBoard";
