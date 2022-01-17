@@ -127,6 +127,9 @@
   <data name="add_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="edit_graph_report_100px11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit_graph_report_100px11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="data_backup_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\data_backup_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,9 +223,6 @@
   <data name="send_email_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\send_email_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dashboard_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dashboard_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="image001" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -243,6 +243,9 @@
   </data>
   <data name="edit_file1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="last_20px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\last_20px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo-AMCONSULTORES" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo-AMCONSULTORES.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -310,17 +313,23 @@
   <data name="solicit_accept_check_ok_theaction_6340" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\solicit_accept_check_ok_theaction_6340.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit_graph_report_100px11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit_graph_report_100px11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dashboard_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dashboard_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eyeb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eyeb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="first_20px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\first_20px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="organization_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\organization_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="task_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\task_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="send_mail_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\send_mail_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="group_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\group_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,7 +340,7 @@
   <data name="squared_menu_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\squared_menu_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="send_mail_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\send_mail_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Imagen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Imagen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

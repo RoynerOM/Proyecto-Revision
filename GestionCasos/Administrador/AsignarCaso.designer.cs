@@ -34,6 +34,8 @@ namespace GestionCasos
             this.btnReasignarCaso = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtBanco = new Guna.UI.WinForms.GunaTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.gunaAdvenceTileButton2 = new Guna.UI.WinForms.GunaAdvenceTileButton();
             this.txtCaso = new Guna.UI.WinForms.GunaTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -113,6 +115,8 @@ namespace GestionCasos
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
+            this.panel1.Controls.Add(this.txtBanco);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.gunaAdvenceTileButton2);
             this.panel1.Controls.Add(this.txtCaso);
             this.panel1.Controls.Add(this.label1);
@@ -137,6 +141,41 @@ namespace GestionCasos
             this.panel1.Size = new System.Drawing.Size(582, 790);
             this.panel1.TabIndex = 58;
             // 
+            // txtBanco
+            // 
+            this.txtBanco.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBanco.BackColor = System.Drawing.Color.Transparent;
+            this.txtBanco.BaseColor = System.Drawing.Color.White;
+            this.txtBanco.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
+            this.txtBanco.BorderSize = 1;
+            this.txtBanco.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBanco.Enabled = false;
+            this.txtBanco.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtBanco.FocusedBorderColor = System.Drawing.Color.Aqua;
+            this.txtBanco.FocusedForeColor = System.Drawing.Color.Yellow;
+            this.txtBanco.Font = new System.Drawing.Font("Arial", 9F);
+            this.txtBanco.ForeColor = System.Drawing.Color.Lime;
+            this.txtBanco.Location = new System.Drawing.Point(186, 510);
+            this.txtBanco.Name = "txtBanco";
+            this.txtBanco.PasswordChar = '\0';
+            this.txtBanco.Radius = 5;
+            this.txtBanco.SelectedText = "";
+            this.txtBanco.Size = new System.Drawing.Size(313, 36);
+            this.txtBanco.TabIndex = 96;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(79, 510);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 18);
+            this.label2.TabIndex = 97;
+            this.label2.Text = "Tipo Banco:";
+            // 
             // gunaAdvenceTileButton2
             // 
             this.gunaAdvenceTileButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -158,7 +197,7 @@ namespace GestionCasos
             this.gunaAdvenceTileButton2.Image = global::GestionCasos.Properties.Resources.buscar;
             this.gunaAdvenceTileButton2.ImageSize = new System.Drawing.Size(25, 25);
             this.gunaAdvenceTileButton2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceTileButton2.Location = new System.Drawing.Point(463, 632);
+            this.gunaAdvenceTileButton2.Location = new System.Drawing.Point(463, 683);
             this.gunaAdvenceTileButton2.Name = "gunaAdvenceTileButton2";
             this.gunaAdvenceTileButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(187)))), ((int)(((byte)(102)))));
             this.gunaAdvenceTileButton2.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -184,7 +223,7 @@ namespace GestionCasos
             this.txtCaso.FocusedForeColor = System.Drawing.Color.Black;
             this.txtCaso.Font = new System.Drawing.Font("Arial", 9F);
             this.txtCaso.ForeColor = System.Drawing.Color.Black;
-            this.txtCaso.Location = new System.Drawing.Point(186, 632);
+            this.txtCaso.Location = new System.Drawing.Point(186, 683);
             this.txtCaso.Name = "txtCaso";
             this.txtCaso.PasswordChar = '\0';
             this.txtCaso.Radius = 5;
@@ -200,7 +239,7 @@ namespace GestionCasos
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(67, 632);
+            this.label1.Location = new System.Drawing.Point(67, 683);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 18);
             this.label1.TabIndex = 95;
@@ -209,7 +248,7 @@ namespace GestionCasos
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.Logo_AMCONSULTORES1;
+            this.pictureBox1.Image = global::GestionCasos.Properties.Resources.Imagen1;
             this.pictureBox1.Location = new System.Drawing.Point(187, 48);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(313, 128);
@@ -233,7 +272,7 @@ namespace GestionCasos
             this.cbAsignados.HoverState.Parent = this.cbAsignados;
             this.cbAsignados.ItemHeight = 30;
             this.cbAsignados.ItemsAppearance.Parent = this.cbAsignados;
-            this.cbAsignados.Location = new System.Drawing.Point(186, 572);
+            this.cbAsignados.Location = new System.Drawing.Point(186, 623);
             this.cbAsignados.Name = "cbAsignados";
             this.cbAsignados.ShadowDecoration.Parent = this.cbAsignados;
             this.cbAsignados.Size = new System.Drawing.Size(313, 36);
@@ -256,7 +295,7 @@ namespace GestionCasos
             this.cbTipoRecepcion.HoverState.Parent = this.cbTipoRecepcion;
             this.cbTipoRecepcion.ItemHeight = 30;
             this.cbTipoRecepcion.ItemsAppearance.Parent = this.cbTipoRecepcion;
-            this.cbTipoRecepcion.Location = new System.Drawing.Point(186, 512);
+            this.cbTipoRecepcion.Location = new System.Drawing.Point(186, 563);
             this.cbTipoRecepcion.Name = "cbTipoRecepcion";
             this.cbTipoRecepcion.ShadowDecoration.Parent = this.cbTipoRecepcion;
             this.cbTipoRecepcion.Size = new System.Drawing.Size(313, 36);
@@ -335,7 +374,7 @@ namespace GestionCasos
             this.lbAsignado.BackColor = System.Drawing.Color.Transparent;
             this.lbAsignado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAsignado.ForeColor = System.Drawing.Color.White;
-            this.lbAsignado.Location = new System.Drawing.Point(84, 572);
+            this.lbAsignado.Location = new System.Drawing.Point(84, 623);
             this.lbAsignado.Name = "lbAsignado";
             this.lbAsignado.Size = new System.Drawing.Size(96, 18);
             this.lbAsignado.TabIndex = 87;
@@ -348,7 +387,7 @@ namespace GestionCasos
             this.lbMedioReceptivo.BackColor = System.Drawing.Color.Transparent;
             this.lbMedioReceptivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMedioReceptivo.ForeColor = System.Drawing.Color.White;
-            this.lbMedioReceptivo.Location = new System.Drawing.Point(41, 512);
+            this.lbMedioReceptivo.Location = new System.Drawing.Point(41, 563);
             this.lbMedioReceptivo.Name = "lbMedioReceptivo";
             this.lbMedioReceptivo.Size = new System.Drawing.Size(139, 18);
             this.lbMedioReceptivo.TabIndex = 86;
@@ -515,5 +554,7 @@ namespace GestionCasos
         private System.Windows.Forms.Label label1;
         private Guna.UI.WinForms.GunaAdvenceTileButton gunaAdvenceTileButton2;
         private System.Windows.Forms.Button btnReasignarCaso;
+        private Guna.UI.WinForms.GunaTextBox txtBanco;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -99,6 +99,7 @@ namespace GestionCasos.Administrador
                 label8.ForeColor = Colors.Black;
                 label9.ForeColor = Colors.Black;
                 label10.ForeColor = Colors.Black;
+                label11.ForeColor = Colors.Black;
             }
         }
 
@@ -118,6 +119,7 @@ namespace GestionCasos.Administrador
                 cbCircuito.Text = institucion.Circuito.ToString();
                 cbContador.Text = institucion.tPersona.NombreCompleto;
                 cbTipo.Text = institucion.tTipoInstitucion.NombreTipo;
+                cbBanco.Text = institucion.TipoBanco == null? "No asignado" : institucion.TipoBanco;
             }
         }
 
@@ -211,7 +213,7 @@ namespace GestionCasos.Administrador
             cbTipo.ResetText();
             txtContacto.ResetText();
             txtTelefono.ResetText();
-
+            cbBanco.ResetText();
         }
 
 
@@ -234,6 +236,7 @@ namespace GestionCasos.Administrador
                         institucion.DiaRuta = cbDiaRuta.Text;
                         institucion.CuentaLey = txtCuentaLey.Text;
                         institucion.Contador = (string)cbContador.SelectedValue;
+                        institucion.TipoBanco=cbBanco.Text.ToUpper();
                         if (txtContacto.Text != string.Empty)
                         {
                             institucion.Responsable = txtContacto.Text.ToUpper();
@@ -349,7 +352,7 @@ namespace GestionCasos.Administrador
                     institucion.CedulaJuridica = txtCedulaJuridica.Text;
                     institucion.Responsable = txtContacto.Text.ToUpper();
                     institucion.Contacto = txtTelefono.Text;
-
+                    institucion.TipoBanco = cbBanco.Text.ToUpper();
                     p.Cedula = cbContador.SelectedValue.ToString();
                     p = controller.CrudContador().obtenerPorId(p);
                     institucion.Contador = p.Cedula;
@@ -442,6 +445,11 @@ namespace GestionCasos.Administrador
         private void gunaButton1_Click_1(object sender, EventArgs e)
         {
             LimpiarCampos();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

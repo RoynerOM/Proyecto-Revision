@@ -4,7 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BDJuntasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BDJuntasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="tBoleta">
           <Key>
             <PropertyRef Name="Id" />
@@ -35,6 +45,7 @@
           <Property Name="Pago" Type="int" Nullable="false" />
           <Property Name="FechaEntrega" Type="date" Nullable="false" />
           <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Transferencia" Type="int" />
         </EntityType>
         <EntityType Name="tEstado">
           <Key>
@@ -59,6 +70,7 @@
           <Property Name="Estado" Type="bit" Nullable="false" />
           <Property Name="CodigoAux" Type="int" StoreGeneratedPattern="Computed" Nullable="false" />
           <Property Name="DiaRuta" Type="varchar" MaxLength="20" />
+          <Property Name="TipoBanco" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="tMensajero">
           <Key>
@@ -255,7 +267,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewEntregaCasos' does not have a pri
             <PropertyRef Name="FechaEntrega" />
             <PropertyRef Name="Observacion" />
             <PropertyRef Name="Mensajero" />
-            <PropertyRef Name="Pago" />
+            <PropertyRef Name="Cheque" />
           </Key>
           <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="Codigo" Type="int" Nullable="false" />
@@ -266,7 +278,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewEntregaCasos' does not have a pri
           <Property Name="FechaEntrega" Type="date" Nullable="false" />
           <Property Name="Observacion" Type="varchar(max)" Nullable="false" />
           <Property Name="Mensajero" Type="varchar" MaxLength="152" Nullable="false" />
-          <Property Name="Pago" Type="int" Nullable="false" />
+          <Property Name="Cheque" Type="int" Nullable="false" />
+          <Property Name="Transferencia" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDJuntas.dbo.viewJuntas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -459,6 +472,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BDJuntasModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tBoleta" EntityType="Self.tBoleta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tEntregaCasos" EntityType="Self.tEntregaCasos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tEstado" EntityType="Self.tEstado" Schema="dbo" store:Type="Tables" />
@@ -540,7 +554,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
     [viewEntregaCasos].[FechaEntrega] AS [FechaEntrega], 
     [viewEntregaCasos].[Observacion] AS [Observacion], 
     [viewEntregaCasos].[Mensajero] AS [Mensajero], 
-    [viewEntregaCasos].[Pago] AS [Pago]
+    [viewEntregaCasos].[Cheque] AS [Cheque], 
+    [viewEntregaCasos].[Transferencia] AS [Transferencia]
     FROM [dbo].[viewEntregaCasos] AS [viewEntregaCasos]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="viewJuntas" EntityType="Self.viewJuntas" store:Type="Views" store:Schema="dbo">
@@ -618,10 +633,21 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             <End Role="tEntregaCasos" EntitySet="tEntregaCasos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDJuntasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="tBoleta">
           <Key>
             <PropertyRef Name="Id" />
@@ -653,6 +679,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="Pago" Type="Int32" Nullable="false" />
           <Property Name="FechaEntrega" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Transferencia" Type="Int32" />
           <NavigationProperty Name="tPersona" Relationship="Self.FK__tEntregaC__Asign__46B27FE2" FromRole="tEntregaCasos" ToRole="tPersona" />
           <NavigationProperty Name="tInstitucion" Relationship="Self.FK__tEntregaC__Junta__47A6A41B" FromRole="tEntregaCasos" ToRole="tInstitucion" />
           <NavigationProperty Name="tMensajero" Relationship="Self.FK__tEntregaC__Mensa__45BE5BA9" FromRole="tEntregaCasos" ToRole="tMensajero" />
@@ -682,6 +709,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="Estado" Type="Boolean" Nullable="false" />
           <Property Name="CodigoAux" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="DiaRuta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TipoBanco" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tEntregaCasos" Relationship="Self.FK__tEntregaC__Junta__47A6A41B" FromRole="tInstitucion" ToRole="tEntregaCasos" />
           <NavigationProperty Name="tPersona" Relationship="Self.FK__tInstituc__Conta__52593CB8" FromRole="tInstitucion" ToRole="tPersona" />
           <NavigationProperty Name="tTipoInstitucion" Relationship="Self.FK__tInstituci__Tipo__5441852A" FromRole="tInstitucion" ToRole="tTipoInstitucion" />
@@ -840,6 +868,27 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="viewCasosPorEntregar">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="CodigoAux" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Recepción" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Comentario" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Consecutivo" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CodigoAux" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DiaRuta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Recepción" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="152" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="viewContadores">
           <Key>
             <PropertyRef Name="Cedula" />
@@ -865,7 +914,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             <PropertyRef Name="FechaEntrega" />
             <PropertyRef Name="Observacion" />
             <PropertyRef Name="Mensajero" />
-            <PropertyRef Name="Pago" />
+            <PropertyRef Name="Cheque" />
           </Key>
           <Property Name="Consecutivo" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Codigo" Type="Int32" Nullable="false" />
@@ -876,7 +925,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <Property Name="FechaEntrega" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Mensajero" Type="String" MaxLength="152" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pago" Type="Int32" Nullable="false" />
+          <Property Name="Cheque" Type="Int32" Nullable="false" />
+          <Property Name="Transferencia" Type="Int32" />
         </EntityType>
         <EntityType Name="viewJuntas">
           <Key>
@@ -1065,6 +1115,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BDJuntasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="tBoleta" EntityType="Self.tBoleta" />
           <EntitySet Name="tEntregaCasos" EntityType="Self.tEntregaCasos" />
           <EntitySet Name="tEstado" EntityType="Self.tEstado" />
@@ -1078,6 +1129,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
           <EntitySet Name="tUsuario" EntityType="Self.tUsuario" />
           <EntitySet Name="viewBoleta" EntityType="Self.viewBoleta" />
           <EntitySet Name="viewCasosAsignados" EntityType="Self.viewCasosAsignados" />
+          <EntitySet Name="viewCasosPorEntregar" EntityType="Self.viewCasosPorEntregar" />
           <EntitySet Name="viewContadores" EntityType="Self.viewContadores" />
           <EntitySet Name="viewEntregaCasos" EntityType="Self.viewEntregaCasos" />
           <EntitySet Name="viewJuntas" EntityType="Self.viewJuntas" />
@@ -1130,35 +1182,24 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
             <End Role="tRecepcion" EntitySet="tRecepcion" />
             <End Role="tRevision" EntitySet="tRevision" />
           </AssociationSet>
-          <EntitySet Name="viewCasosPorEntregar" EntityType="BDJuntasModel.viewCasosPorEntregar" />
         </EntityContainer>
-        <EntityType Name="viewCasosPorEntregar">
-          <Key>
-            <PropertyRef Name="Consecutivo" />
-            <PropertyRef Name="Fecha" />
-            <PropertyRef Name="CodigoAux" />
-            <PropertyRef Name="Nombre" />
-            <PropertyRef Name="Recepción" />
-            <PropertyRef Name="NombreCompleto" />
-            <PropertyRef Name="Comentario" />
-            <PropertyRef Name="Estado" />
-          </Key>
-          <Property Name="Consecutivo" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
-          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="CodigoAux" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="DiaRuta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Recepción" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="152" FixedLength="false" Unicode="false" />
-          <Property Name="Comentario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BDJuntasModelStoreContainer" CdmEntityContainer="BDJuntasEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BDJuntasModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tBoleta">
             <EntityTypeMapping TypeName="BDJuntasModel.tBoleta">
               <MappingFragment StoreEntitySet="tBoleta">
@@ -1189,6 +1230,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
                 <ScalarProperty Name="Pago" ColumnName="Pago" />
                 <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1215,6 +1257,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="CodigoAux" ColumnName="CodigoAux" />
                 <ScalarProperty Name="DiaRuta" ColumnName="DiaRuta" />
+                <ScalarProperty Name="TipoBanco" ColumnName="TipoBanco" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1342,6 +1385,21 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="viewCasosPorEntregar">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewCasosPorEntregar">
+              <MappingFragment StoreEntitySet="viewCasosPorEntregar">
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="CodigoAux" ColumnName="CodigoAux" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="DiaRuta" ColumnName="DiaRuta" />
+                <ScalarProperty Name="Recepción" ColumnName="Recepción" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="viewContadores">
             <EntityTypeMapping TypeName="BDJuntasModel.viewContadores">
               <MappingFragment StoreEntitySet="viewContadores">
@@ -1365,7 +1423,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
                 <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
                 <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="Mensajero" ColumnName="Mensajero" />
-                <ScalarProperty Name="Pago" ColumnName="Pago" />
+                <ScalarProperty Name="Cheque" ColumnName="Cheque" />
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1396,21 +1455,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
                 <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="viewCasosPorEntregar">
-            <EntityTypeMapping TypeName="BDJuntasModel.viewCasosPorEntregar">
-              <MappingFragment StoreEntitySet="viewCasosPorEntregar">
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
-                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
-                <ScalarProperty Name="Recepción" ColumnName="Recepción" />
-                <ScalarProperty Name="DiaRuta" ColumnName="DiaRuta" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="CodigoAux" ColumnName="CodigoAux" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

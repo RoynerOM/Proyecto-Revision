@@ -481,6 +481,7 @@ namespace GestionCasos.Administrador
             this.ClientSize = new System.Drawing.Size(916, 602);
             this.Controls.Add(this.gunaLinePanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(916, 602);
             this.Name = "fEntrega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

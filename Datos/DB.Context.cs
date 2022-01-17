@@ -25,6 +25,7 @@ namespace Datos
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tBoleta> tBoleta { get; set; }
         public virtual DbSet<tEntregaCasos> tEntregaCasos { get; set; }
         public virtual DbSet<tEstado> tEstado { get; set; }
@@ -38,10 +39,10 @@ namespace Datos
         public virtual DbSet<tUsuario> tUsuario { get; set; }
         public virtual DbSet<viewBoleta> viewBoleta { get; set; }
         public virtual DbSet<viewCasosAsignados> viewCasosAsignados { get; set; }
+        public virtual DbSet<viewCasosPorEntregar> viewCasosPorEntregar { get; set; }
         public virtual DbSet<viewContadores> viewContadores { get; set; }
         public virtual DbSet<viewEntregaCasos> viewEntregaCasos { get; set; }
         public virtual DbSet<viewJuntas> viewJuntas { get; set; }
         public virtual DbSet<viewTrabajador> viewTrabajador { get; set; }
-        public virtual DbSet<viewCasosPorEntregar> viewCasosPorEntregar { get; set; }
     }
 }

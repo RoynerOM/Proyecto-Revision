@@ -29,6 +29,7 @@ namespace GestionCasos.Administrador
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMenu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnContadores = new Guna.UI.WinForms.GunaTileButton();
@@ -265,6 +266,7 @@ namespace GestionCasos.Administrador
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 523);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fMenu";
             this.Text = "fMenu";
             this.Load += new System.EventHandler(this.fMenu_Load);

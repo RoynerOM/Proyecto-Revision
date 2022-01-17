@@ -33,6 +33,7 @@ namespace Entidades
         public bool Estado { get; set; }
         public int CodigoAux { get; set; }
         public string DiaRuta { get; set; }
+        public string TipoBanco { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tEntregaCasos> tEntregaCasos { get; set; }

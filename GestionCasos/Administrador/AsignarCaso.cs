@@ -111,6 +111,7 @@ namespace GestionCasos
                 lbMedioReceptivo.ForeColor = Colors.DarkBack;
                 lbAsignado.ForeColor = Colors.DarkBack;
                 label1.ForeColor = Colors.Black;
+                label2.ForeColor = Colors.Black;
             }
         }
 
@@ -134,8 +135,9 @@ namespace GestionCasos
                             {
                                 txtJuntaAdm.Text = codigo.Nombre;
                                 txtCircuito.Text = codigo.Circuito.ToString();
+                                txtBanco.Text = codigo.TipoBanco == null ? "No asignado" : codigo.TipoBanco;
                                 //CargarCombos();
-                                
+
                             }
                             else
                             {
@@ -238,6 +240,7 @@ namespace GestionCasos
                         txtCodigo.Text = casosReasignado.tInstitucion.Codigo.ToString();
                         txtJuntaAdm.Text = casosReasignado.tInstitucion.Nombre;
                         txtCircuito.Text = casosReasignado.tInstitucion.Circuito.ToString();
+                        txtBanco.Text = casosReasignado.tInstitucion.TipoBanco==null?"No asignado": casosReasignado.tInstitucion.TipoBanco;
                         cbTipoRecepcion.Text = casosReasignado.tRecepcion.Recepcion;
                         cbAsignados.Text = casosReasignado.tPersona.NombreCompleto;
                         this.btnReasignarCaso.Enabled = true;
@@ -339,6 +342,7 @@ namespace GestionCasos
                             txtCodigo.Text = casosReasignado.tInstitucion.Codigo.ToString();
                             txtJuntaAdm.Text = casosReasignado.tInstitucion.Nombre;
                             txtCircuito.Text = casosReasignado.tInstitucion.Circuito.ToString();
+                            txtBanco.Text = casosReasignado.tInstitucion.TipoBanco == null ? "No asignado" : casosReasignado.tInstitucion.TipoBanco;
                             cbTipoRecepcion.Text = casosReasignado.tRecepcion.Recepcion;
                             cbAsignados.Text = casosReasignado.tPersona.NombreCompleto;
                             this.btnReasignarCaso.Enabled = true;
