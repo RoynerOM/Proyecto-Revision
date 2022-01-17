@@ -148,8 +148,8 @@
           <Property Name="Estado" Type="bit" Nullable="false" />
           <Property Name="CodigoRes" Type="float" StoreGeneratedPattern="Computed" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewBoleta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewBoleta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewBoleta">
           <Key>
             <PropertyRef Name="Id" />
@@ -191,8 +191,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewBoleta' does not have a primary k
           <Property Name="numeroFolio" Type="varchar" MaxLength="20" />
           <Property Name="fechaActa" Type="date" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewCasosAsignados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewCasosAsignados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewCasosAsignados">
           <Key>
             <PropertyRef Name="Consecutivo" />
@@ -215,31 +215,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewCasosAsignados' does not have a p
           <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewCasosPorEntregar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="viewCasosPorEntregar">
-          <Key>
-            <PropertyRef Name="Consecutivo" />
-            <PropertyRef Name="Fecha" />
-            <PropertyRef Name="CodigoAux" />
-            <PropertyRef Name="Nombre" />
-            <PropertyRef Name="Recepción" />
-            <PropertyRef Name="NombreCompleto" />
-            <PropertyRef Name="Comentario" />
-            <PropertyRef Name="Estado" />
-          </Key>
-          <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
-          <Property Name="Fecha" Type="date" Nullable="false" />
-          <Property Name="CodigoAux" Type="int" Nullable="false" />
-          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
-          <Property Name="DiaRuta" Type="varchar" MaxLength="20" />
-          <Property Name="Recepción" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
-          <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
-          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewContadores' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewContadores' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewContadores">
           <Key>
             <PropertyRef Name="Cedula" />
@@ -254,8 +231,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewContadores' does not have a prima
           <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
           <Property Name="Correo" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewEntregaCasos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewEntregaCasos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewEntregaCasos">
           <Key>
             <PropertyRef Name="Consecutivo" />
@@ -281,8 +258,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewEntregaCasos' does not have a pri
           <Property Name="Cheque" Type="int" Nullable="false" />
           <Property Name="Transferencia" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewJuntas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewJuntas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewJuntas">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -308,8 +285,8 @@ warning 6002: The table/view 'BDJuntas.dbo.viewJuntas' does not have a primary k
           <Property Name="Contador" Type="varchar" MaxLength="152" Nullable="false" />
           <Property Name="Estado" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewTrabajador' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewTrabajador">
           <Key>
             <PropertyRef Name="Cedula" />
@@ -520,19 +497,6 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
     [viewCasosAsignados].[Comentario] AS [Comentario], 
     [viewCasosAsignados].[Estado] AS [Estado]
     FROM [dbo].[viewCasosAsignados] AS [viewCasosAsignados]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="viewCasosPorEntregar" EntityType="Self.viewCasosPorEntregar" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [viewCasosPorEntregar].[Consecutivo] AS [Consecutivo], 
-    [viewCasosPorEntregar].[Fecha] AS [Fecha], 
-    [viewCasosPorEntregar].[CodigoAux] AS [CodigoAux], 
-    [viewCasosPorEntregar].[Nombre] AS [Nombre], 
-    [viewCasosPorEntregar].[DiaRuta] AS [DiaRuta], 
-    [viewCasosPorEntregar].[Recepción] AS [Recepción], 
-    [viewCasosPorEntregar].[NombreCompleto] AS [NombreCompleto], 
-    [viewCasosPorEntregar].[Comentario] AS [Comentario], 
-    [viewCasosPorEntregar].[Estado] AS [Estado]
-    FROM [dbo].[viewCasosPorEntregar] AS [viewCasosPorEntregar]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="viewContadores" EntityType="Self.viewContadores" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1475,7 +1439,7 @@ warning 6002: The table/view 'BDJuntas.dbo.viewTrabajador' does not have a prima
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
