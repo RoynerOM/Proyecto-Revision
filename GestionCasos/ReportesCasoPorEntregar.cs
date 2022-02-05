@@ -35,7 +35,8 @@ namespace GestionCasos
         {
             // TODO: This line of code loads data into the 'dtsCasosPorEntregar.DataTable1' table. You can move, or remove it, as needed.
             this.DataTable1TableAdapter.Fill(this.dtsCasosPorEntregar.DataTable1);
-
+            dtDesde.Value = DateTime.Now;
+            dtHasta.Value = DateTime.Now;
             this.reportViewer1.RefreshReport();
         }
 

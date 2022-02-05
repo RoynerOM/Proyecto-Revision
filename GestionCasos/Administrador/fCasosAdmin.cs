@@ -53,6 +53,8 @@ namespace GestionCasos
             OpenChildForm(new fLoader(1, hilo));
             PedirDatos();
             CargarCombos();
+            dtDesde.Value = DateTime.Now;
+            dtHasta.Value = DateTime.Now;
         }
 
 

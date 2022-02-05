@@ -26,7 +26,7 @@ namespace GestionCasos.Paginadores
             _TotalRegistros = listaJuntas.Count();
 
             //Divide las datos en grupos de de 10
-            listaJuntas = listaJuntas.OrderBy(x => x.IdCaso)
+            listaJuntas = listaJuntas.OrderByDescending(x => x.IdCaso)
                                         .Skip((pagina - 1) * RegistrosPorPagina)
                                         .Take(RegistrosPorPagina).ToList();
 

@@ -216,6 +216,29 @@ advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewCasosAsignados' no tiene de
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewCasosPorEntregar' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="viewCasosPorEntregar">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="CodigoAux" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Recepción" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Comentario" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Consecutivo" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="CodigoAux" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="DiaRuta" Type="varchar" MaxLength="20" />
+          <Property Name="Recepción" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="152" Nullable="false" />
+          <Property Name="Comentario" Type="varchar(max)" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewContadores' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="viewContadores">
           <Key>
@@ -497,6 +520,19 @@ advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewTrabajador' no tiene defini
     [viewCasosAsignados].[Comentario] AS [Comentario], 
     [viewCasosAsignados].[Estado] AS [Estado]
     FROM [dbo].[viewCasosAsignados] AS [viewCasosAsignados]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewCasosPorEntregar" EntityType="Self.viewCasosPorEntregar" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewCasosPorEntregar].[Consecutivo] AS [Consecutivo], 
+    [viewCasosPorEntregar].[Fecha] AS [Fecha], 
+    [viewCasosPorEntregar].[CodigoAux] AS [CodigoAux], 
+    [viewCasosPorEntregar].[Nombre] AS [Nombre], 
+    [viewCasosPorEntregar].[DiaRuta] AS [DiaRuta], 
+    [viewCasosPorEntregar].[Recepción] AS [Recepción], 
+    [viewCasosPorEntregar].[NombreCompleto] AS [NombreCompleto], 
+    [viewCasosPorEntregar].[Comentario] AS [Comentario], 
+    [viewCasosPorEntregar].[Estado] AS [Estado]
+    FROM [dbo].[viewCasosPorEntregar] AS [viewCasosPorEntregar]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="viewContadores" EntityType="Self.viewContadores" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -832,6 +868,27 @@ advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewTrabajador' no tiene defini
           <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="viewCasosPorEntregar">
+          <Key>
+            <PropertyRef Name="Consecutivo" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="CodigoAux" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Recepción" />
+            <PropertyRef Name="NombreCompleto" />
+            <PropertyRef Name="Comentario" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="Consecutivo" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CodigoAux" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DiaRuta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Recepción" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="152" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="viewContadores">
           <Key>
             <PropertyRef Name="Cedula" />
@@ -1072,6 +1129,7 @@ advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewTrabajador' no tiene defini
           <EntitySet Name="tUsuario" EntityType="Self.tUsuario" />
           <EntitySet Name="viewBoleta" EntityType="Self.viewBoleta" />
           <EntitySet Name="viewCasosAsignados" EntityType="Self.viewCasosAsignados" />
+          <EntitySet Name="viewCasosPorEntregar" EntityType="Self.viewCasosPorEntregar" />
           <EntitySet Name="viewContadores" EntityType="Self.viewContadores" />
           <EntitySet Name="viewEntregaCasos" EntityType="Self.viewEntregaCasos" />
           <EntitySet Name="viewJuntas" EntityType="Self.viewJuntas" />
@@ -1321,6 +1379,21 @@ advertencia 6002: La tabla o vista 'BDJuntas.dbo.viewTrabajador' no tiene defini
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Recepción" ColumnName="Recepción" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewCasosPorEntregar">
+            <EntityTypeMapping TypeName="BDJuntasModel.viewCasosPorEntregar">
+              <MappingFragment StoreEntitySet="viewCasosPorEntregar">
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="CodigoAux" ColumnName="CodigoAux" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="DiaRuta" ColumnName="DiaRuta" />
+                <ScalarProperty Name="Recepción" ColumnName="Recepción" />
                 <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
                 <ScalarProperty Name="Comentario" ColumnName="Comentario" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />

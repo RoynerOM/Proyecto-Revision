@@ -18,6 +18,8 @@ namespace GestionCasos
         {
             // TODO: esta línea de código carga datos en la tabla 'BD_JuntasDataSet.CasosAsignados' Puede moverla o quitarla según sea necesario.
             this.CasosTableTableAdapter.Fill(this.dtsCasos.CasosTable);
+            dtpFechaInicio.Value = DateTime.Now;
+            dtpFechaFinal.Value = DateTime.Now;
             this.reportViewer1.RefreshReport();
         }
 

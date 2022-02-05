@@ -26,8 +26,8 @@ namespace GestionCasos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;initial catalog=BDJuntas;integrated security=True;Multip" +
-            "leActiveResultSets=True;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.100.76;Initial Catalog=BDJuntas;User ID=sa;Password=123456;Mu" +
+            "ltipleActiveResultSets=True")]
         public string BDJuntasConnectionString {
             get {
                 return ((string)(this["BDJuntasConnectionString"]));
