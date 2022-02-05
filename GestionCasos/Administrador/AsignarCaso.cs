@@ -20,7 +20,7 @@ namespace GestionCasos
 
     public partial class AsignarCaso : Form
     {
-        SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=BDJuntas;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=BDJuntas;Integrated Security=True");
         readonly ControllerService controller = new ControllerService();
         showMessageDialog Alerta = new showMessageDialog();
         private Form activeForm = null;
