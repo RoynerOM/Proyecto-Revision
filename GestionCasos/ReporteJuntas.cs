@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using GestionCasos.Singleton;
 using Negocios;
 using System;
 using System.Windows.Forms;
@@ -11,7 +12,7 @@ namespace GestionCasos
     public partial class ReporteJuntas : Form
     {
         ContadorNegocio persona = new ContadorNegocio();
-
+        readonly ControllerService controller = new ControllerService();
         public ReporteJuntas()
         {
             InitializeComponent();
@@ -19,8 +20,10 @@ namespace GestionCasos
 
         private async void CargarCombo()
         {
-            cbContadores.DataSource = await persona.obtenerTodo();
+            //Obtener solo los contadores
+            cbContadores.DataSource = await controller.CrudContador().obtenerTrabador(0);
             cbContadores.DisplayMember = "NombreCompleto";
+            
         }
 
         private void ReporteJuntas_Load(object sender, EventArgs e)

@@ -59,6 +59,7 @@ namespace GestionCasos.Administrador
             OpenChildForm(new fLoader(1, hilo));
             CargarCombosAsync();
             CargarDatosForm();
+            cbTipoPago.SelectedIndex = 0;
 
         }
 
@@ -113,7 +114,7 @@ namespace GestionCasos.Administrador
                 txtInstitucion.Text = institucion.Nombre;
                 txtCedulaJuridica.Text = institucion.CedulaJuridica;
                 cbDiaRuta.Text = institucion.DiaRuta;
-                txtCuentaLey.Text = institucion.CuentaLey;
+                cbTipoPago.Text = institucion.CuentaLey;
                 txtContacto.Text = institucion.Responsable;
                 txtTelefono.Text = institucion.Contacto;
                 cbCircuito.Text = institucion.Circuito.ToString();
@@ -158,7 +159,7 @@ namespace GestionCasos.Administrador
             {
                 label1.ForeColor = Colors.RedFont;
             }
-            if (txtCuentaLey.Text.Length < 17)
+            if (cbTipoPago.Text == string.Empty)
             {
                 label8.ForeColor = Colors.RedFont;
             }
@@ -181,7 +182,7 @@ namespace GestionCasos.Administrador
             {
                 return false;
             }
-            else if (txtCuentaLey.Text == string.Empty)
+            else if (cbTipoPago.Text == string.Empty)
             {
                 return false;
             }
@@ -207,7 +208,7 @@ namespace GestionCasos.Administrador
             cbCircuito.ResetText();
             txtInstitucion.ResetText();
             cbDiaRuta.ResetText();
-            txtCuentaLey.ResetText();
+            cbTipoPago.ResetText();
             txtCedulaJuridica.ResetText();
             cbContador.ResetText();
             cbTipo.ResetText();
@@ -234,7 +235,7 @@ namespace GestionCasos.Administrador
                         institucion.Nombre = txtInstitucion.Text.ToUpper();
                         institucion.CedulaJuridica = txtCedulaJuridica.Text;
                         institucion.DiaRuta = cbDiaRuta.Text;
-                        institucion.CuentaLey = txtCuentaLey.Text;
+                        institucion.CuentaLey = cbTipoPago.Text;
                         institucion.Contador = (string)cbContador.SelectedValue;
                         institucion.TipoBanco=cbBanco.Text.ToUpper();
                         if (txtContacto.Text != string.Empty)
@@ -282,7 +283,7 @@ namespace GestionCasos.Administrador
                     var datosEncotrados = controller.CrudJuntas().obtenerPorId(int.Parse(txtCodigo.Text));
                     if (datosEncotrados != null)
                     {
-                        txtCuentaLey.Text = datosEncotrados.CuentaLey;
+                        cbTipoPago.Text = datosEncotrados.CuentaLey;
                         cbDiaRuta.Text = datosEncotrados.DiaRuta;
                         txtInstitucion.Text = datosEncotrados.Nombre;
                         txtCedulaJuridica.Text = datosEncotrados.CedulaJuridica;
@@ -346,7 +347,7 @@ namespace GestionCasos.Administrador
                 if (ValidarCampos() == true)
                 {
                     institucion = controller.CrudJuntas().obtenerPorId(int.Parse(txtCodigo.Text));
-                    institucion.CuentaLey = txtCuentaLey.Text;
+                    institucion.CuentaLey = cbTipoPago.Text;
                     institucion.Nombre = txtInstitucion.Text;
                     institucion.DiaRuta = cbDiaRuta.Text;
                     institucion.CedulaJuridica = txtCedulaJuridica.Text;
@@ -412,7 +413,7 @@ namespace GestionCasos.Administrador
                         var datosEncotrados = controller.CrudJuntas().obtenerPorId(int.Parse(txtCodigo.Text));
                         if (datosEncotrados != null)
                         {
-                            txtCuentaLey.Text = datosEncotrados.CuentaLey;
+                            cbTipoPago.Text = datosEncotrados.CuentaLey;
                             cbDiaRuta.Text = datosEncotrados.DiaRuta;
                             txtInstitucion.Text = datosEncotrados.Nombre;
                             txtCedulaJuridica.Text = datosEncotrados.CedulaJuridica;
@@ -448,6 +449,16 @@ namespace GestionCasos.Administrador
         }
 
         private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
         {
 
         }

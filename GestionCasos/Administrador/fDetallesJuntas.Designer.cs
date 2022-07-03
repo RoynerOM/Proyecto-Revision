@@ -77,8 +77,9 @@ namespace GestionCasos.Administrador
             this.panel1.Controls.Add(this.gunaLabel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1131, 561);
+            this.panel1.Size = new System.Drawing.Size(1508, 690);
             this.panel1.TabIndex = 0;
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
@@ -91,9 +92,10 @@ namespace GestionCasos.Administrador
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = global::GestionCasos.Properties.Resources.first_20px;
-            this.button2.Location = new System.Drawing.Point(764, 117);
+            this.button2.Location = new System.Drawing.Point(1019, 144);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(54, 30);
+            this.button2.Size = new System.Drawing.Size(72, 37);
             this.button2.TabIndex = 39;
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
@@ -108,9 +110,10 @@ namespace GestionCasos.Administrador
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = global::GestionCasos.Properties.Resources.last_20px;
-            this.button3.Location = new System.Drawing.Point(1068, 117);
+            this.button3.Location = new System.Drawing.Point(1424, 144);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(47, 30);
+            this.button3.Size = new System.Drawing.Size(63, 37);
             this.button3.TabIndex = 40;
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = false;
@@ -148,7 +151,8 @@ namespace GestionCasos.Administrador
             this.Contacto,
             this.TipoBanco});
             this.tabla.EnableHeadersVisualStyles = false;
-            this.tabla.Location = new System.Drawing.Point(0, 160);
+            this.tabla.Location = new System.Drawing.Point(0, 197);
+            this.tabla.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabla.Name = "tabla";
             this.tabla.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -159,7 +163,8 @@ namespace GestionCasos.Administrador
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.tabla.Size = new System.Drawing.Size(1131, 401);
+            this.tabla.RowHeadersWidth = 51;
+            this.tabla.Size = new System.Drawing.Size(1508, 494);
             this.tabla.TabIndex = 25;
             this.tabla.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabla_CellDoubleClick);
             // 
@@ -173,11 +178,12 @@ namespace GestionCasos.Administrador
             this.txtCodigo.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtCodigo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(934, 63);
+            this.txtCodigo.Location = new System.Drawing.Point(1245, 78);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.PasswordChar = '\0';
             this.txtCodigo.SelectedText = "";
-            this.txtCodigo.Size = new System.Drawing.Size(185, 32);
+            this.txtCodigo.Size = new System.Drawing.Size(247, 39);
             this.txtCodigo.TabIndex = 3;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
@@ -186,9 +192,10 @@ namespace GestionCasos.Administrador
             this.lblPag.BackColor = System.Drawing.Color.Transparent;
             this.lblPag.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPag.ForeColor = System.Drawing.Color.White;
-            this.lblPag.Location = new System.Drawing.Point(37, 117);
+            this.lblPag.Location = new System.Drawing.Point(49, 144);
+            this.lblPag.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPag.Name = "lblPag";
-            this.lblPag.Size = new System.Drawing.Size(440, 23);
+            this.lblPag.Size = new System.Drawing.Size(587, 28);
             this.lblPag.TabIndex = 24;
             this.lblPag.Text = "label1";
             this.lblPag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -201,9 +208,10 @@ namespace GestionCasos.Administrador
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(824, 117);
+            this.button1.Location = new System.Drawing.Point(1099, 144);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 30);
+            this.button1.Size = new System.Drawing.Size(144, 37);
             this.button1.TabIndex = 4;
             this.button1.Text = "Anterior";
             this.button1.UseVisualStyleBackColor = false;
@@ -217,9 +225,10 @@ namespace GestionCasos.Administrador
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(954, 117);
+            this.btnNext.Location = new System.Drawing.Point(1272, 144);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(108, 30);
+            this.btnNext.Size = new System.Drawing.Size(144, 37);
             this.btnNext.TabIndex = 5;
             this.btnNext.Text = "Siguiente";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -245,7 +254,8 @@ namespace GestionCasos.Administrador
             this.gunaAdvenceTileButton1.Image = global::GestionCasos.Properties.Resources.reload;
             this.gunaAdvenceTileButton1.ImageSize = new System.Drawing.Size(25, 25);
             this.gunaAdvenceTileButton1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.gunaAdvenceTileButton1.Location = new System.Drawing.Point(187, 55);
+            this.gunaAdvenceTileButton1.Location = new System.Drawing.Point(249, 68);
+            this.gunaAdvenceTileButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaAdvenceTileButton1.Name = "gunaAdvenceTileButton1";
             this.gunaAdvenceTileButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaAdvenceTileButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -254,7 +264,7 @@ namespace GestionCasos.Administrador
             this.gunaAdvenceTileButton1.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.gunaAdvenceTileButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaAdvenceTileButton1.Radius = 18;
-            this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(40, 40);
+            this.gunaAdvenceTileButton1.Size = new System.Drawing.Size(53, 49);
             this.gunaAdvenceTileButton1.TabIndex = 0;
             this.gunaAdvenceTileButton1.Click += new System.EventHandler(this.gunaAdvenceTileButton1_Click);
             // 
@@ -268,11 +278,12 @@ namespace GestionCasos.Administrador
             this.txtNombre.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txtNombre.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(288, 63);
+            this.txtNombre.Location = new System.Drawing.Point(384, 78);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
             this.txtNombre.SelectedText = "";
-            this.txtNombre.Size = new System.Drawing.Size(281, 32);
+            this.txtNombre.Size = new System.Drawing.Size(375, 39);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
@@ -282,10 +293,9 @@ namespace GestionCasos.Administrador
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel4.Location = new System.Drawing.Point(284, 32);
-            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel4.Location = new System.Drawing.Point(379, 39);
             this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(206, 20);
+            this.gunaLabel4.Size = new System.Drawing.Size(254, 25);
             this.gunaLabel4.TabIndex = 18;
             this.gunaLabel4.Text = "Filtrar Por Institución o Junta";
             // 
@@ -295,10 +305,9 @@ namespace GestionCasos.Administrador
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel3.Location = new System.Drawing.Point(612, 32);
-            this.gunaLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel3.Location = new System.Drawing.Point(816, 39);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(145, 20);
+            this.gunaLabel3.Size = new System.Drawing.Size(177, 25);
             this.gunaLabel3.TabIndex = 17;
             this.gunaLabel3.Text = "Filtrar Por Contador";
             // 
@@ -316,12 +325,12 @@ namespace GestionCasos.Administrador
             this.cbTramitador.FormattingEnabled = true;
             this.cbTramitador.Items.AddRange(new object[] {
             "TODOS"});
-            this.cbTramitador.Location = new System.Drawing.Point(616, 65);
-            this.cbTramitador.Margin = new System.Windows.Forms.Padding(2);
+            this.cbTramitador.Location = new System.Drawing.Point(821, 80);
+            this.cbTramitador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTramitador.Name = "cbTramitador";
             this.cbTramitador.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.cbTramitador.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbTramitador.Size = new System.Drawing.Size(271, 26);
+            this.cbTramitador.Size = new System.Drawing.Size(360, 31);
             this.cbTramitador.TabIndex = 2;
             this.cbTramitador.SelectionChangeCommitted += new System.EventHandler(this.cbTramitador_SelectionChangeCommitted);
             // 
@@ -331,87 +340,109 @@ namespace GestionCasos.Administrador
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
-            this.gunaLabel1.Location = new System.Drawing.Point(930, 32);
-            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel1.Location = new System.Drawing.Point(1240, 39);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(130, 20);
+            this.gunaLabel1.Size = new System.Drawing.Size(159, 25);
             this.gunaLabel1.TabIndex = 14;
             this.gunaLabel1.Text = "Filtrar Por Código";
             // 
             // Codigo
             // 
             this.Codigo.HeaderText = "Código";
+            this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 125;
             // 
             // Circuito
             // 
             this.Circuito.HeaderText = "Circuito";
+            this.Circuito.MinimumWidth = 6;
             this.Circuito.Name = "Circuito";
             this.Circuito.ReadOnly = true;
+            this.Circuito.Width = 125;
             // 
             // NombreTipo
             // 
             this.NombreTipo.HeaderText = "Tipo";
+            this.NombreTipo.MinimumWidth = 6;
             this.NombreTipo.Name = "NombreTipo";
             this.NombreTipo.ReadOnly = true;
+            this.NombreTipo.Width = 125;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Junta";
+            this.Nombre.MinimumWidth = 6;
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 125;
             // 
             // CedulaJuridica
             // 
             this.CedulaJuridica.HeaderText = "Cédula Jurídica";
+            this.CedulaJuridica.MinimumWidth = 6;
             this.CedulaJuridica.Name = "CedulaJuridica";
             this.CedulaJuridica.ReadOnly = true;
+            this.CedulaJuridica.Width = 125;
             // 
             // DiaRuta
             // 
             this.DiaRuta.HeaderText = "Dia de ruta";
+            this.DiaRuta.MinimumWidth = 6;
             this.DiaRuta.Name = "DiaRuta";
             this.DiaRuta.ReadOnly = true;
+            this.DiaRuta.Width = 125;
             // 
             // CuentaLey
             // 
-            this.CuentaLey.HeaderText = "Cta. ley 6746";
+            this.CuentaLey.HeaderText = "Tipo Pago";
+            this.CuentaLey.MinimumWidth = 6;
             this.CuentaLey.Name = "CuentaLey";
             this.CuentaLey.ReadOnly = true;
+            this.CuentaLey.Width = 125;
             // 
             // NombreCompleto
             // 
             this.NombreCompleto.HeaderText = "Contador";
+            this.NombreCompleto.MinimumWidth = 6;
             this.NombreCompleto.Name = "NombreCompleto";
             this.NombreCompleto.ReadOnly = true;
+            this.NombreCompleto.Width = 125;
             // 
             // Responsable
             // 
             this.Responsable.HeaderText = "Contacto";
+            this.Responsable.MinimumWidth = 6;
             this.Responsable.Name = "Responsable";
             this.Responsable.ReadOnly = true;
+            this.Responsable.Width = 125;
             // 
             // Contacto
             // 
             this.Contacto.HeaderText = "Tel. Contacto";
+            this.Contacto.MinimumWidth = 6;
             this.Contacto.Name = "Contacto";
             this.Contacto.ReadOnly = true;
+            this.Contacto.Width = 125;
             // 
             // TipoBanco
             // 
             this.TipoBanco.HeaderText = "Banco";
+            this.TipoBanco.MinimumWidth = 6;
             this.TipoBanco.Name = "TipoBanco";
             this.TipoBanco.ReadOnly = true;
+            this.TipoBanco.Width = 125;
             // 
             // fDetallesJuntas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(22)))), ((int)(((byte)(37)))));
-            this.ClientSize = new System.Drawing.Size(1131, 561);
+            this.ClientSize = new System.Drawing.Size(1508, 690);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(1000, 599);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1327, 726);
             this.Name = "fDetallesJuntas";
             this.Text = "fDetallesJuntas";
             this.Load += new System.EventHandler(this.fDetallesJuntas_Load);
