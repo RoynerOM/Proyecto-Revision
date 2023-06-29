@@ -13,7 +13,6 @@ namespace Datos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using Entidades;
-
     public partial class BDJuntasEntities : DbContext
     {
         public BDJuntasEntities()
